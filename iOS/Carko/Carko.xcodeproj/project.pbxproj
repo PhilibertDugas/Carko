@@ -1,0 +1,721 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		134E21FC3BDBCE97A691D636 /* Pods_CarkoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC68D22D6823E3DE6D1A34E4 /* Pods_CarkoUITests.framework */; };
+		3081C8E38A69D2E93352EB95 /* Pods_Carko.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 538BFE4EA50CCE486CF330C6 /* Pods_Carko.framework */; };
+		458F62831DA184BE00205FBB /* MapControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458F62821DA184BE00205FBB /* MapControllerTest.swift */; };
+		458F62851DA184E700205FBB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458F62841DA184E700205FBB /* Constants.swift */; };
+		45BC29451DA18249000C54BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC29441DA18249000C54BC /* AppDelegate.swift */; };
+		45BC29471DA18249000C54BC /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC29461DA18249000C54BC /* MapController.swift */; };
+		45BC294A1DA18249000C54BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45BC29481DA18249000C54BC /* Main.storyboard */; };
+		45BC294C1DA18249000C54BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45BC294B1DA18249000C54BC /* Assets.xcassets */; };
+		45BC294F1DA18249000C54BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45BC294D1DA18249000C54BC /* LaunchScreen.storyboard */; };
+		45BC29651DA18249000C54BC /* CarkoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC29641DA18249000C54BC /* CarkoUITests.swift */; };
+		EA021D9D0F7EBED1E7565A98 /* Pods_CarkoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10DDB660E5099E802BAA804E /* Pods_CarkoTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		45BC29561DA18249000C54BC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 45BC29391DA18249000C54BC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 45BC29401DA18249000C54BC;
+			remoteInfo = Carko;
+		};
+		45BC29611DA18249000C54BC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 45BC29391DA18249000C54BC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 45BC29401DA18249000C54BC;
+			remoteInfo = Carko;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		06C50C04931968E615FABC94 /* Pods-CarkoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarkoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CarkoTests/Pods-CarkoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		10DDB660E5099E802BAA804E /* Pods_CarkoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarkoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		182BF97C1B2157DE2E06FBDD /* Pods-Carko.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carko.release.xcconfig"; path = "Pods/Target Support Files/Pods-Carko/Pods-Carko.release.xcconfig"; sourceTree = "<group>"; };
+		458F62821DA184BE00205FBB /* MapControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapControllerTest.swift; sourceTree = "<group>"; };
+		458F62841DA184E700205FBB /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		45BC29411DA18249000C54BC /* Carko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Carko.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		45BC29441DA18249000C54BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		45BC29461DA18249000C54BC /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
+		45BC29491DA18249000C54BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		45BC294B1DA18249000C54BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		45BC294E1DA18249000C54BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		45BC29501DA18249000C54BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45BC29551DA18249000C54BC /* CarkoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarkoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		45BC295B1DA18249000C54BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45BC29601DA18249000C54BC /* CarkoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarkoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		45BC29641DA18249000C54BC /* CarkoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarkoUITests.swift; sourceTree = "<group>"; };
+		45BC29661DA18249000C54BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4F122EAAE6A2C237B387C6E7 /* Pods-CarkoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarkoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CarkoTests/Pods-CarkoTests.release.xcconfig"; sourceTree = "<group>"; };
+		51BE0236C2E899D05DB12FEF /* Pods-CarkoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarkoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CarkoUITests/Pods-CarkoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		538BFE4EA50CCE486CF330C6 /* Pods_Carko.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Carko.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B75E7E9A81373F8C2777563 /* Pods-CarkoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarkoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CarkoUITests/Pods-CarkoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E698A5AD42366D0AB15C9348 /* Pods-Carko.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carko.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Carko/Pods-Carko.debug.xcconfig"; sourceTree = "<group>"; };
+		FC68D22D6823E3DE6D1A34E4 /* Pods_CarkoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarkoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		45BC293E1DA18249000C54BC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3081C8E38A69D2E93352EB95 /* Pods_Carko.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45BC29521DA18249000C54BC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA021D9D0F7EBED1E7565A98 /* Pods_CarkoTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45BC295D1DA18249000C54BC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				134E21FC3BDBCE97A691D636 /* Pods_CarkoUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		45BC29381DA18249000C54BC = {
+			isa = PBXGroup;
+			children = (
+				45BC29431DA18249000C54BC /* Carko */,
+				45BC29581DA18249000C54BC /* CarkoTests */,
+				45BC29631DA18249000C54BC /* CarkoUITests */,
+				45BC29421DA18249000C54BC /* Products */,
+				BE9AA67A9636250C12944D99 /* Pods */,
+				F71F1D1EB70D52FDEF31D66A /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		45BC29421DA18249000C54BC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				45BC29411DA18249000C54BC /* Carko.app */,
+				45BC29551DA18249000C54BC /* CarkoTests.xctest */,
+				45BC29601DA18249000C54BC /* CarkoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		45BC29431DA18249000C54BC /* Carko */ = {
+			isa = PBXGroup;
+			children = (
+				45BC29441DA18249000C54BC /* AppDelegate.swift */,
+				45BC29461DA18249000C54BC /* MapController.swift */,
+				45BC29481DA18249000C54BC /* Main.storyboard */,
+				45BC294B1DA18249000C54BC /* Assets.xcassets */,
+				45BC294D1DA18249000C54BC /* LaunchScreen.storyboard */,
+				45BC29501DA18249000C54BC /* Info.plist */,
+				458F62841DA184E700205FBB /* Constants.swift */,
+			);
+			path = Carko;
+			sourceTree = "<group>";
+		};
+		45BC29581DA18249000C54BC /* CarkoTests */ = {
+			isa = PBXGroup;
+			children = (
+				45BC295B1DA18249000C54BC /* Info.plist */,
+				458F62821DA184BE00205FBB /* MapControllerTest.swift */,
+			);
+			path = CarkoTests;
+			sourceTree = "<group>";
+		};
+		45BC29631DA18249000C54BC /* CarkoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				45BC29641DA18249000C54BC /* CarkoUITests.swift */,
+				45BC29661DA18249000C54BC /* Info.plist */,
+			);
+			path = CarkoUITests;
+			sourceTree = "<group>";
+		};
+		BE9AA67A9636250C12944D99 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E698A5AD42366D0AB15C9348 /* Pods-Carko.debug.xcconfig */,
+				182BF97C1B2157DE2E06FBDD /* Pods-Carko.release.xcconfig */,
+				06C50C04931968E615FABC94 /* Pods-CarkoTests.debug.xcconfig */,
+				4F122EAAE6A2C237B387C6E7 /* Pods-CarkoTests.release.xcconfig */,
+				51BE0236C2E899D05DB12FEF /* Pods-CarkoUITests.debug.xcconfig */,
+				5B75E7E9A81373F8C2777563 /* Pods-CarkoUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F71F1D1EB70D52FDEF31D66A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				538BFE4EA50CCE486CF330C6 /* Pods_Carko.framework */,
+				10DDB660E5099E802BAA804E /* Pods_CarkoTests.framework */,
+				FC68D22D6823E3DE6D1A34E4 /* Pods_CarkoUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		45BC29401DA18249000C54BC /* Carko */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 45BC29691DA18249000C54BC /* Build configuration list for PBXNativeTarget "Carko" */;
+			buildPhases = (
+				CC5D72EBC60F8ECE86FF64DC /* [CP] Check Pods Manifest.lock */,
+				45BC293D1DA18249000C54BC /* Sources */,
+				45BC293E1DA18249000C54BC /* Frameworks */,
+				45BC293F1DA18249000C54BC /* Resources */,
+				8F959FA90852367573015C53 /* [CP] Embed Pods Frameworks */,
+				1E08011DB07DF018F7BBC3AF /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Carko;
+			productName = Carko;
+			productReference = 45BC29411DA18249000C54BC /* Carko.app */;
+			productType = "com.apple.product-type.application";
+		};
+		45BC29541DA18249000C54BC /* CarkoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 45BC296C1DA18249000C54BC /* Build configuration list for PBXNativeTarget "CarkoTests" */;
+			buildPhases = (
+				1FA1CC3B5D08DEE2B8D9C01A /* [CP] Check Pods Manifest.lock */,
+				45BC29511DA18249000C54BC /* Sources */,
+				45BC29521DA18249000C54BC /* Frameworks */,
+				45BC29531DA18249000C54BC /* Resources */,
+				856AA78C78A9FD6741B8F243 /* [CP] Embed Pods Frameworks */,
+				201BB63EDC80E7737BCCD6EC /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				45BC29571DA18249000C54BC /* PBXTargetDependency */,
+			);
+			name = CarkoTests;
+			productName = CarkoTests;
+			productReference = 45BC29551DA18249000C54BC /* CarkoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		45BC295F1DA18249000C54BC /* CarkoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 45BC296F1DA18249000C54BC /* Build configuration list for PBXNativeTarget "CarkoUITests" */;
+			buildPhases = (
+				4E45B39BCC7AB35DEE5AE064 /* [CP] Check Pods Manifest.lock */,
+				45BC295C1DA18249000C54BC /* Sources */,
+				45BC295D1DA18249000C54BC /* Frameworks */,
+				45BC295E1DA18249000C54BC /* Resources */,
+				2132B991BB94F905E78F100C /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				45BC29621DA18249000C54BC /* PBXTargetDependency */,
+			);
+			name = CarkoUITests;
+			productName = CarkoUITests;
+			productReference = 45BC29601DA18249000C54BC /* CarkoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		45BC29391DA18249000C54BC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = QH4L;
+				TargetAttributes = {
+					45BC29401DA18249000C54BC = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = GYH3TK45ZC;
+						ProvisioningStyle = Automatic;
+					};
+					45BC29541DA18249000C54BC = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = GYH3TK45ZC;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 45BC29401DA18249000C54BC;
+					};
+					45BC295F1DA18249000C54BC = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = GYH3TK45ZC;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 45BC29401DA18249000C54BC;
+					};
+				};
+			};
+			buildConfigurationList = 45BC293C1DA18249000C54BC /* Build configuration list for PBXProject "Carko" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 45BC29381DA18249000C54BC;
+			productRefGroup = 45BC29421DA18249000C54BC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				45BC29401DA18249000C54BC /* Carko */,
+				45BC29541DA18249000C54BC /* CarkoTests */,
+				45BC295F1DA18249000C54BC /* CarkoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		45BC293F1DA18249000C54BC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45BC294F1DA18249000C54BC /* LaunchScreen.storyboard in Resources */,
+				45BC294C1DA18249000C54BC /* Assets.xcassets in Resources */,
+				45BC294A1DA18249000C54BC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45BC29531DA18249000C54BC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45BC295E1DA18249000C54BC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1E08011DB07DF018F7BBC3AF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Carko/Pods-Carko-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1FA1CC3B5D08DEE2B8D9C01A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		201BB63EDC80E7737BCCD6EC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CarkoTests/Pods-CarkoTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2132B991BB94F905E78F100C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CarkoUITests/Pods-CarkoUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4E45B39BCC7AB35DEE5AE064 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		856AA78C78A9FD6741B8F243 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CarkoTests/Pods-CarkoTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8F959FA90852367573015C53 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Carko/Pods-Carko-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CC5D72EBC60F8ECE86FF64DC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		45BC293D1DA18249000C54BC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45BC29471DA18249000C54BC /* MapController.swift in Sources */,
+				45BC29451DA18249000C54BC /* AppDelegate.swift in Sources */,
+				458F62851DA184E700205FBB /* Constants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45BC29511DA18249000C54BC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				458F62831DA184BE00205FBB /* MapControllerTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45BC295C1DA18249000C54BC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45BC29651DA18249000C54BC /* CarkoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		45BC29571DA18249000C54BC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 45BC29401DA18249000C54BC /* Carko */;
+			targetProxy = 45BC29561DA18249000C54BC /* PBXContainerItemProxy */;
+		};
+		45BC29621DA18249000C54BC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 45BC29401DA18249000C54BC /* Carko */;
+			targetProxy = 45BC29611DA18249000C54BC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		45BC29481DA18249000C54BC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				45BC29491DA18249000C54BC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		45BC294D1DA18249000C54BC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				45BC294E1DA18249000C54BC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		45BC29671DA18249000C54BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		45BC29681DA18249000C54BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		45BC296A1DA18249000C54BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E698A5AD42366D0AB15C9348 /* Pods-Carko.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = GYH3TK45ZC;
+				INFOPLIST_FILE = Carko/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.qh4l.Carko;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		45BC296B1DA18249000C54BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 182BF97C1B2157DE2E06FBDD /* Pods-Carko.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = GYH3TK45ZC;
+				INFOPLIST_FILE = Carko/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.qh4l.Carko;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		45BC296D1DA18249000C54BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06C50C04931968E615FABC94 /* Pods-CarkoTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = GYH3TK45ZC;
+				INFOPLIST_FILE = CarkoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.qh4l.CarkoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Carko.app/Carko";
+			};
+			name = Debug;
+		};
+		45BC296E1DA18249000C54BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F122EAAE6A2C237B387C6E7 /* Pods-CarkoTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = GYH3TK45ZC;
+				INFOPLIST_FILE = CarkoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.qh4l.CarkoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Carko.app/Carko";
+			};
+			name = Release;
+		};
+		45BC29701DA18249000C54BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 51BE0236C2E899D05DB12FEF /* Pods-CarkoUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = GYH3TK45ZC;
+				INFOPLIST_FILE = CarkoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.qh4l.CarkoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Carko;
+			};
+			name = Debug;
+		};
+		45BC29711DA18249000C54BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5B75E7E9A81373F8C2777563 /* Pods-CarkoUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = GYH3TK45ZC;
+				INFOPLIST_FILE = CarkoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.qh4l.CarkoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Carko;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		45BC293C1DA18249000C54BC /* Build configuration list for PBXProject "Carko" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45BC29671DA18249000C54BC /* Debug */,
+				45BC29681DA18249000C54BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		45BC29691DA18249000C54BC /* Build configuration list for PBXNativeTarget "Carko" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45BC296A1DA18249000C54BC /* Debug */,
+				45BC296B1DA18249000C54BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		45BC296C1DA18249000C54BC /* Build configuration list for PBXNativeTarget "CarkoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45BC296D1DA18249000C54BC /* Debug */,
+				45BC296E1DA18249000C54BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		45BC296F1DA18249000C54BC /* Build configuration list for PBXNativeTarget "CarkoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45BC29701DA18249000C54BC /* Debug */,
+				45BC29711DA18249000C54BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 45BC29391DA18249000C54BC /* Project object */;
+}
