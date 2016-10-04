@@ -7,28 +7,32 @@
 //
 
 import XCTest
+import CoreLocation
 @testable import Carko
 
-class MapControllerTest: XCTestCase {
+class MapViewControllerTest: XCTestCase {
     
-    var mapController: MapController!
+    var mapController: MapViewController!
+    var locationStartedUpdating = false
     
     override func setUp() {
         super.setUp()
         
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        mapController = storyboard.instantiateViewController(withIdentifier: "mapController") as! MapController
+        mapController = storyboard.instantiateViewController(withIdentifier: "mapController") as! MapViewController
         UIApplication.shared.keyWindow!.rootViewController = mapController
         
         let _ = mapController.view
+        mapController.locationManager.delegate = self
     }
     
     override func tearDown() {
         super.tearDown()
     }
-    
-    func testMapExists() {
-        let mapView = mapController.mapView
-        XCTAssertNotNil(mapView)
+}
+
+extension MapViewControllerTest: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        locationStartedUpdating = true
     }
 }

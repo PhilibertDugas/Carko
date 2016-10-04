@@ -19,6 +19,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         GMSServices.provideAPIKey("AIzaSyCUoRAVeSGs2L_l003wJ6EO9wtJ5TYqTHo")
         
+        // Initialize the window
+        window = UIWindow.init(frame: UIScreen.main.bounds)
+        
+        // Set Background Color of window
+        window?.backgroundColor = UIColor.white
+        
+        // Allocate memory for an instance of the 'MainViewController' class
+        let mainViewController = MapViewController()
+        
+        // Set the root view controller of the app's window
+        window!.rootViewController = mainViewController
+        
+        // Make the window visible
+        window!.makeKeyAndVisible()
+        
         return true
     }
 
