@@ -1,0 +1,98 @@
+//
+//  ShareMapViewController.swift
+//  Carko
+//
+//  Created by Philibert Dugas on 2016-10-04.
+//  Copyright © 2016 QH4L. All rights reserved.
+//
+
+import UIKit
+import GoogleMaps
+import GooglePlaces
+import CoreLocation
+
+class ShareMapViewController: UIViewController {
+
+    @IBOutlet var addButton: UIButton!
+    
+    var mapView: GMSMapView!
+    var locationManager: CLLocationManager!
+    
+    var resultsViewController: GMSAutocompleteResultsViewController?
+    var searchController: UISearchController?
+    var resultView: UITextView?
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        addButton.isHidden = true
+        setupLocationManager()
+        setupSearchBar()
+    }
+    
+    func setupSearchBar() {
+        resultsViewController = GMSAutocompleteResultsViewController()
+        resultsViewController?.delegate = self
+        
+        searchController = UISearchController(searchResultsController: resultsViewController)
+        searchController?.searchResultsUpdater = resultsViewController
+
+        searchController?.searchBar.frame = CGRect.init(x: 0, y: 0, width: 250.0, height: 44.0)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: (searchController?.searchBar)!)
+
+        self.definesPresentationContext = true
+        
+        searchController?.hidesNavigationBarDuringPresentation = false
+        searchController?.modalPresentationStyle = UIModalPresentationStyle.popover
+    }
+    
+    func setupLocationManager() {
+        locationManager = CLLocationManager.init()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+        locationManager.distanceFilter = 10
+        locationManager.requestAlwaysAuthorization()
+        locationManager.startUpdatingLocation()
+    }
+    
+    @IBAction func addButtonTapped(_ sender: AnyObject) {
+    }
+}
+
+extension ShareMapViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let currentCoordinate = manager.location?.coordinate {
+            let camera = GMSCameraPosition.camera(withLatitude: currentCoordinate.latitude, longitude: currentCoordinate.longitude, zoom: 15.0)
+            mapView = GMSMapView.map(withFrame: view.bounds, camera: camera)
+            view.insertSubview(mapView, at: 0)
+            locationManager.stopUpdatingLocation()
+        }
+    }
+}
+
+extension ShareMapViewController: GMSAutocompleteResultsViewControllerDelegate {
+    func resultsController(_ resultsController: GMSAutocompleteResultsViewController, didAutocompleteWith place: GMSPlace) {
+        searchController?.isActive = false
+        
+        let newCam = GMSCameraUpdate.setTarget(place.coordinate, zoom: 19.0)
+        mapView.mapType = kGMSTypeSatellite
+        mapView.animate(with: newCam)
+        view.insertSubview(addButton, aboveSubview: mapView)
+        addButton.isHidden = false
+    }
+    
+    func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
+        didFailAutocompleteWithError error: Error){
+        // TODO: handle the error.
+        print("Error: \(error)")
+    }
+    
+    // Turn the network activity indicator on and off again.
+    func didRequestAutocompletePredictions(forResultsController resultsController: GMSAutocompleteResultsViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+    
+    func didUpdateAutocompletePredictions(forResultsController resultsController: GMSAutocompleteResultsViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
+}

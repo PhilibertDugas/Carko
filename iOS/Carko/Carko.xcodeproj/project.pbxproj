@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		134E21FC3BDBCE97A691D636 /* Pods_CarkoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC68D22D6823E3DE6D1A34E4 /* Pods_CarkoUITests.framework */; };
 		3081C8E38A69D2E93352EB95 /* Pods_Carko.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 538BFE4EA50CCE486CF330C6 /* Pods_Carko.framework */; };
+		4518537A1DA476F1005CC5E6 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451853791DA476F1005CC5E6 /* ShareViewController.swift */; };
+		4518537C1DA4787B005CC5E6 /* ShareMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4518537B1DA4787B005CC5E6 /* ShareMapViewController.swift */; };
 		45253B9F1DA3FF37006BEDAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45253B9E1DA3FF36006BEDAF /* Main.storyboard */; };
 		454E1C3F1DA34DDE0038E714 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454E1C3D1DA34DDE0038E714 /* MapViewController.swift */; };
 		458F62831DA184BE00205FBB /* MapViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458F62821DA184BE00205FBB /* MapViewControllerTest.swift */; };
@@ -41,6 +43,8 @@
 		06C50C04931968E615FABC94 /* Pods-CarkoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarkoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CarkoTests/Pods-CarkoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		10DDB660E5099E802BAA804E /* Pods_CarkoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarkoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		182BF97C1B2157DE2E06FBDD /* Pods-Carko.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carko.release.xcconfig"; path = "Pods/Target Support Files/Pods-Carko/Pods-Carko.release.xcconfig"; sourceTree = "<group>"; };
+		451853791DA476F1005CC5E6 /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		4518537B1DA4787B005CC5E6 /* ShareMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareMapViewController.swift; sourceTree = "<group>"; };
 		45253B9E1DA3FF36006BEDAF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		454E1C3D1DA34DDE0038E714 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		458F62821DA184BE00205FBB /* MapViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewControllerTest.swift; sourceTree = "<group>"; };
@@ -91,6 +95,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		451853771DA476B5005CC5E6 /* Tab - Find */ = {
+			isa = PBXGroup;
+			children = (
+				454E1C3D1DA34DDE0038E714 /* MapViewController.swift */,
+			);
+			name = "Tab - Find";
+			sourceTree = "<group>";
+		};
+		451853781DA476CB005CC5E6 /* Tab - Add */ = {
+			isa = PBXGroup;
+			children = (
+				451853791DA476F1005CC5E6 /* ShareViewController.swift */,
+				4518537B1DA4787B005CC5E6 /* ShareMapViewController.swift */,
+			);
+			name = "Tab - Add";
+			sourceTree = "<group>";
+		};
 		45BC29381DA18249000C54BC = {
 			isa = PBXGroup;
 			children = (
@@ -116,8 +137,9 @@
 		45BC29431DA18249000C54BC /* Carko */ = {
 			isa = PBXGroup;
 			children = (
+				451853781DA476CB005CC5E6 /* Tab - Add */,
+				451853771DA476B5005CC5E6 /* Tab - Find */,
 				45BC29441DA18249000C54BC /* AppDelegate.swift */,
-				454E1C3D1DA34DDE0038E714 /* MapViewController.swift */,
 				45BC294B1DA18249000C54BC /* Assets.xcassets */,
 				45BC294D1DA18249000C54BC /* LaunchScreen.storyboard */,
 				45BC29501DA18249000C54BC /* Info.plist */,
@@ -438,6 +460,8 @@
 			files = (
 				45BC29451DA18249000C54BC /* AppDelegate.swift in Sources */,
 				458F62851DA184E700205FBB /* Constants.swift in Sources */,
+				4518537A1DA476F1005CC5E6 /* ShareViewController.swift in Sources */,
+				4518537C1DA4787B005CC5E6 /* ShareMapViewController.swift in Sources */,
 				454E1C3F1DA34DDE0038E714 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
