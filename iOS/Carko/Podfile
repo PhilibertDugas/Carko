@@ -8,6 +8,8 @@ target 'Carko' do
 
   pod 'GoogleMaps'
   pod 'GooglePlaces'
+  pod 'Firebase'
+  pod 'Firebase/Database'
 
   target 'CarkoTests' do
     inherit! :search_paths

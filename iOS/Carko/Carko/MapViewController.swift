@@ -15,6 +15,10 @@ class MapViewController: UIViewController {
     var mapView: GMSMapView!
     var locationManager: CLLocationManager!
     
+    override func viewDidAppear(_ animated: Bool) {
+        Parking.getAllParkings()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,6 +28,19 @@ class MapViewController: UIViewController {
         locationManager.distanceFilter = 10
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(MapViewController.parkingFetched), name: NSNotification.Name(rawValue: "parkingFetched"), object: nil)
+    }
+    
+    func parkingFetched(_ notification: Notification) {
+        let parkingData = notification.userInfo! as! [String: Any]
+        let parking = Parking.init(parking: parkingData)
+        
+        mapView.clear()
+        let marker = GMSMarker()
+        marker.position = CLLocationCoordinate2D.init(latitude: parking.latitude, longitude: parking.longitude)
+        marker.title = "Test Parking"
+        marker.map = mapView
     }
     
     override func didReceiveMemoryWarning() {

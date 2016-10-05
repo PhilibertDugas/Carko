@@ -15,6 +15,8 @@
 		454E1C3F1DA34DDE0038E714 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454E1C3D1DA34DDE0038E714 /* MapViewController.swift */; };
 		458F62831DA184BE00205FBB /* MapViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458F62821DA184BE00205FBB /* MapViewControllerTest.swift */; };
 		458F62851DA184E700205FBB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458F62841DA184E700205FBB /* Constants.swift */; };
+		459AD2571DA49B6C0018B7B9 /* Parking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459AD2561DA49B6C0018B7B9 /* Parking.swift */; };
+		459AD2591DA49C590018B7B9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 459AD2581DA49C590018B7B9 /* GoogleService-Info.plist */; };
 		45BC29451DA18249000C54BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC29441DA18249000C54BC /* AppDelegate.swift */; };
 		45BC294C1DA18249000C54BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45BC294B1DA18249000C54BC /* Assets.xcassets */; };
 		45BC294F1DA18249000C54BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45BC294D1DA18249000C54BC /* LaunchScreen.storyboard */; };
@@ -49,6 +51,8 @@
 		454E1C3D1DA34DDE0038E714 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		458F62821DA184BE00205FBB /* MapViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewControllerTest.swift; sourceTree = "<group>"; };
 		458F62841DA184E700205FBB /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		459AD2561DA49B6C0018B7B9 /* Parking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parking.swift; sourceTree = "<group>"; };
+		459AD2581DA49C590018B7B9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		45BC29411DA18249000C54BC /* Carko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Carko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45BC29441DA18249000C54BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45BC294B1DA18249000C54BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -112,6 +116,14 @@
 			name = "Tab - Add";
 			sourceTree = "<group>";
 		};
+		459AD2551DA49AE20018B7B9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				459AD2561DA49B6C0018B7B9 /* Parking.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		45BC29381DA18249000C54BC = {
 			isa = PBXGroup;
 			children = (
@@ -137,12 +149,14 @@
 		45BC29431DA18249000C54BC /* Carko */ = {
 			isa = PBXGroup;
 			children = (
+				459AD2551DA49AE20018B7B9 /* Models */,
 				451853781DA476CB005CC5E6 /* Tab - Add */,
 				451853771DA476B5005CC5E6 /* Tab - Find */,
 				45BC29441DA18249000C54BC /* AppDelegate.swift */,
 				45BC294B1DA18249000C54BC /* Assets.xcassets */,
 				45BC294D1DA18249000C54BC /* LaunchScreen.storyboard */,
 				45BC29501DA18249000C54BC /* Info.plist */,
+				459AD2581DA49C590018B7B9 /* GoogleService-Info.plist */,
 				458F62841DA184E700205FBB /* Constants.swift */,
 				45253B9E1DA3FF36006BEDAF /* Main.storyboard */,
 			);
@@ -309,6 +323,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45253B9F1DA3FF37006BEDAF /* Main.storyboard in Resources */,
+				459AD2591DA49C590018B7B9 /* GoogleService-Info.plist in Resources */,
 				45BC294F1DA18249000C54BC /* LaunchScreen.storyboard in Resources */,
 				45BC294C1DA18249000C54BC /* Assets.xcassets in Resources */,
 			);
@@ -462,6 +477,7 @@
 				458F62851DA184E700205FBB /* Constants.swift in Sources */,
 				4518537A1DA476F1005CC5E6 /* ShareViewController.swift in Sources */,
 				4518537C1DA4787B005CC5E6 /* ShareMapViewController.swift in Sources */,
+				459AD2571DA49B6C0018B7B9 /* Parking.swift in Sources */,
 				454E1C3F1DA34DDE0038E714 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

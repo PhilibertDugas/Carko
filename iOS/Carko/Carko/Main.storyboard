@@ -113,6 +113,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addButton" destination="XbS-Rd-gDu" id="IhP-4z-ODY"/>
+                        <segue destination="MDg-Yq-UT4" kind="showDetail" identifier="parkingAdded" id="Ssm-Ca-nhK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Ec-7C-ia2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -139,4 +140,7 @@
             <point key="canvasLocation" x="-113" y="-450"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Ssm-Ca-nhK"/>
+    </inferredMetricsTieBreakers>
 </document>
