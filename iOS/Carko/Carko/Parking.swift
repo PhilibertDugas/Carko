@@ -16,22 +16,27 @@ class Parking: NSObject {
     var latitude: CLLocationDegrees
     var longitude: CLLocationDegrees
     var photoURL: URL
+    var name: String
     
-    init(latitude: CLLocationDegrees, longitude: CLLocationDegrees, photoURL: URL) {
+    init(latitude: CLLocationDegrees, longitude: CLLocationDegrees, photoURL: URL, name: String) {
         self.latitude = latitude
         self.longitude = longitude
         self.photoURL = photoURL
+        self.name = name
     }
     
     convenience init(parking: [String : Any]) {
         let latitude = parking["latitude"] as! CLLocationDegrees
         let longitude = parking["longitude"] as! CLLocationDegrees
         let photoURL = URL.init(string: parking["photoURL"] as! String)!
-        self.init(latitude: latitude, longitude: longitude, photoURL: photoURL)
+        let name = parking["name"] as! String
+        self.init(latitude: latitude, longitude: longitude, photoURL: photoURL, name: name)
     }
     
-    func postParking() {
-        let newParking = ["latitude": latitude, "longitude": longitude, "photoURL": "\(photoURL)"] as [String : Any]
+    func persist() {
+        let latitudekey = "\(latitude)".replacingOccurrences(of: ".", with: "-")
+        let longitudeKey = "\(longitude)".replacingOccurrences(of: ".", with: "-")
+        let newParking = ["\(latitudekey)_\(longitudeKey)": ["latitude": latitude, "longitude": longitude, "photoURL": "\(photoURL)", "name": name]] as [String : Any]
         Parking.ref.child("parkings").updateChildValues(newParking)
     }
     

@@ -21,6 +21,7 @@ class ShareMapViewController: UIViewController {
     var resultsViewController: GMSAutocompleteResultsViewController?
     var searchController: UISearchController?
     var resultView: UITextView?
+    var currentPlace: GMSPlace?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,8 +58,8 @@ class ShareMapViewController: UIViewController {
     
     @IBAction func addButtonTapped(_ sender: AnyObject) {
         let currentMapCoordinate = mapView.camera.target
-        let newParking = Parking.init(latitude: currentMapCoordinate.latitude, longitude: currentMapCoordinate.longitude, photoURL: URL.init(string: "http://google.com")!)
-        newParking.postParking()
+        let newParking = Parking.init(latitude: currentMapCoordinate.latitude, longitude: currentMapCoordinate.longitude, photoURL: URL.init(string: "http://google.com")!, name: (currentPlace?.name)!)
+        newParking.persist()
         self.dismiss(animated: false, completion: nil)
         performSegue(withIdentifier: "parkingAdded", sender: nil)
     }
@@ -79,8 +80,10 @@ extension ShareMapViewController: GMSAutocompleteResultsViewControllerDelegate {
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController, didAutocompleteWith place: GMSPlace) {
         searchController?.isActive = false
         
+        currentPlace = place
         let newCam = GMSCameraUpdate.setTarget(place.coordinate, zoom: 19.0)
         mapView.mapType = kGMSTypeSatellite
+        
         mapView.animate(with: newCam)
         view.insertSubview(addButton, aboveSubview: mapView)
         addButton.isHidden = false

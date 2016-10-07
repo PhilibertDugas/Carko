@@ -33,14 +33,17 @@ class MapViewController: UIViewController {
     }
     
     func parkingFetched(_ notification: Notification) {
-        let parkingData = notification.userInfo! as! [String: Any]
-        let parking = Parking.init(parking: parkingData)
-        
-        mapView.clear()
-        let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D.init(latitude: parking.latitude, longitude: parking.longitude)
-        marker.title = "Test Parking"
-        marker.map = mapView
+        if let parkingData = notification.userInfo as? [String: Any] {
+            mapView.clear()
+            
+            for (_, parkingInstance) in parkingData {
+                let parking = Parking.init(parking: parkingInstance as! [String : Any])
+                let marker = GMSMarker()
+                marker.position = CLLocationCoordinate2D.init(latitude: parking.latitude, longitude: parking.longitude)
+                marker.title = parking.name
+                marker.map = mapView
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {
