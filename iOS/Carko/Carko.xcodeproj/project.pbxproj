@@ -20,6 +20,9 @@
 		45BC294C1DA18249000C54BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45BC294B1DA18249000C54BC /* Assets.xcassets */; };
 		45BC294F1DA18249000C54BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45BC294D1DA18249000C54BC /* LaunchScreen.storyboard */; };
 		45BC29651DA18249000C54BC /* CarkoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC29641DA18249000C54BC /* CarkoUITests.swift */; };
+		C56ADAB61DAAE6510033516C /* ParkingList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C56ADAB51DAAE6510033516C /* ParkingList.storyboard */; };
+		C56ADAB81DAAE6680033516C /* FindParking.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C56ADAB71DAAE6680033516C /* FindParking.storyboard */; };
+		C56ADABB1DAC00870033516C /* ParkingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56ADABA1DAC00870033516C /* ParkingTableViewCell.swift */; };
 		EA021D9D0F7EBED1E7565A98 /* Pods_CarkoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10DDB660E5099E802BAA804E /* Pods_CarkoTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +68,9 @@
 		51BE0236C2E899D05DB12FEF /* Pods-CarkoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarkoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CarkoUITests/Pods-CarkoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		538BFE4EA50CCE486CF330C6 /* Pods_Carko.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Carko.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B75E7E9A81373F8C2777563 /* Pods-CarkoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarkoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CarkoUITests/Pods-CarkoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		C56ADAB51DAAE6510033516C /* ParkingList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ParkingList.storyboard; sourceTree = "<group>"; };
+		C56ADAB71DAAE6680033516C /* FindParking.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FindParking.storyboard; sourceTree = "<group>"; };
+		C56ADABA1DAC00870033516C /* ParkingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingTableViewCell.swift; sourceTree = "<group>"; };
 		E698A5AD42366D0AB15C9348 /* Pods-Carko.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carko.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Carko/Pods-Carko.debug.xcconfig"; sourceTree = "<group>"; };
 		FC68D22D6823E3DE6D1A34E4 /* Pods_CarkoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarkoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -100,6 +106,7 @@
 		451853771DA476B5005CC5E6 /* Tab - Find */ = {
 			isa = PBXGroup;
 			children = (
+				C56ADAB71DAAE6680033516C /* FindParking.storyboard */,
 				454E1C3D1DA34DDE0038E714 /* MapViewController.swift */,
 			);
 			name = "Tab - Find";
@@ -108,6 +115,8 @@
 		451853781DA476CB005CC5E6 /* Tab - Add */ = {
 			isa = PBXGroup;
 			children = (
+				C56ADAB91DAC00320033516C /* CustomCell */,
+				C56ADAB51DAAE6510033516C /* ParkingList.storyboard */,
 				451853791DA476F1005CC5E6 /* ShareViewController.swift */,
 				4518537B1DA4787B005CC5E6 /* ShareMapViewController.swift */,
 			);
@@ -197,6 +206,14 @@
 				5B75E7E9A81373F8C2777563 /* Pods-CarkoUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		C56ADAB91DAC00320033516C /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				C56ADABA1DAC00870033516C /* ParkingTableViewCell.swift */,
+			);
+			name = CustomCell;
 			sourceTree = "<group>";
 		};
 		F71F1D1EB70D52FDEF31D66A /* Frameworks */ = {
@@ -327,7 +344,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C56ADAB61DAAE6510033516C /* ParkingList.storyboard in Resources */,
 				45253B9F1DA3FF37006BEDAF /* Main.storyboard in Resources */,
+				C56ADAB81DAAE6680033516C /* FindParking.storyboard in Resources */,
 				459AD2591DA49C590018B7B9 /* GoogleService-Info.plist in Resources */,
 				45BC294F1DA18249000C54BC /* LaunchScreen.storyboard in Resources */,
 				45BC294C1DA18249000C54BC /* Assets.xcassets in Resources */,
@@ -482,6 +501,7 @@
 				4518537A1DA476F1005CC5E6 /* ShareViewController.swift in Sources */,
 				4518537C1DA4787B005CC5E6 /* ShareMapViewController.swift in Sources */,
 				459AD2571DA49B6C0018B7B9 /* Parking.swift in Sources */,
+				C56ADABB1DAC00870033516C /* ParkingTableViewCell.swift in Sources */,
 				454E1C3F1DA34DDE0038E714 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

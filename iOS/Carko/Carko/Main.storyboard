@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BlE-fA-HKp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2338c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BlE-fA-HKp">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,130 +16,33 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="MDg-Yq-UT4" kind="relationship" relationship="viewControllers" id="1MV-cE-vHf"/>
-                        <segue destination="5rO-kM-NMI" kind="relationship" relationship="viewControllers" id="HAP-Wt-5LK"/>
+                        <segue destination="W64-o7-yGy" kind="relationship" relationship="viewControllers" id="1MV-cE-vHf"/>
+                        <segue destination="VL7-ff-8nA" kind="relationship" relationship="viewControllers" id="HAP-Wt-5LK"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HTK-RC-H4v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1136" y="176"/>
         </scene>
-        <!--ShareViewController-->
-        <scene sceneID="utz-3t-a0m">
+        <!--ParkingList-->
+        <scene sceneID="6bg-5v-8Ia">
             <objects>
-                <viewController title="ShareViewController" id="5rO-kM-NMI" customClass="ShareViewController" customModule="Carko" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="eJK-7A-DeB"/>
-                        <viewControllerLayoutGuide type="bottom" id="MuK-Hs-8bI"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="L9w-oe-ufF">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FQZ-Th-cPE">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="d0R-Aq-6fG"/>
-                                </constraints>
-                                <state key="normal" title="Share a new parking"/>
-                                <connections>
-                                    <segue destination="mEj-SB-7OM" kind="show" id="Ib4-06-1l3"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="FQZ-Th-cPE" firstAttribute="top" secondItem="eJK-7A-DeB" secondAttribute="bottom" constant="8" id="2Iw-Ls-MBk"/>
-                            <constraint firstItem="FQZ-Th-cPE" firstAttribute="leading" secondItem="L9w-oe-ufF" secondAttribute="leadingMargin" id="5Sh-em-FbO"/>
-                            <constraint firstItem="FQZ-Th-cPE" firstAttribute="trailing" secondItem="L9w-oe-ufF" secondAttribute="trailingMargin" id="Y97-We-k4q"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" systemItem="mostViewed" id="9tU-9w-RRb"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jCl-1q-i1r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="ParkingList" id="VL7-ff-8nA" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Nmf-Gd-126"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QqV-gm-mbt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-114.40000000000001" y="567.16641679160421"/>
+            <point key="canvasLocation" x="-49" y="246"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="pqI-jc-zaa">
+        <!--FindParking-->
+        <scene sceneID="cYh-6o-Ekx">
             <objects>
-                <navigationController id="mEj-SB-7OM" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Da7-Z7-2ZM">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="XNV-us-kad" kind="relationship" relationship="rootViewController" id="u3G-i1-bxi"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NO6-J7-3nr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="FindParking" id="W64-o7-yGy" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="y8X-XN-2Dp"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JrX-Vc-WLP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="657" y="567"/>
-        </scene>
-        <!--Share Map View Controller-->
-        <scene sceneID="b56-RS-Jgg">
-            <objects>
-                <viewController id="XNV-us-kad" customClass="ShareMapViewController" customModule="Carko" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="vI6-qx-oTx"/>
-                        <viewControllerLayoutGuide type="bottom" id="Y98-EI-I4r"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="r3p-bD-1CA">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XbS-Rd-gDu">
-                                <color key="backgroundColor" red="1" green="0.82939402817876973" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="75" id="0BI-PR-LEK"/>
-                                    <constraint firstAttribute="height" constant="30" id="xaM-Io-0Ma"/>
-                                </constraints>
-                                <state key="normal" title="Add">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="addButtonTapped:" destination="XNV-us-kad" eventType="touchUpInside" id="g8b-y9-fer"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="XbS-Rd-gDu" firstAttribute="centerX" secondItem="r3p-bD-1CA" secondAttribute="centerX" id="rd5-SS-Btj"/>
-                            <constraint firstItem="Y98-EI-I4r" firstAttribute="top" secondItem="XbS-Rd-gDu" secondAttribute="bottom" constant="43" id="tfH-Td-dS8"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="h2h-cw-vwX">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="VmB-5w-KFP"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="addButton" destination="XbS-Rd-gDu" id="IhP-4z-ODY"/>
-                        <segue destination="MDg-Yq-UT4" kind="showDetail" identifier="parkingAdded" id="Ssm-Ca-nhK"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0Ec-7C-ia2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1368.8" y="566.26686656671666"/>
-        </scene>
-        <!--MapViewController-->
-        <scene sceneID="rhk-vn-VEu">
-            <objects>
-                <viewController title="MapViewController" id="MDg-Yq-UT4" customClass="MapViewController" customModule="Carko" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Vn4-YE-3Gg"/>
-                        <viewControllerLayoutGuide type="bottom" id="0pT-io-vTY"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="uaJ-Pg-3fi">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" systemItem="search" id="dfl-Y5-pPe"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9wu-jL-FfO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-113" y="-450"/>
+            <point key="canvasLocation" x="-46" y="175"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="Ssm-Ca-nhK"/>
-    </inferredMetricsTieBreakers>
 </document>

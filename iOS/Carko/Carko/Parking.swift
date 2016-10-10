@@ -16,27 +16,36 @@ class Parking: NSObject {
     var latitude: CLLocationDegrees
     var longitude: CLLocationDegrees
     var photoURL: URL
-    var name: String
+    var address: String
+    var startTime: String
+    var stopTime: String
+    var price: Float
     
-    init(latitude: CLLocationDegrees, longitude: CLLocationDegrees, photoURL: URL, name: String) {
+    init(latitude: CLLocationDegrees, longitude: CLLocationDegrees, photoURL: URL, address: String, startTime: String, stopTime: String, price: Float) {
         self.latitude = latitude
         self.longitude = longitude
         self.photoURL = photoURL
-        self.name = name
+        self.address = address
+        self.startTime = startTime
+        self.stopTime = stopTime
+        self.price = price
     }
     
     convenience init(parking: [String : Any]) {
         let latitude = parking["latitude"] as! CLLocationDegrees
         let longitude = parking["longitude"] as! CLLocationDegrees
         let photoURL = URL.init(string: parking["photoURL"] as! String)!
-        let name = parking["name"] as! String
-        self.init(latitude: latitude, longitude: longitude, photoURL: photoURL, name: name)
+        let address = parking["address"] as! String
+        let startTime = parking["startTime"] as! String
+        let stopTime = parking["stopTime"] as! String
+        let price = parking["price"] as! Float
+        self.init(latitude: latitude, longitude: longitude, photoURL: photoURL, address: address, startTime: startTime, stopTime: stopTime, price: price)
     }
     
     func persist() {
         let latitudekey = "\(latitude)".replacingOccurrences(of: ".", with: "-")
         let longitudeKey = "\(longitude)".replacingOccurrences(of: ".", with: "-")
-        let newParking = ["\(latitudekey)_\(longitudeKey)": ["latitude": latitude, "longitude": longitude, "photoURL": "\(photoURL)", "name": name]] as [String : Any]
+        let newParking = ["\(latitudekey)_\(longitudeKey)": ["latitude": latitude, "longitude": longitude, "photoURL": "\(photoURL)", "address": address, "startTime": startTime, "stopTime": stopTime, "price": price]] as [String : Any]
         Parking.ref.child("parkings").updateChildValues(newParking)
     }
     

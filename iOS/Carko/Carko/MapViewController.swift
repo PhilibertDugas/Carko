@@ -40,7 +40,7 @@ class MapViewController: UIViewController {
                 let parking = Parking.init(parking: parkingInstance as! [String : Any])
                 let marker = GMSMarker()
                 marker.position = CLLocationCoordinate2D.init(latitude: parking.latitude, longitude: parking.longitude)
-                marker.title = parking.name
+                marker.title = parking.address
                 marker.map = mapView
             }
         }

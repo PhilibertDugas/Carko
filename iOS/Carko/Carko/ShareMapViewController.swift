@@ -58,7 +58,7 @@ class ShareMapViewController: UIViewController {
     
     @IBAction func addButtonTapped(_ sender: AnyObject) {
         let currentMapCoordinate = mapView.camera.target
-        let newParking = Parking.init(latitude: currentMapCoordinate.latitude, longitude: currentMapCoordinate.longitude, photoURL: URL.init(string: "http://google.com")!, name: (currentPlace?.name)!)
+        let newParking = Parking.init(latitude: currentMapCoordinate.latitude, longitude: currentMapCoordinate.longitude, photoURL: URL.init(string: "http://google.com")!, address: (currentPlace?.name)!, startTime: "0:00 AM", stopTime: "12:00 PM", price: 1.0)
         newParking.persist()
         self.dismiss(animated: false, completion: nil)
         performSegue(withIdentifier: "parkingAdded", sender: nil)

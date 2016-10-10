@@ -10,6 +10,13 @@ import UIKit
 
 class ShareViewController: UIViewController {
 
+    @IBOutlet weak var ParkingTableView: UITableView!
+    @IBOutlet weak var Edit: UIBarButtonItem!
+    @IBOutlet weak var AddButton: UIBarButtonItem!
+    
+    var parkingList = [Parking]()
+    var isEditingAvailability = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +28,23 @@ class ShareViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func editingParking(_ sender: AnyObject) {
+    
+        if !isEditingAvailability
+        {
+            Edit.title = "Done"
+            self.navigationItem.rightBarButtonItem?.isEnabled = false;
+            isEditingAvailability = true
+            ParkingTableView.reloadSections([0], with: UITableViewRowAnimation.automatic)
+        }
+        else
+        {
+            Edit.title = "Edit"
+            self.navigationItem.rightBarButtonItem?.isEnabled = true;
+            isEditingAvailability = false
+            ParkingTableView.reloadSections([0], with: UITableViewRowAnimation.automatic)
+        }
+    }
 
     /*
     // MARK: - Navigation
@@ -32,4 +56,28 @@ class ShareViewController: UIViewController {
     }
     */
 
+}
+
+extension ShareViewController: UITableViewDataSource, UITableViewDelegate
+{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = ParkingTableView.dequeueReusableCell(withIdentifier: "parkingCell", for: indexPath) as! ParkingTableViewCell
+        
+        cell.address.text = parkingList[indexPath.row].address
+        
+        if !isEditingAvailability
+        {
+            cell.availabilitySwitch.isHidden = true
+        }
+        else
+        {
+            cell.availabilitySwitch.isHidden = false
+        }
+        
+        return cell
+    }
 }
