@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2338c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mEj-SB-7OM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mEj-SB-7OM">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -97,7 +97,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="oci-hq-v20">
                             <connections>
-                                <segue destination="XNV-us-kad" kind="show" id="buS-vn-lhG"/>
+                                <segue destination="9zk-77-AWD" kind="show" id="MYv-kC-nzF"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -350,6 +350,22 @@
             </objects>
             <point key="canvasLocation" x="-188" y="566"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ECl-tq-be7">
+            <objects>
+                <navigationController id="9zk-77-AWD" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mmU-7R-hdw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="XNV-us-kad" kind="relationship" relationship="rootViewController" id="HN0-fT-M41"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nmi-De-cT5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1457" y="564"/>
+        </scene>
         <!--Share Map View Controller-->
         <scene sceneID="b56-RS-Jgg">
             <objects>
@@ -373,7 +389,7 @@
                                 </state>
                                 <connections>
                                     <action selector="addButtonTapped:" destination="XNV-us-kad" eventType="touchUpInside" id="g8b-y9-fer"/>
-                                    <segue destination="L4O-j3-XbA" kind="show" id="xL5-BN-9F3"/>
+                                    <segue destination="L4O-j3-XbA" kind="show" identifier="nextButtonTapped" id="xL5-BN-9F3"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -392,7 +408,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Ec-7C-ia2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1457" y="588"/>
+            <point key="canvasLocation" x="2257" y="564"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="2AT-z1-FeC">
@@ -629,7 +645,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0gl-9Z-5eQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2436" y="588"/>
+            <point key="canvasLocation" x="3044" y="564"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
