@@ -55,6 +55,11 @@
                                 <items>
                                     <navigationItem title="Login" id="1m6-dB-6Bp">
                                         <barButtonItem key="backBarButtonItem" title="Back" id="yT3-3U-Q7x"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="Pja-Iu-fbj">
+                                            <connections>
+                                                <segue destination="Ue9-AF-yKV" kind="show" id="Rrh-6n-tPZ"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -94,6 +99,9 @@
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gNW-Hc-oCJ">
                                 <frame key="frameInset" minX="16" minY="585" width="165" height="62"/>
                                 <color key="backgroundColor" red="0.62068484542170665" green="0.97055440989847719" blue="0.62481940186743368" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62" id="LTI-ZW-NLy"/>
+                                </constraints>
                                 <state key="normal" title="Login">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -104,6 +112,9 @@
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qbp-l0-xUb">
                                 <frame key="frameInset" minX="194" minY="585" width="165" height="62"/>
                                 <color key="backgroundColor" red="0.99849302030456855" green="0.34953685683040114" blue="0.23669037461610276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62" id="qBu-us-U94"/>
+                                </constraints>
                                 <state key="normal" title="Register">
                                     <color key="titleColor" red="0.018995768861047993" green="0.029703362944162426" blue="0.019122305023748447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -240,6 +251,11 @@
                                 <items>
                                     <navigationItem title="Register" id="gfh-wz-TYy">
                                         <barButtonItem key="backBarButtonItem" title="Back" id="0mg-Av-dvK"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="Z2e-tS-4za">
+                                            <connections>
+                                                <segue destination="Ue9-AF-yKV" kind="show" id="OPc-nx-uga"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -310,6 +326,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vbW-fL-3tF"/>
+        <segue reference="J6r-ym-fYJ"/>
+        <segue reference="OPc-nx-uga"/>
     </inferredMetricsTieBreakers>
 </document>
