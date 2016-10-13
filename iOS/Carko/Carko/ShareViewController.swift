@@ -20,6 +20,8 @@ class ShareViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        ParkingTableView.delegate = self
+        ParkingTableView.dataSource = self
         // Do any additional setup after loading the view.
     }
 
