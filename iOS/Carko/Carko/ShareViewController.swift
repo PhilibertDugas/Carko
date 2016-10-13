@@ -16,13 +16,23 @@ class ShareViewController: UIViewController {
     
     var parkingList = [Parking]()
     var isEditingAvailability = false
+    var selectedRowIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         ParkingTableView.delegate = self
         ParkingTableView.dataSource = self
+
+        NotificationCenter.default.addObserver(self, selector: #selector(MapViewController.parkingFetched), name: NSNotification.Name(rawValue: "parkingFetched"), object: nil)
+        Parking.getAllParkings()
+        
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,23 +57,51 @@ class ShareViewController: UIViewController {
             ParkingTableView.reloadSections([0], with: UITableViewRowAnimation.automatic)
         }
     }
+    
+    ///////// Observers
 
-    /*
+    func parkingFetched(_ notification: Notification) {
+        if let parkingData = notification.userInfo as? [String: Any] {
+            
+            for (_, parkingInstance) in parkingData {
+                let parking = Parking.init(parking: parkingInstance as! [String : Any])
+                parkingList.append(parking)
+            }
+            
+            ParkingTableView.reloadData()
+        }
+    }
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        NotificationCenter.default.removeObserver(self)
+        
+        if segue.identifier == "showParkingInfo"
+        {
+            // get a reference to the second view controller
+            let destinationVC = segue.destination as! ParkingInfoTableViewController
+            
+            // set the parking to see
+            destinationVC.parkingInfo = parkingList[selectedRowIndex]
+        }
     }
-    */
-
 }
 
 extension ShareViewController: UITableViewDataSource, UITableViewDelegate
 {
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath?
+    {
+        selectedRowIndex = indexPath.row
+        return indexPath
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return parkingList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

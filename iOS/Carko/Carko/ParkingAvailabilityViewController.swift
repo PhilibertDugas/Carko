@@ -9,8 +9,11 @@
 import UIKit
 
 class ParkingAvailabilityViewController: UIViewController {
-
-    @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var fromTextField: UITextField!
+    @IBOutlet weak var toTextField: UITextField!
+    
+    @IBOutlet weak var availabilitySelectionView: UIView!
     
     @IBAction func saveChange(_ sender: AnyObject) {
         
@@ -21,11 +24,20 @@ class ParkingAvailabilityViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func fromTimeEditBegin(_ sender: AnyObject) {
+        
+        let datePicker = UIDatePicker()
+        fromTextField.inputView = datePicker
+    }
+    
+    @IBAction func toTimeEditBegin(_ sender: AnyObject) {
+        
+        let datePicker = UIDatePicker()
+        toTextField.inputView = datePicker
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.delegate = self
-        tableView.dataSource = self
         // Do any additional setup after loading the view.
     }
 
@@ -45,28 +57,4 @@ class ParkingAvailabilityViewController: UIViewController {
     }
     */
 
-}
-
-extension ParkingAvailabilityViewController: UITableViewDataSource, UITableViewDelegate
-{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-        return 3
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if indexPath.row == 0
-        {
-            return tableView.dequeueReusableCell(withIdentifier: "header", for: indexPath)
-        }
-        else if indexPath.row == 1
-        {
-            return tableView.dequeueReusableCell(withIdentifier: "allTime", for: indexPath)
-        }
-        else
-        {
-            return tableView.dequeueReusableCell(withIdentifier: "timeSelector", for: indexPath)
-        }
-    }
 }

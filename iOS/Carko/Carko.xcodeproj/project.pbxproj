@@ -35,6 +35,7 @@
 		C56ADAB61DAAE6510033516C /* ParkingList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C56ADAB51DAAE6510033516C /* ParkingList.storyboard */; };
 		C56ADAB81DAAE6680033516C /* FindParking.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C56ADAB71DAAE6680033516C /* FindParking.storyboard */; };
 		C56ADABB1DAC00870033516C /* ParkingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56ADABA1DAC00870033516C /* ParkingTableViewCell.swift */; };
+		C5B310601DB023610051C90B /* FloatExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B3105F1DB023610051C90B /* FloatExtension.swift */; };
 		EA021D9D0F7EBED1E7565A98 /* Pods_CarkoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10DDB660E5099E802BAA804E /* Pods_CarkoTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +96,7 @@
 		C56ADAB51DAAE6510033516C /* ParkingList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ParkingList.storyboard; sourceTree = "<group>"; };
 		C56ADAB71DAAE6680033516C /* FindParking.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FindParking.storyboard; sourceTree = "<group>"; };
 		C56ADABA1DAC00870033516C /* ParkingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingTableViewCell.swift; sourceTree = "<group>"; };
+		C5B3105F1DB023610051C90B /* FloatExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatExtension.swift; sourceTree = "<group>"; };
 		E698A5AD42366D0AB15C9348 /* Pods-Carko.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carko.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Carko/Pods-Carko.debug.xcconfig"; sourceTree = "<group>"; };
 		FC68D22D6823E3DE6D1A34E4 /* Pods_CarkoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarkoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -207,6 +209,7 @@
 		45BC29431DA18249000C54BC /* Carko */ = {
 			isa = PBXGroup;
 			children = (
+				C5B3105E1DB023450051C90B /* Extensions */,
 				451853781DA476CB005CC5E6 /* Tab - Add */,
 				451853771DA476B5005CC5E6 /* Tab - Find */,
 				45099A851DAF25EA00392FF1 /* Tab - Login */,
@@ -266,6 +269,14 @@
 				C56ADABA1DAC00870033516C /* ParkingTableViewCell.swift */,
 			);
 			name = CustomCell;
+			sourceTree = "<group>";
+		};
+		C5B3105E1DB023450051C90B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C5B3105F1DB023610051C90B /* FloatExtension.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		F71F1D1EB70D52FDEF31D66A /* Frameworks */ = {
@@ -561,6 +572,7 @@
 				4518537C1DA4787B005CC5E6 /* ShareMapViewController.swift in Sources */,
 				450E124A1DAF2B000027EFBC /* EntryViewController.swift in Sources */,
 				459AD2571DA49B6C0018B7B9 /* Parking.swift in Sources */,
+				C5B310601DB023610051C90B /* FloatExtension.swift in Sources */,
 				C51150571DAF393F004E2A7D /* ParkingAvailabilityViewController.swift in Sources */,
 				450E124C1DAF2B3C0027EFBC /* PageContentViewController.swift in Sources */,
 				C56ADABB1DAC00870033516C /* ParkingTableViewCell.swift in Sources */,

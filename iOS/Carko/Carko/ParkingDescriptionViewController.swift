@@ -8,9 +8,15 @@
 
 import UIKit
 
-class ParkingDescriptionViewController: UIViewController {
+protocol ParkingDescriptionDelegate: class
+{
+    func userDidChangeDescription(value: String)
+}
 
-    @IBOutlet weak var tableView: UITableView!
+class ParkingDescriptionViewController: UIViewController {
+    
+    // making this a weak variable so that it won't create a strong reference cycle
+    weak var delegate: ParkingDescriptionDelegate? = nil
     
     @IBAction func saveChange(_ sender: AnyObject) {
         
@@ -24,8 +30,6 @@ class ParkingDescriptionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.delegate = self
-        tableView.dataSource = self
         // Do any additional setup after loading the view.
     }
 
@@ -45,23 +49,4 @@ class ParkingDescriptionViewController: UIViewController {
     }
     */
 
-}
-
-extension ParkingDescriptionViewController: UITableViewDataSource, UITableViewDelegate
-{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if indexPath.row == 0
-        {
-            return tableView.dequeueReusableCell(withIdentifier: "header", for: indexPath)
-        }
-        else
-        {
-            return tableView.dequeueReusableCell(withIdentifier: "description", for: indexPath)
-        }
-    }
 }

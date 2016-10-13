@@ -8,12 +8,44 @@
 
 import UIKit
 
-class ParkingRatesViewController: UIViewController {
+protocol ParkingRateDelegate: class
+{
+    func userDidChangeRate(value: Float)
+}
 
-    @IBOutlet weak var tableView: UITableView!
+class ParkingRatesViewController: UIViewController {
+    
+    // making this a weak variable so that it won't create a strong reference cycle
+    weak var delegate: ParkingRateDelegate? = nil
+    
+    @IBOutlet weak var postedRateField: UITextField!
+    @IBOutlet weak var hourlyRateField: UITextField!
+    @IBOutlet weak var postedRateSlider: UISlider!
+    
+    let appPercentageCut:Float = 0.2
+    var initialRate: Float?
+    
+    @IBAction func hourlyRateChanged(_ sender: AnyObject) {
+        
+        postedRateField.text = (Float(hourlyRateField.text!)!*(1 + appPercentageCut)).asLocaleCurrency
+        postedRateSlider.value = Float(postedRateField.text!)!
+    }
+    
+    @IBAction func postedRateChanged(_ sender: AnyObject) {
+        
+        postedRateSlider.value = Float(postedRateField.text!)!
+        hourlyRateField.text = (Float(postedRateSlider.value)*(1 - appPercentageCut)).asLocaleCurrency
+    }
+    
+    @IBAction func postedRateSliderChanged(_ sender: AnyObject) {
+        
+        postedRateField.text = Float(postedRateSlider.value).asLocaleCurrency
+        hourlyRateField.text = (Float(postedRateSlider.value)*(1 - appPercentageCut)).asLocaleCurrency
+    }
     
     @IBAction func saveChange(_ sender: AnyObject) {
         
+        delegate?.userDidChangeRate(value: Float(postedRateSlider.value).asCurrency)
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -24,9 +56,17 @@ class ParkingRatesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.delegate = self
-        tableView.dataSource = self
+        postedRateField.text = initialRate?.asLocaleCurrency
+        hourlyRateField.text = (initialRate! * (1-appPercentageCut)).asLocaleCurrency
+        
+        postedRateSlider.value = initialRate!
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,24 +84,30 @@ class ParkingRatesViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }
 
-extension ParkingRatesViewController: UITableViewDataSource, UITableViewDelegate
+extension ParkingRatesViewController: UITextFieldDelegate
 {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        textField.resignFirstResponder()
+        
+        return true
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
+    {
+        // allow backspace
+        if (string.characters.count == 0)
+        {
+            return true
+        }
         
-        if indexPath.row == 0
+        if (Int(string) != nil)
         {
-            return tableView.dequeueReusableCell(withIdentifier: "header", for: indexPath)
+            return true
         }
-        else
-        {
-            return tableView.dequeueReusableCell(withIdentifier: "rates", for: indexPath)
-        }
+        
+        return false
     }
 }
