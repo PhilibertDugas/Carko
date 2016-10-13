@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		134E21FC3BDBCE97A691D636 /* Pods_CarkoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC68D22D6823E3DE6D1A34E4 /* Pods_CarkoUITests.framework */; };
 		3081C8E38A69D2E93352EB95 /* Pods_Carko.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 538BFE4EA50CCE486CF330C6 /* Pods_Carko.framework */; };
+		45099A871DAF261200392FF1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45099A861DAF261200392FF1 /* LoginViewController.swift */; };
+		450E12401DAF27330027EFBC /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450E123F1DAF27330027EFBC /* RegisterViewController.swift */; };
+		450E12451DAF2A880027EFBC /* page1.png in Resources */ = {isa = PBXBuildFile; fileRef = 450E12411DAF2A880027EFBC /* page1.png */; };
+		450E12461DAF2A880027EFBC /* page2.png in Resources */ = {isa = PBXBuildFile; fileRef = 450E12421DAF2A880027EFBC /* page2.png */; };
+		450E12471DAF2A880027EFBC /* page3.png in Resources */ = {isa = PBXBuildFile; fileRef = 450E12431DAF2A880027EFBC /* page3.png */; };
+		450E12481DAF2A880027EFBC /* page4.png in Resources */ = {isa = PBXBuildFile; fileRef = 450E12441DAF2A880027EFBC /* page4.png */; };
+		450E124A1DAF2B000027EFBC /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450E12491DAF2B000027EFBC /* EntryViewController.swift */; };
+		450E124C1DAF2B3C0027EFBC /* PageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450E124B1DAF2B3C0027EFBC /* PageContentViewController.swift */; };
 		4518537A1DA476F1005CC5E6 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451853791DA476F1005CC5E6 /* ShareViewController.swift */; };
 		4518537C1DA4787B005CC5E6 /* ShareMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4518537B1DA4787B005CC5E6 /* ShareMapViewController.swift */; };
 		45253B9F1DA3FF37006BEDAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45253B9E1DA3FF36006BEDAF /* Main.storyboard */; };
@@ -51,6 +59,14 @@
 		06C50C04931968E615FABC94 /* Pods-CarkoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarkoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CarkoTests/Pods-CarkoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		10DDB660E5099E802BAA804E /* Pods_CarkoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarkoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		182BF97C1B2157DE2E06FBDD /* Pods-Carko.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carko.release.xcconfig"; path = "Pods/Target Support Files/Pods-Carko/Pods-Carko.release.xcconfig"; sourceTree = "<group>"; };
+		45099A861DAF261200392FF1 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		450E123F1DAF27330027EFBC /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		450E12411DAF2A880027EFBC /* page1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page1.png; sourceTree = "<group>"; };
+		450E12421DAF2A880027EFBC /* page2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page2.png; sourceTree = "<group>"; };
+		450E12431DAF2A880027EFBC /* page3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page3.png; sourceTree = "<group>"; };
+		450E12441DAF2A880027EFBC /* page4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page4.png; sourceTree = "<group>"; };
+		450E12491DAF2B000027EFBC /* EntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
+		450E124B1DAF2B3C0027EFBC /* PageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageContentViewController.swift; sourceTree = "<group>"; };
 		451853791DA476F1005CC5E6 /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		4518537B1DA4787B005CC5E6 /* ShareMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareMapViewController.swift; sourceTree = "<group>"; };
 		45253B9E1DA3FF36006BEDAF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -111,6 +127,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		45099A851DAF25EA00392FF1 /* Tab - Login */ = {
+			isa = PBXGroup;
+			children = (
+				45099A861DAF261200392FF1 /* LoginViewController.swift */,
+				450E123F1DAF27330027EFBC /* RegisterViewController.swift */,
+				450E12491DAF2B000027EFBC /* EntryViewController.swift */,
+				450E124B1DAF2B3C0027EFBC /* PageContentViewController.swift */,
+			);
+			name = "Tab - Login";
+			sourceTree = "<group>";
+		};
 		451853771DA476B5005CC5E6 /* Tab - Find */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +170,10 @@
 		45B4C0E11DA4AAE6002979DC /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				450E12411DAF2A880027EFBC /* page1.png */,
+				450E12421DAF2A880027EFBC /* page2.png */,
+				450E12431DAF2A880027EFBC /* page3.png */,
+				450E12441DAF2A880027EFBC /* page4.png */,
 				45BC29441DA18249000C54BC /* AppDelegate.swift */,
 				45BC29501DA18249000C54BC /* Info.plist */,
 				459AD2581DA49C590018B7B9 /* GoogleService-Info.plist */,
@@ -176,10 +207,11 @@
 		45BC29431DA18249000C54BC /* Carko */ = {
 			isa = PBXGroup;
 			children = (
-				45B4C0E11DA4AAE6002979DC /* Global */,
-				459AD2551DA49AE20018B7B9 /* Models */,
 				451853781DA476CB005CC5E6 /* Tab - Add */,
 				451853771DA476B5005CC5E6 /* Tab - Find */,
+				45099A851DAF25EA00392FF1 /* Tab - Login */,
+				45B4C0E11DA4AAE6002979DC /* Global */,
+				459AD2551DA49AE20018B7B9 /* Models */,
 				45253B9E1DA3FF36006BEDAF /* Main.storyboard */,
 				45BC294D1DA18249000C54BC /* LaunchScreen.storyboard */,
 			);
@@ -367,8 +399,12 @@
 				C56ADAB61DAAE6510033516C /* ParkingList.storyboard in Resources */,
 				45253B9F1DA3FF37006BEDAF /* Main.storyboard in Resources */,
 				C56ADAB81DAAE6680033516C /* FindParking.storyboard in Resources */,
+				450E12461DAF2A880027EFBC /* page2.png in Resources */,
 				459AD2591DA49C590018B7B9 /* GoogleService-Info.plist in Resources */,
+				450E12481DAF2A880027EFBC /* page4.png in Resources */,
+				450E12471DAF2A880027EFBC /* page3.png in Resources */,
 				45BC294F1DA18249000C54BC /* LaunchScreen.storyboard in Resources */,
+				450E12451DAF2A880027EFBC /* page1.png in Resources */,
 				45BC294C1DA18249000C54BC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -518,11 +554,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				C51150531DAF38D5004E2A7D /* ParkingDescriptionViewController.swift in Sources */,
+				45099A871DAF261200392FF1 /* LoginViewController.swift in Sources */,
 				45BC29451DA18249000C54BC /* AppDelegate.swift in Sources */,
 				4518537A1DA476F1005CC5E6 /* ShareViewController.swift in Sources */,
+				450E12401DAF27330027EFBC /* RegisterViewController.swift in Sources */,
 				4518537C1DA4787B005CC5E6 /* ShareMapViewController.swift in Sources */,
+				450E124A1DAF2B000027EFBC /* EntryViewController.swift in Sources */,
 				459AD2571DA49B6C0018B7B9 /* Parking.swift in Sources */,
 				C51150571DAF393F004E2A7D /* ParkingAvailabilityViewController.swift in Sources */,
+				450E124C1DAF2B3C0027EFBC /* PageContentViewController.swift in Sources */,
 				C56ADABB1DAC00870033516C /* ParkingTableViewCell.swift in Sources */,
 				454E1C3F1DA34DDE0038E714 /* MapViewController.swift in Sources */,
 				C51150591DAF397E004E2A7D /* ParkingInfoTableViewController.swift in Sources */,

@@ -22,7 +22,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GMSServices.provideAPIKey("AIzaSyCUoRAVeSGs2L_l003wJ6EO9wtJ5TYqTHo")
         GMSPlacesClient.provideAPIKey("AIzaSyDsLWLukxc3d4hFxTSLAHLsil4Fus7QBBE")
         FIRApp.configure()
-                
+        
+        let pageControl = UIPageControl.appearance()
+        pageControl.pageIndicatorTintColor = UIColor.lightGray
+        pageControl.currentPageIndicatorTintColor = UIColor.black
+        pageControl.backgroundColor = UIColor.white
+        
         return true
     }
 
