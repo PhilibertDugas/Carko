@@ -10,10 +10,24 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet var email: UITextField!
+    @IBOutlet var password: UITextField!
+    
+    @IBAction func loginPressed(_ sender: AnyObject) {
+        if let email = email.text, let password = password.text {
+            let user = User.init(email: email, password: password)
+            user.logIn()
+        } else {
+            print("Show an error message here")
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.hideKeyboardWhenTappedAround()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.userLoggedIn), name: NSNotification.Name(rawValue: "UserLoggedIn"), object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,6 +35,9 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func userLoggedIn(_ notification: Notification) {
+        performSegue(withIdentifier: "UserLoggedIn", sender: nil)
+    }
 
     /*
     // MARK: - Navigation

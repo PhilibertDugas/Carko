@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2548a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BlE-fA-HKp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ue9-AF-yKV">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -27,7 +27,7 @@
                                 </constraints>
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <segue destination="BlE-fA-HKp" kind="show" id="vbW-fL-3tF"/>
+                                    <action selector="loginPressed:" destination="YXJ-kN-NHX" eventType="touchUpInside" id="mQn-Pq-c7k"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="75H-03-rPq">
@@ -79,6 +79,11 @@
                             <constraint firstItem="Xf9-fK-4sh" firstAttribute="leading" secondItem="YGM-a9-Csk" secondAttribute="leadingMargin" id="qiS-rm-JiT"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="email" destination="75H-03-rPq" id="FxW-4K-k3Q"/>
+                        <outlet property="password" destination="Xf9-fK-4sh" id="CYY-kD-nKM"/>
+                        <segue destination="BlE-fA-HKp" kind="show" identifier="UserLoggedIn" id="B86-Qb-Qer"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vda-6L-x7u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -96,8 +101,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gNW-Hc-oCJ">
-                                <frame key="frameInset" minX="16" minY="585" width="165" height="62"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gNW-Hc-oCJ">
                                 <color key="backgroundColor" red="0.62068484542170665" green="0.97055440989847719" blue="0.62481940186743368" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="62" id="LTI-ZW-NLy"/>
@@ -109,8 +113,7 @@
                                     <segue destination="YXJ-kN-NHX" kind="show" id="aMl-gA-13N"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qbp-l0-xUb">
-                                <frame key="frameInset" minX="194" minY="585" width="165" height="62"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qbp-l0-xUb">
                                 <color key="backgroundColor" red="0.99849302030456855" green="0.34953685683040114" blue="0.23669037461610276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="62" id="qBu-us-U94"/>
@@ -209,7 +212,7 @@
                                 </constraints>
                                 <state key="normal" title="Register"/>
                                 <connections>
-                                    <segue destination="BlE-fA-HKp" kind="show" id="J6r-ym-fYJ"/>
+                                    <action selector="registerPressed:" destination="lKW-f6-EBE" eventType="touchUpInside" id="lid-w6-d2c"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ckv-IO-BQ8">
@@ -281,6 +284,13 @@
                             <constraint firstItem="toZ-Dn-wnR" firstAttribute="top" secondItem="u2M-Jh-drg" secondAttribute="bottom" constant="20" id="xiZ-c2-dxB"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="email" destination="zED-Wd-lrn" id="gH3-g8-N2l"/>
+                        <outlet property="firstName" destination="ckv-IO-BQ8" id="GFe-G6-3ba"/>
+                        <outlet property="lastName" destination="lhR-i9-aIb" id="S2S-Rx-xyk"/>
+                        <outlet property="password" destination="TQu-Yn-at2" id="D5Q-1Y-zXS"/>
+                        <segue destination="BlE-fA-HKp" kind="show" identifier="UserRegistered" id="3eU-Rg-oPT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wjE-gf-69l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -326,7 +336,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="J6r-ym-fYJ"/>
+        <segue reference="3eU-Rg-oPT"/>
         <segue reference="OPc-nx-uga"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -9,11 +9,26 @@
 import UIKit
 
 class RegisterViewController: UIViewController {
+    @IBOutlet var firstName: UITextField!
+    @IBOutlet var lastName: UITextField!
+    @IBOutlet var email: UITextField!
+    @IBOutlet var password: UITextField!
 
+    @IBAction func registerPressed(_ sender: AnyObject) {
+        if let firstName = firstName.text, let lastName = lastName.text, let email = email.text, let password = password.text {
+            let user = User.init(email: email, password: password, firstName: firstName, lastName: lastName)
+            user.register()
+        } else {
+            print("Display an error message to the user")
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.hideKeyboardWhenTappedAround()
 
-        // Do any additional setup after loading the view.
+        NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.userRegistered), name: NSNotification.Name(rawValue: "UserRegistered"), object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,6 +36,9 @@ class RegisterViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func userRegistered(_ notification: Notification) {
+        self.performSegue(withIdentifier: "UserRegistered", sender: nil)
+    }
 
     /*
     // MARK: - Navigation
