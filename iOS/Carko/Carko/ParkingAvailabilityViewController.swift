@@ -154,12 +154,10 @@ class ParkingAvailabilityViewController: UIViewController {
         if parkingAvailability!.alwaysAvailable
         {
             availabilitySelectionView.isHidden = true
-            permanentAvailabilitySwitch.isOn = true
         }
         else
         {
             availabilitySelectionView.isHidden = false
-            permanentAvailabilitySwitch.isOn = false
         }
     }
     

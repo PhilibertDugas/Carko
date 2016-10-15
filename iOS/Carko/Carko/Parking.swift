@@ -11,7 +11,6 @@ import CoreLocation
 
 class Parking: NSObject {
     static let ref = FIRDatabase.database().reference()
-    static let notificationCenter = NotificationCenter.default
 
     var latitude: CLLocationDegrees
     var longitude: CLLocationDegrees
@@ -85,10 +84,100 @@ class Parking: NSObject {
         Parking.ref.child("parkings").updateChildValues(newParking)
     }
     
+    func lapsOfTimeText() -> String
+    {
+        if self.startTime == "0:00 AM" && self.startTime == "12:00 PM"
+        {
+            return "All Day"
+        }
+        else
+        {
+            return (self.startTime + "-" + self.stopTime)
+        }
+    }
+    
+    func daysEnumerationText() -> String{
+        var enumerationText = ""
+        var needsPunctuation = false
+        
+        if isMonday && isTuesday && isWednesday && isThursday && isFriday && isSaturday && isSunday
+        {
+            return "Everyday"
+        }
+        
+        if isMonday
+        {
+            enumerationText += "Mon"
+            needsPunctuation = true
+        }
+        
+        if isTuesday
+        {
+            if needsPunctuation
+            {
+                enumerationText += ", "
+            }
+            enumerationText += "Tue"
+            needsPunctuation = true
+        }
+        
+        if isWednesday
+        {
+            if needsPunctuation
+            {
+                enumerationText += ", "
+            }
+            enumerationText += "Wed"
+            needsPunctuation = true
+        }
+        
+        if isThursday
+        {
+            if needsPunctuation
+            {
+                enumerationText += ", "
+            }
+            enumerationText += "Thr"
+            needsPunctuation = true
+        }
+        
+        if isFriday
+        {
+            if needsPunctuation
+            {
+                enumerationText += ", "
+            }
+            enumerationText += "Fri"
+            needsPunctuation = true
+        }
+        
+        if isSaturday
+        {
+            if needsPunctuation
+            {
+                enumerationText += ", "
+            }
+            enumerationText += "Sat"
+            needsPunctuation = true
+        }
+        
+        if isSunday
+        {
+            if needsPunctuation
+            {
+                enumerationText += ", "
+            }
+            enumerationText += "Sun"
+            needsPunctuation = true
+        }
+        
+        return enumerationText
+    }
+    
     class func getAllParkings() {
         ref.child("parkings").observeSingleEvent(of: .value, with: { (snapshot) in
             let parkings = snapshot.value! as? [String : Any]
-            notificationCenter.post(name: Notification.Name.init("parkingFetched"), object: nil, userInfo: parkings)
+            NotificationCenter.default.post(name: Notification.Name.init("parkingFetched"), object: nil, userInfo: parkings)
         }) { (error) in
             print(error)
         }

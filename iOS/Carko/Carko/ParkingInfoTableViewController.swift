@@ -15,6 +15,7 @@ class ParkingInfoTableViewController: UITableViewController {
     @IBOutlet weak var timeOfDayLabel: UILabel!
     @IBOutlet weak var daysAvailableLabel: UILabel!
     @IBOutlet weak var parkingRate: UILabel!
+    @IBOutlet weak var parkingDescriptionLabel: UILabel!
     
     var parkingInfo: Parking?
     
@@ -45,100 +46,11 @@ class ParkingInfoTableViewController: UITableViewController {
     {
         streetAddressLabel.text = parkingInfo?.address
         postalAddressLabel.text = parkingInfo?.address
-        timeOfDayLabel.text = lapsOfTimeText(startTime: (parkingInfo?.startTime)!, endTime: (parkingInfo?.stopTime)!)
-        daysAvailableLabel.text = daysEnumerationText(monday: (parkingInfo?.isMonday)!, tuesday: (parkingInfo?.isTuesday)!, wednesday: (parkingInfo?.isWednesday)!, thursday: (parkingInfo?.isThursday)!, friday: (parkingInfo?.isFriday)!, saturday: (parkingInfo?.isSaturday)!, sunday: (parkingInfo?.isSunday)!)
+        timeOfDayLabel.text = parkingInfo?.lapsOfTimeText()
+        daysAvailableLabel.text = parkingInfo?.daysEnumerationText()
         
         parkingRate.text = parkingInfo!.price.asLocaleCurrency
-    }
-    
-    func lapsOfTimeText(startTime: String, endTime: String) -> String
-    {
-        if parkingInfo?.startTime == "0:00 AM" && parkingInfo?.startTime == "12:00 PM"
-        {
-            return "All Day"
-        }
-        else
-        {
-            return ((parkingInfo?.startTime)! + "-" + (parkingInfo?.stopTime)!)
-        }
-    }
-    
-    func daysEnumerationText(monday: Bool, tuesday: Bool, wednesday: Bool, thursday: Bool, friday: Bool, saturday: Bool, sunday: Bool) -> String{
-        var enumerationText = ""
-        var needsPunctuation = false
-        
-        if monday && tuesday && wednesday && thursday && friday && saturday && sunday
-        {
-            return "Everyday"
-        }
-        
-        if monday
-        {
-            enumerationText += "Mon"
-            needsPunctuation = true
-        }
-        
-        if tuesday
-        {
-            if needsPunctuation
-            {
-                enumerationText += ", "
-            }
-            enumerationText += "Tue"
-            needsPunctuation = true
-        }
-        
-        if wednesday
-        {
-            if needsPunctuation
-            {
-                enumerationText += ", "
-            }
-            enumerationText += "Wed"
-            needsPunctuation = true
-        }
-        
-        if thursday
-        {
-            if needsPunctuation
-            {
-                enumerationText += ", "
-            }
-            enumerationText += "Thr"
-            needsPunctuation = true
-        }
-        
-        if friday
-        {
-            if needsPunctuation
-            {
-                enumerationText += ", "
-            }
-            enumerationText += "Fri"
-            needsPunctuation = true
-        }
-        
-        if saturday
-        {
-            if needsPunctuation
-            {
-                enumerationText += ", "
-            }
-            enumerationText += "Sat"
-            needsPunctuation = true
-        }
-        
-        if sunday
-        {
-            if needsPunctuation
-            {
-                enumerationText += ", "
-            }
-            enumerationText += "Sun"
-            needsPunctuation = true
-        }
-        
-        return enumerationText
+        parkingDescriptionLabel.text = parkingInfo?.parkingDescription
     }
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -163,7 +75,7 @@ class ParkingInfoTableViewController: UITableViewController {
             let destinationVC = segue.destination as! ParkingDescriptionViewController
             
             // set the parking to see
-            destinationVC.parkingDescription = parkingInfo!.description
+            destinationVC.parkingDescription = parkingInfo!.parkingDescription
             destinationVC.delegate = self
         }
         else if segue.identifier == "ChangeAvailability"
@@ -200,6 +112,17 @@ extension ParkingInfoTableViewController: ParkingAvailabilityDelegate
 {
     func userDidChangeAvailability(value: ParkingAvailabilityInfo)
     {
+        parkingInfo?.alwaysAvailable = value.alwaysAvailable
         
+        parkingInfo?.startTime = value.startTime
+        parkingInfo?.stopTime = value.stopTime
+        
+        parkingInfo?.isMonday = value.isMonday
+        parkingInfo?.isTuesday = value.isTuesday
+        parkingInfo?.isWednesday = value.isWednesday
+        parkingInfo?.isThursday = value.isThursday
+        parkingInfo?.isFriday = value.isFriday
+        parkingInfo?.isSaturday = value.isSaturday
+        parkingInfo?.isSunday = value.isSunday
     }
 }

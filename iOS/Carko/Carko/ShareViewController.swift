@@ -24,7 +24,8 @@ class ShareViewController: UIViewController {
         ParkingTableView.delegate = self
         ParkingTableView.dataSource = self
 
-        NotificationCenter.default.addObserver(self, selector: #selector(MapViewController.parkingFetched), name: NSNotification.Name(rawValue: "parkingFetched"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.parkingFetched), name: NSNotification.Name(rawValue: "parkingFetched"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.parkingListUpdate), name: NSNotification.Name(rawValue: "parkingListUpdated"), object: nil)
         Parking.getAllParkings()
         
         // Do any additional setup after loading the view.
@@ -63,6 +64,8 @@ class ShareViewController: UIViewController {
     func parkingFetched(_ notification: Notification) {
         if let parkingData = notification.userInfo as? [String: Any] {
             
+            parkingList.removeAll()
+            
             for (_, parkingInstance) in parkingData {
                 let parking = Parking.init(parking: parkingInstance as! [String : Any])
                 parkingList.append(parking)
@@ -70,6 +73,11 @@ class ShareViewController: UIViewController {
             
             ParkingTableView.reloadData()
         }
+    }
+    
+    func parkingListUpdate()
+    {
+        Parking.getAllParkings()
     }
 
     // MARK: - Navigation
