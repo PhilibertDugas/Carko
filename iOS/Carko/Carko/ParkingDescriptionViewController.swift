@@ -15,11 +15,15 @@ protocol ParkingDescriptionDelegate: class
 
 class ParkingDescriptionViewController: UIViewController {
     
+    @IBOutlet weak var descriptionText: UITextView!
+    
     // making this a weak variable so that it won't create a strong reference cycle
     weak var delegate: ParkingDescriptionDelegate? = nil
+    var parkingDescription: String?
     
     @IBAction func saveChange(_ sender: AnyObject) {
         
+        delegate?.userDidChangeDescription(value: descriptionText.text)
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -30,7 +34,7 @@ class ParkingDescriptionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        descriptionText.text = parkingDescription
     }
 
     override func didReceiveMemoryWarning() {

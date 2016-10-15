@@ -23,24 +23,12 @@ class ParkingRatesViewController: UIViewController {
     @IBOutlet weak var postedRateSlider: UISlider!
     
     let appPercentageCut:Float = 0.2
-    var initialRate: Float?
-    
-    @IBAction func hourlyRateChanged(_ sender: AnyObject) {
-        
-        postedRateField.text = (Float(hourlyRateField.text!)!*(1 + appPercentageCut)).asLocaleCurrency
-        postedRateSlider.value = Float(postedRateField.text!)!
-    }
-    
-    @IBAction func postedRateChanged(_ sender: AnyObject) {
-        
-        postedRateSlider.value = Float(postedRateField.text!)!
-        hourlyRateField.text = (Float(postedRateSlider.value)*(1 - appPercentageCut)).asLocaleCurrency
-    }
+    var parkingRate: Float?
     
     @IBAction func postedRateSliderChanged(_ sender: AnyObject) {
         
-        postedRateField.text = Float(postedRateSlider.value).asLocaleCurrency
-        hourlyRateField.text = (Float(postedRateSlider.value)*(1 - appPercentageCut)).asLocaleCurrency
+        parkingRate = Float(postedRateSlider.value).asCurrency
+        ratesUpdated()
     }
     
     @IBAction func saveChange(_ sender: AnyObject) {
@@ -55,11 +43,9 @@ class ParkingRatesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        postedRateField.text = initialRate?.asLocaleCurrency
-        hourlyRateField.text = (initialRate! * (1-appPercentageCut)).asLocaleCurrency
         
-        postedRateSlider.value = initialRate!
+        postedRateSlider.value = parkingRate!
+        ratesUpdated()
         // Do any additional setup after loading the view.
     }
     
@@ -74,6 +60,11 @@ class ParkingRatesViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func ratesUpdated()
+    {
+        postedRateField.text = parkingRate?.asLocaleCurrency
+        hourlyRateField.text = (parkingRate! * (1 - appPercentageCut)).asLocaleCurrency
+    }
 
     /*
     // MARK: - Navigation

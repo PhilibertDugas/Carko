@@ -35,6 +35,7 @@
 		C56ADAB61DAAE6510033516C /* ParkingList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C56ADAB51DAAE6510033516C /* ParkingList.storyboard */; };
 		C56ADAB81DAAE6680033516C /* FindParking.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C56ADAB71DAAE6680033516C /* FindParking.storyboard */; };
 		C56ADABB1DAC00870033516C /* ParkingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56ADABA1DAC00870033516C /* ParkingTableViewCell.swift */; };
+		C5858E7E1DB188920066A9B3 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5858E7D1DB188920066A9B3 /* StringExtension.swift */; };
 		C5B310601DB023610051C90B /* FloatExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B3105F1DB023610051C90B /* FloatExtension.swift */; };
 		EA021D9D0F7EBED1E7565A98 /* Pods_CarkoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10DDB660E5099E802BAA804E /* Pods_CarkoTests.framework */; };
 /* End PBXBuildFile section */
@@ -96,6 +97,7 @@
 		C56ADAB51DAAE6510033516C /* ParkingList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ParkingList.storyboard; sourceTree = "<group>"; };
 		C56ADAB71DAAE6680033516C /* FindParking.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FindParking.storyboard; sourceTree = "<group>"; };
 		C56ADABA1DAC00870033516C /* ParkingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingTableViewCell.swift; sourceTree = "<group>"; };
+		C5858E7D1DB188920066A9B3 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		C5B3105F1DB023610051C90B /* FloatExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatExtension.swift; sourceTree = "<group>"; };
 		E698A5AD42366D0AB15C9348 /* Pods-Carko.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carko.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Carko/Pods-Carko.debug.xcconfig"; sourceTree = "<group>"; };
 		FC68D22D6823E3DE6D1A34E4 /* Pods_CarkoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarkoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -275,6 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				C5B3105F1DB023610051C90B /* FloatExtension.swift */,
+				C5858E7D1DB188920066A9B3 /* StringExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -568,6 +571,7 @@
 				45099A871DAF261200392FF1 /* LoginViewController.swift in Sources */,
 				45BC29451DA18249000C54BC /* AppDelegate.swift in Sources */,
 				4518537A1DA476F1005CC5E6 /* ShareViewController.swift in Sources */,
+				C5858E7E1DB188920066A9B3 /* StringExtension.swift in Sources */,
 				450E12401DAF27330027EFBC /* RegisterViewController.swift in Sources */,
 				4518537C1DA4787B005CC5E6 /* ShareMapViewController.swift in Sources */,
 				450E124A1DAF2B000027EFBC /* EntryViewController.swift in Sources */,

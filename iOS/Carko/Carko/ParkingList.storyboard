@@ -27,7 +27,7 @@
                                         <rect key="frame" x="0.0" y="92" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4D8-ck-LYo" id="sLb-bz-z0H">
-                                            <frame key="frameInset" width="342" height="89.5"/>
+                                            <frame key="frameInset" width="342" height="89"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Puj-Vq-q0M">
@@ -127,7 +127,7 @@
                                         <rect key="frame" x="0.0" y="64" width="375" height="195"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rdQ-SI-46o" id="Fyr-hM-fXR">
-                                            <frame key="frameInset" width="375" height="194.5"/>
+                                            <frame key="frameInset" width="375" height="194"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OA0-D1-fKi">
@@ -146,7 +146,7 @@
                                         <rect key="frame" x="0.0" y="259" width="375" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uEZ-dl-bBY" id="gRP-Fn-SqF">
-                                            <frame key="frameInset" width="375" height="64.5"/>
+                                            <frame key="frameInset" width="375" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1R-fF-ilK">
@@ -177,7 +177,7 @@
                                         <rect key="frame" x="0.0" y="324" width="375" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vco-W5-yi5" id="Ubz-C5-Fby">
-                                            <frame key="frameInset" width="342" height="64.5"/>
+                                            <frame key="frameInset" width="342" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="voJ-K9-oQi">
@@ -204,7 +204,7 @@
                                         <rect key="frame" x="0.0" y="389" width="375" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eOH-Uf-wGq" id="o7P-2C-QTa">
-                                            <frame key="frameInset" width="342" height="64.5"/>
+                                            <frame key="frameInset" width="342" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rates &amp; Availability" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrR-h3-Cuo">
@@ -238,7 +238,7 @@
                                         <rect key="frame" x="0.0" y="454" width="375" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AdC-vm-eJO" id="j1V-rG-yQv">
-                                            <frame key="frameInset" width="342" height="64.5"/>
+                                            <frame key="frameInset" width="342" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rates" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCo-gl-ZoR">
@@ -265,7 +265,7 @@
                                         <rect key="frame" x="0.0" y="519" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PXa-pz-RtB" id="ID4-N0-G8F">
-                                            <frame key="frameInset" width="375" height="99.5"/>
+                                            <frame key="frameInset" width="375" height="99"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Profit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="57d-0s-eZt">
@@ -284,6 +284,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="400" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -368,6 +369,9 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="descriptionText" destination="SyP-yK-IPs" id="4yl-ZN-VKE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lBD-TD-95e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -398,7 +402,7 @@
         <scene sceneID="ECl-tq-be7">
             <objects>
                 <navigationController id="9zk-77-AWD" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mmU-7R-hdw">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mmU-7R-hdw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -500,15 +504,12 @@
                                             <color key="textColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XSm-jx-Cl5">
+                                        <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XSm-jx-Cl5">
                                             <frame key="frameInset" minX="263" minY="135" width="75" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                            <connections>
-                                                <action selector="postedRateChanged:" destination="Fzg-4f-Mgf" eventType="valueChanged" id="cFM-bg-fwb"/>
-                                            </connections>
+                                            <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                         </textField>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Posted Rate" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y9E-Jw-3sC">
                                             <frame key="frameInset" minX="213" minY="135" width="42" height="32"/>
@@ -524,15 +525,12 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uBH-dG-mB3">
+                                        <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uBH-dG-mB3">
                                             <frame key="frameInset" minX="86" minY="136" width="75" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
-                                            <connections>
-                                                <action selector="hourlyRateChanged:" destination="Fzg-4f-Mgf" eventType="valueChanged" id="0Vf-EI-8mL"/>
-                                            </connections>
                                         </textField>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q2E-My-qqO">
                                             <frame key="frameInset" minY="629" width="375" height="38"/>
@@ -607,6 +605,9 @@
                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4y7-r5-erP">
                                             <frame key="frameInset" minX="306" minY="121" width="51" height="31"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <connections>
+                                                <action selector="permanentAvailabilityToggle:" destination="mIc-Su-6ok" eventType="valueChanged" id="AXk-TD-9Ve"/>
+                                            </connections>
                                         </switch>
                                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lt2-FD-iZU">
                                             <frame key="frameInset" minX="15" minY="176" width="340" height="225"/>
@@ -634,6 +635,7 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
                                                         <action selector="fromTimeEditBegin:" destination="mIc-Su-6ok" eventType="editingDidBegin" id="nEd-Sf-EpO"/>
+                                                        <action selector="fromTimeEditEnd:" destination="mIc-Su-6ok" eventType="editingDidEnd" id="yBB-FR-7iM"/>
                                                     </connections>
                                                 </textField>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U0R-dg-MSF">
@@ -643,6 +645,9 @@
                                                     <state key="normal" title="Thu">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="thursdayToggle:" destination="mIc-Su-6ok" eventType="touchUpInside" id="AB8-6s-p4Y"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="At what time each day, is your space available?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ec9-9N-4bP">
                                                     <frame key="frameInset" minX="19" minY="131" width="302" height="21"/>
@@ -658,6 +663,9 @@
                                                     <state key="normal" title="Mon">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="mondayToggle:" destination="mIc-Su-6ok" eventType="touchUpInside" id="F5Z-W4-yjp"/>
+                                                    </connections>
                                                 </button>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="muq-Vz-0Am">
                                                     <frame key="frameInset" minX="186" minY="187" width="135" height="30"/>
@@ -667,6 +675,7 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
                                                         <action selector="toTimeEditBegin:" destination="mIc-Su-6ok" eventType="editingDidEnd" id="RsJ-JB-ncT"/>
+                                                        <action selector="toTimeEditEnd:" destination="mIc-Su-6ok" eventType="editingDidEnd" id="hRv-E3-Xhs"/>
                                                     </connections>
                                                 </textField>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H57-Wc-Y9D">
@@ -676,6 +685,9 @@
                                                     <state key="normal" title="Fri">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="fridayToggle:" destination="mIc-Su-6ok" eventType="touchUpInside" id="JrE-ev-30N"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MiS-if-DpI">
                                                     <frame key="frameInset" minX="186" minY="50" width="35" height="25"/>
@@ -684,6 +696,9 @@
                                                     <state key="normal" title="Wed">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="wednesdayToggle:" destination="mIc-Su-6ok" eventType="touchUpInside" id="FpG-cs-o3g"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kdL-2C-L2u">
                                                     <frame key="frameInset" minX="112" minY="50" width="35" height="25"/>
@@ -692,6 +707,9 @@
                                                     <state key="normal" title="Tue">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="tuesdayToggle:" destination="mIc-Su-6ok" eventType="touchUpInside" id="iQP-Aa-gWi"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFf-Q3-YGb">
                                                     <frame key="frameInset" minX="153" minY="84" width="35" height="25"/>
@@ -700,6 +718,9 @@
                                                     <state key="normal" title="Sat">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="saturdayToggle:" destination="mIc-Su-6ok" eventType="touchUpInside" id="TXI-3a-XWr"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="From:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ge7-DZ-L09">
                                                     <frame key="frameInset" minX="19" minY="161" width="44" height="21"/>
@@ -715,6 +736,9 @@
                                                     <state key="normal" title="Sun">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="sundayToggle:" destination="mIc-Su-6ok" eventType="touchUpInside" id="ZmI-RO-EDq"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -761,8 +785,23 @@
                     </view>
                     <connections>
                         <outlet property="availabilitySelectionView" destination="Lt2-FD-iZU" id="WaP-nQ-Y3g"/>
+                        <outlet property="fridayButton" destination="H57-Wc-Y9D" id="coM-cS-0lC"/>
                         <outlet property="fromTextField" destination="6Rt-wf-qUP" id="Tjz-ao-EO7"/>
+                        <outlet property="mondayButton" destination="c0e-M4-kkA" id="9gk-e5-wjN"/>
+                        <outlet property="permanentAvailabilitySwitch" destination="4y7-r5-erP" id="1YD-s7-HlS"/>
+                        <outlet property="saturdayButton" destination="fFf-Q3-YGb" id="1dj-x9-ZA8"/>
+                        <outlet property="sundayButton" destination="q3B-OU-4yc" id="GxL-0T-a0W"/>
+                        <outlet property="thursdayButton" destination="U0R-dg-MSF" id="lzL-ve-tWe"/>
                         <outlet property="toTextField" destination="muq-Vz-0Am" id="Sbr-5X-ngQ"/>
+                        <outlet property="tuesdayButton" destination="kdL-2C-L2u" id="Hfk-kv-Ixz"/>
+                        <outlet property="wednesdayButton" destination="MiS-if-DpI" id="9MC-3K-Cbb"/>
+                        <outletCollection property="daysButton" destination="q3B-OU-4yc" collectionClass="NSMutableArray" id="8vW-BO-GUA"/>
+                        <outletCollection property="daysButton" destination="U0R-dg-MSF" collectionClass="NSMutableArray" id="PII-Ig-z5z"/>
+                        <outletCollection property="daysButton" destination="MiS-if-DpI" collectionClass="NSMutableArray" id="Wmr-xg-B0v"/>
+                        <outletCollection property="daysButton" destination="fFf-Q3-YGb" collectionClass="NSMutableArray" id="dCa-vC-ZTx"/>
+                        <outletCollection property="daysButton" destination="kdL-2C-L2u" collectionClass="NSMutableArray" id="wb8-Wj-czo"/>
+                        <outletCollection property="daysButton" destination="H57-Wc-Y9D" collectionClass="NSMutableArray" id="gSC-0w-Xlb"/>
+                        <outletCollection property="daysButton" destination="c0e-M4-kkA" collectionClass="NSMutableArray" id="pfx-WA-7lF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BzV-38-RNL" userLabel="First Responder" sceneMemberID="firstResponder"/>
