@@ -19,6 +19,8 @@
 		450E124C1DAF2B3C0027EFBC /* PageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450E124B1DAF2B3C0027EFBC /* PageContentViewController.swift */; };
 		4518537A1DA476F1005CC5E6 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451853791DA476F1005CC5E6 /* ShareViewController.swift */; };
 		4518537C1DA4787B005CC5E6 /* ShareMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4518537B1DA4787B005CC5E6 /* ShareMapViewController.swift */; };
+		451E424B1DB071EC00747370 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451E424A1DB071EC00747370 /* User.swift */; };
+		451E424D1DB078E000747370 /* KeyboardDimissExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451E424C1DB078E000747370 /* KeyboardDimissExtension.swift */; };
 		45253B9F1DA3FF37006BEDAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45253B9E1DA3FF36006BEDAF /* Main.storyboard */; };
 		454E1C3F1DA34DDE0038E714 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454E1C3D1DA34DDE0038E714 /* MapViewController.swift */; };
 		458F62831DA184BE00205FBB /* MapViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458F62821DA184BE00205FBB /* MapViewControllerTest.swift */; };
@@ -71,6 +73,8 @@
 		450E124B1DAF2B3C0027EFBC /* PageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageContentViewController.swift; sourceTree = "<group>"; };
 		451853791DA476F1005CC5E6 /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		4518537B1DA4787B005CC5E6 /* ShareMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareMapViewController.swift; sourceTree = "<group>"; };
+		451E424A1DB071EC00747370 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		451E424C1DB078E000747370 /* KeyboardDimissExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardDimissExtension.swift; sourceTree = "<group>"; };
 		45253B9E1DA3FF36006BEDAF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		454E1C3D1DA34DDE0038E714 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		458F62821DA184BE00205FBB /* MapViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewControllerTest.swift; sourceTree = "<group>"; };
@@ -167,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				459AD2561DA49B6C0018B7B9 /* Parking.swift */,
+				451E424A1DB071EC00747370 /* User.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -278,6 +283,7 @@
 			children = (
 				C5B3105F1DB023610051C90B /* FloatExtension.swift */,
 				C5858E7D1DB188920066A9B3 /* StringExtension.swift */,
+				451E424C1DB078E000747370 /* KeyboardDimissExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -572,7 +578,9 @@
 				45BC29451DA18249000C54BC /* AppDelegate.swift in Sources */,
 				4518537A1DA476F1005CC5E6 /* ShareViewController.swift in Sources */,
 				C5858E7E1DB188920066A9B3 /* StringExtension.swift in Sources */,
+				451E424B1DB071EC00747370 /* User.swift in Sources */,
 				450E12401DAF27330027EFBC /* RegisterViewController.swift in Sources */,
+				451E424D1DB078E000747370 /* KeyboardDimissExtension.swift in Sources */,
 				4518537C1DA4787B005CC5E6 /* ShareMapViewController.swift in Sources */,
 				450E124A1DAF2B000027EFBC /* EntryViewController.swift in Sources */,
 				459AD2571DA49B6C0018B7B9 /* Parking.swift in Sources */,
