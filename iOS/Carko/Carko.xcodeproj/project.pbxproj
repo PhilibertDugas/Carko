@@ -30,6 +30,7 @@
 		45BC294C1DA18249000C54BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45BC294B1DA18249000C54BC /* Assets.xcassets */; };
 		45BC294F1DA18249000C54BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45BC294D1DA18249000C54BC /* LaunchScreen.storyboard */; };
 		45BC29651DA18249000C54BC /* CarkoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC29641DA18249000C54BC /* CarkoUITests.swift */; };
+		45D5A5091DB2BE8F0025C45A /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45D5A5081DB2BE8F0025C45A /* Profile.storyboard */; };
 		C51150531DAF38D5004E2A7D /* ParkingDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51150521DAF38D5004E2A7D /* ParkingDescriptionViewController.swift */; };
 		C51150551DAF38EC004E2A7D /* ParkingRatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51150541DAF38EC004E2A7D /* ParkingRatesViewController.swift */; };
 		C51150571DAF393F004E2A7D /* ParkingAvailabilityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51150561DAF393F004E2A7D /* ParkingAvailabilityViewController.swift */; };
@@ -90,6 +91,7 @@
 		45BC29601DA18249000C54BC /* CarkoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarkoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		45BC29641DA18249000C54BC /* CarkoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarkoUITests.swift; sourceTree = "<group>"; };
 		45BC29661DA18249000C54BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45D5A5081DB2BE8F0025C45A /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		4F122EAAE6A2C237B387C6E7 /* Pods-CarkoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarkoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CarkoTests/Pods-CarkoTests.release.xcconfig"; sourceTree = "<group>"; };
 		51BE0236C2E899D05DB12FEF /* Pods-CarkoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarkoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CarkoUITests/Pods-CarkoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		538BFE4EA50CCE486CF330C6 /* Pods_Carko.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Carko.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -176,17 +178,25 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
-		45B4C0E11DA4AAE6002979DC /* Global */ = {
+		45A4CA2E1DB2B8B700741099 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
 				450E12411DAF2A880027EFBC /* page1.png */,
 				450E12421DAF2A880027EFBC /* page2.png */,
 				450E12431DAF2A880027EFBC /* page3.png */,
 				450E12441DAF2A880027EFBC /* page4.png */,
+				45BC294B1DA18249000C54BC /* Assets.xcassets */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		45B4C0E11DA4AAE6002979DC /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				45A4CA2E1DB2B8B700741099 /* Assets */,
 				45BC29441DA18249000C54BC /* AppDelegate.swift */,
 				45BC29501DA18249000C54BC /* Info.plist */,
 				459AD2581DA49C590018B7B9 /* GoogleService-Info.plist */,
-				45BC294B1DA18249000C54BC /* Assets.xcassets */,
 			);
 			name = Global;
 			sourceTree = "<group>";
@@ -220,6 +230,7 @@
 				451853781DA476CB005CC5E6 /* Tab - Add */,
 				451853771DA476B5005CC5E6 /* Tab - Find */,
 				45099A851DAF25EA00392FF1 /* Tab - Login */,
+				45D5A5071DB2BE640025C45A /* Tab - Profile */,
 				45B4C0E11DA4AAE6002979DC /* Global */,
 				459AD2551DA49AE20018B7B9 /* Models */,
 				45253B9E1DA3FF36006BEDAF /* Main.storyboard */,
@@ -244,6 +255,14 @@
 				45BC29661DA18249000C54BC /* Info.plist */,
 			);
 			path = CarkoUITests;
+			sourceTree = "<group>";
+		};
+		45D5A5071DB2BE640025C45A /* Tab - Profile */ = {
+			isa = PBXGroup;
+			children = (
+				45D5A5081DB2BE8F0025C45A /* Profile.storyboard */,
+			);
+			name = "Tab - Profile";
 			sourceTree = "<group>";
 		};
 		BE9AA67A9636250C12944D99 /* Pods */ = {
@@ -417,6 +436,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C56ADAB61DAAE6510033516C /* ParkingList.storyboard in Resources */,
+				45D5A5091DB2BE8F0025C45A /* Profile.storyboard in Resources */,
 				45253B9F1DA3FF37006BEDAF /* Main.storyboard in Resources */,
 				C56ADAB81DAAE6680033516C /* FindParking.storyboard in Resources */,
 				450E12461DAF2A880027EFBC /* page2.png in Resources */,
@@ -655,6 +675,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -705,6 +726,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

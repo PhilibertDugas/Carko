@@ -10,6 +10,7 @@ import UIKit
 import GoogleMaps
 import GooglePlaces
 import Firebase
+import Stripe
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GMSServices.provideAPIKey("AIzaSyCUoRAVeSGs2L_l003wJ6EO9wtJ5TYqTHo")
         GMSPlacesClient.provideAPIKey("AIzaSyDsLWLukxc3d4hFxTSLAHLsil4Fus7QBBE")
         FIRApp.configure()
+        STPPaymentConfiguration.shared().publishableKey = "pk_test_1LYkk7fCrA1bWDbXRUx1zWBx"
         
         let pageControl = UIPageControl.appearance()
         pageControl.pageIndicatorTintColor = UIColor.lightGray
