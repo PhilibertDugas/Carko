@@ -329,7 +329,7 @@
         <scene sceneID="unp-1m-Cxi">
             <objects>
                 <viewControllerPlaceholder storyboardName="Profile" id="v0W-TT-JD1" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="pgO-0Z-jDK"/>
+                    <tabBarItem key="tabBarItem" systemItem="featured" id="pgO-0Z-jDK"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BZe-rY-oim" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

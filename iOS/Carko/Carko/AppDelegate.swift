@@ -20,10 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        GMSServices.provideAPIKey("AIzaSyCUoRAVeSGs2L_l003wJ6EO9wtJ5TYqTHo")
-        GMSPlacesClient.provideAPIKey("AIzaSyDsLWLukxc3d4hFxTSLAHLsil4Fus7QBBE")
-        FIRApp.configure()
-        STPPaymentConfiguration.shared().publishableKey = "pk_test_1LYkk7fCrA1bWDbXRUx1zWBx"
+        configureGoogleServices()
+        configureStripe()
         
         let pageControl = UIPageControl.appearance()
         pageControl.pageIndicatorTintColor = UIColor.lightGray
@@ -31,6 +29,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         pageControl.backgroundColor = UIColor.white
         
         return true
+    }
+    
+    func configureGoogleServices() {
+        GMSServices.provideAPIKey("AIzaSyCUoRAVeSGs2L_l003wJ6EO9wtJ5TYqTHo")
+        GMSPlacesClient.provideAPIKey("AIzaSyDsLWLukxc3d4hFxTSLAHLsil4Fus7QBBE")
+        FIRApp.configure()
+    }
+    
+    func configureStripe() {
+        STPPaymentConfiguration.shared().publishableKey = "pk_test_1LYkk7fCrA1bWDbXRUx1zWBx"
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

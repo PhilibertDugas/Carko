@@ -28,8 +28,6 @@ class MapViewController: UIViewController {
         locationManager.distanceFilter = 10
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(MapViewController.parkingFetched), name: NSNotification.Name(rawValue: "parkingFetched"), object: nil)
     }
     
     func parkingFetched(_ notification: Notification) {
@@ -61,6 +59,7 @@ extension MapViewController: CLLocationManagerDelegate {
                 mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
                 mapView.isMyLocationEnabled = true
                 view = mapView
+                NotificationCenter.default.addObserver(self, selector: #selector(MapViewController.parkingFetched), name: NSNotification.Name(rawValue: "parkingFetched"), object: nil)
             } else {
                 let newCam = GMSCameraUpdate.setTarget(currentCoordinate)
                 mapView.animate(with: newCam)
