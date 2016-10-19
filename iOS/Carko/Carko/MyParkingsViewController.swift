@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShareViewController: UIViewController {
+class MyParkingsViewController: UIViewController {
 
     @IBOutlet weak var ParkingTableView: UITableView!
     @IBOutlet weak var Edit: UIBarButtonItem!
@@ -27,31 +27,15 @@ class ShareViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.parkingFetched), name: NSNotification.Name(rawValue: "parkingFetched"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.parkingListUpdate), name: NSNotification.Name(rawValue: "parkingListUpdated"), object: nil)
         Parking.getAllParkings()
-        
-        // Do any additional setup after loading the view.
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func editingParking(_ sender: AnyObject) {
-    
-        if !isEditingAvailability
-        {
+        if !isEditingAvailability {
             Edit.title = "Done"
             self.navigationItem.rightBarButtonItem?.isEnabled = false;
             isEditingAvailability = true
             ParkingTableView.reloadSections([0], with: UITableViewRowAnimation.automatic)
-        }
-        else
-        {
+        } else {
             Edit.title = "Edit"
             self.navigationItem.rightBarButtonItem?.isEnabled = true;
             isEditingAvailability = false
@@ -63,9 +47,7 @@ class ShareViewController: UIViewController {
 
     func parkingFetched(_ notification: Notification) {
         if let parkingData = notification.userInfo as? [String: Any] {
-            
             parkingList.removeAll()
-            
             for (_, parkingInstance) in parkingData {
                 let parking = Parking.init(parking: parkingInstance as! [String : Any])
                 parkingList.append(parking)
@@ -75,22 +57,14 @@ class ShareViewController: UIViewController {
         }
     }
     
-    func parkingListUpdate()
-    {
+    func parkingListUpdate() {
         Parking.getAllParkings()
     }
 
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        
         NotificationCenter.default.removeObserver(self)
         
-        if segue.identifier == "showParkingInfo"
-        {
+        if segue.identifier == "showParkingInfo" {
             // get a reference to the second view controller
             let destinationVC = segue.destination as! ParkingInfoTableViewController
             
@@ -100,10 +74,8 @@ class ShareViewController: UIViewController {
     }
 }
 
-extension ShareViewController: UITableViewDataSource, UITableViewDelegate
-{
-    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath?
-    {
+extension MyParkingsViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         selectedRowIndex = indexPath.row
         return indexPath
     }
@@ -117,12 +89,10 @@ extension ShareViewController: UITableViewDataSource, UITableViewDelegate
         
         cell.address.text = parkingList[indexPath.row].address
         
-        if !isEditingAvailability
-        {
+        if !isEditingAvailability {
             cell.availabilitySwitch.isHidden = true
         }
-        else
-        {
+        else {
             cell.availabilitySwitch.isHidden = false
         }
         

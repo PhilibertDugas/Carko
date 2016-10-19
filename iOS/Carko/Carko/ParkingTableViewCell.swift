@@ -17,19 +17,17 @@ class ParkingTableViewCell: UITableViewCell {
     
     @IBAction func availabilityToggle(_ sender: AnyObject) {
         
-        if availabilitySwitch.isOn
-        {
+        if availabilitySwitch.isOn {
             availabilityLabel.textColor = UIColor.black
             daysAvailable.textColor = UIColor.black
             address.textColor = UIColor.black
-        }
-        else
-        {
+        } else {
             availabilityLabel.textColor = UIColor.gray
             daysAvailable.textColor = UIColor.gray
             address.textColor = UIColor.gray
         }
     }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

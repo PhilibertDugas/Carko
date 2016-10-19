@@ -8,24 +8,7 @@
 
 import UIKit
 
-struct ParkingAvailabilityInfo
-{
-    var alwaysAvailable: Bool
-    
-    var startTime: String
-    var stopTime: String
-    
-    var isMonday: Bool
-    var isTuesday: Bool
-    var isWednesday: Bool
-    var isThursday: Bool
-    var isFriday: Bool
-    var isSaturday: Bool
-    var isSunday: Bool
-}
-
-protocol ParkingAvailabilityDelegate: class
-{
+protocol ParkingAvailabilityDelegate: class {
     func userDidChangeAvailability(value: ParkingAvailabilityInfo)
 }
 
@@ -51,9 +34,8 @@ class ParkingAvailabilityViewController: UIViewController {
     // making this a weak variable so that it won't create a strong reference cycle
     weak var delegate: ParkingAvailabilityDelegate? = nil
     var parkingAvailability: ParkingAvailabilityInfo?
-    
-    @IBAction func saveChange(_ sender: AnyObject) {
         
+    @IBAction func saveChange(_ sender: AnyObject) {
         delegate?.userDidChangeAvailability(value: parkingAvailability!)
         self.dismiss(animated: true, completion: nil)
     }
@@ -67,16 +49,15 @@ class ParkingAvailabilityViewController: UIViewController {
     }
     
     @IBAction func fromTimeEditBegin(_ sender: AnyObject) {
-        
         let datePicker = UIDatePicker()
         fromTextField.inputView = datePicker
     }
+    
     @IBAction func fromTimeEditEnd(_ sender: AnyObject) {
         parkingAvailability!.startTime = fromTextField.text!
     }
     
     @IBAction func toTimeEditBegin(_ sender: AnyObject) {
-        
         let datePicker = UIDatePicker()
         toTextField.inputView = datePicker
     }
@@ -86,7 +67,6 @@ class ParkingAvailabilityViewController: UIViewController {
     }
     
     @IBAction func mondayToggle(_ sender: AnyObject) {
-        
         parkingAvailability!.isMonday = !parkingAvailability!.isMonday
         updateButton(isOn: parkingAvailability!.isMonday, button: mondayButton)
     }
@@ -123,18 +103,13 @@ class ParkingAvailabilityViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        updateAvailability()
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-    func updateAvailability()
-    {
+    override func viewDidAppear(_ animated: Bool) {
+        updateAvailability()
+    }
+    
+    func updateAvailability() {
         updatePermanentAvailability()
         
         updateButton(isOn: parkingAvailability!.isMonday, button: mondayButton)
@@ -149,38 +124,21 @@ class ParkingAvailabilityViewController: UIViewController {
         toTextField.text = parkingAvailability!.stopTime
     }
     
-    func updatePermanentAvailability()
-    {
-        if parkingAvailability!.alwaysAvailable
-        {
+    func updatePermanentAvailability() {
+        if parkingAvailability!.alwaysAvailable {
             availabilitySelectionView.isHidden = true
         }
-        else
-        {
+        else {
             availabilitySelectionView.isHidden = false
         }
     }
     
-    func updateButton(isOn: Bool, button: UIButton!)
-    {
-        if isOn
-        {
+    func updateButton(isOn: Bool, button: UIButton!) {
+        if isOn {
             button.backgroundColor = UIColor.green
         }
-        else
-        {
+        else {
             button.backgroundColor = UIColor.clear
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

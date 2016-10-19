@@ -11,7 +11,7 @@ import GoogleMaps
 import GooglePlaces
 import CoreLocation
 
-class ShareMapViewController: UIViewController {
+class NewParkingViewController: UIViewController {
 
     @IBOutlet var addButton: UIButton!
     
@@ -22,6 +22,7 @@ class ShareMapViewController: UIViewController {
     var searchController: UISearchController?
     var resultView: UITextView?
     var currentPlace: GMSPlace?
+    var newParking: Parking?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +31,7 @@ class ShareMapViewController: UIViewController {
         setupLocationManager()
         setupSearchBar()
     }
-    
+
     func setupSearchBar() {
         resultsViewController = GMSAutocompleteResultsViewController()
         resultsViewController?.delegate = self
@@ -58,14 +59,37 @@ class ShareMapViewController: UIViewController {
     
     @IBAction func addButtonTapped(_ sender: AnyObject) {
         let currentMapCoordinate = mapView.camera.target
-        let newParking = Parking.init(latitude: currentMapCoordinate.latitude, longitude: currentMapCoordinate.longitude, photoURL: URL.init(string: "http://google.com")!, address: (currentPlace?.name)!, startTime: "0:00 AM", stopTime: "12:00 PM", price: 1.0, parkingDescription: "", isMonday: true, isTuesday: true, isWednesday: false, isThursday: true, isFriday: false, isSaturday: true, isSunday: false, alwaysAvailable: false)
-        newParking.persist()
+        let newAvailabilityInfo = ParkingAvailabilityInfo.init()
+        self.newParking = Parking.init(latitude: currentMapCoordinate.latitude, longitude: currentMapCoordinate.longitude, photoURL: URL.init(string: "http://google.com")!, address: (currentPlace?.name)!, price: 1.0, parkingDescription: "", availabilityInfo: newAvailabilityInfo)
+        
+        self.performSegue(withIdentifier: "newParkingSchedule", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier! == "newParkingSchedule" {
+            let destinationViewController = segue.destination as! ParkingAvailabilityViewController
+            destinationViewController.parkingAvailability = self.newParking?.availabilityInfo
+            destinationViewController.delegate = self
+        }
+    }
+}
+
+// Parking delegates
+
+extension NewParkingViewController: ParkingAvailabilityDelegate {
+    func userDidChangeAvailability(value: ParkingAvailabilityInfo) {
+        newParking?.availabilityInfo = value
+        newParking?.persist()
         NotificationCenter.default.post(name: Notification.Name.init("parkingListUpdated"), object: nil, userInfo: nil)
         self.dismiss(animated: true, completion: nil)
     }
 }
 
-extension ShareMapViewController: CLLocationManagerDelegate {
+
+
+// Geolocation Delegates
+
+extension NewParkingViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let currentCoordinate = manager.location?.coordinate {
             let camera = GMSCameraPosition.camera(withLatitude: currentCoordinate.latitude, longitude: currentCoordinate.longitude, zoom: 15.0)
@@ -77,17 +101,17 @@ extension ShareMapViewController: CLLocationManagerDelegate {
     }
 }
 
-extension ShareMapViewController: GMSAutocompleteResultsViewControllerDelegate {
+extension NewParkingViewController: GMSAutocompleteResultsViewControllerDelegate {
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController, didAutocompleteWith place: GMSPlace) {
-        searchController?.isActive = false
+        self.searchController?.isActive = false
         
-        currentPlace = place
+        self.currentPlace = place
         let newCam = GMSCameraUpdate.setTarget(place.coordinate, zoom: 19.0)
-        mapView.mapType = kGMSTypeSatellite
+        self.mapView.mapType = kGMSTypeSatellite
         
-        mapView.animate(with: newCam)
-        view.insertSubview(addButton, aboveSubview: mapView)
-        addButton.isHidden = false
+        self.mapView.animate(with: newCam)
+        self.view.insertSubview(addButton, aboveSubview: mapView)
+        self.addButton.isHidden = false
     }
     
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
@@ -106,7 +130,7 @@ extension ShareMapViewController: GMSAutocompleteResultsViewControllerDelegate {
     }
 }
 
-extension ShareMapViewController: GMSMapViewDelegate {
+extension NewParkingViewController: GMSMapViewDelegate {
     func mapView(_ mapView: GMSMapView, willMove gesture: Bool) {
         recenterMarkerInView(newMapView: mapView)
     }

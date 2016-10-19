@@ -42,12 +42,12 @@ class ParkingInfoTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func initializeInfo()
-    {
+    func initializeInfo() {
         streetAddressLabel.text = parkingInfo?.address
         postalAddressLabel.text = parkingInfo?.address
-        timeOfDayLabel.text = parkingInfo?.lapsOfTimeText()
-        daysAvailableLabel.text = parkingInfo?.daysEnumerationText()
+        // TODO: Not sure if this belong here
+        timeOfDayLabel.text = parkingInfo?.availabilityInfo.lapsOfTimeText()
+        daysAvailableLabel.text = parkingInfo?.availabilityInfo.daysEnumerationText()
         
         parkingRate.text = parkingInfo!.price.asLocaleCurrency
         parkingDescriptionLabel.text = parkingInfo?.parkingDescription
@@ -60,69 +60,43 @@ class ParkingInfoTableViewController: UITableViewController {
         
         NotificationCenter.default.removeObserver(self)
         
-        if segue.identifier == "ChangeRate"
-        {
+        if segue.identifier == "ChangeRate" {
             // get a reference to the second view controller
             let destinationVC = segue.destination as! ParkingRatesViewController
             
             // set the rate of the parking
             destinationVC.parkingRate = parkingInfo!.price
             destinationVC.delegate = self
-        }
-        else if segue.identifier == "ChangeDescription"
-        {
+        } else if segue.identifier == "ChangeDescription" {
             // get a reference to the second view controller
             let destinationVC = segue.destination as! ParkingDescriptionViewController
             
             // set the parking to see
             destinationVC.parkingDescription = parkingInfo!.parkingDescription
             destinationVC.delegate = self
-        }
-        else if segue.identifier == "ChangeAvailability"
-        {
+        } else if segue.identifier == "ChangeAvailability" {
             // get a reference to the second view controller
             let destinationVC = segue.destination as! ParkingAvailabilityViewController
-            
-            // set the parking to see
-            let parkingAvailabilityInfo = ParkingAvailabilityInfo(alwaysAvailable: parkingInfo!.alwaysAvailable, startTime: parkingInfo!.startTime, stopTime: parkingInfo!.stopTime, isMonday: parkingInfo!.isMonday, isTuesday: parkingInfo!.isTuesday, isWednesday: parkingInfo!.isWednesday, isThursday: parkingInfo!.isThursday, isFriday: parkingInfo!.isFriday, isSaturday: parkingInfo!.isSaturday, isSunday: parkingInfo!.isSunday)
-            
-            destinationVC.parkingAvailability = parkingAvailabilityInfo
+            destinationVC.parkingAvailability = parkingInfo?.availabilityInfo
             destinationVC.delegate = self
         }
     }
 }
 
-extension ParkingInfoTableViewController: ParkingRateDelegate
-{
-    func userDidChangeRate(value: Float)
-    {
+extension ParkingInfoTableViewController: ParkingRateDelegate {
+    func userDidChangeRate(value: Float) {
         parkingInfo?.price = value
     }
 }
 
-extension ParkingInfoTableViewController: ParkingDescriptionDelegate
-{
-    func userDidChangeDescription(value: String)
-    {
+extension ParkingInfoTableViewController: ParkingDescriptionDelegate {
+    func userDidChangeDescription(value: String) {
         parkingInfo?.parkingDescription = value
     }
 }
 
-extension ParkingInfoTableViewController: ParkingAvailabilityDelegate
-{
-    func userDidChangeAvailability(value: ParkingAvailabilityInfo)
-    {
-        parkingInfo?.alwaysAvailable = value.alwaysAvailable
-        
-        parkingInfo?.startTime = value.startTime
-        parkingInfo?.stopTime = value.stopTime
-        
-        parkingInfo?.isMonday = value.isMonday
-        parkingInfo?.isTuesday = value.isTuesday
-        parkingInfo?.isWednesday = value.isWednesday
-        parkingInfo?.isThursday = value.isThursday
-        parkingInfo?.isFriday = value.isFriday
-        parkingInfo?.isSaturday = value.isSaturday
-        parkingInfo?.isSunday = value.isSunday
+extension ParkingInfoTableViewController: ParkingAvailabilityDelegate {
+    func userDidChangeAvailability(value: ParkingAvailabilityInfo) {
+        parkingInfo?.availabilityInfo = value
     }
 }
