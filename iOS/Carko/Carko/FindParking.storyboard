@@ -46,10 +46,10 @@
             </objects>
             <point key="canvasLocation" x="-894" y="-450"/>
         </scene>
-        <!--Parking-->
+        <!--Book Parking-->
         <scene sceneID="PO2-QN-Cvr">
             <objects>
-                <viewController id="PnB-Lw-Vkk" sceneMemberID="viewController">
+                <viewController id="PnB-Lw-Vkk" customClass="BookParkingViewController" customModule="Carko" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7SP-ky-FIF"/>
                         <viewControllerLayoutGuide type="bottom" id="997-eo-MGF"/>
@@ -57,15 +57,88 @@
                     <view key="view" contentMode="scaleToFill" id="G85-aq-sx3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="parking-icon-png-18.png" translatesAutoresizingMaskIntoConstraints="NO" id="6dg-JK-NSX">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="190" id="ZBO-C9-rbq"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6RE-gw-aRJ">
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yy3-pH-bqw">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="190" id="H4L-rn-i3D"/>
+                                        </constraints>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" red="0.61568627450980395" green="0.49803921568627452" blue="0.49803921568627452" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Yy3-pH-bqw" firstAttribute="leading" secondItem="6RE-gw-aRJ" secondAttribute="leading" constant="8" id="3Ly-Pd-Rnl"/>
+                                    <constraint firstAttribute="bottom" secondItem="Yy3-pH-bqw" secondAttribute="bottom" constant="10" id="Cp3-Rp-3Xl"/>
+                                    <constraint firstItem="Yy3-pH-bqw" firstAttribute="top" secondItem="6RE-gw-aRJ" secondAttribute="top" constant="10" id="fFk-Rh-9aO"/>
+                                    <constraint firstAttribute="height" constant="50" id="rbw-4t-qGq"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wXg-WF-Q2s">
+                                <color key="backgroundColor" red="0.0058965793616453568" green="0.93365323604060912" blue="0.019299716667722996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="4tC-XT-hYO"/>
+                                </constraints>
+                                <state key="normal" title="Continue">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="xIL-kL-2fB" kind="show" id="wnl-zT-knh"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6dg-JK-NSX" firstAttribute="top" secondItem="7SP-ky-FIF" secondAttribute="bottom" id="2IQ-ee-TSm"/>
+                            <constraint firstItem="6RE-gw-aRJ" firstAttribute="leading" secondItem="G85-aq-sx3" secondAttribute="leading" id="4ee-Ux-GWo"/>
+                            <constraint firstItem="wXg-WF-Q2s" firstAttribute="leading" secondItem="G85-aq-sx3" secondAttribute="leading" id="87i-Ed-Tjk"/>
+                            <constraint firstItem="997-eo-MGF" firstAttribute="top" secondItem="wXg-WF-Q2s" secondAttribute="bottom" id="Bk0-c1-mbC"/>
+                            <constraint firstItem="6RE-gw-aRJ" firstAttribute="top" secondItem="6dg-JK-NSX" secondAttribute="bottom" constant="8" id="GSg-aG-jmC"/>
+                            <constraint firstItem="6dg-JK-NSX" firstAttribute="leading" secondItem="G85-aq-sx3" secondAttribute="leading" id="H2b-sO-qrh"/>
+                            <constraint firstAttribute="trailing" secondItem="wXg-WF-Q2s" secondAttribute="trailing" id="Vev-MK-hts"/>
+                            <constraint firstAttribute="trailing" secondItem="6RE-gw-aRJ" secondAttribute="trailing" id="bCI-of-OlQ"/>
+                            <constraint firstAttribute="trailing" secondItem="6dg-JK-NSX" secondAttribute="trailing" id="fDR-02-E0v"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Parking" id="MD1-x8-Lb5">
+                    <navigationItem key="navigationItem" title="Book Parking" id="MD1-x8-Lb5">
                         <barButtonItem key="backBarButtonItem" title="Back" id="gYE-C6-8MQ"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addressLabel" destination="Yy3-pH-bqw" id="5fl-gp-XWT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sSA-ud-pDW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="652" y="-450"/>
+            <point key="canvasLocation" x="652" y="-450.22488755622192"/>
+        </scene>
+        <!--Confirm Parking View Controller-->
+        <scene sceneID="Jtl-To-AVI">
+            <objects>
+                <viewController id="xIL-kL-2fB" customClass="ConfirmParkingViewController" customModule="Carko" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xj5-Uc-2wY"/>
+                        <viewControllerLayoutGuide type="bottom" id="pZz-8Q-kVI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="un9-e0-8K7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vgf-MW-Ef4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1420" y="-450"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="parking-icon-png-18.png" width="256" height="256"/>
+    </resources>
 </document>

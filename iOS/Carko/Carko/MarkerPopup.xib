@@ -17,41 +17,45 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lrt-SM-W06">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="parking-icon-png-18.png" translatesAutoresizingMaskIntoConstraints="NO" id="Lrt-SM-W06">
                     <constraints>
-                        <constraint firstAttribute="height" constant="85" id="TH5-9g-mZZ"/>
-                        <constraint firstAttribute="width" constant="85" id="UQb-73-yfB"/>
+                        <constraint firstAttribute="height" constant="70" id="TH5-9g-mZZ"/>
+                        <constraint firstAttribute="width" constant="70" id="UQb-73-yfB"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKO-kN-VzP">
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="NE4-Y7-bYn"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="Ufj-XU-Duz"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to continue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phO-Kf-a3n">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to continue" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phO-Kf-a3n">
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="Ah0-AT-mQf"/>
                         <constraint firstAttribute="width" constant="119" id="R47-eN-tLV"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="Lrt-SM-W06" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="Ag2-nd-e97"/>
-                <constraint firstItem="LKO-kN-VzP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="Hey-vC-C33"/>
-                <constraint firstItem="LKO-kN-VzP" firstAttribute="leading" secondItem="Lrt-SM-W06" secondAttribute="trailing" constant="8" id="VbC-6g-dFF"/>
-                <constraint firstItem="phO-Kf-a3n" firstAttribute="top" secondItem="LKO-kN-VzP" secondAttribute="bottom" constant="8" id="ZO9-OP-pwh"/>
-                <constraint firstAttribute="trailing" secondItem="phO-Kf-a3n" secondAttribute="trailing" constant="16" id="iDH-Fu-upb"/>
-                <constraint firstItem="Lrt-SM-W06" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="k0s-JI-dvk"/>
-                <constraint firstAttribute="trailing" secondItem="LKO-kN-VzP" secondAttribute="trailing" constant="16" id="nRF-DP-J3i"/>
+                <constraint firstItem="Lrt-SM-W06" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="1fe-fT-wt4"/>
+                <constraint firstAttribute="trailing" secondItem="LKO-kN-VzP" secondAttribute="trailing" id="9FX-ZF-XHj"/>
+                <constraint firstItem="Lrt-SM-W06" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="F3c-BC-Vir"/>
+                <constraint firstItem="LKO-kN-VzP" firstAttribute="leading" secondItem="Lrt-SM-W06" secondAttribute="trailing" constant="8" id="Ucu-dr-9vv"/>
+                <constraint firstItem="phO-Kf-a3n" firstAttribute="top" secondItem="LKO-kN-VzP" secondAttribute="bottom" constant="2" id="fmL-UA-Efi"/>
+                <constraint firstItem="phO-Kf-a3n" firstAttribute="leading" secondItem="Lrt-SM-W06" secondAttribute="trailing" constant="8" id="ux8-R7-evU"/>
+                <constraint firstItem="LKO-kN-VzP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="yjy-Hy-C15"/>
             </constraints>
             <point key="canvasLocation" x="-367.5" y="-48.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="parking-icon-png-18.png" width="256" height="256"/>
+    </resources>
 </document>

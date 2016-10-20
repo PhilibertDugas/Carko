@@ -14,6 +14,7 @@ class MapViewController: UIViewController {
 
     var mapView: GMSMapView!
     var locationManager: CLLocationManager!
+    var selectedParking: Parking?
     
     override func viewDidAppear(_ animated: Bool) {
         Parking.getAllParkings()
@@ -44,6 +45,13 @@ class MapViewController: UIViewController {
             }
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "didTapParking" {
+            let destinationViewController = segue.destination as! BookParkingViewController
+            destinationViewController.selectedParking = self.selectedParking!
+        }
+    }
 }
 
 extension MapViewController: CLLocationManagerDelegate {
@@ -67,12 +75,14 @@ extension MapViewController: CLLocationManagerDelegate {
 extension MapViewController: GMSMapViewDelegate {
     func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
         let parking = marker.userData as! Parking
-        let infoView = MarkerPopup.init(frame: CGRect.init(x: 0, y: 0, width: 250, height: 80))
+        let infoView = MarkerPopup.init(frame: CGRect.init(x: 0, y: 0, width: 200, height: 70))
         infoView.descriptionLabel.text = parking.address
+        
         return infoView
     }
 
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
+        self.selectedParking = marker.userData as? Parking
         self.performSegue(withIdentifier: "didTapParking", sender: nil)
     }
 }
