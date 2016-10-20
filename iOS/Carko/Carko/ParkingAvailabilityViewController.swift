@@ -36,8 +36,8 @@ class ParkingAvailabilityViewController: UIViewController {
     var parkingAvailability: ParkingAvailabilityInfo?
         
     @IBAction func saveChange(_ sender: AnyObject) {
-        delegate?.userDidChangeAvailability(value: parkingAvailability!)
         self.dismiss(animated: true, completion: nil)
+        delegate?.userDidChangeAvailability(value: parkingAvailability!)
     }
     
     @IBAction func cancelChange(_ sender: AnyObject) {

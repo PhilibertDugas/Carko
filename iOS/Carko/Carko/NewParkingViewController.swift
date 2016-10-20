@@ -70,6 +70,10 @@ class NewParkingViewController: UIViewController {
             let destinationViewController = segue.destination as! ParkingAvailabilityViewController
             destinationViewController.parkingAvailability = self.newParking?.availabilityInfo
             destinationViewController.delegate = self
+        } else if segue.identifier! == "newParkingRates" {
+            let destinationViewController = segue.destination as! ParkingRatesViewController
+            destinationViewController.parkingRate = newParking!.price
+            destinationViewController.delegate = self
         }
     }
 }
@@ -79,6 +83,13 @@ class NewParkingViewController: UIViewController {
 extension NewParkingViewController: ParkingAvailabilityDelegate {
     func userDidChangeAvailability(value: ParkingAvailabilityInfo) {
         newParking?.availabilityInfo = value
+        self.performSegue(withIdentifier: "newParkingRates", sender: nil)
+    }
+}
+
+extension NewParkingViewController: ParkingRateDelegate {
+    func userDidChangeRate(value: Float) {
+        newParking?.price = value
         newParking?.persist()
         NotificationCenter.default.post(name: Notification.Name.init("parkingListUpdated"), object: nil, userInfo: nil)
         self.dismiss(animated: true, completion: nil)

@@ -438,6 +438,7 @@
                     <connections>
                         <outlet property="addButton" destination="XbS-Rd-gDu" id="IhP-4z-ODY"/>
                         <segue destination="mIc-Su-6ok" kind="presentation" identifier="newParkingSchedule" modalPresentationStyle="fullScreen" id="SoG-X7-VRn"/>
+                        <segue destination="Fzg-4f-Mgf" kind="presentation" identifier="newParkingRates" modalPresentationStyle="fullScreen" id="Z6w-xX-KEb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Ec-7C-ia2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -798,6 +799,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="SoG-X7-VRn"/>
+        <segue reference="714-UP-U1q"/>
+        <segue reference="vem-d9-YBT"/>
     </inferredMetricsTieBreakers>
 </document>

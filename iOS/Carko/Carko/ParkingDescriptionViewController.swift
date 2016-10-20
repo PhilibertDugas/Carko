@@ -21,8 +21,8 @@ class ParkingDescriptionViewController: UIViewController {
     var parkingDescription: String?
     
     @IBAction func saveChange(_ sender: AnyObject) {
-        delegate?.userDidChangeDescription(value: descriptionText.text)
         self.dismiss(animated: true, completion: nil)
+        delegate?.userDidChangeDescription(value: descriptionText.text)
     }
     
     @IBAction func cancelChange(_ sender: AnyObject) {
