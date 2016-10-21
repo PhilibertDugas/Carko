@@ -8,15 +8,20 @@
 
 import Foundation
 import Stripe
+import Alamofire
+import FirebaseAuth
 
-class CarkoAPIClient: NSObject, STPBackendAPIAdapter {
+class CarkoAPIClient: NSObject {
  
     static let sharedClient = CarkoAPIClient.init()
     let session: URLSession
-    let baseUrlString = "https://5a7025d7.ngrok.io"
+    let baseUrlString = "https://4f5f4716.ngrok.io"
+    let customerId: String
     
     
     override init() {
+        //customerId = (FIRAuth.auth()?.currentUser?.uid)!
+        customerId = "1"
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForRequest = 5
         self.session = URLSession.init(configuration: configuration)
@@ -30,6 +35,20 @@ class CarkoAPIClient: NSObject, STPBackendAPIAdapter {
         return error
     }
     
+    func postParking(parking: Parking, complete: @escaping (Error?) -> Void ) -> Void {
+        let parameters: Parameters = ["parking":
+            ["latitude": parking.latitude, "longitude": parking.longitude, "address": parking.address, "customer_id": customerId]
+        ]
+        // let parameters: Parameters = parking.toDictionary()
+        let baseUrl = URL.init(string: baseUrlString)
+        let postUrl = baseUrl?.appendingPathComponent("/parkings")
+        request(postUrl!, method: .post, parameters: parameters, encoding: JSONEncoding.default).response { (response) in
+            complete(response.error)
+        }
+    }
+}
+
+extension CarkoAPIClient: STPBackendAPIAdapter {
     func retrieveCustomer(_ completion: @escaping STPCustomerCompletionBlock) {
         let url = URL.init(string: baseUrlString)
         // TODO: Use the firebase ID here

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		134E21FC3BDBCE97A691D636 /* Pods_CarkoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC68D22D6823E3DE6D1A34E4 /* Pods_CarkoUITests.framework */; };
 		3081C8E38A69D2E93352EB95 /* Pods_Carko.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 538BFE4EA50CCE486CF330C6 /* Pods_Carko.framework */; };
 		45099A871DAF261200392FF1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45099A861DAF261200392FF1 /* LoginViewController.swift */; };
 		450E12401DAF27330027EFBC /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450E123F1DAF27330027EFBC /* RegisterViewController.swift */; };
@@ -48,7 +47,6 @@
 		C56ADABB1DAC00870033516C /* ParkingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56ADABA1DAC00870033516C /* ParkingTableViewCell.swift */; };
 		C5858E7E1DB188920066A9B3 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5858E7D1DB188920066A9B3 /* StringExtension.swift */; };
 		C5B310601DB023610051C90B /* FloatExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B3105F1DB023610051C90B /* FloatExtension.swift */; };
-		EA021D9D0F7EBED1E7565A98 /* Pods_CarkoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10DDB660E5099E802BAA804E /* Pods_CarkoTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,7 +68,6 @@
 
 /* Begin PBXFileReference section */
 		06C50C04931968E615FABC94 /* Pods-CarkoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarkoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CarkoTests/Pods-CarkoTests.debug.xcconfig"; sourceTree = "<group>"; };
-		10DDB660E5099E802BAA804E /* Pods_CarkoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarkoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		182BF97C1B2157DE2E06FBDD /* Pods-Carko.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carko.release.xcconfig"; path = "Pods/Target Support Files/Pods-Carko/Pods-Carko.release.xcconfig"; sourceTree = "<group>"; };
 		45099A861DAF261200392FF1 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		450E123F1DAF27330027EFBC /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -122,7 +119,6 @@
 		C5858E7D1DB188920066A9B3 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		C5B3105F1DB023610051C90B /* FloatExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatExtension.swift; sourceTree = "<group>"; };
 		E698A5AD42366D0AB15C9348 /* Pods-Carko.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carko.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Carko/Pods-Carko.debug.xcconfig"; sourceTree = "<group>"; };
-		FC68D22D6823E3DE6D1A34E4 /* Pods_CarkoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarkoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,7 +134,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA021D9D0F7EBED1E7565A98 /* Pods_CarkoTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,7 +141,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				134E21FC3BDBCE97A691D636 /* Pods_CarkoUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,8 +337,6 @@
 			isa = PBXGroup;
 			children = (
 				538BFE4EA50CCE486CF330C6 /* Pods_Carko.framework */,
-				10DDB660E5099E802BAA804E /* Pods_CarkoTests.framework */,
-				FC68D22D6823E3DE6D1A34E4 /* Pods_CarkoUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -402,6 +394,7 @@
 				45BC295D1DA18249000C54BC /* Frameworks */,
 				45BC295E1DA18249000C54BC /* Resources */,
 				2132B991BB94F905E78F100C /* [CP] Copy Pods Resources */,
+				76A5BEB778AC4750535E40EE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -527,7 +520,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		201BB63EDC80E7737BCCD6EC /* [CP] Copy Pods Resources */ = {
@@ -572,7 +565,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		76A5BEB778AC4750535E40EE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CarkoUITests/Pods-CarkoUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		856AA78C78A9FD6741B8F243 /* [CP] Embed Pods Frameworks */ = {
@@ -617,7 +625,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

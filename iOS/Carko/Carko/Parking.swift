@@ -49,6 +49,9 @@ class Parking: NSObject {
     
     func persist() {
         Parking.ref.child("parkings").updateChildValues(self.toDictionary())
+        //CarkoAPIClient.sharedClient.postParking(parking: self) { (error) in
+        //    print(error.debugDescription)
+        //}
     }
     
     func toDictionary() -> [String : Any] {

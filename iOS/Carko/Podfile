@@ -12,6 +12,7 @@ target 'Carko' do
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
   pod 'Stripe'
+  pod 'Alamofire'
 
   target 'CarkoTests' do
     inherit! :search_paths
