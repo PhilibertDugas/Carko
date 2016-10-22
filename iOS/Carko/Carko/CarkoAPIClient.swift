@@ -15,7 +15,7 @@ class CarkoAPIClient: NSObject {
  
     static let sharedClient = CarkoAPIClient.init()
     let session: URLSession
-    let baseUrlString = "https://4f5f4716.ngrok.io"
+    let baseUrlString = "https://8938cf37.ngrok.io"
     let customerId: String
     
     

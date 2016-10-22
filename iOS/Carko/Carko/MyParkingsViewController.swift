@@ -24,8 +24,10 @@ class MyParkingsViewController: UIViewController {
         ParkingTableView.delegate = self
         ParkingTableView.dataSource = self
 
-        NotificationCenter.default.addObserver(self, selector: #selector(self.parkingFetched), name: NSNotification.Name(rawValue: "parkingFetched"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.parkingListUpdate), name: NSNotification.Name(rawValue: "parkingListUpdated"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.parkingFetched), name: Notification.Name.init(rawValue: "ParkingFetched"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.parkingListUpdate), name: Notification.Name.init(rawValue: "NewParking"), object: nil)
+        
         Parking.getAllParkings()
     }
     
@@ -61,14 +63,9 @@ class MyParkingsViewController: UIViewController {
         Parking.getAllParkings()
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        NotificationCenter.default.removeObserver(self)
-        
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {        
         if segue.identifier == "showParkingInfo" {
-            // get a reference to the second view controller
             let destinationVC = segue.destination as! ParkingInfoTableViewController
-            
-            // set the parking to see
             destinationVC.parkingInfo = parkingList[selectedRowIndex]
         }
     }

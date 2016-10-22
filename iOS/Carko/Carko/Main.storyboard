@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BlE-fA-HKp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ue9-AF-yKV">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -87,7 +87,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vda-6L-x7u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1914" y="175"/>
+            <point key="canvasLocation" x="-2279" y="-588"/>
         </scene>
         <!--Entry View Controller-->
         <scene sceneID="DDY-wk-Xez">
@@ -138,6 +138,9 @@
                             <constraint firstItem="DJR-uF-2ef" firstAttribute="top" secondItem="gNW-Hc-oCJ" secondAttribute="bottom" constant="20" id="xeS-s4-wCm"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="BlE-fA-HKp" kind="show" identifier="UserAlreadyLoggedIn" id="sHm-8J-gyY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CFo-QF-R5Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -183,7 +186,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7XN-KZ-URe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3546.4000000000001" y="906.29685157421295"/>
+            <point key="canvasLocation" x="-3614" y="-589"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="a2r-Kw-BxU">
@@ -191,7 +194,7 @@
                 <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="XrF-DP-t3R" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nJn-xH-7p4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3546" y="1596"/>
+            <point key="canvasLocation" x="-4302" y="-590"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="oTD-pI-eRi">
@@ -294,7 +297,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wjE-gf-69l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1914.4000000000001" y="939.58020989505258"/>
+            <point key="canvasLocation" x="-4676" y="954"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="3Wq-Vv-XmN">
@@ -313,7 +316,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HTK-RC-H4v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1136" y="176"/>
+            <point key="canvasLocation" x="-1140" y="175"/>
         </scene>
         <!--ParkingList-->
         <scene sceneID="6bg-5v-8Ia">
@@ -347,7 +350,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="3eU-Rg-oPT"/>
+        <segue reference="sHm-8J-gyY"/>
         <segue reference="OPc-nx-uga"/>
     </inferredMetricsTieBreakers>
 </document>

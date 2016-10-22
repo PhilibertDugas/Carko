@@ -63,7 +63,7 @@ extension MapViewController: CLLocationManagerDelegate {
                 mapView.isMyLocationEnabled = true
                 mapView.delegate = self
                 view = mapView
-                NotificationCenter.default.addObserver(self, selector: #selector(MapViewController.parkingFetched), name: NSNotification.Name(rawValue: "parkingFetched"), object: nil)
+                NotificationCenter.default.addObserver(self, selector: #selector(MapViewController.parkingFetched), name: Notification.Name.init(rawValue: "ParkingFetched"), object: nil)
             } else {
                 let newCam = GMSCameraUpdate.setTarget(currentCoordinate)
                 mapView.animate(with: newCam)

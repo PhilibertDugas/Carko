@@ -31,6 +31,8 @@
 		458F62831DA184BE00205FBB /* MapViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458F62821DA184BE00205FBB /* MapViewControllerTest.swift */; };
 		459AD2571DA49B6C0018B7B9 /* Parking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459AD2561DA49B6C0018B7B9 /* Parking.swift */; };
 		459AD2591DA49C590018B7B9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 459AD2581DA49C590018B7B9 /* GoogleService-Info.plist */; };
+		45BB39601DBBD5740019C2A3 /* NewParkingRatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BB395F1DBBD5740019C2A3 /* NewParkingRatesViewController.swift */; };
+		45BB39621DBBD59E0019C2A3 /* NewParkingScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BB39611DBBD59E0019C2A3 /* NewParkingScheduleViewController.swift */; };
 		45BC29451DA18249000C54BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC29441DA18249000C54BC /* AppDelegate.swift */; };
 		45BC294C1DA18249000C54BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45BC294B1DA18249000C54BC /* Assets.xcassets */; };
 		45BC294F1DA18249000C54BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45BC294D1DA18249000C54BC /* LaunchScreen.storyboard */; };
@@ -92,6 +94,8 @@
 		458F62821DA184BE00205FBB /* MapViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewControllerTest.swift; sourceTree = "<group>"; };
 		459AD2561DA49B6C0018B7B9 /* Parking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parking.swift; sourceTree = "<group>"; };
 		459AD2581DA49C590018B7B9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		45BB395F1DBBD5740019C2A3 /* NewParkingRatesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewParkingRatesViewController.swift; sourceTree = "<group>"; };
+		45BB39611DBBD59E0019C2A3 /* NewParkingScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewParkingScheduleViewController.swift; sourceTree = "<group>"; };
 		45BC29411DA18249000C54BC /* Carko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Carko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45BC29441DA18249000C54BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45BC294B1DA18249000C54BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -173,11 +177,11 @@
 		451853781DA476CB005CC5E6 /* Tab - Add */ = {
 			isa = PBXGroup;
 			children = (
+				45BB395E1DBBD55B0019C2A3 /* NewParkingFlow */,
 				C511504F1DAF386B004E2A7D /* ParkingInfo */,
 				C56ADAB91DAC00320033516C /* CustomCell */,
 				C56ADAB51DAAE6510033516C /* ParkingList.storyboard */,
 				451853791DA476F1005CC5E6 /* MyParkingsViewController.swift */,
-				4518537B1DA4787B005CC5E6 /* NewParkingViewController.swift */,
 			);
 			name = "Tab - Add";
 			sourceTree = "<group>";
@@ -224,6 +228,16 @@
 				4554EBCD1DB5A36F0066E452 /* CarkoAPIClient.swift */,
 			);
 			name = Global;
+			sourceTree = "<group>";
+		};
+		45BB395E1DBBD55B0019C2A3 /* NewParkingFlow */ = {
+			isa = PBXGroup;
+			children = (
+				4518537B1DA4787B005CC5E6 /* NewParkingViewController.swift */,
+				45BB395F1DBBD5740019C2A3 /* NewParkingRatesViewController.swift */,
+				45BB39611DBBD59E0019C2A3 /* NewParkingScheduleViewController.swift */,
+			);
+			name = NewParkingFlow;
 			sourceTree = "<group>";
 		};
 		45BC29381DA18249000C54BC = {
@@ -640,6 +654,7 @@
 				4564F6E11DB98509001B709C /* BookParkingViewController.swift in Sources */,
 				45E9B91E1DB82FDF00C9E9FA /* MarkerPopup.swift in Sources */,
 				4554EBD01DB5AA520066E452 /* ProfileViewController.swift in Sources */,
+				45BB39601DBBD5740019C2A3 /* NewParkingRatesViewController.swift in Sources */,
 				45099A871DAF261200392FF1 /* LoginViewController.swift in Sources */,
 				45BC29451DA18249000C54BC /* AppDelegate.swift in Sources */,
 				4518537A1DA476F1005CC5E6 /* MyParkingsViewController.swift in Sources */,
@@ -647,6 +662,7 @@
 				451E424B1DB071EC00747370 /* User.swift in Sources */,
 				450E12401DAF27330027EFBC /* RegisterViewController.swift in Sources */,
 				451E424D1DB078E000747370 /* KeyboardDimissExtension.swift in Sources */,
+				45BB39621DBBD59E0019C2A3 /* NewParkingScheduleViewController.swift in Sources */,
 				4518537C1DA4787B005CC5E6 /* NewParkingViewController.swift in Sources */,
 				450E124A1DAF2B000027EFBC /* EntryViewController.swift in Sources */,
 				459AD2571DA49B6C0018B7B9 /* Parking.swift in Sources */,

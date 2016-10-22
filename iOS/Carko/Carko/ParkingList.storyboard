@@ -27,7 +27,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4D8-ck-LYo" id="sLb-bz-z0H">
-                                            <frame key="frameInset" width="342" height="89.5"/>
+                                            <frame key="frameInset" width="342" height="89"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Puj-Vq-q0M">
@@ -133,7 +133,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="195"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rdQ-SI-46o" id="Fyr-hM-fXR">
-                                            <frame key="frameInset" width="375" height="194.5"/>
+                                            <frame key="frameInset" width="375" height="194"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OA0-D1-fKi">
@@ -152,7 +152,7 @@
                                         <rect key="frame" x="0.0" y="195" width="375" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uEZ-dl-bBY" id="gRP-Fn-SqF">
-                                            <frame key="frameInset" width="375" height="64.5"/>
+                                            <frame key="frameInset" width="375" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1R-fF-ilK">
@@ -183,7 +183,7 @@
                                         <rect key="frame" x="0.0" y="260" width="375" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vco-W5-yi5" id="Ubz-C5-Fby">
-                                            <frame key="frameInset" width="342" height="64.5"/>
+                                            <frame key="frameInset" width="342" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="voJ-K9-oQi">
@@ -210,7 +210,7 @@
                                         <rect key="frame" x="0.0" y="325" width="375" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eOH-Uf-wGq" id="o7P-2C-QTa">
-                                            <frame key="frameInset" width="342" height="64.5"/>
+                                            <frame key="frameInset" width="342" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rates &amp; Availability" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrR-h3-Cuo">
@@ -244,7 +244,7 @@
                                         <rect key="frame" x="0.0" y="390" width="375" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AdC-vm-eJO" id="j1V-rG-yQv">
-                                            <frame key="frameInset" width="342" height="64.5"/>
+                                            <frame key="frameInset" width="342" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rates" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCo-gl-ZoR">
@@ -271,7 +271,7 @@
                                         <rect key="frame" x="0.0" y="455" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PXa-pz-RtB" id="ID4-N0-G8F">
-                                            <frame key="frameInset" width="375" height="99.5"/>
+                                            <frame key="frameInset" width="375" height="99"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Profit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="57d-0s-eZt">
@@ -382,7 +382,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lBD-TD-95e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2393" y="-928"/>
+            <point key="canvasLocation" x="2460" y="-890"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ECl-tq-be7">
@@ -413,7 +413,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XbS-Rd-gDu">
-                                <color key="backgroundColor" red="1" green="0.82939402817876973" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="1" green="0.82745098039215681" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="0BI-PR-LEK"/>
                                     <constraint firstAttribute="height" constant="30" id="xaM-Io-0Ma"/>
@@ -423,6 +423,7 @@
                                 </state>
                                 <connections>
                                     <action selector="addButtonTapped:" destination="XNV-us-kad" eventType="touchUpInside" id="g8b-y9-fer"/>
+                                    <segue destination="XFf-v5-AHd" kind="show" identifier="addButtonTapped" id="fJq-21-9AX"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -437,13 +438,115 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addButton" destination="XbS-Rd-gDu" id="IhP-4z-ODY"/>
-                        <segue destination="mIc-Su-6ok" kind="presentation" identifier="newParkingSchedule" modalPresentationStyle="fullScreen" id="SoG-X7-VRn"/>
-                        <segue destination="Fzg-4f-Mgf" kind="presentation" identifier="newParkingRates" modalPresentationStyle="fullScreen" id="Z6w-xX-KEb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Ec-7C-ia2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2345" y="564"/>
+        </scene>
+        <!--New Parking Schedule View Controller-->
+        <scene sceneID="iUs-kn-khD">
+            <objects>
+                <viewController id="XFf-v5-AHd" customClass="NewParkingScheduleViewController" customModule="Carko" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wWR-DV-NQR"/>
+                        <viewControllerLayoutGuide type="bottom" id="joh-ic-soh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="u5f-F8-fpg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NiE-Rx-daQ">
+                                <color key="backgroundColor" red="1" green="0.82925707101821899" blue="0.0019002020126208663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="164" id="BtI-3O-On8"/>
+                                    <constraint firstAttribute="height" constant="40" id="aUu-7S-FbE"/>
+                                </constraints>
+                                <state key="normal" title="Add schedule">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="mIc-Su-6ok" kind="presentation" identifier="newParkingSchedule" id="qXV-2K-0JO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DFo-ig-p73">
+                                <color key="backgroundColor" red="1" green="0.82925707101821899" blue="0.0019002020126208663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="164" id="3Mo-kf-YUV"/>
+                                    <constraint firstAttribute="height" constant="40" id="jXn-jX-gFh"/>
+                                </constraints>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="PWw-LB-ZqN" kind="show" identifier="nextToRatesTapped" id="1y6-yU-Gd2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NiE-Rx-daQ" firstAttribute="centerX" secondItem="u5f-F8-fpg" secondAttribute="centerX" id="R5y-rr-bxX"/>
+                            <constraint firstItem="DFo-ig-p73" firstAttribute="centerX" secondItem="u5f-F8-fpg" secondAttribute="centerX" id="mL4-3N-c9f"/>
+                            <constraint firstItem="NiE-Rx-daQ" firstAttribute="top" secondItem="wWR-DV-NQR" secondAttribute="bottom" constant="90" id="mgK-Td-F8b"/>
+                            <constraint firstItem="joh-ic-soh" firstAttribute="top" secondItem="DFo-ig-p73" secondAttribute="bottom" constant="8" id="yZg-Sk-5wq"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6t7-wH-iPf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3192.8000000000002" y="564.46776611694156"/>
+        </scene>
+        <!--New Parking Rates View Controller-->
+        <scene sceneID="HaO-4a-F5Q">
+            <objects>
+                <viewController id="PWw-LB-ZqN" customClass="NewParkingRatesViewController" customModule="Carko" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5FC-xU-CLU"/>
+                        <viewControllerLayoutGuide type="bottom" id="ItR-C2-uZS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MNY-JU-9CF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5xf-DT-L0Z">
+                                <color key="backgroundColor" red="1" green="0.82925707100000001" blue="0.0019002020130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="kQj-R0-Leu"/>
+                                    <constraint firstAttribute="width" constant="164" id="wFF-51-LbY"/>
+                                </constraints>
+                                <state key="normal" title="Add price">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Fzg-4f-Mgf" kind="presentation" identifier="newParkingRates" id="V1F-Jn-weD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLR-BB-fMe">
+                                <color key="backgroundColor" red="1" green="0.82925707100000001" blue="0.0019002020130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="fdo-kb-klQ"/>
+                                    <constraint firstAttribute="width" constant="164" id="rzX-v6-6Tl"/>
+                                </constraints>
+                                <state key="normal" title="Confirm">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="confirmTapped:" destination="PWw-LB-ZqN" eventType="touchUpInside" id="XeY-Ka-0dx"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5xf-DT-L0Z" firstAttribute="top" secondItem="5FC-xU-CLU" secondAttribute="bottom" constant="87" id="81q-M4-Exg"/>
+                            <constraint firstItem="ItR-C2-uZS" firstAttribute="top" secondItem="XLR-BB-fMe" secondAttribute="bottom" constant="8" id="ME6-2B-Slg"/>
+                            <constraint firstItem="XLR-BB-fMe" firstAttribute="centerX" secondItem="MNY-JU-9CF" secondAttribute="centerX" id="jCo-VT-iZo"/>
+                            <constraint firstItem="5xf-DT-L0Z" firstAttribute="centerX" secondItem="MNY-JU-9CF" secondAttribute="centerX" id="psK-AX-5Rp"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iY9-6h-QMk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4672.8000000000002" y="564.46776611694156"/>
         </scene>
         <!--Parking Rates View Controller-->
         <scene sceneID="0Cs-cH-xkb">
@@ -562,7 +665,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vrh-TT-WYb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4398" y="-145"/>
+            <point key="canvasLocation" x="5450" y="-837"/>
         </scene>
         <!--Parking Availability View Controller-->
         <scene sceneID="SJH-GB-6bJ">
@@ -795,11 +898,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BzV-38-RNL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3591" y="-890"/>
+            <point key="canvasLocation" x="3961" y="-145"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="714-UP-U1q"/>
         <segue reference="vem-d9-YBT"/>
+        <segue reference="714-UP-U1q"/>
     </inferredMetricsTieBreakers>
 </document>

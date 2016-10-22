@@ -41,10 +41,14 @@ class User: NSObject {
             } else {
                 self.uid = user?.uid
                 User.ref.child("users").child(self.uid!).observeSingleEvent(of: .value, with: { (snapshot) in
-                    let user = snapshot.value! as! [String : Any]
-                    self.firstName = user["firstName"] as? String
-                    self.lastName = user["lastName"] as? String
-                    self.notificationCenter.post(name: Notification.Name.init("UserLoggedIn"), object: nil, userInfo: nil)
+                    if let user = snapshot.value as? [String : Any] {
+                        self.firstName = user["firstName"] as? String
+                        self.lastName = user["lastName"] as? String
+                        self.notificationCenter.post(name: Notification.Name.init("UserLoggedIn"), object: nil, userInfo: nil)
+                    } else {
+                        print("User doesn't have an account -- need to register")
+                    }
+
                 })
             }
         })
