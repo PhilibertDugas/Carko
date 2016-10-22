@@ -13,7 +13,7 @@ class MarkerPopup: UIView {
     @IBOutlet weak var view: UIView!
     @IBOutlet var descriptionLabel: UILabel!
 
-    override init(frame: CGRect) { // for using CustomView in code
+    override init(frame: CGRect) {
         super.init(frame: frame)
         self.commonInit()
     }

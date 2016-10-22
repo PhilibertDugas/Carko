@@ -412,14 +412,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XbS-Rd-gDu">
-                                <color key="backgroundColor" red="1" green="0.82745098039215681" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XbS-Rd-gDu" customClass="RoundedCornerButton" customModule="Carko" customModuleProvider="target">
+                                <color key="backgroundColor" red="0.61568627450980395" green="0.49803921568627452" blue="0.49803921568627452" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="0BI-PR-LEK"/>
                                     <constraint firstAttribute="height" constant="30" id="xaM-Io-0Ma"/>
                                 </constraints>
                                 <state key="normal" title="Add">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="addButtonTapped:" destination="XNV-us-kad" eventType="touchUpInside" id="g8b-y9-fer"/>
@@ -456,27 +456,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NiE-Rx-daQ">
-                                <color key="backgroundColor" red="1" green="0.82925707101821899" blue="0.0019002020126208663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NiE-Rx-daQ" customClass="RoundedCornerButton" customModule="Carko" customModuleProvider="target">
+                                <color key="backgroundColor" red="0.59859156608581543" green="0.48580044507980347" blue="0.48472779989242554" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="164" id="BtI-3O-On8"/>
                                     <constraint firstAttribute="height" constant="40" id="aUu-7S-FbE"/>
                                 </constraints>
                                 <state key="normal" title="Add schedule">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="mIc-Su-6ok" kind="presentation" identifier="newParkingSchedule" id="qXV-2K-0JO"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DFo-ig-p73">
-                                <color key="backgroundColor" red="1" green="0.82925707101821899" blue="0.0019002020126208663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DFo-ig-p73" customClass="RoundedCornerButton" customModule="Carko" customModuleProvider="target">
+                                <color key="backgroundColor" red="0.59859156608581543" green="0.48580044507980347" blue="0.48472779989242554" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="164" id="3Mo-kf-YUV"/>
                                     <constraint firstAttribute="height" constant="40" id="jXn-jX-gFh"/>
                                 </constraints>
                                 <state key="normal" title="Next">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="PWw-LB-ZqN" kind="show" identifier="nextToRatesTapped" id="1y6-yU-Gd2"/>
@@ -508,27 +508,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5xf-DT-L0Z">
-                                <color key="backgroundColor" red="1" green="0.82925707100000001" blue="0.0019002020130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5xf-DT-L0Z" customClass="RoundedCornerButton" customModule="Carko" customModuleProvider="target">
+                                <color key="backgroundColor" red="0.59859156608581543" green="0.48580044507980347" blue="0.48472779989242554" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="kQj-R0-Leu"/>
                                     <constraint firstAttribute="width" constant="164" id="wFF-51-LbY"/>
                                 </constraints>
                                 <state key="normal" title="Add price">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="Fzg-4f-Mgf" kind="presentation" identifier="newParkingRates" id="V1F-Jn-weD"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLR-BB-fMe">
-                                <color key="backgroundColor" red="1" green="0.82925707100000001" blue="0.0019002020130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLR-BB-fMe" customClass="RoundedCornerButton" customModule="Carko" customModuleProvider="target">
+                                <color key="backgroundColor" red="0.59859156608581543" green="0.48580044507980347" blue="0.48472779989242554" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="fdo-kb-klQ"/>
                                     <constraint firstAttribute="width" constant="164" id="rzX-v6-6Tl"/>
                                 </constraints>
                                 <state key="normal" title="Confirm">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="confirmTapped:" destination="PWw-LB-ZqN" eventType="touchUpInside" id="XeY-Ka-0dx"/>
@@ -902,7 +902,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vem-d9-YBT"/>
-        <segue reference="714-UP-U1q"/>
+        <segue reference="qXV-2K-0JO"/>
+        <segue reference="V1F-Jn-weD"/>
     </inferredMetricsTieBreakers>
 </document>

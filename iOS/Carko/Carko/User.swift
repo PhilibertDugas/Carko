@@ -39,17 +39,7 @@ class User: NSObject {
             if error != nil {
                 
             } else {
-                self.uid = user?.uid
-                User.ref.child("users").child(self.uid!).observeSingleEvent(of: .value, with: { (snapshot) in
-                    if let user = snapshot.value as? [String : Any] {
-                        self.firstName = user["firstName"] as? String
-                        self.lastName = user["lastName"] as? String
-                        self.notificationCenter.post(name: Notification.Name.init("UserLoggedIn"), object: nil, userInfo: nil)
-                    } else {
-                        print("User doesn't have an account -- need to register")
-                    }
-
-                })
+                print("Ok !")
             }
         })
     }
@@ -59,9 +49,7 @@ class User: NSObject {
             if error != nil {
                 print("There was an error creating the user")
             } else {
-                self.uid = user?.uid
-                let newUser = ["\(self.uid!)": ["firstName": self.firstName!, "lastName": self.lastName!]] as [String : Any]
-                User.ref.child("users").updateChildValues(newUser)
+                print("Ok ! Registered")
                 self.notificationCenter.post(name: Notification.Name.init("UserRegistered"), object: nil, userInfo: nil)
             }
         })

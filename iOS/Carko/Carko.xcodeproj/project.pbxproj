@@ -33,6 +33,7 @@
 		459AD2591DA49C590018B7B9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 459AD2581DA49C590018B7B9 /* GoogleService-Info.plist */; };
 		45BB39601DBBD5740019C2A3 /* NewParkingRatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BB395F1DBBD5740019C2A3 /* NewParkingRatesViewController.swift */; };
 		45BB39621DBBD59E0019C2A3 /* NewParkingScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BB39611DBBD59E0019C2A3 /* NewParkingScheduleViewController.swift */; };
+		45BB39651DBBF0010019C2A3 /* RoundedCornerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BB39641DBBF0010019C2A3 /* RoundedCornerButton.swift */; };
 		45BC29451DA18249000C54BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC29441DA18249000C54BC /* AppDelegate.swift */; };
 		45BC294C1DA18249000C54BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45BC294B1DA18249000C54BC /* Assets.xcassets */; };
 		45BC294F1DA18249000C54BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45BC294D1DA18249000C54BC /* LaunchScreen.storyboard */; };
@@ -96,6 +97,7 @@
 		459AD2581DA49C590018B7B9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		45BB395F1DBBD5740019C2A3 /* NewParkingRatesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewParkingRatesViewController.swift; sourceTree = "<group>"; };
 		45BB39611DBBD59E0019C2A3 /* NewParkingScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewParkingScheduleViewController.swift; sourceTree = "<group>"; };
+		45BB39641DBBF0010019C2A3 /* RoundedCornerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCornerButton.swift; sourceTree = "<group>"; };
 		45BC29411DA18249000C54BC /* Carko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Carko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45BC29441DA18249000C54BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45BC294B1DA18249000C54BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -221,10 +223,11 @@
 		45B4C0E11DA4AAE6002979DC /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				45BB39631DBBEFEC0019C2A3 /* Views */,
 				45A4CA2E1DB2B8B700741099 /* Assets */,
-				45BC29441DA18249000C54BC /* AppDelegate.swift */,
 				45BC29501DA18249000C54BC /* Info.plist */,
 				459AD2581DA49C590018B7B9 /* GoogleService-Info.plist */,
+				45BC29441DA18249000C54BC /* AppDelegate.swift */,
 				4554EBCD1DB5A36F0066E452 /* CarkoAPIClient.swift */,
 			);
 			name = Global;
@@ -238,6 +241,14 @@
 				45BB39611DBBD59E0019C2A3 /* NewParkingScheduleViewController.swift */,
 			);
 			name = NewParkingFlow;
+			sourceTree = "<group>";
+		};
+		45BB39631DBBEFEC0019C2A3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				45BB39641DBBF0010019C2A3 /* RoundedCornerButton.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		45BC29381DA18249000C54BC = {
@@ -652,6 +663,7 @@
 				4554EBCE1DB5A36F0066E452 /* CarkoAPIClient.swift in Sources */,
 				C51150531DAF38D5004E2A7D /* ParkingDescriptionViewController.swift in Sources */,
 				4564F6E11DB98509001B709C /* BookParkingViewController.swift in Sources */,
+				45BB39651DBBF0010019C2A3 /* RoundedCornerButton.swift in Sources */,
 				45E9B91E1DB82FDF00C9E9FA /* MarkerPopup.swift in Sources */,
 				4554EBD01DB5AA520066E452 /* ProfileViewController.swift in Sources */,
 				45BB39601DBBD5740019C2A3 /* NewParkingRatesViewController.swift in Sources */,
