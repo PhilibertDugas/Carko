@@ -8,6 +8,7 @@
 
 import UIKit
 import Stripe
+import FirebaseAuth
 
 class ProfileViewController: UIViewController {
 
@@ -17,6 +18,9 @@ class ProfileViewController: UIViewController {
         self.paymentContext.presentPaymentMethodsViewController()
     }
     
+    @IBAction func logoutTapped(_ sender: AnyObject) {
+        try! FIRAuth.auth()!.signOut()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
