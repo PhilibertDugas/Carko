@@ -78,43 +78,31 @@ extension CarkoAPIClient: STPBackendAPIAdapter {
     }
 
     func selectDefaultCustomerSource(_ source: STPSource, completion: @escaping STPErrorBlock) {
-        let url = URL.init(string: baseUrlString)
-        let path = "/customers/\(customerId)/default_source"
-        let defaultSourceUrl = url?.appendingPathComponent(path)
-        let postString = "source=\(source.stripeID)"
-        var request = URLRequest.init(url: defaultSourceUrl!)
-        request.httpMethod = "POST"
-        request.httpBody = postString.data(using: .utf8)
-        let task = self.session.dataTask(with: request) { (data, urlResponse, error) in
-            DispatchQueue.main.async {
-                if let error = self.decodeResponse(urlResponse, error: error as NSError?) {
-                    completion(error)
-                    return
-                }
-                completion(nil)
+        let baseUrl = URL.init(string: baseUrlString)
+        let postUrl = baseUrl!.appendingPathComponent("/customers/\(customerId)/default_source")
+        let parameters: Parameters = ["customer": ["default_source": source.stripeID]]
+
+        request(postUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).response { (response) in
+            if let error = response.error {
+                completion(error)
+                return
             }
+            completion(nil)
         }
-        task.resume()
     }
 
     func attachSource(toCustomer source: STPSource, completion: @escaping STPErrorBlock) {
-        let url = URL.init(string: baseUrlString)
-        let path = "/customers/\(customerId)/sources"
-        let sourceUrl = url?.appendingPathComponent(path)
-        let postString = "source=\(source.stripeID)"
-        var request = URLRequest.init(url: sourceUrl!)
-        request.httpMethod = "POST"
-        request.httpBody = postString.data(using: .utf8)
-        let task = self.session.dataTask(with: request) { (data, urlResponse, error) in
-            DispatchQueue.main.async {
-                if let error = self.decodeResponse(urlResponse, error: error as NSError?) {
-                    completion(error)
-                    return
-                }
-                completion(nil)
+        let baseUrl = URL.init(string: baseUrlString)
+        let postUrl = baseUrl!.appendingPathComponent("/customers/\(customerId)/sources")
+        let parameters: Parameters = ["customer": ["source": source.stripeID]]
+
+        request(postUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).response { (response) in
+            if let error = response.error {
+                completion(error)
+                return
             }
+            completion(nil)
         }
-        task.resume()
     }
 }
 
