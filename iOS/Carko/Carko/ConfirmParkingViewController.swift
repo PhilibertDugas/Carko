@@ -7,29 +7,59 @@
 //
 
 import UIKit
+import Stripe
 
 class ConfirmParkingViewController: UIViewController {
+
+    @IBOutlet var addressTextField: UnderlineTextField!
+    @IBOutlet var priceTextField: UnderlineTextField!
+    @IBOutlet var creditCardView: UIView!
+    @IBOutlet var creditCardTextField: UITextField!
+
+    var parking: Parking!
+    var paymentContext: STPPaymentContext!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        addressTextField.text = parking.address
+        priceTextField.text = "\(parking.price)"
+        let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(ConfirmParkingViewController.tappedCreditCard))
+        creditCardView.addGestureRecognizer(tapGesture)
+
+        paymentContext = STPPaymentContext.init(apiAdapter: CarkoAPIClient.sharedClient)
+        paymentContext.paymentAmount = Int(parking.price * 100)
+        // TODO CHANGE THIS
+        paymentContext.paymentCurrency = "CAD"
+        paymentContext.delegate = self
+        paymentContext.hostViewController = self
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func tappedConfirmed(_ sender: AnyObject) {
+        paymentContext.requestPayment()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func tappedCreditCard() {
+        paymentContext.presentPaymentMethodsViewController()
     }
-    */
+}
 
+extension ConfirmParkingViewController: STPPaymentContextDelegate {
+    public func paymentContext(_ paymentContext: STPPaymentContext, didCreatePaymentResult paymentResult: STPPaymentResult, completion: @escaping STPErrorBlock) {
+        print(paymentResult.description)
+    }
+
+    func paymentContextDidChange(_ paymentContext: STPPaymentContext) {
+        creditCardTextField.text = paymentContext.selectedPaymentMethod?.label
+        self.paymentContext = paymentContext
+        return
+    }
+
+    func paymentContext(_ paymentContext: STPPaymentContext, didFailToLoadWithError error: Error) {
+        return
+    }
+
+    func paymentContext(_ paymentContext: STPPaymentContext, didFinishWith status: STPPaymentStatus, error: Error?) {
+        return
+    }
 }

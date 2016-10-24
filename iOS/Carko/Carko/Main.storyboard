@@ -30,7 +30,8 @@
                                     <action selector="loginPressed:" destination="YXJ-kN-NHX" eventType="touchUpInside" id="mQn-Pq-c7k"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="75H-03-rPq">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="75H-03-rPq" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
+                                <color key="tintColor" red="0.59859156609999997" green="0.48580044509999998" blue="0.48472779989999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="GMT-ze-H7c"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="38" id="NgE-Cd-Wad"/>
@@ -39,7 +40,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xf9-fK-4sh">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xf9-fK-4sh" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
+                                <color key="tintColor" red="0.59859156609999997" green="0.48580044509999998" blue="0.48472779989999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="9bO-4g-VgA"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="38" id="VRe-ra-qYd"/>
@@ -229,7 +231,8 @@
                                     <action selector="registerPressed:" destination="lKW-f6-EBE" eventType="touchUpInside" id="lid-w6-d2c"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ckv-IO-BQ8">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ckv-IO-BQ8" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
+                                <color key="tintColor" red="0.59859156609999997" green="0.48580044509999998" blue="0.48472779989999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="XQb-Tw-EpO"/>
                                 </constraints>
@@ -237,7 +240,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lhR-i9-aIb">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lhR-i9-aIb" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
+                                <color key="tintColor" red="0.59859156609999997" green="0.48580044509999998" blue="0.48472779989999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="bM2-vK-2S1"/>
                                 </constraints>
@@ -245,7 +249,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zED-Wd-lrn">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zED-Wd-lrn" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
+                                <color key="tintColor" red="0.59859156609999997" green="0.48580044509999998" blue="0.48472779989999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="QGg-HY-PcX"/>
                                 </constraints>
@@ -253,7 +258,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TQu-Yn-at2">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TQu-Yn-at2" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
+                                <color key="tintColor" red="0.59859156609999997" green="0.48580044509999998" blue="0.48472779989999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="CPL-jB-8AA"/>
                                 </constraints>
@@ -373,7 +379,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="3eU-Rg-oPT"/>
         <segue reference="OPc-nx-uga"/>
+        <segue reference="3eU-Rg-oPT"/>
     </inferredMetricsTieBreakers>
 </document>

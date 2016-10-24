@@ -28,6 +28,8 @@
 		4564F6E11DB98509001B709C /* BookParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4564F6E01DB98509001B709C /* BookParkingViewController.swift */; };
 		4564F6E31DB986C5001B709C /* ConfirmParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4564F6E21DB986C5001B709C /* ConfirmParkingViewController.swift */; };
 		458963ED1DB6EF6100A44AC0 /* ParkingAvailabilityInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458963EC1DB6EF6100A44AC0 /* ParkingAvailabilityInfo.swift */; };
+		458A98301DBCFD44007F53EE /* UnderlineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458A982F1DBCFD44007F53EE /* UnderlineTextField.swift */; };
+		458A98321DBD07CA007F53EE /* arrow-right-01-128.png in Resources */ = {isa = PBXBuildFile; fileRef = 458A98311DBD07CA007F53EE /* arrow-right-01-128.png */; };
 		458F62831DA184BE00205FBB /* MapViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458F62821DA184BE00205FBB /* MapViewControllerTest.swift */; };
 		459AD2571DA49B6C0018B7B9 /* Parking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459AD2561DA49B6C0018B7B9 /* Parking.swift */; };
 		459AD2591DA49C590018B7B9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 459AD2581DA49C590018B7B9 /* GoogleService-Info.plist */; };
@@ -92,6 +94,8 @@
 		4564F6E01DB98509001B709C /* BookParkingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookParkingViewController.swift; sourceTree = "<group>"; };
 		4564F6E21DB986C5001B709C /* ConfirmParkingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmParkingViewController.swift; sourceTree = "<group>"; };
 		458963EC1DB6EF6100A44AC0 /* ParkingAvailabilityInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingAvailabilityInfo.swift; sourceTree = "<group>"; };
+		458A982F1DBCFD44007F53EE /* UnderlineTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnderlineTextField.swift; sourceTree = "<group>"; };
+		458A98311DBD07CA007F53EE /* arrow-right-01-128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-right-01-128.png"; sourceTree = "<group>"; };
 		458F62821DA184BE00205FBB /* MapViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewControllerTest.swift; sourceTree = "<group>"; };
 		459AD2561DA49B6C0018B7B9 /* Parking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parking.swift; sourceTree = "<group>"; };
 		459AD2581DA49C590018B7B9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -210,6 +214,7 @@
 		45A4CA2E1DB2B8B700741099 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				458A98311DBD07CA007F53EE /* arrow-right-01-128.png */,
 				4564F6DE1DB983CA001B709C /* parking-icon-png-18.png */,
 				450E12411DAF2A880027EFBC /* page1.png */,
 				450E12421DAF2A880027EFBC /* page2.png */,
@@ -247,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				45BB39641DBBF0010019C2A3 /* RoundedCornerButton.swift */,
+				458A982F1DBCFD44007F53EE /* UnderlineTextField.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -494,6 +500,7 @@
 				450E12461DAF2A880027EFBC /* page2.png in Resources */,
 				459AD2591DA49C590018B7B9 /* GoogleService-Info.plist in Resources */,
 				450E12481DAF2A880027EFBC /* page4.png in Resources */,
+				458A98321DBD07CA007F53EE /* arrow-right-01-128.png in Resources */,
 				450E12471DAF2A880027EFBC /* page3.png in Resources */,
 				45BC294F1DA18249000C54BC /* LaunchScreen.storyboard in Resources */,
 				450E12451DAF2A880027EFBC /* page1.png in Resources */,
@@ -666,6 +673,7 @@
 				45BB39651DBBF0010019C2A3 /* RoundedCornerButton.swift in Sources */,
 				45E9B91E1DB82FDF00C9E9FA /* MarkerPopup.swift in Sources */,
 				4554EBD01DB5AA520066E452 /* ProfileViewController.swift in Sources */,
+				458A98301DBCFD44007F53EE /* UnderlineTextField.swift in Sources */,
 				45BB39601DBBD5740019C2A3 /* NewParkingRatesViewController.swift in Sources */,
 				45099A871DAF261200392FF1 /* LoginViewController.swift in Sources */,
 				45BC29451DA18249000C54BC /* AppDelegate.swift in Sources */,

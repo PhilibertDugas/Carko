@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -91,7 +92,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="xIL-kL-2fB" kind="show" id="wnl-zT-knh"/>
+                                    <segue destination="WYE-12-YUM" kind="show" identifier="didTapContinue" id="krG-Pw-oq0"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -120,25 +121,101 @@
             <point key="canvasLocation" x="652" y="-450.22488755622192"/>
         </scene>
         <!--Confirm Parking View Controller-->
-        <scene sceneID="Jtl-To-AVI">
+        <scene sceneID="BEO-Z4-kbN">
             <objects>
-                <viewController id="xIL-kL-2fB" customClass="ConfirmParkingViewController" customModule="Carko" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="WYE-12-YUM" customClass="ConfirmParkingViewController" customModule="Carko" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="xj5-Uc-2wY"/>
-                        <viewControllerLayoutGuide type="bottom" id="pZz-8Q-kVI"/>
+                        <viewControllerLayoutGuide type="top" id="vig-KX-fPO"/>
+                        <viewControllerLayoutGuide type="bottom" id="5IJ-X2-ux4"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="un9-e0-8K7">
+                    <view key="view" contentMode="scaleToFill" id="uDJ-4r-bJR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BxC-5o-9JE" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
+                                <color key="tintColor" red="0.59859156609999997" green="0.48580044509999998" blue="0.48472779989999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="Kkp-nm-hCQ"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7ie-vR-vaD" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
+                                <color key="tintColor" red="0.59859156609999997" green="0.48580044509999998" blue="0.48472779989999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="E9v-mh-Mzt"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nQR-Bm-Y18" customClass="RoundedCornerButton" customModule="Carko" customModuleProvider="target">
+                                <color key="backgroundColor" red="0.59859156609999997" green="0.48580044509999998" blue="0.48472779989999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="WPV-zf-nvN"/>
+                                </constraints>
+                                <state key="normal" title="Confirm">
+                                    <color key="titleColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="tappedConfirmed:" destination="WYE-12-YUM" eventType="touchUpInside" id="XpB-Ab-dmq"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gdB-uF-Cy8">
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Payment method" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XZ7-pq-ACa" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
+                                        <color key="tintColor" red="0.59859156609999997" green="0.48580044509999998" blue="0.48472779989999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow-right-01-128.png" translatesAutoresizingMaskIntoConstraints="NO" id="VaD-ZR-Mo8"/>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="VaD-ZR-Mo8" secondAttribute="trailing" id="09w-XI-ZaI"/>
+                                    <constraint firstAttribute="bottom" secondItem="VaD-ZR-Mo8" secondAttribute="bottom" id="8oi-6S-Vd4"/>
+                                    <constraint firstAttribute="trailing" secondItem="XZ7-pq-ACa" secondAttribute="trailing" constant="68" id="9lT-nc-Say"/>
+                                    <constraint firstItem="VaD-ZR-Mo8" firstAttribute="top" secondItem="gdB-uF-Cy8" secondAttribute="top" id="Lr8-2q-Eeb"/>
+                                    <constraint firstAttribute="bottom" secondItem="XZ7-pq-ACa" secondAttribute="bottom" id="NLx-ZT-3k1"/>
+                                    <constraint firstAttribute="height" constant="45" id="fHE-dM-Pqk"/>
+                                    <constraint firstItem="XZ7-pq-ACa" firstAttribute="leading" secondItem="gdB-uF-Cy8" secondAttribute="leading" id="g9i-Pe-XbI"/>
+                                    <constraint firstItem="VaD-ZR-Mo8" firstAttribute="leading" secondItem="XZ7-pq-ACa" secondAttribute="trailing" constant="8" id="po1-KB-wuL"/>
+                                    <constraint firstItem="XZ7-pq-ACa" firstAttribute="top" secondItem="gdB-uF-Cy8" secondAttribute="top" id="yoy-CL-TCg"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nQR-Bm-Y18" firstAttribute="leading" secondItem="uDJ-4r-bJR" secondAttribute="leading" id="HfG-ed-W5C"/>
+                            <constraint firstItem="7ie-vR-vaD" firstAttribute="trailing" secondItem="uDJ-4r-bJR" secondAttribute="trailingMargin" id="KSm-DD-8Ls"/>
+                            <constraint firstItem="gdB-uF-Cy8" firstAttribute="trailing" secondItem="uDJ-4r-bJR" secondAttribute="trailingMargin" id="MiG-dJ-mjB"/>
+                            <constraint firstAttribute="trailing" secondItem="nQR-Bm-Y18" secondAttribute="trailing" id="PZK-Dt-XpN"/>
+                            <constraint firstItem="BxC-5o-9JE" firstAttribute="leading" secondItem="uDJ-4r-bJR" secondAttribute="leading" constant="16" id="QJP-wy-Ti1"/>
+                            <constraint firstAttribute="trailing" secondItem="BxC-5o-9JE" secondAttribute="trailing" constant="16" id="UAD-uP-Z0v"/>
+                            <constraint firstItem="gdB-uF-Cy8" firstAttribute="leading" secondItem="uDJ-4r-bJR" secondAttribute="leadingMargin" id="X4H-l8-yhU"/>
+                            <constraint firstItem="BxC-5o-9JE" firstAttribute="top" secondItem="vig-KX-fPO" secondAttribute="bottom" constant="8" id="kmm-se-mJF"/>
+                            <constraint firstItem="5IJ-X2-ux4" firstAttribute="top" secondItem="nQR-Bm-Y18" secondAttribute="bottom" id="pwr-zq-w0m"/>
+                            <constraint firstItem="7ie-vR-vaD" firstAttribute="top" secondItem="BxC-5o-9JE" secondAttribute="bottom" constant="8" id="pzu-xA-9f8"/>
+                            <constraint firstItem="7ie-vR-vaD" firstAttribute="leading" secondItem="uDJ-4r-bJR" secondAttribute="leadingMargin" id="qJw-Y9-1qs"/>
+                            <constraint firstItem="gdB-uF-Cy8" firstAttribute="top" secondItem="7ie-vR-vaD" secondAttribute="bottom" constant="8" id="wvg-PL-Rgc"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="addressTextField" destination="BxC-5o-9JE" id="NVn-dW-tqo"/>
+                        <outlet property="creditCardTextField" destination="XZ7-pq-ACa" id="lxH-LP-zBP"/>
+                        <outlet property="creditCardView" destination="gdB-uF-Cy8" id="sWi-wR-cDD"/>
+                        <outlet property="priceTextField" destination="7ie-vR-vaD" id="bu9-ie-N4o"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vgf-MW-Ef4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mRh-Wi-FKD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1420" y="-450"/>
+            <point key="canvasLocation" x="1376.8" y="-450.22488755622192"/>
         </scene>
     </scenes>
     <resources>
+        <image name="arrow-right-01-128.png" width="128" height="128"/>
         <image name="parking-icon-png-18.png" width="256" height="256"/>
     </resources>
 </document>
