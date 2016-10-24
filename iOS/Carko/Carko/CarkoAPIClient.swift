@@ -16,6 +16,7 @@ class CarkoAPIClient: NSObject {
     static let sharedClient = CarkoAPIClient.init()
     let session: URLSession
     let baseUrlString = "https://fast-crag-37122.herokuapp.com"
+    //let baseUrlString = "https://784282f5.ngrok.io"
     let customerId: String
 
     override init() {
@@ -52,6 +53,25 @@ class CarkoAPIClient: NSObject {
         let postUrl = baseUrl!.appendingPathComponent("/customers")
         request(postUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).response { (response) in
             complete(response.error)
+        }
+    }
+
+    func postCharge(_ source: STPSource, paymentContext: STPPaymentContext, completion: @escaping STPErrorBlock) {
+        let parameters: Parameters = ["charge":
+            [
+                "source": source.stripeID,
+                "amount": paymentContext.paymentAmount,
+                "currency": paymentContext.paymentCurrency
+            ]
+        ]
+        let baseUrl = URL.init(string: baseUrlString)
+        let postUrl = baseUrl!.appendingPathComponent("/charges")
+        request(postUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).response { (response) in
+            if response.error != nil {
+                completion(response.error)
+            } else {
+                completion(nil)
+            }
         }
     }
 }

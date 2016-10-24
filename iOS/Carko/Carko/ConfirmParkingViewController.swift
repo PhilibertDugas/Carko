@@ -46,7 +46,7 @@ class ConfirmParkingViewController: UIViewController {
 
 extension ConfirmParkingViewController: STPPaymentContextDelegate {
     public func paymentContext(_ paymentContext: STPPaymentContext, didCreatePaymentResult paymentResult: STPPaymentResult, completion: @escaping STPErrorBlock) {
-        print(paymentResult.description)
+        CarkoAPIClient.sharedClient.postCharge(paymentResult.source, paymentContext: paymentContext, completion: completion)
     }
 
     func paymentContextDidChange(_ paymentContext: STPPaymentContext) {
