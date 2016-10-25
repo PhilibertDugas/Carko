@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 protocol ParkingAvailabilityDelegate: class {
     func userDidChangeAvailability(value: ParkingAvailabilityInfo)
@@ -34,6 +35,7 @@ class ParkingAvailabilityViewController: UIViewController {
     // making this a weak variable so that it won't create a strong reference cycle
     weak var delegate: ParkingAvailabilityDelegate? = nil
     var parkingAvailability: ParkingAvailabilityInfo?
+    var dateFormatter: DateFormatter?
         
     @IBAction func saveChange(_ sender: AnyObject) {
         self.dismiss(animated: true, completion: nil)
@@ -49,21 +51,29 @@ class ParkingAvailabilityViewController: UIViewController {
     }
     
     @IBAction func fromTimeEditBegin(_ sender: AnyObject) {
-        let datePicker = UIDatePicker()
+        let datePicker = UIDatePicker.init()
+        datePicker.datePickerMode = UIDatePickerMode.time
         fromTextField.inputView = datePicker
     }
     
     @IBAction func fromTimeEditEnd(_ sender: AnyObject) {
-        parkingAvailability!.startTime = fromTextField.text!
+        let datePicker = fromTextField.inputView as! UIDatePicker
+        let startTime = self.dateFormatter!.string(from: datePicker.date)
+        fromTextField.text = startTime
+        parkingAvailability!.startTime = startTime
     }
     
     @IBAction func toTimeEditBegin(_ sender: AnyObject) {
-        let datePicker = UIDatePicker()
+        let datePicker = UIDatePicker.init()
+        datePicker.datePickerMode = UIDatePickerMode.time
         toTextField.inputView = datePicker
     }
     
     @IBAction func toTimeEditEnd(_ sender: AnyObject) {
-        parkingAvailability!.stopTime = toTextField.text!
+        let datePicker = toTextField.inputView as! UIDatePicker
+        let stopTime = self.dateFormatter!.string(from: datePicker.date)
+        toTextField.text = stopTime
+        parkingAvailability!.stopTime = stopTime
     }
     
     @IBAction func mondayToggle(_ sender: AnyObject) {
@@ -103,8 +113,11 @@ class ParkingAvailabilityViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
+        self.dateFormatter = DateFormatter.init()
+        self.dateFormatter!.dateFormat = "h:mm a"
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         updateAvailability()
     }
