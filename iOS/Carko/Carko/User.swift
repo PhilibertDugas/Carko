@@ -34,18 +34,23 @@ class User: NSObject {
         super.init()
     }
     
+    func toDictionnary() -> [String : Any] {
+        return ["customer": [
+                "email": email,
+                "first_name": firstName!,
+                "last_name": lastName!,
+                "firebase_id": uid!
+            ]
+        ]
+    }
+    
     func logIn() {
         FIRAuth.auth()?.signIn(withEmail: self.email, password: self.password, completion: { (user, error) in
             if error != nil {
-                
-            } else {
-                self.uid = user?.uid
-                User.ref.child("users").child(self.uid!).observeSingleEvent(of: .value, with: { (snapshot) in
-                    let user = snapshot.value! as! [String : Any]
-                    self.firstName = user["firstName"] as? String
-                    self.lastName = user["lastName"] as? String
-                    self.notificationCenter.post(name: Notification.Name.init("UserLoggedIn"), object: nil, userInfo: nil)
-                })
+                self.postLoginError(error!)
+            } else if let user = user {
+                self.uid = user.uid
+                self.notificationCenter.post(name: Notification.Name.init("UserLoggedIn"), object: nil, userInfo: nil)
             }
         })
     }
@@ -53,13 +58,26 @@ class User: NSObject {
     func register() {
         FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
             if error != nil {
-                print("There was an error creating the user")
+                self.postRegisterError(error!)
             } else {
                 self.uid = user?.uid
-                let newUser = ["\(self.uid!)": ["firstName": self.firstName!, "lastName": self.lastName!]] as [String : Any]
-                User.ref.child("users").updateChildValues(newUser)
-                self.notificationCenter.post(name: Notification.Name.init("UserRegistered"), object: nil, userInfo: nil)
+                CarkoAPIClient.sharedClient.postUser(user: self, complete: { (error) in
+                    if error != nil {
+                        try! FIRAuth.auth()!.signOut()
+                        self.postRegisterError(error!)
+                    } else {
+                        self.notificationCenter.post(name: Notification.Name.init("UserRegistered"), object: nil, userInfo: nil)
+                    }
+                })
             }
         })
+    }
+    
+    private func postLoginError(_ error: Error) {
+        self.notificationCenter.post(name: Notification.Name.init("UserLoggedInError"), object: nil, userInfo: ["data": error.localizedDescription])
+    }
+    
+    private func postRegisterError(_ error: Error) {
+        self.notificationCenter.post(name: Notification.Name.init("UserRegisteredError"), object: nil, userInfo: ["data": error.localizedDescription])
     }
 }

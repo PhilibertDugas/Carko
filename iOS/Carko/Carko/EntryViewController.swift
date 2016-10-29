@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class EntryViewController: UIViewController {
 
@@ -29,10 +30,15 @@ class EntryViewController: UIViewController {
         self.view.addSubview(pageViewController.view)
         self.pageViewController.didMove(toParentViewController: self)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if FIRAuth.auth()?.currentUser != nil {
+           transitionToHomePage()
+        }
+    }
+    
+    func transitionToHomePage() {
+        performSegue(withIdentifier: "UserAlreadyLoggedIn", sender: nil)
     }
 }
 

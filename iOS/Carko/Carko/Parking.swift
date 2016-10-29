@@ -73,7 +73,7 @@ class Parking: NSObject {
     class func getAllParkings() {
         ref.child("parkings").observeSingleEvent(of: .value, with: { (snapshot) in
             let parkings = snapshot.value! as? [String : Any]
-            NotificationCenter.default.post(name: Notification.Name.init("parkingFetched"), object: nil, userInfo: parkings)
+            NotificationCenter.default.post(name: Notification.Name.init("ParkingFetched"), object: nil, userInfo: parkings)
         }) { (error) in
             print(error)
         }

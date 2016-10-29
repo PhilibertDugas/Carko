@@ -24,11 +24,27 @@
                                     <action selector="showTapped:" destination="zf4-oy-pQM" eventType="touchUpInside" id="STe-Z0-5o6"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cxs-Om-m5Q" customClass="RoundedCornerButton" customModule="Carko" customModuleProvider="target">
+                                <color key="backgroundColor" red="0.59859156608581543" green="0.48580044507980347" blue="0.48472779989242554" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="e8n-uG-Gkv"/>
+                                    <constraint firstAttribute="width" constant="173" id="tyW-fX-zM5"/>
+                                </constraints>
+                                <state key="normal" title="Log out">
+                                    <color key="titleColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="logoutTapped:" destination="zf4-oy-pQM" eventType="touchUpInside" id="icD-Mt-Yq6"/>
+                                    <segue destination="lQc-IL-R5t" kind="show" id="JLr-Px-Yrd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="pfA-6Y-dmS" firstAttribute="centerX" secondItem="pQt-Sq-COB" secondAttribute="centerX" id="3a5-jn-6nZ"/>
+                            <constraint firstItem="PNx-wR-j1S" firstAttribute="top" secondItem="Cxs-Om-m5Q" secondAttribute="bottom" constant="8" id="LyB-eq-IFY"/>
                             <constraint firstItem="pfA-6Y-dmS" firstAttribute="centerY" secondItem="pQt-Sq-COB" secondAttribute="centerY" id="PHO-CB-lkA"/>
+                            <constraint firstItem="Cxs-Om-m5Q" firstAttribute="centerX" secondItem="pQt-Sq-COB" secondAttribute="centerX" id="gwl-L6-PUe"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="featured" id="5dA-Az-Z4Q"/>
@@ -36,7 +52,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w3c-XV-cG2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-885" y="-100"/>
+            <point key="canvasLocation" x="-885.60000000000002" y="-100.29985007496252"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="kHD-lO-PlK">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="lQc-IL-R5t" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GkT-8v-Te9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-12" y="-101"/>
         </scene>
     </scenes>
 </document>

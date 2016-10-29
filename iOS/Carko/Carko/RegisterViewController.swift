@@ -13,6 +13,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet var lastName: UITextField!
     @IBOutlet var email: UITextField!
     @IBOutlet var password: UITextField!
+    @IBOutlet var errorMessage: UILabel!
 
     @IBAction func registerPressed(_ sender: AnyObject) {
         if let firstName = firstName.text, let lastName = lastName.text, let email = email.text, let password = password.text {
@@ -22,32 +23,24 @@ class RegisterViewController: UIViewController {
             print("Display an error message to the user")
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.hideKeyboardWhenTappedAround()
 
         NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.userRegistered), name: NSNotification.Name(rawValue: "UserRegistered"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.userRegisteredError), name: NSNotification.Name(rawValue: "UserRegisteredError"), object: nil)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     func userRegistered(_ notification: Notification) {
         self.performSegue(withIdentifier: "UserRegistered", sender: nil)
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func userRegisteredError(_ notification: Notification) {
+        if let userInfo = notification.userInfo {
+            errorMessage.text = userInfo["data"] as? String
+        }
     }
-    */
-
 }

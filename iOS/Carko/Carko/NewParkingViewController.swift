@@ -60,42 +60,16 @@ class NewParkingViewController: UIViewController {
     @IBAction func addButtonTapped(_ sender: AnyObject) {
         let currentMapCoordinate = mapView.camera.target
         let newAvailabilityInfo = ParkingAvailabilityInfo.init()
-        self.newParking = Parking.init(latitude: currentMapCoordinate.latitude, longitude: currentMapCoordinate.longitude, photoURL: URL.init(string: "http://google.com")!, address: (currentPlace?.name)!, price: 1.0, parkingDescription: "", availabilityInfo: newAvailabilityInfo)
-        
-        self.performSegue(withIdentifier: "newParkingSchedule", sender: nil)
+        self.newParking = Parking.init(latitude: currentMapCoordinate.latitude, longitude: currentMapCoordinate.longitude, photoURL: URL.init(string: "http://google.com")!, address: (currentPlace?.name)!, price: 1.0, parkingDescription: "", availabilityInfo: newAvailabilityInfo)        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier! == "newParkingSchedule" {
-            let destinationViewController = segue.destination as! ParkingAvailabilityViewController
-            destinationViewController.parkingAvailability = self.newParking?.availabilityInfo
-            destinationViewController.delegate = self
-        } else if segue.identifier! == "newParkingRates" {
-            let destinationViewController = segue.destination as! ParkingRatesViewController
-            destinationViewController.parkingRate = newParking!.price
-            destinationViewController.delegate = self
+        if segue.identifier! == "addButtonTapped" {
+            let destinationViewController = segue.destination as! NewParkingScheduleViewController
+            destinationViewController.newParking = self.newParking!
         }
     }
 }
-
-// Parking delegates
-
-extension NewParkingViewController: ParkingAvailabilityDelegate {
-    func userDidChangeAvailability(value: ParkingAvailabilityInfo) {
-        newParking?.availabilityInfo = value
-        self.performSegue(withIdentifier: "newParkingRates", sender: nil)
-    }
-}
-
-extension NewParkingViewController: ParkingRateDelegate {
-    func userDidChangeRate(value: Float) {
-        newParking?.price = value
-        newParking?.persist()
-        NotificationCenter.default.post(name: Notification.Name.init("parkingListUpdated"), object: nil, userInfo: nil)
-        self.dismiss(animated: true, completion: nil)
-    }
-}
-
 
 
 // Geolocation Delegates

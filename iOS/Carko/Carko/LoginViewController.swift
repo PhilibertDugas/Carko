@@ -12,41 +12,35 @@ class LoginViewController: UIViewController {
 
     @IBOutlet var email: UITextField!
     @IBOutlet var password: UITextField!
+    @IBOutlet var errorMessage: UILabel!
     
     @IBAction func loginPressed(_ sender: AnyObject) {
-        if let email = email.text, let password = password.text {
-            let user = User.init(email: email, password: password)
-            user.logIn()
+        if email.text == "" || password.text == "" {
+            errorMessage.text = "Invalid email or password"
         } else {
-            print("Show an error message here")
+            let user = User.init(email: email.text!, password: password.text!)
+            user.logIn()
+
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.hideKeyboardWhenTappedAround()
         
         NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.userLoggedIn), name: NSNotification.Name(rawValue: "UserLoggedIn"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.userLoggedInError), name: NSNotification.Name(rawValue: "UserLoggedInError"), object: nil)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     func userLoggedIn(_ notification: Notification) {
         performSegue(withIdentifier: "UserLoggedIn", sender: nil)
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func userLoggedInError(_ notification: Notification) {
+        if let userInfo = notification.userInfo {
+            errorMessage.text = userInfo["data"] as? String
+        }
     }
-    */
-
 }

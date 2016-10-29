@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BlE-fA-HKp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ue9-AF-yKV">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -20,7 +20,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UVk-eQ-6kd">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UVk-eQ-6kd" customClass="RoundedCornerButton" customModule="Carko" customModuleProvider="target">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="124" id="5NE-Jq-hyt"/>
                                     <constraint firstAttribute="height" constant="62" id="sSg-eX-Kuu"/>
@@ -30,7 +30,8 @@
                                     <action selector="loginPressed:" destination="YXJ-kN-NHX" eventType="touchUpInside" id="mQn-Pq-c7k"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="75H-03-rPq">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="75H-03-rPq" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
+                                <color key="tintColor" red="0.59859156609999997" green="0.48580044509999998" blue="0.48472779989999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="GMT-ze-H7c"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="38" id="NgE-Cd-Wad"/>
@@ -39,7 +40,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xf9-fK-4sh">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xf9-fK-4sh" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
+                                <color key="tintColor" red="0.59859156609999997" green="0.48580044509999998" blue="0.48472779989999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="9bO-4g-VgA"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="38" id="VRe-ra-qYd"/>
@@ -63,13 +65,23 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JVo-vc-6cw">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="74" id="bmQ-nd-aKt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.018721711901257265" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wgw-7B-IS6" firstAttribute="top" secondItem="ynq-zw-IxC" secondAttribute="bottom" id="3E9-gv-6LH"/>
                             <constraint firstItem="wgw-7B-IS6" firstAttribute="leading" secondItem="YGM-a9-Csk" secondAttribute="leading" id="Bcx-kr-u9x"/>
                             <constraint firstItem="UVk-eQ-6kd" firstAttribute="centerX" secondItem="YGM-a9-Csk" secondAttribute="centerX" id="IST-Yl-lH4"/>
+                            <constraint firstItem="JVo-vc-6cw" firstAttribute="leading" secondItem="YGM-a9-Csk" secondAttribute="leadingMargin" id="UXJ-gk-Fk6"/>
                             <constraint firstItem="Xf9-fK-4sh" firstAttribute="trailing" secondItem="YGM-a9-Csk" secondAttribute="trailingMargin" id="VsB-a1-1Q7"/>
+                            <constraint firstItem="JVo-vc-6cw" firstAttribute="top" secondItem="UVk-eQ-6kd" secondAttribute="bottom" constant="29" id="b0s-0y-smW"/>
                             <constraint firstItem="Xf9-fK-4sh" firstAttribute="top" secondItem="75H-03-rPq" secondAttribute="bottom" constant="48" id="bhh-5H-HZ4"/>
                             <constraint firstItem="75H-03-rPq" firstAttribute="trailing" secondItem="YGM-a9-Csk" secondAttribute="trailingMargin" id="cgt-zU-ff8"/>
                             <constraint firstAttribute="trailing" secondItem="wgw-7B-IS6" secondAttribute="trailing" id="doo-VR-NcU"/>
@@ -77,17 +89,19 @@
                             <constraint firstItem="75H-03-rPq" firstAttribute="top" secondItem="ynq-zw-IxC" secondAttribute="bottom" constant="100" id="gZv-jM-vtI"/>
                             <constraint firstItem="UVk-eQ-6kd" firstAttribute="top" secondItem="Xf9-fK-4sh" secondAttribute="bottom" constant="58" id="nc2-dd-jw6"/>
                             <constraint firstItem="Xf9-fK-4sh" firstAttribute="leading" secondItem="YGM-a9-Csk" secondAttribute="leadingMargin" id="qiS-rm-JiT"/>
+                            <constraint firstItem="JVo-vc-6cw" firstAttribute="trailing" secondItem="YGM-a9-Csk" secondAttribute="trailingMargin" id="xrM-P5-LQN"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="email" destination="75H-03-rPq" id="FxW-4K-k3Q"/>
+                        <outlet property="errorMessage" destination="JVo-vc-6cw" id="BXF-kn-v14"/>
                         <outlet property="password" destination="Xf9-fK-4sh" id="CYY-kD-nKM"/>
                         <segue destination="BlE-fA-HKp" kind="show" identifier="UserLoggedIn" id="B86-Qb-Qer"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vda-6L-x7u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1914" y="175"/>
+            <point key="canvasLocation" x="-2279.1999999999998" y="-588.75562218890559"/>
         </scene>
         <!--Entry View Controller-->
         <scene sceneID="DDY-wk-Xez">
@@ -101,7 +115,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gNW-Hc-oCJ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gNW-Hc-oCJ" customClass="RoundedCornerButton" customModule="Carko" customModuleProvider="target">
                                 <color key="backgroundColor" red="0.62068484542170665" green="0.97055440989847719" blue="0.62481940186743368" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="62" id="LTI-ZW-NLy"/>
@@ -113,7 +127,8 @@
                                     <segue destination="YXJ-kN-NHX" kind="show" id="aMl-gA-13N"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qbp-l0-xUb">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qbp-l0-xUb" customClass="RoundedCornerButton" customModule="Carko" customModuleProvider="target">
+                                <frame key="frameInset" minX="193" minY="597" width="168" height="62"/>
                                 <color key="backgroundColor" red="0.99849302030456855" green="0.34953685683040114" blue="0.23669037461610276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="62" id="qBu-us-U94"/>
@@ -129,15 +144,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="gNW-Hc-oCJ" firstAttribute="leading" secondItem="0ma-b1-tMZ" secondAttribute="leadingMargin" id="2So-i8-R7U"/>
-                            <constraint firstItem="DJR-uF-2ef" firstAttribute="top" secondItem="gNW-Hc-oCJ" secondAttribute="bottom" constant="20" id="PGX-tF-agO"/>
+                            <constraint firstItem="DJR-uF-2ef" firstAttribute="top" secondItem="gNW-Hc-oCJ" secondAttribute="bottom" constant="8" id="Doi-fO-kJv"/>
+                            <constraint firstItem="DJR-uF-2ef" firstAttribute="top" secondItem="qbp-l0-xUb" secondAttribute="bottom" constant="8" id="Ibi-3G-AZi"/>
                             <constraint firstItem="qbp-l0-xUb" firstAttribute="trailing" secondItem="0ma-b1-tMZ" secondAttribute="trailingMargin" id="dZ8-ZV-W4i"/>
                             <constraint firstItem="gNW-Hc-oCJ" firstAttribute="width" secondItem="0ma-b1-tMZ" secondAttribute="width" multiplier="0.45" id="hCs-qS-7UM"/>
                             <constraint firstItem="qbp-l0-xUb" firstAttribute="width" secondItem="0ma-b1-tMZ" secondAttribute="width" multiplier="0.45" id="jCt-ol-ZZS"/>
-                            <constraint firstItem="DJR-uF-2ef" firstAttribute="top" secondItem="qbp-l0-xUb" secondAttribute="bottom" constant="20" id="jeo-uq-dM2"/>
-                            <constraint firstItem="DJR-uF-2ef" firstAttribute="top" secondItem="qbp-l0-xUb" secondAttribute="bottom" constant="20" id="jgK-OL-fWu"/>
-                            <constraint firstItem="DJR-uF-2ef" firstAttribute="top" secondItem="gNW-Hc-oCJ" secondAttribute="bottom" constant="20" id="xeS-s4-wCm"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="BlE-fA-HKp" kind="show" identifier="UserAlreadyLoggedIn" id="sHm-8J-gyY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CFo-QF-R5Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -183,7 +199,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7XN-KZ-URe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3546.4000000000001" y="906.29685157421295"/>
+            <point key="canvasLocation" x="-3614" y="-589"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="a2r-Kw-BxU">
@@ -191,7 +207,7 @@
                 <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="XrF-DP-t3R" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nJn-xH-7p4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3546" y="1596"/>
+            <point key="canvasLocation" x="-4302" y="-590"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="oTD-pI-eRi">
@@ -205,7 +221,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u2M-Jh-drg">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u2M-Jh-drg" customClass="RoundedCornerButton" customModule="Carko" customModuleProvider="target">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="124" id="LBT-ho-JVK"/>
                                     <constraint firstAttribute="height" constant="62" id="tjh-Zu-Fkk"/>
@@ -215,7 +231,8 @@
                                     <action selector="registerPressed:" destination="lKW-f6-EBE" eventType="touchUpInside" id="lid-w6-d2c"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ckv-IO-BQ8">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ckv-IO-BQ8" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
+                                <color key="tintColor" red="0.59859156609999997" green="0.48580044509999998" blue="0.48472779989999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="XQb-Tw-EpO"/>
                                 </constraints>
@@ -223,7 +240,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lhR-i9-aIb">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lhR-i9-aIb" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
+                                <color key="tintColor" red="0.59859156609999997" green="0.48580044509999998" blue="0.48472779989999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="bM2-vK-2S1"/>
                                 </constraints>
@@ -231,7 +249,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zED-Wd-lrn">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zED-Wd-lrn" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
+                                <color key="tintColor" red="0.59859156609999997" green="0.48580044509999998" blue="0.48472779989999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="QGg-HY-PcX"/>
                                 </constraints>
@@ -239,7 +258,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TQu-Yn-at2">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TQu-Yn-at2" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
+                                <color key="tintColor" red="0.59859156609999997" green="0.48580044509999998" blue="0.48472779989999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="CPL-jB-8AA"/>
                                 </constraints>
@@ -262,6 +282,14 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HzM-Y1-eFf">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="74" id="l0J-mc-J7T"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0187217119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -270,13 +298,16 @@
                             <constraint firstAttribute="trailing" secondItem="zUC-eD-HaN" secondAttribute="trailing" id="BFV-Vh-oD0"/>
                             <constraint firstItem="zED-Wd-lrn" firstAttribute="trailing" secondItem="Vze-vc-3la" secondAttribute="trailingMargin" id="DbQ-fV-dhG"/>
                             <constraint firstItem="u2M-Jh-drg" firstAttribute="centerX" secondItem="Vze-vc-3la" secondAttribute="centerX" id="H6G-Gf-rWh"/>
+                            <constraint firstItem="HzM-Y1-eFf" firstAttribute="trailing" secondItem="Vze-vc-3la" secondAttribute="trailingMargin" id="J62-aZ-SLa"/>
                             <constraint firstItem="TQu-Yn-at2" firstAttribute="leading" secondItem="Vze-vc-3la" secondAttribute="leadingMargin" id="SYp-VG-0YL"/>
                             <constraint firstItem="lhR-i9-aIb" firstAttribute="trailing" secondItem="Vze-vc-3la" secondAttribute="trailingMargin" id="Scj-St-HF0"/>
                             <constraint firstItem="ckv-IO-BQ8" firstAttribute="trailing" secondItem="Vze-vc-3la" secondAttribute="trailingMargin" id="Z3b-dR-ddL"/>
                             <constraint firstItem="TQu-Yn-at2" firstAttribute="top" secondItem="zED-Wd-lrn" secondAttribute="bottom" constant="58" id="brS-fw-xAZ"/>
                             <constraint firstItem="ckv-IO-BQ8" firstAttribute="top" secondItem="zt5-HQ-HZq" secondAttribute="bottom" constant="100" id="by4-uW-nnE"/>
                             <constraint firstItem="zUC-eD-HaN" firstAttribute="leading" secondItem="Vze-vc-3la" secondAttribute="leading" id="ezp-Es-8bZ"/>
+                            <constraint firstItem="HzM-Y1-eFf" firstAttribute="top" secondItem="TQu-Yn-at2" secondAttribute="bottom" constant="35" id="fag-CQ-MmB"/>
                             <constraint firstItem="zUC-eD-HaN" firstAttribute="top" secondItem="zt5-HQ-HZq" secondAttribute="bottom" id="hi5-os-CXP"/>
+                            <constraint firstItem="HzM-Y1-eFf" firstAttribute="leading" secondItem="Vze-vc-3la" secondAttribute="leadingMargin" id="lsj-tl-b2Z"/>
                             <constraint firstItem="lhR-i9-aIb" firstAttribute="top" secondItem="ckv-IO-BQ8" secondAttribute="bottom" constant="53" id="m2g-QG-Zzy"/>
                             <constraint firstItem="lhR-i9-aIb" firstAttribute="leading" secondItem="Vze-vc-3la" secondAttribute="leadingMargin" id="od5-E2-l9A"/>
                             <constraint firstItem="zED-Wd-lrn" firstAttribute="top" secondItem="lhR-i9-aIb" secondAttribute="bottom" constant="53" id="rDL-rh-s1U"/>
@@ -286,6 +317,7 @@
                     </view>
                     <connections>
                         <outlet property="email" destination="zED-Wd-lrn" id="gH3-g8-N2l"/>
+                        <outlet property="errorMessage" destination="HzM-Y1-eFf" id="4sG-v1-J57"/>
                         <outlet property="firstName" destination="ckv-IO-BQ8" id="GFe-G6-3ba"/>
                         <outlet property="lastName" destination="lhR-i9-aIb" id="S2S-Rx-xyk"/>
                         <outlet property="password" destination="TQu-Yn-at2" id="D5Q-1Y-zXS"/>
@@ -294,7 +326,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wjE-gf-69l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1914.4000000000001" y="939.58020989505258"/>
+            <point key="canvasLocation" x="-4303" y="924"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="3Wq-Vv-XmN">
@@ -313,7 +345,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HTK-RC-H4v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1136" y="176"/>
+            <point key="canvasLocation" x="-1140" y="175"/>
         </scene>
         <!--ParkingList-->
         <scene sceneID="6bg-5v-8Ia">
@@ -347,7 +379,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="3eU-Rg-oPT"/>
         <segue reference="OPc-nx-uga"/>
+        <segue reference="3eU-Rg-oPT"/>
     </inferredMetricsTieBreakers>
 </document>
