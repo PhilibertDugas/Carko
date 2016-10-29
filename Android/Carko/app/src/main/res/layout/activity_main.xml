@@ -22,11 +22,13 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/login_button"/>
+            android:text="@string/login_button"
+            android:onClick="signIn"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/register_button"/>
+            android:text="@string/register_button"
+            android:onClick="register"/>
     </LinearLayout>
 </LinearLayout>
