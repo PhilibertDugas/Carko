@@ -44,8 +44,6 @@ class MyParkingsViewController: UIViewController {
             ParkingTableView.reloadSections([0], with: UITableViewRowAnimation.automatic)
         }
     }
-    
-    ///////// Observers
 
     func parkingFetched(_ notification: Notification) {
         if let parkingData = notification.userInfo as? [String: Any] {
@@ -94,5 +92,15 @@ extension MyParkingsViewController: UITableViewDataSource, UITableViewDelegate {
         }
         
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.delete {
+            self.parkingList.remove(at: indexPath.row)
+        }
     }
 }

@@ -21,11 +21,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UVk-eQ-6kd" customClass="RoundedCornerButton" customModule="Carko" customModuleProvider="target">
+                                <color key="backgroundColor" red="0.59859156609999997" green="0.48580044509999998" blue="0.48472779989999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="124" id="5NE-Jq-hyt"/>
                                     <constraint firstAttribute="height" constant="62" id="sSg-eX-Kuu"/>
                                 </constraints>
-                                <state key="normal" title="Login"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="loginPressed:" destination="YXJ-kN-NHX" eventType="touchUpInside" id="mQn-Pq-c7k"/>
                                 </connections>
@@ -116,12 +119,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gNW-Hc-oCJ" customClass="RoundedCornerButton" customModule="Carko" customModuleProvider="target">
-                                <color key="backgroundColor" red="0.62068484542170665" green="0.97055440989847719" blue="0.62481940186743368" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.59859156609999997" green="0.48580044509999998" blue="0.48472779989999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="62" id="LTI-ZW-NLy"/>
                                 </constraints>
                                 <state key="normal" title="Login">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="YXJ-kN-NHX" kind="show" id="aMl-gA-13N"/>
@@ -129,12 +132,12 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qbp-l0-xUb" customClass="RoundedCornerButton" customModule="Carko" customModuleProvider="target">
                                 <frame key="frameInset" minX="193" minY="597" width="168" height="62"/>
-                                <color key="backgroundColor" red="0.99849302030456855" green="0.34953685683040114" blue="0.23669037461610276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.59859156609999997" green="0.48580044509999998" blue="0.48472779989999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="62" id="qBu-us-U94"/>
                                 </constraints>
                                 <state key="normal" title="Register">
-                                    <color key="titleColor" red="0.018995768861047993" green="0.029703362944162426" blue="0.019122305023748447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="lKW-f6-EBE" kind="show" id="MzT-Wv-Gvn"/>
@@ -222,11 +225,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u2M-Jh-drg" customClass="RoundedCornerButton" customModule="Carko" customModuleProvider="target">
+                                <color key="backgroundColor" red="0.59859156609999997" green="0.48580044509999998" blue="0.48472779989999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="124" id="LBT-ho-JVK"/>
                                     <constraint firstAttribute="height" constant="62" id="tjh-Zu-Fkk"/>
                                 </constraints>
-                                <state key="normal" title="Register"/>
+                                <state key="normal" title="Register">
+                                    <color key="titleColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="registerPressed:" destination="lKW-f6-EBE" eventType="touchUpInside" id="lid-w6-d2c"/>
                                 </connections>
@@ -379,7 +385,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="OPc-nx-uga"/>
-        <segue reference="3eU-Rg-oPT"/>
+        <segue reference="B86-Qb-Qer"/>
+        <segue reference="Rrh-6n-tPZ"/>
     </inferredMetricsTieBreakers>
 </document>

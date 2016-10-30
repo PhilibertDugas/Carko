@@ -83,8 +83,8 @@
                                     <constraint firstAttribute="height" constant="50" id="rbw-4t-qGq"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wXg-WF-Q2s">
-                                <color key="backgroundColor" red="0.0058965793616453568" green="0.93365323604060912" blue="0.019299716667722996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wXg-WF-Q2s" customClass="RoundedCornerButton" customModule="Carko" customModuleProvider="target">
+                                <color key="backgroundColor" red="0.59859156609999997" green="0.48580044509999998" blue="0.48472779989999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="4tC-XT-hYO"/>
                                 </constraints>

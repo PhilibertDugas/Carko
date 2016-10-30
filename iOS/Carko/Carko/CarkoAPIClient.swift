@@ -16,15 +16,16 @@ class CarkoAPIClient: NSObject {
     static let sharedClient = CarkoAPIClient.init()
     let session: URLSession
     let baseUrlString = "https://fast-crag-37122.herokuapp.com"
+    var baseUrl: URL!
     //let baseUrlString = "https://784282f5.ngrok.io"
     let customerId: String
 
     override init() {
-        customerId = (FIRAuth.auth()?.currentUser?.uid)!
-        //customerId = "1"
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForRequest = 5
+        self.customerId = (FIRAuth.auth()?.currentUser?.uid)!
         self.session = URLSession.init(configuration: configuration)
+        self.baseUrl = URL.init(string: baseUrlString)
     }
 
     func decodeResponse(_ response: URLResponse?, error: NSError?) -> NSError? {
@@ -33,18 +34,6 @@ class CarkoAPIClient: NSObject {
             return error ?? NSError.networkingError(httpResponse.statusCode)
         }
         return error
-    }
-
-    func postParking(parking: Parking, complete: @escaping (Error?) -> Void ) -> Void {
-        let parameters: Parameters = ["parking":
-            ["latitude": parking.latitude, "longitude": parking.longitude, "address": parking.address, "customer_id": customerId]
-        ]
-        // let parameters: Parameters = parking.toDictionary()
-        let baseUrl = URL.init(string: baseUrlString)
-        let postUrl = baseUrl!.appendingPathComponent("/parkings")
-        request(postUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).response { (response) in
-            complete(response.error)
-        }
     }
 
     func postUser(user: User, complete: @escaping (Error?) -> Void) -> Void {
@@ -64,8 +53,7 @@ class CarkoAPIClient: NSObject {
                 "currency": paymentContext.paymentCurrency
             ]
         ]
-        let baseUrl = URL.init(string: baseUrlString)
-        let postUrl = baseUrl!.appendingPathComponent("/charges")
+        let postUrl = baseUrl.appendingPathComponent("/charges")
         request(postUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).response { (response) in
             if response.error != nil {
                 completion(response.error)
@@ -74,6 +62,25 @@ class CarkoAPIClient: NSObject {
             }
         }
     }
+}
+
+
+// Parking API calls
+extension CarkoAPIClient {
+    func postParking(parking: Parking, complete: @escaping (Error?) -> Void ) -> Void {
+        let parameters: Parameters = ["parking":
+            ["latitude": parking.latitude, "longitude": parking.longitude, "address": parking.address, "customer_id": customerId]
+        ]
+        // let parameters: Parameters = parking.toDictionary()
+        let postUrl = baseUrl.appendingPathComponent("/parkings")
+        request(postUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).response { (response) in
+            complete(response.error)
+        }
+    }
+
+    /*func deleteParking(parking: Parking, complete: @escaping (Error?) -> Void) -> Void {
+        let deleteUrl = baseUrl.appendingPathComponent("/parkings/\(parking)")
+    }*/
 }
 
 extension CarkoAPIClient: STPBackendAPIAdapter {
@@ -98,8 +105,7 @@ extension CarkoAPIClient: STPBackendAPIAdapter {
     }
 
     func selectDefaultCustomerSource(_ source: STPSource, completion: @escaping STPErrorBlock) {
-        let baseUrl = URL.init(string: baseUrlString)
-        let postUrl = baseUrl!.appendingPathComponent("/customers/\(customerId)/default_source")
+        let postUrl = baseUrl.appendingPathComponent("/customers/\(customerId)/default_source")
         let parameters: Parameters = ["customer": ["default_source": source.stripeID]]
 
         request(postUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).response { (response) in
@@ -112,8 +118,7 @@ extension CarkoAPIClient: STPBackendAPIAdapter {
     }
 
     func attachSource(toCustomer source: STPSource, completion: @escaping STPErrorBlock) {
-        let baseUrl = URL.init(string: baseUrlString)
-        let postUrl = baseUrl!.appendingPathComponent("/customers/\(customerId)/sources")
+        let postUrl = baseUrl.appendingPathComponent("/customers/\(customerId)/sources")
         let parameters: Parameters = ["customer": ["source": source.stripeID]]
 
         request(postUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).response { (response) in
