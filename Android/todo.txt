@@ -1,0 +1,17 @@
+o 1. Create all views:
+  x 1.1 First view
+  x 1.2 Register view
+  x 1.3 Sign in view
+  o 1.4 Maps view
+    o 1.4.1 Search (1st tab): map with parkings
+    o 1.4.2 Most viewed (2nd tab): list of parkings (need clarification)
+    o 1.4.3 Featured? (3rd tab): dunno yet
+  o 1.5 Parking detail page (1st tab) (dunno yet)
+  o 1.6 Add parking (2nd tab)
+    o 1.6.1 Search bar at the top (Google Places)
+    o 1.6.2 Once place is selected from autocomplete list, pop google maps with centered marker and button
+    o 1.6.3 Once add button is clicked, pop Availability view
+    o 1.6.4 Different rate view?? IMO should be one view to do it all
+  o 1.7 Edit parkings (2nd tab)
+    o 1.7.1 When editing a parking: image at top, adress, descr, availability, rate, profit?
+    o 1.7.2 Repop same views for availability and rates
