@@ -9,68 +9,43 @@
 import Foundation
 
 class ParkingAvailabilityInfo: NSObject {
-    var alwaysAvailable: Bool
-    
     var startTime: String
     var stopTime: String
+    var alwaysAvailable: Bool
+
+    // Array of 7 elements. Index 0 represents Monday up to index 6 which represents Sunday
+    var daysAvailable: [(Bool)]
     
-    var isMonday: Bool
-    var isTuesday: Bool
-    var isWednesday: Bool
-    var isThursday: Bool
-    var isFriday: Bool
-    var isSaturday: Bool
-    var isSunday: Bool
-    
-    init(alwaysAvailable: Bool, startTime: String, stopTime: String, isMonday: Bool, isTuesday: Bool, isWednesday: Bool, isThursday: Bool, isFriday: Bool, isSaturday: Bool, isSunday: Bool) {
+    init(alwaysAvailable: Bool, startTime: String, stopTime: String, daysAvailable: [(Bool)]) {
         self.alwaysAvailable = alwaysAvailable
-        
         self.startTime = startTime
         self.stopTime = stopTime
         
-        self.isMonday = isMonday
-        self.isTuesday = isTuesday
-        self.isWednesday = isWednesday
-        self.isThursday = isThursday
-        self.isFriday = isFriday
-        self.isSaturday = isSaturday
-        self.isSunday = isSunday
-        
+        self.daysAvailable = daysAvailable
+
         super.init()
     }
     
     convenience init(availabilityInfo: [String : Any]) {
         let startTime = availabilityInfo["startTime"] as! String
         let stopTime = availabilityInfo["stopTime"] as! String
-        let isMonday = availabilityInfo["isMonday"] as! Bool
-        let isTuesday = availabilityInfo["isTuesday"] as! Bool
-        let isWednesday = availabilityInfo["isWednesday"] as! Bool
-        let isThursday = availabilityInfo["isThursday"] as! Bool
-        let isFriday = availabilityInfo["isFriday"] as! Bool
-        let isSaturday = availabilityInfo["isSaturday"] as! Bool
-        let isSunday = availabilityInfo["isSunday"] as! Bool
+        let daysAvailable = availabilityInfo["daysAvailable"] as! [(Bool)]
         let alwaysAvailable = availabilityInfo["alwaysAvailable"] as! Bool
-        
-        self.init(alwaysAvailable: alwaysAvailable, startTime: startTime, stopTime: stopTime, isMonday: isMonday, isTuesday: isTuesday, isWednesday: isWednesday, isThursday: isThursday, isFriday: isFriday, isSaturday: isSaturday, isSunday: isSunday)
+
+        self.init(alwaysAvailable: alwaysAvailable, startTime: startTime, stopTime: stopTime, daysAvailable: daysAvailable)
     }
     
     convenience override init() {
         let startTime = "0:00 AM"
         let stopTime = "12:00 PM"
-        let isMonday = false
-        let isTuesday = false
-        let isWednesday = false
-        let isThursday = false
-        let isFriday = false
-        let isSaturday = false
-        let isSunday = false
+        let daysAvailable = [false, false, false, false, false, false, false]
         let alwaysAvailable = false
 
-        self.init(alwaysAvailable: alwaysAvailable, startTime: startTime, stopTime: stopTime, isMonday: isMonday, isTuesday: isTuesday, isWednesday: isWednesday, isThursday: isThursday, isFriday: isFriday, isSaturday: isSaturday, isSunday: isSunday)
+        self.init(alwaysAvailable: alwaysAvailable, startTime: startTime, stopTime: stopTime, daysAvailable: daysAvailable)
     }
     
     func toDictionary() -> [String : Any] {
-        return ["alwaysAvailable": alwaysAvailable, "startTime": startTime, "stopTime": stopTime, "isMonday": isMonday, "isTuesday": isTuesday, "isWednesday": isWednesday, "isThursday": isThursday, "isFriday": isFriday, "isSaturday": isSaturday, "isSunday": isSunday]
+        return ["alwaysAvailable": alwaysAvailable, "startTime": startTime, "stopTime": stopTime, "daysAvailable": daysAvailable]
     }
     
     func lapsOfTimeText() -> String {
@@ -85,16 +60,16 @@ class ParkingAvailabilityInfo: NSObject {
         var enumerationText = ""
         var needsPunctuation = false
         
-        if isMonday && isTuesday && isWednesday && isThursday && isFriday && isSaturday && isSunday {
+        if self.alwaysAvailable || everyDayAvailable() {
             return "Everyday"
         }
         
-        if isMonday {
+        if daysAvailable[0] {
             enumerationText += "Mon"
             needsPunctuation = true
         }
         
-        if isTuesday {
+        if daysAvailable[1] {
             if needsPunctuation {
                 enumerationText += ", "
             }
@@ -102,7 +77,7 @@ class ParkingAvailabilityInfo: NSObject {
             needsPunctuation = true
         }
         
-        if isWednesday {
+        if daysAvailable[2] {
             if needsPunctuation {
                 enumerationText += ", "
             }
@@ -110,7 +85,7 @@ class ParkingAvailabilityInfo: NSObject {
             needsPunctuation = true
         }
         
-        if isThursday {
+        if daysAvailable[3] {
             if needsPunctuation {
                 enumerationText += ", "
             }
@@ -118,7 +93,7 @@ class ParkingAvailabilityInfo: NSObject {
             needsPunctuation = true
         }
         
-        if isFriday {
+        if daysAvailable[4] {
             if needsPunctuation {
                 enumerationText += ", "
             }
@@ -126,7 +101,7 @@ class ParkingAvailabilityInfo: NSObject {
             needsPunctuation = true
         }
         
-        if isSaturday {
+        if daysAvailable[5] {
             if needsPunctuation {
                 enumerationText += ", "
             }
@@ -134,7 +109,7 @@ class ParkingAvailabilityInfo: NSObject {
             needsPunctuation = true
         }
         
-        if isSunday {
+        if daysAvailable[6] {
             if needsPunctuation {
                 enumerationText += ", "
             }
@@ -143,5 +118,14 @@ class ParkingAvailabilityInfo: NSObject {
         }
         
         return enumerationText
+    }
+
+    private func everyDayAvailable() -> Bool {
+        for day in daysAvailable {
+            if !day {
+                return false
+            }
+        }
+        return true
     }
 }
