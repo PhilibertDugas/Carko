@@ -24,11 +24,11 @@ class MyParkingsViewController: UIViewController {
         ParkingTableView.delegate = self
         ParkingTableView.dataSource = self
 
-        NotificationCenter.default.addObserver(self, selector: #selector(self.parkingFetched), name: Notification.Name.init(rawValue: "ParkingFetched"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.parkingFetched), name: Notification.Name.init(rawValue: "CustomerParkingFetched"), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.parkingListUpdate), name: Notification.Name.init(rawValue: "NewParking"), object: nil)
         
-        Parking.getAllParkings()
+        parkingListUpdate()
     }
     
     @IBAction func editingParking(_ sender: AnyObject) {
@@ -48,8 +48,9 @@ class MyParkingsViewController: UIViewController {
     func parkingFetched(_ notification: Notification) {
         if let parkingData = notification.userInfo as? [String: Any] {
             parkingList.removeAll()
-            for (_, parkingInstance) in parkingData {
-                let parking = Parking.init(parking: parkingInstance as! [String : Any])
+            
+            let parkings = parkingData["data"] as! [(Parking)]
+            for (parking) in parkings {
                 parkingList.append(parking)
             }
             
@@ -58,7 +59,7 @@ class MyParkingsViewController: UIViewController {
     }
     
     func parkingListUpdate() {
-        Parking.getAllParkings()
+        Parking.getCustomerParkings()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {        

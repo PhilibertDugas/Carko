@@ -34,9 +34,10 @@ class MapViewController: UIViewController {
     func parkingFetched(_ notification: Notification) {
         if let parkingData = notification.userInfo as? [String: Any] {
             mapView.clear()
-            
-            for (_, parkingInstance) in parkingData {
-                let parking = Parking.init(parking: parkingInstance as! [String : Any])
+
+            let parkings = parkingData["data"] as! [(Parking)]
+
+            for parking in parkings {
                 let marker = GMSMarker()
                 marker.position = CLLocationCoordinate2D.init(latitude: parking.latitude, longitude: parking.longitude)
                 marker.userData = parking

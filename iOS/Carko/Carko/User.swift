@@ -19,6 +19,7 @@ class User: NSObject {
     var firstName: String?
     var lastName: String?
     var uid: String?
+    var id: Int?
     
     init(email: String, password: String) {
         self.email = email

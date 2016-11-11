@@ -17,15 +17,17 @@ class CarkoAPIClient: NSObject {
     let session: URLSession
     let baseUrlString = "https://fast-crag-37122.herokuapp.com"
     var baseUrl: URL!
-    //let baseUrlString = "https://784282f5.ngrok.io"
-    let customerId: String
+    // let baseUrlString = "https://a2bbb73b.ngrok.io"
 
     override init() {
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForRequest = 5
-        self.customerId = (FIRAuth.auth()?.currentUser?.uid)!
         self.session = URLSession.init(configuration: configuration)
         self.baseUrl = URL.init(string: baseUrlString)
+    }
+
+    func customerId() -> String {
+        return (FIRAuth.auth()?.currentUser?.uid)!
     }
 
     func decodeResponse(_ response: URLResponse?, error: NSError?) -> NSError? {
@@ -68,16 +70,47 @@ class CarkoAPIClient: NSObject {
 // Parking API calls
 extension CarkoAPIClient {
     func postParking(parking: Parking, complete: @escaping (Error?) -> Void ) -> Void {
-        let parameters: Parameters = ["parking":
-            ["latitude": parking.latitude, "longitude": parking.longitude, "address": parking.address, "customer_id": customerId]
-        ]
-        // let parameters: Parameters = parking.toDictionary()
+        let parameters: Parameters = parking.toDictionary()
         let postUrl = baseUrl.appendingPathComponent("/parkings")
         request(postUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).response { (response) in
             complete(response.error)
         }
     }
 
+    func getAllParkings(complete: @escaping([(Parking)], Error?) -> Void) -> Void {
+        let getUrl = baseUrl.appendingPathComponent("/parkings")
+        request(getUrl).responseJSON { (response) in
+            if let error = response.result.error {
+                complete([], error)
+            } else if let result = response.result.value {
+                let parkingArray = result as! NSArray
+                var parkings = [(Parking)]()
+                for parking in parkingArray {
+                    let dict = parking as! [String : Any]
+                    parkings.append(Parking.init(parking: dict))
+                }
+                complete(parkings, nil)
+            }
+        }
+    }
+
+    func getCustomerParkings(complete: @escaping([(Parking)], Error?) -> Void) -> Void {
+        let getUrl = baseUrl.appendingPathComponent("/customers/\(customerId())")
+        let parameters: Parameters = ["type": "parkings"]
+        request(getUrl, parameters: parameters).responseJSON { (response) in
+            if let error = response.result.error {
+                complete([], error)
+            } else if let result = response.result.value {
+                let parkingArray = result as! NSArray
+                var parkings = [(Parking)]()
+                for parking in parkingArray {
+                    let dict = parking as! [String : Any]
+                    parkings.append(Parking.init(parking: dict))
+                }
+                complete(parkings, nil)
+            }
+        }
+    }
     /*func deleteParking(parking: Parking, complete: @escaping (Error?) -> Void) -> Void {
         let deleteUrl = baseUrl.appendingPathComponent("/parkings/\(parking)")
     }*/
@@ -86,7 +119,7 @@ extension CarkoAPIClient {
 extension CarkoAPIClient: STPBackendAPIAdapter {
     func retrieveCustomer(_ completion: @escaping STPCustomerCompletionBlock) {
         let url = URL.init(string: baseUrlString)
-        let path = "/customers/\(customerId)"
+        let path = "/customers/\(customerId())?type=stripe"
         let customerUrl = url?.appendingPathComponent(path)
         var request = URLRequest.init(url: customerUrl!)
         request.httpMethod = "GET"
@@ -105,7 +138,7 @@ extension CarkoAPIClient: STPBackendAPIAdapter {
     }
 
     func selectDefaultCustomerSource(_ source: STPSource, completion: @escaping STPErrorBlock) {
-        let postUrl = baseUrl.appendingPathComponent("/customers/\(customerId)/default_source")
+        let postUrl = baseUrl.appendingPathComponent("/customers/\(customerId())/default_source")
         let parameters: Parameters = ["customer": ["default_source": source.stripeID]]
 
         request(postUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).response { (response) in
@@ -118,7 +151,7 @@ extension CarkoAPIClient: STPBackendAPIAdapter {
     }
 
     func attachSource(toCustomer source: STPSource, completion: @escaping STPErrorBlock) {
-        let postUrl = baseUrl.appendingPathComponent("/customers/\(customerId)/sources")
+        let postUrl = baseUrl.appendingPathComponent("/customers/\(customerId())/sources")
         let parameters: Parameters = ["customer": ["source": source.stripeID]]
 
         request(postUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).response { (response) in

@@ -27,10 +27,10 @@ class ParkingAvailabilityInfo: NSObject {
     }
     
     convenience init(availabilityInfo: [String : Any]) {
-        let startTime = availabilityInfo["startTime"] as! String
-        let stopTime = availabilityInfo["stopTime"] as! String
-        let daysAvailable = availabilityInfo["daysAvailable"] as! [(Bool)]
-        let alwaysAvailable = availabilityInfo["alwaysAvailable"] as! Bool
+        let startTime = availabilityInfo["start_time"] as! String
+        let stopTime = availabilityInfo["stop_time"] as! String
+        let daysAvailable = availabilityInfo["days_available"] as! [(Bool)]
+        let alwaysAvailable = availabilityInfo["always_available"] as! Bool
 
         self.init(alwaysAvailable: alwaysAvailable, startTime: startTime, stopTime: stopTime, daysAvailable: daysAvailable)
     }
@@ -45,7 +45,21 @@ class ParkingAvailabilityInfo: NSObject {
     }
     
     func toDictionary() -> [String : Any] {
-        return ["alwaysAvailable": alwaysAvailable, "startTime": startTime, "stopTime": stopTime, "daysAvailable": daysAvailable]
+        return [
+            "always_available": alwaysAvailable,
+            "start_time": startTime,
+            "stop_time": stopTime,
+            "days_available": daysIntegerFormat()
+        ]
+    }
+
+    private func daysIntegerFormat() -> [(Int)] {
+        var daysIntegerFormat = [(Int)]()
+        let maxArrayIndex = daysAvailable.count - 1
+        for i in 0...maxArrayIndex {
+            daysIntegerFormat.append(daysAvailable[i] == true ? 0 : 1)
+        }
+        return daysIntegerFormat
     }
     
     func lapsOfTimeText() -> String {
