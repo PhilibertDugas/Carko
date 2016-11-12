@@ -14,28 +14,16 @@ import FirebaseAuth
 class CarkoAPIClient: NSObject {
  
     static let sharedClient = CarkoAPIClient.init()
-    let session: URLSession
     let baseUrlString = "https://fast-crag-37122.herokuapp.com"
     var baseUrl: URL!
     //let baseUrlString = "https://7e80847b.ngrok.io"
 
     override init() {
-        let configuration = URLSessionConfiguration.default
-        configuration.timeoutIntervalForRequest = 5
-        self.session = URLSession.init(configuration: configuration)
         self.baseUrl = URL.init(string: baseUrlString)
     }
 
     func customerId() -> String {
         return (FIRAuth.auth()?.currentUser?.uid)!
-    }
-
-    func decodeResponse(_ response: URLResponse?, error: NSError?) -> NSError? {
-        if let httpResponse = response as? HTTPURLResponse
-            , httpResponse.statusCode != 200 {
-            return error ?? NSError.networkingError(httpResponse.statusCode)
-        }
-        return error
     }
 
     func postUser(user: User, complete: @escaping (Error?) -> Void) -> Void {
@@ -44,24 +32,6 @@ class CarkoAPIClient: NSObject {
         let postUrl = baseUrl!.appendingPathComponent("/customers")
         request(postUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).response { (response) in
             complete(response.error)
-        }
-    }
-
-    func postCharge(_ source: STPSource, paymentContext: STPPaymentContext, completion: @escaping STPErrorBlock) {
-        let parameters: Parameters = ["charge":
-            [
-                "source": source.stripeID,
-                "amount": paymentContext.paymentAmount,
-                "currency": paymentContext.paymentCurrency
-            ]
-        ]
-        let postUrl = baseUrl.appendingPathComponent("/charges")
-        request(postUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).response { (response) in
-            if response.error != nil {
-                completion(response.error)
-            } else {
-                completion(nil)
-            }
         }
     }
 }
@@ -126,23 +96,17 @@ extension CarkoAPIClient {
 
 extension CarkoAPIClient: STPBackendAPIAdapter {
     func retrieveCustomer(_ completion: @escaping STPCustomerCompletionBlock) {
-        let url = URL.init(string: baseUrlString)
-        let path = "/customers/\(customerId())?type=stripe"
-        let customerUrl = url?.appendingPathComponent(path)
-        var request = URLRequest.init(url: customerUrl!)
-        request.httpMethod = "GET"
-        let task = self.session.dataTask(with: request) { (data, urlResponse, error) in
-            DispatchQueue.main.async {
-                let deserializer = STPCustomerDeserializer.init(data: data, urlResponse: urlResponse, error: error)
-                if let error = deserializer.error {
-                    completion(nil, error)
-                    return
-                } else if let customer = deserializer.customer {
-                    completion(customer, nil)
-                }
+        let getUrl = baseUrl.appendingPathComponent("customers/\(customerId())")
+        let parameters: Parameters = ["type": "stripe"]
+        request(getUrl, parameters: parameters).response { (response) in
+            let deserializer = STPCustomerDeserializer.init(data: response.data, urlResponse: response.response, error: response.error)
+            if let error = deserializer.error {
+                completion(nil, error)
+                return
+            } else if let customer = deserializer.customer {
+                completion(customer, nil)
             }
         }
-        task.resume()
     }
 
     func selectDefaultCustomerSource(_ source: STPSource, completion: @escaping STPErrorBlock) {
@@ -170,10 +134,22 @@ extension CarkoAPIClient: STPBackendAPIAdapter {
             completion(nil)
         }
     }
-}
 
-public extension NSError {
-    public static func networkingError(_ status: Int) -> NSError {
-        return NSError(domain: "FailingStatusCode", code: status, userInfo: nil)
+    func postCharge(_ source: STPSource, paymentContext: STPPaymentContext, completion: @escaping STPErrorBlock) {
+        let parameters: Parameters = ["charge":
+            [
+                "source": source.stripeID,
+                "amount": paymentContext.paymentAmount,
+                "currency": paymentContext.paymentCurrency
+            ]
+        ]
+        let postUrl = baseUrl.appendingPathComponent("/charges")
+        request(postUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).response { (response) in
+            if response.error != nil {
+                completion(response.error)
+            } else {
+                completion(nil)
+            }
+        }
     }
 }
