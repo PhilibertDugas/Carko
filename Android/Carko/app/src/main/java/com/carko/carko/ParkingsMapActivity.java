@@ -3,17 +3,22 @@ package com.carko.carko;
 import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class ParkingsMapActivity extends FragmentActivity implements OnMapReadyCallback {
+public class ParkingsMapActivity extends FragmentActivity implements
+        GoogleMap.OnInfoWindowClickListener,
+        OnMapReadyCallback {
 
     private GoogleMap mMap;
     private Button searchButton;
@@ -57,16 +62,41 @@ public class ParkingsMapActivity extends FragmentActivity implements OnMapReadyC
         mMap = googleMap;
 
         // Add dummy markers
-        LatLng polymtl = new LatLng(45.547620, -73.662458);
-        mMap.addMarker(new MarkerOptions().position(polymtl).title("Polytechnique Montréal"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(polymtl));
+        Parking pPoly = new Parking(1111, "boulevard edouard montpetit", "tout le temps",
+                R.drawable.pacman, new LatLng(45.547620, -73.662458));
+        addMarker(pPoly, "Polytechnique Montréal");
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(pPoly.getLatLng()));
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(10), 2000, null);
 
-        LatLng taisei = new LatLng(45.504419, -73.613132);
-        mMap.addMarker(new MarkerOptions().position(taisei).title("Tai Sei Do"));
+        Parking pTaisei = new Parking(2222, "boulevard Saint-Laurent", "soir", R.drawable.ghost,
+                new LatLng(45.504419, -73.613132));
+        addMarker(pTaisei, "Taisei Dojo");
 
-        LatLng sweetie = new LatLng(45.549557, -73.535282);
-        mMap.addMarker(new MarkerOptions().position(sweetie).title("Sweetie"));
+        Parking pSweetie = new Parking(1407, "boulevard Desjardins", "forever", R.drawable.pacmanjaune,
+                new LatLng(45.549557, -73.535282));
+        addMarker(pSweetie, "<3");
+
+        //TODO: eventually customize the info window
+        View customInfoWindow = null;
+        View customInfoContent = getLayoutInflater().inflate(R.layout.marker_info_content, null);
+        mMap.setInfoWindowAdapter(new ParkingInfoWindowAdapter(customInfoWindow, customInfoContent));
+
     }
 
+
+    private void addMarker(Parking parking, String title){
+        Marker marker = mMap.addMarker(new MarkerOptions()
+            .position(parking.getLatLng())
+            .title(title));
+        marker.setTag(parking);
+    }
+
+    @Override
+    public void onInfoWindowClick(final Marker marker){
+        Parking parking = (Parking) marker.getTag();
+
+        Toast.makeText(this, "Click Info Window: " + parking.getAddress(), Toast.LENGTH_SHORT).show();
+
+    }
 
 }

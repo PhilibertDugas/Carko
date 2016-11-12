@@ -29,4 +29,7 @@
     <string name="parking_availability_tag">Availability:</string>
     <string name="dummy_parking_availability_time">days</string>
 
+    <!-- Marker info -->
+    <string name="marker_info_tap">Tap to continue...</string>
+
 </resources>

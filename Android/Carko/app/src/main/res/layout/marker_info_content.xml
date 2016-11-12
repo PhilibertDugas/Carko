@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:paddingTop="10dp"
+        android:paddingStart="5dp"
+        android:paddingLeft="5dp"
+        android:paddingEnd="10dp"
+        android:paddingRight="10dp"
+        android:id="@+id/marker_info_icon"
+        android:src="@drawable/pacmanjaune"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/dummy_parking_address"
+        android:id="@+id/marker_info_address"
+        android:layout_alignTop="@+id/marker_info_icon"
+        android:layout_toEndOf="@+id/marker_info_icon"
+        android:layout_toRightOf="@+id/marker_info_icon"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:layout_marginBottom="2dp"
+        android:paddingTop="10dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/marker_info_tap"
+        android:layout_below="@+id/marker_info_address"
+        android:layout_toRightOf="@+id/marker_info_icon"
+        android:layout_toEndOf="@+id/marker_info_icon"
+        android:maxLines="1" />
+
+</RelativeLayout>
