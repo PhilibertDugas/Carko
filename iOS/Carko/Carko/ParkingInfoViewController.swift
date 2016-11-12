@@ -26,13 +26,8 @@ class ParkingInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupCollectionViews()
         initializeInfo()
-        let tapDescriptionGesture = UITapGestureRecognizer.init(target: self, action: #selector(ParkingInfoViewController.tappedDescription))
-        let tapAvailabilityGesture = UITapGestureRecognizer.init(target: self, action: #selector(ParkingInfoViewController.tappedAvailability))
-        let tapRatesGesture = UITapGestureRecognizer.init(target: self, action: #selector(ParkingInfoViewController.tappedRates))
-        descriptionCollection.addGestureRecognizer(tapDescriptionGesture)
-        availabilityCollection.addGestureRecognizer(tapAvailabilityGesture)
-        ratesCollection.addGestureRecognizer(tapRatesGesture)
     }
 
     @IBAction func backButtonTapped(_ sender: Any) {
@@ -44,6 +39,27 @@ class ParkingInfoViewController: UIViewController {
         self.dismiss(animated: true) {
             Parking.getCustomerParkings()
         }
+    }
+
+    func setupCollectionViews() {
+        let tapDescriptionGesture = UITapGestureRecognizer.init(target: self, action: #selector(ParkingInfoViewController.tappedDescription))
+        let tapAvailabilityGesture = UITapGestureRecognizer.init(target: self, action: #selector(ParkingInfoViewController.tappedAvailability))
+        let tapRatesGesture = UITapGestureRecognizer.init(target: self, action: #selector(ParkingInfoViewController.tappedRates))
+        descriptionCollection.addGestureRecognizer(tapDescriptionGesture)
+        availabilityCollection.addGestureRecognizer(tapAvailabilityGesture)
+        ratesCollection.addGestureRecognizer(tapRatesGesture)
+
+
+        // TODO extract this in a custom UIView
+        descriptionCollection.layer.borderColor = UIColor.lightGray.cgColor
+        descriptionCollection.layer.borderWidth = CGFloat.init(1.0)
+
+        availabilityCollection.layer.borderColor = UIColor.lightGray.cgColor
+        availabilityCollection.layer.borderWidth = CGFloat.init(1.0)
+
+        ratesCollection.layer.borderColor = UIColor.lightGray.cgColor
+        ratesCollection.layer.borderWidth = CGFloat.init(1.0)
+
     }
 
     func tappedDescription() {

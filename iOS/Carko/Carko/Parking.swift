@@ -49,10 +49,8 @@ class Parking: NSObject {
         }
     }
     
-    func persist() {
-        CarkoAPIClient.sharedClient.postParking(parking: self) { (error) in
-            print(error.debugDescription)
-        }
+    func persist(complete: @escaping (Error?) -> Void) {
+        CarkoAPIClient.sharedClient.postParking(parking: self, complete: complete)
     }
 
     func delete() {

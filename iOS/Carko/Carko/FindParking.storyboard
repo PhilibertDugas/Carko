@@ -38,7 +38,7 @@
         <scene sceneID="RUp-BI-5yw">
             <objects>
                 <navigationController id="43G-aC-k4A" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Sws-ir-6ra">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Sws-ir-6ra">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -90,10 +90,11 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wXg-WF-Q2s" customClass="RoundedCornerButton" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="578" width="375" height="40"/>
+                                <rect key="frame" x="105" y="570" width="164" height="40"/>
                                 <color key="backgroundColor" red="0.59859156609999997" green="0.48580044509999998" blue="0.48472779989999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="4tC-XT-hYO"/>
+                                    <constraint firstAttribute="width" constant="164" id="nNj-kt-5iu"/>
                                 </constraints>
                                 <state key="normal" title="Continue">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -107,11 +108,10 @@
                         <constraints>
                             <constraint firstItem="6dg-JK-NSX" firstAttribute="top" secondItem="7SP-ky-FIF" secondAttribute="bottom" id="2IQ-ee-TSm"/>
                             <constraint firstItem="6RE-gw-aRJ" firstAttribute="leading" secondItem="G85-aq-sx3" secondAttribute="leading" id="4ee-Ux-GWo"/>
-                            <constraint firstItem="wXg-WF-Q2s" firstAttribute="leading" secondItem="G85-aq-sx3" secondAttribute="leading" id="87i-Ed-Tjk"/>
-                            <constraint firstItem="997-eo-MGF" firstAttribute="top" secondItem="wXg-WF-Q2s" secondAttribute="bottom" id="Bk0-c1-mbC"/>
                             <constraint firstItem="6RE-gw-aRJ" firstAttribute="top" secondItem="6dg-JK-NSX" secondAttribute="bottom" constant="8" id="GSg-aG-jmC"/>
                             <constraint firstItem="6dg-JK-NSX" firstAttribute="leading" secondItem="G85-aq-sx3" secondAttribute="leading" id="H2b-sO-qrh"/>
-                            <constraint firstAttribute="trailing" secondItem="wXg-WF-Q2s" secondAttribute="trailing" id="Vev-MK-hts"/>
+                            <constraint firstItem="wXg-WF-Q2s" firstAttribute="centerX" secondItem="G85-aq-sx3" secondAttribute="centerX" id="IXz-Z0-Pyt"/>
+                            <constraint firstItem="997-eo-MGF" firstAttribute="top" secondItem="wXg-WF-Q2s" secondAttribute="bottom" constant="8" id="VY8-uJ-cDf"/>
                             <constraint firstAttribute="trailing" secondItem="6RE-gw-aRJ" secondAttribute="trailing" id="bCI-of-OlQ"/>
                             <constraint firstAttribute="trailing" secondItem="6dg-JK-NSX" secondAttribute="trailing" id="fDR-02-E0v"/>
                         </constraints>
@@ -159,19 +159,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nQR-Bm-Y18" customClass="RoundedCornerButton" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="578" width="375" height="40"/>
-                                <color key="backgroundColor" red="0.59859156609999997" green="0.48580044509999998" blue="0.48472779989999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="WPV-zf-nvN"/>
-                                </constraints>
-                                <state key="normal" title="Confirm">
-                                    <color key="titleColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="tappedConfirmed:" destination="WYE-12-YUM" eventType="touchUpInside" id="XpB-Ab-dmq"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gdB-uF-Cy8">
                                 <rect key="frame" x="16" y="178" width="343" height="45"/>
                                 <subviews>
@@ -199,18 +186,31 @@
                                     <constraint firstItem="XZ7-pq-ACa" firstAttribute="top" secondItem="gdB-uF-Cy8" secondAttribute="top" id="yoy-CL-TCg"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nQR-Bm-Y18" customClass="RoundedCornerButton" customModule="Carko" customModuleProvider="target">
+                                <rect key="frame" x="105" y="570" width="164" height="40"/>
+                                <color key="backgroundColor" red="0.59859156609999997" green="0.48580044509999998" blue="0.48472779989999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="WPV-zf-nvN"/>
+                                    <constraint firstAttribute="width" constant="164" id="tlA-em-sLG"/>
+                                </constraints>
+                                <state key="normal" title="Confirm">
+                                    <color key="titleColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="tappedConfirmed:" destination="WYE-12-YUM" eventType="touchUpInside" id="XpB-Ab-dmq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="nQR-Bm-Y18" firstAttribute="leading" secondItem="uDJ-4r-bJR" secondAttribute="leading" id="HfG-ed-W5C"/>
+                            <constraint firstItem="5IJ-X2-ux4" firstAttribute="top" secondItem="nQR-Bm-Y18" secondAttribute="bottom" constant="8" id="8pD-VE-k4R"/>
                             <constraint firstItem="7ie-vR-vaD" firstAttribute="trailing" secondItem="uDJ-4r-bJR" secondAttribute="trailingMargin" id="KSm-DD-8Ls"/>
                             <constraint firstItem="gdB-uF-Cy8" firstAttribute="trailing" secondItem="uDJ-4r-bJR" secondAttribute="trailingMargin" id="MiG-dJ-mjB"/>
-                            <constraint firstAttribute="trailing" secondItem="nQR-Bm-Y18" secondAttribute="trailing" id="PZK-Dt-XpN"/>
                             <constraint firstItem="BxC-5o-9JE" firstAttribute="leading" secondItem="uDJ-4r-bJR" secondAttribute="leading" constant="16" id="QJP-wy-Ti1"/>
+                            <constraint firstItem="nQR-Bm-Y18" firstAttribute="centerX" secondItem="uDJ-4r-bJR" secondAttribute="centerX" id="RNy-rS-ePO"/>
                             <constraint firstAttribute="trailing" secondItem="BxC-5o-9JE" secondAttribute="trailing" constant="16" id="UAD-uP-Z0v"/>
                             <constraint firstItem="gdB-uF-Cy8" firstAttribute="leading" secondItem="uDJ-4r-bJR" secondAttribute="leadingMargin" id="X4H-l8-yhU"/>
                             <constraint firstItem="BxC-5o-9JE" firstAttribute="top" secondItem="vig-KX-fPO" secondAttribute="bottom" constant="8" id="kmm-se-mJF"/>
-                            <constraint firstItem="5IJ-X2-ux4" firstAttribute="top" secondItem="nQR-Bm-Y18" secondAttribute="bottom" id="pwr-zq-w0m"/>
                             <constraint firstItem="7ie-vR-vaD" firstAttribute="top" secondItem="BxC-5o-9JE" secondAttribute="bottom" constant="8" id="pzu-xA-9f8"/>
                             <constraint firstItem="7ie-vR-vaD" firstAttribute="leading" secondItem="uDJ-4r-bJR" secondAttribute="leadingMargin" id="qJw-Y9-1qs"/>
                             <constraint firstItem="gdB-uF-Cy8" firstAttribute="top" secondItem="7ie-vR-vaD" secondAttribute="bottom" constant="8" id="wvg-PL-Rgc"/>
