@@ -50,7 +50,7 @@ class Parking: NSObject {
     }
     
     func persist(complete: @escaping (Error?) -> Void) {
-        CarkoAPIClient.sharedClient.postParking(parking: self, complete: complete)
+        CarkoAPIClient.sharedClient.createParking(parking: self, complete: complete)
     }
 
     func delete() {

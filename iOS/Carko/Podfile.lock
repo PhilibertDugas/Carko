@@ -35,6 +35,21 @@ PODS:
   - GoogleSymbolUtilities (1.1.2)
   - GoogleUtilities (1.3.2):
     - GoogleSymbolUtilities (~> 1.1)
+  - OHHTTPStubs (5.2.1):
+    - OHHTTPStubs/Default (= 5.2.1)
+  - OHHTTPStubs/Core (5.2.1)
+  - OHHTTPStubs/Default (5.2.1):
+    - OHHTTPStubs/Core
+    - OHHTTPStubs/JSON
+    - OHHTTPStubs/NSURLSession
+    - OHHTTPStubs/OHPathHelpers
+  - OHHTTPStubs/JSON (5.2.1):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/NSURLSession (5.2.1):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/OHPathHelpers (5.2.1)
+  - OHHTTPStubs/Swift (5.2.1):
+    - OHHTTPStubs/Core
   - Stripe (9.0.0)
 
 DEPENDENCIES:
@@ -43,6 +58,8 @@ DEPENDENCIES:
   - Firebase/Auth
   - GoogleMaps
   - GooglePlaces
+  - OHHTTPStubs
+  - OHHTTPStubs/Swift
   - Stripe
 
 SPEC CHECKSUMS:
@@ -58,8 +75,9 @@ SPEC CHECKSUMS:
   GooglePlaces: 16e96266483b8010e9f275399403647978523c86
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
   GoogleUtilities: 8bbc733218aad26306f9d4a253823986110e3358
+  OHHTTPStubs: 3a42f25c00563b71355ac73112ba2324e9e6cef4
   Stripe: 935c6deb5e96cbd29d247074bf3aa98a8438e22c
 
-PODFILE CHECKSUM: 0dd1cda7345efd1e0a5f1f52a4268aea93e02ede
+PODFILE CHECKSUM: 893195775093b3fe5255cbcbb9cbe9e0b89baa52
 
 COCOAPODS: 1.1.1

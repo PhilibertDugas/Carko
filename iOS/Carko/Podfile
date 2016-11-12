@@ -1,29 +1,30 @@
 project 'Carko.xcodeproj'
+use_frameworks!
 
 # Uncomment this line to define a global platform for your project
 # platform :ios, '9.0'
 
 target 'Carko' do
-  use_frameworks!
-
   pod 'GoogleMaps'
   pod 'GooglePlaces'
-
   pod 'Firebase'
   pod 'Firebase/Auth'
-
   pod 'Stripe'
-
   pod 'Alamofire'
 
   target 'CarkoTests' do
-    inherit! :search_paths
-    # Pods for testing
+    pod 'GoogleMaps'
+    pod 'GooglePlaces'
+    pod 'Firebase'
+    pod 'Firebase/Auth'
+    pod 'Stripe'
+    pod 'Alamofire'
+
+    pod 'OHHTTPStubs' # Default subspecs, including support for NSURLSession & JSON etc
+    pod 'OHHTTPStubs/Swift' # Adds the Swiftier API wrapper too
   end
 
   target 'CarkoUITests' do
     inherit! :search_paths
-    # Pods for testing
   end
-
 end

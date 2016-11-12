@@ -25,21 +25,12 @@ class CarkoAPIClient: NSObject {
     func customerId() -> String {
         return (FIRAuth.auth()?.currentUser?.uid)!
     }
-
-    func postUser(user: User, complete: @escaping (Error?) -> Void) -> Void {
-        let parameters: Parameters = user.toDictionnary()
-        let baseUrl = URL.init(string: baseUrlString)
-        let postUrl = baseUrl!.appendingPathComponent("/customers")
-        request(postUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).response { (response) in
-            complete(response.error)
-        }
-    }
 }
 
 
 // Parking API calls
 extension CarkoAPIClient {
-    func postParking(parking: Parking, complete: @escaping (Error?) -> Void ) -> Void {
+    func createParking(parking: Parking, complete: @escaping (Error?) -> Void ) -> Void {
         let parameters: Parameters = parking.toDictionary()
         let postUrl = baseUrl.appendingPathComponent("/parkings")
         request(postUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).response { (response) in
@@ -94,6 +85,20 @@ extension CarkoAPIClient {
     }
 }
 
+// Customer api calls
+extension CarkoAPIClient {
+    func postUser(user: User, complete: @escaping (Error?) -> Void) -> Void {
+        let parameters: Parameters = user.toDictionnary()
+        let baseUrl = URL.init(string: baseUrlString)
+        let postUrl = baseUrl!.appendingPathComponent("/customers")
+        request(postUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).response { (response) in
+            complete(response.error)
+        }
+    }
+}
+
+
+// Stripe api calls
 extension CarkoAPIClient: STPBackendAPIAdapter {
     func retrieveCustomer(_ completion: @escaping STPCustomerCompletionBlock) {
         let getUrl = baseUrl.appendingPathComponent("customers/\(customerId())")
