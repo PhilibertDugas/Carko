@@ -8,13 +8,12 @@ target 'Carko' do
 
   pod 'GoogleMaps'
   pod 'GooglePlaces'
-  
+
   pod 'Firebase'
-  pod 'Firebase/Database'
   pod 'Firebase/Auth'
-  
+
   pod 'Stripe'
-  
+
   pod 'Alamofire'
 
   target 'CarkoTests' do

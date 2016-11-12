@@ -441,7 +441,7 @@
         <scene sceneID="ECl-tq-be7">
             <objects>
                 <navigationController id="9zk-77-AWD" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mmU-7R-hdw">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mmU-7R-hdw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

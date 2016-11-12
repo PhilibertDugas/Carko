@@ -8,12 +8,10 @@
 
 import Foundation
 import FirebaseAuth
-import FirebaseDatabase
 
 class User: NSObject {
     let notificationCenter = NotificationCenter.default
-    static let ref = FIRDatabase.database().reference()
-    
+
     var email: String
     var password: String
     var firstName: String?
