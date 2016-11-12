@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Nearby Parkings" id="dfl-Y5-pPe"/>
+                    <tabBarItem key="tabBarItem" title="Nearby Parkings" image="Map-30.png" id="dfl-Y5-pPe"/>
                     <navigationItem key="navigationItem" id="W0U-Vc-jcP"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -38,7 +38,7 @@
         <scene sceneID="RUp-BI-5yw">
             <objects>
                 <navigationController id="43G-aC-k4A" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Sws-ir-6ra">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Sws-ir-6ra">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -229,6 +229,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Map-30.png" width="30" height="30"/>
         <image name="arrow-right-01-128.png" width="128" height="128"/>
         <image name="parking-icon-png-18.png" width="256" height="256"/>
     </resources>

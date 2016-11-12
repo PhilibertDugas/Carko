@@ -64,7 +64,7 @@ class MyParkingsViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {        
         if segue.identifier == "showParkingInfo" {
-            let destinationVC = segue.destination as! ParkingInfoTableViewController
+            let destinationVC = segue.destination as! ParkingInfoViewController
             destinationVC.parkingInfo = parkingList[selectedRowIndex]
         }
     }
@@ -93,15 +93,5 @@ extension MyParkingsViewController: UITableViewDataSource, UITableViewDelegate {
         }
         
         return cell
-    }
-
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == UITableViewCellEditingStyle.delete {
-            self.parkingList.remove(at: indexPath.row)
-        }
     }
 }

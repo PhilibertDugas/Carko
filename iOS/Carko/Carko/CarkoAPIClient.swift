@@ -17,7 +17,7 @@ class CarkoAPIClient: NSObject {
     let session: URLSession
     let baseUrlString = "https://fast-crag-37122.herokuapp.com"
     var baseUrl: URL!
-    // let baseUrlString = "https://a2bbb73b.ngrok.io"
+    //let baseUrlString = "https://7e80847b.ngrok.io"
 
     override init() {
         let configuration = URLSessionConfiguration.default
@@ -111,9 +111,17 @@ extension CarkoAPIClient {
             }
         }
     }
-    /*func deleteParking(parking: Parking, complete: @escaping (Error?) -> Void) -> Void {
-        let deleteUrl = baseUrl.appendingPathComponent("/parkings/\(parking)")
-    }*/
+    
+    func deleteParking(parking: Parking, complete: @escaping (Error?) -> Void) -> Void {
+        let deleteUrl = baseUrl.appendingPathComponent("/parkings/\(parking.id!)")
+        request(deleteUrl, method: .delete).response { (response) in
+            if let error = response.error {
+                complete(error)
+            } else {
+                complete(nil)
+            }
+        }
+    }
 }
 
 extension CarkoAPIClient: STPBackendAPIAdapter {

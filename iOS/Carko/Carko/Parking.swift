@@ -10,6 +10,7 @@ import FirebaseAuth
 import CoreLocation
 
 class Parking: NSObject {
+    var id: Int?
     var latitude: CLLocationDegrees
     var longitude: CLLocationDegrees
     var photoURL: URL
@@ -42,10 +43,20 @@ class Parking: NSObject {
         let availabilityInfo = ParkingAvailabilityInfo.init(availabilityInfo: parking["availability_info"] as! [String : Any])
         
         self.init(latitude: latitude, longitude: longitude, photoURL: photoURL, address: address, price: price, parkingDescription: parkingDescription, availabilityInfo: availabilityInfo)
+
+        if let identifier = parking["id"] as? Int {
+            self.id = identifier
+        }
     }
     
     func persist() {
         CarkoAPIClient.sharedClient.postParking(parking: self) { (error) in
+            print(error.debugDescription)
+        }
+    }
+
+    func delete() {
+        CarkoAPIClient.sharedClient.deleteParking(parking: self) { (error) in
             print(error.debugDescription)
         }
     }

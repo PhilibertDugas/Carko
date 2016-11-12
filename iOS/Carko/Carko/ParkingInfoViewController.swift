@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ParkingInfoTableViewController: UITableViewController {
+class ParkingInfoViewController: UIViewController {
 
     @IBOutlet weak var streetAddressLabel: UILabel!
     @IBOutlet weak var postalAddressLabel: UILabel!
@@ -17,18 +17,49 @@ class ParkingInfoTableViewController: UITableViewController {
     @IBOutlet weak var parkingRate: UILabel!
     @IBOutlet weak var parkingDescriptionLabel: UILabel!
     
+    @IBOutlet var addressCollection: UIView!
+    @IBOutlet var descriptionCollection: UIView!
+    @IBOutlet var availabilityCollection: UIView!
+    @IBOutlet var ratesCollection: UIView!
+    
     var parkingInfo: Parking?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        tableView.tableFooterView = UIView()
         initializeInfo()
+        let tapDescriptionGesture = UITapGestureRecognizer.init(target: self, action: #selector(ParkingInfoViewController.tappedDescription))
+        let tapAvailabilityGesture = UITapGestureRecognizer.init(target: self, action: #selector(ParkingInfoViewController.tappedAvailability))
+        let tapRatesGesture = UITapGestureRecognizer.init(target: self, action: #selector(ParkingInfoViewController.tappedRates))
+        descriptionCollection.addGestureRecognizer(tapDescriptionGesture)
+        availabilityCollection.addGestureRecognizer(tapAvailabilityGesture)
+        ratesCollection.addGestureRecognizer(tapRatesGesture)
     }
-    
+
+    @IBAction func backButtonTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+
+    @IBAction func removeParkingTapped(_ sender: Any) {
+        parkingInfo?.delete()
+        self.dismiss(animated: true) {
+            Parking.getCustomerParkings()
+        }
+    }
+
+    func tappedDescription() {
+        performSegue(withIdentifier: "ChangeDescription", sender: nil)
+    }
+
+    func tappedAvailability() {
+        performSegue(withIdentifier: "ChangeAvailability", sender: nil)
+    }
+
+    func tappedRates() {
+        performSegue(withIdentifier: "ChangeRates", sender: nil)
+    }
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         initializeInfo()
     }
 
@@ -47,7 +78,7 @@ class ParkingInfoTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         NotificationCenter.default.removeObserver(self)
         
-        if segue.identifier == "ChangeRate" {
+        if segue.identifier == "ChangeRates" {
             let destinationVC = segue.destination as! ParkingRatesViewController
             destinationVC.parkingRate = parkingInfo!.price
             destinationVC.delegate = self
@@ -63,19 +94,19 @@ class ParkingInfoTableViewController: UITableViewController {
     }
 }
 
-extension ParkingInfoTableViewController: ParkingRateDelegate {
+extension ParkingInfoViewController: ParkingRateDelegate {
     func userDidChangeRate(value: Float) {
         parkingInfo?.price = value
     }
 }
 
-extension ParkingInfoTableViewController: ParkingDescriptionDelegate {
+extension ParkingInfoViewController: ParkingDescriptionDelegate {
     func userDidChangeDescription(value: String) {
         parkingInfo?.parkingDescription = value
     }
 }
 
-extension ParkingInfoTableViewController: ParkingAvailabilityDelegate {
+extension ParkingInfoViewController: ParkingAvailabilityDelegate {
     func userDidChangeAvailability(value: ParkingAvailabilityInfo) {
         parkingInfo?.availabilityInfo = value
     }

@@ -52,7 +52,7 @@
                             <constraint firstItem="Cxs-Om-m5Q" firstAttribute="centerX" secondItem="pQt-Sq-COB" secondAttribute="centerX" id="gwl-L6-PUe"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" id="5dA-Az-Z4Q"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="Contact Card-30.png" id="5dA-Az-Z4Q"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w3c-XV-cG2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -68,4 +68,7 @@
             <point key="canvasLocation" x="-12" y="-101"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Contact Card-30.png" width="30" height="30"/>
+    </resources>
 </document>
