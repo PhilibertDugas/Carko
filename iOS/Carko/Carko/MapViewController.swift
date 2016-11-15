@@ -12,6 +12,8 @@ import CoreLocation
 
 class MapViewController: UIViewController {
 
+    @IBOutlet var popupView: MarkerPopup!
+
     var mapView: GMSMapView!
     var locationManager: CLLocationManager!
     var selectedParking: Parking?
@@ -22,6 +24,8 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        popupView.isHidden = true
         
         locationManager = CLLocationManager.init()
         locationManager.delegate = self
@@ -50,7 +54,7 @@ class MapViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "didTapParking" {
             let destinationViewController = segue.destination as! BookParkingViewController
-            destinationViewController.selectedParking = self.selectedParking!
+            destinationViewController.parking = self.selectedParking!
         }
     }
 }
@@ -60,10 +64,10 @@ extension MapViewController: CLLocationManagerDelegate {
         if let currentCoordinate = manager.location?.coordinate {
             if mapView == nil {
                 let camera = GMSCameraPosition.camera(withLatitude: currentCoordinate.latitude, longitude: currentCoordinate.longitude, zoom: 15.0)
-                mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+                mapView = GMSMapView.map(withFrame: view.bounds, camera: camera)
                 mapView.isMyLocationEnabled = true
                 mapView.delegate = self
-                view = mapView
+                view.insertSubview(mapView, at: 0)
                 NotificationCenter.default.addObserver(self, selector: #selector(MapViewController.parkingFetched), name: Notification.Name.init(rawValue: "ParkingFetched"), object: nil)
             } else {
                 let newCam = GMSCameraUpdate.setTarget(currentCoordinate)
@@ -74,16 +78,17 @@ extension MapViewController: CLLocationManagerDelegate {
 }
 
 extension MapViewController: GMSMapViewDelegate {
-    func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
-        let parking = marker.userData as! Parking
-        let infoView = MarkerPopup.init(frame: CGRect.init(x: 0, y: 0, width: 200, height: 70))
-        infoView.descriptionLabel.text = parking.address
-        
-        return infoView
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+        self.selectedParking = marker.userData as? Parking
+        popupView.descriptionLabel.text = self.selectedParking?.address
+        popupView.isHidden = false
+        let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(MapViewController.markerTapped))
+        popupView.addGestureRecognizer(tapGesture)
+
+        return true
     }
 
-    func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
-        self.selectedParking = marker.userData as? Parking
+    func markerTapped(recognizer: UITapGestureRecognizer) {
         self.performSegue(withIdentifier: "didTapParking", sender: nil)
     }
 }
