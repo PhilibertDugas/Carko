@@ -49,6 +49,14 @@ public class Parking {
         this.drawable = drawable;
     }
 
+    //Dummy constructor for testing
+    Parking(long streetAdress, String streetName, String availability, int drawable, LatLng ll){
+        this.address = new Address(streetAdress, streetName);
+        this.availability = availability;
+        this.drawable = drawable;
+        this.latLng = ll;
+    }
+
     public LatLng getLatLng(){ return latLng; }
     public long getId(){ return id; }
     public long getDateAdded(){ return dateAdded; }
