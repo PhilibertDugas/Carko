@@ -51,6 +51,10 @@
         <activity
             android:name=".MostViewedActivity"
             android:label="@string/title_activity_most_viewed"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ParkingDetailActivity"
+            android:label="@string/title_activity_parking_detail"
             android:theme="@style/AppTheme"></activity>
     </application>
 
