@@ -3,7 +3,6 @@ package com.carko.carko;
 import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -78,7 +77,7 @@ public class ParkingsMapActivity extends FragmentActivity implements
 
         //TODO: eventually customize the info window
         View customInfoWindow = null;
-        View customInfoContent = getLayoutInflater().inflate(R.layout.marker_info_content, null);
+        View customInfoContent = getLayoutInflater().inflate(R.layout.content_marker_info, null);
         mMap.setInfoWindowAdapter(new ParkingInfoWindowAdapter(customInfoWindow, customInfoContent));
 
     }

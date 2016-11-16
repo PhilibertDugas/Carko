@@ -5,6 +5,7 @@
     <string name="title_activity_main">Carko</string>
     <string name="login_button">Log in</string>
     <string name="register_button">Register</string>
+    <string name="tab1_text">Fun. Sex. Lots\'a money.</string>
 
     <!-- Login -->
     <string name="title_activity_login">Sign in</string>
@@ -31,5 +32,6 @@
 
     <!-- Marker info -->
     <string name="marker_info_tap">Tap to continue...</string>
+    <string name="title_activity_parking_detail">ParkingDetailActivity</string>
 
 </resources>
