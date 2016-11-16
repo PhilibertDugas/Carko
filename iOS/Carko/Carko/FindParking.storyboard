@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="43G-aC-k4A">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MDg-Yq-UT4">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -38,37 +38,20 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Nearby Parkings" image="Map-30.png" id="dfl-Y5-pPe"/>
-                    <navigationItem key="navigationItem" id="W0U-Vc-jcP"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="popupView" destination="aJz-C7-zpq" id="gb4-EG-fUo"/>
-                        <segue destination="PnB-Lw-Vkk" kind="presentation" identifier="didTapParking" id="7RF-vL-ANl"/>
+                        <outlet property="tabBarItem" destination="dfl-Y5-pPe" id="fbe-Sj-uPJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9wu-jL-FfO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-114.40000000000001" y="-450.22488755622192"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="RUp-BI-5yw">
-            <objects>
-                <navigationController id="43G-aC-k4A" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Sws-ir-6ra">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="MDg-Yq-UT4" kind="relationship" relationship="rootViewController" id="Fqw-oz-w06"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cY6-b0-6WC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-894" y="-450"/>
-        </scene>
         <!--Book Parking-->
         <scene sceneID="PO2-QN-Cvr">
             <objects>
-                <viewController id="PnB-Lw-Vkk" customClass="BookParkingViewController" customModule="Carko" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="bookParkingViewController" id="PnB-Lw-Vkk" customClass="BookParkingViewController" customModule="Carko" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7SP-ky-FIF"/>
                         <viewControllerLayoutGuide type="bottom" id="997-eo-MGF"/>

@@ -11,6 +11,7 @@ target 'Carko' do
   pod 'Firebase/Auth'
   pod 'Stripe'
   pod 'Alamofire'
+  pod 'ARNTransitionAnimator'
 
   target 'CarkoTests' do
     pod 'GoogleMaps'

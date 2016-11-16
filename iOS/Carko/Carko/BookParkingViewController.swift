@@ -17,14 +17,12 @@ class BookParkingViewController: UIViewController {
     var paymentContext: STPPaymentContext!
     var parking: Parking!
 
+     var tapCloseButtonActionHandler : ((Void) -> Void)?
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        addressLabel.text = parking.address
 
-        // For longer swipe: http://stackoverflow.com/questions/4828833/uiswipegesturerecognizer-swipe-length
-        let swipeGestureRecognizer = UISwipeGestureRecognizer.init(target: self, action: #selector(BookParkingViewController.swipedDown))
-        swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirection.down
-        view.addGestureRecognizer(swipeGestureRecognizer)
+        addressLabel.text = parking.address
 
         let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(BookParkingViewController.tappedCreditCard))
         creditCardLabel.addGestureRecognizer(tapGesture)
@@ -37,12 +35,18 @@ class BookParkingViewController: UIViewController {
         paymentContext.hostViewController = self
     }
 
-    func tappedCreditCard() {
-        paymentContext.presentPaymentMethodsViewController()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("BookParkingViewController viewWillAppear")
     }
 
-    func swipedDown() {
-        self.dismiss(animated: true, completion: nil)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("BookParkingViewController viewWillDisappear")
+    }
+
+    func tappedCreditCard() {
+        paymentContext.presentPaymentMethodsViewController()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
