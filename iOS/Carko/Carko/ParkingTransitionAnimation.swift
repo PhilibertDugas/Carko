@@ -12,12 +12,12 @@ import ARNTransitionAnimator
 
 class ParkingTransitionAnimation : TransitionAnimatable {
 
-    var rootVC: MapViewController!
+    var rootVC: FindParkingViewController!
     var modalVC: BookParkingViewController!
 
     var completion: ((Bool) -> Void)?
 
-    private var miniPlayerStartFrame: CGRect
+    private var popupStartFrame: CGRect
     private var tabBarStartFrame: CGRect
 
     private var containerView: UIView?
@@ -26,11 +26,11 @@ class ParkingTransitionAnimation : TransitionAnimatable {
         print("deinit ParkingTransitionAnimation")
     }
 
-    init(rootVC: MapViewController, modalVC: BookParkingViewController) {
+    init(rootVC: FindParkingViewController, modalVC: BookParkingViewController) {
         self.rootVC = rootVC
         self.modalVC = modalVC
 
-        self.miniPlayerStartFrame = rootVC.popupView.frame
+        self.popupStartFrame = rootVC.popupView.frame
         self.tabBarStartFrame = rootVC.tabBar.frame
     }
 
@@ -43,7 +43,7 @@ class ParkingTransitionAnimation : TransitionAnimatable {
         self.modalVC.view.setNeedsLayout()
         self.modalVC.view.layoutIfNeeded()
 
-        self.miniPlayerStartFrame = self.rootVC.popupView.frame
+        self.popupStartFrame = self.rootVC.popupView.frame
         self.tabBarStartFrame = self.rootVC.tabBar.frame
     }
 
@@ -62,8 +62,8 @@ class ParkingTransitionAnimation : TransitionAnimatable {
     func updateAnimation(_ transitionType: TransitionType, percentComplete: CGFloat) {
         if transitionType.isPresenting {
             // popupView
-            let startOriginY = self.miniPlayerStartFrame.origin.y
-            let endOriginY = -self.miniPlayerStartFrame.size.height
+            let startOriginY = self.popupStartFrame.origin.y
+            let endOriginY = -self.popupStartFrame.size.height
             let diff = -endOriginY + startOriginY
 
             // tabBar
@@ -72,7 +72,7 @@ class ParkingTransitionAnimation : TransitionAnimatable {
             let tabDiff = tabEndOriginY - tabStartOriginY
 
             let playerY = startOriginY - (diff * percentComplete)
-            self.rootVC.popupView.frame.origin.y = max(min(playerY, self.miniPlayerStartFrame.origin.y), endOriginY)
+            self.rootVC.popupView.frame.origin.y = max(min(playerY, self.popupStartFrame.origin.y), endOriginY)
 
             self.modalVC.view.frame.origin.y = self.rootVC.popupView.frame.origin.y + self.rootVC.popupView.frame.size.height
             let tabY = tabStartOriginY + (tabDiff * percentComplete)
@@ -85,7 +85,7 @@ class ParkingTransitionAnimation : TransitionAnimatable {
         } else {
             // popupView
             let startOriginY = 0 - self.rootVC.popupView.bounds.size.height
-            let endOriginY = self.miniPlayerStartFrame.origin.y
+            let endOriginY = self.popupStartFrame.origin.y
             let diff = -startOriginY + endOriginY
 
             // tabBar

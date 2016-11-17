@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MDg-Yq-UT4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="415-jb-YhG">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,18 +10,21 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--MapViewController-->
-        <scene sceneID="rhk-vn-VEu">
+        <!--Nearby Parkings-->
+        <scene sceneID="dFk-FP-Myo">
             <objects>
-                <viewController title="MapViewController" id="MDg-Yq-UT4" customClass="MapViewController" customModule="Carko" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="415-jb-YhG" customClass="FindParkingViewController" customModule="Carko" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Vn4-YE-3Gg"/>
-                        <viewControllerLayoutGuide type="bottom" id="0pT-io-vTY"/>
+                        <viewControllerLayoutGuide type="top" id="XfT-na-pou"/>
+                        <viewControllerLayoutGuide type="bottom" id="vpB-74-N3m"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="uaJ-Pg-3fi">
+                    <view key="view" contentMode="scaleToFill" id="Njl-x4-YWd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="OwW-nz-BeL">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                            </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aJz-C7-zpq" customClass="MarkerPopup" customModule="Carko" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="568" width="375" height="50"/>
                                 <color key="backgroundColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -32,21 +35,25 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="aJz-C7-zpq" secondAttribute="trailing" id="1ab-vI-Qo4"/>
-                            <constraint firstItem="aJz-C7-zpq" firstAttribute="leading" secondItem="uaJ-Pg-3fi" secondAttribute="leading" id="Rcc-ru-T0E"/>
-                            <constraint firstItem="0pT-io-vTY" firstAttribute="top" secondItem="aJz-C7-zpq" secondAttribute="bottom" id="Ull-O8-lio"/>
+                            <constraint firstItem="OwW-nz-BeL" firstAttribute="top" secondItem="Njl-x4-YWd" secondAttribute="top" id="0Kb-ai-cg8"/>
+                            <constraint firstAttribute="trailing" secondItem="aJz-C7-zpq" secondAttribute="trailing" id="8fb-gx-V28"/>
+                            <constraint firstItem="aJz-C7-zpq" firstAttribute="leading" secondItem="Njl-x4-YWd" secondAttribute="leading" id="CN4-lb-PLO"/>
+                            <constraint firstItem="vpB-74-N3m" firstAttribute="top" secondItem="OwW-nz-BeL" secondAttribute="bottom" id="N7l-Ch-tNC"/>
+                            <constraint firstAttribute="trailing" secondItem="OwW-nz-BeL" secondAttribute="trailing" id="X9v-MM-fJF"/>
+                            <constraint firstItem="OwW-nz-BeL" firstAttribute="leading" secondItem="Njl-x4-YWd" secondAttribute="leading" id="d9X-qL-LVY"/>
+                            <constraint firstItem="vpB-74-N3m" firstAttribute="top" secondItem="aJz-C7-zpq" secondAttribute="bottom" id="gjn-hE-qTp"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Nearby Parkings" image="Map-30.png" id="dfl-Y5-pPe"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="popupView" destination="aJz-C7-zpq" id="gb4-EG-fUo"/>
-                        <outlet property="tabBarItem" destination="dfl-Y5-pPe" id="fbe-Sj-uPJ"/>
+                        <outlet property="mapView" destination="OwW-nz-BeL" id="4Dv-aA-NpG"/>
+                        <outlet property="popupView" destination="aJz-C7-zpq" id="pW4-65-T4h"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9wu-jL-FfO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5JO-7F-TCV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-114.40000000000001" y="-450.22488755622192"/>
+            <point key="canvasLocation" x="-116" y="-450"/>
         </scene>
         <!--Book Parking-->
         <scene sceneID="PO2-QN-Cvr">
