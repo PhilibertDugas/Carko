@@ -12,16 +12,12 @@ import MapKit
 
 class FindParkingViewController: UIViewController {
 
-    @IBOutlet var mapView: MKMapView!
-    
-    var locationManager: CLLocationManager!
-    var selectedParking: Parking?
-
-    var tabBar: UITabBar!
-    var bookParkingVC: BookParkingViewController!
     @IBOutlet var popupView: MarkerPopup!
-    var animator: ARNTransitionAnimator!
+    @IBOutlet var containerView: UIView!
+    var tabBar: UITabBar!
 
+    var bookParkingVC: BookParkingViewController!
+    var animator: ARNTransitionAnimator!
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -35,18 +31,36 @@ class FindParkingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        Parking.getAllParkings()
-
-        self.mapView.showsUserLocation = true
-        self.mapView.delegate = self
-        NotificationCenter.default.addObserver(self, selector: #selector(FindParkingViewController.parkingFetched), name: Notification.Name.init(rawValue: "ParkingFetched"), object: nil)
 
         self.tabBar = self.tabBarController?.tabBar
 
         popupView.isHidden = true
         self.bookParkingVC = storyboard?.instantiateViewController(withIdentifier: "bookParkingViewController") as? BookParkingViewController
         self.bookParkingVC.modalPresentationStyle = .overFullScreen
+
+        NotificationCenter.default.addObserver(self, selector: #selector(FindParkingViewController.parkingSelected), name: Notification.Name.init(rawValue: "ParkingSelected"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(FindParkingViewController.parkingDeselected), name: Notification.Name.init(rawValue: "ParkingDeselected"), object: nil)
+
         self.setupAnimator()
+    }
+
+    func parkingSelected(_ notification: Notification) {
+        if let parkingData = notification.userInfo as? [String: Any] {
+            let parking = parkingData["data"] as! Parking
+            self.bookParkingVC.parking = parking
+            popupView.descriptionLabel.text = parking.address
+            popupView.isHidden = false
+            let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(FindParkingViewController.annotationTapped))
+            popupView.addGestureRecognizer(tapGesture)
+        }
+    }
+
+    func parkingDeselected() {
+        popupView.isHidden = true
+    }
+
+    func annotationTapped() {
+        self.present(self.bookParkingVC, animated: true, completion: nil)
     }
 
     func setupAnimator() {
@@ -72,49 +86,6 @@ class FindParkingViewController: UIViewController {
         self.animator?.registerInteractiveTransitioning(.present, gestureHandler: gestureHandler)
 
         self.bookParkingVC.transitioningDelegate = self.animator
-    }
-
-    func parkingFetched(_ notification: Notification) {
-        if let parkingData = notification.userInfo as? [String: Any] {
-            self.mapView.removeAnnotations(mapView.annotations)
-
-            let parkings = parkingData["data"] as! [(Parking)]
-
-            for parking in parkings {
-                let annotation = ParkingAnnotation.init(parking: parking)
-                self.mapView.addAnnotation(annotation)
-            }
-        }
-    }
-}
-
-extension FindParkingViewController: MKMapViewDelegate {
-    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-        let region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 800, 800)
-        self.mapView.setRegion(self.mapView.regionThatFits(region), animated: true)
-    }
-
-    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        if let annotation = view.annotation as? ParkingAnnotation {
-            self.selectedParking = annotation.parking
-            self.bookParkingVC.parking = self.selectedParking
-            popupView.descriptionLabel.text = self.selectedParking?.address
-            popupView.isHidden = false
-            let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(FindParkingViewController.annotationTapped))
-            popupView.addGestureRecognizer(tapGesture)
-        }
-    }
-
-    func annotationTapped() {
-        self.present(self.bookParkingVC, animated: true, completion: nil)
-    }
-
-    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-        popupView.isHidden = true
-    }
-
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        return nil
     }
 }
 

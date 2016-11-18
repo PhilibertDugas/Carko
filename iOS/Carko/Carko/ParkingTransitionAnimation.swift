@@ -10,17 +10,17 @@ import Foundation
 import UIKit
 import ARNTransitionAnimator
 
-class ParkingTransitionAnimation : TransitionAnimatable {
+class ParkingTransitionAnimation {
 
     var rootVC: FindParkingViewController!
     var modalVC: BookParkingViewController!
 
     var completion: ((Bool) -> Void)?
 
-    private var popupStartFrame: CGRect
-    private var tabBarStartFrame: CGRect
+    var popupStartFrame: CGRect
+    var tabBarStartFrame: CGRect
 
-    private var containerView: UIView?
+    var containerView: UIView?
 
     deinit {
         print("deinit ParkingTransitionAnimation")
@@ -33,11 +33,19 @@ class ParkingTransitionAnimation : TransitionAnimatable {
         self.popupStartFrame = rootVC.popupView.frame
         self.tabBarStartFrame = rootVC.tabBar.frame
     }
+}
+
+extension ParkingTransitionAnimation: TransitionAnimatable {
+    func sourceVC() -> UIViewController { return self.rootVC }
+    func destVC() -> UIViewController { return self.modalVC }
 
     func prepareContainer(_ transitionType: TransitionType, containerView: UIView, from fromVC: UIViewController, to toVC: UIViewController) {
         self.containerView = containerView
 
-        self.rootVC.view.insertSubview(self.modalVC.view, belowSubview: self.rootVC.tabBar)
+        self.containerView?.addSubview(self.modalVC.view)
+        //self.containerView?.addSubview(self.rootVC.view)
+        //self.containerView?.addSubview(self.modalVC.view)
+
         self.rootVC.view.setNeedsLayout()
         self.rootVC.view.layoutIfNeeded()
         self.modalVC.view.setNeedsLayout()
@@ -79,7 +87,7 @@ class ParkingTransitionAnimation : TransitionAnimatable {
             self.rootVC.tabBar.frame.origin.y = min(max(tabY, self.tabBarStartFrame.origin.y), tabEndOriginY)
 
             let alpha = 1.0 - (1.0 * percentComplete)
-            self.rootVC.mapView.alpha = alpha + 0.5
+            self.rootVC.containerView.alpha = alpha + 0.5
             self.rootVC.tabBar.alpha = alpha
             self.rootVC.popupView.subviews.forEach { $0.alpha = alpha }
         } else {
@@ -89,7 +97,7 @@ class ParkingTransitionAnimation : TransitionAnimatable {
             let diff = -startOriginY + endOriginY
 
             // tabBar
-            let tabStartOriginY = self.rootVC.mapView.bounds.size.height
+            let tabStartOriginY = self.rootVC.containerView.bounds.size.height
             let tabEndOriginY = self.tabBarStartFrame.origin.y
             let tabDiff = tabStartOriginY - tabEndOriginY
 
@@ -99,7 +107,7 @@ class ParkingTransitionAnimation : TransitionAnimatable {
             self.rootVC.tabBar.frame.origin.y = tabStartOriginY - (tabDiff *  percentComplete)
 
             let alpha = 1.0 * percentComplete
-            self.rootVC.mapView.alpha = alpha + 0.5
+            self.rootVC.containerView.alpha = alpha + 0.5
             self.rootVC.tabBar.alpha = alpha
             self.rootVC.popupView.alpha = 1.0
             self.rootVC.popupView.subviews.forEach { $0.alpha = alpha }
@@ -114,6 +122,7 @@ class ParkingTransitionAnimation : TransitionAnimatable {
                 self.rootVC.popupView.alpha = 0.0
                 self.modalVC.view.removeFromSuperview()
                 self.containerView?.addSubview(self.modalVC.view)
+
                 self.completion?(transitionType.isPresenting)
             } else {
                 self.rootVC.beginAppearanceTransition(true, animated: false)
@@ -134,12 +143,5 @@ class ParkingTransitionAnimation : TransitionAnimatable {
             }
         }
     }
-}
-
-extension ParkingTransitionAnimation {
-
-    func sourceVC() -> UIViewController { return self.rootVC }
-
-    func destVC() -> UIViewController { return self.modalVC }
 }
 

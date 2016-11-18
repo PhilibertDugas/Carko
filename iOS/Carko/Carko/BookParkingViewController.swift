@@ -48,13 +48,6 @@ class BookParkingViewController: UIViewController {
     func tappedCreditCard() {
         paymentContext.presentPaymentMethodsViewController()
     }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "didTapContinue" {
-            let destinationViewController = segue.destination as! ConfirmParkingViewController
-            destinationViewController.parking = parking
-        }
-    }
 }
 
 extension BookParkingViewController: STPPaymentContextDelegate {

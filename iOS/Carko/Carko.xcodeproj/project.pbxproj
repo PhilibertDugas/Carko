@@ -30,11 +30,11 @@
 		4554EBD01DB5AA520066E452 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4554EBCF1DB5AA520066E452 /* ProfileViewController.swift */; };
 		4564F6DF1DB983CA001B709C /* parking-icon-png-18.png in Resources */ = {isa = PBXBuildFile; fileRef = 4564F6DE1DB983CA001B709C /* parking-icon-png-18.png */; };
 		4564F6E11DB98509001B709C /* BookParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4564F6E01DB98509001B709C /* BookParkingViewController.swift */; };
-		4564F6E31DB986C5001B709C /* ConfirmParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4564F6E21DB986C5001B709C /* ConfirmParkingViewController.swift */; };
 		458963ED1DB6EF6100A44AC0 /* ParkingAvailabilityInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458963EC1DB6EF6100A44AC0 /* ParkingAvailabilityInfo.swift */; };
 		458A98301DBCFD44007F53EE /* UnderlineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458A982F1DBCFD44007F53EE /* UnderlineTextField.swift */; };
 		458A98321DBD07CA007F53EE /* arrow-right-01-128.png in Resources */ = {isa = PBXBuildFile; fileRef = 458A98311DBD07CA007F53EE /* arrow-right-01-128.png */; };
 		458F62831DA184BE00205FBB /* MapViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458F62821DA184BE00205FBB /* MapViewControllerTest.swift */; };
+		459503CB1DDE7F9300DA471C /* MapContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459503CA1DDE7F9300DA471C /* MapContainerViewController.swift */; };
 		459AD2571DA49B6C0018B7B9 /* Parking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459AD2561DA49B6C0018B7B9 /* Parking.swift */; };
 		459AD2591DA49C590018B7B9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 459AD2581DA49C590018B7B9 /* GoogleService-Info.plist */; };
 		45B77B441DDC0E39009ABF53 /* ParkingTransitionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B77B431DDC0E39009ABF53 /* ParkingTransitionAnimation.swift */; };
@@ -51,7 +51,7 @@
 		45E9B91E1DB82FDF00C9E9FA /* MarkerPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E9B91D1DB82FDF00C9E9FA /* MarkerPopup.swift */; };
 		45EA513B1DDE6F2300BD076C /* FindParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EA513A1DDE6F2300BD076C /* FindParkingViewController.swift */; };
 		45EA513D1DDE74AC00BD076C /* ParkingAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EA513C1DDE74AC00BD076C /* ParkingAnnotation.swift */; };
-		A93834F1C272809E1EECB85B /* Pods_CarkoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11FDAC7A74DF8D197EFFAB51 /* Pods_CarkoUITests.framework */; };
+		73133C9BF3BE2FD483D547E6 /* Pods_CarkoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90D643072ACC8B7721378248 /* Pods_CarkoUITests.framework */; };
 		C51150531DAF38D5004E2A7D /* ParkingDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51150521DAF38D5004E2A7D /* ParkingDescriptionViewController.swift */; };
 		C51150551DAF38EC004E2A7D /* ParkingRatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51150541DAF38EC004E2A7D /* ParkingRatesViewController.swift */; };
 		C51150571DAF393F004E2A7D /* ParkingAvailabilityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51150561DAF393F004E2A7D /* ParkingAvailabilityViewController.swift */; };
@@ -59,9 +59,8 @@
 		C56ADAB61DAAE6510033516C /* ParkingList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C56ADAB51DAAE6510033516C /* ParkingList.storyboard */; };
 		C56ADAB81DAAE6680033516C /* FindParking.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C56ADAB71DAAE6680033516C /* FindParking.storyboard */; };
 		C56ADABB1DAC00870033516C /* ParkingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56ADABA1DAC00870033516C /* ParkingTableViewCell.swift */; };
-		C5858E7E1DB188920066A9B3 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5858E7D1DB188920066A9B3 /* StringExtension.swift */; };
 		C5B310601DB023610051C90B /* FloatExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B3105F1DB023610051C90B /* FloatExtension.swift */; };
-		CF5C8CD3081EB82841DB02F2 /* Pods_Carko_CarkoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54AC39242A807BB136AF7263 /* Pods_Carko_CarkoTests.framework */; };
+		DCBECB31CDCE38775D2F75C7 /* Pods_Carko_CarkoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE5E464A8AB186B2BEB65575 /* Pods_Carko_CarkoTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,7 +81,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		11FDAC7A74DF8D197EFFAB51 /* Pods_CarkoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarkoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		182BF97C1B2157DE2E06FBDD /* Pods-Carko.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carko.release.xcconfig"; path = "Pods/Target Support Files/Pods-Carko/Pods-Carko.release.xcconfig"; sourceTree = "<group>"; };
 		45099A861DAF261200392FF1 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		450E123F1DAF27330027EFBC /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -106,11 +104,11 @@
 		4554EBCF1DB5AA520066E452 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		4564F6DE1DB983CA001B709C /* parking-icon-png-18.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "parking-icon-png-18.png"; sourceTree = "<group>"; };
 		4564F6E01DB98509001B709C /* BookParkingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookParkingViewController.swift; sourceTree = "<group>"; };
-		4564F6E21DB986C5001B709C /* ConfirmParkingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmParkingViewController.swift; sourceTree = "<group>"; };
 		458963EC1DB6EF6100A44AC0 /* ParkingAvailabilityInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingAvailabilityInfo.swift; sourceTree = "<group>"; };
 		458A982F1DBCFD44007F53EE /* UnderlineTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnderlineTextField.swift; sourceTree = "<group>"; };
 		458A98311DBD07CA007F53EE /* arrow-right-01-128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-right-01-128.png"; sourceTree = "<group>"; };
 		458F62821DA184BE00205FBB /* MapViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewControllerTest.swift; sourceTree = "<group>"; };
+		459503CA1DDE7F9300DA471C /* MapContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapContainerViewController.swift; sourceTree = "<group>"; };
 		459AD2561DA49B6C0018B7B9 /* Parking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parking.swift; sourceTree = "<group>"; };
 		459AD2581DA49C590018B7B9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		45B77B431DDC0E39009ABF53 /* ParkingTransitionAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingTransitionAnimation.swift; sourceTree = "<group>"; };
@@ -135,9 +133,9 @@
 		45EA513C1DDE74AC00BD076C /* ParkingAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingAnnotation.swift; sourceTree = "<group>"; };
 		51BE0236C2E899D05DB12FEF /* Pods-CarkoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarkoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CarkoUITests/Pods-CarkoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		538BFE4EA50CCE486CF330C6 /* Pods_Carko.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Carko.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		54AC39242A807BB136AF7263 /* Pods_Carko_CarkoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Carko_CarkoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B75E7E9A81373F8C2777563 /* Pods-CarkoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarkoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CarkoUITests/Pods-CarkoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8434CF39E1312BC65B8DF4B2 /* Pods-Carko-CarkoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carko-CarkoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Carko-CarkoTests/Pods-Carko-CarkoTests.release.xcconfig"; sourceTree = "<group>"; };
+		90D643072ACC8B7721378248 /* Pods_CarkoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarkoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C51150521DAF38D5004E2A7D /* ParkingDescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingDescriptionViewController.swift; sourceTree = "<group>"; };
 		C51150541DAF38EC004E2A7D /* ParkingRatesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingRatesViewController.swift; sourceTree = "<group>"; };
 		C51150561DAF393F004E2A7D /* ParkingAvailabilityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingAvailabilityViewController.swift; sourceTree = "<group>"; };
@@ -145,8 +143,8 @@
 		C56ADAB51DAAE6510033516C /* ParkingList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ParkingList.storyboard; sourceTree = "<group>"; };
 		C56ADAB71DAAE6680033516C /* FindParking.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FindParking.storyboard; sourceTree = "<group>"; };
 		C56ADABA1DAC00870033516C /* ParkingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingTableViewCell.swift; sourceTree = "<group>"; };
-		C5858E7D1DB188920066A9B3 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		C5B3105F1DB023610051C90B /* FloatExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatExtension.swift; sourceTree = "<group>"; };
+		CE5E464A8AB186B2BEB65575 /* Pods_Carko_CarkoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Carko_CarkoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF3DC78B5F06CA9F23866878 /* Pods-Carko-CarkoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carko-CarkoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Carko-CarkoTests/Pods-Carko-CarkoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E698A5AD42366D0AB15C9348 /* Pods-Carko.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carko.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Carko/Pods-Carko.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -164,7 +162,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF5C8CD3081EB82841DB02F2 /* Pods_Carko_CarkoTests.framework in Frameworks */,
+				DCBECB31CDCE38775D2F75C7 /* Pods_Carko_CarkoTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,7 +170,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A93834F1C272809E1EECB85B /* Pods_CarkoUITests.framework in Frameworks */,
+				73133C9BF3BE2FD483D547E6 /* Pods_CarkoUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,11 +193,11 @@
 			children = (
 				4564F6DD1DB981BA001B709C /* MapPopup */,
 				C56ADAB71DAAE6680033516C /* FindParking.storyboard */,
-				4564F6E01DB98509001B709C /* BookParkingViewController.swift */,
-				4564F6E21DB986C5001B709C /* ConfirmParkingViewController.swift */,
 				45B77B431DDC0E39009ABF53 /* ParkingTransitionAnimation.swift */,
-				45EA513A1DDE6F2300BD076C /* FindParkingViewController.swift */,
 				45EA513C1DDE74AC00BD076C /* ParkingAnnotation.swift */,
+				4564F6E01DB98509001B709C /* BookParkingViewController.swift */,
+				45EA513A1DDE6F2300BD076C /* FindParkingViewController.swift */,
+				459503CA1DDE7F9300DA471C /* MapContainerViewController.swift */,
 			);
 			name = "Tab - Find";
 			sourceTree = "<group>";
@@ -388,7 +386,6 @@
 			isa = PBXGroup;
 			children = (
 				C5B3105F1DB023610051C90B /* FloatExtension.swift */,
-				C5858E7D1DB188920066A9B3 /* StringExtension.swift */,
 				451E424C1DB078E000747370 /* KeyboardDimissExtension.swift */,
 			);
 			name = Extensions;
@@ -398,8 +395,8 @@
 			isa = PBXGroup;
 			children = (
 				538BFE4EA50CCE486CF330C6 /* Pods_Carko.framework */,
-				54AC39242A807BB136AF7263 /* Pods_Carko_CarkoTests.framework */,
-				11FDAC7A74DF8D197EFFAB51 /* Pods_CarkoUITests.framework */,
+				CE5E464A8AB186B2BEB65575 /* Pods_Carko_CarkoTests.framework */,
+				90D643072ACC8B7721378248 /* Pods_CarkoUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -716,7 +713,6 @@
 				45099A871DAF261200392FF1 /* LoginViewController.swift in Sources */,
 				45BC29451DA18249000C54BC /* AppDelegate.swift in Sources */,
 				4518537A1DA476F1005CC5E6 /* MyParkingsViewController.swift in Sources */,
-				C5858E7E1DB188920066A9B3 /* StringExtension.swift in Sources */,
 				451E424B1DB071EC00747370 /* User.swift in Sources */,
 				450E12401DAF27330027EFBC /* RegisterViewController.swift in Sources */,
 				451E424D1DB078E000747370 /* KeyboardDimissExtension.swift in Sources */,
@@ -724,6 +720,7 @@
 				4518537C1DA4787B005CC5E6 /* NewParkingViewController.swift in Sources */,
 				450E124A1DAF2B000027EFBC /* EntryViewController.swift in Sources */,
 				45B77B441DDC0E39009ABF53 /* ParkingTransitionAnimation.swift in Sources */,
+				459503CB1DDE7F9300DA471C /* MapContainerViewController.swift in Sources */,
 				459AD2571DA49B6C0018B7B9 /* Parking.swift in Sources */,
 				458963ED1DB6EF6100A44AC0 /* ParkingAvailabilityInfo.swift in Sources */,
 				45EA513D1DDE74AC00BD076C /* ParkingAnnotation.swift in Sources */,
@@ -732,7 +729,6 @@
 				450E124C1DAF2B3C0027EFBC /* PageContentViewController.swift in Sources */,
 				C56ADABB1DAC00870033516C /* ParkingTableViewCell.swift in Sources */,
 				C51150591DAF397E004E2A7D /* ParkingInfoViewController.swift in Sources */,
-				4564F6E31DB986C5001B709C /* ConfirmParkingViewController.swift in Sources */,
 				C51150551DAF38EC004E2A7D /* ParkingRatesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

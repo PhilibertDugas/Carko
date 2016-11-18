@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (4.0.1)
-  - ARNTransitionAnimator (2.0.2)
+  - ARNTransitionAnimator (2.0.3)
   - Firebase (3.7.1):
     - Firebase/Core (= 3.7.1)
   - Firebase/Auth (3.7.1):
@@ -55,7 +55,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
-  - ARNTransitionAnimator
+  - ARNTransitionAnimator (= 2.0.3)
   - Firebase
   - Firebase/Auth
   - GoogleMaps
@@ -66,7 +66,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
-  ARNTransitionAnimator: b3b02a45e65e08d0ddd478972e7872fccefe817c
+  ARNTransitionAnimator: 51c63c904e61435d1ff741722ec49819cd38fc4f
   Firebase: be473484f0d515e72ffd04acf22f981773c23e58
   FirebaseAnalytics: 0533a00b681e08fd0b2cd0444b7ddf0ef9fd7a1a
   FirebaseAuth: 75a062bbf2d3c97d1e6e55bbc110e13a6853e25d
@@ -81,6 +81,6 @@ SPEC CHECKSUMS:
   OHHTTPStubs: 3a42f25c00563b71355ac73112ba2324e9e6cef4
   Stripe: 935c6deb5e96cbd29d247074bf3aa98a8438e22c
 
-PODFILE CHECKSUM: f93999e689fac670e8b774efb4e22c9ae7c0d356
+PODFILE CHECKSUM: beb80786140152cac83156dc0e7e58360aa84a93
 
 COCOAPODS: 1.1.1
