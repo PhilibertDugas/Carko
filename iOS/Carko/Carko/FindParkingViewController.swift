@@ -37,6 +37,9 @@ class FindParkingViewController: UIViewController {
         popupView.isHidden = true
         self.bookParkingVC = storyboard?.instantiateViewController(withIdentifier: "bookParkingViewController") as? BookParkingViewController
         self.bookParkingVC.modalPresentationStyle = .overFullScreen
+        self.bookParkingVC.tapCloseButtonActionHandler = { _ in
+            self.tabBar.frame.origin.y = self.containerView.frame.height
+        }
 
         NotificationCenter.default.addObserver(self, selector: #selector(FindParkingViewController.parkingSelected), name: Notification.Name.init(rawValue: "ParkingSelected"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(FindParkingViewController.parkingDeselected), name: Notification.Name.init(rawValue: "ParkingDeselected"), object: nil)

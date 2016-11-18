@@ -43,8 +43,6 @@ extension ParkingTransitionAnimation: TransitionAnimatable {
         self.containerView = containerView
 
         self.containerView?.addSubview(self.modalVC.view)
-        //self.containerView?.addSubview(self.rootVC.view)
-        //self.containerView?.addSubview(self.modalVC.view)
 
         self.rootVC.view.setNeedsLayout()
         self.rootVC.view.layoutIfNeeded()

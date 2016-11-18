@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3081C8E38A69D2E93352EB95 /* Pods_Carko.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 538BFE4EA50CCE486CF330C6 /* Pods_Carko.framework */; };
+		4504FC721DDFAA3E00E961B6 /* car_audi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4504FC711DDFAA3E00E961B6 /* car_audi.jpg */; };
+		4504FC741DDFAC5600E961B6 /* CollapseArrow-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 4504FC731DDFAC5600E961B6 /* CollapseArrow-30.png */; };
 		45099A871DAF261200392FF1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45099A861DAF261200392FF1 /* LoginViewController.swift */; };
 		450E12401DAF27330027EFBC /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450E123F1DAF27330027EFBC /* RegisterViewController.swift */; };
 		450E12451DAF2A880027EFBC /* page1.png in Resources */ = {isa = PBXBuildFile; fileRef = 450E12411DAF2A880027EFBC /* page1.png */; };
@@ -82,6 +84,8 @@
 
 /* Begin PBXFileReference section */
 		182BF97C1B2157DE2E06FBDD /* Pods-Carko.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carko.release.xcconfig"; path = "Pods/Target Support Files/Pods-Carko/Pods-Carko.release.xcconfig"; sourceTree = "<group>"; };
+		4504FC711DDFAA3E00E961B6 /* car_audi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = car_audi.jpg; sourceTree = "<group>"; };
+		4504FC731DDFAC5600E961B6 /* CollapseArrow-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CollapseArrow-30.png"; sourceTree = "<group>"; };
 		45099A861DAF261200392FF1 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		450E123F1DAF27330027EFBC /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		450E12411DAF2A880027EFBC /* page1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page1.png; sourceTree = "<group>"; };
@@ -236,6 +240,8 @@
 		45A4CA2E1DB2B8B700741099 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				4504FC731DDFAC5600E961B6 /* CollapseArrow-30.png */,
+				4504FC711DDFAA3E00E961B6 /* car_audi.jpg */,
 				4517C6821DDABE6A00494CEB /* credit-card.png */,
 				4517C6831DDABE6A00494CEB /* car-compact.png */,
 				452259C01DD692E5004B1BD3 /* Contact Card-30.png */,
@@ -525,12 +531,14 @@
 				45E9B91C1DB82F3500C9E9FA /* MarkerPopup.xib in Resources */,
 				4564F6DF1DB983CA001B709C /* parking-icon-png-18.png in Resources */,
 				45253B9F1DA3FF37006BEDAF /* Main.storyboard in Resources */,
+				4504FC741DDFAC5600E961B6 /* CollapseArrow-30.png in Resources */,
 				C56ADAB81DAAE6680033516C /* FindParking.storyboard in Resources */,
 				4517C6851DDABE6A00494CEB /* car-compact.png in Resources */,
 				452259C31DD692E5004B1BD3 /* Parking-30.png in Resources */,
 				450E12461DAF2A880027EFBC /* page2.png in Resources */,
 				459AD2591DA49C590018B7B9 /* GoogleService-Info.plist in Resources */,
 				450E12481DAF2A880027EFBC /* page4.png in Resources */,
+				4504FC721DDFAA3E00E961B6 /* car_audi.jpg in Resources */,
 				452259BF1DD6927F004B1BD3 /* Map-30.png in Resources */,
 				458A98321DBD07CA007F53EE /* arrow-right-01-128.png in Resources */,
 				450E12471DAF2A880027EFBC /* page3.png in Resources */,

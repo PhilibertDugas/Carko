@@ -19,6 +19,11 @@ class BookParkingViewController: UIViewController {
 
      var tapCloseButtonActionHandler : ((Void) -> Void)?
 
+    @IBAction func tappedCloseArrow(_ sender: Any) {
+        self.tapCloseButtonActionHandler?()
+        self.dismiss(animated: true, completion: nil)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
