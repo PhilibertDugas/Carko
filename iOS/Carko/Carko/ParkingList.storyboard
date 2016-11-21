@@ -414,7 +414,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="SyP-yK-IPs">
                                 <rect key="frame" x="16" y="89" width="343" height="488"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -444,12 +444,12 @@
         <scene sceneID="ECl-tq-be7">
             <objects>
                 <navigationController id="9zk-77-AWD" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mmU-7R-hdw">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mmU-7R-hdw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="XNV-us-kad" kind="relationship" relationship="rootViewController" id="HN0-fT-M41"/>
+                        <segue destination="OFn-YM-DoS" kind="relationship" relationship="rootViewController" id="E53-q5-e8R"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nmi-De-cT5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -469,7 +469,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XbS-Rd-gDu" customClass="RoundedCornerButton" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="105" y="535" width="164" height="40"/>
+                                <rect key="frame" x="105" y="584" width="164" height="40"/>
                                 <color key="backgroundColor" red="0.61568627450980395" green="0.49803921568627452" blue="0.49803921568627452" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="164" id="Hah-5O-nfm"/>
@@ -501,6 +501,92 @@
             </objects>
             <point key="canvasLocation" x="2345" y="564"/>
         </scene>
+        <!--Location Search Table Table View Controller-->
+        <scene sceneID="Jhy-Em-Wa0">
+            <objects>
+                <tableViewController storyboardIdentifier="locationSearchTable" id="kPA-b1-9nv" customClass="LocationSearchTableTableViewController" customModule="Carko" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZMK-SZ-6HM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="oTp-b0-Coc" detailTextLabel="lMi-Mt-eGT" style="IBUITableViewCellStyleSubtitle" id="YwZ-aa-U6q">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YwZ-aa-U6q" id="a5v-R6-Von">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oTp-b0-Coc">
+                                            <rect key="frame" x="15" y="4" width="34" height="21"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lMi-Mt-eGT">
+                                            <rect key="frame" x="15" y="25" width="44" height="15"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="kPA-b1-9nv" id="5fA-D8-TLr"/>
+                            <outlet property="delegate" destination="kPA-b1-9nv" id="OQX-Ox-b4Y"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UfA-Fb-TuJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1457" y="1328"/>
+        </scene>
+        <!--New Parking View Controller-->
+        <scene sceneID="MqD-Dm-pQg">
+            <objects>
+                <viewController id="OFn-YM-DoS" customClass="NewParkingViewController" customModule="Carko" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iIT-Hr-bgH"/>
+                        <viewControllerLayoutGuide type="bottom" id="w0I-Bz-Jtr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="T4w-MJ-M7C">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="KB0-qo-S0s">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="w0I-Bz-Jtr" firstAttribute="top" secondItem="KB0-qo-S0s" secondAttribute="bottom" id="FDq-8p-ouk"/>
+                            <constraint firstItem="KB0-qo-S0s" firstAttribute="leading" secondItem="T4w-MJ-M7C" secondAttribute="leading" id="RpU-iq-Y08"/>
+                            <constraint firstAttribute="trailing" secondItem="KB0-qo-S0s" secondAttribute="trailing" id="Zze-M0-rfZ"/>
+                            <constraint firstItem="KB0-qo-S0s" firstAttribute="top" secondItem="iIT-Hr-bgH" secondAttribute="bottom" id="h2L-Xl-GW4"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="kLf-H2-fDY"/>
+                    <connections>
+                        <outlet property="mapView" destination="KB0-qo-S0s" id="uvE-gR-BYl"/>
+                        <outlet property="searchDisplayController" destination="Zss-py-VcE" id="SzS-PH-R0W"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ScV-bI-E1z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="Zss-py-VcE">
+                    <connections>
+                        <outlet property="delegate" destination="OFn-YM-DoS" id="KbG-rU-oa7"/>
+                        <outlet property="searchContentsController" destination="OFn-YM-DoS" id="N3m-7F-TEB"/>
+                        <outlet property="searchResultsDataSource" destination="OFn-YM-DoS" id="3cB-xN-VoX"/>
+                        <outlet property="searchResultsDelegate" destination="OFn-YM-DoS" id="4Wb-zM-K0j"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="2098" y="1328"/>
+        </scene>
         <!--New Parking Schedule View Controller-->
         <scene sceneID="iUs-kn-khD">
             <objects>
@@ -514,7 +600,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NiE-Rx-daQ" customClass="RoundedCornerButton" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="106" y="154" width="164" height="40"/>
+                                <rect key="frame" x="106" y="110" width="164" height="40"/>
                                 <color key="backgroundColor" red="0.59859156608581543" green="0.48580044507980347" blue="0.48472779989242554" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="164" id="BtI-3O-On8"/>
@@ -528,7 +614,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DFo-ig-p73" customClass="RoundedCornerButton" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="106" y="570" width="164" height="40"/>
+                                <rect key="frame" x="106" y="619" width="164" height="40"/>
                                 <color key="backgroundColor" red="0.59859156608581543" green="0.48580044507980347" blue="0.48472779989242554" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="164" id="3Mo-kf-YUV"/>
@@ -568,7 +654,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5xf-DT-L0Z" customClass="RoundedCornerButton" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="106" y="151" width="164" height="40"/>
+                                <rect key="frame" x="106" y="107" width="164" height="40"/>
                                 <color key="backgroundColor" red="0.59859156608581543" green="0.48580044507980347" blue="0.48472779989242554" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="kQj-R0-Leu"/>
@@ -582,7 +668,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLR-BB-fMe" customClass="RoundedCornerButton" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="106" y="570" width="164" height="40"/>
+                                <rect key="frame" x="106" y="619" width="164" height="40"/>
                                 <color key="backgroundColor" red="0.59859156608581543" green="0.48580044507980347" blue="0.48472779989242554" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="fdo-kb-klQ"/>
@@ -774,7 +860,7 @@
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" tag="99" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make available 24/7" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ak-JJ-8KI">
-                                <rect key="frame" x="111.5" y="144" width="152" height="21"/>
+                                <rect key="frame" x="112" y="144" width="152" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="G0D-ns-VSJ"/>
                                     <constraint firstAttribute="width" constant="152" id="nk2-of-jdv"/>
@@ -930,7 +1016,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" tag="99" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you want to make your space available at all times?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x0d-GK-Bf9">
-                                <rect key="frame" x="60.5" y="100" width="254" height="36"/>
+                                <rect key="frame" x="61" y="100" width="254" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="254" id="Eof-Ra-HR0"/>
                                     <constraint firstAttribute="height" constant="36" id="c1V-aW-tJE"/>

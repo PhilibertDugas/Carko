@@ -7,60 +7,69 @@
 //
 
 import UIKit
-import GoogleMaps
-import GooglePlaces
-import CoreLocation
+import MapKit
+
+protocol HandleMapSearch: class {
+    func dropPinZoomIn(placemark:MKPlacemark)
+}
 
 class NewParkingViewController: UIViewController {
 
-    @IBOutlet var addButton: UIButton!
-    
-    var mapView: GMSMapView!
-    var locationManager: CLLocationManager!
-    
-    var resultsViewController: GMSAutocompleteResultsViewController?
+    //@IBOutlet var addButton: UIButton!
+    @IBOutlet var mapView: MKMapView!
+
     var searchController: UISearchController?
-    var resultView: UITextView?
-    var currentPlace: GMSPlace?
+    var selectedPin: MKPlacemark?
     var newParking: Parking?
+    let locationManager = CLLocationManager()
+    var centerAnnotation: MKPointAnnotation?
+
+    var justZoomedIn = false
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        addButton.isHidden = true
-        setupLocationManager()
+
+        mapView.delegate = self
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+        //addButton.isHidden = true
+
+        let panGesture = UIPanGestureRecognizer.init(target: self, action: #selector(NewParkingViewController.handlePan))
+        panGesture.delegate = self;
+        mapView.addGestureRecognizer(panGesture)
+
         setupSearchBar()
     }
 
-    func setupSearchBar() {
-        resultsViewController = GMSAutocompleteResultsViewController()
-        resultsViewController?.delegate = self
-        
-        searchController = UISearchController(searchResultsController: resultsViewController)
-        searchController?.searchResultsUpdater = resultsViewController
-
-        searchController?.searchBar.frame = CGRect.init(x: 0, y: 0, width: 250.0, height: 44.0)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: (searchController?.searchBar)!)
-
-        self.definesPresentationContext = true
-        
-        searchController?.hidesNavigationBarDuringPresentation = false
-        searchController?.modalPresentationStyle = UIModalPresentationStyle.popover
+    func handlePan() {
+        centerAnnotation?.coordinate = mapView.centerCoordinate;
     }
-    
-    func setupLocationManager() {
-        locationManager = CLLocationManager.init()
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
-        locationManager.distanceFilter = 10
-        locationManager.requestAlwaysAuthorization()
-        locationManager.startUpdatingLocation()
+
+    func setupSearchBar() {
+        let locationSearchTable = storyboard?.instantiateViewController(withIdentifier: "locationSearchTable") as! LocationSearchTableTableViewController
+        locationSearchTable.mapView = mapView
+        locationSearchTable.handleMapSearchDelegate = self
+
+        searchController = UISearchController.init(searchResultsController: locationSearchTable)
+        searchController?.searchResultsUpdater = locationSearchTable
+
+        let searchBar = searchController?.searchBar
+        searchBar?.sizeToFit()
+        searchBar?.placeholder = "Search for places"
+        navigationItem.titleView = searchController?.searchBar
+
+        searchController?.hidesNavigationBarDuringPresentation = false
+        searchController?.dimsBackgroundDuringPresentation = true
+        definesPresentationContext = true
     }
     
     @IBAction func addButtonTapped(_ sender: AnyObject) {
-        let currentMapCoordinate = mapView.camera.target
+        let currentMapCoordinate = mapView.centerCoordinate
         let newAvailabilityInfo = ParkingAvailabilityInfo.init()
-        self.newParking = Parking.init(latitude: currentMapCoordinate.latitude, longitude: currentMapCoordinate.longitude, photoURL: URL.init(string: "http://google.com")!, address: (currentPlace?.name)!, price: 1.0, parkingDescription: "", availabilityInfo: newAvailabilityInfo)        
+        self.newParking = Parking.init(latitude: currentMapCoordinate.latitude, longitude: currentMapCoordinate.longitude, photoURL: URL.init(string: "http://google.com")!, address: (selectedPin?.title)!, price: 1.0, parkingDescription: "", availabilityInfo: newAvailabilityInfo)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -71,65 +80,60 @@ class NewParkingViewController: UIViewController {
     }
 }
 
+extension NewParkingViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+}
 
-// Geolocation Delegates
+extension NewParkingViewController : CLLocationManagerDelegate {
 
-extension NewParkingViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let currentCoordinate = manager.location?.coordinate {
-            let camera = GMSCameraPosition.camera(withLatitude: currentCoordinate.latitude, longitude: currentCoordinate.longitude, zoom: 15.0)
-            mapView = GMSMapView.map(withFrame: view.bounds, camera: camera)
-            mapView.delegate = self
-            view.insertSubview(mapView, at: 0)
-            locationManager.stopUpdatingLocation()
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedWhenInUse {
+            locationManager.requestLocation()
         }
     }
-}
 
-extension NewParkingViewController: GMSAutocompleteResultsViewControllerDelegate {
-    func resultsController(_ resultsController: GMSAutocompleteResultsViewController, didAutocompleteWith place: GMSPlace) {
-        self.searchController?.isActive = false
-        
-        self.currentPlace = place
-        let newCam = GMSCameraUpdate.setTarget(place.coordinate, zoom: 19.0)
-        self.mapView.mapType = kGMSTypeSatellite
-        
-        self.mapView.animate(with: newCam)
-        self.view.insertSubview(addButton, aboveSubview: mapView)
-        self.addButton.isHidden = false
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = manager.location else { return }
+        let region = MKCoordinateRegionMakeWithDistance(location.coordinate, CLLocationDistance.init(15), CLLocationDistance.init(15))
+        mapView.setRegion(region, animated: true)
+        locationManager.stopUpdatingLocation()
     }
-    
-    func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
-        didFailAutocompleteWithError error: Error){
-        // TODO: handle the error.
-        print("Error: \(error)")
-    }
-    
-    // Turn the network activity indicator on and off again.
-    func didRequestAutocompletePredictions(forResultsController resultsController: GMSAutocompleteResultsViewController) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-    }
-    
-    func didUpdateAutocompletePredictions(forResultsController resultsController: GMSAutocompleteResultsViewController) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Error \(error.localizedDescription)")
     }
 }
 
-extension NewParkingViewController: GMSMapViewDelegate {
-    func mapView(_ mapView: GMSMapView, willMove gesture: Bool) {
-        recenterMarkerInView(newMapView: mapView)
+extension NewParkingViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        if selectedPin != nil && !justZoomedIn {
+            centerAnnotation?.coordinate = mapView.centerCoordinate
+        }
+        justZoomedIn = false
     }
-    
-    func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
-        recenterMarkerInView(newMapView: mapView)
-    }
-    
-    func recenterMarkerInView(newMapView: GMSMapView) {
-        let center = newMapView.convert(newMapView.center, from: self.mapView)
-        newMapView.clear()
-        let marker = GMSMarker.init()
-        marker.appearAnimation = kGMSMarkerAnimationNone
-        marker.position = newMapView.projection.coordinate(for: center)
-        marker.map = newMapView
+}
+
+extension NewParkingViewController: HandleMapSearch {
+    func dropPinZoomIn(placemark: MKPlacemark){
+        selectedPin = placemark
+        mapView.removeAnnotations(mapView.annotations)
+        centerAnnotation = MKPointAnnotation()
+        centerAnnotation?.coordinate = placemark.coordinate
+
+        /*annotation.title = placemark.name
+
+        if let city = placemark.locality,
+            let state = placemark.administrativeArea {
+            annotation.subtitle = "\(city) \(state)"
+        }*/
+
+        mapView.addAnnotation(centerAnnotation!)
+
+        let region = MKCoordinateRegionMakeWithDistance(placemark.coordinate, CLLocationDistance.init(15), CLLocationDistance.init(15))
+        justZoomedIn = true
+        mapView.mapType = MKMapType.satellite
+        mapView.setRegion(region, animated: true)
     }
 }

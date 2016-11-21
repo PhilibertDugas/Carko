@@ -29,19 +29,19 @@
                                     <segue destination="g7J-8S-HkM" kind="embed" id="HRP-Vd-5kh"/>
                                 </connections>
                             </containerView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aJz-C7-zpq" customClass="MarkerPopup" customModule="Carko" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vJw-M0-R9n" customClass="MarkerPopup" customModule="Carko" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="568" width="375" height="50"/>
-                                <color key="backgroundColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Qhz-7l-RMJ"/>
+                                    <constraint firstAttribute="height" constant="50" id="7DT-Dp-2Ce"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="aJz-C7-zpq" secondAttribute="trailing" id="8fb-gx-V28"/>
-                            <constraint firstItem="aJz-C7-zpq" firstAttribute="leading" secondItem="Njl-x4-YWd" secondAttribute="leading" id="CN4-lb-PLO"/>
-                            <constraint firstItem="vpB-74-N3m" firstAttribute="top" secondItem="aJz-C7-zpq" secondAttribute="bottom" id="gjn-hE-qTp"/>
+                            <constraint firstAttribute="trailing" secondItem="vJw-M0-R9n" secondAttribute="trailing" id="bgO-EG-c4i"/>
+                            <constraint firstItem="vpB-74-N3m" firstAttribute="top" secondItem="vJw-M0-R9n" secondAttribute="bottom" id="jxx-5a-X7l"/>
+                            <constraint firstItem="vJw-M0-R9n" firstAttribute="leading" secondItem="Njl-x4-YWd" secondAttribute="leading" id="s76-IW-S9c"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Nearby Parkings" image="Map-30.png" id="dfl-Y5-pPe"/>
@@ -49,7 +49,7 @@
                     <connections>
                         <outlet property="containerView" destination="heP-Do-prp" id="vDW-CZ-j2R"/>
                         <outlet property="mapView" destination="OwW-nz-BeL" id="4Dv-aA-NpG"/>
-                        <outlet property="popupView" destination="aJz-C7-zpq" id="pW4-65-T4h"/>
+                        <outlet property="popupView" destination="vJw-M0-R9n" id="Zeg-QR-0s8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5JO-7F-TCV" userLabel="First Responder" sceneMemberID="firstResponder"/>

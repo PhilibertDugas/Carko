@@ -12,6 +12,7 @@ import MapKit
 class MapContainerViewController: UIViewController {
 
     @IBOutlet var mapView: MKMapView!
+    var firstZoom = true
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -39,8 +40,11 @@ class MapContainerViewController: UIViewController {
 
 extension MapContainerViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-        let region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 800, 800)
-        self.mapView.setRegion(self.mapView.regionThatFits(region), animated: true)
+        if firstZoom {
+            firstZoom = false
+            let region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 800, 800)
+            self.mapView.setRegion(self.mapView.regionThatFits(region), animated: true)
+        }
     }
 
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
