@@ -13,6 +13,8 @@ class MapContainerViewController: UIViewController {
 
     @IBOutlet var mapView: MKMapView!
     var firstZoom = true
+    let locationManager = CLLocationManager()
+
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -23,6 +25,7 @@ class MapContainerViewController: UIViewController {
         super.viewDidLoad()
         self.mapView.showsUserLocation = true
         self.mapView.delegate = self
+        locationManager.requestWhenInUseAuthorization()
         NotificationCenter.default.addObserver(self, selector: #selector(MapContainerViewController.parkingFetched), name: Notification.Name.init(rawValue: "ParkingFetched"), object: nil)
     }
 

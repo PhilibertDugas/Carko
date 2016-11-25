@@ -75,7 +75,7 @@ class ParkingAvailabilityViewController: UIViewController {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         self.dateFormatter = DateFormatter.init()
-        self.dateFormatter!.dateFormat = "h:mm a"
+        self.dateFormatter!.dateFormat = "HH:mm"
     }
 
     override func viewDidAppear(_ animated: Bool) {

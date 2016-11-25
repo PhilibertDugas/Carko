@@ -113,7 +113,7 @@
                             <constraint firstItem="31H-dS-kVs" firstAttribute="top" secondItem="eJK-7A-DeB" secondAttribute="bottom" constant="8" id="PmL-AC-nm7"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="My Parkings" image="Parking-30.png" id="9tU-9w-RRb"/>
+                    <tabBarItem key="tabBarItem" title="My Parkings" image="parking.png" id="9tU-9w-RRb"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="ParkingTableView" destination="fqu-z7-WF5" id="Szs-6g-GBA"/>
@@ -444,7 +444,7 @@
         <scene sceneID="ECl-tq-be7">
             <objects>
                 <navigationController id="9zk-77-AWD" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mmU-7R-hdw">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mmU-7R-hdw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -455,51 +455,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nmi-De-cT5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1457" y="565"/>
-        </scene>
-        <!--New Parking View Controller-->
-        <scene sceneID="b56-RS-Jgg">
-            <objects>
-                <viewController id="XNV-us-kad" customClass="NewParkingViewController" customModule="Carko" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="vI6-qx-oTx"/>
-                        <viewControllerLayoutGuide type="bottom" id="Y98-EI-I4r"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="r3p-bD-1CA">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XbS-Rd-gDu" customClass="RoundedCornerButton" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="105" y="584" width="164" height="40"/>
-                                <color key="backgroundColor" red="0.61568627450980395" green="0.49803921568627452" blue="0.49803921568627452" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="164" id="Hah-5O-nfm"/>
-                                    <constraint firstAttribute="height" constant="40" id="lXq-pe-LCN"/>
-                                </constraints>
-                                <state key="normal" title="Add">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="addButtonTapped:" destination="XNV-us-kad" eventType="touchUpInside" id="g8b-y9-fer"/>
-                                    <segue destination="XFf-v5-AHd" kind="show" identifier="addButtonTapped" id="fJq-21-9AX"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="XbS-Rd-gDu" firstAttribute="centerX" secondItem="r3p-bD-1CA" secondAttribute="centerX" id="rd5-SS-Btj"/>
-                            <constraint firstItem="Y98-EI-I4r" firstAttribute="top" secondItem="XbS-Rd-gDu" secondAttribute="bottom" constant="43" id="tfH-Td-dS8"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="h2h-cw-vwX">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="VmB-5w-KFP"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="addButton" destination="XbS-Rd-gDu" id="IhP-4z-ODY"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0Ec-7C-ia2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2345" y="564"/>
         </scene>
         <!--Location Search Table Table View Controller-->
         <scene sceneID="Jhy-Em-Wa0">
@@ -543,7 +498,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UfA-Fb-TuJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1457" y="1328"/>
+            <point key="canvasLocation" x="2348" y="1345"/>
         </scene>
         <!--New Parking View Controller-->
         <scene sceneID="MqD-Dm-pQg">
@@ -560,10 +515,27 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="KB0-qo-S0s">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BKH-bw-YdM" customClass="RoundedCornerButton" customModule="Carko" customModuleProvider="target">
+                                <rect key="frame" x="105" y="570" width="164" height="40"/>
+                                <color key="backgroundColor" red="0.61568627450000002" green="0.49803921569999998" blue="0.49803921569999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="0Uj-PJ-OOu"/>
+                                    <constraint firstAttribute="width" constant="164" id="MtH-B6-scw"/>
+                                </constraints>
+                                <state key="normal" title="Add">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="addButtonTapped:" destination="OFn-YM-DoS" eventType="touchUpInside" id="0XT-76-cqZ"/>
+                                    <segue destination="XFf-v5-AHd" kind="show" identifier="addButtonTapped" id="LEW-kP-1lN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="BKH-bw-YdM" firstAttribute="centerX" secondItem="T4w-MJ-M7C" secondAttribute="centerX" id="8BI-M5-c3z"/>
                             <constraint firstItem="w0I-Bz-Jtr" firstAttribute="top" secondItem="KB0-qo-S0s" secondAttribute="bottom" id="FDq-8p-ouk"/>
+                            <constraint firstItem="w0I-Bz-Jtr" firstAttribute="top" secondItem="BKH-bw-YdM" secondAttribute="bottom" constant="8" id="Lfe-a7-ldq"/>
                             <constraint firstItem="KB0-qo-S0s" firstAttribute="leading" secondItem="T4w-MJ-M7C" secondAttribute="leading" id="RpU-iq-Y08"/>
                             <constraint firstAttribute="trailing" secondItem="KB0-qo-S0s" secondAttribute="trailing" id="Zze-M0-rfZ"/>
                             <constraint firstItem="KB0-qo-S0s" firstAttribute="top" secondItem="iIT-Hr-bgH" secondAttribute="bottom" id="h2L-Xl-GW4"/>
@@ -571,6 +543,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="kLf-H2-fDY"/>
                     <connections>
+                        <outlet property="addButton" destination="BKH-bw-YdM" id="hnO-lK-u50"/>
                         <outlet property="mapView" destination="KB0-qo-S0s" id="uvE-gR-BYl"/>
                         <outlet property="searchDisplayController" destination="Zss-py-VcE" id="SzS-PH-R0W"/>
                     </connections>
@@ -585,7 +558,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="2098" y="1328"/>
+            <point key="canvasLocation" x="2348" y="564"/>
         </scene>
         <!--New Parking Schedule View Controller-->
         <scene sceneID="iUs-kn-khD">
@@ -600,7 +573,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NiE-Rx-daQ" customClass="RoundedCornerButton" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="106" y="110" width="164" height="40"/>
+                                <rect key="frame" x="106" y="154" width="164" height="40"/>
                                 <color key="backgroundColor" red="0.59859156608581543" green="0.48580044507980347" blue="0.48472779989242554" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="164" id="BtI-3O-On8"/>
@@ -614,7 +587,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DFo-ig-p73" customClass="RoundedCornerButton" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="106" y="619" width="164" height="40"/>
+                                <rect key="frame" x="106" y="570" width="164" height="40"/>
                                 <color key="backgroundColor" red="0.59859156608581543" green="0.48580044507980347" blue="0.48472779989242554" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="164" id="3Mo-kf-YUV"/>
@@ -654,7 +627,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5xf-DT-L0Z" customClass="RoundedCornerButton" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="106" y="107" width="164" height="40"/>
+                                <rect key="frame" x="106" y="151" width="164" height="40"/>
                                 <color key="backgroundColor" red="0.59859156608581543" green="0.48580044507980347" blue="0.48472779989242554" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="kQj-R0-Leu"/>
@@ -668,7 +641,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLR-BB-fMe" customClass="RoundedCornerButton" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="106" y="619" width="164" height="40"/>
+                                <rect key="frame" x="106" y="570" width="164" height="40"/>
                                 <color key="backgroundColor" red="0.59859156608581543" green="0.48580044507980347" blue="0.48472779989242554" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="fdo-kb-klQ"/>
@@ -1074,7 +1047,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Parking-30.png" width="30" height="30"/>
+        <image name="parking.png" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="5on-U1-U9J"/>

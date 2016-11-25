@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pfA-6Y-dmS">
-                                <rect key="frame" x="101" y="318.5" width="173" height="30"/>
+                                <rect key="frame" x="101" y="319" width="173" height="30"/>
                                 <state key="normal" title="Show Credit Card Screen"/>
                                 <connections>
                                     <action selector="showTapped:" destination="zf4-oy-pQM" eventType="touchUpInside" id="STe-Z0-5o6"/>
@@ -52,7 +52,7 @@
                             <constraint firstItem="Cxs-Om-m5Q" firstAttribute="centerX" secondItem="pQt-Sq-COB" secondAttribute="centerX" id="gwl-L6-PUe"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" image="Contact Card-30.png" id="5dA-Az-Z4Q"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="user.png" id="5dA-Az-Z4Q"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w3c-XV-cG2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -69,6 +69,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Contact Card-30.png" width="30" height="30"/>
+        <image name="user.png" width="30" height="30"/>
     </resources>
 </document>

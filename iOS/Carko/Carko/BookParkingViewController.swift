@@ -11,26 +11,56 @@ import Stripe
 
 class BookParkingViewController: UIViewController {
 
-    @IBOutlet var addressLabel: UITextField!
-    @IBOutlet var creditCardLabel: UILabel!
+    @IBOutlet var addressLabel: UILabel!
+    @IBOutlet var availabilityLabel: UILabel!
+    @IBOutlet var creditCardLabel: UnderlineTextField!
+    @IBOutlet var timeLabel: UILabel!
+    @IBOutlet var costLabel: UILabel!
 
+    @IBOutlet var timeSlider: UISlider!
+
+    var endTimeParking: String!
+    var totalCost: Float!
+    var sliderValue: Int?
     var paymentContext: STPPaymentContext!
     var parking: Parking!
 
      var tapCloseButtonActionHandler : ((Void) -> Void)?
 
+    @IBAction func sliderChanged(_ sender: Any) {
+        setSliderValue()
+        setTimeLabel()
+        setCostLabel()
+    }
+    
     @IBAction func tappedCloseArrow(_ sender: Any) {
         self.tapCloseButtonActionHandler?()
         self.dismiss(animated: true, completion: nil)
+    }
+
+    @IBAction func tappedConfirm(_ sender: Any) {
+        let paymentMessage = "Confirm payment of \(String.init(format: "%.02f", totalCost))$ to get a parking until \(endTimeParking!)"
+        let alertController = UIAlertController.init(title: "Confirm payment", message: paymentMessage, preferredStyle: UIAlertControllerStyle.actionSheet)
+        let cancelAction = UIAlertAction.init(title: "Cancel", style: UIAlertActionStyle.cancel) { (result : UIAlertAction) -> Void in
+            print("Canceled")
+        }
+
+        let okAction = UIAlertAction.init(title: "Ok", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
+            self.paymentContext.paymentAmount = Int(self.totalCost * 100)
+            self.paymentContext.requestPayment()
+        }
+
+        alertController.addAction(cancelAction)
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         addressLabel.text = parking.address
-
-        let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(BookParkingViewController.tappedCreditCard))
-        creditCardLabel.addGestureRecognizer(tapGesture)
+        availabilityLabel.text = "Available until \(parking.availabilityInfo.stopTime)"
+        creditCardLabel.delegate = self
 
         paymentContext = STPPaymentContext.init(apiAdapter: CarkoAPIClient.sharedClient)
         paymentContext.paymentAmount = Int(parking.price * 100)
@@ -40,18 +70,47 @@ class BookParkingViewController: UIViewController {
         paymentContext.hostViewController = self
     }
 
+    func setSliderValue() {
+        var value = Int(timeSlider.value)
+        let stepSize = 15
+        value = (value - value % stepSize)
+        self.sliderValue = value
+    }
+
+    func setTimeLabel() {
+        let calendar = Calendar.current
+        let until = calendar.date(byAdding: Calendar.Component.minute, value: self.sliderValue!, to: Date())
+        let dateFormatter = DateFormatter.init()
+        dateFormatter.dateFormat = "HH:mm"
+        endTimeParking = dateFormatter.string(from: until!)
+        timeLabel.text = "Parked until: " + endTimeParking
+    }
+
+    func setCostLabel() {
+        totalCost = Float(self.sliderValue!) / 60 * parking.price
+        costLabel.text = "Cost: " + String.init(format: "%.02f", totalCost) + "$"
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("BookParkingViewController viewWillAppear")
-    }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        print("BookParkingViewController viewWillDisappear")
-    }
+        let minuteDelta = self.parking.stopDate().timeIntervalSince(Date.init()) / 60
+        self.timeSlider.maximumValue = Float(minuteDelta)
 
-    func tappedCreditCard() {
-        paymentContext.presentPaymentMethodsViewController()
+        setSliderValue()
+        setTimeLabel()
+        setCostLabel()
+    }
+}
+
+extension BookParkingViewController: UITextFieldDelegate {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if textField.tag == 10 {
+            paymentContext.presentPaymentMethodsViewController()
+            return false
+        } else {
+            return true
+        }
     }
 }
 

@@ -74,6 +74,21 @@ class Parking: NSObject {
             ]
         ] as [String : Any]
     }
+
+
+    func stopDate() -> Date {
+        let todayFormater = DateFormatter.init()
+        todayFormater.dateFormat = "d.M.yyyy"
+        todayFormater.timeZone = NSTimeZone.local
+        let todayString = todayFormater.string(from: Date.init())
+
+        let convertString = "\(todayString) \(self.availabilityInfo.stopTime)"
+
+        let dateFormatter = DateFormatter.init()
+        dateFormatter.dateFormat = "d.M.yyyy HH:mm"
+        dateFormatter.timeZone = NSTimeZone.local
+        return dateFormatter.date(from: convertString)!
+    }
     
     class func getAllParkings() {
         CarkoAPIClient.sharedClient.getAllParkings { (parkings, error) in
