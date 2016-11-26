@@ -1,27 +1,24 @@
 package com.carko.carko;
 
-import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.EditText;
 
-public class MainActivity extends AppCompatActivity {
+public class ParkingTabActivity extends AppCompatActivity {
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
-    private MainViewPagerAdapter viewPagerAdapter;
+    private ParkingViewPagerAdapter viewPagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_parkings_tab);
 
         tabLayout = (TabLayout) findViewById(R.id.main_tab_layout);
         viewPager = (ViewPager) findViewById(R.id.main_view_pager);
-        viewPagerAdapter = new MainViewPagerAdapter(getSupportFragmentManager());
+        viewPagerAdapter = new ParkingViewPagerAdapter(getSupportFragmentManager());
 
         viewPager.setAdapter(viewPagerAdapter);
 
@@ -37,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.addTab(two, 1);
         tabLayout.addTab(three, 2);
 
+        // Listens to swipe movement to change page
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
         // Create a tab listener that is called when the user changes tabs.
@@ -56,17 +54,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-    }
 
-    /** Called when the user clicks the Sign in button */
-    public void signIn(View view) {
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
-    }
 
-    /** Called when the user clicks the Register button */
-    public void register(View view) {
-        Intent intent = new Intent(this, RegisterActivity.class);
-        startActivity(intent);
+
     }
 }

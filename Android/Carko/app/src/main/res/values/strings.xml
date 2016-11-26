@@ -30,6 +30,13 @@
     <string name="parking_availability_tag">Availability:</string>
     <string name="dummy_parking_availability_time">days</string>
 
+    <!-- Parking detail -->
+    <string name="address_label">Address</string>
+    <string name="description_label">Description</string>
+    <string name="availability_label">Availability</string>
+    <string name="rates_label">Rates</string>
+    <string name="profit_label">Profit</string>
+
     <!-- Marker info -->
     <string name="marker_info_tap">Tap to continue...</string>
     <string name="title_activity_parking_detail">ParkingDetailActivity</string>

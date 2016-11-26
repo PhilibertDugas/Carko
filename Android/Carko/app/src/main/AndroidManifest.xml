@@ -46,7 +46,7 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".ParkingsMapActivity"
+            android:name=".ParkingMapFragment"
             android:label="@string/title_activity_maps" />
         <activity
             android:name=".MostViewedActivity"
@@ -55,7 +55,9 @@
         <activity
             android:name=".ParkingDetailActivity"
             android:label="@string/title_activity_parking_detail"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme"
+            android:parentActivityName=".ParkingTabActivity"/>
+        <activity android:name=".ParkingTabActivity"></activity>
     </application>
 
 </manifest>

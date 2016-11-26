@@ -1,8 +1,11 @@
 package com.carko.carko;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
+import android.view.View;
+import android.widget.ListView;
 
 import java.util.ArrayList;
 
@@ -35,6 +38,18 @@ public class ParkingListFragment extends ListFragment {
         parkingAdapter = new ParkingAdapter(getActivity(), parkings);
 
         setListAdapter(parkingAdapter);
+    }
+
+    @Override
+    public void onListItemClick(ListView l, View v, int pos, long id){
+        super.onListItemClick(l,v,pos,id);
+        launchParkingDetailActivity();
+    }
+
+    private void launchParkingDetailActivity(){
+        // TODO: Send parking information
+        Intent intent = new Intent(getActivity(), ParkingDetailActivity.class);
+        startActivity(intent);
     }
 
 }
