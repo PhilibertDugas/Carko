@@ -49,7 +49,7 @@ public class ParkingAdapter extends ArrayAdapter<Parking> {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        // Fill each new referenced view with data associated with the note it's referencing
+        // Fill each new referenced view with data associated with the parking it's referencing
         viewHolder.address.setText(parking.getAddress());
         viewHolder.preview.setText(parking.getAvailability());
         viewHolder.image.setImageResource(parking.getDrawable());

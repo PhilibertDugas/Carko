@@ -1,8 +1,8 @@
 package com.carko.carko;
 
 import android.content.Intent;
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -15,7 +15,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class ParkingsMapActivity extends FragmentActivity implements
+public class ParkingMapFragment extends FragmentActivity implements
         GoogleMap.OnInfoWindowClickListener,
         OnMapReadyCallback {
 
@@ -27,7 +27,7 @@ public class ParkingsMapActivity extends FragmentActivity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_parkings_map);
+        setContentView(R.layout.fragment_parkings_map);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -40,7 +40,7 @@ public class ParkingsMapActivity extends FragmentActivity implements
         mostViewedButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ParkingsMapActivity.this, MostViewedActivity.class);
+                Intent intent = new Intent(ParkingMapFragment.this, MostViewedActivity.class);
                 startActivity(intent);
             }
         });
