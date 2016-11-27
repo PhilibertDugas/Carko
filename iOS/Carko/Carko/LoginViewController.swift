@@ -35,7 +35,14 @@ class LoginViewController: UIViewController {
     }
 
     func userLoggedIn(_ notification: Notification) {
-        performSegue(withIdentifier: "UserLoggedIn", sender: nil)
+        User.getUser { (user, error) in
+            if let error = error {
+                print("Shit something went wrong display something to the user: \(error.localizedDescription)")
+            } else if let user = user {
+                AppState.sharedInstance.currentUser = user
+                self.performSegue(withIdentifier: "UserLoggedIn", sender: nil)
+            }
+        }
     }
 
     func userLoggedInError(_ notification: Notification) {

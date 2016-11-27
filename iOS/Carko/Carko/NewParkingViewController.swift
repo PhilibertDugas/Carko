@@ -68,8 +68,8 @@ class NewParkingViewController: UIViewController {
     
     @IBAction func addButtonTapped(_ sender: AnyObject) {
         let currentMapCoordinate = mapView.centerCoordinate
-        let newAvailabilityInfo = ParkingAvailabilityInfo.init()
-        self.newParking = Parking.init(latitude: currentMapCoordinate.latitude, longitude: currentMapCoordinate.longitude, photoURL: URL.init(string: "http://google.com")!, address: (selectedPin?.title)!, price: 1.0, parkingDescription: "", availabilityInfo: newAvailabilityInfo)
+        let newAvailabilityInfo = AvailabilityInfo.init()
+        self.newParking = Parking.init(latitude: currentMapCoordinate.latitude, longitude: currentMapCoordinate.longitude, photoURL: URL.init(string: "http://google.com")!, address: (selectedPin?.title)!, price: 1.0, pDescription: "", isAvailable: true, availabilityInfo: newAvailabilityInfo)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

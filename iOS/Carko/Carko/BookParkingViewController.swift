@@ -25,7 +25,7 @@ class BookParkingViewController: UIViewController {
     var paymentContext: STPPaymentContext!
     var parking: Parking!
 
-     var tapCloseButtonActionHandler : ((Void) -> Void)?
+    var tapCloseButtonActionHandler : ((Void) -> Void)?
 
     @IBAction func sliderChanged(_ sender: Any) {
         setSliderValue()
@@ -46,8 +46,7 @@ class BookParkingViewController: UIViewController {
         }
 
         let okAction = UIAlertAction.init(title: "Ok", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
-            self.paymentContext.paymentAmount = Int(self.totalCost * 100)
-            self.paymentContext.requestPayment()
+            self.completeBooking()
         }
 
         alertController.addAction(cancelAction)
@@ -68,6 +67,29 @@ class BookParkingViewController: UIViewController {
         paymentContext.paymentCurrency = "CAD"
         paymentContext.delegate = self
         paymentContext.hostViewController = self
+    }
+
+    func completeBooking() {
+        let calendar = Calendar.current
+        let now = calendar.dateComponents(in: NSTimeZone.local, from: Date.init())
+        let dateFormatter = DateFormatter.init()
+        dateFormatter.dateFormat = "HH:mm"
+        let startTime = dateFormatter.string(from: now.date!)
+
+        let reservation = Reservation.init(parkingId: parking.id!, customerId: AppState.sharedInstance.currentUser!.id!, isActive: true, startTime: startTime, stopTime: endTimeParking, totalCost: self.totalCost)
+
+        reservation.persist() { error in
+            if error == nil {
+                AppState.sharedInstance.currentUser!.reservations!.append(reservation)
+                Parking.getAllParkings()
+                self.tapCloseButtonActionHandler?()
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
+
+        // Uncomment this when we are ready for real payments
+        //self.paymentContext.paymentAmount = Int(self.totalCost * 100)
+        //self.paymentContext.requestPayment()
     }
 
     func setSliderValue() {

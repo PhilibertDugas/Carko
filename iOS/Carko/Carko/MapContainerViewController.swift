@@ -63,6 +63,15 @@ extension MapContainerViewController: MKMapViewDelegate {
     }
 
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if let annotation = annotation as? ParkingAnnotation {
+            let annotationView = MKPinAnnotationView.init()
+            if annotation.parking.isAvailable {
+                annotationView.pinTintColor = UIColor.red
+            } else {
+                annotationView.pinTintColor = UIColor.gray
+            }
+            return annotationView
+        }
         return nil
     }
 }

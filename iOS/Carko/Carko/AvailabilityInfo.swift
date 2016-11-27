@@ -1,5 +1,5 @@
 //
-//  ParkingAvailabilityInfo.swift
+//  AvailabilityInfo.swift
 //  Carko
 //
 //  Created by Philibert Dugas on 2016-10-18.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ParkingAvailabilityInfo: NSObject {
+class AvailabilityInfo: NSObject {
     var startTime: String
     var stopTime: String
     var alwaysAvailable: Bool
@@ -36,8 +36,8 @@ class ParkingAvailabilityInfo: NSObject {
     }
     
     convenience override init() {
-        let startTime = "0:00 AM"
-        let stopTime = "12:00 PM"
+        let startTime = "00:00"
+        let stopTime = "23:59"
         let daysAvailable = [false, false, false, false, false, false, false]
         let alwaysAvailable = false
 

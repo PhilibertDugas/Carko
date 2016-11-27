@@ -38,7 +38,14 @@ class EntryViewController: UIViewController {
     }
     
     func transitionToHomePage() {
-        performSegue(withIdentifier: "UserAlreadyLoggedIn", sender: nil)
+        User.getUser { (user, error) in
+            if let error = error {
+                print("Shit something went wrong display something to the user: \(error.localizedDescription)")
+            } else if let user = user {
+                AppState.sharedInstance.currentUser = user
+                self.performSegue(withIdentifier: "UserAlreadyLoggedIn", sender: nil)
+            }
+        }
     }
 }
 
