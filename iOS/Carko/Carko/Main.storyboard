@@ -69,7 +69,7 @@
                                         <barButtonItem key="backBarButtonItem" title="Back" id="yT3-3U-Q7x"/>
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="Pja-Iu-fbj">
                                             <connections>
-                                                <segue destination="Ue9-AF-yKV" kind="show" id="Rrh-6n-tPZ"/>
+                                                <action selector="backTapped:" destination="YXJ-kN-NHX" id="bgO-ik-Cxe"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -106,13 +106,14 @@
                     <connections>
                         <outlet property="email" destination="75H-03-rPq" id="FxW-4K-k3Q"/>
                         <outlet property="errorMessage" destination="JVo-vc-6cw" id="BXF-kn-v14"/>
+                        <outlet property="loginButton" destination="UVk-eQ-6kd" id="4MX-qe-6L0"/>
                         <outlet property="password" destination="Xf9-fK-4sh" id="CYY-kD-nKM"/>
                         <segue destination="BlE-fA-HKp" kind="show" identifier="UserLoggedIn" id="B86-Qb-Qer"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vda-6L-x7u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2279.1999999999998" y="-588.75562218890559"/>
+            <point key="canvasLocation" x="-2279" y="-359"/>
         </scene>
         <!--Entry View Controller-->
         <scene sceneID="DDY-wk-Xez">
@@ -300,7 +301,7 @@
                                         <barButtonItem key="backBarButtonItem" title="Back" id="0mg-Av-dvK"/>
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="Z2e-tS-4za">
                                             <connections>
-                                                <segue destination="Ue9-AF-yKV" kind="show" id="OPc-nx-uga"/>
+                                                <action selector="backTapped:" destination="lKW-f6-EBE" id="JGe-UH-JDd"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -346,12 +347,13 @@
                         <outlet property="firstName" destination="ckv-IO-BQ8" id="GFe-G6-3ba"/>
                         <outlet property="lastName" destination="lhR-i9-aIb" id="S2S-Rx-xyk"/>
                         <outlet property="password" destination="TQu-Yn-at2" id="D5Q-1Y-zXS"/>
+                        <outlet property="registerButton" destination="u2M-Jh-drg" id="WW8-a9-fkc"/>
                         <segue destination="BlE-fA-HKp" kind="show" identifier="UserRegistered" id="3eU-Rg-oPT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wjE-gf-69l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4303" y="924"/>
+            <point key="canvasLocation" x="-2279" y="762"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="3Wq-Vv-XmN">
@@ -404,7 +406,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Rrh-6n-tPZ"/>
-        <segue reference="sHm-8J-gyY"/>
+        <segue reference="3eU-Rg-oPT"/>
     </inferredMetricsTieBreakers>
 </document>
