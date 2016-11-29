@@ -10,7 +10,7 @@ import UIKit
 import Foundation
 
 protocol ParkingAvailabilityDelegate: class {
-    func userDidChangeAvailability(value: ParkingAvailabilityInfo)
+    func userDidChangeAvailability(value: AvailabilityInfo)
 }
 
 class ParkingAvailabilityViewController: UIViewController {
@@ -25,7 +25,7 @@ class ParkingAvailabilityViewController: UIViewController {
     
     // making this a weak variable so that it won't create a strong reference cycle
     weak var delegate: ParkingAvailabilityDelegate? = nil
-    var parkingAvailability: ParkingAvailabilityInfo!
+    var parkingAvailability: AvailabilityInfo!
     var dateFormatter: DateFormatter?
         
     @IBAction func saveChange(_ sender: AnyObject) {

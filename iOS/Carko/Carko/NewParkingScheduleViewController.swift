@@ -31,7 +31,7 @@ class NewParkingScheduleViewController: UIViewController {
 // Parking delegates
 
 extension NewParkingScheduleViewController: ParkingAvailabilityDelegate {
-    func userDidChangeAvailability(value: ParkingAvailabilityInfo) {
+    func userDidChangeAvailability(value: AvailabilityInfo) {
         newParking?.availabilityInfo = value
     }
 }

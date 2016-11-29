@@ -88,7 +88,7 @@ class ParkingInfoViewController: UIViewController {
         daysAvailableLabel.text = parkingInfo?.availabilityInfo.daysEnumerationText()
         
         parkingRate.text = parkingInfo!.price.asLocaleCurrency
-        parkingDescriptionLabel.text = parkingInfo?.parkingDescription
+        parkingDescriptionLabel.text = parkingInfo?.pDescription
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -100,7 +100,7 @@ class ParkingInfoViewController: UIViewController {
             destinationVC.delegate = self
         } else if segue.identifier == "ChangeDescription" {
             let destinationVC = segue.destination as! ParkingDescriptionViewController
-            destinationVC.parkingDescription = parkingInfo!.parkingDescription
+            destinationVC.parkingDescription = parkingInfo!.pDescription
             destinationVC.delegate = self
         } else if segue.identifier == "ChangeAvailability" {
             let destinationVC = segue.destination as! ParkingAvailabilityViewController
@@ -118,12 +118,12 @@ extension ParkingInfoViewController: ParkingRateDelegate {
 
 extension ParkingInfoViewController: ParkingDescriptionDelegate {
     func userDidChangeDescription(value: String) {
-        parkingInfo?.parkingDescription = value
+        parkingInfo?.pDescription = value
     }
 }
 
 extension ParkingInfoViewController: ParkingAvailabilityDelegate {
-    func userDidChangeAvailability(value: ParkingAvailabilityInfo) {
+    func userDidChangeAvailability(value: AvailabilityInfo) {
         parkingInfo?.availabilityInfo = value
     }
 }

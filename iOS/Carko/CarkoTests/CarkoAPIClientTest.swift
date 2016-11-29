@@ -20,7 +20,7 @@ class CarkoAPIClientTest: XCTestCase {
         super.setUp()
         self.client = CarkoAPIClient.sharedClient
 
-        self.newParking = Parking.init(latitude: CLLocationDegrees.init(-74.00), longitude: CLLocationDegrees.init(135.00), photoURL: URL.init(string: "www.test.com")!, address: "1160 Rue Villeray", price: 2.00, parkingDescription: "Unit Test Parking", availabilityInfo: ParkingAvailabilityInfo.init())
+        self.newParking = Parking.init(latitude: CLLocationDegrees.init(-74.00), longitude: CLLocationDegrees.init(135.00), photoURL: URL.init(string: "www.test.com")!, address: "1160 Rue Villeray", price: 2.00, pDescription: "Unit Test Parking", availabilityInfo: AvailabilityInfo.init())
 
         OHHTTPStubs.setEnabled(true)
         OHHTTPStubs.onStubActivation { (request: URLRequest, stub: OHHTTPStubsDescriptor, response: OHHTTPStubsResponse) in

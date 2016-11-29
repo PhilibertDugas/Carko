@@ -6,7 +6,6 @@
 //  Copyright © 2016 QH4L. All rights reserved.
 //
 
-import FirebaseAuth
 import CoreLocation
 
 class Parking: NSObject {
@@ -14,13 +13,16 @@ class Parking: NSObject {
     var latitude: CLLocationDegrees
     var longitude: CLLocationDegrees
     var photoURL: URL
-    
     var address: String
     var price: Float
-    var parkingDescription: String
-    var availabilityInfo: ParkingAvailabilityInfo
-    
-    init(latitude: CLLocationDegrees, longitude: CLLocationDegrees, photoURL: URL, address: String, price: Float, parkingDescription: String, availabilityInfo: ParkingAvailabilityInfo) {
+    var pDescription: String
+    var isAvailable: Bool
+
+    var availabilityInfo: AvailabilityInfo
+
+    var reservation: [(Reservation)]?
+
+    init(latitude: CLLocationDegrees, longitude: CLLocationDegrees, photoURL: URL, address: String, price: Float, pDescription: String, isAvailable: Bool, availabilityInfo: AvailabilityInfo) {
         
         self.latitude = latitude
         self.longitude = longitude
@@ -28,7 +30,9 @@ class Parking: NSObject {
         
         self.address = address
         self.price = price
-        self.parkingDescription = parkingDescription
+        self.pDescription = pDescription
+
+        self.isAvailable = isAvailable
         self.availabilityInfo = availabilityInfo
     }
     
@@ -38,11 +42,12 @@ class Parking: NSObject {
         let photoURL = URL.init(string: parking["photo_url"] as! String)!
         let address = parking["address"] as! String
         let price = Float(parking["price"] as! String)!
-        let parkingDescription = parking["description"] as! String
+        let pDescription = parking["description"] as! String
+        let isAvailable = parking["is_available"] as! Bool
 
-        let availabilityInfo = ParkingAvailabilityInfo.init(availabilityInfo: parking["availability_info"] as! [String : Any])
+        let availabilityInfo = AvailabilityInfo.init(availabilityInfo: parking["availability_info"] as! [String : Any])
         
-        self.init(latitude: latitude, longitude: longitude, photoURL: photoURL, address: address, price: price, parkingDescription: parkingDescription, availabilityInfo: availabilityInfo)
+        self.init(latitude: latitude, longitude: longitude, photoURL: photoURL, address: address, price: price, pDescription: pDescription, isAvailable: isAvailable, availabilityInfo: availabilityInfo)
 
         if let identifier = parking["id"] as? Int {
             self.id = identifier
@@ -60,7 +65,6 @@ class Parking: NSObject {
     }
     
     func toDictionary() -> [String : Any] {
-        let customer_firebase_id = FIRAuth.auth()?.currentUser?.uid
         return ["parking":
             [
                 "latitude": latitude,
@@ -68,8 +72,9 @@ class Parking: NSObject {
                 "photo_url": "\(photoURL)",
                 "address": address,
                 "price": price,
-                "description": parkingDescription,
-                "customer_firebase_id": customer_firebase_id!,
+                "description": pDescription,
+                "customer_id": AppState.sharedInstance.currentUser!.id!,
+                "is_available": isAvailable,
                 "availability_info": availabilityInfo.toDictionary()
             ]
         ] as [String : Any]
