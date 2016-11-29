@@ -1,101 +1,149 @@
 package com.carko.carko;
 
-import android.content.Intent;
+
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
+import android.view.ViewGroup;
 
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.maps.model.MarkerOptions;
+import com.mapbox.mapboxsdk.MapboxAccountManager;
+import com.mapbox.mapboxsdk.maps.MapView;
+import com.mapbox.mapboxsdk.maps.MapboxMap;
+import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
 
-public class ParkingMapFragment extends FragmentActivity implements
-        GoogleMap.OnInfoWindowClickListener,
-        OnMapReadyCallback {
 
-    private GoogleMap mMap;
-    private Button searchButton;
-    private Button mostViewedButton;
-    private Button featuredButton;
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class ParkingMapFragment extends Fragment {
+
+    private View fragmentLayout;
+    private MapView mapView;
+    private static final int PERMISSIONS_REQUEST_LOCATION = 1;
+
+    public ParkingMapFragment() {
+        // Required empty public constructor
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_parkings_map);
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
 
-        searchButton = (Button) findViewById(R.id.search_button);
-        mostViewedButton = (Button) findViewById(R.id.most_viewed_button);
-        featuredButton = (Button) findViewById(R.id.featured_button);
+        fragmentLayout = inflater.inflate(R.layout.fragment_parking_map, container, false);
 
-        mostViewedButton.setOnClickListener(new View.OnClickListener() {
+        if (checkPermissions()) {
+            initMap(savedInstanceState);
+        }
+
+        // Inflate the layout for this fragment
+        return fragmentLayout;
+    }
+
+    private void initMap(Bundle savedInstanceState) {
+        mapView = (MapView) fragmentLayout.findViewById(R.id.mapview);
+        mapView.onCreate(savedInstanceState);
+        mapView.getMapAsync(new OnMapReadyCallback() {
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ParkingMapFragment.this, MostViewedActivity.class);
-                startActivity(intent);
+            public void onMapReady(MapboxMap mapboxMap) {
+
+                // Interact with the map using mapboxMap here
+
             }
         });
     }
 
+    private boolean checkPermissions() {
+        // Here, thisActivity is the current activity
+        if (ContextCompat.checkSelfPermission(getActivity(),
+                Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
 
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
+            // Should we show an explanation?
+            if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
+                    Manifest.permission.ACCESS_FINE_LOCATION)) {
 
-        // Add dummy markers
-        Parking pPoly = new Parking(1111, "boulevard edouard montpetit", "tout le temps",
-                R.drawable.pacman, new LatLng(45.547620, -73.662458));
-        addMarker(pPoly, "Polytechnique Montréal");
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(pPoly.getLatLng()));
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(10), 2000, null);
+                // Show an explanation to the user *asynchronously* -- don't block
+                // this thread waiting for the user's response! After the user
+                // sees the explanation, try again to request the permission.
 
-        Parking pTaisei = new Parking(2222, "boulevard Saint-Laurent", "soir", R.drawable.ghost,
-                new LatLng(45.504419, -73.613132));
-        addMarker(pTaisei, "Taisei Dojo");
+            } else {
 
-        Parking pSweetie = new Parking(1407, "boulevard Desjardins", "forever", R.drawable.pacmanjaune,
-                new LatLng(45.549557, -73.535282));
-        addMarker(pSweetie, "<3");
+                // No explanation needed, we can request the permission.
 
-        //TODO: eventually customize the info window
-        View customInfoWindow = null;
-        View customInfoContent = getLayoutInflater().inflate(R.layout.content_marker_info, null);
-        mMap.setInfoWindowAdapter(new ParkingInfoWindowAdapter(customInfoWindow, customInfoContent));
+                ActivityCompat.requestPermissions(getActivity(),
+                        new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                        PERMISSIONS_REQUEST_LOCATION);
 
-    }
+                // MY_PERMISSIONS_REQUEST_READ_CONTACTS is an
+                // app-defined int constant. The callback method gets the
+                // result of the request.
+            }
 
-
-    private void addMarker(Parking parking, String title){
-        Marker marker = mMap.addMarker(new MarkerOptions()
-            .position(parking.getLatLng())
-            .title(title));
-        marker.setTag(parking);
+            return false;
+        } else {
+            return true;
+        }
     }
 
     @Override
-    public void onInfoWindowClick(final Marker marker){
-        Parking parking = (Parking) marker.getTag();
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case PERMISSIONS_REQUEST_LOCATION: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
-        Toast.makeText(this, "Click Info Window: " + parking.getAddress(), Toast.LENGTH_SHORT).show();
+                    // permission was granted, yay! Do the
+                    // location-related task you need to do.
+                    initMap(null);
 
+                } else {
+
+                    // permission denied, boo! Disable the
+                    // functionality that depends on this permission.
+                }
+                return;
+            }
+
+            // other 'case' lines to check for other
+            // permissions this app might request
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mapView.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        mapView.onPause();
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        mapView.onSaveInstanceState(outState);
+    }
+
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+        mapView.onLowMemory();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mapView.onDestroy();
     }
 
 }

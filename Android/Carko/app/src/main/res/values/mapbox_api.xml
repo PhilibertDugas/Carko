@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mapbox_access_token" templateMergeStrategy="preserve" translatable="false">
+        pk.eyJ1IjoiZmFiYnlkIiwiYSI6ImNpdzNpYnJ5NjAzd3Eyem13czdvNjVlZnMifQ.eiinTqjKAuE7q1rC0S6r1Q
+    </string>
+</resources>

@@ -1,4 +1,4 @@
-package com.carko.carko;
+/* package com.carko.carko;
 
 import android.graphics.Color;
 import android.text.SpannableString;
@@ -14,6 +14,7 @@ import com.google.android.gms.maps.model.Marker;
  * Created by fabrice on 2016-11-12.
  */
 
+/*
 public class ParkingInfoWindowAdapter implements GoogleMap.InfoWindowAdapter {
 
     private final View mWindow;
@@ -65,3 +66,4 @@ public class ParkingInfoWindowAdapter implements GoogleMap.InfoWindowAdapter {
 
     }
 }
+*/
