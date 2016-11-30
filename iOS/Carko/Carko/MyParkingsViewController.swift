@@ -65,7 +65,7 @@ class MyParkingsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {        
         if segue.identifier == "showParkingInfo" {
             let destinationVC = segue.destination as! ParkingInfoViewController
-            destinationVC.parkingInfo = parkingList[selectedRowIndex]
+            destinationVC.parking = parkingList[selectedRowIndex]
         }
     }
 }

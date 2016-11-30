@@ -40,13 +40,15 @@ class ParkingRatesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        postedRateSlider.value = parkingRate!
-        ratesUpdated()
+
+        if let rate = parkingRate {
+            postedRateSlider.value = rate
+            ratesUpdated()
+        }
     }
     
     func ratesUpdated() {
-        postedRateField.text = parkingRate?.asLocaleCurrency
+        postedRateField.text = parkingRate!.asLocaleCurrency
         hourlyRateField.text = (parkingRate! * (1 - appPercentageCut)).asLocaleCurrency
     }
 }

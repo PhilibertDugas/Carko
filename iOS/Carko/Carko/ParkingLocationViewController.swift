@@ -13,19 +13,23 @@ protocol HandleMapSearch: class {
     func dropPinZoomIn(placemark:MKPlacemark)
 }
 
-class NewParkingViewController: UIViewController {
+protocol ParkingLocationDelegate: class {
+    func userDidChooseLocation(address: String, latitude: CLLocationDegrees, longitude: CLLocationDegrees)
+}
+
+class ParkingLocationViewController: UIViewController {
 
     @IBOutlet var addButton: UIButton!
     @IBOutlet var mapView: MKMapView!
 
     var searchController: UISearchController?
     var selectedPin: MKPlacemark?
-    var newParking: Parking?
     let locationManager = CLLocationManager()
     var centerAnnotation: MKPointAnnotation?
 
     var justZoomedIn = false
 
+    weak var delegate: ParkingLocationDelegate? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +41,7 @@ class NewParkingViewController: UIViewController {
         locationManager.startUpdatingLocation()
         addButton.isHidden = true
 
-        let panGesture = UIPanGestureRecognizer.init(target: self, action: #selector(NewParkingViewController.handlePan))
+        let panGesture = UIPanGestureRecognizer.init(target: self, action: #selector(ParkingLocationViewController.handlePan))
         panGesture.delegate = self;
         mapView.addGestureRecognizer(panGesture)
 
@@ -68,25 +72,18 @@ class NewParkingViewController: UIViewController {
     
     @IBAction func addButtonTapped(_ sender: AnyObject) {
         let currentMapCoordinate = mapView.centerCoordinate
-        let newAvailabilityInfo = AvailabilityInfo.init()
-        self.newParking = Parking.init(latitude: currentMapCoordinate.latitude, longitude: currentMapCoordinate.longitude, photoURL: URL.init(string: "http://google.com")!, address: (selectedPin?.title)!, price: 1.0, pDescription: "", isAvailable: true, availabilityInfo: newAvailabilityInfo)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier! == "addButtonTapped" {
-            let destinationViewController = segue.destination as! NewParkingScheduleViewController
-            destinationViewController.newParking = self.newParking!
-        }
+        delegate?.userDidChooseLocation(address: (selectedPin?.title)!, latitude: currentMapCoordinate.latitude, longitude: currentMapCoordinate.longitude)
+        self.dismiss(animated: true, completion: nil)
     }
 }
 
-extension NewParkingViewController: UIGestureRecognizerDelegate {
+extension ParkingLocationViewController: UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
 }
 
-extension NewParkingViewController : CLLocationManagerDelegate {
+extension ParkingLocationViewController : CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedWhenInUse {
             locationManager.requestLocation()
@@ -105,7 +102,7 @@ extension NewParkingViewController : CLLocationManagerDelegate {
     }
 }
 
-extension NewParkingViewController: MKMapViewDelegate {
+extension ParkingLocationViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         if selectedPin != nil && !justZoomedIn {
             centerAnnotation?.coordinate = mapView.centerCoordinate
@@ -114,7 +111,7 @@ extension NewParkingViewController: MKMapViewDelegate {
     }
 }
 
-extension NewParkingViewController: HandleMapSearch {
+extension ParkingLocationViewController: HandleMapSearch {
     func dropPinZoomIn(placemark: MKPlacemark){
         addButton.isHidden = false
         selectedPin = placemark

@@ -17,13 +17,10 @@ class ParkingAvailabilityViewController: UIViewController {
     
     @IBOutlet var mondayButton: UIButton!
     @IBOutlet weak var permanentAvailabilitySwitch: UISwitch!
-        
     @IBOutlet weak var fromTextField: UITextField!
     @IBOutlet weak var toTextField: UITextField!
-    
     @IBOutlet weak var availabilitySelectionView: UIView!
     
-    // making this a weak variable so that it won't create a strong reference cycle
     weak var delegate: ParkingAvailabilityDelegate? = nil
     var parkingAvailability: AvailabilityInfo!
     var dateFormatter: DateFormatter?

@@ -99,7 +99,7 @@
                                     <navigationItem title="My Parkings" id="OcW-1e-7FS">
                                         <barButtonItem key="rightBarButtonItem" title="+" id="NhM-4M-OSD">
                                             <connections>
-                                                <segue destination="9zk-77-AWD" kind="show" id="FmF-aK-t1B"/>
+                                                <segue destination="J84-PW-3nf" kind="show" identifier="newParking" id="Yro-kf-CJ2"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -320,6 +320,17 @@
                                     <action selector="removeParkingTapped:" destination="J84-PW-3nf" eventType="touchUpInside" id="ZgL-F2-RAi"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KTc-En-ML4">
+                                <rect key="frame" x="16" y="558" width="164" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="JLG-w7-jHI"/>
+                                    <constraint firstAttribute="width" constant="164" id="bnS-aJ-rGW"/>
+                                </constraints>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveParkingTapped:" destination="J84-PW-3nf" eventType="touchUpInside" id="Z9T-us-oaz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -340,11 +351,13 @@
                             <constraint firstItem="aGp-Zb-ZJ3" firstAttribute="leading" secondItem="R0G-wC-nUd" secondAttribute="leading" id="SZ0-t0-1F2"/>
                             <constraint firstItem="WjZ-YX-VLg" firstAttribute="leading" secondItem="R0G-wC-nUd" secondAttribute="leadingMargin" id="Spz-He-yNX"/>
                             <constraint firstItem="w8x-jU-eEN" firstAttribute="top" secondItem="WjZ-YX-VLg" secondAttribute="bottom" constant="18" id="UGr-iA-uJT"/>
+                            <constraint firstItem="KTc-En-ML4" firstAttribute="leading" secondItem="R0G-wC-nUd" secondAttribute="leadingMargin" id="VmB-XW-oPm"/>
                             <constraint firstItem="GX3-ZY-nYV" firstAttribute="top" secondItem="aGp-Zb-ZJ3" secondAttribute="bottom" id="YfE-Wd-t7v"/>
                             <constraint firstItem="w8x-jU-eEN" firstAttribute="leading" secondItem="R0G-wC-nUd" secondAttribute="leadingMargin" constant="10" id="ewd-Aa-KJK"/>
                             <constraint firstItem="GX3-ZY-nYV" firstAttribute="leading" secondItem="R0G-wC-nUd" secondAttribute="leading" id="hs5-IU-B2i"/>
                             <constraint firstItem="aGp-Zb-ZJ3" firstAttribute="top" secondItem="cPN-eC-xoj" secondAttribute="bottom" id="kBy-0q-YHq"/>
                             <constraint firstAttribute="trailing" secondItem="aGp-Zb-ZJ3" secondAttribute="trailing" id="nOK-Px-GJH"/>
+                            <constraint firstItem="kOt-mq-Vhu" firstAttribute="top" secondItem="KTc-En-ML4" secondAttribute="bottom" constant="20" id="oky-Vm-l8l"/>
                             <constraint firstItem="rIc-qE-XXl" firstAttribute="top" secondItem="WjZ-YX-VLg" secondAttribute="bottom" constant="8" id="pLF-HR-O9e"/>
                             <constraint firstItem="MDP-oh-yCb" firstAttribute="leading" secondItem="R0G-wC-nUd" secondAttribute="leadingMargin" id="voF-kI-08e"/>
                         </constraints>
@@ -363,6 +376,7 @@
                         <segue destination="6yu-zW-V47" kind="presentation" identifier="ChangeDescription" id="jbu-Kf-fWd"/>
                         <segue destination="mIc-Su-6ok" kind="presentation" identifier="ChangeAvailability" id="BtV-rX-H9m"/>
                         <segue destination="Fzg-4f-Mgf" kind="presentation" identifier="ChangeRates" id="5on-U1-U9J"/>
+                        <segue destination="9zk-77-AWD" kind="presentation" identifier="ChangeLocation" id="fHM-nA-HUT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ovF-kR-V7k" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -454,7 +468,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nmi-De-cT5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1457" y="565"/>
+            <point key="canvasLocation" x="2460" y="352"/>
         </scene>
         <!--Location Search Table Table View Controller-->
         <scene sceneID="Jhy-Em-Wa0">
@@ -498,12 +512,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UfA-Fb-TuJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2348" y="1345"/>
+            <point key="canvasLocation" x="3254" y="1050"/>
         </scene>
-        <!--New Parking View Controller-->
+        <!--Parking Location View Controller-->
         <scene sceneID="MqD-Dm-pQg">
             <objects>
-                <viewController id="OFn-YM-DoS" customClass="NewParkingViewController" customModule="Carko" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="OFn-YM-DoS" customClass="ParkingLocationViewController" customModule="Carko" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iIT-Hr-bgH"/>
                         <viewControllerLayoutGuide type="bottom" id="w0I-Bz-Jtr"/>
@@ -513,10 +527,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="KB0-qo-S0s">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BKH-bw-YdM" customClass="RoundedCornerButton" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="105" y="570" width="164" height="40"/>
+                                <rect key="frame" x="105" y="619" width="164" height="40"/>
                                 <color key="backgroundColor" red="0.61568627450000002" green="0.49803921569999998" blue="0.49803921569999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="0Uj-PJ-OOu"/>
@@ -527,7 +541,6 @@
                                 </state>
                                 <connections>
                                     <action selector="addButtonTapped:" destination="OFn-YM-DoS" eventType="touchUpInside" id="0XT-76-cqZ"/>
-                                    <segue destination="XFf-v5-AHd" kind="show" identifier="addButtonTapped" id="LEW-kP-1lN"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -558,115 +571,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="2348" y="564"/>
-        </scene>
-        <!--New Parking Schedule View Controller-->
-        <scene sceneID="iUs-kn-khD">
-            <objects>
-                <viewController id="XFf-v5-AHd" customClass="NewParkingScheduleViewController" customModule="Carko" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="wWR-DV-NQR"/>
-                        <viewControllerLayoutGuide type="bottom" id="joh-ic-soh"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="u5f-F8-fpg">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NiE-Rx-daQ" customClass="RoundedCornerButton" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="106" y="154" width="164" height="40"/>
-                                <color key="backgroundColor" red="0.59859156608581543" green="0.48580044507980347" blue="0.48472779989242554" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="164" id="BtI-3O-On8"/>
-                                    <constraint firstAttribute="height" constant="40" id="aUu-7S-FbE"/>
-                                </constraints>
-                                <state key="normal" title="Add schedule">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="mIc-Su-6ok" kind="presentation" identifier="newParkingSchedule" id="qXV-2K-0JO"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DFo-ig-p73" customClass="RoundedCornerButton" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="106" y="570" width="164" height="40"/>
-                                <color key="backgroundColor" red="0.59859156608581543" green="0.48580044507980347" blue="0.48472779989242554" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="164" id="3Mo-kf-YUV"/>
-                                    <constraint firstAttribute="height" constant="40" id="jXn-jX-gFh"/>
-                                </constraints>
-                                <state key="normal" title="Next">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="PWw-LB-ZqN" kind="show" identifier="nextToRatesTapped" id="1y6-yU-Gd2"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="NiE-Rx-daQ" firstAttribute="centerX" secondItem="u5f-F8-fpg" secondAttribute="centerX" id="R5y-rr-bxX"/>
-                            <constraint firstItem="DFo-ig-p73" firstAttribute="centerX" secondItem="u5f-F8-fpg" secondAttribute="centerX" id="mL4-3N-c9f"/>
-                            <constraint firstItem="NiE-Rx-daQ" firstAttribute="top" secondItem="wWR-DV-NQR" secondAttribute="bottom" constant="90" id="mgK-Td-F8b"/>
-                            <constraint firstItem="joh-ic-soh" firstAttribute="top" secondItem="DFo-ig-p73" secondAttribute="bottom" constant="8" id="yZg-Sk-5wq"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6t7-wH-iPf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3192.8000000000002" y="564.46776611694156"/>
-        </scene>
-        <!--New Parking Rates View Controller-->
-        <scene sceneID="HaO-4a-F5Q">
-            <objects>
-                <viewController id="PWw-LB-ZqN" customClass="NewParkingRatesViewController" customModule="Carko" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="5FC-xU-CLU"/>
-                        <viewControllerLayoutGuide type="bottom" id="ItR-C2-uZS"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="MNY-JU-9CF">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5xf-DT-L0Z" customClass="RoundedCornerButton" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="106" y="151" width="164" height="40"/>
-                                <color key="backgroundColor" red="0.59859156608581543" green="0.48580044507980347" blue="0.48472779989242554" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="kQj-R0-Leu"/>
-                                    <constraint firstAttribute="width" constant="164" id="wFF-51-LbY"/>
-                                </constraints>
-                                <state key="normal" title="Add price">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="Fzg-4f-Mgf" kind="presentation" identifier="newParkingRates" id="V1F-Jn-weD"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLR-BB-fMe" customClass="RoundedCornerButton" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="106" y="570" width="164" height="40"/>
-                                <color key="backgroundColor" red="0.59859156608581543" green="0.48580044507980347" blue="0.48472779989242554" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="fdo-kb-klQ"/>
-                                    <constraint firstAttribute="width" constant="164" id="rzX-v6-6Tl"/>
-                                </constraints>
-                                <state key="normal" title="Confirm">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="confirmTapped:" destination="PWw-LB-ZqN" eventType="touchUpInside" id="XeY-Ka-0dx"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="5xf-DT-L0Z" firstAttribute="top" secondItem="5FC-xU-CLU" secondAttribute="bottom" constant="87" id="81q-M4-Exg"/>
-                            <constraint firstItem="ItR-C2-uZS" firstAttribute="top" secondItem="XLR-BB-fMe" secondAttribute="bottom" constant="8" id="ME6-2B-Slg"/>
-                            <constraint firstItem="XLR-BB-fMe" firstAttribute="centerX" secondItem="MNY-JU-9CF" secondAttribute="centerX" id="jCo-VT-iZo"/>
-                            <constraint firstItem="5xf-DT-L0Z" firstAttribute="centerX" secondItem="MNY-JU-9CF" secondAttribute="centerX" id="psK-AX-5Rp"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iY9-6h-QMk" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4672.8000000000002" y="564.46776611694156"/>
+            <point key="canvasLocation" x="3255" y="352"/>
         </scene>
         <!--Parking Rates View Controller-->
         <scene sceneID="0Cs-cH-xkb">
@@ -802,7 +707,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vrh-TT-WYb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5448.8000000000002" y="-837.03148425787117"/>
+            <point key="canvasLocation" x="3961" y="-860"/>
         </scene>
         <!--Parking Availability View Controller-->
         <scene sceneID="SJH-GB-6bJ">
@@ -1050,7 +955,6 @@
         <image name="parking.png" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5on-U1-U9J"/>
-        <segue reference="BtV-rX-H9m"/>
+        <segue reference="Yro-kf-CJ2"/>
     </inferredMetricsTieBreakers>
 </document>

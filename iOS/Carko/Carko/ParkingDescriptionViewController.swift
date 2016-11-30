@@ -16,7 +16,6 @@ class ParkingDescriptionViewController: UIViewController {
     
     @IBOutlet weak var descriptionText: UITextView!
     
-    // making this a weak variable so that it won't create a strong reference cycle
     weak var delegate: ParkingDescriptionDelegate? = nil
     var parkingDescription: String?
     
@@ -33,10 +32,5 @@ class ParkingDescriptionViewController: UIViewController {
         super.viewDidLoad()
 
         descriptionText.text = parkingDescription
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }

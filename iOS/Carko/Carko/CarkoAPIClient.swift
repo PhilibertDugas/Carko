@@ -93,9 +93,12 @@ extension CarkoAPIClient {
             if let error = response.result.error {
                 complete(nil, error)
             } else if let result = response.result.value {
-                let userDict = result as! [String: Any]
-                let user = User.init(user: userDict)
-                complete(user, nil)
+                if let userDict = result as? [String: Any] {
+                    let user = User.init(user: userDict)
+                    complete(user, nil)
+                } else {
+                    complete(nil, NSError.init(domain: "Error with server", code: 1, userInfo: nil))
+                }
             }
         }
     }
