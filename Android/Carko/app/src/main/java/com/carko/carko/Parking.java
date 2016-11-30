@@ -1,7 +1,6 @@
 package com.carko.carko;
 
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.StreetViewPanoramaCamera;
+import com.mapbox.mapboxsdk.geometry.LatLng;
 
 import java.util.Date;
 import java.util.Random;

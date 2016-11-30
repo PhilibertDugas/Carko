@@ -19,7 +19,7 @@ public class ParkingViewPagerAdapter extends FragmentStatePagerAdapter {
         Fragment fragment;
         switch(position){
             case 0:
-                fragment = new MainTabFragment();
+                fragment = new ParkingMapFragment();
                 break;
             case 1:
                 fragment = new ParkingListFragment();
