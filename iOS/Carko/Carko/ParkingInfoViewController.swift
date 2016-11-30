@@ -54,16 +54,6 @@ class ParkingInfoViewController: UIViewController {
     }
 
     func setupCollectionViews() {
-        let tapLocationGesture = UITapGestureRecognizer.init(target: self, action: #selector(ParkingInfoViewController.tappedLocation))
-        let tapDescriptionGesture = UITapGestureRecognizer.init(target: self, action: #selector(ParkingInfoViewController.tappedDescription))
-        let tapAvailabilityGesture = UITapGestureRecognizer.init(target: self, action: #selector(ParkingInfoViewController.tappedAvailability))
-        let tapRatesGesture = UITapGestureRecognizer.init(target: self, action: #selector(ParkingInfoViewController.tappedRates))
-        addressCollection.addGestureRecognizer(tapLocationGesture)
-        descriptionCollection.addGestureRecognizer(tapDescriptionGesture)
-        availabilityCollection.addGestureRecognizer(tapAvailabilityGesture)
-        ratesCollection.addGestureRecognizer(tapRatesGesture)
-
-
         // TODO extract this in a custom UIView
         addressCollection.layer.borderColor = UIColor.lightGray.cgColor
         addressCollection.layer.borderWidth = CGFloat.init(1.0)
@@ -79,19 +69,19 @@ class ParkingInfoViewController: UIViewController {
 
     }
 
-    func tappedLocation() {
+    @IBAction func tappedLocation(_ sender: Any) {
         performSegue(withIdentifier: "ChangeLocation", sender: nil)
     }
 
-    func tappedDescription() {
+    @IBAction func tappedDescription(_ sender: Any) {
         performSegue(withIdentifier: "ChangeDescription", sender: nil)
     }
 
-    func tappedAvailability() {
+    @IBAction func tappedAvailability(_ sender: Any) {
         performSegue(withIdentifier: "ChangeAvailability", sender: nil)
     }
 
-    func tappedRates() {
+    @IBAction func tappedRates(_ sender: Any) {
         performSegue(withIdentifier: "ChangeRates", sender: nil)
     }
 
