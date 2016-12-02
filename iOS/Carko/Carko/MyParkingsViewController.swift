@@ -11,8 +11,6 @@ import UIKit
 class MyParkingsViewController: UIViewController {
 
     @IBOutlet weak var ParkingTableView: UITableView!
-    @IBOutlet weak var Edit: UIBarButtonItem!
-    @IBOutlet weak var AddButton: UIBarButtonItem!
     
     var parkingList = [Parking]()
     var isEditingAvailability = false
@@ -29,20 +27,6 @@ class MyParkingsViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.parkingListUpdate), name: Notification.Name.init(rawValue: "NewParking"), object: nil)
         
         parkingListUpdate()
-    }
-    
-    @IBAction func editingParking(_ sender: AnyObject) {
-        if !isEditingAvailability {
-            Edit.title = "Done"
-            self.navigationItem.rightBarButtonItem?.isEnabled = false;
-            isEditingAvailability = true
-            ParkingTableView.reloadSections([0], with: UITableViewRowAnimation.automatic)
-        } else {
-            Edit.title = "Edit"
-            self.navigationItem.rightBarButtonItem?.isEnabled = true;
-            isEditingAvailability = false
-            ParkingTableView.reloadSections([0], with: UITableViewRowAnimation.automatic)
-        }
     }
 
     func parkingFetched(_ notification: Notification) {
@@ -64,8 +48,9 @@ class MyParkingsViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {        
         if segue.identifier == "showParkingInfo" {
-            let destinationVC = segue.destination as! ParkingInfoViewController
-            destinationVC.parking = parkingList[selectedRowIndex]
+            let destinationVC = segue.destination as! UINavigationController
+            let infoVC = destinationVC.viewControllers.first as! ParkingInfoViewController
+            infoVC.parking = parkingList[selectedRowIndex]
         }
     }
 }
@@ -84,12 +69,13 @@ extension MyParkingsViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = ParkingTableView.dequeueReusableCell(withIdentifier: "parkingCell", for: indexPath) as! ParkingTableViewCell
         
         cell.address.text = parkingList[indexPath.row].address
-        
-        if !isEditingAvailability {
-            cell.availabilitySwitch.isHidden = true
-        }
-        else {
-            cell.availabilitySwitch.isHidden = false
+
+        // FIXME: we can probably make this async
+        if let url = parkingList[indexPath.row].photoURL {
+            if let data = try? Data(contentsOf: url) {
+                let image = UIImage(data: data)
+                cell.parkingImage.image = image
+            }
         }
         
         return cell

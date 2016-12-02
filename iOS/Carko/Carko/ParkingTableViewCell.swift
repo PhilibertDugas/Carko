@@ -13,20 +13,7 @@ class ParkingTableViewCell: UITableViewCell {
     @IBOutlet weak var address: UILabel!
     @IBOutlet weak var availabilityLabel: UILabel!
     @IBOutlet weak var daysAvailable: UILabel!
-    @IBOutlet weak var availabilitySwitch: UISwitch!
-    
-    @IBAction func availabilityToggle(_ sender: AnyObject) {
-        
-        if availabilitySwitch.isOn {
-            availabilityLabel.textColor = UIColor.black
-            daysAvailable.textColor = UIColor.black
-            address.textColor = UIColor.black
-        } else {
-            availabilityLabel.textColor = UIColor.gray
-            daysAvailable.textColor = UIColor.gray
-            address.textColor = UIColor.gray
-        }
-    }
+    @IBOutlet var parkingImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

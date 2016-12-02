@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import GoogleMaps
-import GooglePlaces
 import Firebase
 import Stripe
 
@@ -17,24 +15,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
-        configureGoogleServices()
+        FIRApp.configure()
+
         configureStripe()
-        
         let pageControl = UIPageControl.appearance()
         pageControl.pageIndicatorTintColor = UIColor.lightGray
         pageControl.currentPageIndicatorTintColor = UIColor.black
         pageControl.backgroundColor = UIColor.white
         
         return true
-    }
-    
-    func configureGoogleServices() {
-        GMSServices.provideAPIKey("AIzaSyCUoRAVeSGs2L_l003wJ6EO9wtJ5TYqTHo")
-        GMSPlacesClient.provideAPIKey("AIzaSyDsLWLukxc3d4hFxTSLAHLsil4Fus7QBBE")
-        FIRApp.configure()
     }
     
     func configureStripe() {

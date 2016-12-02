@@ -26,12 +26,8 @@ class ParkingAvailabilityViewController: UIViewController {
     var dateFormatter: DateFormatter?
         
     @IBAction func saveChange(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: nil)
         delegate?.userDidChangeAvailability(value: parkingAvailability)
-    }
-    
-    @IBAction func cancelChange(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: nil)
+        let _ = self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func permanentAvailabilityToggle(_ sender: UISwitch) {

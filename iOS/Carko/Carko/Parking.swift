@@ -12,7 +12,7 @@ class Parking: NSObject {
     var id: Int?
     var latitude: CLLocationDegrees
     var longitude: CLLocationDegrees
-    var photoURL: URL
+    var photoURL: URL?
     var address: String
     var price: Float
     var pDescription: String
@@ -22,7 +22,7 @@ class Parking: NSObject {
 
     var reservation: [(Reservation)]?
 
-    init(latitude: CLLocationDegrees, longitude: CLLocationDegrees, photoURL: URL, address: String, price: Float, pDescription: String, isAvailable: Bool, availabilityInfo: AvailabilityInfo) {
+    init(latitude: CLLocationDegrees, longitude: CLLocationDegrees, photoURL: URL?, address: String, price: Float, pDescription: String, isAvailable: Bool, availabilityInfo: AvailabilityInfo) {
         
         self.latitude = latitude
         self.longitude = longitude
@@ -39,7 +39,7 @@ class Parking: NSObject {
     convenience init(parking: [String : Any]) {
         let latitude = parking["latitude"] as! CLLocationDegrees
         let longitude = parking["longitude"] as! CLLocationDegrees
-        let photoURL = URL.init(string: parking["photo_url"] as! String)!
+        let photoURL = URL.init(string: parking["photo_url"] as! String)
         let address = parking["address"] as! String
         let price = Float(parking["price"] as! String)!
         let pDescription = parking["description"] as! String
@@ -69,9 +69,9 @@ class Parking: NSObject {
             [
                 "latitude": latitude,
                 "longitude": longitude,
-                "photo_url": "\(photoURL)",
+                "photo_url": "\(photoURL!)",
                 "address": address,
-                "price": price,
+                "price": String.init(format: "%.2f", price),
                 "description": pDescription,
                 "customer_id": AppState.sharedInstance.currentUser!.id!,
                 "is_available": isAvailable,

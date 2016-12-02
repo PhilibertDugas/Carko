@@ -9,6 +9,9 @@ PODS:
   - Firebase/Core (3.7.1):
     - FirebaseAnalytics (= 3.4.4)
     - FirebaseCore (= 3.4.3)
+  - Firebase/Storage (3.7.1):
+    - Firebase/Core
+    - FirebaseStorage (= 1.0.3)
   - FirebaseAnalytics (3.4.4):
     - FirebaseCore (~> 3.4)
     - FirebaseInstanceID (~> 1.0)
@@ -22,17 +25,13 @@ PODS:
     - GoogleInterchangeUtilities (~> 1.2)
     - GoogleUtilities (~> 1.2)
   - FirebaseInstanceID (1.0.8)
+  - FirebaseStorage (1.0.3):
+    - FirebaseAnalytics (~> 3.3)
+    - GoogleNetworkingUtilities (~> 1.2)
   - GoogleInterchangeUtilities (1.2.2):
     - GoogleSymbolUtilities (~> 1.1)
-  - GoogleMaps (2.1.0):
-    - GoogleMaps/Maps (= 2.1.0)
-  - GoogleMaps/Base (2.1.0)
-  - GoogleMaps/Maps (2.1.0):
-    - GoogleMaps/Base (= 2.1.0)
   - GoogleNetworkingUtilities (1.2.2):
     - GoogleSymbolUtilities (~> 1.1)
-  - GooglePlaces (2.1.0):
-    - GoogleMaps/Base (= 2.1.0)
   - GoogleSymbolUtilities (1.1.2)
   - GoogleUtilities (1.3.2):
     - GoogleSymbolUtilities (~> 1.1)
@@ -58,8 +57,7 @@ DEPENDENCIES:
   - ARNTransitionAnimator (= 2.0.3)
   - Firebase
   - Firebase/Auth
-  - GoogleMaps
-  - GooglePlaces
+  - Firebase/Storage
   - OHHTTPStubs
   - OHHTTPStubs/Swift
   - Stripe
@@ -72,15 +70,14 @@ SPEC CHECKSUMS:
   FirebaseAuth: 75a062bbf2d3c97d1e6e55bbc110e13a6853e25d
   FirebaseCore: 5a885548bbc5f0c410b04f8e9ac9d73ff1221907
   FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
+  FirebaseStorage: 3992817bf405f5c1a4f8349678d22724cd0ef509
   GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
-  GoogleMaps: 06589b9a38097bce0cd6e90f0fd9b5e4b4a9344c
   GoogleNetworkingUtilities: 3edd3a8161347494f2da60ea0deddc8a472d94cb
-  GooglePlaces: 16e96266483b8010e9f275399403647978523c86
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
   GoogleUtilities: 8bbc733218aad26306f9d4a253823986110e3358
   OHHTTPStubs: 3a42f25c00563b71355ac73112ba2324e9e6cef4
   Stripe: 935c6deb5e96cbd29d247074bf3aa98a8438e22c
 
-PODFILE CHECKSUM: beb80786140152cac83156dc0e7e58360aa84a93
+PODFILE CHECKSUM: 1e8b050eeddfbda8758a34de393e8531a4a9a310
 
 COCOAPODS: 1.1.1

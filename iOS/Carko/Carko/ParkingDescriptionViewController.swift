@@ -20,17 +20,22 @@ class ParkingDescriptionViewController: UIViewController {
     var parkingDescription: String?
     
     @IBAction func saveChange(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: nil)
         delegate?.userDidChangeDescription(value: descriptionText.text)
-    }
-    
-    @IBAction func cancelChange(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: nil)
+        let _ = self.navigationController?.popViewController(animated: true)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         descriptionText.text = parkingDescription
+    }
+}
+
+extension ParkingDescriptionViewController: UITextViewDelegate {
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
     }
 }

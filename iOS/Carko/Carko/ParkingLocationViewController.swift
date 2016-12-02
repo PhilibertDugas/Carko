@@ -72,8 +72,11 @@ class ParkingLocationViewController: UIViewController {
     
     @IBAction func addButtonTapped(_ sender: AnyObject) {
         let currentMapCoordinate = mapView.centerCoordinate
-        delegate?.userDidChooseLocation(address: (selectedPin?.title)!, latitude: currentMapCoordinate.latitude, longitude: currentMapCoordinate.longitude)
-        self.dismiss(animated: true, completion: nil)
+        let latitude = currentMapCoordinate.latitude
+        let longitude = currentMapCoordinate.longitude
+        let address = selectedPin?.title
+        delegate?.userDidChooseLocation(address: address!, latitude: latitude, longitude: longitude)
+        let _ = self.navigationController?.popViewController(animated: true)
     }
 }
 
@@ -92,7 +95,7 @@ extension ParkingLocationViewController : CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = manager.location else { return }
-        let region = MKCoordinateRegionMakeWithDistance(location.coordinate, CLLocationDistance.init(15), CLLocationDistance.init(15))
+        let region = MKCoordinateRegionMakeWithDistance(location.coordinate, CLLocationDistance.init(40), CLLocationDistance.init(40))
         mapView.setRegion(region, animated: true)
         locationManager.stopUpdatingLocation()
     }

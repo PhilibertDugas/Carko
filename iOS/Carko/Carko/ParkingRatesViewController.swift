@@ -30,12 +30,9 @@ class ParkingRatesViewController: UIViewController {
     }
     
     @IBAction func saveChange(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: nil)
-        delegate?.userDidChangeRate(value: Float(postedRateSlider.value).asCurrency)
-    }
-    
-    @IBAction func cancelChange(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: nil)
+        let rates = Float(postedRateSlider.value).asCurrency
+        delegate?.userDidChangeRate(value: rates)
+        let _ = self.navigationController?.popViewController(animated: true)
     }
     
     override func viewDidLoad() {

@@ -8,15 +8,22 @@
 
 import UIKit
 import CoreLocation
+import FirebaseStorage
 
 class ParkingInfoViewController: UIViewController {
 
-    @IBOutlet weak var streetAddressLabel: UILabel!
-    @IBOutlet weak var postalAddressLabel: UILabel!
-    @IBOutlet weak var timeOfDayLabel: UILabel!
-    @IBOutlet weak var daysAvailableLabel: UILabel!
-    @IBOutlet weak var parkingRate: UILabel!
-    @IBOutlet weak var parkingDescriptionLabel: UILabel!
+    @IBOutlet var parkingImageView: UIImageView!
+    @IBOutlet var helperImageView: UIImageView!
+    @IBOutlet var helperImageLabel: UILabel!
+
+    @IBOutlet var streetAddressLabel: UILabel!
+    @IBOutlet var postalAddressLabel: UILabel!
+
+    @IBOutlet var timeOfDayLabel: UILabel!
+    @IBOutlet var daysAvailableLabel: UILabel!
+
+    @IBOutlet var parkingRate: UILabel!
+    @IBOutlet var parkingDescriptionLabel: UILabel!
     
     @IBOutlet var addressCollection: UIView!
     @IBOutlet var descriptionCollection: UIView!
@@ -24,13 +31,10 @@ class ParkingInfoViewController: UIViewController {
     @IBOutlet var ratesCollection: UIView!
     
     var parking: Parking?
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupCollectionViews()
-        initializeParking()
-    }
 
+    let imagePicker = UIImagePickerController.init()
+    let storageReference = FIRStorage.storage().reference(forURL: "gs://carko-1475431423846.appspot.com")
+    
     @IBAction func backButtonTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -47,26 +51,16 @@ class ParkingInfoViewController: UIViewController {
             if let error = error {
                 print("\(error)")
             } else {
-                self.dismiss(animated: true, completion: nil)
                 NotificationCenter.default.post(name: Notification.Name.init("NewParking"), object: nil, userInfo: nil)
+                self.dismiss(animated: true, completion: nil)
             }
         })
     }
 
-    func setupCollectionViews() {
-        // TODO extract this in a custom UIView
-        addressCollection.layer.borderColor = UIColor.lightGray.cgColor
-        addressCollection.layer.borderWidth = CGFloat.init(1.0)
-
-        descriptionCollection.layer.borderColor = UIColor.lightGray.cgColor
-        descriptionCollection.layer.borderWidth = CGFloat.init(1.0)
-
-        availabilityCollection.layer.borderColor = UIColor.lightGray.cgColor
-        availabilityCollection.layer.borderWidth = CGFloat.init(1.0)
-
-        ratesCollection.layer.borderColor = UIColor.lightGray.cgColor
-        ratesCollection.layer.borderWidth = CGFloat.init(1.0)
-
+    @IBAction func tappedAddPhotos(_ sender: Any) {
+        imagePicker.allowsEditing = true
+        imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        present(imagePicker, animated: true, completion: nil)
     }
 
     @IBAction func tappedLocation(_ sender: Any) {
@@ -85,9 +79,19 @@ class ParkingInfoViewController: UIViewController {
         performSegue(withIdentifier: "ChangeRates", sender: nil)
     }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        imagePicker.delegate = self
+
+        setupCollectionViews()
+        initializeParking()
+    }
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         initializeParking()
+        loadParkingPicture()
     }
 
     func initializeParking() {
@@ -103,8 +107,34 @@ class ParkingInfoViewController: UIViewController {
             parkingDescriptionLabel.text = parking.pDescription
         } else {
             let newAvailabilityInfo = AvailabilityInfo.init()
-            self.parking = Parking.init(latitude: CLLocationDegrees.init(75), longitude: CLLocationDegrees.init(-135), photoURL: URL.init(string: "http://google.com")!, address: "Select a location", price: 1.0, pDescription: "", isAvailable: true, availabilityInfo: newAvailabilityInfo)
+            self.parking = Parking.init(latitude: CLLocationDegrees.init(75), longitude: CLLocationDegrees.init(-135), photoURL: URL.init(string: ""), address: "Select a location", price: 1.0, pDescription: "", isAvailable: true, availabilityInfo: newAvailabilityInfo)
         }
+    }
+
+    func loadParkingPicture() {
+        // meh maybe not here
+        if let url = self.parking?.photoURL {
+            if let data = try? Data(contentsOf: url) {
+                let image = UIImage(data: data)!
+                self.parkingImageView.image = image
+            }
+        }
+    }
+
+    func setupCollectionViews() {
+        // TODO extract this in a custom UIView
+        addressCollection.layer.borderColor = UIColor.lightGray.cgColor
+        addressCollection.layer.borderWidth = CGFloat.init(1.0)
+
+        descriptionCollection.layer.borderColor = UIColor.lightGray.cgColor
+        descriptionCollection.layer.borderWidth = CGFloat.init(1.0)
+
+        availabilityCollection.layer.borderColor = UIColor.lightGray.cgColor
+        availabilityCollection.layer.borderWidth = CGFloat.init(1.0)
+
+        ratesCollection.layer.borderColor = UIColor.lightGray.cgColor
+        ratesCollection.layer.borderWidth = CGFloat.init(1.0)
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -123,9 +153,8 @@ class ParkingInfoViewController: UIViewController {
             destinationVC.parkingAvailability = parking?.availabilityInfo
             destinationVC.delegate = self
         } else if segue.identifier == "ChangeLocation" {
-            let destinationVC = segue.destination as! UINavigationController
-            let locationVC = destinationVC.viewControllers.first as! ParkingLocationViewController
-            locationVC.delegate = self
+            let destinationVC = segue.destination as! ParkingLocationViewController
+            destinationVC.delegate = self
         }
     }
 }
@@ -154,4 +183,39 @@ extension ParkingInfoViewController: ParkingLocationDelegate {
         parking?.latitude = latitude
         parking?.longitude = longitude
     }
+}
+
+extension ParkingInfoViewController: UIImagePickerControllerDelegate {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            parkingImageView.contentMode = UIViewContentMode.scaleAspectFit
+            parkingImageView.image = image
+            // make a spinner or something
+            uploadImage()
+            dismiss(animated: true, completion: nil)
+        }
+    }
+
+    func uploadImage() {
+        let path = "abcdef_test"
+        let data = UIImageJPEGRepresentation(parkingImageView.image!, 0.8)!
+        let metadata = FIRStorageMetadata()
+        metadata.contentType = "image/jpeg"
+
+        self.storageReference.child(path).put(data, metadata: metadata).observe(FIRStorageTaskStatus.success) { (snapshot) in
+            if let metadata = snapshot.metadata {
+                if let url = metadata.downloadURL() {
+                    self.parking?.photoURL = url
+                }
+            }
+           // success or something + remove spinner
+        }
+    }
+}
+
+extension ParkingInfoViewController: UINavigationControllerDelegate {
 }

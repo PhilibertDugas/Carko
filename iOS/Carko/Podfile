@@ -7,6 +7,7 @@ use_frameworks!
 target 'Carko' do
   pod 'Firebase'
   pod 'Firebase/Auth'
+  pod 'Firebase/Storage'
   pod 'Stripe'
   pod 'Alamofire'
   pod 'ARNTransitionAnimator', '2.0.3'
