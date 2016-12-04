@@ -32,18 +32,27 @@ class EntryViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         if FIRAuth.auth()?.currentUser != nil {
-           transitionToHomePage()
+            self.view.isHidden = true
+            transitionToHomePage()
         }
     }
     
     func transitionToHomePage() {
-        User.getUser { (user, error) in
-            if let error = error {
-                print("Shit something went wrong display something to the user: \(error.localizedDescription)")
-            } else if let user = user {
-                AppState.sharedInstance.currentUser = user
-                self.performSegue(withIdentifier: "UserAlreadyLoggedIn", sender: nil)
+        if let value = UserDefaults.standard.dictionary(forKey: "user") {
+            let user = User.init(user: value["customer"] as! [String: Any])
+            AppState.sharedInstance.currentUser = user
+            self.performSegue(withIdentifier: "UserAlreadyLoggedIn", sender: nil)
+        } else {
+            User.getUser { (user, error) in
+                if let error = error {
+                    print("Shit something went wrong display something to the user: \(error.localizedDescription)")
+                } else if let user = user {
+                    UserDefaults.standard.set(user.toDictionnary(), forKey: "user")
+                    AppState.sharedInstance.currentUser = user
+                    self.performSegue(withIdentifier: "UserAlreadyLoggedIn", sender: nil)
+                }
             }
         }
     }

@@ -53,6 +53,7 @@ class User: NSObject {
         self.init(email: email, firstName: firstName, lastName: lastName, id: id)
 
         self.parkings = []
+
         for parkingDict in user["parkings"] as! NSArray {
             let parking = Parking.init(parking: parkingDict as! [String:Any])
             self.parkings?.append(parking)
@@ -66,13 +67,41 @@ class User: NSObject {
     }
     
     func toDictionnary() -> [String : Any] {
-        return ["customer": [
+        if self.uid == nil {
+            self.uid = FIRAuth.auth()?.currentUser?.uid
+        }
+
+        let dict: [String : Any] = ["customer":
+            [
                 "email": email,
                 "first_name": firstName!,
                 "last_name": lastName!,
-                "firebase_id": uid!
+                "firebase_id": self.uid!,
+                "id": self.id!,
+                "parkings": parkingsAsDict(),
+                "reservations": reservationsAsDict()
             ]
         ]
+
+        return dict
+    }
+
+    private func parkingsAsDict() -> [[String: Any]] {
+        var dictArray: [[String: Any]] = []
+        for parking in self.parkings! {
+            let dict = parking.toDictionary()
+            dictArray.append(dict["parking"] as! [String: Any])
+        }
+        return dictArray
+    }
+
+    private func reservationsAsDict() -> [[String: Any]] {
+        var dictArray: [[String: Any]] = []
+        for reservation in self.reservations! {
+            let dict = reservation.toDictionnary()
+            dictArray.append(dict["reservation"] as! [String: Any])
+        }
+        return dictArray
     }
     
     func logIn() {

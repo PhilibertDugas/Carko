@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fqu-z7-WF5">
-                                <rect key="frame" x="0.0" y="80" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -93,28 +93,8 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="31H-dS-kVs">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="2ih-LR-rGy"/>
-                                </constraints>
-                                <items>
-                                    <navigationItem title="My Parkings" id="OcW-1e-7FS">
-                                        <barButtonItem key="rightBarButtonItem" title="+" id="NhM-4M-OSD">
-                                            <connections>
-                                                <segue destination="xEa-0f-XS3" kind="show" identifier="newParking" id="3HE-Rg-IAn"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="31H-dS-kVs" firstAttribute="leading" secondItem="L9w-oe-ufF" secondAttribute="leading" id="DKf-sO-1Gw"/>
-                            <constraint firstAttribute="trailing" secondItem="31H-dS-kVs" secondAttribute="trailing" id="DOH-bT-3tn"/>
-                            <constraint firstItem="31H-dS-kVs" firstAttribute="top" secondItem="eJK-7A-DeB" secondAttribute="bottom" constant="8" id="PmL-AC-nm7"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="My Parkings" image="parking.png" id="9tU-9w-RRb"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -979,7 +959,4 @@
         <image name="parking_background.jpg" width="1920" height="1200"/>
         <image name="photo-camera.png" width="30" height="30"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="Hjb-gA-0px"/>
-    </inferredMetricsTieBreakers>
 </document>

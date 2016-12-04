@@ -107,7 +107,7 @@ class ParkingInfoViewController: UIViewController {
             parkingDescriptionLabel.text = parking.pDescription
         } else {
             let newAvailabilityInfo = AvailabilityInfo.init()
-            self.parking = Parking.init(latitude: CLLocationDegrees.init(75), longitude: CLLocationDegrees.init(-135), photoURL: URL.init(string: ""), address: "Select a location", price: 1.0, pDescription: "", isAvailable: true, availabilityInfo: newAvailabilityInfo)
+            self.parking = Parking.init(latitude: CLLocationDegrees.init(75), longitude: CLLocationDegrees.init(-135), photoURL: URL.init(string: ""), address: "Select a location", price: 1.0, pDescription: "", isAvailable: true, availabilityInfo: newAvailabilityInfo, customerId: (AppState.sharedInstance.currentUser?.id)!)
         }
     }
 

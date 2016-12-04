@@ -30,7 +30,7 @@ class FindParkingViewController: UIViewController {
         self.popupView.addGestureRecognizer(tapGesture)
 
         self.bookParkingVC = storyboard?.instantiateViewController(withIdentifier: "bookParkingViewController") as? BookParkingViewController
-        self.bookParkingVC.modalPresentationStyle = .overFullScreen
+        self.bookParkingVC.modalPresentationStyle = .overCurrentContext
 
         self.bookParkingVC.tapCloseButtonActionHandler = { _ in
             self.tabBar.frame.origin.y = self.containerView.frame.height

@@ -17,12 +17,13 @@ class Parking: NSObject {
     var price: Float
     var pDescription: String
     var isAvailable: Bool
+    var customerId: Int
 
     var availabilityInfo: AvailabilityInfo
 
     var reservation: [(Reservation)]?
 
-    init(latitude: CLLocationDegrees, longitude: CLLocationDegrees, photoURL: URL?, address: String, price: Float, pDescription: String, isAvailable: Bool, availabilityInfo: AvailabilityInfo) {
+    init(latitude: CLLocationDegrees, longitude: CLLocationDegrees, photoURL: URL?, address: String, price: Float, pDescription: String, isAvailable: Bool, availabilityInfo: AvailabilityInfo, customerId: Int) {
         
         self.latitude = latitude
         self.longitude = longitude
@@ -34,6 +35,8 @@ class Parking: NSObject {
 
         self.isAvailable = isAvailable
         self.availabilityInfo = availabilityInfo
+
+        self.customerId = customerId
     }
     
     convenience init(parking: [String : Any]) {
@@ -44,10 +47,11 @@ class Parking: NSObject {
         let price = Float(parking["price"] as! String)!
         let pDescription = parking["description"] as! String
         let isAvailable = parking["is_available"] as! Bool
+        let customerId = parking["customer_id"] as! Int
 
         let availabilityInfo = AvailabilityInfo.init(availabilityInfo: parking["availability_info"] as! [String : Any])
         
-        self.init(latitude: latitude, longitude: longitude, photoURL: photoURL, address: address, price: price, pDescription: pDescription, isAvailable: isAvailable, availabilityInfo: availabilityInfo)
+        self.init(latitude: latitude, longitude: longitude, photoURL: photoURL, address: address, price: price, pDescription: pDescription, isAvailable: isAvailable, availabilityInfo: availabilityInfo, customerId: customerId)
 
         if let identifier = parking["id"] as? Int {
             self.id = identifier
@@ -73,7 +77,7 @@ class Parking: NSObject {
                 "address": address,
                 "price": String.init(format: "%.2f", price),
                 "description": pDescription,
-                "customer_id": AppState.sharedInstance.currentUser!.id!,
+                "customer_id": customerId,
                 "is_available": isAvailable,
                 "availability_info": availabilityInfo.toDictionary()
             ]

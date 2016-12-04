@@ -42,7 +42,8 @@ extension ParkingTransitionAnimation: TransitionAnimatable {
     func prepareContainer(_ transitionType: TransitionType, containerView: UIView, from fromVC: UIViewController, to toVC: UIViewController) {
         self.containerView = containerView
 
-        self.containerView?.addSubview(self.modalVC.view)
+        self.containerView?.addSubview(self.rootVC.tabBar)
+        self.containerView?.insertSubview(self.modalVC.view, belowSubview: self.rootVC.tabBar)
 
         self.rootVC.view.setNeedsLayout()
         self.rootVC.view.layoutIfNeeded()
@@ -81,6 +82,7 @@ extension ParkingTransitionAnimation: TransitionAnimatable {
             self.rootVC.popupView.frame.origin.y = max(min(playerY, self.popupStartFrame.origin.y), endOriginY)
 
             self.modalVC.view.frame.origin.y = self.rootVC.popupView.frame.origin.y + self.rootVC.popupView.frame.size.height
+
             let tabY = tabStartOriginY + (tabDiff * percentComplete)
             self.rootVC.tabBar.frame.origin.y = min(max(tabY, self.tabBarStartFrame.origin.y), tabEndOriginY)
 
@@ -102,7 +104,7 @@ extension ParkingTransitionAnimation: TransitionAnimatable {
             self.rootVC.popupView.frame.origin.y = startOriginY + (diff * percentComplete)
             self.modalVC.view.frame.origin.y = self.rootVC.popupView.frame.origin.y + self.rootVC.popupView.frame.size.height
 
-            self.rootVC.tabBar.frame.origin.y = tabStartOriginY - (tabDiff *  percentComplete)
+            self.rootVC.tabBar.frame.origin.y = tabStartOriginY - (tabDiff * percentComplete)
 
             let alpha = 1.0 * percentComplete
             self.rootVC.containerView.alpha = alpha + 0.5
@@ -128,6 +130,8 @@ extension ParkingTransitionAnimation: TransitionAnimatable {
         } else {
             if didComplete {
                 self.modalVC.view.removeFromSuperview()
+                self.rootVC.tabBar.removeFromSuperview()
+                self.rootVC.view.addSubview(self.rootVC.tabBar)
                 self.completion?(transitionType.isPresenting)
             } else {
                 self.rootVC.popupView.alpha = 0.0

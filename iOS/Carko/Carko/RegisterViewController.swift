@@ -55,6 +55,7 @@ class RegisterViewController: UIViewController {
             if let error = error {
                 print("Shit something went wrong display something to the user: \(error.localizedDescription)")
             } else if let user = user {
+                UserDefaults.standard.set(user.toDictionnary(), forKey: "user")
                 AppState.sharedInstance.currentUser = user
                 self.performSegue(withIdentifier: "UserRegistered", sender: nil)
             }
