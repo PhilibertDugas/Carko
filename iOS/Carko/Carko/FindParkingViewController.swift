@@ -49,7 +49,17 @@ class FindParkingViewController: UIViewController {
             let parking = parkingData["data"] as! Parking
             self.selectedParking = parking
             self.bookParkingVC.parking = parking
+            
             popupView.descriptionLabel.text = parking.address
+
+            // FIXME: Duplicated, DRY this
+            if let url = parking.photoURL {
+                if let data = try? Data(contentsOf: url) {
+                    let image = UIImage(data: data)!
+                    popupView.imageView.image = image
+                    self.bookParkingVC.parkingImage = image
+                }
+            }
 
             UIView.animate(withDuration: 0.25, animations: {
                 self.popupView.isHidden = false

@@ -11,6 +11,7 @@ import Stripe
 
 class BookParkingViewController: UIViewController {
 
+    @IBOutlet var parkingImageView: UIImageView!
     @IBOutlet var addressLabel: UILabel!
     @IBOutlet var availabilityLabel: UILabel!
     @IBOutlet var creditCardLabel: UnderlineTextField!
@@ -24,6 +25,7 @@ class BookParkingViewController: UIViewController {
     var sliderValue: Int?
     var paymentContext: STPPaymentContext!
     var parking: Parking!
+    var parkingImage: UIImage?
 
     var tapCloseButtonActionHandler : ((Void) -> Void)?
 
@@ -56,6 +58,10 @@ class BookParkingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        if let image = parkingImage {
+            parkingImageView.image = image
+        }
 
         addressLabel.text = parking.address
         availabilityLabel.text = "Available until \(parking.availabilityInfo.stopTime)"

@@ -34,8 +34,8 @@ class ParkingInfoViewController: UIViewController {
 
     let imagePicker = UIImagePickerController.init()
     let storageReference = FIRStorage.storage().reference(forURL: "gs://carko-1475431423846.appspot.com")
-    
-    @IBAction func backButtonTapped(_ sender: Any) {
+
+    @IBAction func cancelTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
 
@@ -86,12 +86,12 @@ class ParkingInfoViewController: UIViewController {
 
         setupCollectionViews()
         initializeParking()
+        loadParkingPicture()
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         initializeParking()
-        loadParkingPicture()
     }
 
     func initializeParking() {
@@ -116,9 +116,16 @@ class ParkingInfoViewController: UIViewController {
         if let url = self.parking?.photoURL {
             if let data = try? Data(contentsOf: url) {
                 let image = UIImage(data: data)!
-                self.parkingImageView.image = image
+                displayImage(image: image)
             }
         }
+    }
+
+    func displayImage(image: UIImage) {
+        self.parkingImageView.image = image
+        self.parkingImageView.alpha = 1.0
+        self.helperImageView.isHidden = true
+        self.helperImageLabel.isHidden = true
     }
 
     func setupCollectionViews() {
@@ -193,7 +200,7 @@ extension ParkingInfoViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             parkingImageView.contentMode = UIViewContentMode.scaleAspectFit
-            parkingImageView.image = image
+            displayImage(image: image)
             // make a spinner or something
             uploadImage()
             dismiss(animated: true, completion: nil)
@@ -201,11 +208,16 @@ extension ParkingInfoViewController: UIImagePickerControllerDelegate {
     }
 
     func uploadImage() {
-        let path = "abcdef_test"
+        var path = ""
+        if let id = parking?.id {
+            path = "parking_\(id)_\(Date.init())"
+        } else {
+            path = "user_\(AppState.sharedInstance.currentUser?.id!)_\(Date.init())"
+        }
+
         let data = UIImageJPEGRepresentation(parkingImageView.image!, 0.8)!
         let metadata = FIRStorageMetadata()
         metadata.contentType = "image/jpeg"
-
         self.storageReference.child(path).put(data, metadata: metadata).observe(FIRStorageTaskStatus.success) { (snapshot) in
             if let metadata = snapshot.metadata {
                 if let url = metadata.downloadURL() {

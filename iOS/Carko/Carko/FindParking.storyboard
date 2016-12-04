@@ -101,7 +101,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="car_audi.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="6dg-JK-NSX">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6dg-JK-NSX">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="244"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="244" id="2ds-Ap-pjf"/>
@@ -312,6 +312,7 @@
                         <outlet property="availabilityLabel" destination="57A-ka-oEA" id="ESv-6o-pzB"/>
                         <outlet property="costLabel" destination="nLw-V2-mPK" id="BPC-r6-Jcv"/>
                         <outlet property="creditCardLabel" destination="lGZ-L5-Dop" id="lmc-Pn-Bre"/>
+                        <outlet property="parkingImageView" destination="6dg-JK-NSX" id="bjD-fr-P2n"/>
                         <outlet property="timeLabel" destination="s41-rb-2sO" id="zIn-fQ-e3r"/>
                         <outlet property="timeSlider" destination="0Gf-o8-LL7" id="2Ul-0l-hcK"/>
                     </connections>
@@ -323,7 +324,6 @@
     </scenes>
     <resources>
         <image name="car.png" width="30" height="30"/>
-        <image name="car_audi.jpg" width="1200" height="800"/>
         <image name="clock.png" width="32" height="32"/>
         <image name="close.png" width="32" height="32"/>
         <image name="credit-card.png" width="32" height="32"/>

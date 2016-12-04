@@ -75,8 +75,8 @@ class ParkingLocationViewController: UIViewController {
         let latitude = currentMapCoordinate.latitude
         let longitude = currentMapCoordinate.longitude
         let address = selectedPin?.title
-        delegate?.userDidChooseLocation(address: address!, latitude: latitude, longitude: longitude)
         let _ = self.navigationController?.popViewController(animated: true)
+        delegate?.userDidChooseLocation(address: address!, latitude: latitude, longitude: longitude)
     }
 }
 

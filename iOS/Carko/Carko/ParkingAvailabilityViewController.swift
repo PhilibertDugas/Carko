@@ -26,10 +26,10 @@ class ParkingAvailabilityViewController: UIViewController {
     var dateFormatter: DateFormatter?
         
     @IBAction func saveChange(_ sender: AnyObject) {
-        delegate?.userDidChangeAvailability(value: parkingAvailability)
         let _ = self.navigationController?.popViewController(animated: true)
+        delegate?.userDidChangeAvailability(value: parkingAvailability)
     }
-    
+
     @IBAction func permanentAvailabilityToggle(_ sender: UISwitch) {
         if sender.isOn {
             parkingAvailability.alwaysAvailable = true

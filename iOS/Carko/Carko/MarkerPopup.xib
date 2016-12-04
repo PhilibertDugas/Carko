@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MarkerPopup" customModule="Carko" customModuleProvider="target">
             <connections>
                 <outlet property="descriptionLabel" destination="LKO-kN-VzP" id="Zr1-h4-0dt"/>
+                <outlet property="imageView" destination="Lrt-SM-W06" id="HHj-q1-B4S"/>
                 <outlet property="view" destination="iN0-l3-epB" id="146-KN-UpM"/>
             </connections>
         </placeholder>

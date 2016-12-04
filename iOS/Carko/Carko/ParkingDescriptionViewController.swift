@@ -20,10 +20,10 @@ class ParkingDescriptionViewController: UIViewController {
     var parkingDescription: String?
     
     @IBAction func saveChange(_ sender: AnyObject) {
-        delegate?.userDidChangeDescription(value: descriptionText.text)
         let _ = self.navigationController?.popViewController(animated: true)
+        delegate?.userDidChangeDescription(value: descriptionText.text)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         descriptionText.text = parkingDescription
