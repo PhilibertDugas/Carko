@@ -89,8 +89,7 @@ class User: NSObject {
     private func parkingsAsDict() -> [[String: Any]] {
         var dictArray: [[String: Any]] = []
         for parking in self.parkings! {
-            let dict = parking.toDictionary()
-            dictArray.append(dict["parking"] as! [String: Any])
+            dictArray.append(parking.toDictionary())
         }
         return dictArray
     }
@@ -98,8 +97,7 @@ class User: NSObject {
     private func reservationsAsDict() -> [[String: Any]] {
         var dictArray: [[String: Any]] = []
         for reservation in self.reservations! {
-            let dict = reservation.toDictionnary()
-            dictArray.append(dict["reservation"] as! [String: Any])
+            dictArray.append(reservation.toDictionnary())
         }
         return dictArray
     }

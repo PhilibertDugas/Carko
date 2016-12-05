@@ -18,14 +18,18 @@ class MyParkingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        self.title = "My Parkings"
+
         ParkingTableView.delegate = self
         ParkingTableView.dataSource = self
 
         NotificationCenter.default.addObserver(self, selector: #selector(self.parkingFetched), name: Notification.Name.init(rawValue: "CustomerParkingFetched"), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.parkingListUpdate), name: Notification.Name.init(rawValue: "NewParking"), object: nil)
-        
+
+        NotificationCenter.default.addObserver(self, selector: #selector(self.parkingListUpdate), name: Notification.Name.init(rawValue: "ParkingDeleted"), object: nil)
+
         parkingListUpdate()
     }
 
@@ -48,9 +52,8 @@ class MyParkingsViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {        
         if segue.identifier == "showParkingInfo" {
-            let destinationVC = segue.destination as! UINavigationController
-            let infoVC = destinationVC.viewControllers.first as! ParkingInfoViewController
-            infoVC.parking = parkingList[selectedRowIndex]
+            let destinationVC = segue.destination as! ParkingInfoViewController
+            destinationVC.parking = parkingList[selectedRowIndex]
         }
     }
 }

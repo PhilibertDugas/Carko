@@ -37,14 +37,13 @@ class Reservation: NSObject {
     }
 
     func toDictionnary() -> [String : Any] {
-        return [ "reservation": [
-                "parking_id": self.parkingId,
-                "customer_id": self.customerId,
-                "is_active": self.isActive,
-                "start_time": self.startTime,
-                "stop_time": self.stopTime,
-                "total_cost": self.totalCost
-            ]
+        return [
+            "parking_id": self.parkingId,
+            "customer_id": self.customerId,
+            "is_active": self.isActive,
+            "start_time": self.startTime,
+            "stop_time": self.stopTime,
+            "total_cost": self.totalCost
         ]
     }
 

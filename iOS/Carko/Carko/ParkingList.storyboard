@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="5rO-kM-NMI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vi7-JE-Kbh">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,6 +10,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="jb1-fA-WdS">
+            <objects>
+                <navigationController id="vi7-JE-Kbh" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1Rf-Ak-g2M">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="5rO-kM-NMI" kind="relationship" relationship="rootViewController" id="KWr-8g-1Fb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d8L-TN-dCH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="124" y="-120"/>
+        </scene>
         <!--ShareViewController-->
         <scene sceneID="utz-3t-a0m">
             <objects>
@@ -31,7 +47,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4D8-ck-LYo" id="sLb-bz-z0H">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="89"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="89.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Parking Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DvD-h6-yM0">
@@ -88,7 +104,7 @@
                                             <outlet property="availabilityLabel" destination="QLa-F6-zrX" id="bG8-qh-mz5"/>
                                             <outlet property="daysAvailable" destination="wtB-is-clq" id="cTO-YT-cJz"/>
                                             <outlet property="parkingImage" destination="pPF-pN-mcQ" id="ISp-Oq-hI5"/>
-                                            <segue destination="xEa-0f-XS3" kind="show" identifier="showParkingInfo" id="Hjb-gA-0px"/>
+                                            <segue destination="J84-PW-3nf" kind="show" identifier="showParkingInfo" id="vWf-PK-LlA"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -97,6 +113,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="My Parkings" image="parking.png" id="9tU-9w-RRb"/>
+                    <navigationItem key="navigationItem" id="QPL-gh-OiA">
+                        <barButtonItem key="rightBarButtonItem" title="New" id="OkR-3i-eqo">
+                            <connections>
+                                <segue destination="J84-PW-3nf" kind="show" id="mXO-NQ-xje"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="ParkingTableView" destination="fqu-z7-WF5" id="Szs-6g-GBA"/>
@@ -104,7 +127,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jCl-1q-i1r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="604" y="565.36731634182911"/>
+            <point key="canvasLocation" x="1145" y="-120"/>
         </scene>
         <!--Parking Info View Controller-->
         <scene sceneID="FyP-hF-zki">
@@ -383,13 +406,7 @@
                             <constraint firstItem="MDP-oh-yCb" firstAttribute="leading" secondItem="R0G-wC-nUd" secondAttribute="leadingMargin" id="voF-kI-08e"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Pcp-dn-9yQ">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="zSP-O5-y5m">
-                            <connections>
-                                <action selector="cancelTapped:" destination="J84-PW-3nf" id="eOb-Gt-h9q"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="Pcp-dn-9yQ"/>
                     <connections>
                         <outlet property="addressCollection" destination="WjZ-YX-VLg" id="U6Y-vv-oOM"/>
                         <outlet property="availabilityCollection" destination="MDP-oh-yCb" id="skf-vK-Csc"/>
@@ -494,22 +511,6 @@
             </objects>
             <point key="canvasLocation" x="3137" y="-835"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="k0h-s2-xSD">
-            <objects>
-                <navigationController id="xEa-0f-XS3" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xUz-Qz-LhS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="J84-PW-3nf" kind="relationship" relationship="rootViewController" id="x0f-2o-fRX"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qDp-3B-nEM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1474" y="-120"/>
-        </scene>
         <!--Location Search Table Table View Controller-->
         <scene sceneID="Jhy-Em-Wa0">
             <objects>
@@ -523,18 +524,18 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YwZ-aa-U6q" id="a5v-R6-Von">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oTp-b0-Coc">
-                                            <rect key="frame" x="15" y="4" width="34" height="21"/>
+                                            <rect key="frame" x="15" y="5" width="33.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lMi-Mt-eGT">
-                                            <rect key="frame" x="15" y="25" width="44" height="15"/>
+                                            <rect key="frame" x="15" y="25.5" width="44" height="14.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
@@ -959,4 +960,7 @@
         <image name="parking_background.jpg" width="1920" height="1200"/>
         <image name="photo-camera.png" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="vWf-PK-LlA"/>
+    </inferredMetricsTieBreakers>
 </document>

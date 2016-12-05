@@ -62,25 +62,21 @@ class Parking: NSObject {
         CarkoAPIClient.sharedClient.createParking(parking: self, complete: complete)
     }
 
-    func delete() {
-        CarkoAPIClient.sharedClient.deleteParking(parking: self) { (error) in
-            print(error.debugDescription)
-        }
+    func delete(complete: @escaping (Error?) -> Void) {
+        CarkoAPIClient.sharedClient.deleteParking(parking: self, complete: complete)
     }
     
     func toDictionary() -> [String : Any] {
-        return ["parking":
-            [
-                "latitude": latitude,
-                "longitude": longitude,
-                "photo_url": "\(photoURL!)",
-                "address": address,
-                "price": String.init(format: "%.2f", price),
-                "description": pDescription,
-                "customer_id": customerId,
-                "is_available": isAvailable,
-                "availability_info": availabilityInfo.toDictionary()
-            ]
+        return [
+            "latitude": latitude,
+            "longitude": longitude,
+            "photo_url": "\(photoURL!)",
+            "address": address,
+            "price": String.init(format: "%.2f", price),
+            "description": pDescription,
+            "customer_id": customerId,
+            "is_available": isAvailable,
+            "availability_info": availabilityInfo.toDictionary()
         ] as [String : Any]
     }
 

@@ -31,7 +31,7 @@ class CarkoAPIClient: NSObject {
 // Parking API calls
 extension CarkoAPIClient {
     func createParking(parking: Parking, complete: @escaping (Error?) -> Void ) {
-        let parameters: Parameters = parking.toDictionary()
+        let parameters: Parameters = ["parking": parking.toDictionary()]
         let postUrl = baseUrl.appendingPathComponent("/parkings")
         request(postUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).response { (response) in
             complete(response.error)
@@ -115,7 +115,7 @@ extension CarkoAPIClient {
 // Reservation api calls
 extension CarkoAPIClient {
     func createReservation(reservation: Reservation, complete: @escaping (Error?) -> Void) {
-        let parameters: Parameters = reservation.toDictionnary()
+        let parameters: Parameters = ["reservation": reservation.toDictionnary()]
         let url = baseUrl.appendingPathComponent("/reservations")
         request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).response { (response) in
             complete(response.error)

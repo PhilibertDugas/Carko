@@ -31,18 +31,19 @@ class ParkingInfoViewController: UIViewController {
     @IBOutlet var ratesCollection: UIView!
     
     var parking: Parking?
+    var isNewParking = true
 
     let imagePicker = UIImagePickerController.init()
     let storageReference = FIRStorage.storage().reference(forURL: "gs://carko-1475431423846.appspot.com")
 
-    @IBAction func cancelTapped(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
-
     @IBAction func removeParkingTapped(_ sender: Any) {
-        parking?.delete()
-        self.dismiss(animated: true) {
-            Parking.getCustomerParkings()
+        parking?.delete() { (error) in
+            if let error = error {
+                print("Something wrong happened: \(error)")
+            } else {
+                NotificationCenter.default.post(name: Notification.Name.init("ParkingDeleted"), object: nil, userInfo: nil)
+                let _ = self.navigationController?.popViewController(animated: true)
+            }
         }
     }
 
@@ -52,7 +53,7 @@ class ParkingInfoViewController: UIViewController {
                 print("\(error)")
             } else {
                 NotificationCenter.default.post(name: Notification.Name.init("NewParking"), object: nil, userInfo: nil)
-                self.dismiss(animated: true, completion: nil)
+                let _ = self.navigationController?.popViewController(animated: true)
             }
         })
     }
@@ -85,17 +86,23 @@ class ParkingInfoViewController: UIViewController {
         imagePicker.delegate = self
 
         setupCollectionViews()
-        initializeParking()
-        loadParkingPicture()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         initializeParking()
+        loadParkingPicture()
+
+        if isNewParking {
+            self.title = "New Parking"
+        } else {
+            self.title = "Edit Parking"
+        }
     }
 
     func initializeParking() {
         if let parking = self.parking {
+            isNewParking = false
             streetAddressLabel.text = parking.address
             postalAddressLabel.text = parking.address
 
