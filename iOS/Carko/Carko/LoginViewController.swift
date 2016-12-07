@@ -30,7 +30,6 @@ class LoginViewController: UIViewController {
             indicator!.startAnimating()
             let user = User.init(email: email.text!, password: password.text!)
             user.logIn()
-
         }
     }
 

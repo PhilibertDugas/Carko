@@ -34,14 +34,13 @@ class EntryViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if FIRAuth.auth()?.currentUser != nil {
-            self.view.isHidden = true
             transitionToHomePage()
         }
     }
     
     func transitionToHomePage() {
         if let value = UserDefaults.standard.dictionary(forKey: "user") {
-            let user = User.init(user: value["customer"] as! [String: Any])
+            let user = User.init(user: value)
             AppState.sharedInstance.currentUser = user
             self.performSegue(withIdentifier: "UserAlreadyLoggedIn", sender: nil)
         } else {

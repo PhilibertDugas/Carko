@@ -16,16 +16,18 @@ class User: NSObject {
     var password: String?
     var firstName: String?
     var lastName: String?
-    var uid: String?
+    var uid: String!
+
     var id: Int?
 
-    var parkings: [(Parking)]?
-    var reservations: [(Reservation)]?
-    
+    var parkings: [(Parking)]
+    var reservations: [(Reservation)]
+
     init(email: String, password: String) {
         self.email = email
         self.password = password
-        super.init()
+        self.parkings = []
+        self.reservations = []
     }
     
     init(email: String, password: String, firstName: String, lastName: String) {
@@ -33,15 +35,18 @@ class User: NSObject {
         self.password = password
         self.firstName = firstName
         self.lastName = lastName
-        super.init()
+        self.parkings = []
+        self.reservations = []
     }
 
-    init(email: String, firstName: String, lastName: String, id: Int) {
+    init(email: String, firstName: String, lastName: String, id: Int, uid: String) {
         self.email = email
         self.firstName = firstName
         self.lastName = lastName
         self.id = id
-        super.init()
+        self.uid = uid
+        self.parkings = []
+        self.reservations = []
     }
 
     convenience init(user: [String: Any]) {
@@ -49,57 +54,37 @@ class User: NSObject {
         let firstName = user["first_name"] as! String
         let lastName = user["last_name"] as! String
         let id = user["id"] as! Int
+        let uid = user["firebase_id"] as! String
 
-        self.init(email: email, firstName: firstName, lastName: lastName, id: id)
-
-        self.parkings = []
+        self.init(email: email, firstName: firstName, lastName: lastName, id: id, uid: uid)
 
         for parkingDict in user["parkings"] as! NSArray {
             let parking = Parking.init(parking: parkingDict as! [String:Any])
-            self.parkings?.append(parking)
+            self.parkings.append(parking)
         }
         
-        self.reservations = []
         for reservationDict in user["reservations"] as! NSArray {
             let reservation = Reservation.init(reservation: reservationDict as! [String : Any])
-            self.reservations?.append(reservation)
+            self.reservations.append(reservation)
         }
     }
     
     func toDictionnary() -> [String : Any] {
-        if self.uid == nil {
-            self.uid = FIRAuth.auth()?.currentUser?.uid
-        }
-
-        let dict: [String : Any] = ["customer":
-            [
-                "email": email,
-                "first_name": firstName!,
-                "last_name": lastName!,
-                "firebase_id": self.uid!,
-                "id": self.id!,
-                "parkings": parkingsAsDict(),
-                "reservations": reservationsAsDict()
-            ]
+        var dict: [String: Any] = [
+            "email": email,
+            "first_name": firstName!,
+            "last_name": lastName!,
+            "firebase_id": self.uid!,
+            "parkings": parkingsAsDict(),
+            "reservations": reservationsAsDict()
         ]
 
+        // When we register, we don't have a id yet since the record is not created
+        if let id = self.id {
+            dict["id"] = id
+        }
+
         return dict
-    }
-
-    private func parkingsAsDict() -> [[String: Any]] {
-        var dictArray: [[String: Any]] = []
-        for parking in self.parkings! {
-            dictArray.append(parking.toDictionary())
-        }
-        return dictArray
-    }
-
-    private func reservationsAsDict() -> [[String: Any]] {
-        var dictArray: [[String: Any]] = []
-        for reservation in self.reservations! {
-            dictArray.append(reservation.toDictionnary())
-        }
-        return dictArray
     }
     
     func logIn() {
@@ -117,8 +102,8 @@ class User: NSObject {
         FIRAuth.auth()?.createUser(withEmail: email, password: password!, completion: { (user, error) in
             if error != nil {
                 self.postRegisterError(error!)
-            } else {
-                self.uid = user?.uid
+            } else if let user = user {
+                self.uid = user.uid
                 CarkoAPIClient.sharedClient.postUser(user: self, complete: { (error) in
                     if error != nil {
                         try! FIRAuth.auth()!.signOut()
@@ -141,5 +126,21 @@ class User: NSObject {
     
     private func postRegisterError(_ error: Error) {
         self.notificationCenter.post(name: Notification.Name.init("UserRegisteredError"), object: nil, userInfo: ["data": error.localizedDescription])
+    }
+
+    private func parkingsAsDict() -> [[String: Any]] {
+        var dictArray: [[String: Any]] = []
+        for parking in self.parkings {
+            dictArray.append(parking.toDictionary())
+        }
+        return dictArray
+    }
+
+    private func reservationsAsDict() -> [[String: Any]] {
+        var dictArray: [[String: Any]] = []
+        for reservation in self.reservations {
+            dictArray.append(reservation.toDictionnary())
+        }
+        return dictArray
     }
 }

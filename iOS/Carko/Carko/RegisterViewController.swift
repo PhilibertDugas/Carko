@@ -25,12 +25,14 @@ class RegisterViewController: UIViewController {
 
     @IBAction func registerPressed(_ sender: AnyObject) {
         if let firstName = firstName.text, let lastName = lastName.text, let email = email.text, let password = password.text {
+
             indicator = UIActivityIndicatorView.init(activityIndicatorStyle: UIActivityIndicatorViewStyle.white)
             let halfButtonHeight = registerButton.bounds.size.height / 2
             let buttonWidth = registerButton.bounds.size.width
             indicator?.center = CGPoint.init(x: buttonWidth - halfButtonHeight, y: halfButtonHeight)
             registerButton.addSubview(indicator!)
             indicator!.startAnimating()
+
             let user = User.init(email: email, password: password, firstName: firstName, lastName: lastName)
             user.register()
         } else {

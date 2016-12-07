@@ -84,8 +84,6 @@ class ParkingInfoViewController: UIViewController {
         super.viewDidLoad()
 
         imagePicker.delegate = self
-
-        setupCollectionViews()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -133,22 +131,6 @@ class ParkingInfoViewController: UIViewController {
         self.parkingImageView.alpha = 1.0
         self.helperImageView.isHidden = true
         self.helperImageLabel.isHidden = true
-    }
-
-    func setupCollectionViews() {
-        // TODO extract this in a custom UIView
-        addressCollection.layer.borderColor = UIColor.lightGray.cgColor
-        addressCollection.layer.borderWidth = CGFloat.init(1.0)
-
-        descriptionCollection.layer.borderColor = UIColor.lightGray.cgColor
-        descriptionCollection.layer.borderWidth = CGFloat.init(1.0)
-
-        availabilityCollection.layer.borderColor = UIColor.lightGray.cgColor
-        availabilityCollection.layer.borderWidth = CGFloat.init(1.0)
-
-        ratesCollection.layer.borderColor = UIColor.lightGray.cgColor
-        ratesCollection.layer.borderWidth = CGFloat.init(1.0)
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

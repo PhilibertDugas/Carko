@@ -68,7 +68,7 @@ class BookParkingViewController: UIViewController {
         creditCardLabel.delegate = self
 
         paymentContext = STPPaymentContext.init(apiAdapter: CarkoAPIClient.sharedClient)
-        paymentContext.paymentAmount = Int(parking.price * 100)
+
         // TODO CHANGE THIS
         paymentContext.paymentCurrency = "CAD"
         paymentContext.delegate = self
@@ -86,7 +86,7 @@ class BookParkingViewController: UIViewController {
 
         reservation.persist() { error in
             if error == nil {
-                AppState.sharedInstance.currentUser!.reservations!.append(reservation)
+                AppState.sharedInstance.currentUser!.reservations.append(reservation)
                 Parking.getAllParkings()
                 self.tapCloseButtonActionHandler?()
                 self.dismiss(animated: true, completion: nil)
@@ -144,6 +144,7 @@ extension BookParkingViewController: UITextFieldDelegate {
 
 extension BookParkingViewController: STPPaymentContextDelegate {
     public func paymentContext(_ paymentContext: STPPaymentContext, didCreatePaymentResult paymentResult: STPPaymentResult, completion: @escaping STPErrorBlock) {
+        paymentResult.source
         CarkoAPIClient.sharedClient.postCharge(paymentResult.source, paymentContext: paymentContext, completion: completion)
     }
 

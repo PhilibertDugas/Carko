@@ -1,14 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zf4-oy-pQM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Zcy-Hj-txo">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="P1N-5R-PAT">
+            <objects>
+                <navigationController id="Zcy-Hj-txo" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qXp-J8-gYs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="zf4-oy-pQM" kind="relationship" relationship="rootViewController" id="U82-Go-Ap9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uuG-Fu-NVm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1623" y="-100"/>
+        </scene>
         <!--Profile-->
         <scene sceneID="IEW-ck-FHK">
             <objects>
@@ -21,13 +38,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pfA-6Y-dmS">
-                                <rect key="frame" x="101" y="319" width="173" height="30"/>
-                                <state key="normal" title="Show Credit Card Screen"/>
-                                <connections>
-                                    <action selector="showTapped:" destination="zf4-oy-pQM" eventType="touchUpInside" id="STe-Z0-5o6"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cxs-Om-m5Q" customClass="RoundedCornerButton" customModule="Carko" customModuleProvider="target">
                                 <rect key="frame" x="101" y="580" width="173" height="30"/>
                                 <color key="backgroundColor" red="0.59859156608581543" green="0.48580044507980347" blue="0.48472779989242554" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -43,19 +53,108 @@
                                     <segue destination="lQc-IL-R5t" kind="show" id="JLr-Px-Yrd"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4v-DO-h79">
+                                <rect key="frame" x="16" y="72" width="343" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="DHM-fa-XHh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jN4-G0-jmu" customClass="BorderedView" customModule="Carko" customModuleProvider="target">
+                                <rect key="frame" x="16" y="155" width="343" height="110"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JD0-UQ-I7k">
+                                        <rect key="frame" x="56" y="35" width="279" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="37g-hF-nVb"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="car.png" translatesAutoresizingMaskIntoConstraints="NO" id="Vsi-qa-e1V">
+                                        <rect key="frame" x="8" y="35" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="1JN-gr-dpU"/>
+                                            <constraint firstAttribute="width" constant="40" id="zWx-S2-DxN"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="JD0-UQ-I7k" firstAttribute="leading" secondItem="Vsi-qa-e1V" secondAttribute="trailing" constant="8" id="7mo-iI-tCD"/>
+                                    <constraint firstItem="Vsi-qa-e1V" firstAttribute="centerY" secondItem="jN4-G0-jmu" secondAttribute="centerY" id="9P7-eZ-1uV"/>
+                                    <constraint firstItem="JD0-UQ-I7k" firstAttribute="centerY" secondItem="jN4-G0-jmu" secondAttribute="centerY" id="QPB-aH-MKP"/>
+                                    <constraint firstAttribute="trailing" secondItem="JD0-UQ-I7k" secondAttribute="trailing" constant="8" id="frP-3d-nku"/>
+                                    <constraint firstItem="Vsi-qa-e1V" firstAttribute="leading" secondItem="jN4-G0-jmu" secondAttribute="leading" constant="8" id="lW2-BM-GnX"/>
+                                    <constraint firstAttribute="height" constant="110" id="lam-zI-RsJ"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P3R-gU-VEK" customClass="BorderedView" customModule="Carko" customModuleProvider="target">
+                                <rect key="frame" x="16" y="273" width="343" height="110"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="credit-card.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ajb-0j-lXT">
+                                        <rect key="frame" x="8" y="35" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="O2F-hA-1By"/>
+                                            <constraint firstAttribute="height" constant="40" id="n57-Sx-IFP"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6No-dI-kIc">
+                                        <rect key="frame" x="56" y="35" width="279" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="lgy-WL-DMP"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="Ajb-0j-lXT" firstAttribute="leading" secondItem="P3R-gU-VEK" secondAttribute="leading" constant="8" id="Ukb-Hd-Bzg"/>
+                                    <constraint firstItem="Ajb-0j-lXT" firstAttribute="centerY" secondItem="P3R-gU-VEK" secondAttribute="centerY" id="eJr-gD-p1u"/>
+                                    <constraint firstAttribute="height" constant="110" id="fs6-J4-WLk"/>
+                                    <constraint firstItem="6No-dI-kIc" firstAttribute="centerY" secondItem="P3R-gU-VEK" secondAttribute="centerY" id="h0F-MU-DMf"/>
+                                    <constraint firstItem="6No-dI-kIc" firstAttribute="leading" secondItem="Ajb-0j-lXT" secondAttribute="trailing" constant="8" id="lxM-YG-rLp"/>
+                                    <constraint firstAttribute="trailing" secondItem="6No-dI-kIc" secondAttribute="trailing" constant="8" id="u5t-y4-iyO"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="FI6-bF-Ipm" appends="YES" id="egK-Hw-vfR"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="pfA-6Y-dmS" firstAttribute="centerX" secondItem="pQt-Sq-COB" secondAttribute="centerX" id="3a5-jn-6nZ"/>
-                            <constraint firstItem="PNx-wR-j1S" firstAttribute="top" secondItem="Cxs-Om-m5Q" secondAttribute="bottom" constant="8" id="LyB-eq-IFY"/>
-                            <constraint firstItem="pfA-6Y-dmS" firstAttribute="centerY" secondItem="pQt-Sq-COB" secondAttribute="centerY" id="PHO-CB-lkA"/>
-                            <constraint firstItem="Cxs-Om-m5Q" firstAttribute="centerX" secondItem="pQt-Sq-COB" secondAttribute="centerX" id="gwl-L6-PUe"/>
+                            <constraint firstItem="Cxs-Om-m5Q" firstAttribute="centerX" secondItem="pQt-Sq-COB" secondAttribute="centerX" id="39n-iO-R2z"/>
+                            <constraint firstItem="jN4-G0-jmu" firstAttribute="leading" secondItem="pQt-Sq-COB" secondAttribute="leadingMargin" id="Agb-cC-3um"/>
+                            <constraint firstItem="P3R-gU-VEK" firstAttribute="trailing" secondItem="pQt-Sq-COB" secondAttribute="trailingMargin" id="B9n-Ct-ma1"/>
+                            <constraint firstItem="L4v-DO-h79" firstAttribute="trailing" secondItem="pQt-Sq-COB" secondAttribute="trailingMargin" id="HDA-rx-33y"/>
+                            <constraint firstItem="P3R-gU-VEK" firstAttribute="leading" secondItem="pQt-Sq-COB" secondAttribute="leadingMargin" id="NH4-sH-NdW"/>
+                            <constraint firstItem="PNx-wR-j1S" firstAttribute="top" secondItem="Cxs-Om-m5Q" secondAttribute="bottom" constant="8" id="QPo-hh-ZW9"/>
+                            <constraint firstItem="L4v-DO-h79" firstAttribute="leading" secondItem="pQt-Sq-COB" secondAttribute="leadingMargin" id="QZr-o9-y8l"/>
+                            <constraint firstItem="P3R-gU-VEK" firstAttribute="top" secondItem="jN4-G0-jmu" secondAttribute="bottom" constant="8" id="SBI-Tr-bnn"/>
+                            <constraint firstItem="jN4-G0-jmu" firstAttribute="top" secondItem="L4v-DO-h79" secondAttribute="bottom" constant="8" id="Z39-F3-ckS"/>
+                            <constraint firstItem="jN4-G0-jmu" firstAttribute="trailing" secondItem="pQt-Sq-COB" secondAttribute="trailingMargin" id="fZk-lf-zZr"/>
+                            <constraint firstItem="L4v-DO-h79" firstAttribute="top" secondItem="ZgI-9k-efp" secondAttribute="bottom" constant="8" id="jT3-ui-VMX"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="user.png" id="5dA-Az-Z4Q"/>
+                    <navigationItem key="navigationItem" id="vM9-pA-PyN"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="displayNameLabel" destination="L4v-DO-h79" id="Vg2-pS-QSy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w3c-XV-cG2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="FI6-bF-Ipm">
+                    <connections>
+                        <action selector="showTapped:" destination="zf4-oy-pQM" id="htl-ET-JE4"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-885.60000000000002" y="-100.29985007496252"/>
         </scene>
@@ -69,6 +168,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="user.png" width="30" height="30"/>
+        <image name="car.png" width="32" height="32"/>
+        <image name="credit-card.png" width="32" height="32"/>
+        <image name="user.png" width="32" height="32"/>
     </resources>
 </document>

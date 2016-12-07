@@ -12,18 +12,23 @@ import FirebaseAuth
 
 class ProfileViewController: UIViewController {
 
+    @IBOutlet var displayNameLabel: UILabel!
+
     var paymentContext: STPPaymentContext!
     
     @IBAction func showTapped(_ sender: AnyObject) {
-        self.paymentContext.presentPaymentMethodsViewController()
+        self.paymentContext.pushPaymentMethodsViewController()
     }
     
     @IBAction func logoutTapped(_ sender: AnyObject) {
         try! FIRAuth.auth()!.signOut()
+        navigationController?.dismiss(animated: true, completion: nil)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        displayNameLabel.text = "\((AppState.sharedInstance.currentUser?.firstName)!) \((AppState.sharedInstance.currentUser?.lastName)!)"
+
         paymentContext = STPPaymentContext.init(apiAdapter: CarkoAPIClient.sharedClient)
         paymentContext.delegate = self
         paymentContext.hostViewController = self

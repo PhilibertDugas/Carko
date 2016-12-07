@@ -44,7 +44,7 @@
                             <constraint firstItem="vJw-M0-R9n" firstAttribute="leading" secondItem="Njl-x4-YWd" secondAttribute="leading" id="s76-IW-S9c"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Nearby Parkings" image="map.png" id="dfl-Y5-pPe"/>
+                    <tabBarItem key="tabBarItem" title="Nearby Parkings" image="placeholder.png" id="dfl-Y5-pPe"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="containerView" destination="heP-Do-prp" id="vDW-CZ-j2R"/>
@@ -327,8 +327,8 @@
         <image name="clock.png" width="32" height="32"/>
         <image name="close.png" width="32" height="32"/>
         <image name="credit-card.png" width="32" height="32"/>
-        <image name="map.png" width="30" height="30"/>
         <image name="money-bag.png" width="32" height="32"/>
+        <image name="placeholder.png" width="32" height="32"/>
         <image name="success.png" width="32" height="32"/>
     </resources>
 </document>

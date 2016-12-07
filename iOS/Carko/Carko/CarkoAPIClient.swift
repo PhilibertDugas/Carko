@@ -104,7 +104,7 @@ extension CarkoAPIClient {
     }
 
     func postUser(user: User, complete: @escaping (Error?) -> Void) {
-        let parameters: Parameters = user.toDictionnary()
+        let parameters: Parameters = ["customer": user.toDictionnary()]
         let postUrl = baseUrl.appendingPathComponent("/customers")
         request(postUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).response { (response) in
             complete(response.error)
