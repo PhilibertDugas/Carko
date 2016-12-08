@@ -13,6 +13,8 @@ import FirebaseAuth
 class ProfileViewController: UIViewController {
 
     @IBOutlet var displayNameLabel: UILabel!
+    @IBOutlet var creditCardLabel: UILabel!
+    @IBOutlet var vehiculeLabel: UILabel!
 
     var paymentContext: STPPaymentContext!
     
@@ -24,14 +26,22 @@ class ProfileViewController: UIViewController {
         try! FIRAuth.auth()!.signOut()
         navigationController?.dismiss(animated: true, completion: nil)
     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        displayNameLabel.text = "\((AppState.sharedInstance.currentUser?.firstName)!) \((AppState.sharedInstance.currentUser?.lastName)!)"
+        displayNameLabel.text = "\(AppState.sharedInstance.currentUser.firstName!) \(AppState.sharedInstance.currentUser.lastName!)"
 
         paymentContext = STPPaymentContext.init(apiAdapter: CarkoAPIClient.sharedClient)
         paymentContext.delegate = self
         paymentContext.hostViewController = self
+        setCreditCardLabel(paymentContext: paymentContext)
+    }
+
+    func setCreditCardLabel(paymentContext: STPPaymentContext) {
+        if let paymentMethod = paymentContext.selectedPaymentMethod {
+            creditCardLabel.text = paymentMethod.label
+        }
     }
 }
 
@@ -41,7 +51,7 @@ extension ProfileViewController: STPPaymentContextDelegate {
     }
 
     func paymentContextDidChange(_ paymentContext: STPPaymentContext) {
-        return
+        setCreditCardLabel(paymentContext: paymentContext)
     }
     
     func paymentContext(_ paymentContext: STPPaymentContext, didFailToLoadWithError error: Error) {

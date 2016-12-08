@@ -8,6 +8,7 @@ target 'Carko' do
   pod 'Firebase'
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
+  pod 'FirebaseUI/Storage', '~> 1.0'
   pod 'Stripe'
   pod 'Alamofire'
   pod 'ARNTransitionAnimator', '2.0.3'

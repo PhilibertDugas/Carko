@@ -117,17 +117,14 @@ class ParkingInfoViewController: UIViewController {
     }
 
     func loadParkingPicture() {
-        // meh maybe not here
         if let url = self.parking?.photoURL {
-            if let data = try? Data(contentsOf: url) {
-                let image = UIImage(data: data)!
-                displayImage(image: image)
-            }
+            let imageReference = AppState.sharedInstance.storageReference.storage.reference(forURL: url.absoluteString)
+            parkingImageView.sd_setImage(with: imageReference)
+            displayImage()
         }
     }
 
-    func displayImage(image: UIImage) {
-        self.parkingImageView.image = image
+    func displayImage() {
         self.parkingImageView.alpha = 1.0
         self.helperImageView.isHidden = true
         self.helperImageLabel.isHidden = true
@@ -188,8 +185,8 @@ extension ParkingInfoViewController: UIImagePickerControllerDelegate {
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            parkingImageView.contentMode = UIViewContentMode.scaleAspectFit
-            displayImage(image: image)
+            parkingImageView.image = image
+            displayImage()
             // make a spinner or something
             uploadImage()
             dismiss(animated: true, completion: nil)

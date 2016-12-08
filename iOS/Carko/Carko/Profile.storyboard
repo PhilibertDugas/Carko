@@ -65,7 +65,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jN4-G0-jmu" customClass="BorderedView" customModule="Carko" customModuleProvider="target">
                                 <rect key="frame" x="16" y="155" width="343" height="110"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JD0-UQ-I7k">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select your vehicule" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JD0-UQ-I7k">
                                         <rect key="frame" x="56" y="35" width="279" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="37g-hF-nVb"/>
@@ -102,7 +102,7 @@
                                             <constraint firstAttribute="height" constant="40" id="n57-Sx-IFP"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6No-dI-kIc">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a payment method" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6No-dI-kIc">
                                         <rect key="frame" x="56" y="35" width="279" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="lgy-WL-DMP"/>
@@ -146,7 +146,9 @@
                     <navigationItem key="navigationItem" id="vM9-pA-PyN"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="creditCardLabel" destination="6No-dI-kIc" id="ZRV-Mg-S8X"/>
                         <outlet property="displayNameLabel" destination="L4v-DO-h79" id="Vg2-pS-QSy"/>
+                        <outlet property="vehiculeLabel" destination="JD0-UQ-I7k" id="HLA-75-ZB7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w3c-XV-cG2" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -8,6 +8,7 @@
 
 import UIKit
 import Stripe
+import FirebaseStorageUI
 
 class BookParkingViewController: UIViewController {
 
@@ -25,7 +26,6 @@ class BookParkingViewController: UIViewController {
     var sliderValue: Int?
     var paymentContext: STPPaymentContext!
     var parking: Parking!
-    var parkingImage: UIImage?
 
     var tapCloseButtonActionHandler : ((Void) -> Void)?
 
@@ -59,8 +59,9 @@ class BookParkingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let image = parkingImage {
-            parkingImageView.image = image
+        if let url = parking.photoURL {
+            let imageReference = AppState.sharedInstance.storageReference.storage.reference(forURL: url.absoluteString)
+            parkingImageView.sd_setImage(with: imageReference)
         }
 
         addressLabel.text = parking.address

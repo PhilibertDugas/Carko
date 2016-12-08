@@ -21,6 +21,7 @@ class ParkingTransitionAnimation {
     var tabBarStartFrame: CGRect
 
     var containerView: UIView?
+    var superView: UIView!
 
     deinit {
         print("deinit ParkingTransitionAnimation")
@@ -29,6 +30,8 @@ class ParkingTransitionAnimation {
     init(rootVC: FindParkingViewController, modalVC: BookParkingViewController) {
         self.rootVC = rootVC
         self.modalVC = modalVC
+
+        self.superView = rootVC.tabBar.superview
 
         self.popupStartFrame = rootVC.popupView.frame
         self.tabBarStartFrame = rootVC.tabBar.frame
@@ -130,8 +133,7 @@ extension ParkingTransitionAnimation: TransitionAnimatable {
         } else {
             if didComplete {
                 self.modalVC.view.removeFromSuperview()
-                self.rootVC.tabBar.removeFromSuperview()
-                self.rootVC.view.addSubview(self.rootVC.tabBar)
+                self.superView.addSubview(self.rootVC.tabBar)
                 self.completion?(transitionType.isPresenting)
             } else {
                 self.rootVC.popupView.alpha = 0.0

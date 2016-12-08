@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseStorageUI
 
 class MyParkingsViewController: UIViewController {
 
@@ -73,14 +74,11 @@ extension MyParkingsViewController: UITableViewDataSource, UITableViewDelegate {
         
         cell.address.text = parkingList[indexPath.row].address
 
-        // FIXME: we can probably make this async
         if let url = parkingList[indexPath.row].photoURL {
-            if let data = try? Data(contentsOf: url) {
-                let image = UIImage(data: data)
-                cell.parkingImage.image = image
-            }
+            let imageReference = AppState.sharedInstance.storageReference.storage.reference(forURL: url.absoluteString)
+            cell.parkingImage.sd_setImage(with: imageReference)
         }
-        
+
         return cell
     }
 }

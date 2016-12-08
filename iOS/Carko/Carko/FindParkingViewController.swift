@@ -9,13 +9,14 @@
 import UIKit
 import ARNTransitionAnimator
 import MapKit
+import FirebaseStorageUI
 
 class FindParkingViewController: UIViewController {
 
     @IBOutlet var popupView: MarkerPopup!
     @IBOutlet var containerView: UIView!
-    var tabBar: UITabBar!
 
+    var tabBar: UITabBar!
     var bookParkingVC: BookParkingViewController!
     var animator: ARNTransitionAnimator!
     var selectedParking: Parking?
@@ -52,13 +53,9 @@ class FindParkingViewController: UIViewController {
             
             popupView.descriptionLabel.text = parking.address
 
-            // FIXME: Duplicated, DRY this
             if let url = parking.photoURL {
-                if let data = try? Data(contentsOf: url) {
-                    let image = UIImage(data: data)!
-                    popupView.imageView.image = image
-                    self.bookParkingVC.parkingImage = image
-                }
+                let imageReference = AppState.sharedInstance.storageReference.storage.reference(forURL: url.absoluteString)
+                popupView.imageView.sd_setImage(with: imageReference)
             }
 
             UIView.animate(withDuration: 0.25, animations: {
