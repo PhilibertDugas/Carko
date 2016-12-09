@@ -11,7 +11,15 @@ import UIKit
 class BorderedView: UIView {
 
     override func draw(_ rect: CGRect) {
-        layer.borderColor = UIColor.lightGray.cgColor
-        layer.borderWidth = CGFloat.init(1.0)
+        let startingPoint = CGPoint.init(x: rect.minX, y: rect.maxY)
+        let endingPoint = CGPoint.init(x: rect.maxX, y: rect.maxY)
+
+        let path = UIBezierPath.init()
+        path.move(to: startingPoint)
+        path.addLine(to: endingPoint)
+        path.lineWidth = 2.0
+
+        tintColor.setStroke()
+        path.stroke()
     }
 }
