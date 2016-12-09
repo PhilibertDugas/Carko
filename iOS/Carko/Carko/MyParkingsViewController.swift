@@ -64,6 +64,10 @@ extension MyParkingsViewController: UITableViewDataSource, UITableViewDelegate {
         selectedRowIndex = indexPath.row
         return indexPath
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return parkingList.count
