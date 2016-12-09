@@ -10,19 +10,17 @@ import UIKit
 import Stripe
 import FirebaseAuth
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UITableViewController {
 
-    @IBOutlet var displayNameLabel: UILabel!
     @IBOutlet var creditCardLabel: UILabel!
     @IBOutlet var vehiculeLabel: UILabel!
+    @IBOutlet var displayNameLabel: UILabel!
+    @IBOutlet var emailLabel: UILabel!
+    @IBOutlet var creditCardImage: UIImageView!
 
     var paymentContext: STPPaymentContext!
-    
-    @IBAction func showTapped(_ sender: AnyObject) {
-        self.paymentContext.pushPaymentMethodsViewController()
-    }
-    
-    @IBAction func logoutTapped(_ sender: AnyObject) {
+
+    func logoutTapped() {
         try! FIRAuth.auth()!.signOut()
         navigationController?.dismiss(animated: true, completion: nil)
     }
@@ -30,7 +28,11 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.title = "Settings"
+
         displayNameLabel.text = "\(AppState.sharedInstance.currentUser.firstName!) \(AppState.sharedInstance.currentUser.lastName!)"
+
+        emailLabel.text = "\(AppState.sharedInstance.currentUser.email)"
 
         paymentContext = STPPaymentContext.init(apiAdapter: CarkoAPIClient.sharedClient)
         paymentContext.delegate = self
@@ -41,6 +43,31 @@ class ProfileViewController: UIViewController {
     func setCreditCardLabel(paymentContext: STPPaymentContext) {
         if let paymentMethod = paymentContext.selectedPaymentMethod {
             creditCardLabel.text = paymentMethod.label
+            creditCardImage.image = paymentMethod.image
+        }
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case 0:
+            break
+        case 1:
+            handlePaymentSection(cellIndex: indexPath.row)
+        case 2:
+            logoutTapped()
+            break
+        default:
+            break
+        }
+    }
+
+    func handlePaymentSection(cellIndex: Int) {
+        switch cellIndex {
+        case 0:
+            self.paymentContext.pushPaymentMethodsViewController()
+            break
+        default:
+            break
         }
     }
 }

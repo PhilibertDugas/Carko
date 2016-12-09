@@ -59,6 +59,7 @@ class RegisterViewController: UIViewController {
             } else if let user = user {
                 UserDefaults.standard.set(user.toDictionnary(), forKey: "user")
                 AppState.sharedInstance.currentUser = user
+                self.dismiss(animated: true, completion: nil)
                 self.performSegue(withIdentifier: "UserRegistered", sender: nil)
             }
         }

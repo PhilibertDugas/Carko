@@ -37,7 +37,6 @@ class LoginViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -57,6 +56,7 @@ class LoginViewController: UIViewController {
             } else if let user = user {
                 UserDefaults.standard.set(user.toDictionnary(), forKey: "user")
                 AppState.sharedInstance.currentUser = user
+                self.dismiss(animated: true, completion: nil)
                 self.performSegue(withIdentifier: "UserLoggedIn", sender: nil)
             }
         }
