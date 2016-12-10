@@ -59,11 +59,11 @@ class Parking: NSObject {
     }
     
     func persist(complete: @escaping (Error?) -> Void) {
-        CarkoAPIClient.sharedClient.createParking(parking: self, complete: complete)
+        CarkoAPIClient.shared.createParking(parking: self, complete: complete)
     }
 
     func delete(complete: @escaping (Error?) -> Void) {
-        CarkoAPIClient.sharedClient.deleteParking(parking: self, complete: complete)
+        CarkoAPIClient.shared.deleteParking(parking: self, complete: complete)
     }
     
     func toDictionary() -> [String : Any] {
@@ -96,7 +96,7 @@ class Parking: NSObject {
     }
     
     class func getAllParkings() {
-        CarkoAPIClient.sharedClient.getAllParkings { (parkings, error) in
+        CarkoAPIClient.shared.getAllParkings { (parkings, error) in
             if let error = error {
                 print(error)
             } else {
@@ -107,7 +107,7 @@ class Parking: NSObject {
     }
 
     class func getCustomerParkings() {
-        CarkoAPIClient.sharedClient.getCustomerParkings { (parkings, error) in
+        CarkoAPIClient.shared.getCustomerParkings { (parkings, error) in
             if let error = error {
                 print(error)
             } else {

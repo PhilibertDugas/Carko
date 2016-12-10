@@ -54,7 +54,7 @@ class FindParkingViewController: UIViewController {
             popupView.descriptionLabel.text = parking.address
 
             if let url = parking.photoURL {
-                let imageReference = AppState.sharedInstance.storageReference.storage.reference(forURL: url.absoluteString)
+                let imageReference = AppState.shared.storageReference.storage.reference(forURL: url.absoluteString)
                 popupView.imageView.sd_setImage(with: imageReference)
             }
 

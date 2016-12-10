@@ -33,8 +33,8 @@ class RegisterViewController: UIViewController {
             registerButton.addSubview(indicator!)
             indicator!.startAnimating()
 
-            let user = User.init(email: email, password: password, firstName: firstName, lastName: lastName)
-            user.register()
+            let customer = Customer.init(email: email, password: password, firstName: firstName, lastName: lastName)
+            customer.register()
         } else {
             print("Display an error message to the user")
         }
@@ -45,20 +45,20 @@ class RegisterViewController: UIViewController {
         
         self.hideKeyboardWhenTappedAround()
 
-        NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.userRegistered), name: NSNotification.Name(rawValue: "UserRegistered"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.userRegistered), name: NSNotification.Name(rawValue: "CustomerRegistered"), object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.userRegisteredError), name: NSNotification.Name(rawValue: "UserRegisteredError"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.userRegisteredError), name: NSNotification.Name(rawValue: "CustomerRegisteredError"), object: nil)
     }
 
     func userRegistered(_ notification: Notification) {
         indicator?.stopAnimating()
         indicator?.removeFromSuperview()
-        User.getUser { (user, error) in
+        Customer.getCustomer { (customer, error) in
             if let error = error {
                 print("Shit something went wrong display something to the user: \(error.localizedDescription)")
-            } else if let user = user {
-                UserDefaults.standard.set(user.toDictionnary(), forKey: "user")
-                AppState.sharedInstance.currentUser = user
+            } else if let customer = customer {
+                UserDefaults.standard.set(customer.toDictionnary(), forKey: "user")
+                AppState.shared.customer = customer
                 self.dismiss(animated: true, completion: nil)
                 self.performSegue(withIdentifier: "UserRegistered", sender: nil)
             }

@@ -30,11 +30,11 @@ class ProfileViewController: UITableViewController {
 
         self.title = "Settings"
 
-        displayNameLabel.text = "\(AppState.sharedInstance.currentUser.firstName!) \(AppState.sharedInstance.currentUser.lastName!)"
+        displayNameLabel.text = "\(AppState.shared.customer.firstName!) \(AppState.shared.customer.lastName!)"
 
-        emailLabel.text = "\(AppState.sharedInstance.currentUser.email)"
+        emailLabel.text = "\(AppState.shared.customer.email)"
 
-        paymentContext = STPPaymentContext.init(apiAdapter: CarkoAPIClient.sharedClient)
+        paymentContext = STPPaymentContext.init(apiAdapter: CarkoAPIClient.shared)
         paymentContext.delegate = self
         paymentContext.hostViewController = self
         setCreditCardLabel(paymentContext: paymentContext)

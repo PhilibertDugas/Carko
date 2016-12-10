@@ -28,8 +28,8 @@ class LoginViewController: UIViewController {
             indicator?.center = CGPoint.init(x: buttonWidth - halfButtonHeight, y: halfButtonHeight)
             loginButton.addSubview(indicator!)
             indicator!.startAnimating()
-            let user = User.init(email: email.text!, password: password.text!)
-            user.logIn()
+            let customer = Customer.init(email: email.text!, password: password.text!)
+            customer.logIn()
         }
     }
 
@@ -42,20 +42,20 @@ class LoginViewController: UIViewController {
 
         self.hideKeyboardWhenTappedAround()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.userLoggedIn), name: NSNotification.Name(rawValue: "UserLoggedIn"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.userLoggedIn), name: NSNotification.Name(rawValue: "CustomerLoggedIn"), object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.userLoggedInError), name: NSNotification.Name(rawValue: "UserLoggedInError"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.userLoggedInError), name: NSNotification.Name(rawValue: "CustomerLoggedInError"), object: nil)
     }
 
     func userLoggedIn(_ notification: Notification) {
         indicator?.stopAnimating()
         indicator?.removeFromSuperview()
-        User.getUser { (user, error) in
+        Customer.getCustomer { (customer, error) in
             if let error = error {
                 print("Shit something went wrong display something to the user: \(error.localizedDescription)")
-            } else if let user = user {
-                UserDefaults.standard.set(user.toDictionnary(), forKey: "user")
-                AppState.sharedInstance.currentUser = user
+            } else if let customer = customer {
+                UserDefaults.standard.set(customer.toDictionnary(), forKey: "user")
+                AppState.shared.customer = customer
                 self.dismiss(animated: true, completion: nil)
                 self.performSegue(withIdentifier: "UserLoggedIn", sender: nil)
             }

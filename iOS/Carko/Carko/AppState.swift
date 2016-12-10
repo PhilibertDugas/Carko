@@ -10,8 +10,8 @@ import Foundation
 import FirebaseStorage
 
 class AppState: NSObject {
-    static let sharedInstance = AppState.init()
+    static let shared = AppState.init()
 
-    var currentUser: User!
+    var customer: Customer!
     let storageReference = FIRStorage.storage().reference(forURL: "gs://carko-1475431423846.appspot.com")
 }

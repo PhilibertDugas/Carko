@@ -112,13 +112,13 @@ class ParkingInfoViewController: UIViewController {
             parkingDescriptionLabel.text = parking.pDescription
         } else {
             let newAvailabilityInfo = AvailabilityInfo.init()
-            self.parking = Parking.init(latitude: CLLocationDegrees.init(75), longitude: CLLocationDegrees.init(-135), photoURL: URL.init(string: ""), address: "Select a location", price: 1.0, pDescription: "", isAvailable: true, availabilityInfo: newAvailabilityInfo, customerId: (AppState.sharedInstance.currentUser?.id)!)
+            self.parking = Parking.init(latitude: CLLocationDegrees.init(75), longitude: CLLocationDegrees.init(-135), photoURL: URL.init(string: ""), address: "Select a location", price: 1.0, pDescription: "", isAvailable: true, availabilityInfo: newAvailabilityInfo, customerId: AppState.shared.customer.id!)
         }
     }
 
     func loadParkingPicture() {
         if let url = self.parking?.photoURL {
-            let imageReference = AppState.sharedInstance.storageReference.storage.reference(forURL: url.absoluteString)
+            let imageReference = AppState.shared.storageReference.storage.reference(forURL: url.absoluteString)
             parkingImageView.sd_setImage(with: imageReference)
             displayImage()
         }
@@ -198,7 +198,7 @@ extension ParkingInfoViewController: UIImagePickerControllerDelegate {
         if let id = parking?.id {
             path = "parking_\(id)_\(Date.init())"
         } else {
-            path = "user_\(AppState.sharedInstance.currentUser?.id!)_\(Date.init())"
+            path = "user_\(AppState.shared.customer.id!)_\(Date.init())"
         }
 
         let data = UIImageJPEGRepresentation(parkingImageView.image!, 0.8)!

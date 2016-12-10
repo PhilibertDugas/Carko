@@ -40,16 +40,16 @@ class EntryViewController: UIViewController {
     
     func transitionToHomePage() {
         if let value = UserDefaults.standard.dictionary(forKey: "user") {
-            let user = User.init(user: value)
-            AppState.sharedInstance.currentUser = user
+            let customer = Customer.init(customer: value)
+            AppState.shared.customer = customer
             self.performSegue(withIdentifier: "UserAlreadyLoggedIn", sender: nil)
         } else {
-            User.getUser { (user, error) in
+            Customer.getCustomer { (customer, error) in
                 if let error = error {
                     print("Shit something went wrong display something to the user: \(error.localizedDescription)")
-                } else if let user = user {
-                    UserDefaults.standard.set(user.toDictionnary(), forKey: "user")
-                    AppState.sharedInstance.currentUser = user
+                } else if let customer = customer {
+                    UserDefaults.standard.set(customer.toDictionnary(), forKey: "user")
+                    AppState.shared.customer = customer
                     self.performSegue(withIdentifier: "UserAlreadyLoggedIn", sender: nil)
                 }
             }

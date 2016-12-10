@@ -15,15 +15,16 @@ class Reservation: NSObject {
     var startTime: String
     var stopTime: String
     var totalCost: Float
+    var charge: String
 
-    init(parkingId: Int, customerId: Int, isActive: Bool, startTime: String, stopTime: String, totalCost: Float) {
+    init(parkingId: Int, customerId: Int, isActive: Bool, startTime: String, stopTime: String, totalCost: Float, charge: String) {
         self.parkingId = parkingId
         self.customerId = customerId
         self.isActive = isActive
         self.startTime = startTime
         self.stopTime = stopTime
         self.totalCost = totalCost
-        super.init()
+        self.charge = charge
     }
 
     convenience init(reservation: [String : Any]) {
@@ -33,7 +34,8 @@ class Reservation: NSObject {
         let startTime = reservation["start_time"] as! String
         let stopTime = reservation["stop_time"] as! String
         let totalCost = reservation["total_cost"] as! Float
-        self.init(parkingId: parkingId, customerId: customerId, isActive: isActive, startTime: startTime, stopTime: stopTime, totalCost: totalCost)
+        let charge = reservation["charge"] as! String
+        self.init(parkingId: parkingId, customerId: customerId, isActive: isActive, startTime: startTime, stopTime: stopTime, totalCost: totalCost, charge: charge)
     }
 
     func toDictionnary() -> [String : Any] {
@@ -43,11 +45,12 @@ class Reservation: NSObject {
             "is_active": self.isActive,
             "start_time": self.startTime,
             "stop_time": self.stopTime,
-            "total_cost": self.totalCost
+            "total_cost": self.totalCost,
+            "charge": self.charge
         ]
     }
 
     func persist(complete: @escaping (Error?) -> Void) {
-        CarkoAPIClient.sharedClient.createReservation(reservation: self, complete: complete)
+        CarkoAPIClient.shared.createReservation(reservation: self, complete: complete)
     }
 }

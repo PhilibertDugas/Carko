@@ -60,7 +60,7 @@ class BookParkingViewController: UIViewController {
         super.viewDidLoad()
 
         if let url = parking.photoURL {
-            let imageReference = AppState.sharedInstance.storageReference.storage.reference(forURL: url.absoluteString)
+            let imageReference = AppState.shared.storageReference.storage.reference(forURL: url.absoluteString)
             parkingImageView.sd_setImage(with: imageReference)
         }
 
@@ -68,7 +68,7 @@ class BookParkingViewController: UIViewController {
         availabilityLabel.text = "Available until \(parking.availabilityInfo.stopTime)"
         creditCardLabel.delegate = self
 
-        paymentContext = STPPaymentContext.init(apiAdapter: CarkoAPIClient.sharedClient)
+        paymentContext = STPPaymentContext.init(apiAdapter: CarkoAPIClient.shared)
 
         // TODO CHANGE THIS
         paymentContext.paymentCurrency = "CAD"
@@ -77,26 +77,8 @@ class BookParkingViewController: UIViewController {
     }
 
     func completeBooking() {
-        let calendar = Calendar.current
-        let now = calendar.dateComponents(in: NSTimeZone.local, from: Date.init())
-        let dateFormatter = DateFormatter.init()
-        dateFormatter.dateFormat = "HH:mm"
-        let startTime = dateFormatter.string(from: now.date!)
-
-        let reservation = Reservation.init(parkingId: parking.id!, customerId: AppState.sharedInstance.currentUser!.id!, isActive: true, startTime: startTime, stopTime: endTimeParking, totalCost: self.totalCost)
-
-        reservation.persist() { error in
-            if error == nil {
-                AppState.sharedInstance.currentUser!.reservations.append(reservation)
-                Parking.getAllParkings()
-                self.tapCloseButtonActionHandler?()
-                self.dismiss(animated: true, completion: nil)
-            }
-        }
-
-        // Uncomment this when we are ready for real payments
-        //self.paymentContext.paymentAmount = Int(self.totalCost * 100)
-        //self.paymentContext.requestPayment()
+        self.paymentContext.paymentAmount = Int(self.totalCost * 100)
+        self.paymentContext.requestPayment()
     }
 
     func setSliderValue() {
@@ -145,8 +127,14 @@ extension BookParkingViewController: UITextFieldDelegate {
 
 extension BookParkingViewController: STPPaymentContextDelegate {
     public func paymentContext(_ paymentContext: STPPaymentContext, didCreatePaymentResult paymentResult: STPPaymentResult, completion: @escaping STPErrorBlock) {
-        paymentResult.source
-        CarkoAPIClient.sharedClient.postCharge(paymentResult.source, paymentContext: paymentContext, completion: completion)
+        let charge = Charge.init(customer: AppState.shared.customer.stripeId!, amount: paymentContext.paymentAmount, currency: paymentContext.paymentCurrency)
+        charge.persist { (id, error) in
+            if let error = error {
+                print("\(error)")
+            } else if let id = id {
+                self.createReservation(chargeId: id)
+            }
+        }
     }
 
     func paymentContextDidChange(_ paymentContext: STPPaymentContext) {
@@ -161,5 +149,24 @@ extension BookParkingViewController: STPPaymentContextDelegate {
 
     func paymentContext(_ paymentContext: STPPaymentContext, didFinishWith status: STPPaymentStatus, error: Error?) {
         return
+    }
+
+    func createReservation(chargeId: String) {
+        let calendar = Calendar.current
+        let now = calendar.dateComponents(in: NSTimeZone.local, from: Date.init())
+        let dateFormatter = DateFormatter.init()
+        dateFormatter.dateFormat = "HH:mm"
+        let startTime = dateFormatter.string(from: now.date!)
+
+        let reservation = Reservation.init(parkingId: parking.id!, customerId: AppState.shared.customer.id!, isActive: true, startTime: startTime, stopTime: endTimeParking, totalCost: self.totalCost, charge: chargeId)
+
+        reservation.persist() { error in
+            if error == nil {
+                AppState.shared.customer.reservations.append(reservation)
+                Parking.getAllParkings()
+                self.tapCloseButtonActionHandler?()
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
     }
 }

@@ -79,7 +79,7 @@ extension MyParkingsViewController: UITableViewDataSource, UITableViewDelegate {
         cell.address.text = parkingList[indexPath.row].address
 
         if let url = parkingList[indexPath.row].photoURL {
-            let imageReference = AppState.sharedInstance.storageReference.storage.reference(forURL: url.absoluteString)
+            let imageReference = AppState.shared.storageReference.storage.reference(forURL: url.absoluteString)
             cell.parkingImage.sd_setImage(with: imageReference)
         }
 
