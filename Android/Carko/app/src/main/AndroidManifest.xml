@@ -19,6 +19,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <service android:name="com.mapbox.mapboxsdk.telemetry.TelemetryService" />
 
         <activity
             android:name=".MainActivity"
@@ -29,28 +30,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login" />
-
         <activity android:name=".RegisterActivity" />
-
         <activity
             android:name=".MostViewedActivity"
             android:label="@string/title_activity_most_viewed"
             android:theme="@style/AppTheme" />
-
         <activity
             android:name=".ParkingDetailActivity"
             android:label="@string/title_activity_parking_detail"
-            android:theme="@style/AppTheme"
-            android:parentActivityName=".ParkingTabActivity"/>
-
+            android:parentActivityName=".ParkingTabActivity"
+            android:theme="@style/AppTheme" />
         <activity android:name=".ParkingTabActivity">
             <service android:name="com.mapbox.mapboxsdk.telemetry.TelemetryService" />
         </activity>
-
+        <activity android:name=".MapboxActivity"></activity>
     </application>
 
 </manifest>

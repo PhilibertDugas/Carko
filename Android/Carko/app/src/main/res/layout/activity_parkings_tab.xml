@@ -11,11 +11,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:id="@+id/main_tab_layout" />
+        android:id="@+id/parkings_tab_layout" />
 
-    <android.support.v4.view.ViewPager
+    <com.carko.carko.CarkoViewPager
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/main_view_pager"/>
+        android:id="@+id/parkings_view_pager"/>
 
 </LinearLayout>

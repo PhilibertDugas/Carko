@@ -1,9 +1,23 @@
 package com.carko.carko;
 
+import android.Manifest;
+import android.content.Context;
+import android.content.pm.PackageManager;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Toast;
+
+import com.mapbox.mapboxsdk.MapboxAccountManager;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ParkingTabActivity extends AppCompatActivity {
 
@@ -16,8 +30,8 @@ public class ParkingTabActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parkings_tab);
 
-        tabLayout = (TabLayout) findViewById(R.id.main_tab_layout);
-        viewPager = (ViewPager) findViewById(R.id.main_view_pager);
+        tabLayout = (TabLayout) findViewById(R.id.parkings_tab_layout);
+        viewPager = (CarkoViewPager) findViewById(R.id.parkings_view_pager);
         viewPagerAdapter = new ParkingViewPagerAdapter(getSupportFragmentManager());
 
         viewPager.setAdapter(viewPagerAdapter);
@@ -54,8 +68,5 @@ public class ParkingTabActivity extends AppCompatActivity {
 
             }
         });
-
-
-
     }
 }

@@ -1,53 +1,47 @@
 package com.carko.carko;
 
-
 import android.Manifest;
+import android.content.Context;
 import android.content.pm.PackageManager;
-import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.widget.Toast;
 
 import com.mapbox.mapboxsdk.MapboxAccountManager;
 import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class ParkingMapFragment extends Fragment {
+import java.util.ArrayList;
+import java.util.List;
 
-    private View fragmentLayout;
+public class MapboxActivity extends AppCompatActivity {
+
     private MapView mapView;
 
-    public ParkingMapFragment() {
-        // Required empty public constructor
-    }
+    private final int CARKO_PERMISSION_LOCATION = 1;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        MapboxAccountManager.start(getActivity(), getString(R.string.mapbox_access_token));
+    protected void onCreate(Bundle savedInstanceState) {
+        MapboxAccountManager.start(this, getString(R.string.mapbox_access_token));
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_mapbox);
 
-        fragmentLayout = inflater.inflate(R.layout.fragment_parking_map, container, false);
-
-        mapView = (MapView) fragmentLayout.findViewById(R.id.mapView);
+        mapView = (MapView) findViewById(R.id.mapview);
         mapView.onCreate(savedInstanceState);
+
+        // Add a MapboxMap
         mapView.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(MapboxMap mapboxMap) {
 
-                // Interact with the map using mapboxMap here
+                // Customize map with markers, polylines, etc.
 
             }
         });
 
-        // Inflate the layout for this fragment
-        return fragmentLayout;
     }
 
     @Override
@@ -75,9 +69,8 @@ public class ParkingMapFragment extends Fragment {
     }
 
     @Override
-    public void onDestroy() {
+    protected void onDestroy() {
         super.onDestroy();
         mapView.onDestroy();
     }
-
 }

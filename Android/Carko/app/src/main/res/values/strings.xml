@@ -38,10 +38,8 @@
     <string name="profit_label">Profit</string>
 
     <!-- Marker info -->
-    <string name="marker_info_tap">Tap to continue...</string>
+    <string name="marker_info_tap">Tap to continue…</string>
     <string name="title_activity_parking_detail">ParkingDetailActivity</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
