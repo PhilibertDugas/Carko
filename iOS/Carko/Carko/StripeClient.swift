@@ -69,4 +69,11 @@ extension CarkoAPIClient: STPBackendAPIAdapter {
             }
         }
     }
+
+    func createBankAccount(bankAccountParams: STPBankAccountParams) {
+        let client = STPAPIClient.shared()
+        client.createToken(withBankAccount: bankAccountParams) { (token, error) in
+            print("\(token)")
+        }
+    }
 }

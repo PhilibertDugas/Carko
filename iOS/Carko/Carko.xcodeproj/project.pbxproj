@@ -56,6 +56,8 @@
 		45BC29651DA18249000C54BC /* CarkoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC29641DA18249000C54BC /* CarkoUITests.swift */; };
 		45C1DBED1DD7870A00B2C96F /* CarkoAPIClientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C1DBEC1DD7870A00B2C96F /* CarkoAPIClientTest.swift */; };
 		45D5A5091DB2BE8F0025C45A /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45D5A5081DB2BE8F0025C45A /* Profile.storyboard */; };
+		45D90AB61E02392800D2D1DF /* right-arrow-circular-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45D90AB51E02392800D2D1DF /* right-arrow-circular-button@2x.png */; };
+		45D90AB81E023B5B00D2D1DF /* check_example@3x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 45D90AB71E023B5B00D2D1DF /* check_example@3x.jpg */; };
 		45E9B91C1DB82F3500C9E9FA /* MarkerPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45E9B91B1DB82F3500C9E9FA /* MarkerPopup.xib */; };
 		45E9B91E1DB82FDF00C9E9FA /* MarkerPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E9B91D1DB82FDF00C9E9FA /* MarkerPopup.swift */; };
 		45EA513B1DDE6F2300BD076C /* FindParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EA513A1DDE6F2300BD076C /* FindParkingViewController.swift */; };
@@ -151,6 +153,8 @@
 		45BC29661DA18249000C54BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45C1DBEC1DD7870A00B2C96F /* CarkoAPIClientTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarkoAPIClientTest.swift; sourceTree = "<group>"; };
 		45D5A5081DB2BE8F0025C45A /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		45D90AB51E02392800D2D1DF /* right-arrow-circular-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "right-arrow-circular-button@2x.png"; path = "../../../../../../Downloads/right-arrow-circular-button@2x.png"; sourceTree = "<group>"; };
+		45D90AB71E023B5B00D2D1DF /* check_example@3x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "check_example@3x.jpg"; path = "../../../../../../Downloads/check_example@3x.jpg"; sourceTree = "<group>"; };
 		45E9B91B1DB82F3500C9E9FA /* MarkerPopup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MarkerPopup.xib; sourceTree = "<group>"; };
 		45E9B91D1DB82FDF00C9E9FA /* MarkerPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkerPopup.swift; sourceTree = "<group>"; };
 		45EA513A1DDE6F2300BD076C /* FindParkingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindParkingViewController.swift; sourceTree = "<group>"; };
@@ -279,6 +283,8 @@
 		45A4CA2E1DB2B8B700741099 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				45D90AB71E023B5B00D2D1DF /* check_example@3x.jpg */,
+				45D90AB51E02392800D2D1DF /* right-arrow-circular-button@2x.png */,
 				456F7F031DF7A41B00C3413E /* placeholder@2x.png */,
 				456F7F051DF7A49000C3413E /* private-garage@2x.png */,
 				456F7F011DF7A2C900C3413E /* user@2x.png */,
@@ -577,6 +583,7 @@
 				45B0890B1DE7B0820003C0BD /* close@2x.png in Resources */,
 				459AD2591DA49C590018B7B9 /* GoogleService-Info.plist in Resources */,
 				450E12481DAF2A880027EFBC /* page4.png in Resources */,
+				45D90AB61E02392800D2D1DF /* right-arrow-circular-button@2x.png in Resources */,
 				456F7F061DF7A49000C3413E /* private-garage@2x.png in Resources */,
 				4506D42E1DF0E7CE00672924 /* photo-camera@3x.png in Resources */,
 				45B0890F1DE7B1290003C0BD /* success@2x.png in Resources */,
@@ -587,6 +594,7 @@
 				450E12471DAF2A880027EFBC /* page3.png in Resources */,
 				45BC294F1DA18249000C54BC /* LaunchScreen.storyboard in Resources */,
 				450E12451DAF2A880027EFBC /* page1.png in Resources */,
+				45D90AB81E023B5B00D2D1DF /* check_example@3x.jpg in Resources */,
 				456F7F021DF7A2C900C3413E /* user@2x.png in Resources */,
 				45EEAA2A1DE3E0760064AFE3 /* parking@3x.png in Resources */,
 				45BC294C1DA18249000C54BC /* Assets.xcassets in Resources */,
