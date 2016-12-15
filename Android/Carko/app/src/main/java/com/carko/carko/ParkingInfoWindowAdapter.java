@@ -26,15 +26,12 @@ public class ParkingInfoWindowAdapter implements MapboxMap.InfoWindowAdapter {
 
     @Override
     public View getInfoWindow(@NonNull Marker marker) {
-        if (mWindow == null) {
-            // No custom layout
-            return null;
-        }
         render(marker, mWindow);
         return mWindow;
     }
 
     private void render(Marker marker, View view){
+        // TODO: Replace placeholders with real information
         //Parking parking = (Parking) marker.getTag();
 
         ((ImageView) view.findViewById(R.id.marker_info_icon)).setImageResource(R.drawable.pacman);

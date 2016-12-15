@@ -35,10 +35,6 @@
             android:label="@string/title_activity_login" />
         <activity android:name=".RegisterActivity" />
         <activity
-            android:name=".MostViewedActivity"
-            android:label="@string/title_activity_most_viewed"
-            android:theme="@style/AppTheme" />
-        <activity
             android:name=".ParkingDetailActivity"
             android:label="@string/title_activity_parking_detail"
             android:parentActivityName=".ParkingTabActivity"
@@ -46,7 +42,6 @@
         <activity android:name=".ParkingTabActivity">
             <service android:name="com.mapbox.mapboxsdk.telemetry.TelemetryService" />
         </activity>
-        <activity android:name=".MapboxActivity"></activity>
     </application>
 
 </manifest>

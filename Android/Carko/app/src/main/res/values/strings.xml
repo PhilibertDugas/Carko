@@ -23,7 +23,10 @@
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_most_viewed">MostViewedActivity</string>
 
+    <!-- Action bar -->
     <string name="action_settings">Settings</string>
+    <!-- TODO: Replace this + string with a bigger + icon -->
+    <string name="action_add_parking">+</string>
 
     <!-- Parking list -->
     <string name="dummy_parking_address">3235 avenue de la malbaie</string>
