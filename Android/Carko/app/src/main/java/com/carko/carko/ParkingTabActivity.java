@@ -91,11 +91,11 @@ public class ParkingTabActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         } else if (id == R.id.action_add_parking) {
-            Toast.makeText(this, "Add parking pressed", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, GeocodingParkingActivity.class);
+            startActivity(intent);
             return true;
         }
 

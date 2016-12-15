@@ -44,5 +44,7 @@
     <string name="marker_info_tap">Tap to continue…</string>
     <string name="title_activity_parking_detail">ParkingDetailActivity</string>
 
+    <!-- Geocoding Activity -->
+    <string name="geocoding_hint">Search location</string>
 
 </resources>
