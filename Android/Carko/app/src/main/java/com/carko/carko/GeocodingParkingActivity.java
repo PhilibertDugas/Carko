@@ -1,9 +1,12 @@
 package com.carko.carko;
 
+import android.graphics.PointF;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.mapbox.mapboxsdk.MapboxAccountManager;
+import com.mapbox.mapboxsdk.annotations.Marker;
 import com.mapbox.mapboxsdk.annotations.MarkerOptions;
 import com.mapbox.mapboxsdk.camera.CameraPosition;
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory;
@@ -11,6 +14,7 @@ import com.mapbox.mapboxsdk.geometry.LatLng;
 import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
+import com.mapbox.mapboxsdk.maps.Projection;
 import com.mapbox.services.android.geocoder.ui.GeocoderAutoCompleteView;
 import com.mapbox.services.commons.models.Position;
 import com.mapbox.services.geocoding.v5.GeocodingCriteria;
@@ -21,7 +25,9 @@ public class GeocodingParkingActivity extends AppCompatActivity
 
     private MapView mapView;
     private MapboxMap map;
+    private Marker currMarker;
 
+    // TODO: Saved current marker in saved instance state
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,11 +61,28 @@ public class GeocodingParkingActivity extends AppCompatActivity
     @Override
     public void onMapReady(MapboxMap mapboxMap){
         map = mapboxMap;
+        final Projection projection = mapboxMap.getProjection();
+        final int width = mapView.getMeasuredWidth();
+        final int height = mapView.getMeasuredHeight();
+
+        map.setOnCameraChangeListener(new MapboxMap.OnCameraChangeListener() {
+            @Override
+            public void onCameraChange(CameraPosition position) {
+                //Log.d("Camera change", pos.target.toString());
+                //LatLng center = pos.target;
+                PointF centerPoint = new PointF(width / 2, height / 2);
+                LatLng centerLatLng = new LatLng(projection.fromScreenLocation(centerPoint));
+
+                //currMarker.setPosition(centerLatLng);
+                map.removeAnnotations();
+                map.addMarker(new MarkerOptions().position(centerLatLng));
+            }
+        });
     }
 
     private void updateMap(double latitude, double longitude) {
         // Build marker
-        map.addMarker(new MarkerOptions()
+        currMarker = map.addMarker(new MarkerOptions()
                 .position(new LatLng(latitude, longitude))
                 .title("Geocoder result"));
 
