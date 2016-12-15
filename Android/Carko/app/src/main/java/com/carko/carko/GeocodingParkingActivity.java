@@ -4,6 +4,11 @@ import android.graphics.PointF;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 
 import com.mapbox.mapboxsdk.MapboxAccountManager;
 import com.mapbox.mapboxsdk.annotations.Marker;
@@ -23,6 +28,7 @@ import com.mapbox.services.geocoding.v5.models.CarmenFeature;
 public class GeocodingParkingActivity extends AppCompatActivity
         implements OnMapReadyCallback {
 
+    private ImageView dropPinView;
     private MapView mapView;
     private MapboxMap map;
     private Marker currMarker;
@@ -65,15 +71,20 @@ public class GeocodingParkingActivity extends AppCompatActivity
         final int width = mapView.getMeasuredWidth();
         final int height = mapView.getMeasuredHeight();
 
-        map.setOnCameraChangeListener(new MapboxMap.OnCameraChangeListener() {
+
+        dropPinView = new ImageView(this);
+        dropPinView.setImageResource(R.drawable.ic_dropping_24dp);
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.CENTER);
+        dropPinView.setLayoutParams(params);
+        mapView.addView(dropPinView);
+
+        dropPinView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCameraChange(CameraPosition position) {
-                //Log.d("Camera change", pos.target.toString());
-                //LatLng center = pos.target;
-                PointF centerPoint = new PointF(width / 2, height / 2);
+            public void onClick(View view) {
+                PointF centerPoint = new PointF(width / 2, (height + dropPinView.getHeight()) / 2);
                 LatLng centerLatLng = new LatLng(projection.fromScreenLocation(centerPoint));
 
-                //currMarker.setPosition(centerLatLng);
                 map.removeAnnotations();
                 map.addMarker(new MarkerOptions().position(centerLatLng));
             }
