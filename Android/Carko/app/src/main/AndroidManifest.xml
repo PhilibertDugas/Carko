@@ -37,12 +37,13 @@
         <activity
             android:name=".ParkingDetailActivity"
             android:label="@string/title_activity_parking_detail"
-            android:parentActivityName=".ParkingTabActivity"
-            android:theme="@style/AppTheme" />
-        <activity android:name=".ParkingTabActivity">
-            <service android:name="com.mapbox.mapboxsdk.telemetry.TelemetryService" />
-        </activity>
-        <activity android:name=".GeocodingParkingActivity"></activity>
+            android:parentActivityName=".ParkingTabActivity"/>
+        <activity android:name=".ParkingTabActivity"
+            android:parentActivityName=".LoginActivity"/>
+        <activity
+            android:name=".GeocodingParkingActivity"
+            android:label="@string/locate_parking"
+            android:parentActivityName=".ParkingTabActivity"/>
     </application>
 
 </manifest>

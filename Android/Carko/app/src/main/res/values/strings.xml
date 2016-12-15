@@ -46,5 +46,6 @@
 
     <!-- Geocoding Activity -->
     <string name="geocoding_hint">Search location</string>
+    <string name="locate_parking">Locate your parking</string>
 
 </resources>

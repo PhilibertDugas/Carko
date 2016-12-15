@@ -1,8 +1,12 @@
 package com.carko.carko;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.graphics.PointF;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -31,12 +35,17 @@ public class GeocodingParkingActivity extends AppCompatActivity
     private ImageView dropPinView;
     private MapView mapView;
     private MapboxMap map;
-    private Marker currMarker;
+    private LatLng currPos;
+    private FloatingActionButton fab;
 
-    // TODO: Saved current marker in saved instance state
+    // TODO: Save current marker in saved instance state
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // Mapbox access token is configured here. This needs to be called either in your application
         // object or in the same activity which contains the mapview.
@@ -62,6 +71,21 @@ public class GeocodingParkingActivity extends AppCompatActivity
             }
         });
 
+        fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent returnIntent = new Intent();
+                if (currPos!=null) {
+                    Bundle data = new Bundle();
+                    data.putParcelable("pos", currPos);
+                    returnIntent.putExtra("bundle", data);
+                }
+                setResult(Activity.RESULT_OK, returnIntent);
+                finish();
+            }
+        });
+
     }
 
     @Override
@@ -70,7 +94,6 @@ public class GeocodingParkingActivity extends AppCompatActivity
         final Projection projection = mapboxMap.getProjection();
         final int width = mapView.getMeasuredWidth();
         final int height = mapView.getMeasuredHeight();
-
 
         dropPinView = new ImageView(this);
         dropPinView.setImageResource(R.drawable.ic_dropping_24dp);
@@ -83,17 +106,17 @@ public class GeocodingParkingActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 PointF centerPoint = new PointF(width / 2, (height + dropPinView.getHeight()) / 2);
-                LatLng centerLatLng = new LatLng(projection.fromScreenLocation(centerPoint));
+                currPos = new LatLng(projection.fromScreenLocation(centerPoint));
 
                 map.removeAnnotations();
-                map.addMarker(new MarkerOptions().position(centerLatLng));
+                map.addMarker(new MarkerOptions().position(currPos));
             }
         });
     }
 
     private void updateMap(double latitude, double longitude) {
         // Build marker
-        currMarker = map.addMarker(new MarkerOptions()
+        map.addMarker(new MarkerOptions()
                 .position(new LatLng(latitude, longitude))
                 .title("Geocoder result"));
 

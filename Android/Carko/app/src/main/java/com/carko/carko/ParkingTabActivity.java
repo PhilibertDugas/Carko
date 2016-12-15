@@ -19,6 +19,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.mapbox.mapboxsdk.MapboxAccountManager;
+import com.mapbox.mapboxsdk.geometry.LatLng;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +29,8 @@ public class ParkingTabActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private ParkingViewPagerAdapter viewPagerAdapter;
+
+    private final int PLACE_PARKING_REQUEST = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,11 +98,22 @@ public class ParkingTabActivity extends AppCompatActivity {
             return true;
         } else if (id == R.id.action_add_parking) {
             Intent intent = new Intent(this, GeocodingParkingActivity.class);
-            startActivity(intent);
+            startActivityForResult(intent,PLACE_PARKING_REQUEST);
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
-    
+
+    protected void onActivityResult(int requestCode, int resultCode,
+                                    Intent data) {
+        if (requestCode == PLACE_PARKING_REQUEST) {
+            if (resultCode == RESULT_OK) {
+                // TODO: Add parking to database
+                Bundle bundle = data.getParcelableExtra("bundle");
+                LatLng pos = bundle != null ? (LatLng) bundle.getParcelable("pos") : null;
+                Toast.makeText(this, pos != null ? pos.toString() : "No parkings", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
 }
