@@ -39,6 +39,7 @@ public class ParkingTabActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         tabLayout = (TabLayout) findViewById(R.id.parkings_tab_layout);
         viewPager = (CarkoViewPager) findViewById(R.id.parkings_view_pager);
@@ -113,6 +114,8 @@ public class ParkingTabActivity extends AppCompatActivity {
                 Bundle bundle = data.getParcelableExtra("bundle");
                 LatLng pos = bundle != null ? (LatLng) bundle.getParcelable("pos") : null;
                 Toast.makeText(this, pos != null ? pos.toString() : "No parkings", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "No parkings", Toast.LENGTH_SHORT).show();
             }
         }
     }

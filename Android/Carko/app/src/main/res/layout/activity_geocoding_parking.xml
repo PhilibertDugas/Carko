@@ -15,11 +15,12 @@
         android:id="@+id/app_bar_layout">
 
         <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+            android:id="@+id/geocoding_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
     </android.support.design.widget.AppBarLayout>
 
@@ -30,7 +31,7 @@
         android:layout_below="@+id/app_bar_layout"
         mapbox:center_latitude="45.547624"
         mapbox:center_longitude="-73.662455"
-        mapbox:style_url="@string/style_mapbox_streets"
+        mapbox:style_url="@string/style_satellite_streets"
         mapbox:zoom="11">
     </com.mapbox.mapboxsdk.maps.MapView>
 

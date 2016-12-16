@@ -43,16 +43,16 @@ public class GeocodingParkingActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         // Mapbox access token is configured here. This needs to be called either in your application
         // object or in the same activity which contains the mapview.
         MapboxAccountManager.start(this, getString(R.string.mapbox_access_token));
 
         // This contains the MapView in XML and needs to be called after the account manager
         setContentView(R.layout.activity_geocoding_parking);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.geocoding_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // Set up the MapView
         mapView = (MapView) findViewById(R.id.mapView);
