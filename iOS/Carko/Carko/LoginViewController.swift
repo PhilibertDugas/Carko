@@ -19,17 +19,17 @@ class LoginViewController: UIViewController {
     var indicator: UIActivityIndicatorView?
     
     @IBAction func loginPressed(_ sender: AnyObject) {
-        if email.text == "" || password.text == "" {
-            errorMessage.text = "Invalid email or password"
-        } else {
+        if let email = email.text, let password = password.text {
             indicator = UIActivityIndicatorView.init(activityIndicatorStyle: UIActivityIndicatorViewStyle.white)
             let halfButtonHeight = loginButton.bounds.size.height / 2
             let buttonWidth = loginButton.bounds.size.width
             indicator?.center = CGPoint.init(x: buttonWidth - halfButtonHeight, y: halfButtonHeight)
             loginButton.addSubview(indicator!)
             indicator!.startAnimating()
-            let customer = Customer.init(email: email.text!, password: password.text!)
-            customer.logIn()
+
+            Customer.logIn(email: email, password: password)
+        } else {
+            errorMessage.text = "Invalid email or password"
         }
     }
 
@@ -42,12 +42,12 @@ class LoginViewController: UIViewController {
 
         self.hideKeyboardWhenTappedAround()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.userLoggedIn), name: NSNotification.Name(rawValue: "CustomerLoggedIn"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.customerLoggedIn), name: NSNotification.Name(rawValue: "CustomerLoggedIn"), object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.userLoggedInError), name: NSNotification.Name(rawValue: "CustomerLoggedInError"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.customerLoggedInError), name: NSNotification.Name(rawValue: "CustomerLoggedInError"), object: nil)
     }
 
-    func userLoggedIn(_ notification: Notification) {
+    func customerLoggedIn(_ notification: Notification) {
         indicator?.stopAnimating()
         indicator?.removeFromSuperview()
         Customer.getCustomer { (customer, error) in
@@ -62,7 +62,7 @@ class LoginViewController: UIViewController {
         }
     }
 
-    func userLoggedInError(_ notification: Notification) {
+    func customerLoggedInError(_ notification: Notification) {
         indicator?.stopAnimating()
         indicator?.removeFromSuperview()
         if let userInfo = notification.userInfo {

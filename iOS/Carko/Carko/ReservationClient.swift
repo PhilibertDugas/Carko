@@ -9,8 +9,6 @@
 import Foundation
 import Alamofire
 
-
-// Reservation api calls
 extension CarkoAPIClient {
     func createReservation(reservation: Reservation, complete: @escaping (Error?) -> Void) {
         let parameters: Parameters = ["reservation": reservation.toDictionnary()]

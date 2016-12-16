@@ -9,7 +9,6 @@
 import Foundation
 import Alamofire
 
-// Customer api calls
 extension CarkoAPIClient {
     func getCustomer(complete: @escaping(Customer?, Error?) -> Void) {
         let url = baseUrl.appendingPathComponent("/customers/\(customerId())")
@@ -27,8 +26,8 @@ extension CarkoAPIClient {
         }
     }
 
-    func postCustomer(customer: Customer, complete: @escaping (Error?) -> Void) {
-        let parameters: Parameters = ["customer": customer.toDictionnary()]
+    func postCustomer(customer: NewCustomer, complete: @escaping (Error?) -> Void) {
+        let parameters: Parameters = ["customer": customer.toDictionary()]
         let postUrl = baseUrl.appendingPathComponent("/customers")
         request(postUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).response { (response) in
             complete(response.error)

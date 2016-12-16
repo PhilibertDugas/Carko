@@ -30,7 +30,7 @@ class ProfileViewController: UITableViewController {
 
         self.title = "Settings"
 
-        displayNameLabel.text = "\(AppState.shared.customer.firstName!) \(AppState.shared.customer.lastName!)"
+        displayNameLabel.text = "\(AppState.shared.customer.firstName) \(AppState.shared.customer.lastName)"
 
         emailLabel.text = "\(AppState.shared.customer.email)"
 

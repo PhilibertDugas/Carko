@@ -9,7 +9,6 @@
 import Foundation
 import Alamofire
 
-// Parking API calls
 extension CarkoAPIClient {
     func createParking(parking: Parking, complete: @escaping (Error?) -> Void ) {
         let parameters: Parameters = ["parking": parking.toDictionary()]

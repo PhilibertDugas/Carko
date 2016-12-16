@@ -127,7 +127,7 @@ extension BookParkingViewController: UITextFieldDelegate {
 
 extension BookParkingViewController: STPPaymentContextDelegate {
     public func paymentContext(_ paymentContext: STPPaymentContext, didCreatePaymentResult paymentResult: STPPaymentResult, completion: @escaping STPErrorBlock) {
-        let charge = Charge.init(customer: AppState.shared.customer.stripeId!, amount: paymentContext.paymentAmount, currency: paymentContext.paymentCurrency)
+        let charge = Charge.init(customer: AppState.shared.customer.stripeId, amount: paymentContext.paymentAmount, currency: paymentContext.paymentCurrency)
         charge.persist { (id, error) in
             if let error = error {
                 print("\(error)")
@@ -158,7 +158,7 @@ extension BookParkingViewController: STPPaymentContextDelegate {
         dateFormatter.dateFormat = "HH:mm"
         let startTime = dateFormatter.string(from: now.date!)
 
-        let reservation = Reservation.init(parkingId: parking.id!, customerId: AppState.shared.customer.id!, isActive: true, startTime: startTime, stopTime: endTimeParking, totalCost: self.totalCost, charge: chargeId)
+        let reservation = Reservation.init(parkingId: parking.id!, customerId: AppState.shared.customer.id, isActive: true, startTime: startTime, stopTime: endTimeParking, totalCost: self.totalCost, charge: chargeId)
 
         reservation.persist() { error in
             if error == nil {

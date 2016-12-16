@@ -10,7 +10,6 @@ import Foundation
 import Alamofire
 import Stripe
 
-// Stripe api calls
 extension CarkoAPIClient: STPBackendAPIAdapter {
     func retrieveCustomer(_ completion: @escaping STPCustomerCompletionBlock) {
         let getUrl = baseUrl.appendingPathComponent("customers/\(self.customerId())")
