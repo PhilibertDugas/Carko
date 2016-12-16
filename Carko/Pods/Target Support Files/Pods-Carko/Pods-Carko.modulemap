@@ -1,0 +1,6 @@
+framework module Pods_Carko {
+  umbrella header "Pods-Carko-umbrella.h"
+
+  export *
+  module * { export * }
+}

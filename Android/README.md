@@ -1,1 +1,0 @@
-Carko for Android
