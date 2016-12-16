@@ -9,7 +9,6 @@
 import Foundation
 import Alamofire
 
-// Customer api calls
 extension CarkoAPIClient {
     func getCustomer(complete: @escaping(Customer?, Error?) -> Void) {
         let url = baseUrl.appendingPathComponent("/customers/\(customerId())")

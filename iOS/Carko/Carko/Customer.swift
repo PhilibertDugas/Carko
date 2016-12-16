@@ -21,6 +21,8 @@ class Customer: NSObject {
     var firebaseId: String!
     var stripeId: String?
 
+    var accountId: String?
+
     var parkings: [(Parking)]
     var reservations: [(Reservation)]
 
