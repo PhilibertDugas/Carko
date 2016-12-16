@@ -23,7 +23,10 @@
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_most_viewed">MostViewedActivity</string>
 
+    <!-- Action bar -->
     <string name="action_settings">Settings</string>
+    <!-- TODO: Replace this + string with a bigger + icon -->
+    <string name="action_add_parking">+</string>
 
     <!-- Parking list -->
     <string name="dummy_parking_address">3235 avenue de la malbaie</string>
@@ -41,5 +44,8 @@
     <string name="marker_info_tap">Tap to continue…</string>
     <string name="title_activity_parking_detail">ParkingDetailActivity</string>
 
+    <!-- Geocoding Activity -->
+    <string name="geocoding_hint">Search location</string>
+    <string name="locate_parking">Locate your parking</string>
 
 </resources>

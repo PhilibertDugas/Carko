@@ -50,6 +50,7 @@ public class ParkingMapFragment extends Fragment
         mMap.setInfoWindowAdapter(new ParkingInfoWindowAdapter(customInfoWindow));
 
         // Interact with the map using mapboxMap here
+        // TODO: Build map from <Marker Id> -> <Parking>
         MarkerViewOptions taisei = new MarkerViewOptions()
                 .position(new LatLng(45.547624, -73.662455))
                 .title("Tai Sei")
