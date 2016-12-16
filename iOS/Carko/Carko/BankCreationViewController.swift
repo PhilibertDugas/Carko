@@ -7,14 +7,40 @@
 //
 
 import UIKit
+import Stripe
 
 class BankCreationViewController: UIViewController {
 
-    var account: Account!
 
+    @IBOutlet var routingNumberTextField: UnderlineTextField!
+    @IBOutlet var accountNumberTextField: UnderlineTextField!
+
+    @IBAction func BankInformationEntered(_ sender: Any) {
+        if let routingNumber = routingNumberTextField.text, let accountNumber = accountNumberTextField.text {
+            let params = STPBankAccountParams.init()
+            params.accountHolderName = "\(AppState.shared.customer.firstName) \(AppState.shared.customer.lastName)"
+            params.accountHolderType = STPBankAccountHolderType.individual
+            params.accountNumber = accountNumber
+            params.routingNumber = routingNumber
+            params.country = "CA"
+            params.currency = "CAD"
+            STPAPIClient.shared().createToken(withBankAccount: params, completion: { (token, error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                } else if let token = token?.tokenId {
+                    Account.associateExternalAccount(token: token, completion: { (error) in
+                        if error != nil {
+                            print("tbk")
+                        } else {
+                            let _ = self.navigationController?.popToRootViewController(animated: true)
+                        }
+                    })
+                }
+            })
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 }

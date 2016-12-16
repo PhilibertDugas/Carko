@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Stripe
 
 class AccountCreationViewController: UIViewController {
 
@@ -38,7 +37,8 @@ class AccountCreationViewController: UIViewController {
         }
 
         if let address = self.address, let dob = self.dob {
-            self.account = Account.init(firstName: AppState.shared.customer.firstName!, lastName: AppState.shared.customer.lastName!, address: address, dob: dob)
+            self.account = Account.init(firstName: AppState.shared.customer.firstName, lastName: AppState.shared.customer.lastName, address: address, dob: dob)
+
             self.account!.persist { (error) in
                 if let error = error {
                     print(error.localizedDescription)
@@ -50,14 +50,10 @@ class AccountCreationViewController: UIViewController {
 
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showBankInformation" {
-            let destination = segue.destination as! BankCreationViewController
-            destination.account = self.account!
-        }
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        if AppState.shared.customer.accountId != nil {
+            self.performSegue(withIdentifier: "showBankInformation", sender: nil)
+        }
     }
 }

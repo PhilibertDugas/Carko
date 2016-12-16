@@ -33,7 +33,7 @@ class RegisterViewController: UIViewController {
             registerButton.addSubview(indicator!)
             indicator!.startAnimating()
 
-            let customer = Customer.init(email: email, password: password, firstName: firstName, lastName: lastName)
+            let customer = NewCustomer.init(email: email, password: password, firstName: firstName, lastName: lastName)
             customer.register()
         } else {
             print("Display an error message to the user")

@@ -40,6 +40,10 @@ class Account: NSObject {
         CarkoAPIClient.shared.postAccount(account: self, complete: completion)
     }
 
+    class func associateExternalAccount(token: String, completion: @escaping (Error?) -> Void) {
+        CarkoAPIClient.shared.postExternalAccount(token: token, complete: completion)
+    }
+
 }
 
 class AccountAddress: NSObject {

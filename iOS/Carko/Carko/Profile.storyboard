@@ -185,7 +185,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="EIA-Tj-76l" kind="show" identifier="showPayoutInformation" id="WjJ-sW-MSo"/>
+                                            <segue destination="IGT-xF-h3K" kind="show" id="Cxs-UE-ZAf"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -358,7 +358,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="74S-qL-fzA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-63.200000000000003" y="-100.29985007496252"/>
+            <point key="canvasLocation" x="562" y="-100"/>
         </scene>
         <!--Bank information-->
         <scene sceneID="8k2-pf-KMk">
@@ -411,9 +411,9 @@
                                     <constraint firstAttribute="width" constant="60" id="rwv-JF-bmS"/>
                                     <constraint firstAttribute="height" constant="60" id="w4l-rN-JvK"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="right-arrow-circular-button.png"/>
+                                <state key="normal" backgroundImage="success.png"/>
                                 <connections>
-                                    <segue destination="IGT-xF-h3K" kind="show" id="6K6-tc-7Me"/>
+                                    <action selector="BankInformationEntered:" destination="aWT-Jx-dCK" eventType="touchUpInside" id="WgU-WU-Yuj"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -435,10 +435,14 @@
                             <constraint firstItem="2IC-pI-c7k" firstAttribute="leading" secondItem="ds2-Mr-fGj" secondAttribute="leadingMargin" id="zgg-GR-NZP"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="accountNumberTextField" destination="ECj-eV-L0Q" id="gpP-Ko-glQ"/>
+                        <outlet property="routingNumberTextField" destination="2IC-pI-c7k" id="BRb-E6-0Xf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JTs-dv-le3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="770" y="-100"/>
+            <point key="canvasLocation" x="1300" y="-100"/>
         </scene>
         <!--Terms of service-->
         <scene sceneID="2Wy-NJ-C21">
@@ -455,7 +459,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ga4-Ge-1ZJ">
                                 <rect key="frame" x="16" y="72" width="343" height="470"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <mutableString key="text">Payment processing services for &lt;USERNAME&gt; on Apya are provided by Stripe and are subject to the Stripe Connected Account Agreement, which includes the Stripe Terms of Service (collectively, the “Stripe Services Agreement”) found here: https://stripe.com/ca/connect-account/legal. By agreeing to these terms or continuing to operate as a parking loaner on Apya, you agree to be bound by the Stripe Services Agreement, as the same may be modified by Stripe from time to time. As a condition of Apya enabling payment processing services through Stripe, you agree to provide Apya accurate and complete information about you and your business, and you authorize Apya to share it and transaction information related to your use of the payment processing services provided by Stripe.</mutableString>
+                                <string key="text">Payment processing services for &lt;USERNAME&gt; on Apya are provided by Stripe and are subject to the Stripe Connected Account Agreement, which includes the Stripe Terms of Service (collectively, the “Stripe Services Agreement”) found here: https://stripe.com/ca/connect-account/legal. By agreeing to these terms or continuing to operate as a parking loaner on Apya, you agree to be bound by the Stripe Services Agreement, as the same may be modified by Stripe from time to time. As a condition of Apya enabling payment processing services through Stripe, you agree to provide Apya accurate and complete information about you and your business, and you authorize Apya to share it and transaction information related to your use of the payment processing services provided by Stripe.</string>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
@@ -466,7 +470,10 @@
                                     <constraint firstAttribute="width" constant="60" id="Eff-e2-uRe"/>
                                     <constraint firstAttribute="height" constant="60" id="s8L-1N-MPi"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="success.png"/>
+                                <state key="normal" backgroundImage="right-arrow-circular-button.png"/>
+                                <connections>
+                                    <segue destination="EIA-Tj-76l" kind="show" id="447-9S-xcs"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -482,7 +489,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fg2-oo-MeC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1532" y="-100"/>
+            <point key="canvasLocation" x="-137" y="-100"/>
         </scene>
     </scenes>
     <resources>
