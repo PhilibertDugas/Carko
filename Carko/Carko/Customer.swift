@@ -18,6 +18,8 @@ class Customer: NSObject {
     var stripeId: String
 
     var accountId: String?
+    var externalLast4Digits: String?
+    var externalBankName: String?
 
     var parkings: [(Parking)]
     var reservations: [(Reservation)]
@@ -47,6 +49,11 @@ class Customer: NSObject {
             self.accountId = account
         }
 
+        if let last4 = customer["bank_last_4_digits"] as? String, let bankName = customer["bank_name"] as? String {
+            self.externalLast4Digits = last4
+            self.externalBankName = bankName
+        }
+
         for parkingDict in customer["parkings"] as! NSArray {
             let parking = Parking.init(parking: parkingDict as! [String:Any])
             self.parkings.append(parking)
@@ -72,6 +79,11 @@ class Customer: NSObject {
 
         if let accountId = self.accountId {
             dict["account_id"] = accountId
+        }
+
+        if let last4 = self.externalLast4Digits, let bankName = self.externalBankName {
+            dict["bank_last_4_digits"] = last4
+            dict["bank_name"] = bankName
         }
 
         return dict

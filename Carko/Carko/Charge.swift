@@ -12,18 +12,21 @@ class Charge: NSObject {
     var customer: String
     var amount: Int
     var currency: String
+    var parkingId: Int
 
-    init(customer: String, amount: Int, currency: String) {
+    init(customer: String, amount: Int, currency: String, parkingId: Int) {
         self.customer = customer
         self.amount = amount
         self.currency = currency
+        self.parkingId = parkingId
     }
 
     func toDictionary() -> [String : Any] {
         return [
             "customer": customer,
             "amount": amount,
-            "currency": currency
+            "currency": currency,
+            "parking_id": parkingId
         ]
     }
 

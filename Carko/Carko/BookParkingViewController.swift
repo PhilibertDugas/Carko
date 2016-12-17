@@ -127,7 +127,7 @@ extension BookParkingViewController: UITextFieldDelegate {
 
 extension BookParkingViewController: STPPaymentContextDelegate {
     public func paymentContext(_ paymentContext: STPPaymentContext, didCreatePaymentResult paymentResult: STPPaymentResult, completion: @escaping STPErrorBlock) {
-        let charge = Charge.init(customer: AppState.shared.customer.stripeId, amount: paymentContext.paymentAmount, currency: paymentContext.paymentCurrency)
+        let charge = Charge.init(customer: AppState.shared.customer.stripeId, amount: paymentContext.paymentAmount, currency: paymentContext.paymentCurrency, parkingId: parking.id!)
         charge.persist { (id, error) in
             if let error = error {
                 print("\(error)")

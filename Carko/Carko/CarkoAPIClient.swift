@@ -12,7 +12,7 @@ import FirebaseAuth
 class CarkoAPIClient: NSObject {
     static let shared = CarkoAPIClient.init()
     //let baseUrlString = "https://fast-crag-37122.herokuapp.com"
-    let baseUrlString = "https://b52328d9.ngrok.io"
+    let baseUrlString = "https://ad6bd892.ngrok.io"
     var baseUrl: URL!
 
     override init() {

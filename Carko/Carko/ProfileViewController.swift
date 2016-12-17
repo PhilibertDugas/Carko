@@ -17,6 +17,7 @@ class ProfileViewController: UITableViewController {
     @IBOutlet var displayNameLabel: UILabel!
     @IBOutlet var emailLabel: UILabel!
     @IBOutlet var creditCardImage: UIImageView!
+    @IBOutlet var payoutLabel: UILabel!
 
     var paymentContext: STPPaymentContext!
 
@@ -27,9 +28,6 @@ class ProfileViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.title = "Settings"
-
         displayNameLabel.text = "\(AppState.shared.customer.firstName) \(AppState.shared.customer.lastName)"
 
         emailLabel.text = "\(AppState.shared.customer.email)"
@@ -38,6 +36,14 @@ class ProfileViewController: UITableViewController {
         paymentContext.delegate = self
         paymentContext.hostViewController = self
         setCreditCardLabel(paymentContext: paymentContext)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        if let bankName = AppState.shared.customer.externalBankName {
+            payoutLabel.text = bankName
+        }
     }
 
     func setCreditCardLabel(paymentContext: STPPaymentContext) {
@@ -65,6 +71,13 @@ class ProfileViewController: UITableViewController {
         switch cellIndex {
         case 0:
             self.paymentContext.pushPaymentMethodsViewController()
+            break
+        case 1:
+            break
+        case 2:
+            if AppState.shared.customer.accountId != nil {
+                performSegue(withIdentifier: "showAccountCreation", sender: nil)
+            }
             break
         default:
             break
