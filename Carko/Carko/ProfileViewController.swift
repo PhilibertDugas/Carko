@@ -80,9 +80,7 @@ class ProfileViewController: UITableViewController {
             self.performSegue(withIdentifier: "showVehiculeInformation", sender: nil)
             break
         case 2:
-            if AppState.shared.customer.accountId != nil {
-                performSegue(withIdentifier: "showAccountCreation", sender: nil)
-            }
+            self.performSegue(withIdentifier: "showAccountCreation", sender: nil)
             break
         default:
             break

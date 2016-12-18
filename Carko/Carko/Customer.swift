@@ -163,7 +163,7 @@ class NewCustomer: NSObject {
                         try! FIRAuth.auth()!.signOut()
                         self.postRegisterError(error!)
                     } else {
-                        NotificationCenter.default.post(name: Notification.Name.init("CustomerLoggedIn"), object: nil, userInfo: nil)
+                        NotificationCenter.default.post(name: Notification.Name.init("CustomerRegistered"), object: nil, userInfo: nil)
                     }
                 })
             }

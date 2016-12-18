@@ -23,6 +23,7 @@ class VehiculeInformationViewController: UIViewController {
                 if let error = error {
                     print(error.localizedDescription)
                 } else {
+                    AppState.shared.customer.vehicule = vehicule
                     let _  = self.navigationController?.popToRootViewController(animated: true)
                 }
             })
@@ -33,5 +34,6 @@ class VehiculeInformationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
     }
 }

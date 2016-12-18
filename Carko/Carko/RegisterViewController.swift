@@ -45,12 +45,12 @@ class RegisterViewController: UIViewController {
         
         self.hideKeyboardWhenTappedAround()
 
-        NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.userRegistered), name: NSNotification.Name(rawValue: "CustomerRegistered"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.customerRegistered), name: NSNotification.Name(rawValue: "CustomerRegistered"), object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.userRegisteredError), name: NSNotification.Name(rawValue: "CustomerRegisteredError"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.customerRegisteredError), name: NSNotification.Name(rawValue: "CustomerRegisteredError"), object: nil)
     }
 
-    func userRegistered(_ notification: Notification) {
+    func customerRegistered(_ notification: Notification) {
         indicator?.stopAnimating()
         indicator?.removeFromSuperview()
         Customer.getCustomer { (customer, error) in
@@ -65,7 +65,7 @@ class RegisterViewController: UIViewController {
         }
     }
 
-    func userRegisteredError(_ notification: Notification) {
+    func customerRegisteredError(_ notification: Notification) {
         indicator?.stopAnimating()
         indicator?.removeFromSuperview()
         if let userInfo = notification.userInfo {

@@ -41,7 +41,7 @@
                                         <rect key="frame" x="0.0" y="35" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="J9d-LW-sep" id="8HV-wl-YUd">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="99.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="99"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N56-0x-y9c">
@@ -87,10 +87,10 @@
                             <tableViewSection headerTitle="Payment &amp; Vehicule" id="gEy-H6-Fqt">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="75" id="RCy-mg-NTd">
-                                        <rect key="frame" x="0.0" y="191" width="375" height="75"/>
+                                        <rect key="frame" x="0.0" y="192" width="375" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RCy-mg-NTd" id="zF3-5g-smZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="74.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="74"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment Information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KJi-jm-RRJ">
@@ -120,10 +120,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="75" id="5fk-Iy-AEg">
-                                        <rect key="frame" x="0.0" y="266" width="375" height="75"/>
+                                        <rect key="frame" x="0.0" y="267" width="375" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5fk-Iy-AEg" id="ppb-gP-uWK">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="74.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="74"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="car.png" translatesAutoresizingMaskIntoConstraints="NO" id="SLM-Bc-ipf">
@@ -153,10 +153,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="75" id="FP0-UI-vBG">
-                                        <rect key="frame" x="0.0" y="341" width="375" height="75"/>
+                                        <rect key="frame" x="0.0" y="342" width="375" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FP0-UI-vBG" id="78x-nY-rit">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="74.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="74"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="money-bag.png" translatesAutoresizingMaskIntoConstraints="NO" id="BZA-Nt-Jwc">
@@ -190,10 +190,10 @@
                             <tableViewSection id="Fan-SX-Vsq">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="75" id="p3U-v9-HbP">
-                                        <rect key="frame" x="0.0" y="452" width="375" height="75"/>
+                                        <rect key="frame" x="0.0" y="453" width="375" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="p3U-v9-HbP" id="Ivx-BB-L9e">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="74"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5gO-Ur-726">
@@ -229,7 +229,7 @@
                         <outlet property="emailLabel" destination="voQ-8N-bte" id="Qog-aw-q7V"/>
                         <outlet property="payoutLabel" destination="qRv-Sw-Tk9" id="irr-4s-FAo"/>
                         <outlet property="vehiculeLabel" destination="yQT-ZA-ZlV" id="c4Z-So-MbX"/>
-                        <segue destination="IGT-xF-h3K" kind="show" identifier="showAccountCreation" action="showDetailViewController:sender:" id="0wQ-n7-Mm5"/>
+                        <segue destination="IGT-xF-h3K" kind="show" identifier="showAccountCreation" id="0wQ-n7-Mm5"/>
                         <segue destination="DAF-Sj-mQX" kind="show" identifier="showVehiculeInformation" id="sN3-lO-cIg"/>
                     </connections>
                 </tableViewController>
@@ -463,7 +463,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ga4-Ge-1ZJ">
                                 <rect key="frame" x="16" y="72" width="343" height="470"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <mutableString key="text">Payment processing services on Apya are provided by Stripe and are subject to the Stripe Connected Account Agreement, which includes the Stripe Terms of Service (collectively, the “Stripe Services Agreement”) found here: https://stripe.com/ca/connect-account/legal. By agreeing to these terms or continuing to operate as a parking loaner on Apya, you agree to be bound by the Stripe Services Agreement, as the same may be modified by Stripe from time to time. As a condition of Apya enabling payment processing services through Stripe, you agree to provide Apya accurate and complete information about you and your business, and you authorize Apya to share it and transaction information related to your use of the payment processing services provided by Stripe.</mutableString>
+                                <string key="text">Payment processing services on Apya are provided by Stripe and are subject to the Stripe Connected Account Agreement, which includes the Stripe Terms of Service (collectively, the “Stripe Services Agreement”) found here: https://stripe.com/ca/connect-account/legal. By agreeing to these terms or continuing to operate as a parking loaner on Apya, you agree to be bound by the Stripe Services Agreement, as the same may be modified by Stripe from time to time. As a condition of Apya enabling payment processing services through Stripe, you agree to provide Apya accurate and complete information about you and your business, and you authorize Apya to share it and transaction information related to your use of the payment processing services provided by Stripe.</string>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
@@ -490,6 +490,7 @@
                             <constraint firstItem="ga4-Ge-1ZJ" firstAttribute="top" secondItem="a9W-zq-pOj" secondAttribute="bottom" constant="8" id="tXs-v7-xKp"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="L3h-g1-g8a"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fg2-oo-MeC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

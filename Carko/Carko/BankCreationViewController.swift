@@ -36,11 +36,13 @@ class BankCreationViewController: UIViewController {
                 STPAPIClient.shared().createToken(withBankAccount: params, completion: { (token, error) in
                     if let error = error {
                         print(error.localizedDescription)
-                    } else if let token = token?.tokenId {
-                        Account.associateExternalAccount(token: token, completion: { (error) in
+                    } else if let token = token {
+                        Account.associateExternalAccount(token: token.tokenId, completion: { (error) in
                             if error != nil {
                                 print("tbk")
                             } else {
+                                AppState.shared.customer.externalLast4Digits = token.bankAccount?.last4()
+                                AppState.shared.customer.externalBankName = token.bankAccount?.bankName!
                                 let _ = self.navigationController?.popToRootViewController(animated: true)
                             }
                         })

@@ -60,11 +60,6 @@ class BookParkingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let url = parking.photoURL {
-            let imageReference = AppState.shared.storageReference.storage.reference(forURL: url.absoluteString)
-            parkingImageView.sd_setImage(with: imageReference)
-        }
-
         addressLabel.text = parking.address
         availabilityLabel.text = "Available until \(parking.availabilityInfo.stopTime)"
         creditCardLabel.delegate = self
@@ -119,6 +114,11 @@ class BookParkingViewController: UIViewController {
         setTimeLabel()
         setCostLabel()
         setVehiculeLabel()
+
+        if let url = parking.photoURL {
+            let imageReference = AppState.shared.storageReference.storage.reference(forURL: url.absoluteString)
+            parkingImageView.sd_setImage(with: imageReference)
+        }
     }
 }
 
