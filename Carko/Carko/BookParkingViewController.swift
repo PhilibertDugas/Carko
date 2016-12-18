@@ -16,6 +16,7 @@ class BookParkingViewController: UIViewController {
     @IBOutlet var addressLabel: UILabel!
     @IBOutlet var availabilityLabel: UILabel!
     @IBOutlet var creditCardLabel: UnderlineTextField!
+    @IBOutlet var vehiculeLabel: UnderlineTextField!
     @IBOutlet var timeLabel: UILabel!
     @IBOutlet var costLabel: UILabel!
 
@@ -102,6 +103,12 @@ class BookParkingViewController: UIViewController {
         costLabel.text = "Cost: " + String.init(format: "%.02f", totalCost) + "$"
     }
 
+    func setVehiculeLabel() {
+        if let vehicule = AppState.shared.customer.vehicule {
+            vehiculeLabel.text = vehicule.stringDescription()
+        }
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
@@ -111,6 +118,7 @@ class BookParkingViewController: UIViewController {
         setSliderValue()
         setTimeLabel()
         setCostLabel()
+        setVehiculeLabel()
     }
 }
 
@@ -118,6 +126,8 @@ extension BookParkingViewController: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         if textField.tag == 10 {
             paymentContext.presentPaymentMethodsViewController()
+            return false
+        } else if textField.tag == 11 {
             return false
         } else {
             return true

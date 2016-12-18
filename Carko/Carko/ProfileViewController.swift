@@ -44,6 +44,10 @@ class ProfileViewController: UITableViewController {
         if let bankName = AppState.shared.customer.externalBankName {
             payoutLabel.text = bankName
         }
+
+        if let vehicule = AppState.shared.customer.vehicule {
+            vehiculeLabel.text = vehicule.stringDescription()
+        }
     }
 
     func setCreditCardLabel(paymentContext: STPPaymentContext) {
@@ -73,6 +77,7 @@ class ProfileViewController: UITableViewController {
             self.paymentContext.pushPaymentMethodsViewController()
             break
         case 1:
+            self.performSegue(withIdentifier: "showVehiculeInformation", sender: nil)
             break
         case 2:
             if AppState.shared.customer.accountId != nil {

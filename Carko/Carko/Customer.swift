@@ -17,6 +17,7 @@ class Customer: NSObject {
     var firebaseId: String
     var stripeId: String
 
+    var vehicule: Vehicule?
     var accountId: String?
     var externalLast4Digits: String?
     var externalBankName: String?
@@ -54,6 +55,10 @@ class Customer: NSObject {
             self.externalBankName = bankName
         }
 
+        if let vehicule = customer["vehicule"] as? [String: Any] {
+            self.vehicule = Vehicule.init(vehicule: vehicule)
+        }
+
         for parkingDict in customer["parkings"] as! NSArray {
             let parking = Parking.init(parking: parkingDict as! [String:Any])
             self.parkings.append(parking)
@@ -76,6 +81,10 @@ class Customer: NSObject {
             "parkings": parkingsAsDict(),
             "reservations": reservationsAsDict()
         ]
+
+        if let vehicule = self.vehicule {
+            dict["vehicule"] = vehicule.toDictionary()
+        }
 
         if let accountId = self.accountId {
             dict["account_id"] = accountId

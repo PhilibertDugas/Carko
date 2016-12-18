@@ -41,7 +41,7 @@
                                         <rect key="frame" x="0.0" y="35" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="J9d-LW-sep" id="8HV-wl-YUd">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="99"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N56-0x-y9c">
@@ -87,10 +87,10 @@
                             <tableViewSection headerTitle="Payment &amp; Vehicule" id="gEy-H6-Fqt">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="75" id="RCy-mg-NTd">
-                                        <rect key="frame" x="0.0" y="192" width="375" height="75"/>
+                                        <rect key="frame" x="0.0" y="191" width="375" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RCy-mg-NTd" id="zF3-5g-smZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="74"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="74.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment Information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KJi-jm-RRJ">
@@ -120,10 +120,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="75" id="5fk-Iy-AEg">
-                                        <rect key="frame" x="0.0" y="267" width="375" height="75"/>
+                                        <rect key="frame" x="0.0" y="266" width="375" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5fk-Iy-AEg" id="ppb-gP-uWK">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="74"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="74.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="car.png" translatesAutoresizingMaskIntoConstraints="NO" id="SLM-Bc-ipf">
@@ -153,10 +153,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="75" id="FP0-UI-vBG">
-                                        <rect key="frame" x="0.0" y="342" width="375" height="75"/>
+                                        <rect key="frame" x="0.0" y="341" width="375" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FP0-UI-vBG" id="78x-nY-rit">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="74"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="74.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="money-bag.png" translatesAutoresizingMaskIntoConstraints="NO" id="BZA-Nt-Jwc">
@@ -190,10 +190,10 @@
                             <tableViewSection id="Fan-SX-Vsq">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="75" id="p3U-v9-HbP">
-                                        <rect key="frame" x="0.0" y="453" width="375" height="75"/>
+                                        <rect key="frame" x="0.0" y="452" width="375" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="p3U-v9-HbP" id="Ivx-BB-L9e">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="74"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5gO-Ur-726">
@@ -230,6 +230,7 @@
                         <outlet property="payoutLabel" destination="qRv-Sw-Tk9" id="irr-4s-FAo"/>
                         <outlet property="vehiculeLabel" destination="yQT-ZA-ZlV" id="c4Z-So-MbX"/>
                         <segue destination="IGT-xF-h3K" kind="show" identifier="showAccountCreation" action="showDetailViewController:sender:" id="0wQ-n7-Mm5"/>
+                        <segue destination="DAF-Sj-mQX" kind="show" identifier="showVehiculeInformation" id="sN3-lO-cIg"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VbB-JC-eyS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -361,7 +362,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="74S-qL-fzA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="562" y="-100"/>
+            <point key="canvasLocation" x="1132" y="-403"/>
         </scene>
         <!--Bank information-->
         <scene sceneID="8k2-pf-KMk">
@@ -445,7 +446,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JTs-dv-le3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1300" y="-100"/>
+            <point key="canvasLocation" x="1849" y="-403"/>
         </scene>
         <!--Terms of service-->
         <scene sceneID="2Wy-NJ-C21">
@@ -462,7 +463,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ga4-Ge-1ZJ">
                                 <rect key="frame" x="16" y="72" width="343" height="470"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Payment processing services for &lt;USERNAME&gt; on Apya are provided by Stripe and are subject to the Stripe Connected Account Agreement, which includes the Stripe Terms of Service (collectively, the “Stripe Services Agreement”) found here: https://stripe.com/ca/connect-account/legal. By agreeing to these terms or continuing to operate as a parking loaner on Apya, you agree to be bound by the Stripe Services Agreement, as the same may be modified by Stripe from time to time. As a condition of Apya enabling payment processing services through Stripe, you agree to provide Apya accurate and complete information about you and your business, and you authorize Apya to share it and transaction information related to your use of the payment processing services provided by Stripe.</string>
+                                <mutableString key="text">Payment processing services on Apya are provided by Stripe and are subject to the Stripe Connected Account Agreement, which includes the Stripe Terms of Service (collectively, the “Stripe Services Agreement”) found here: https://stripe.com/ca/connect-account/legal. By agreeing to these terms or continuing to operate as a parking loaner on Apya, you agree to be bound by the Stripe Services Agreement, as the same may be modified by Stripe from time to time. As a condition of Apya enabling payment processing services through Stripe, you agree to provide Apya accurate and complete information about you and your business, and you authorize Apya to share it and transaction information related to your use of the payment processing services provided by Stripe.</mutableString>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
@@ -492,7 +493,135 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fg2-oo-MeC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-137" y="-100"/>
+            <point key="canvasLocation" x="420" y="-403"/>
+        </scene>
+        <!--Vehicule Information-->
+        <scene sceneID="Kfq-BG-q4b">
+            <objects>
+                <viewController title="Vehicule Information" id="DAF-Sj-mQX" customClass="VehiculeInformationViewController" customModule="Carko" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zcr-tg-yD9"/>
+                        <viewControllerLayoutGuide type="bottom" id="aZn-n6-2Wt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Xne-4Q-BH7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your vehicule details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Xq-fN-Rjj">
+                                <rect key="frame" x="16" y="72" width="343" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="Zmb-6Z-3DF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="License Plate" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W18-br-rUC" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
+                                <rect key="frame" x="16" y="157" width="343" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Wde-Cr-k1w"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="21"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Make" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zfZ-Mf-oYk" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
+                                <rect key="frame" x="16" y="215" width="343" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="15R-gZ-GdG"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="21"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Model" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8zg-J5-Gy3" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
+                                <rect key="frame" x="16" y="273" width="343" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="dAd-1p-8ob"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="21"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Year" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Upm-gF-k4n" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
+                                <rect key="frame" x="16" y="331" width="343" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="UiZ-b4-dG8"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="21"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Color" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SRu-hf-uoV" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
+                                <rect key="frame" x="16" y="389" width="343" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="fYW-aU-mR5"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="21"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Province" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UzN-ZS-XQI" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
+                                <rect key="frame" x="16" y="447" width="343" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="loK-Ua-Wyi"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="21"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sVz-jj-34F" customClass="CircularButton" customModule="Carko" customModuleProvider="target">
+                                <rect key="frame" x="299" y="550" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="8U5-FJ-sTN"/>
+                                    <constraint firstAttribute="width" constant="60" id="s0M-uf-sFS"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="success.png"/>
+                                <connections>
+                                    <action selector="BankInformationEntered:" destination="aWT-Jx-dCK" eventType="touchUpInside" id="K07-zR-xcf"/>
+                                    <action selector="okTapped:" destination="DAF-Sj-mQX" eventType="touchUpInside" id="odh-k2-j46"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Upm-gF-k4n" firstAttribute="leading" secondItem="Xne-4Q-BH7" secondAttribute="leadingMargin" id="2Se-Lp-NdC"/>
+                            <constraint firstItem="W18-br-rUC" firstAttribute="top" secondItem="5Xq-fN-Rjj" secondAttribute="bottom" constant="30" id="37G-5X-QFM"/>
+                            <constraint firstItem="sVz-jj-34F" firstAttribute="trailing" secondItem="Xne-4Q-BH7" secondAttribute="trailingMargin" id="8PA-Nm-2fL"/>
+                            <constraint firstItem="W18-br-rUC" firstAttribute="leading" secondItem="Xne-4Q-BH7" secondAttribute="leadingMargin" id="Ffn-Ex-p9k"/>
+                            <constraint firstItem="Upm-gF-k4n" firstAttribute="trailing" secondItem="Xne-4Q-BH7" secondAttribute="trailingMargin" id="GvT-bK-OfE"/>
+                            <constraint firstItem="UzN-ZS-XQI" firstAttribute="leading" secondItem="Xne-4Q-BH7" secondAttribute="leadingMargin" id="Hsa-me-0k0"/>
+                            <constraint firstItem="zfZ-Mf-oYk" firstAttribute="leading" secondItem="Xne-4Q-BH7" secondAttribute="leadingMargin" id="I7z-RB-lmV"/>
+                            <constraint firstItem="zfZ-Mf-oYk" firstAttribute="top" secondItem="W18-br-rUC" secondAttribute="bottom" constant="8" id="NmK-2b-ecN"/>
+                            <constraint firstItem="aZn-n6-2Wt" firstAttribute="top" secondItem="sVz-jj-34F" secondAttribute="bottom" constant="8" id="OAE-8i-kwX"/>
+                            <constraint firstItem="Upm-gF-k4n" firstAttribute="top" secondItem="8zg-J5-Gy3" secondAttribute="bottom" constant="8" id="OKQ-y5-xDC"/>
+                            <constraint firstItem="SRu-hf-uoV" firstAttribute="trailing" secondItem="Xne-4Q-BH7" secondAttribute="trailingMargin" id="QfI-uF-MyL"/>
+                            <constraint firstItem="SRu-hf-uoV" firstAttribute="leading" secondItem="Xne-4Q-BH7" secondAttribute="leadingMargin" id="UsR-dm-hqj"/>
+                            <constraint firstItem="8zg-J5-Gy3" firstAttribute="leading" secondItem="Xne-4Q-BH7" secondAttribute="leadingMargin" id="UwJ-3b-lEC"/>
+                            <constraint firstItem="W18-br-rUC" firstAttribute="trailing" secondItem="Xne-4Q-BH7" secondAttribute="trailingMargin" id="VcL-CC-ayo"/>
+                            <constraint firstItem="5Xq-fN-Rjj" firstAttribute="leading" secondItem="Xne-4Q-BH7" secondAttribute="leadingMargin" id="WP2-6j-boW"/>
+                            <constraint firstItem="UzN-ZS-XQI" firstAttribute="top" secondItem="SRu-hf-uoV" secondAttribute="bottom" constant="8" id="WiR-gI-HRS"/>
+                            <constraint firstItem="SRu-hf-uoV" firstAttribute="top" secondItem="Upm-gF-k4n" secondAttribute="bottom" constant="8" id="eRE-nf-HL1"/>
+                            <constraint firstItem="UzN-ZS-XQI" firstAttribute="trailing" secondItem="Xne-4Q-BH7" secondAttribute="trailingMargin" id="kJa-Cs-pxq"/>
+                            <constraint firstItem="8zg-J5-Gy3" firstAttribute="top" secondItem="zfZ-Mf-oYk" secondAttribute="bottom" constant="8" id="lih-3P-RZa"/>
+                            <constraint firstItem="zfZ-Mf-oYk" firstAttribute="trailing" secondItem="Xne-4Q-BH7" secondAttribute="trailingMargin" id="mIP-uI-MRH"/>
+                            <constraint firstItem="5Xq-fN-Rjj" firstAttribute="trailing" secondItem="Xne-4Q-BH7" secondAttribute="trailingMargin" id="q10-fs-hpb"/>
+                            <constraint firstItem="8zg-J5-Gy3" firstAttribute="trailing" secondItem="Xne-4Q-BH7" secondAttribute="trailingMargin" id="rF4-vi-4Yu"/>
+                            <constraint firstItem="5Xq-fN-Rjj" firstAttribute="top" secondItem="zcr-tg-yD9" secondAttribute="bottom" constant="8" id="vuA-BO-oE6"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="colorTextField" destination="SRu-hf-uoV" id="bdk-17-ugS"/>
+                        <outlet property="licensePlateTextField" destination="W18-br-rUC" id="k7a-u3-n9B"/>
+                        <outlet property="makeTextField" destination="zfZ-Mf-oYk" id="j8r-L6-QeL"/>
+                        <outlet property="modelTextField" destination="8zg-J5-Gy3" id="Wyo-VG-s9R"/>
+                        <outlet property="provinceTextField" destination="UzN-ZS-XQI" id="lZI-Xw-w5X"/>
+                        <outlet property="yearTextField" destination="Upm-gF-k4n" id="v9N-ua-b5K"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5g6-HO-L1k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="420" y="332"/>
         </scene>
     </scenes>
     <resources>
