@@ -51,24 +51,6 @@ extension CarkoAPIClient: STPBackendAPIAdapter {
         }
     }
 
-    func postCharge(charge: Charge, completion: @escaping (String?, Error?) -> Void) {
-        let parameters: Parameters = ["charge": charge.toDictionary()]
-        let postUrl = baseUrl.appendingPathComponent("/charges")
-        request(postUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { (data) in
-            if let error = data.result.error {
-                completion(nil, error)
-            } else if let response = data.response, let value = data.result.value {
-                if response.statusCode == 201 {
-                    let dataDict = value as! NSDictionary
-                    let id = dataDict["id"] as! String
-                    completion(id, nil)
-                } else {
-                    completion(nil, NSError.init(domain: "Server Error", code: response.statusCode, userInfo: nil))
-                }
-            }
-        }
-    }
-
     func createBankAccount(bankAccountParams: STPBankAccountParams) {
         let client = STPAPIClient.shared()
         client.createToken(withBankAccount: bankAccountParams) { (token, error) in

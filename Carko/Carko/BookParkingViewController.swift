@@ -19,8 +19,9 @@ class BookParkingViewController: UIViewController {
     @IBOutlet var vehiculeLabel: UnderlineTextField!
     @IBOutlet var timeLabel: UILabel!
     @IBOutlet var costLabel: UILabel!
-
+    @IBOutlet var errorLabel: UILabel!
     @IBOutlet var timeSlider: UISlider!
+    @IBOutlet var confirmButton: CircularButton!
 
     var endTimeParking: String!
     var totalCost: Float!
@@ -119,6 +120,12 @@ class BookParkingViewController: UIViewController {
             let imageReference = AppState.shared.storageReference.storage.reference(forURL: url.absoluteString)
             parkingImageView.sd_setImage(with: imageReference)
         }
+
+        if !parking.isAvailable {
+            errorLabel.text = "The parking is currently busy"
+            errorLabel.isHidden = false
+            confirmButton.isEnabled = false
+        }
     }
 }
 
@@ -137,12 +144,26 @@ extension BookParkingViewController: UITextFieldDelegate {
 
 extension BookParkingViewController: STPPaymentContextDelegate {
     public func paymentContext(_ paymentContext: STPPaymentContext, didCreatePaymentResult paymentResult: STPPaymentResult, completion: @escaping STPErrorBlock) {
+
+        let calendar = Calendar.current
+        let now = calendar.dateComponents(in: NSTimeZone.local, from: Date.init())
+        let dateFormatter = DateFormatter.init()
+        dateFormatter.dateFormat = "HH:mm"
+        let startTime = dateFormatter.string(from: now.date!)
+
         let charge = Charge.init(customer: AppState.shared.customer.stripeId, amount: paymentContext.paymentAmount, currency: paymentContext.paymentCurrency, parkingId: parking.id!)
-        charge.persist { (id, error) in
+
+        let reservation = NewReservation.init(parkingId: parking.id!, customerId: AppState.shared.customer.id, isActive: true, startTime: startTime, stopTime: endTimeParking, totalCost: self.totalCost, charge: charge)
+
+        reservation.persist() { (successfulReservation, error) in
             if let error = error {
-                print("\(error)")
-            } else if let id = id {
-                self.createReservation(chargeId: id)
+                self.errorLabel.text = error.localizedDescription
+                self.errorLabel.isHidden = false
+            } else if let successfulReservation = successfulReservation {
+                AppState.shared.customer.reservations.append(successfulReservation)
+                Parking.getAllParkings()
+                self.tapCloseButtonActionHandler?()
+                self.dismiss(animated: true, completion: nil)
             }
         }
     }
@@ -161,22 +182,7 @@ extension BookParkingViewController: STPPaymentContextDelegate {
         return
     }
 
-    func createReservation(chargeId: String) {
-        let calendar = Calendar.current
-        let now = calendar.dateComponents(in: NSTimeZone.local, from: Date.init())
-        let dateFormatter = DateFormatter.init()
-        dateFormatter.dateFormat = "HH:mm"
-        let startTime = dateFormatter.string(from: now.date!)
+    func createReservation(chargeId: String, complete: @escaping (Error?) -> Void) {
 
-        let reservation = Reservation.init(parkingId: parking.id!, customerId: AppState.shared.customer.id, isActive: true, startTime: startTime, stopTime: endTimeParking, totalCost: self.totalCost, charge: chargeId)
-
-        reservation.persist() { error in
-            if error == nil {
-                AppState.shared.customer.reservations.append(reservation)
-                Parking.getAllParkings()
-                self.tapCloseButtonActionHandler?()
-                self.dismiss(animated: true, completion: nil)
-            }
-        }
     }
 }

@@ -21,6 +21,14 @@ class Charge: NSObject {
         self.parkingId = parkingId
     }
 
+    convenience init(charge: [String: Any]) {
+        let customer = charge["customer"] as! String
+        let amount = charge["amount"] as! Int
+        let currency = charge["currency"] as! String
+        let parkingId = charge["parking_id"] as! Int
+        self.init(customer: customer, amount: amount, currency: currency, parkingId: parkingId)
+    }
+
     func toDictionary() -> [String : Any] {
         return [
             "customer": customer,
@@ -28,9 +36,5 @@ class Charge: NSObject {
             "currency": currency,
             "parking_id": parkingId
         ]
-    }
-
-    func persist(completion: @escaping (String?, Error?) -> Void) {
-        CarkoAPIClient.shared.postCharge(charge: self, completion: completion)
     }
 }

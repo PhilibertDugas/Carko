@@ -10,11 +10,23 @@ import Foundation
 import Alamofire
 
 extension CarkoAPIClient {
-    func createReservation(reservation: Reservation, complete: @escaping (Error?) -> Void) {
+    func createReservation(reservation: NewReservation, complete: @escaping (Reservation?, Error?) -> Void) {
         let parameters: Parameters = ["reservation": reservation.toDictionnary()]
         let url = baseUrl.appendingPathComponent("/reservations")
-        request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).response { (response) in
-            complete(response.error)
+        request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { (returned) in
+            if let error = returned.result.error {
+                complete(nil, error)
+            } else if let response = returned.response, let value = returned.result.value {
+                if response.statusCode == 201 {
+                    let reservation = value as! [String: Any]
+                    complete(Reservation.init(reservation: reservation), nil)
+                } else {
+                    let error = value as! NSDictionary
+                    let errorMessage = error.object(forKey: "error") as! String
+                    complete(nil, NSError.init(domain: errorMessage, code: response.statusCode, userInfo: nil))
+                }
+            }
+
         }
     }
 }

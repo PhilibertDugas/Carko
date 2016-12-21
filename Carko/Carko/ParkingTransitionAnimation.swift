@@ -23,10 +23,6 @@ class ParkingTransitionAnimation {
     var containerView: UIView?
     var superView: UIView!
 
-    deinit {
-        print("deinit ParkingTransitionAnimation")
-    }
-
     init(rootVC: FindParkingViewController, modalVC: BookParkingViewController) {
         self.rootVC = rootVC
         self.modalVC = modalVC

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="415-jb-YhG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="415-jb-YhG">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -278,6 +278,15 @@
                                     <constraint firstItem="i99-vL-Cg7" firstAttribute="top" secondItem="6Yy-iS-qEP" secondAttribute="top" constant="8" id="ov5-9j-Aec"/>
                                 </constraints>
                             </view>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This parking is currently busy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GJb-Gn-Rnb">
+                                <rect key="frame" x="16" y="587" width="343" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="DYW-Dv-rEG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0187217119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -292,14 +301,17 @@
                             <constraint firstItem="wXg-WF-Q2s" firstAttribute="centerX" secondItem="G85-aq-sx3" secondAttribute="centerX" id="IXz-Z0-Pyt"/>
                             <constraint firstItem="0Gf-o8-LL7" firstAttribute="trailing" secondItem="G85-aq-sx3" secondAttribute="trailingMargin" id="JxF-an-Hzj"/>
                             <constraint firstItem="23u-Xa-iLr" firstAttribute="trailing" secondItem="G85-aq-sx3" secondAttribute="trailingMargin" id="Qdn-Ki-tmj"/>
+                            <constraint firstItem="GJb-Gn-Rnb" firstAttribute="trailing" secondItem="G85-aq-sx3" secondAttribute="trailingMargin" id="WEi-aY-aQF"/>
                             <constraint firstAttribute="trailing" secondItem="6RE-gw-aRJ" secondAttribute="trailing" id="bCI-of-OlQ"/>
                             <constraint firstItem="23u-Xa-iLr" firstAttribute="top" secondItem="6Yy-iS-qEP" secondAttribute="bottom" constant="8" id="e3A-be-hR8"/>
                             <constraint firstItem="0Gf-o8-LL7" firstAttribute="leading" secondItem="RGQ-q8-Kwd" secondAttribute="trailing" constant="8" id="e9m-Vh-VYn"/>
                             <constraint firstAttribute="trailing" secondItem="6dg-JK-NSX" secondAttribute="trailing" id="fDR-02-E0v"/>
                             <constraint firstItem="p3c-o8-DQT" firstAttribute="leading" secondItem="G85-aq-sx3" secondAttribute="leadingMargin" id="hqE-Ge-f3h"/>
+                            <constraint firstItem="GJb-Gn-Rnb" firstAttribute="leading" secondItem="G85-aq-sx3" secondAttribute="leadingMargin" id="kp8-Ox-ShG"/>
                             <constraint firstItem="p3c-o8-DQT" firstAttribute="top" secondItem="7SP-ky-FIF" secondAttribute="bottom" id="lU0-O0-7IW"/>
                             <constraint firstItem="6Yy-iS-qEP" firstAttribute="top" secondItem="RGQ-q8-Kwd" secondAttribute="bottom" constant="19" id="mQK-PC-Xt7"/>
                             <constraint firstItem="6dg-JK-NSX" firstAttribute="top" secondItem="G85-aq-sx3" secondAttribute="top" id="nmk-Y3-j7B"/>
+                            <constraint firstItem="wXg-WF-Q2s" firstAttribute="top" secondItem="GJb-Gn-Rnb" secondAttribute="bottom" constant="1" id="phq-n5-nCI"/>
                             <constraint firstItem="6Yy-iS-qEP" firstAttribute="leading" secondItem="G85-aq-sx3" secondAttribute="leadingMargin" id="rdf-TR-cJP"/>
                             <constraint firstItem="0Gf-o8-LL7" firstAttribute="top" secondItem="6RE-gw-aRJ" secondAttribute="bottom" constant="8" id="y9v-nk-YnN"/>
                         </constraints>
@@ -310,8 +322,10 @@
                     <connections>
                         <outlet property="addressLabel" destination="Foz-45-Nlo" id="0Mh-7E-Y3y"/>
                         <outlet property="availabilityLabel" destination="57A-ka-oEA" id="ESv-6o-pzB"/>
+                        <outlet property="confirmButton" destination="wXg-WF-Q2s" id="i6M-I4-zju"/>
                         <outlet property="costLabel" destination="nLw-V2-mPK" id="BPC-r6-Jcv"/>
                         <outlet property="creditCardLabel" destination="lGZ-L5-Dop" id="lmc-Pn-Bre"/>
+                        <outlet property="errorLabel" destination="GJb-Gn-Rnb" id="WHR-3W-BXA"/>
                         <outlet property="parkingImageView" destination="6dg-JK-NSX" id="bjD-fr-P2n"/>
                         <outlet property="timeLabel" destination="s41-rb-2sO" id="zIn-fQ-e3r"/>
                         <outlet property="timeSlider" destination="0Gf-o8-LL7" id="2Ul-0l-hcK"/>
