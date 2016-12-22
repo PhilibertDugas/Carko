@@ -62,6 +62,9 @@ class Parking: NSObject {
         CarkoAPIClient.shared.createParking(parking: self, complete: complete)
     }
 
+    func update(complete: @escaping (Error?) -> Void) {
+        CarkoAPIClient.shared.updateParking(parking: self, complete: complete)
+    }
     func delete(complete: @escaping (Error?) -> Void) {
         CarkoAPIClient.shared.deleteParking(parking: self, complete: complete)
     }
@@ -139,7 +142,12 @@ class AvailabilityInfo: NSObject {
     convenience init(availabilityInfo: [String : Any]) {
         let startTime = availabilityInfo["start_time"] as! String
         let stopTime = availabilityInfo["stop_time"] as! String
-        let daysAvailable = availabilityInfo["days_available"] as! [(Bool)]
+        let days = availabilityInfo["days_available"] as! [(Int)]
+        var daysAvailable: [(Bool)] = []
+        for day in days {
+            let available = day == 0 ? true : false
+            daysAvailable.append(available)
+        }
         let alwaysAvailable = availabilityInfo["always_available"] as! Bool
 
         self.init(alwaysAvailable: alwaysAvailable, startTime: startTime, stopTime: stopTime, daysAvailable: daysAvailable)

@@ -12,18 +12,6 @@ class ParkingTableViewCell: UITableViewCell {
 
     @IBOutlet weak var address: UILabel!
     @IBOutlet weak var availabilityLabel: UILabel!
-    @IBOutlet weak var daysAvailable: UILabel!
     @IBOutlet var parkingImage: UIImageView!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
+    @IBOutlet var priceLabel: UILabel!
 }

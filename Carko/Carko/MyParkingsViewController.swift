@@ -75,10 +75,12 @@ extension MyParkingsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = ParkingTableView.dequeueReusableCell(withIdentifier: "parkingCell", for: indexPath) as! ParkingTableViewCell
-        
-        cell.address.text = parkingList[indexPath.row].address
+        let parking = parkingList[indexPath.row]
+        cell.address.text = parking.address
+        cell.availabilityLabel.text = parking.availabilityInfo.daysEnumerationText()
+        cell.priceLabel.text = "\(parking.price.asLocaleCurrency)/h"
 
-        if let url = parkingList[indexPath.row].photoURL {
+        if let url = parking.photoURL {
             let imageReference = AppState.shared.storageReference.storage.reference(forURL: url.absoluteString)
             cell.parkingImage.sd_setImage(with: imageReference)
         }

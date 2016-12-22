@@ -12,34 +12,35 @@ import FirebaseStorage
 
 class ParkingInfoViewController: UIViewController {
 
+    // Image Section
     @IBOutlet var parkingImageView: UIImageView!
     @IBOutlet var helperImageView: UIImageView!
     @IBOutlet var helperImageLabel: UILabel!
 
+    // Address Section
     @IBOutlet var streetAddressLabel: UILabel!
     @IBOutlet var postalAddressLabel: UILabel!
 
+    // Availability Section
     @IBOutlet var timeOfDayLabel: UILabel!
     @IBOutlet var daysAvailableLabel: UILabel!
 
+    // Rates & Description
     @IBOutlet var parkingRate: UILabel!
     @IBOutlet var parkingDescriptionLabel: UILabel!
     
-    @IBOutlet var addressCollection: UIView!
-    @IBOutlet var descriptionCollection: UIView!
-    @IBOutlet var availabilityCollection: UIView!
-    @IBOutlet var ratesCollection: UIView!
-    
+    @IBOutlet var removeButton: RoundedCornerButton!
+    @IBOutlet var updateButton: RoundedCornerButton!
+    @IBOutlet var errorLabel: UILabel!
+
     var parking: Parking?
     var isNewParking = true
-
     let imagePicker = UIImagePickerController.init()
-    let storageReference = FIRStorage.storage().reference(forURL: "gs://carko-1475431423846.appspot.com")
 
     @IBAction func removeParkingTapped(_ sender: Any) {
         parking?.delete() { (error) in
             if let error = error {
-                print("Something wrong happened: \(error)")
+                self.errorLabel.text = error.localizedDescription
             } else {
                 NotificationCenter.default.post(name: Notification.Name.init("ParkingDeleted"), object: nil, userInfo: nil)
                 let _ = self.navigationController?.popViewController(animated: true)
@@ -48,14 +49,26 @@ class ParkingInfoViewController: UIViewController {
     }
 
     @IBAction func saveParkingTapped(_ sender: Any) {
-        parking?.persist(complete: { (error) in
-            if let error = error {
-                print("\(error)")
-            } else {
-                NotificationCenter.default.post(name: Notification.Name.init("NewParking"), object: nil, userInfo: nil)
-                let _ = self.navigationController?.popViewController(animated: true)
-            }
-        })
+        // TODO: DRY this up
+        if isNewParking {
+            parking?.persist(complete: { (error) in
+                if let error = error {
+                    self.errorLabel.text = error.localizedDescription
+                } else {
+                    NotificationCenter.default.post(name: Notification.Name.init("NewParking"), object: nil, userInfo: nil)
+                    let _ = self.navigationController?.popViewController(animated: true)
+                }
+            })
+        } else {
+            parking?.update(complete: { (error) in
+                if let error = error {
+                    self.errorLabel.text = error.localizedDescription
+                } else {
+                    NotificationCenter.default.post(name: Notification.Name.init("NewParking"), object: nil, userInfo: nil)
+                    let _ = self.navigationController?.popViewController(animated: true)
+                }
+            })
+        }
     }
 
     @IBAction func tappedAddPhotos(_ sender: Any) {
@@ -84,36 +97,42 @@ class ParkingInfoViewController: UIViewController {
         super.viewDidLoad()
 
         imagePicker.delegate = self
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         initializeParking()
         loadParkingPicture()
 
         if isNewParking {
             self.title = "New Parking"
+            self.updateButton.setTitle("Save", for: UIControlState.normal)
         } else {
             self.title = "Edit Parking"
+            self.updateButton.setTitle("Update", for: UIControlState.normal)
         }
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+
     func initializeParking() {
-        if let parking = self.parking {
+        if self.parking != nil {
             isNewParking = false
-            streetAddressLabel.text = parking.address
-            postalAddressLabel.text = parking.address
-
-            // TODO: Not sure if this belong here
-            timeOfDayLabel.text = parking.availabilityInfo.lapsOfTimeText()
-            daysAvailableLabel.text = parking.availabilityInfo.daysEnumerationText()
-
-            parkingRate.text = parking.price.asLocaleCurrency
-            parkingDescriptionLabel.text = parking.pDescription
+            updateLabels()
         } else {
             let newAvailabilityInfo = AvailabilityInfo.init()
             self.parking = Parking.init(latitude: CLLocationDegrees.init(75), longitude: CLLocationDegrees.init(-135), photoURL: URL.init(string: ""), address: "Select a location", price: 1.0, pDescription: "", isAvailable: true, availabilityInfo: newAvailabilityInfo, customerId: AppState.shared.customer.id)
         }
+    }
+
+    func updateLabels() {
+        streetAddressLabel.text = self.parking!.address
+        postalAddressLabel.text = self.parking!.address
+
+        // TODO: Not sure if this belong here
+        timeOfDayLabel.text = self.parking!.availabilityInfo.lapsOfTimeText()
+        daysAvailableLabel.text = self.parking!.availabilityInfo.daysEnumerationText()
+
+        parkingRate.text = self.parking!.price.asLocaleCurrency
+        parkingDescriptionLabel.text = self.parking!.pDescription
     }
 
     func loadParkingPicture() {
@@ -155,18 +174,21 @@ class ParkingInfoViewController: UIViewController {
 extension ParkingInfoViewController: ParkingRateDelegate {
     func userDidChangeRate(value: Float) {
         parking?.price = value
+        updateLabels()
     }
 }
 
 extension ParkingInfoViewController: ParkingDescriptionDelegate {
     func userDidChangeDescription(value: String) {
         parking?.pDescription = value
+        updateLabels()
     }
 }
 
 extension ParkingInfoViewController: ParkingAvailabilityDelegate {
     func userDidChangeAvailability(value: AvailabilityInfo) {
         parking?.availabilityInfo = value
+        updateLabels()
     }
 }
 
@@ -175,6 +197,7 @@ extension ParkingInfoViewController: ParkingLocationDelegate {
         parking?.address = address
         parking?.latitude = latitude
         parking?.longitude = longitude
+        updateLabels()
     }
 }
 
@@ -204,7 +227,7 @@ extension ParkingInfoViewController: UIImagePickerControllerDelegate {
         let data = UIImageJPEGRepresentation(parkingImageView.image!, 0.8)!
         let metadata = FIRStorageMetadata()
         metadata.contentType = "image/jpeg"
-        self.storageReference.child(path).put(data, metadata: metadata).observe(FIRStorageTaskStatus.success) { (snapshot) in
+        AppState.shared.storageReference.child(path).put(data, metadata: metadata).observe(FIRStorageTaskStatus.success) { (snapshot) in
             if let metadata = snapshot.metadata {
                 if let url = metadata.downloadURL() {
                     self.parking?.photoURL = url

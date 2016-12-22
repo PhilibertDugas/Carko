@@ -18,6 +18,13 @@ extension CarkoAPIClient {
         }
     }
 
+    func updateParking(parking: Parking, complete: @escaping (Error?) -> Void ) {
+        let parameters: Parameters = ["parking": parking.toDictionary()]
+        let patchUrl = baseUrl.appendingPathComponent("/parkings/\(parking.id!)")
+        request(patchUrl, method: .patch, parameters: parameters, encoding: JSONEncoding.default).response { (response) in
+            complete(response.error)
+        }
+    }
     func getAllParkings(complete: @escaping([(Parking)], Error?) -> Void) {
         let getUrl = baseUrl.appendingPathComponent("/parkings")
         request(getUrl).responseJSON { (response) in
