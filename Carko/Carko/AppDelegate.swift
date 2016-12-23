@@ -16,7 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        FIRApp.configure()
+        //let buildFor = ProcessInfo.processInfo.environment["BUILD_FOR"]! as String
+        let firebasePlistFileName = "GoogleService-Info"
+        let firbaseOptions = FIROptions(contentsOfFile: Bundle.main.path(forResource: firebasePlistFileName, ofType: "plist"))
+        FIRApp.configure(with: firbaseOptions!)
 
         STPPaymentConfiguration.shared().publishableKey = "pk_test_1LYkk7fCrA1bWDbXRUx1zWBx"
 

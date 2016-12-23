@@ -81,6 +81,13 @@
             ReferencedContainer = "container:Carko.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "BUILD_FOR"
+            value = "DEV"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
       <AdditionalOptions>
          <AdditionalOption
             key = "NSZombieEnabled"

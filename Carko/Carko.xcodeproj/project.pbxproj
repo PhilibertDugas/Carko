@@ -143,7 +143,7 @@
 		4591D5FA1DFCA54600366691 /* ReservationClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationClient.swift; sourceTree = "<group>"; };
 		459503CA1DDE7F9300DA471C /* MapContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapContainerViewController.swift; sourceTree = "<group>"; };
 		459AD2561DA49B6C0018B7B9 /* Parking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parking.swift; sourceTree = "<group>"; };
-		459AD2581DA49C590018B7B9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		459AD2581DA49C590018B7B9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Carko/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		45B089091DE7B0820003C0BD /* close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close@2x.png"; sourceTree = "<group>"; };
 		45B0890A1DE7B0820003C0BD /* close@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close@3x.png"; sourceTree = "<group>"; };
 		45B0890D1DE7B1290003C0BD /* success@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "success@2x.png"; sourceTree = "<group>"; };
@@ -154,7 +154,7 @@
 		45BC29441DA18249000C54BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45BC294B1DA18249000C54BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45BC294E1DA18249000C54BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		45BC29501DA18249000C54BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45BC29501DA18249000C54BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Carko/Info.plist; sourceTree = "<group>"; };
 		45BC29551DA18249000C54BC /* CarkoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarkoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		45BC295B1DA18249000C54BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45BC29601DA18249000C54BC /* CarkoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarkoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -341,13 +341,20 @@
 			name = Assets;
 			sourceTree = "<group>";
 		};
+		45ACDDA01E0CAA2C007464F8 /* plist */ = {
+			isa = PBXGroup;
+			children = (
+				45BC29501DA18249000C54BC /* Info.plist */,
+				459AD2581DA49C590018B7B9 /* GoogleService-Info.plist */,
+			);
+			name = plist;
+			sourceTree = "<group>";
+		};
 		45B4C0E11DA4AAE6002979DC /* Global */ = {
 			isa = PBXGroup;
 			children = (
 				45BB39631DBBEFEC0019C2A3 /* Views */,
 				45A4CA2E1DB2B8B700741099 /* Assets */,
-				45BC29501DA18249000C54BC /* Info.plist */,
-				459AD2581DA49C590018B7B9 /* GoogleService-Info.plist */,
 				45BC29441DA18249000C54BC /* AppDelegate.swift */,
 				45637CFE1DEB184500DD42C0 /* AppState.swift */,
 			);
@@ -368,6 +375,7 @@
 		45BC29381DA18249000C54BC = {
 			isa = PBXGroup;
 			children = (
+				45ACDDA01E0CAA2C007464F8 /* plist */,
 				45BC29431DA18249000C54BC /* Carko */,
 				45BC29581DA18249000C54BC /* CarkoTests */,
 				45BC29631DA18249000C54BC /* CarkoUITests */,

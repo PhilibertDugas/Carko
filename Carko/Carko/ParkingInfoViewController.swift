@@ -33,18 +33,22 @@ class ParkingInfoViewController: UIViewController {
     @IBOutlet var updateButton: RoundedCornerButton!
     @IBOutlet var errorLabel: UILabel!
 
-    var parking: Parking?
+    var parking: Parking!
     var isNewParking = true
     let imagePicker = UIImagePickerController.init()
 
     @IBAction func removeParkingTapped(_ sender: Any) {
-        parking?.delete() { (error) in
-            if let error = error {
-                self.errorLabel.text = error.localizedDescription
-            } else {
-                NotificationCenter.default.post(name: Notification.Name.init("ParkingDeleted"), object: nil, userInfo: nil)
-                let _ = self.navigationController?.popViewController(animated: true)
+        if parking!.isAvailable {
+            parking?.delete() { (error) in
+                if let error = error {
+                    self.errorLabel.text = error.localizedDescription
+                } else {
+                    NotificationCenter.default.post(name: Notification.Name.init("ParkingDeleted"), object: nil, userInfo: nil)
+                    let _ = self.navigationController?.popViewController(animated: true)
+                }
             }
+        } else {
+            self.errorLabel.text = "You can't remove a parking while it's in use. Please wait after the parking duration"
         }
     }
 
@@ -59,7 +63,7 @@ class ParkingInfoViewController: UIViewController {
                     let _ = self.navigationController?.popViewController(animated: true)
                 }
             })
-        } else {
+        } else if parking!.isAvailable {
             parking?.update(complete: { (error) in
                 if let error = error {
                     self.errorLabel.text = error.localizedDescription
@@ -68,6 +72,8 @@ class ParkingInfoViewController: UIViewController {
                     let _ = self.navigationController?.popViewController(animated: true)
                 }
             })
+        } else {
+            self.errorLabel.text = "You can't modify the details of a parking while it's in use. Please wait after the parking duration"
         }
     }
 

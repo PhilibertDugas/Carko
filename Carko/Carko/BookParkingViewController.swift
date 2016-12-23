@@ -65,12 +65,40 @@ class BookParkingViewController: UIViewController {
         availabilityLabel.text = "Available until \(parking.availabilityInfo.stopTime)"
         creditCardLabel.delegate = self
 
-        paymentContext = STPPaymentContext.init(apiAdapter: CarkoAPIClient.shared)
-
         // TODO CHANGE THIS
+        paymentContext = STPPaymentContext.init(apiAdapter: CarkoAPIClient.shared)
         paymentContext.paymentCurrency = "CAD"
         paymentContext.delegate = self
         paymentContext.hostViewController = self
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        let minuteDelta = self.parking.stopDate().timeIntervalSince(Date.init()) / 60
+        self.timeSlider.maximumValue = Float(minuteDelta)
+
+        setSliderValue()
+        setTimeLabel()
+        setCostLabel()
+        setVehiculeLabel()
+
+        if let url = parking.photoURL {
+            let imageReference = AppState.shared.storageReference.storage.reference(forURL: url.absoluteString)
+            parkingImageView.sd_setImage(with: imageReference)
+        }
+
+        if !parking.isAvailable {
+            errorLabel.text = "The parking is currently busy"
+            errorLabel.isHidden = false
+            confirmButton.isEnabled = false
+        }
+
+        if parking.customerId == AppState.shared.customer.id {
+            errorLabel.text = "The parking is your own. You can't rent your own parking"
+            errorLabel.isHidden = false
+            confirmButton.isEnabled = false
+        }
     }
 
     func completeBooking() {
@@ -102,29 +130,6 @@ class BookParkingViewController: UIViewController {
     func setVehiculeLabel() {
         if let vehicule = AppState.shared.customer.vehicule {
             vehiculeLabel.text = vehicule.stringDescription()
-        }
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        let minuteDelta = self.parking.stopDate().timeIntervalSince(Date.init()) / 60
-        self.timeSlider.maximumValue = Float(minuteDelta)
-
-        setSliderValue()
-        setTimeLabel()
-        setCostLabel()
-        setVehiculeLabel()
-
-        if let url = parking.photoURL {
-            let imageReference = AppState.shared.storageReference.storage.reference(forURL: url.absoluteString)
-            parkingImageView.sd_setImage(with: imageReference)
-        }
-
-        if !parking.isAvailable {
-            errorLabel.text = "The parking is currently busy"
-            errorLabel.isHidden = false
-            confirmButton.isEnabled = false
         }
     }
 }
