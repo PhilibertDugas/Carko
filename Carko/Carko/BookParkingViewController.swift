@@ -60,9 +60,6 @@ class BookParkingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        addressLabel.text = parking.address
-        availabilityLabel.text = "Available until \(parking.availabilityInfo.stopTime)"
         creditCardLabel.delegate = self
 
         // TODO CHANGE THIS
@@ -74,6 +71,9 @@ class BookParkingViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
+        addressLabel.text = parking.address
+        availabilityLabel.text = "Available until \(parking.availabilityInfo.stopTime)"
 
         let minuteDelta = self.parking.stopDate().timeIntervalSince(Date.init()) / 60
         self.timeSlider.maximumValue = Float(minuteDelta)
@@ -92,12 +92,13 @@ class BookParkingViewController: UIViewController {
             errorLabel.text = "The parking is currently busy"
             errorLabel.isHidden = false
             confirmButton.isEnabled = false
-        }
-
-        if parking.customerId == AppState.shared.customer.id {
+        } else if parking.customerId == AppState.shared.customer.id {
             errorLabel.text = "The parking is your own. You can't rent your own parking"
             errorLabel.isHidden = false
             confirmButton.isEnabled = false
+        } else {
+            errorLabel.isHidden = true
+            confirmButton.isEnabled = true
         }
     }
 

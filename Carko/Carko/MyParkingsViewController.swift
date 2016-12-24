@@ -30,7 +30,9 @@ class MyParkingsViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.parkingListUpdate), name: Notification.Name.init(rawValue: "NewParking"), object: nil)
 
         NotificationCenter.default.addObserver(self, selector: #selector(self.parkingListUpdate), name: Notification.Name.init(rawValue: "ParkingDeleted"), object: nil)
+    }
 
+    override func viewWillAppear(_ animated: Bool) {
         parkingListUpdate()
     }
 
