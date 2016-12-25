@@ -124,7 +124,7 @@ class BookParkingViewController: UIViewController {
     }
 
     func setCostLabel() {
-        totalCost = Float(self.sliderValue!) / 60 * parking.price
+        totalCost = (Float(self.sliderValue!) / 60 * parking.price) + 0.5
         costLabel.text = "Cost: " + String.init(format: "%.02f", totalCost) + "$"
     }
 
