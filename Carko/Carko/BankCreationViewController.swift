@@ -41,6 +41,7 @@ class BankCreationViewController: UIViewController {
                             if error != nil {
                                 print("tbk")
                             } else {
+                                AppState.shared.customer.accountId = token.tokenId
                                 AppState.shared.customer.externalLast4Digits = token.bankAccount?.last4()
                                 AppState.shared.customer.externalBankName = token.bankAccount?.bankName!
                                 let _ = self.navigationController?.popToRootViewController(animated: true)

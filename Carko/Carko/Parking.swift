@@ -24,18 +24,14 @@ class Parking {
     var reservation: [(Reservation)]?
 
     init(latitude: CLLocationDegrees, longitude: CLLocationDegrees, photoURL: URL?, address: String, price: Float, pDescription: String, isAvailable: Bool, availabilityInfo: AvailabilityInfo, customerId: Int) {
-        
         self.latitude = latitude
         self.longitude = longitude
         self.photoURL = photoURL
-        
         self.address = address
         self.price = price
         self.pDescription = pDescription
-
         self.isAvailable = isAvailable
         self.availabilityInfo = availabilityInfo
-
         self.customerId = customerId
     }
     
@@ -57,32 +53,6 @@ class Parking {
             self.id = identifier
         }
     }
-    
-    func persist(complete: @escaping (Error?) -> Void) {
-        CarkoAPIClient.shared.createParking(parking: self, complete: complete)
-    }
-
-    func update(complete: @escaping (Error?) -> Void) {
-        CarkoAPIClient.shared.updateParking(parking: self, complete: complete)
-    }
-    func delete(complete: @escaping (Error?) -> Void) {
-        CarkoAPIClient.shared.deleteParking(parking: self, complete: complete)
-    }
-    
-    func toDictionary() -> [String : Any] {
-        return [
-            "latitude": latitude,
-            "longitude": longitude,
-            "photo_url": "\(photoURL!)",
-            "address": address,
-            "price": String.init(format: "%.2f", price),
-            "description": pDescription,
-            "customer_id": customerId,
-            "is_available": isAvailable,
-            "availability_info": availabilityInfo.toDictionary()
-        ] as [String : Any]
-    }
-
 
     func stopDate() -> Date {
         let todayFormater = DateFormatter.init()
@@ -97,7 +67,34 @@ class Parking {
         dateFormatter.timeZone = NSTimeZone.local
         return dateFormatter.date(from: convertString)!
     }
-    
+}
+
+extension Parking {
+    func persist(complete: @escaping (Error?) -> Void) {
+        CarkoAPIClient.shared.createParking(parking: self, complete: complete)
+    }
+
+    func update(complete: @escaping (Error?) -> Void) {
+        CarkoAPIClient.shared.updateParking(parking: self, complete: complete)
+    }
+    func delete(complete: @escaping (Error?) -> Void) {
+        CarkoAPIClient.shared.deleteParking(parking: self, complete: complete)
+    }
+
+    func toDictionary() -> [String : Any] {
+        return [
+            "latitude": latitude,
+            "longitude": longitude,
+            "photo_url": "\(photoURL!)",
+            "address": address,
+            "price": String.init(format: "%.2f", price),
+            "description": pDescription,
+            "customer_id": customerId,
+            "is_available": isAvailable,
+            "availability_info": availabilityInfo.toDictionary()
+        ]
+    }
+
     class func getAllParkings() {
         CarkoAPIClient.shared.getAllParkings { (parkings, error) in
             if let error = error {
@@ -121,7 +118,7 @@ class Parking {
     }
 }
 
-class AvailabilityInfo: NSObject {
+class AvailabilityInfo {
     var startTime: String
     var stopTime: String
     var alwaysAvailable: Bool
@@ -133,10 +130,7 @@ class AvailabilityInfo: NSObject {
         self.alwaysAvailable = alwaysAvailable
         self.startTime = startTime
         self.stopTime = stopTime
-
         self.daysAvailable = daysAvailable
-
-        super.init()
     }
 
     convenience init(availabilityInfo: [String : Any]) {
@@ -153,12 +147,11 @@ class AvailabilityInfo: NSObject {
         self.init(alwaysAvailable: alwaysAvailable, startTime: startTime, stopTime: stopTime, daysAvailable: daysAvailable)
     }
 
-    convenience override init() {
+    convenience init() {
         let startTime = "00:00"
         let stopTime = "23:59"
         let daysAvailable = [false, false, false, false, false, false, false]
         let alwaysAvailable = false
-
         self.init(alwaysAvailable: alwaysAvailable, startTime: startTime, stopTime: stopTime, daysAvailable: daysAvailable)
     }
 

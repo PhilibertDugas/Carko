@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Reservation {
+struct Reservation {
     var parkingId: Int
     var customerId: Int
     var isActive: Bool
@@ -27,7 +27,7 @@ class Reservation {
         self.charge = charge
     }
 
-    convenience init(reservation: [String : Any]) {
+    init(reservation: [String : Any]) {
         let parkingId = reservation["parking_id"] as! Int
         let customerId = reservation["customer_id"] as! Int
         let isActive = reservation["is_active"] as! Bool
@@ -51,7 +51,7 @@ class Reservation {
     }
 }
 
-class NewReservation {
+struct NewReservation {
     var parkingId: Int
     var customerId: Int
     var isActive: Bool
@@ -70,7 +70,7 @@ class NewReservation {
         self.charge = charge
     }
 
-    convenience init(reservation: [String : Any]) {
+    init(reservation: [String : Any]) {
         let parkingId = reservation["parking_id"] as! Int
         let customerId = reservation["customer_id"] as! Int
         let isActive = reservation["is_active"] as! Bool
