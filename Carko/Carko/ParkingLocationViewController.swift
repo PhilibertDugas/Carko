@@ -18,8 +18,6 @@ protocol ParkingLocationDelegate: class {
 }
 
 class ParkingLocationViewController: UIViewController {
-
-    @IBOutlet var addButton: UIButton!
     @IBOutlet var mapView: MKMapView!
 
     var searchController: UISearchController?
@@ -39,7 +37,6 @@ class ParkingLocationViewController: UIViewController {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
-        addButton.isHidden = true
 
         let panGesture = UIPanGestureRecognizer.init(target: self, action: #selector(ParkingLocationViewController.handlePan))
         panGesture.delegate = self;
@@ -116,7 +113,6 @@ extension ParkingLocationViewController: MKMapViewDelegate {
 
 extension ParkingLocationViewController: HandleMapSearch {
     func dropPinZoomIn(placemark: MKPlacemark){
-        addButton.isHidden = false
         selectedPin = placemark
         mapView.removeAnnotations(mapView.annotations)
         centerAnnotation = MKPointAnnotation()

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Reservation: NSObject {
+class Reservation {
     var parkingId: Int
     var customerId: Int
     var isActive: Bool
@@ -51,7 +51,7 @@ class Reservation: NSObject {
     }
 }
 
-class NewReservation: NSObject {
+class NewReservation {
     var parkingId: Int
     var customerId: Int
     var isActive: Bool

@@ -71,7 +71,8 @@ class ParkingAvailabilityViewController: UIViewController {
         self.dateFormatter!.dateFormat = "HH:mm"
     }
 
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         updateAvailability()
     }
     
@@ -94,7 +95,7 @@ class ParkingAvailabilityViewController: UIViewController {
     
     func updateButton(isOn: Bool, button: UIButton!) {
         if isOn {
-            button.backgroundColor = UIColor.green
+            button.backgroundColor = UIColor.init(netHex: 0x00C441)
         }
         else {
             button.backgroundColor = UIColor.clear

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Charge: NSObject {
+class Charge {
     var customer: String
     var amount: Int
     var currency: String

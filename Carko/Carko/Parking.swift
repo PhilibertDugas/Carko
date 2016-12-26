@@ -8,7 +8,7 @@
 
 import CoreLocation
 
-class Parking: NSObject {
+class Parking {
     var id: Int?
     var latitude: CLLocationDegrees
     var longitude: CLLocationDegrees

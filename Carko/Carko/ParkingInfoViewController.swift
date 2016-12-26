@@ -31,49 +31,26 @@ class ParkingInfoViewController: UIViewController {
     
     @IBOutlet var removeButton: RoundedCornerButton!
     @IBOutlet var updateButton: RoundedCornerButton!
-    @IBOutlet var errorLabel: UILabel!
 
     var parking: Parking!
     var isNewParking = true
     let imagePicker = UIImagePickerController.init()
 
     @IBAction func removeParkingTapped(_ sender: Any) {
-        if parking!.isAvailable {
-            parking?.delete() { (error) in
-                if let error = error {
-                    self.errorLabel.text = error.localizedDescription
-                } else {
-                    NotificationCenter.default.post(name: Notification.Name.init("ParkingDeleted"), object: nil, userInfo: nil)
-                    let _ = self.navigationController?.popViewController(animated: true)
-                }
-            }
+        if parking.isAvailable {
+            parking.delete(complete: completeParkingDelete)
         } else {
-            self.errorLabel.text = "You can't remove a parking while it's in use. Please wait after the parking duration"
+            self.displayErrorMessage("You can't remove a parking while it's in use. Please wait after the parking duration")
         }
     }
 
     @IBAction func saveParkingTapped(_ sender: Any) {
-        // TODO: DRY this up
         if isNewParking {
-            parking?.persist(complete: { (error) in
-                if let error = error {
-                    self.errorLabel.text = error.localizedDescription
-                } else {
-                    NotificationCenter.default.post(name: Notification.Name.init("NewParking"), object: nil, userInfo: nil)
-                    let _ = self.navigationController?.popViewController(animated: true)
-                }
-            })
-        } else if parking!.isAvailable {
-            parking?.update(complete: { (error) in
-                if let error = error {
-                    self.errorLabel.text = error.localizedDescription
-                } else {
-                    NotificationCenter.default.post(name: Notification.Name.init("NewParking"), object: nil, userInfo: nil)
-                    let _ = self.navigationController?.popViewController(animated: true)
-                }
-            })
+            parking.persist(complete: completeParkingUpdate)
+        } else if parking.isAvailable {
+            parking.update(complete: completeParkingUpdate)
         } else {
-            self.errorLabel.text = "You can't modify the details of a parking while it's in use. Please wait after the parking duration"
+            self.displayErrorMessage("You can't modify the details of a parking while it's in use. Please wait after the parking duration")
         }
     }
 
@@ -115,10 +92,6 @@ class ParkingInfoViewController: UIViewController {
         }
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-
     func initializeParking() {
         if self.parking != nil {
             isNewParking = false
@@ -132,32 +105,19 @@ class ParkingInfoViewController: UIViewController {
     func updateLabels() {
         streetAddressLabel.text = self.parking!.address
         postalAddressLabel.text = self.parking!.address
-
-        // TODO: Not sure if this belong here
         timeOfDayLabel.text = self.parking!.availabilityInfo.lapsOfTimeText()
         daysAvailableLabel.text = self.parking!.availabilityInfo.daysEnumerationText()
-
         parkingRate.text = self.parking!.price.asLocaleCurrency
         parkingDescriptionLabel.text = self.parking!.pDescription
     }
 
-    func loadParkingPicture() {
-        if let url = self.parking?.photoURL {
-            let imageReference = AppState.shared.storageReference.storage.reference(forURL: url.absoluteString)
-            parkingImageView.sd_setImage(with: imageReference)
-            displayImage()
-        }
-    }
-
-    func displayImage() {
-        self.parkingImageView.alpha = 1.0
-        self.helperImageView.isHidden = true
-        self.helperImageLabel.isHidden = true
+    func displayErrorMessage(_ message: String) {
+        let alert = UIAlertController.init(title: "Error", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction.init(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        NotificationCenter.default.removeObserver(self)
-        
         if segue.identifier == "ChangeRates" {
             let destinationVC = segue.destination as! ParkingRatesViewController
             destinationVC.parkingRate = parking?.price
@@ -175,30 +135,50 @@ class ParkingInfoViewController: UIViewController {
             destinationVC.delegate = self
         }
     }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
 }
 
-extension ParkingInfoViewController: ParkingRateDelegate {
+
+extension ParkingInfoViewController {
+    func completeParkingDelete(error: Error?) {
+        if let error = error {
+            self.displayErrorMessage(error.localizedDescription)
+        } else {
+            NotificationCenter.default.post(name: Notification.Name.init("ParkingDeleted"), object: nil, userInfo: nil)
+            let _ = self.navigationController?.popViewController(animated: true)
+        }
+    }
+
+    func completeParkingUpdate(error: Error?) {
+        if let error = error {
+            self.displayErrorMessage(error.localizedDescription)
+        } else {
+            NotificationCenter.default.post(name: Notification.Name.init("NewParking"), object: nil, userInfo: nil)
+            let _ = self.navigationController?.popViewController(animated: true)
+        }
+    }
+}
+
+extension ParkingInfoViewController: ParkingRateDelegate, ParkingDescriptionDelegate, ParkingAvailabilityDelegate, ParkingLocationDelegate {
     func userDidChangeRate(value: Float) {
         parking?.price = value
         updateLabels()
     }
-}
 
-extension ParkingInfoViewController: ParkingDescriptionDelegate {
     func userDidChangeDescription(value: String) {
         parking?.pDescription = value
         updateLabels()
     }
-}
 
-extension ParkingInfoViewController: ParkingAvailabilityDelegate {
     func userDidChangeAvailability(value: AvailabilityInfo) {
         parking?.availabilityInfo = value
         updateLabels()
     }
-}
 
-extension ParkingInfoViewController: ParkingLocationDelegate {
     func userDidChooseLocation(address: String, latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
         parking?.address = address
         parking?.latitude = latitude
@@ -216,7 +196,6 @@ extension ParkingInfoViewController: UIImagePickerControllerDelegate {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             parkingImageView.image = image
             displayImage()
-            // make a spinner or something
             uploadImage()
             dismiss(animated: true, completion: nil)
         }
@@ -242,7 +221,20 @@ extension ParkingInfoViewController: UIImagePickerControllerDelegate {
            // success or something + remove spinner
         }
     }
+
+    func loadParkingPicture() {
+        if let url = self.parking?.photoURL {
+            let imageReference = AppState.shared.storageReference.storage.reference(forURL: url.absoluteString)
+            parkingImageView.sd_setImage(with: imageReference)
+            displayImage()
+        }
+    }
+
+    func displayImage() {
+        self.parkingImageView.alpha = 1.0
+        self.helperImageView.isHidden = true
+        self.helperImageLabel.isHidden = true
+    }
 }
 
-extension ParkingInfoViewController: UINavigationControllerDelegate {
-}
+extension ParkingInfoViewController: UINavigationControllerDelegate {}

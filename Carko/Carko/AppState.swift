@@ -11,6 +11,7 @@ import FirebaseStorage
 
 class AppState: NSObject {
     static let shared = AppState.init()
+    static let KEYBOARD_OFFSET = 80.0
 
     var customer: Customer!
     let storageReference = FIRStorage.storage().reference(forURL: "gs://carko-1475431423846.appspot.com")

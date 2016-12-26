@@ -19,7 +19,6 @@ class BookParkingViewController: UIViewController {
     @IBOutlet var vehiculeLabel: UnderlineTextField!
     @IBOutlet var timeLabel: UILabel!
     @IBOutlet var costLabel: UILabel!
-    @IBOutlet var errorLabel: UILabel!
     @IBOutlet var timeSlider: UISlider!
     @IBOutlet var confirmButton: CircularButton!
 
@@ -43,19 +42,31 @@ class BookParkingViewController: UIViewController {
     }
 
     @IBAction func tappedConfirm(_ sender: Any) {
-        let paymentMessage = "Confirm payment of \(String.init(format: "%.02f", totalCost))$ to get a parking until \(endTimeParking!)"
-        let alertController = UIAlertController.init(title: "Confirm payment", message: paymentMessage, preferredStyle: UIAlertControllerStyle.actionSheet)
-        let cancelAction = UIAlertAction.init(title: "Cancel", style: UIAlertActionStyle.cancel) { (result : UIAlertAction) -> Void in
-            print("Canceled")
-        }
+        if !parking.isAvailable {
+            self.displayErrorMessage("The parking is currently busy")
+        } else if parking.customerId == AppState.shared.customer.id {
+            self.displayErrorMessage("The parking is your own. You can't rent your own parking")
+        } else {
+            let paymentMessage = "Confirm payment of \(String.init(format: "%.02f", totalCost))$ to get a parking until \(endTimeParking!)"
+            let alertController = UIAlertController.init(title: "Confirm payment", message: paymentMessage, preferredStyle: UIAlertControllerStyle.actionSheet)
+            let cancelAction = UIAlertAction.init(title: "Cancel", style: UIAlertActionStyle.cancel) { (result : UIAlertAction) -> Void in
+                print("Canceled")
+            }
 
-        let okAction = UIAlertAction.init(title: "Ok", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
-            self.completeBooking()
-        }
+            let okAction = UIAlertAction.init(title: "Ok", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
+                self.completeBooking()
+            }
 
-        alertController.addAction(cancelAction)
-        alertController.addAction(okAction)
-        self.present(alertController, animated: true, completion: nil)
+            alertController.addAction(cancelAction)
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
+        }
+    }
+
+    func displayErrorMessage(_ message: String) {
+        let alert = UIAlertController.init(title: "Error", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction.init(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 
     override func viewDidLoad() {
@@ -87,19 +98,6 @@ class BookParkingViewController: UIViewController {
             let imageReference = AppState.shared.storageReference.storage.reference(forURL: url.absoluteString)
             parkingImageView.sd_setImage(with: imageReference)
         }
-
-        if !parking.isAvailable {
-            errorLabel.text = "The parking is currently busy"
-            errorLabel.isHidden = false
-            confirmButton.isEnabled = false
-        } else if parking.customerId == AppState.shared.customer.id {
-            errorLabel.text = "The parking is your own. You can't rent your own parking"
-            errorLabel.isHidden = false
-            confirmButton.isEnabled = false
-        } else {
-            errorLabel.isHidden = true
-            confirmButton.isEnabled = true
-        }
     }
 
     func completeBooking() {
@@ -130,7 +128,7 @@ class BookParkingViewController: UIViewController {
 
     func setVehiculeLabel() {
         if let vehicule = AppState.shared.customer.vehicule {
-            vehiculeLabel.text = vehicule.stringDescription()
+            vehiculeLabel.text = vehicule.description
         }
     }
 }
@@ -163,8 +161,7 @@ extension BookParkingViewController: STPPaymentContextDelegate {
 
         reservation.persist() { (successfulReservation, error) in
             if let error = error {
-                self.errorLabel.text = error.localizedDescription
-                self.errorLabel.isHidden = false
+                self.displayErrorMessage(error.localizedDescription)
             } else if let successfulReservation = successfulReservation {
                 AppState.shared.customer.reservations.append(successfulReservation)
                 Parking.getAllParkings()

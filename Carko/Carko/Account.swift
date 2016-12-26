@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Account: NSObject {
+class Account {
     var firstName: String
     var lastName: String
     let type = "individual"
@@ -46,7 +46,7 @@ class Account: NSObject {
 
 }
 
-class AccountAddress: NSObject {
+class AccountAddress {
     var city: String
     var line1: String
     var postalCode: String
@@ -69,7 +69,7 @@ class AccountAddress: NSObject {
     }
 }
 
-class AccountDateOfBirth: NSObject {
+class AccountDateOfBirth {
     var day: String
     var month: String
     var year: String

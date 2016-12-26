@@ -46,7 +46,7 @@ class ProfileViewController: UITableViewController {
         }
 
         if let vehicule = AppState.shared.customer.vehicule {
-            vehiculeLabel.text = vehicule.stringDescription()
+            vehiculeLabel.text = vehicule.description
         }
     }
 

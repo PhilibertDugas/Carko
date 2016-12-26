@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Vehicule: NSObject {
+class Vehicule {
     var license: String
     var make: String
     var model: String
@@ -46,11 +46,13 @@ class Vehicule: NSObject {
         ]
     }
 
-    func stringDescription() -> String {
-        return "\(make) \(model) \(year)"
-    }
-
     func persist(completion: @escaping (Error?) -> Void) {
         CarkoAPIClient.shared.postVehicule(vehicule: self, complete: completion)
+    }
+}
+
+extension Vehicule: CustomStringConvertible {
+    var description: String {
+        return "\(make) \(model) \(year)"
     }
 }

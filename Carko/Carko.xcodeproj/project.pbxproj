@@ -11,6 +11,7 @@
 		4506D42C1DF0E67300672924 /* parking_background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4506D42B1DF0E67300672924 /* parking_background.jpg */; };
 		4506D42E1DF0E7CE00672924 /* photo-camera@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4506D42D1DF0E7CE00672924 /* photo-camera@3x.png */; };
 		45099A871DAF261200392FF1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45099A861DAF261200392FF1 /* LoginViewController.swift */; };
+		450CB59F1E11834000FD2095 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450CB59E1E11834000FD2095 /* UIColor.swift */; };
 		450E12401DAF27330027EFBC /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450E123F1DAF27330027EFBC /* RegisterViewController.swift */; };
 		450E12451DAF2A880027EFBC /* page1.png in Resources */ = {isa = PBXBuildFile; fileRef = 450E12411DAF2A880027EFBC /* page1.png */; };
 		450E12461DAF2A880027EFBC /* page2.png in Resources */ = {isa = PBXBuildFile; fileRef = 450E12421DAF2A880027EFBC /* page2.png */; };
@@ -108,6 +109,7 @@
 		4506D42B1DF0E67300672924 /* parking_background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = parking_background.jpg; sourceTree = "<group>"; };
 		4506D42D1DF0E7CE00672924 /* photo-camera@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo-camera@3x.png"; sourceTree = "<group>"; };
 		45099A861DAF261200392FF1 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		450CB59E1E11834000FD2095 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		450E123F1DAF27330027EFBC /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		450E12411DAF2A880027EFBC /* page1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page1.png; sourceTree = "<group>"; };
 		450E12421DAF2A880027EFBC /* page2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page2.png; sourceTree = "<group>"; };
@@ -480,6 +482,7 @@
 			children = (
 				C5B3105F1DB023610051C90B /* FloatExtension.swift */,
 				451E424C1DB078E000747370 /* KeyboardDimissExtension.swift */,
+				450CB59E1E11834000FD2095 /* UIColor.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -833,6 +836,7 @@
 				4518537C1DA4787B005CC5E6 /* ParkingLocationViewController.swift in Sources */,
 				450E124A1DAF2B000027EFBC /* EntryViewController.swift in Sources */,
 				45B77B441DDC0E39009ABF53 /* ParkingTransitionAnimation.swift in Sources */,
+				450CB59F1E11834000FD2095 /* UIColor.swift in Sources */,
 				459503CB1DDE7F9300DA471C /* MapContainerViewController.swift in Sources */,
 				459AD2571DA49B6C0018B7B9 /* Parking.swift in Sources */,
 				4591D5FB1DFCA54600366691 /* ReservationClient.swift in Sources */,

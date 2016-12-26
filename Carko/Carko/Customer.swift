@@ -9,7 +9,7 @@
 import Foundation
 import FirebaseAuth
 
-class Customer: NSObject {
+class Customer {
     var email: String
     var id: Int
     var firstName: String
@@ -129,7 +129,7 @@ class Customer: NSObject {
     }
 }
 
-class NewCustomer: NSObject {
+class NewCustomer {
     var email: String
     var password: String
     var firstName: String
