@@ -14,7 +14,7 @@
         <scene sceneID="P1N-5R-PAT">
             <objects>
                 <navigationController id="Zcy-Hj-txo" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="qXp-J8-gYs">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qXp-J8-gYs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.112871848" green="0.75954872370000004" blue="0.28861063720000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -230,8 +230,8 @@
                         <outlet property="emailLabel" destination="voQ-8N-bte" id="Qog-aw-q7V"/>
                         <outlet property="payoutLabel" destination="qRv-Sw-Tk9" id="irr-4s-FAo"/>
                         <outlet property="vehiculeLabel" destination="yQT-ZA-ZlV" id="c4Z-So-MbX"/>
-                        <segue destination="IGT-xF-h3K" kind="show" identifier="showAccountCreation" id="0wQ-n7-Mm5"/>
                         <segue destination="DAF-Sj-mQX" kind="show" identifier="showVehiculeInformation" id="sN3-lO-cIg"/>
+                        <segue destination="EIA-Tj-76l" kind="show" identifier="showAccountCreation" id="4BM-Wd-UsU"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VbB-JC-eyS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -363,7 +363,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="74S-qL-fzA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1132" y="-403"/>
+            <point key="canvasLocation" x="420" y="-394"/>
         </scene>
         <!--Bank information-->
         <scene sceneID="8k2-pf-KMk">
@@ -447,55 +447,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JTs-dv-le3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1849" y="-403"/>
-        </scene>
-        <!--Terms of service-->
-        <scene sceneID="2Wy-NJ-C21">
-            <objects>
-                <viewController title="Terms of service" id="IGT-xF-h3K" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="a9W-zq-pOj"/>
-                        <viewControllerLayoutGuide type="bottom" id="t0H-rN-nNU"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="tpT-Ko-k15">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ga4-Ge-1ZJ">
-                                <rect key="frame" x="16" y="72" width="343" height="470"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Payment processing services on Apya are provided by Stripe and are subject to the Stripe Connected Account Agreement, which includes the Stripe Terms of Service (collectively, the “Stripe Services Agreement”) found here: https://stripe.com/ca/connect-account/legal. By agreeing to these terms or continuing to operate as a parking loaner on Apya, you agree to be bound by the Stripe Services Agreement, as the same may be modified by Stripe from time to time. As a condition of Apya enabling payment processing services through Stripe, you agree to provide Apya accurate and complete information about you and your business, and you authorize Apya to share it and transaction information related to your use of the payment processing services provided by Stripe.</string>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SuX-fH-TZ6" customClass="CircularButton" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="299" y="550" width="60" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="Eff-e2-uRe"/>
-                                    <constraint firstAttribute="height" constant="60" id="s8L-1N-MPi"/>
-                                </constraints>
-                                <state key="normal" backgroundImage="right-arrow-circular-button.png"/>
-                                <connections>
-                                    <segue destination="EIA-Tj-76l" kind="show" id="447-9S-xcs"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="ga4-Ge-1ZJ" firstAttribute="leading" secondItem="tpT-Ko-k15" secondAttribute="leadingMargin" id="0Nw-oX-tU3"/>
-                            <constraint firstItem="SuX-fH-TZ6" firstAttribute="top" secondItem="ga4-Ge-1ZJ" secondAttribute="bottom" constant="8" id="7S1-Oe-7eY"/>
-                            <constraint firstItem="ga4-Ge-1ZJ" firstAttribute="trailing" secondItem="tpT-Ko-k15" secondAttribute="trailingMargin" id="bF3-t1-mc9"/>
-                            <constraint firstItem="SuX-fH-TZ6" firstAttribute="trailing" secondItem="tpT-Ko-k15" secondAttribute="trailingMargin" id="iuA-D2-vmU"/>
-                            <constraint firstItem="t0H-rN-nNU" firstAttribute="top" secondItem="SuX-fH-TZ6" secondAttribute="bottom" constant="8" id="qxa-90-yUX"/>
-                            <constraint firstItem="ga4-Ge-1ZJ" firstAttribute="top" secondItem="a9W-zq-pOj" secondAttribute="bottom" constant="8" id="tXs-v7-xKp"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="L3h-g1-g8a"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Fg2-oo-MeC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="420" y="-403"/>
+            <point key="canvasLocation" x="1137" y="-394"/>
         </scene>
         <!--Vehicule Information-->
         <scene sceneID="Kfq-BG-q4b">

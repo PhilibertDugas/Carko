@@ -14,18 +14,12 @@ class LoginViewController: UIViewController {
     @IBOutlet var password: UITextField!
 
     @IBOutlet var loginButton: RoundedCornerButton!
+    @IBOutlet var indicator: UIActivityIndicatorView!
 
-    var indicator: UIActivityIndicatorView?
     
     @IBAction func loginPressed(_ sender: AnyObject) {
         if let email = email.text, let password = password.text {
-            indicator = UIActivityIndicatorView.init(activityIndicatorStyle: UIActivityIndicatorViewStyle.white)
-            let halfButtonHeight = loginButton.bounds.size.height / 2
-            let buttonWidth = loginButton.bounds.size.width
-            indicator?.center = CGPoint.init(x: buttonWidth - halfButtonHeight, y: halfButtonHeight)
-            loginButton.addSubview(indicator!)
-            indicator!.startAnimating()
-
+            indicator.startAnimating()
             Customer.logIn(email: email, password: password)
         } else {
             super.displayErrorMessage("Invalid email or password")
@@ -47,8 +41,7 @@ class LoginViewController: UIViewController {
     }
 
     func customerLoggedIn(_ notification: Notification) {
-        indicator?.stopAnimating()
-        indicator?.removeFromSuperview()
+        indicator.stopAnimating()
         Customer.getCustomer { (customer, error) in
             if let error = error {
                 super.displayErrorMessage(error.localizedDescription)
@@ -62,8 +55,7 @@ class LoginViewController: UIViewController {
     }
 
     func customerLoggedInError(_ notification: Notification) {
-        indicator?.stopAnimating()
-        indicator?.removeFromSuperview()
+        indicator.stopAnimating()
         if let userInfo = notification.userInfo {
             super.displayErrorMessage(userInfo["data"] as! String)
         }

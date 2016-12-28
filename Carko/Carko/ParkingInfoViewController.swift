@@ -15,6 +15,7 @@ class ParkingInfoViewController: UIViewController {
     @IBOutlet var parkingImageView: UIImageView!
     @IBOutlet var helperImageView: UIImageView!
     @IBOutlet var helperImageLabel: UILabel!
+    @IBOutlet var uploadIndicator: UIActivityIndicatorView!
 
     // Address Section
     @IBOutlet var streetAddressLabel: UILabel!
@@ -218,13 +219,14 @@ extension ParkingInfoViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             parkingImageView.image = image
-            displayImage()
+            displayImage(alpha: 0.4)
             uploadImage()
             dismiss(animated: true, completion: nil)
         }
     }
 
     func uploadImage() {
+        self.uploadIndicator.startAnimating()
         var path = ""
         if let id = parking.id {
             path = "parking_\(id)_\(Date.init())"
@@ -240,9 +242,10 @@ extension ParkingInfoViewController: UIImagePickerControllerDelegate {
                 if let url = metadata.downloadURL() {
                     self.parking.photoURL = url
                     self.validation["photo"] = true
+                    self.uploadIndicator.stopAnimating()
+                    self.displayImage(alpha: 1.0)
                 }
             }
-           // success or something + remove spinner
         }
     }
 
@@ -250,12 +253,12 @@ extension ParkingInfoViewController: UIImagePickerControllerDelegate {
         if let url = self.parking.photoURL {
             let imageReference = AppState.shared.storageReference.storage.reference(forURL: url.absoluteString)
             parkingImageView.sd_setImage(with: imageReference)
-            displayImage()
+            displayImage(alpha: 1.0)
         }
     }
 
-    func displayImage() {
-        self.parkingImageView.alpha = 1.0
+    func displayImage(alpha: Float) {
+        self.parkingImageView.alpha = CGFloat(alpha)
         self.helperImageView.isHidden = true
         self.helperImageLabel.isHidden = true
     }

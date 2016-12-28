@@ -15,7 +15,11 @@ class RegisterViewController: UIViewController {
     @IBOutlet var password: UITextField!
     @IBOutlet var registerButton: RoundedCornerButton!
     @IBOutlet var bottomConstraint: NSLayoutConstraint!
-    var indicator: UIActivityIndicatorView?
+    @IBOutlet var indicator: UIActivityIndicatorView!
+
+    @IBAction func tosTapped(_ sender: Any) {
+        UIApplication.shared.open(URL(string: "https://stripe.com/ca/connect-account/legal")!, options: [:], completionHandler: nil)
+    }
     
     @IBAction func backTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -23,14 +27,7 @@ class RegisterViewController: UIViewController {
 
     @IBAction func registerPressed(_ sender: AnyObject) {
         if let firstName = firstName.text, let lastName = lastName.text, let email = email.text, let password = password.text {
-
-            indicator = UIActivityIndicatorView.init(activityIndicatorStyle: UIActivityIndicatorViewStyle.white)
-            let halfButtonHeight = registerButton.bounds.size.height / 2
-            let buttonWidth = registerButton.bounds.size.width
-            indicator?.center = CGPoint.init(x: buttonWidth - halfButtonHeight, y: halfButtonHeight)
-            registerButton.addSubview(indicator!)
-            indicator!.startAnimating()
-
+            indicator.startAnimating()
             let customer = NewCustomer.init(email: email, password: password, firstName: firstName, lastName: lastName)
             customer.register()
         } else {
@@ -40,13 +37,13 @@ class RegisterViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.hideKeyboardWhenTappedAround()
 
         NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.customerRegistered), name: NSNotification.Name(rawValue: "CustomerRegistered"), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.customerRegisteredError), name: NSNotification.Name(rawValue: "CustomerRegisteredError"), object: nil)
     }
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self)
@@ -55,8 +52,7 @@ class RegisterViewController: UIViewController {
 
 extension RegisterViewController {
     func customerRegistered(_ notification: Notification) {
-        indicator?.stopAnimating()
-        indicator?.removeFromSuperview()
+        indicator.stopAnimating()
         Customer.getCustomer { (customer, error) in
             if let error = error {
                 super.displayErrorMessage(error.localizedDescription)
@@ -70,8 +66,7 @@ extension RegisterViewController {
     }
 
     func customerRegisteredError(_ notification: Notification) {
-        indicator?.stopAnimating()
-        indicator?.removeFromSuperview()
+        indicator.stopAnimating()
         if let userInfo = notification.userInfo {
             super.displayErrorMessage(userInfo["data"] as! String)
         }

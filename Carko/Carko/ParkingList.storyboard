@@ -14,7 +14,7 @@
         <scene sceneID="jb1-fA-WdS">
             <objects>
                 <navigationController id="vi7-JE-Kbh" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="1Rf-Ak-g2M">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1Rf-Ak-g2M">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.112871848" green="0.75954872370000004" blue="0.28861063720000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -177,6 +177,14 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Ns2-EM-yGT">
+                                                <rect key="frame" x="163" y="97" width="50" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="4Ph-X8-08k"/>
+                                                    <constraint firstAttribute="width" constant="50" id="kbc-EC-F3N"/>
+                                                </constraints>
+                                                <color key="color" red="0.9999514222" green="1" blue="0.97945672269999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </activityIndicatorView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -184,6 +192,8 @@
                                             <constraint firstAttribute="trailing" secondItem="giu-oM-AVu" secondAttribute="trailing" id="3Z3-TP-PIo"/>
                                             <constraint firstItem="9wL-DE-J8Z" firstAttribute="centerX" secondItem="8mx-Lk-QmG" secondAttribute="centerX" id="5DP-fj-uyu"/>
                                             <constraint firstItem="7BV-VC-1el" firstAttribute="top" secondItem="9wL-DE-J8Z" secondAttribute="bottom" constant="8" id="Dz4-fO-14z"/>
+                                            <constraint firstItem="Ns2-EM-yGT" firstAttribute="centerX" secondItem="8mx-Lk-QmG" secondAttribute="centerX" id="J8T-N0-Ggr"/>
+                                            <constraint firstItem="Ns2-EM-yGT" firstAttribute="centerY" secondItem="8mx-Lk-QmG" secondAttribute="centerY" id="Mbq-4V-eI9"/>
                                             <constraint firstItem="9wL-DE-J8Z" firstAttribute="centerY" secondItem="8mx-Lk-QmG" secondAttribute="centerY" id="XvL-qD-P7c"/>
                                             <constraint firstItem="giu-oM-AVu" firstAttribute="top" secondItem="8mx-Lk-QmG" secondAttribute="top" id="f24-cb-3Rv"/>
                                             <constraint firstAttribute="trailing" secondItem="giu-oM-AVu" secondAttribute="trailing" id="gFU-Ad-CNm"/>
@@ -446,6 +456,7 @@
                         <outlet property="streetAddressLabel" destination="oRS-XC-Jbe" id="M8a-ap-3Si"/>
                         <outlet property="timeOfDayLabel" destination="fb7-wn-nWq" id="eZM-3r-zn7"/>
                         <outlet property="updateButton" destination="KTc-En-ML4" id="88B-eR-sAh"/>
+                        <outlet property="uploadIndicator" destination="Ns2-EM-yGT" id="WGL-Bj-fAn"/>
                         <segue destination="6yu-zW-V47" kind="show" identifier="ChangeDescription" id="jbu-Kf-fWd"/>
                         <segue destination="mIc-Su-6ok" kind="show" identifier="ChangeAvailability" id="BtV-rX-H9m"/>
                         <segue destination="Fzg-4f-Mgf" kind="show" identifier="ChangeRates" id="5on-U1-U9J"/>
