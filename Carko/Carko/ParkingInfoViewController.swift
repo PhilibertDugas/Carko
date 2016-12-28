@@ -40,7 +40,7 @@ class ParkingInfoViewController: UIViewController {
         if parking.isAvailable {
             parking.delete(complete: completeParkingDelete)
         } else {
-            self.displayErrorMessage("You can't remove a parking while it's in use. Please wait after the parking duration")
+            super.displayErrorMessage("You can't remove a parking while it's in use. Please wait after the parking duration")
         }
     }
 
@@ -52,7 +52,7 @@ class ParkingInfoViewController: UIViewController {
         } else if parking.isAvailable {
             parking.update(complete: completeParkingUpdate)
         } else {
-            self.displayErrorMessage("You can't modify the details of a parking while it's in use. Please wait after the parking duration")
+            super.displayErrorMessage("You can't modify the details of a parking while it's in use. Please wait after the parking duration")
         }
     }
 
@@ -97,10 +97,10 @@ class ParkingInfoViewController: UIViewController {
     func parkingIsValid() -> Bool{
         let fields = validation.filter { (_, value) in return !value }.map { (key, _) in return key.capitalized }
         if fields.count > 0 {
-            self.displayErrorMessage("Make sure to fill the following fields: \(fields.joined(separator: ", "))")
+            super.displayErrorMessage("Make sure to fill the following fields: \(fields.joined(separator: ", "))")
             return false
         } else if AppState.shared.customer.accountId == nil {
-            self.displayErrorMessage("Please fill out the bank information in the profile section before listing a parking")
+            super.displayErrorMessage("Please fill out the bank information in the profile section before listing a parking")
             return false
         } else {
             return true
@@ -135,12 +135,6 @@ class ParkingInfoViewController: UIViewController {
             print("Error, shouldn't have happened")
         }
     }
-
-    func displayErrorMessage(_ message: String) {
-        let alert = UIAlertController.init(title: "Error", message: message, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction.init(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ChangeRates" {
@@ -171,7 +165,7 @@ class ParkingInfoViewController: UIViewController {
 extension ParkingInfoViewController {
     func completeParkingDelete(error: Error?) {
         if let error = error {
-            self.displayErrorMessage(error.localizedDescription)
+            super.displayErrorMessage(error.localizedDescription)
         } else {
             NotificationCenter.default.post(name: Notification.Name.init("ParkingDeleted"), object: nil, userInfo: nil)
             let _ = self.navigationController?.popViewController(animated: true)
@@ -180,7 +174,7 @@ extension ParkingInfoViewController {
 
     func completeParkingUpdate(error: Error?) {
         if let error = error {
-            self.displayErrorMessage(error.localizedDescription)
+            super.displayErrorMessage(error.localizedDescription)
         } else {
             NotificationCenter.default.post(name: Notification.Name.init("NewParking"), object: nil, userInfo: nil)
             let _ = self.navigationController?.popViewController(animated: true)

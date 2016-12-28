@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "999C8C63631C22E0D6FB76FAA4B8D8A0"
+               BlueprintIdentifier = "97AB819B06711DE0BCADFF562B76D4D9"
                BuildableName = "Pods_Carko_CarkoTests.framework"
                BlueprintName = "Pods-Carko-CarkoTests"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "999C8C63631C22E0D6FB76FAA4B8D8A0"
+            BlueprintIdentifier = "97AB819B06711DE0BCADFF562B76D4D9"
             BuildableName = "Pods_Carko_CarkoTests.framework"
             BlueprintName = "Pods-Carko-CarkoTests"
             ReferencedContainer = "container:Pods.xcodeproj">

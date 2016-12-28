@@ -43,9 +43,9 @@ class BookParkingViewController: UIViewController {
 
     @IBAction func tappedConfirm(_ sender: Any) {
         if !parking.isAvailable {
-            self.displayErrorMessage("The parking is currently busy")
+            super.displayErrorMessage("The parking is currently busy")
         } else if parking.customerId == AppState.shared.customer.id {
-            self.displayErrorMessage("The parking is your own. You can't rent your own parking")
+            super.displayErrorMessage("The parking is your own. You can't rent your own parking")
         } else {
             let paymentMessage = "Confirm payment of \(String.init(format: "%.02f", totalCost))$ to get a parking until \(endTimeParking!)"
             let alertController = UIAlertController.init(title: "Confirm payment", message: paymentMessage, preferredStyle: UIAlertControllerStyle.actionSheet)
@@ -61,12 +61,6 @@ class BookParkingViewController: UIViewController {
             alertController.addAction(okAction)
             self.present(alertController, animated: true, completion: nil)
         }
-    }
-
-    func displayErrorMessage(_ message: String) {
-        let alert = UIAlertController.init(title: "Error", message: message, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction.init(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
     }
 
     override func viewDidLoad() {
@@ -161,7 +155,7 @@ extension BookParkingViewController: STPPaymentContextDelegate {
 
         reservation.persist() { (successfulReservation, error) in
             if let error = error {
-                self.displayErrorMessage(error.localizedDescription)
+                super.displayErrorMessage(error.localizedDescription)
             } else if let successfulReservation = successfulReservation {
                 AppState.shared.customer.reservations.append(successfulReservation)
                 Parking.getAllParkings()
@@ -183,9 +177,5 @@ extension BookParkingViewController: STPPaymentContextDelegate {
 
     func paymentContext(_ paymentContext: STPPaymentContext, didFinishWith status: STPPaymentStatus, error: Error?) {
         return
-    }
-
-    func createReservation(chargeId: String, complete: @escaping (Error?) -> Void) {
-
     }
 }

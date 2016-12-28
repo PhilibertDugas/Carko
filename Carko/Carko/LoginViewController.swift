@@ -12,7 +12,6 @@ class LoginViewController: UIViewController {
 
     @IBOutlet var email: UITextField!
     @IBOutlet var password: UITextField!
-    @IBOutlet var errorMessage: UILabel!
 
     @IBOutlet var loginButton: RoundedCornerButton!
 
@@ -29,7 +28,7 @@ class LoginViewController: UIViewController {
 
             Customer.logIn(email: email, password: password)
         } else {
-            errorMessage.text = "Invalid email or password"
+            super.displayErrorMessage("Invalid email or password")
         }
     }
 
@@ -52,7 +51,7 @@ class LoginViewController: UIViewController {
         indicator?.removeFromSuperview()
         Customer.getCustomer { (customer, error) in
             if let error = error {
-                print("Shit something went wrong display something to the user: \(error.localizedDescription)")
+                super.displayErrorMessage(error.localizedDescription)
             } else if let customer = customer {
                 UserDefaults.standard.set(customer.toDictionnary(), forKey: "user")
                 AppState.shared.customer = customer
@@ -66,7 +65,7 @@ class LoginViewController: UIViewController {
         indicator?.stopAnimating()
         indicator?.removeFromSuperview()
         if let userInfo = notification.userInfo {
-            errorMessage.text = userInfo["data"] as? String
+            super.displayErrorMessage(userInfo["data"] as! String)
         }
     }
 }

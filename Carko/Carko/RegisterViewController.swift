@@ -13,7 +13,6 @@ class RegisterViewController: UIViewController {
     @IBOutlet var lastName: UITextField!
     @IBOutlet var email: UITextField!
     @IBOutlet var password: UITextField!
-    @IBOutlet var errorMessage: UILabel!
     @IBOutlet var registerButton: RoundedCornerButton!
     @IBOutlet var bottomConstraint: NSLayoutConstraint!
     var indicator: UIActivityIndicatorView?
@@ -35,7 +34,7 @@ class RegisterViewController: UIViewController {
             let customer = NewCustomer.init(email: email, password: password, firstName: firstName, lastName: lastName)
             customer.register()
         } else {
-            self.errorMessage.text = "Please fill every entry"
+            super.displayErrorMessage("Please fill every fields")
         }
     }
 
@@ -48,38 +47,9 @@ class RegisterViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.customerRegisteredError), name: NSNotification.Name(rawValue: "CustomerRegisteredError"), object: nil)
     }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.keyboardWillShow), name: Notification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.keyboardWillHide), name: Notification.Name.UIKeyboardWillHide, object: nil)
-    }
-
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self)
-    }
-}
-
-extension RegisterViewController {
-    func keyboardWillShow(notification: Notification) {
-        let info = notification.userInfo!
-        let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        let duration:TimeInterval = (info[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
-
-        UIView.animate(withDuration: duration, animations: { () -> Void in
-            self.bottomConstraint.constant = keyboardFrame.size.height + 20
-        })
-    }
-
-    func keyboardWillHide(notification: Notification) {
-        let info = notification.userInfo!
-        let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        let duration:TimeInterval = (info[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
-
-        UIView.animate(withDuration: duration, animations: { () -> Void in
-            self.bottomConstraint.constant = keyboardFrame.size.height - 20
-        })
     }
 }
 
@@ -89,7 +59,7 @@ extension RegisterViewController {
         indicator?.removeFromSuperview()
         Customer.getCustomer { (customer, error) in
             if let error = error {
-                self.errorMessage.text = error.localizedDescription
+                super.displayErrorMessage(error.localizedDescription)
             } else if let customer = customer {
                 UserDefaults.standard.set(customer.toDictionnary(), forKey: "user")
                 AppState.shared.customer = customer
@@ -103,7 +73,7 @@ extension RegisterViewController {
         indicator?.stopAnimating()
         indicator?.removeFromSuperview()
         if let userInfo = notification.userInfo {
-            errorMessage.text = userInfo["data"] as? String
+            super.displayErrorMessage(userInfo["data"] as! String)
         }
     }
 }

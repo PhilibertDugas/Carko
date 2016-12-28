@@ -18,3 +18,11 @@ extension UIViewController {
         view.endEditing(true)
     }
 }
+
+extension UIViewController {
+    func displayErrorMessage(_ message: String) {
+        let alert = UIAlertController.init(title: "Error", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction.init(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+}
