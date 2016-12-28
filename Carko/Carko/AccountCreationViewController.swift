@@ -46,7 +46,7 @@ class AccountCreationViewController: UIViewController {
         if let city = cityTextField.text, let line1 = addressTextField.text, let postalCode = postalCodeTextField.text, let stateText = stateTextField.text {
             self.address = AccountAddress.init(city: city, line1: line1, postalCode: postalCode, state: stateText)
         } else {
-            print("BRUH")
+            super.displayErrorMessage("BRUH")
         }
 
         if let address = self.address, let dob = self.dob {

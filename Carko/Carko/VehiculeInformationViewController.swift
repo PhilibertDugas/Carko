@@ -21,14 +21,14 @@ class VehiculeInformationViewController: UIViewController {
             let vehicule = Vehicule.init(license: licensePlate, make: make, model: model, year: year, color: color, province: province)
             vehicule.persist(completion: { (error) in
                 if let error = error {
-                    print(error.localizedDescription)
+                    super.displayErrorMessage(error.localizedDescription)
                 } else {
                     AppState.shared.customer.vehicule = vehicule
                     let _  = self.navigationController?.popToRootViewController(animated: true)
                 }
             })
         } else {
-            print("shit")
+            super.displayErrorMessage("BRUH")
         }
     }
 

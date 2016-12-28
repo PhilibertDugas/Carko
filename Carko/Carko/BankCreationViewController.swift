@@ -24,7 +24,7 @@ class BankCreationViewController: UIViewController {
     func createAccounts(routingNumber: String, accountNumber: String) {
         self.account.persist { (error) in
             if let error = error {
-                print(error.localizedDescription)
+                super.displayErrorMessage(error.localizedDescription)
             } else {
                 let params = STPBankAccountParams.init()
                 params.accountHolderName = "\(AppState.shared.customer.firstName) \(AppState.shared.customer.lastName)"
@@ -38,8 +38,8 @@ class BankCreationViewController: UIViewController {
                         print(error.localizedDescription)
                     } else if let token = token {
                         Account.associateExternalAccount(token: token.tokenId, completion: { (error) in
-                            if error != nil {
-                                print("tbk")
+                            if let error = error {
+                                super.displayErrorMessage(error.localizedDescription)
                             } else {
                                 AppState.shared.customer.accountId = token.tokenId
                                 AppState.shared.customer.externalLast4Digits = token.bankAccount?.last4()

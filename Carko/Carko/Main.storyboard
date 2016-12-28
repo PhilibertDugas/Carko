@@ -420,7 +420,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="zUC-eD-HaN" firstAttribute="top" secondItem="Vze-vc-3la" secondAttribute="top" constant="20" id="013-ig-yhh"/>
                             <constraint firstItem="zED-Wd-lrn" firstAttribute="top" secondItem="K62-Ks-Fyq" secondAttribute="bottom" constant="8" id="0Nd-m0-adu"/>
                             <constraint firstItem="zED-Wd-lrn" firstAttribute="leading" secondItem="Vze-vc-3la" secondAttribute="leadingMargin" id="0Rw-ri-EFa"/>
                             <constraint firstItem="GuG-3k-JI4" firstAttribute="leading" secondItem="Vze-vc-3la" secondAttribute="leadingMargin" id="20V-gD-rpE"/>
@@ -441,17 +440,18 @@
                             <constraint firstItem="tZn-JD-9yU" firstAttribute="top" secondItem="ckv-IO-BQ8" secondAttribute="bottom" constant="20" id="bcP-tu-xTD"/>
                             <constraint firstItem="7BF-wA-EXZ" firstAttribute="top" secondItem="TQu-Yn-at2" secondAttribute="bottom" constant="50" id="blV-nS-QSI"/>
                             <constraint firstItem="zUC-eD-HaN" firstAttribute="leading" secondItem="Vze-vc-3la" secondAttribute="leading" id="ezp-Es-8bZ"/>
-                            <constraint firstItem="toZ-Dn-wnR" firstAttribute="top" secondItem="TQu-Yn-at2" secondAttribute="bottom" constant="211" id="fU2-Ln-CPM"/>
                             <constraint firstItem="GuG-3k-JI4" firstAttribute="top" secondItem="lhR-i9-aIb" secondAttribute="bottom" constant="20" id="kKk-oD-T6N"/>
+                            <constraint firstItem="zUC-eD-HaN" firstAttribute="top" secondItem="zt5-HQ-HZq" secondAttribute="bottom" id="kvp-1V-VLA"/>
                             <constraint firstItem="lhR-i9-aIb" firstAttribute="top" secondItem="tZn-JD-9yU" secondAttribute="bottom" constant="8" id="mHb-hf-vIp"/>
                             <constraint firstItem="L87-Zu-8D5" firstAttribute="centerX" secondItem="Vze-vc-3la" secondAttribute="centerX" id="oKd-Dm-dJn"/>
                             <constraint firstItem="lhR-i9-aIb" firstAttribute="leading" secondItem="Vze-vc-3la" secondAttribute="leadingMargin" id="od5-E2-l9A"/>
                             <constraint firstItem="toZ-Dn-wnR" firstAttribute="top" secondItem="L87-Zu-8D5" secondAttribute="bottom" constant="20" id="s91-Gm-xcD"/>
+                            <constraint firstItem="K62-Ks-Fyq" firstAttribute="top" secondItem="zUC-eD-HaN" secondAttribute="bottom" constant="28" id="tFr-1b-rWk"/>
                             <constraint firstItem="ckv-IO-BQ8" firstAttribute="leading" secondItem="Vze-vc-3la" secondAttribute="leadingMargin" id="tsP-B9-YL6"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="bottomConstraint" destination="fU2-Ln-CPM" id="R3z-SN-X6d"/>
+                        <outlet property="IQLayoutGuideConstraint" destination="kvp-1V-VLA" id="Mhe-4p-ffo"/>
                         <outlet property="email" destination="zED-Wd-lrn" id="gH3-g8-N2l"/>
                         <outlet property="firstName" destination="ckv-IO-BQ8" id="GFe-G6-3ba"/>
                         <outlet property="indicator" destination="lKQ-hZ-h10" id="dt4-Md-eYc"/>

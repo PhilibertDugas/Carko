@@ -27,6 +27,5 @@ class ParkingDescriptionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         descriptionText.text = parkingDescription
-        automaticallyAdjustsScrollViewInsets = false
     }
 }

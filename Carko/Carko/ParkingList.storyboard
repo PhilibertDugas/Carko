@@ -531,6 +531,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="IQLayoutGuideConstraint" destination="7h2-YL-639" id="U4g-KU-whu"/>
                         <outlet property="descriptionText" destination="SyP-yK-IPs" id="4yl-ZN-VKE"/>
                     </connections>
                 </viewController>
