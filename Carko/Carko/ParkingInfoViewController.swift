@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 import FirebaseStorage
 
-class ParkingInfoViewController: UIViewController {
+class ParkingInfoViewController: UITableViewController {
     // Image Section
     @IBOutlet var parkingImageView: UIImageView!
     @IBOutlet var helperImageView: UIImageView!
@@ -28,14 +28,15 @@ class ParkingInfoViewController: UIViewController {
     // Rates & Description
     @IBOutlet var parkingRate: UILabel!
     @IBOutlet var parkingDescriptionLabel: UILabel!
-    
-    @IBOutlet var removeButton: RoundedCornerButton!
-    @IBOutlet var updateButton: RoundedCornerButton!
+
+    @IBOutlet var removeButton: UIBarButtonItem!
+    @IBOutlet var updateButton: UIBarButtonItem!
 
     var parking: Parking!
     var isNewParking = true
     var validation = ["address": false, "description": false, "rates": false, "availability": false, "photo": false]
     let imagePicker = UIImagePickerController.init()
+
 
     @IBAction func removeParkingTapped(_ sender: Any) {
         if parking.isAvailable {
@@ -63,22 +64,6 @@ class ParkingInfoViewController: UIViewController {
         present(imagePicker, animated: true, completion: nil)
     }
 
-    @IBAction func tappedLocation(_ sender: Any) {
-        performSegue(withIdentifier: "ChangeLocation", sender: nil)
-    }
-
-    @IBAction func tappedDescription(_ sender: Any) {
-        performSegue(withIdentifier: "ChangeDescription", sender: nil)
-    }
-
-    @IBAction func tappedAvailability(_ sender: Any) {
-        performSegue(withIdentifier: "ChangeAvailability", sender: nil)
-    }
-
-    @IBAction func tappedRates(_ sender: Any) {
-        performSegue(withIdentifier: "ChangeRates", sender: nil)
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -87,11 +72,12 @@ class ParkingInfoViewController: UIViewController {
         loadParkingPicture()
 
         if isNewParking {
-            self.title = "New Parking"
-            self.updateButton.setTitle("Save", for: UIControlState.normal)
+            self.title = "New"
+            self.updateButton.title = "Create"
+            self.removeButton.isEnabled = false
         } else {
-            self.title = "Edit Parking"
-            self.updateButton.setTitle("Update", for: UIControlState.normal)
+            self.title = "Edit"
+            self.updateButton.title = "Update"
         }
     }
 
@@ -161,7 +147,6 @@ class ParkingInfoViewController: UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
 }
-
 
 extension ParkingInfoViewController {
     func completeParkingDelete(error: Error?) {

@@ -32,6 +32,7 @@ class ParkingLocationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        addButton.isHidden = true
         mapView.delegate = self
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
