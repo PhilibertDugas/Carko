@@ -21,9 +21,11 @@ class ParkingLocationViewController: UIViewController {
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var addButton: UIButton!
 
+    let locationManager = CLLocationManager()
+
+    var blurView: UIVisualEffectView!
     var searchController: UISearchController!
     var selectedPin: MKPlacemark?
-    let locationManager = CLLocationManager()
     var centerAnnotation: MKPointAnnotation?
     var justZoomedIn = false
 
@@ -51,7 +53,7 @@ class ParkingLocationViewController: UIViewController {
     }
 
     func setupSearchBar() {
-        let locationSearchTable = storyboard?.instantiateViewController(withIdentifier: "locationSearchTable") as! LocationSearchTableTableViewController
+        let locationSearchTable = storyboard?.instantiateViewController(withIdentifier: "locationSearchTable") as! LocationSearchTableViewController
         locationSearchTable.mapView = mapView
         locationSearchTable.handleMapSearchDelegate = self
 
@@ -65,6 +67,7 @@ class ParkingLocationViewController: UIViewController {
 
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.dimsBackgroundDuringPresentation = true
+        searchBar.delegate = self
         definesPresentationContext = true
     }
     
@@ -72,9 +75,22 @@ class ParkingLocationViewController: UIViewController {
         let currentMapCoordinate = mapView.centerCoordinate
         let latitude = currentMapCoordinate.latitude
         let longitude = currentMapCoordinate.longitude
-        let address = selectedPin?.title
+        let address = LocationSearchTableViewController.parseAddress(selectedItem: selectedPin!)
         let _ = self.navigationController?.popViewController(animated: true)
-        delegate?.userDidChooseLocation(address: address!, latitude: latitude, longitude: longitude)
+        delegate?.userDidChooseLocation(address: address, latitude: latitude, longitude: longitude)
+    }
+}
+
+extension ParkingLocationViewController: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        let effect = UIBlurEffect(style: UIBlurEffectStyle.light)
+        blurView = UIVisualEffectView.init(effect: effect)
+        blurView.frame = mapView.bounds
+        mapView.addSubview(blurView)
+    }
+
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        blurView.removeFromSuperview()
     }
 }
 

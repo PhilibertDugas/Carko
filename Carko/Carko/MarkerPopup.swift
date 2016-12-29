@@ -30,6 +30,7 @@ class MarkerPopup: UIView {
         guard let content = view else { return }
         content.frame = self.bounds
         content.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        content.backgroundColor = UIColor.clear
         self.addSubview(content)
     }
 }

@@ -21,5 +21,6 @@ class BorderedView: UIView {
 
         tintColor.setStroke()
         path.stroke()
+        super.draw(rect)
     }
 }

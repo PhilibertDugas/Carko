@@ -21,6 +21,7 @@ class FindParkingViewController: UIViewController {
     var animator: ARNTransitionAnimator!
     var selectedParking: Parking?
     var shouldDismissPopupview = true
+    var blurView: UIVisualEffectView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,16 +60,21 @@ class FindParkingViewController: UIViewController {
                 popupView.imageView.sd_setImage(with: imageReference)
             }
 
-            UIView.animate(withDuration: 0.25, animations: {
+            UIView.animate(withDuration: 0.15, animations: { 
                 self.popupView.isHidden = false
                 self.popupView.frame.origin.y = self.containerView.frame.height - self.tabBar.frame.height
+            }, completion: { _ in
+                let effect = UIBlurEffect(style: UIBlurEffectStyle.light)
+                self.blurView = UIVisualEffectView.init(effect: effect)
+                self.blurView.frame = self.popupView.bounds
+                self.containerView.insertSubview(self.blurView, at: 1)
             })
         }
     }
 
     func parkingDeselected() {
         if self.shouldDismissPopupview {
-            UIView.animate(withDuration: 0.25, animations: {
+            UIView.animate(withDuration: 0.15, animations: {
                 self.popupView.frame.origin.y = self.tabBar.frame.origin.y
             })
         } else {

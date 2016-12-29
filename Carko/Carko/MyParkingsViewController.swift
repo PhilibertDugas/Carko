@@ -9,16 +9,15 @@
 import UIKit
 import FirebaseStorageUI
 
-class MyParkingsViewController: UIViewController {
-
-    @IBOutlet weak var ParkingTableView: UITableView!
-    
+class MyParkingsViewController: UITableViewController {
     var parkingList = [Parking]()
     var isEditingAvailability = false
     var selectedRowIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        navigationItem.leftBarButtonItem = editButtonItem
 
         NotificationCenter.default.addObserver(self, selector: #selector(self.parkingFetched), name: Notification.Name.init(rawValue: "CustomerParkingFetched"), object: nil)
         
@@ -39,8 +38,7 @@ class MyParkingsViewController: UIViewController {
             for (parking) in parkings {
                 parkingList.append(parking)
             }
-            
-            ParkingTableView.reloadData()
+            tableView.reloadData()
         }
     }
     
@@ -56,22 +54,29 @@ class MyParkingsViewController: UIViewController {
     }
 }
 
-extension MyParkingsViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+extension MyParkingsViewController {
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         selectedRowIndex = indexPath.row
         return indexPath
     }
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.delete {
+            let parking = parkingList[indexPath.row]
+            if parking.isAvailable {
+                parking.delete(complete: completeParkingDelete)
+            } else {
+                super.displayErrorMessage("You can't remove a parking while it's in use. Please wait after the parking duration")
+            }
+        }
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return parkingList.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = ParkingTableView.dequeueReusableCell(withIdentifier: "parkingCell", for: indexPath) as! ParkingTableViewCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "parkingCell", for: indexPath) as! ParkingTableViewCell
         let parking = parkingList[indexPath.row]
         cell.address.text = parking.address
         cell.availabilityLabel.text = parking.availabilityInfo.daysEnumerationText()
@@ -83,5 +88,14 @@ extension MyParkingsViewController: UITableViewDataSource, UITableViewDelegate {
         }
 
         return cell
+    }
+
+    func completeParkingDelete(error: Error?) {
+        if let error = error {
+            super.displayErrorMessage(error.localizedDescription)
+        } else {
+            NotificationCenter.default.post(name: Notification.Name.init("ParkingDeleted"), object: nil, userInfo: nil)
+            let _ = self.navigationController?.popViewController(animated: true)
+        }
     }
 }

@@ -10,18 +10,17 @@ import UIKit
 import MapKit
 
 
-class LocationSearchTableTableViewController: UITableViewController {
-
+class LocationSearchTableViewController: UITableViewController {
     var matchingItems:[MKMapItem] = []
     var mapView: MKMapView? = nil
     var handleMapSearchDelegate: HandleMapSearch?
 
     override func viewDidLoad() {
-        super.viewDidLoad()
+        tableView.backgroundColor = UIColor.clear
     }
 }
 
-extension LocationSearchTableTableViewController: UISearchResultsUpdating {
+extension LocationSearchTableViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let mapView = mapView,
             let searchBarText = searchController.searchBar.text else { return }
@@ -39,16 +38,25 @@ extension LocationSearchTableTableViewController: UISearchResultsUpdating {
     }
 }
 
-extension LocationSearchTableTableViewController {
+extension LocationSearchTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return matchingItems.count
     }
 
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return CGFloat.init(0.01)
+    }
+
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView.init(frame: CGRect.zero)
+    }
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! SimpleCellTableViewCell
+        cell.backgroundColor = UIColor.clear
         let selectedItem = matchingItems[indexPath.row].placemark
-        cell.textLabel?.text = selectedItem.name
-        cell.detailTextLabel?.text = parseAddress(selectedItem: selectedItem)
+        cell.titleLabel.text = selectedItem.name
+        cell.subtitleLabel.text = LocationSearchTableViewController.parseAddress(selectedItem: selectedItem)
         return cell
     }
 
@@ -58,7 +66,7 @@ extension LocationSearchTableTableViewController {
         dismiss(animated: true, completion: nil)
     }
 
-    func parseAddress(selectedItem:MKPlacemark) -> String {
+    class func parseAddress(selectedItem:MKPlacemark) -> String {
         // put a space between "4" and "Melrose Place"
         let firstSpace = (selectedItem.subThoroughfare != nil && selectedItem.thoroughfare != nil) ? " " : ""
         // put a comma between street and city/state

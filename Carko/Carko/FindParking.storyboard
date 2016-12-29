@@ -46,7 +46,6 @@
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vJw-M0-R9n" customClass="MarkerPopup" customModule="Carko" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="548" width="375" height="70"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="7DT-Dp-2Ce"/>
                                 </constraints>

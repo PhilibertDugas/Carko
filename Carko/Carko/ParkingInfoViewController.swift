@@ -11,25 +11,17 @@ import CoreLocation
 import FirebaseStorage
 
 class ParkingInfoViewController: UITableViewController {
-    // Image Section
     @IBOutlet var parkingImageView: UIImageView!
     @IBOutlet var helperImageView: UIImageView!
     @IBOutlet var helperImageLabel: UILabel!
     @IBOutlet var uploadIndicator: UIActivityIndicatorView!
 
-    // Address Section
     @IBOutlet var streetAddressLabel: UILabel!
-    @IBOutlet var postalAddressLabel: UILabel!
-
-    // Availability Section
+    @IBOutlet var parkingDescriptionLabel: UILabel!
     @IBOutlet var timeOfDayLabel: UILabel!
     @IBOutlet var daysAvailableLabel: UILabel!
-
-    // Rates & Description
     @IBOutlet var parkingRate: UILabel!
-    @IBOutlet var parkingDescriptionLabel: UILabel!
 
-    @IBOutlet var removeButton: UIBarButtonItem!
     @IBOutlet var updateButton: UIBarButtonItem!
 
     var parking: Parking!
@@ -37,14 +29,6 @@ class ParkingInfoViewController: UITableViewController {
     var validation = ["address": false, "description": false, "rates": false, "availability": false, "photo": false]
     let imagePicker = UIImagePickerController.init()
 
-
-    @IBAction func removeParkingTapped(_ sender: Any) {
-        if parking.isAvailable {
-            parking.delete(complete: completeParkingDelete)
-        } else {
-            super.displayErrorMessage("You can't remove a parking while it's in use. Please wait after the parking duration")
-        }
-    }
 
     @IBAction func saveParkingTapped(_ sender: Any) {
         if isNewParking {
@@ -74,7 +58,6 @@ class ParkingInfoViewController: UITableViewController {
         if isNewParking {
             self.title = "New"
             self.updateButton.title = "Create"
-            self.removeButton.isEnabled = false
         } else {
             self.title = "Edit"
             self.updateButton.title = "Update"
@@ -97,7 +80,7 @@ class ParkingInfoViewController: UITableViewController {
     func initializeParking() {
         if self.parking != nil {
             isNewParking = false
-            for field in ["address", "availability", "rate", "description"] {
+            for field in ["address", "availability", "rates", "description"] {
                 updateLabels(field: field)
             }
         } else {
@@ -110,7 +93,6 @@ class ParkingInfoViewController: UITableViewController {
         switch field {
         case "address":
             streetAddressLabel.text = self.parking.address
-            postalAddressLabel.text = self.parking.address
         case "availability":
             timeOfDayLabel.text = self.parking.availabilityInfo.lapsOfTimeText()
             daysAvailableLabel.text = self.parking.availabilityInfo.daysEnumerationText()
@@ -126,15 +108,15 @@ class ParkingInfoViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ChangeRates" {
             let destinationVC = segue.destination as! ParkingRatesViewController
-            destinationVC.parkingRate = parking?.price
+            destinationVC.parkingRate = parking.price
             destinationVC.delegate = self
         } else if segue.identifier == "ChangeDescription" {
             let destinationVC = segue.destination as! ParkingDescriptionViewController
-            destinationVC.parkingDescription = parking?.pDescription
+            destinationVC.parkingDescription = parking.pDescription
             destinationVC.delegate = self
         } else if segue.identifier == "ChangeAvailability" {
             let destinationVC = segue.destination as! ParkingAvailabilityViewController
-            destinationVC.parkingAvailability = parking?.availabilityInfo
+            destinationVC.parkingAvailability = parking.availabilityInfo
             destinationVC.delegate = self
         } else if segue.identifier == "ChangeLocation" {
             let destinationVC = segue.destination as! ParkingLocationViewController
@@ -149,15 +131,6 @@ class ParkingInfoViewController: UITableViewController {
 }
 
 extension ParkingInfoViewController {
-    func completeParkingDelete(error: Error?) {
-        if let error = error {
-            super.displayErrorMessage(error.localizedDescription)
-        } else {
-            NotificationCenter.default.post(name: Notification.Name.init("ParkingDeleted"), object: nil, userInfo: nil)
-            let _ = self.navigationController?.popViewController(animated: true)
-        }
-    }
-
     func completeParkingUpdate(error: Error?) {
         if let error = error {
             super.displayErrorMessage(error.localizedDescription)

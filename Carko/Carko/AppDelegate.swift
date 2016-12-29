@@ -19,19 +19,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         IQKeyboardManager.sharedManager().enable = true
 
+        setupStripe()
+        setupFirebase()
+        setupPageControl()
+        return true
+    }
+
+    func setupStripe() {
+        STPPaymentConfiguration.shared().publishableKey = "pk_test_1LYkk7fCrA1bWDbXRUx1zWBx"
+        STPTheme.default().accentColor = UIColor.init(netHex: 0x00C441)
+    }
+
+    func setupPageControl() {
+        let pageControl = UIPageControl.appearance()
+        pageControl.pageIndicatorTintColor = UIColor.lightGray
+        pageControl.currentPageIndicatorTintColor = UIColor.black
+        pageControl.backgroundColor = UIColor.white
+    }
+
+    func setupFirebase() {
         //let buildFor = ProcessInfo.processInfo.environment["BUILD_FOR"]! as String
         let firebasePlistFileName = "GoogleService-Info"
         let firbaseOptions = FIROptions(contentsOfFile: Bundle.main.path(forResource: firebasePlistFileName, ofType: "plist"))
         FIRApp.configure(with: firbaseOptions!)
 
-        STPPaymentConfiguration.shared().publishableKey = "pk_test_1LYkk7fCrA1bWDbXRUx1zWBx"
-
-        let pageControl = UIPageControl.appearance()
-        pageControl.pageIndicatorTintColor = UIColor.lightGray
-        pageControl.currentPageIndicatorTintColor = UIColor.black
-        pageControl.backgroundColor = UIColor.white
-        
-        return true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
