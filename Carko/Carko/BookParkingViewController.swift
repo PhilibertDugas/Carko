@@ -68,7 +68,7 @@ class BookParkingViewController: UIViewController {
         creditCardLabel.delegate = self
 
         // TODO CHANGE THIS
-        paymentContext = STPPaymentContext.init(apiAdapter: CarkoAPIClient.shared)
+        paymentContext = STPPaymentContext.init(apiAdapter: APIClient.shared)
         paymentContext.paymentCurrency = "CAD"
         paymentContext.delegate = self
         paymentContext.hostViewController = self

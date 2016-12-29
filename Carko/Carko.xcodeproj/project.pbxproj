@@ -34,7 +34,7 @@
 		453314341E03672700BF0B65 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453314331E03672700BF0B65 /* Account.swift */; };
 		4533143A1E036CF300BF0B65 /* BankCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453314391E036CF300BF0B65 /* BankCreationViewController.swift */; };
 		4533143C1E036DDA00BF0B65 /* AccountClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4533143B1E036DDA00BF0B65 /* AccountClient.swift */; };
-		4554EBCE1DB5A36F0066E452 /* CarkoAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4554EBCD1DB5A36F0066E452 /* CarkoAPIClient.swift */; };
+		4554EBCE1DB5A36F0066E452 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4554EBCD1DB5A36F0066E452 /* APIClient.swift */; };
 		4554EBD01DB5AA520066E452 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4554EBCF1DB5AA520066E452 /* ProfileViewController.swift */; };
 		455FF9EE1DE29FE500F256BD /* CircularButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455FF9ED1DE29FE500F256BD /* CircularButton.swift */; };
 		45637CFF1DEB184500DD42C0 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45637CFE1DEB184500DD42C0 /* AppState.swift */; };
@@ -61,6 +61,7 @@
 		45BC294F1DA18249000C54BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45BC294D1DA18249000C54BC /* LaunchScreen.storyboard */; };
 		45BC29651DA18249000C54BC /* CarkoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC29641DA18249000C54BC /* CarkoUITests.swift */; };
 		45C1DBED1DD7870A00B2C96F /* CarkoAPIClientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C1DBEC1DD7870A00B2C96F /* CarkoAPIClientTest.swift */; };
+		45CC92301E14BBF5002338F7 /* SimpleSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CC922F1E14BBF5002338F7 /* SimpleSearchBar.swift */; };
 		45D5A5091DB2BE8F0025C45A /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45D5A5081DB2BE8F0025C45A /* Profile.storyboard */; };
 		45E043CA1E05BD2800513225 /* right-arrow-circular-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45E043C91E05BD2800513225 /* right-arrow-circular-button@2x.png */; };
 		45E043CC1E05BD3900513225 /* user@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45E043CB1E05BD3900513225 /* user@2x.png */; };
@@ -132,7 +133,7 @@
 		453314331E03672700BF0B65 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		453314391E036CF300BF0B65 /* BankCreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankCreationViewController.swift; sourceTree = "<group>"; };
 		4533143B1E036DDA00BF0B65 /* AccountClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountClient.swift; sourceTree = "<group>"; };
-		4554EBCD1DB5A36F0066E452 /* CarkoAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarkoAPIClient.swift; sourceTree = "<group>"; };
+		4554EBCD1DB5A36F0066E452 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		4554EBCF1DB5AA520066E452 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		455FF9ED1DE29FE500F256BD /* CircularButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularButton.swift; sourceTree = "<group>"; };
 		45637CFE1DEB184500DD42C0 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
@@ -165,6 +166,7 @@
 		45BC29641DA18249000C54BC /* CarkoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarkoUITests.swift; sourceTree = "<group>"; };
 		45BC29661DA18249000C54BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45C1DBEC1DD7870A00B2C96F /* CarkoAPIClientTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarkoAPIClientTest.swift; sourceTree = "<group>"; };
+		45CC922F1E14BBF5002338F7 /* SimpleSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleSearchBar.swift; sourceTree = "<group>"; };
 		45D5A5081DB2BE8F0025C45A /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		45E043C91E05BD2800513225 /* right-arrow-circular-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right-arrow-circular-button@2x.png"; sourceTree = "<group>"; };
 		45E043CB1E05BD3900513225 /* user@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user@2x.png"; sourceTree = "<group>"; };
@@ -290,7 +292,7 @@
 		4591D5F31DFCA49C00366691 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				4554EBCD1DB5A36F0066E452 /* CarkoAPIClient.swift */,
+				4554EBCD1DB5A36F0066E452 /* APIClient.swift */,
 				4591D5F41DFCA4C400366691 /* ParkingClient.swift */,
 				4591D5F61DFCA4DE00366691 /* CustomerClient.swift */,
 				4591D5F81DFCA51D00366691 /* StripeClient.swift */,
@@ -371,6 +373,7 @@
 				458A982F1DBCFD44007F53EE /* UnderlineTextField.swift */,
 				455FF9ED1DE29FE500F256BD /* CircularButton.swift */,
 				452738E61DF7AEB700D74F0D /* BorderedView.swift */,
+				45CC922F1E14BBF5002338F7 /* SimpleSearchBar.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -807,7 +810,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4554EBCE1DB5A36F0066E452 /* CarkoAPIClient.swift in Sources */,
+				4554EBCE1DB5A36F0066E452 /* APIClient.swift in Sources */,
 				C51150531DAF38D5004E2A7D /* ParkingDescriptionViewController.swift in Sources */,
 				4564F6E11DB98509001B709C /* BookParkingViewController.swift in Sources */,
 				45BB39651DBBF0010019C2A3 /* RoundedCornerButton.swift in Sources */,
@@ -829,6 +832,7 @@
 				4533143C1E036DDA00BF0B65 /* AccountClient.swift in Sources */,
 				451E424B1DB071EC00747370 /* Customer.swift in Sources */,
 				452738E71DF7AEB700D74F0D /* BorderedView.swift in Sources */,
+				45CC92301E14BBF5002338F7 /* SimpleSearchBar.swift in Sources */,
 				450E12401DAF27330027EFBC /* RegisterViewController.swift in Sources */,
 				451E424D1DB078E000747370 /* KeyboardDimissExtension.swift in Sources */,
 				4591D5F91DFCA51D00366691 /* StripeClient.swift in Sources */,

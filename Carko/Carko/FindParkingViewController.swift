@@ -52,6 +52,7 @@ class FindParkingViewController: UIViewController {
             self.bookParkingVC.parking = parking
             
             popupView.descriptionLabel.text = parking.address
+            popupView.priceLabel.text = "\(parking.price.asLocaleCurrency)/h"
 
             if let url = parking.photoURL {
                 let imageReference = AppState.shared.storageReference.storage.reference(forURL: url.absoluteString)

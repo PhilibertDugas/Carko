@@ -12,6 +12,7 @@ class MarkerPopup: UIView {
 
     @IBOutlet weak var view: UIView!
     @IBOutlet var descriptionLabel: UILabel!
+    @IBOutlet var priceLabel: UILabel!
     @IBOutlet var imageView: UIImageView!
 
     override init(frame: CGRect) {

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Vehicule {
+struct Vehicule {
     var license: String
     var make: String
     var model: String
@@ -25,7 +25,7 @@ class Vehicule {
         self.province = province
     }
 
-    convenience init(vehicule: [String: Any]) {
+    init(vehicule: [String: Any]) {
         let license = vehicule["license_plate"] as! String
         let make = vehicule["make"] as! String
         let model = vehicule["model"] as! String
@@ -47,7 +47,7 @@ class Vehicule {
     }
 
     func persist(completion: @escaping (Error?) -> Void) {
-        CarkoAPIClient.shared.postVehicule(vehicule: self, complete: completion)
+        APIClient.shared.postVehicule(vehicule: self, complete: completion)
     }
 }
 

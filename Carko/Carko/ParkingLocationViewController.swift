@@ -19,12 +19,12 @@ protocol ParkingLocationDelegate: class {
 
 class ParkingLocationViewController: UIViewController {
     @IBOutlet var mapView: MKMapView!
+    @IBOutlet var addButton: UIButton!
 
-    var searchController: UISearchController?
+    var searchController: UISearchController!
     var selectedPin: MKPlacemark?
     let locationManager = CLLocationManager()
     var centerAnnotation: MKPointAnnotation?
-
     var justZoomedIn = false
 
     weak var delegate: ParkingLocationDelegate? = nil
@@ -54,16 +54,16 @@ class ParkingLocationViewController: UIViewController {
         locationSearchTable.mapView = mapView
         locationSearchTable.handleMapSearchDelegate = self
 
-        searchController = UISearchController.init(searchResultsController: locationSearchTable)
-        searchController?.searchResultsUpdater = locationSearchTable
+        searchController = SimpleSearchController.init(searchResultsController: locationSearchTable)
+        searchController.searchResultsUpdater = locationSearchTable
 
-        let searchBar = searchController?.searchBar
-        searchBar?.sizeToFit()
-        searchBar?.placeholder = "Search for places"
-        navigationItem.titleView = searchController?.searchBar
+        let searchBar = searchController.searchBar
+        searchBar.sizeToFit()
+        searchBar.placeholder = "Search for places"
+        navigationItem.titleView = searchController.searchBar
 
-        searchController?.hidesNavigationBarDuringPresentation = false
-        searchController?.dimsBackgroundDuringPresentation = true
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.dimsBackgroundDuringPresentation = true
         definesPresentationContext = true
     }
     
@@ -92,9 +92,10 @@ extension ParkingLocationViewController : CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = manager.location else { return }
-        let region = MKCoordinateRegionMakeWithDistance(location.coordinate, CLLocationDistance.init(40), CLLocationDistance.init(40))
+        let region = MKCoordinateRegionMakeWithDistance(location.coordinate, 800, 800)
         mapView.setRegion(region, animated: true)
         locationManager.stopUpdatingLocation()
+        addButton.isHidden = false
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -116,7 +117,7 @@ extension ParkingLocationViewController: HandleMapSearch {
         selectedPin = placemark
         mapView.removeAnnotations(mapView.annotations)
         centerAnnotation = MKPointAnnotation()
-        centerAnnotation?.coordinate = placemark.coordinate
+        centerAnnotation!.coordinate = placemark.coordinate
 
         /*annotation.title = placemark.name
 

@@ -1,5 +1,5 @@
 //
-//  CarkoAPIClient.swift
+//  APIClient.swift
 //  Carko
 //
 //  Created by Philibert Dugas on 2016-10-17.
@@ -9,8 +9,8 @@
 import Foundation
 import FirebaseAuth
 
-class CarkoAPIClient: NSObject {
-    static let shared = CarkoAPIClient.init()
+class APIClient: NSObject {
+    static let shared = APIClient.init()
     let baseUrlString = "https://fast-crag-37122.herokuapp.com"
     //let baseUrlString = "https://f4891eda.ngrok.io"
     var baseUrl: URL!

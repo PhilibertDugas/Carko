@@ -109,7 +109,7 @@ class Customer {
     }
     
     class func getCustomer(complete: @escaping (Customer?, Error?) -> Void) {
-        CarkoAPIClient.shared.getCustomer(complete: complete)
+        APIClient.shared.getCustomer(complete: complete)
     }
 
     private func parkingsAsDict() -> [[String: Any]] {
@@ -158,7 +158,7 @@ class NewCustomer {
                 self.postRegisterError(error!)
             } else if let customer = customer {
                 self.firebaseId = customer.uid
-                CarkoAPIClient.shared.postCustomer(customer: self, complete: { (error) in
+                APIClient.shared.postCustomer(customer: self, complete: { (error) in
                     if error != nil {
                         try! FIRAuth.auth()!.signOut()
                         self.postRegisterError(error!)

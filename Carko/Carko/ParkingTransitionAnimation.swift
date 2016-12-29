@@ -123,6 +123,7 @@ extension ParkingTransitionAnimation: TransitionAnimatable {
                 self.containerView?.addSubview(self.modalVC.view)
                 self.completion?(transitionType.isPresenting)
             } else {
+                self.superView.addSubview(self.rootVC.tabBar)
                 self.rootVC.beginAppearanceTransition(true, animated: false)
                 self.rootVC.endAppearanceTransition()
             }

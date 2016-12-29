@@ -71,14 +71,14 @@ class Parking {
 
 extension Parking {
     func persist(complete: @escaping (Error?) -> Void) {
-        CarkoAPIClient.shared.createParking(parking: self, complete: complete)
+        APIClient.shared.createParking(parking: self, complete: complete)
     }
 
     func update(complete: @escaping (Error?) -> Void) {
-        CarkoAPIClient.shared.updateParking(parking: self, complete: complete)
+        APIClient.shared.updateParking(parking: self, complete: complete)
     }
     func delete(complete: @escaping (Error?) -> Void) {
-        CarkoAPIClient.shared.deleteParking(parking: self, complete: complete)
+        APIClient.shared.deleteParking(parking: self, complete: complete)
     }
 
     func toDictionary() -> [String : Any] {
@@ -96,7 +96,7 @@ extension Parking {
     }
 
     class func getAllParkings() {
-        CarkoAPIClient.shared.getAllParkings { (parkings, error) in
+        APIClient.shared.getAllParkings { (parkings, error) in
             if let error = error {
                 print(error)
             } else {
@@ -107,7 +107,7 @@ extension Parking {
     }
 
     class func getCustomerParkings() {
-        CarkoAPIClient.shared.getCustomerParkings { (parkings, error) in
+        APIClient.shared.getCustomerParkings { (parkings, error) in
             if let error = error {
                 print(error)
             } else {

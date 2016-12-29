@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-extension CarkoAPIClient {
+extension APIClient {
     func postVehicule(vehicule: Vehicule, complete: @escaping (Error?) -> Void) {
         let parameters: Parameters = vehicule.toDictionary()
         let url = baseUrl.appendingPathComponent("/customers/\(AppState.shared.customer.id)/vehicules")

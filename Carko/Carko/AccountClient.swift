@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-extension CarkoAPIClient {
+extension APIClient {
     func postAccount(account: Account, complete: @escaping (Error?) -> Void) {
         if let ip = AppState.getWiFiAddress() {
             let parameters: Parameters = ["account":[

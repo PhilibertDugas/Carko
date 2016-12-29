@@ -32,7 +32,7 @@ class ProfileViewController: UITableViewController {
 
         emailLabel.text = "\(AppState.shared.customer.email)"
 
-        paymentContext = STPPaymentContext.init(apiAdapter: CarkoAPIClient.shared)
+        paymentContext = STPPaymentContext.init(apiAdapter: APIClient.shared)
         paymentContext.delegate = self
         paymentContext.hostViewController = self
         setCreditCardLabel(paymentContext: paymentContext)

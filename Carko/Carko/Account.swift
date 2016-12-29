@@ -37,11 +37,11 @@ class Account {
     }
 
     func persist(completion: @escaping (Error?) -> Void) {
-        CarkoAPIClient.shared.postAccount(account: self, complete: completion)
+        APIClient.shared.postAccount(account: self, complete: completion)
     }
 
     class func associateExternalAccount(token: String, completion: @escaping (Error?) -> Void) {
-        CarkoAPIClient.shared.postExternalAccount(token: token, complete: completion)
+        APIClient.shared.postExternalAccount(token: token, complete: completion)
     }
 
 }

@@ -94,6 +94,6 @@ struct NewReservation {
     }
 
     func persist(complete: @escaping (Reservation?, Error?) -> Void) {
-        CarkoAPIClient.shared.createReservation(reservation: self, complete: complete)
+        APIClient.shared.createReservation(reservation: self, complete: complete)
     }
 }

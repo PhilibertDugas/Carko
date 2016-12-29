@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-extension CarkoAPIClient {
+extension APIClient {
     func createReservation(reservation: NewReservation, complete: @escaping (Reservation?, Error?) -> Void) {
         let parameters: Parameters = ["reservation": reservation.toDictionnary()]
         let url = baseUrl.appendingPathComponent("/reservations")

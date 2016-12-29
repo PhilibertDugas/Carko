@@ -117,8 +117,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="My Parkings" image="private-garage.png" id="9tU-9w-RRb"/>
-                    <navigationItem key="navigationItem" id="QPL-gh-OiA">
+                    <tabBarItem key="tabBarItem" title="Add" image="private-garage.png" selectedImage="private-garage.png" id="9tU-9w-RRb"/>
+                    <navigationItem key="navigationItem" title="Add" id="QPL-gh-OiA">
                         <barButtonItem key="rightBarButtonItem" title="New" id="OkR-3i-eqo">
                             <color key="tintColor" red="0.112871848" green="0.75954872370000004" blue="0.28861063720000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
@@ -153,7 +153,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8mx-Lk-QmG">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="244"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="parking_background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="giu-oM-AVu">
+                                            <imageView userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="parking_background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="giu-oM-AVu">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="244"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
@@ -173,7 +173,7 @@
                                                     <constraint firstAttribute="height" constant="20" id="IlA-zp-oiP"/>
                                                     <constraint firstAttribute="width" constant="100" id="apN-QI-nid"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -214,6 +214,7 @@
                                             <constraint firstAttribute="height" constant="40" id="JLG-w7-jHI"/>
                                             <constraint firstAttribute="width" constant="156" id="bnS-aJ-rGW"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                                         <state key="normal" title="Save">
                                             <color key="titleColor" red="0.9999514222" green="1" blue="0.97945672269999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -228,6 +229,7 @@
                                             <constraint firstAttribute="height" constant="40" id="iK2-hM-EjM"/>
                                             <constraint firstAttribute="width" constant="156" id="inO-Ra-9J6"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                                         <state key="normal" title="Remove">
                                             <color key="titleColor" red="0.9999514222" green="1" blue="0.97945672269999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -244,7 +246,7 @@
                                                     <constraint firstAttribute="height" constant="21" id="q8i-yG-L1I"/>
                                                     <constraint firstAttribute="width" constant="109" id="rZk-9N-Rg6"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                 <color key="textColor" red="0.50571984049999996" green="0.5098530054" blue="0.50978618860000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -254,7 +256,7 @@
                                                     <constraint firstAttribute="height" constant="21" id="9Za-rn-XZF"/>
                                                     <constraint firstAttribute="width" constant="109" id="dIl-L3-g7U"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -281,7 +283,7 @@
                                                     <constraint firstAttribute="width" constant="109" id="UcO-Yt-Dmo"/>
                                                     <constraint firstAttribute="height" constant="21" id="hGB-08-bUZ"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                 <color key="textColor" red="0.50571984049999996" green="0.5098530054" blue="0.50978618860000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -291,7 +293,7 @@
                                                     <constraint firstAttribute="height" constant="21" id="9Bn-7W-kM7"/>
                                                     <constraint firstAttribute="width" constant="288" id="eGj-Aj-Hvl"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -301,7 +303,7 @@
                                                     <constraint firstAttribute="height" constant="12" id="5QH-v3-jVh"/>
                                                     <constraint firstAttribute="width" constant="217" id="oRD-VL-cU0"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -330,7 +332,7 @@
                                                     <constraint firstAttribute="width" constant="109" id="a9y-5L-0bR"/>
                                                     <constraint firstAttribute="height" constant="21" id="f0y-sp-Zjc"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                 <color key="textColor" red="0.50571984049999996" green="0.5098530054" blue="0.50978618860000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -340,7 +342,7 @@
                                                     <constraint firstAttribute="width" constant="217" id="azx-XY-0Wz"/>
                                                     <constraint firstAttribute="height" constant="21" id="rOC-8v-Emj"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -350,7 +352,7 @@
                                                     <constraint firstAttribute="height" constant="12" id="azY-Zq-EMe"/>
                                                     <constraint firstAttribute="width" constant="217" id="uTy-Ay-X0A"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -379,7 +381,7 @@
                                                     <constraint firstAttribute="width" constant="313" id="5z7-8B-rc8"/>
                                                     <constraint firstAttribute="height" constant="21" id="UF8-UQ-WV7"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -389,7 +391,7 @@
                                                     <constraint firstAttribute="width" constant="109" id="MVJ-uY-aFP"/>
                                                     <constraint firstAttribute="height" constant="21" id="UUh-EW-qYx"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                 <color key="textColor" red="0.50571984049999996" green="0.5098530054" blue="0.50978618860000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -511,7 +513,7 @@
                                     <constraint firstAttribute="height" constant="672" id="9xX-zo-9pc"/>
                                 </constraints>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -598,24 +600,36 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="KB0-qo-S0s">
                                 <rect key="frame" x="0.0" y="64" width="375" height="688"/>
                             </mapView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1e0-JI-oxL" customClass="RoundedCornerButton" customModule="Carko" customModuleProvider="target">
+                                <rect key="frame" x="109" y="704" width="156" height="40"/>
+                                <color key="backgroundColor" red="0.112871848" green="0.75954872370000004" blue="0.28861063720000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="8jn-HC-evy"/>
+                                    <constraint firstAttribute="width" constant="156" id="o80-tc-73j"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                <color key="tintColor" red="0.112871848" green="0.75954872370000004" blue="0.28861063720000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Add">
+                                    <color key="titleColor" red="0.9999514222" green="1" blue="0.97945672269999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="addButtonTapped:" destination="OFn-YM-DoS" eventType="touchUpInside" id="XQF-Hr-nAA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="w0I-Bz-Jtr" firstAttribute="top" secondItem="KB0-qo-S0s" secondAttribute="bottom" id="FDq-8p-ouk"/>
                             <constraint firstItem="KB0-qo-S0s" firstAttribute="leading" secondItem="T4w-MJ-M7C" secondAttribute="leading" id="RpU-iq-Y08"/>
+                            <constraint firstItem="1e0-JI-oxL" firstAttribute="centerX" secondItem="T4w-MJ-M7C" secondAttribute="centerX" id="WgB-dI-CpD"/>
                             <constraint firstAttribute="trailing" secondItem="KB0-qo-S0s" secondAttribute="trailing" id="Zze-M0-rfZ"/>
                             <constraint firstItem="KB0-qo-S0s" firstAttribute="top" secondItem="iIT-Hr-bgH" secondAttribute="bottom" id="h2L-Xl-GW4"/>
+                            <constraint firstItem="w0I-Bz-Jtr" firstAttribute="top" secondItem="1e0-JI-oxL" secondAttribute="bottom" constant="8" id="y8e-h4-Je4"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Location" id="kLf-H2-fDY">
-                        <barButtonItem key="rightBarButtonItem" title="Add" id="clc-wL-Xs9">
-                            <color key="tintColor" red="0.112871848" green="0.75954872370000004" blue="0.28861063720000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <action selector="addButtonTapped:" destination="OFn-YM-DoS" id="7Cg-qr-Wka"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Location" id="kLf-H2-fDY"/>
                     <connections>
+                        <outlet property="addButton" destination="1e0-JI-oxL" id="9HM-Zh-jfi"/>
                         <outlet property="mapView" destination="KB0-qo-S0s" id="uvE-gR-BYl"/>
                         <outlet property="searchDisplayController" destination="Zss-py-VcE" id="SzS-PH-R0W"/>
                     </connections>
