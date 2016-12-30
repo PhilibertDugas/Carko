@@ -10,17 +10,21 @@ import UIKit
 import ARNTransitionAnimator
 import MapKit
 import FirebaseStorageUI
+import FirebaseAuth
 
 class FindParkingViewController: UIViewController {
-
     @IBOutlet var popupView: MarkerPopup!
-    @IBOutlet var containerView: UIView!
+    @IBOutlet var mapView: MKMapView!
+
+    let locationManager = CLLocationManager()
+    var firstZoom = true
 
     var tabBar: UITabBar!
     var bookParkingVC: BookParkingViewController!
     var animator: ARNTransitionAnimator!
-    var selectedParking: Parking?
     var shouldDismissPopupview = true
+
+    var selectedParking: Parking!
 
     @IBAction func annotationTapped(_ sender: Any) {
         self.shouldDismissPopupview = false
@@ -31,20 +35,48 @@ class FindParkingViewController: UIViewController {
         super.viewDidLoad()
         self.popupView.isHidden = true
 
+        self.mapView.showsUserLocation = true
+        self.mapView.delegate = self
+
+        let effect = UIBlurEffect(style: UIBlurEffectStyle.light)
+        let statusBarBlur = UIVisualEffectView.init(effect: effect)
+        statusBarBlur.frame = CGRect.init(x: 0.0, y: 0.0, width: view.bounds.width, height: 20.0)
+        mapView.addSubview(statusBarBlur)
+
+        locationManager.requestWhenInUseAuthorization()
+
         self.tabBar = self.tabBarController!.tabBar
         self.bookParkingVC = storyboard?.instantiateViewController(withIdentifier: "bookParkingViewController") as? BookParkingViewController
         self.bookParkingVC.modalPresentationStyle = .overCurrentContext
 
         self.bookParkingVC.tapCloseButtonActionHandler = { _ in
-            self.tabBar.frame.origin.y = self.containerView.frame.height
-            self.popupView.descriptionLabel.text = self.selectedParking!.address
-            self.popupView.frame.origin.y = self.containerView.frame.height - self.tabBar.frame.height
+            self.tabBar.frame.origin.y = self.mapView.frame.height
+            self.popupView.descriptionLabel.text = self.selectedParking.address
+            self.popupView.frame.origin.y = self.mapView.frame.height - self.tabBar.frame.height
         }
 
-        NotificationCenter.default.addObserver(self, selector: #selector(FindParkingViewController.parkingSelected), name: Notification.Name.init(rawValue: "ParkingSelected"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(FindParkingViewController.parkingDeselected), name: Notification.Name.init(rawValue: "ParkingDeselected"), object: nil)
-
         self.setupAnimator()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        NotificationCenter.default.addObserver(self, selector: #selector(FindParkingViewController.parkingFetched), name: Notification.Name.init(rawValue: "ParkingFetched"), object: nil)
+        Parking.getAllParkings()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let customer = UserDefaults.standard.dictionary(forKey: "user")
+        if FIRAuth.auth()?.currentUser == nil || customer == nil {
+            self.performSegue(withIdentifier: "showLoginScreen", sender: nil)
+        } else if AppState.shared.customer == nil {
+            AppState.shared.customer = Customer.init(customer: customer!)
+        }
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
     }
 }
 
@@ -69,16 +101,34 @@ extension FindParkingViewController {
         gestureHandler.panCompletionThreshold = 15.0
 
         self.animator = ARNTransitionAnimator(duration: 0.5, animation: animation)
-        self.animator?.registerInteractiveTransitioning(.present, gestureHandler: gestureHandler)
-
+        self.animator!.registerInteractiveTransitioning(.present, gestureHandler: gestureHandler)
         self.bookParkingVC.transitioningDelegate = self.animator
     }
 }
 
-extension FindParkingViewController {
-    func parkingSelected(_ notification: Notification) {
+extension FindParkingViewController: MKMapViewDelegate {
+    func parkingFetched(_ notification: Notification) {
         if let parkingData = notification.userInfo as? [String: Any] {
-            let parking = parkingData["data"] as! Parking
+            self.mapView.removeAnnotations(mapView.annotations)
+            let parkings = parkingData["data"] as! [(Parking)]
+            for parking in parkings {
+                let annotation = ParkingAnnotation.init(parking: parking)
+                self.mapView.addAnnotation(annotation)
+            }
+        }
+    }
+
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+        if firstZoom {
+            firstZoom = false
+            let region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 800, 800)
+            self.mapView.setRegion(self.mapView.regionThatFits(region), animated: true)
+        }
+    }
+
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        if let annotation = view.annotation as? ParkingAnnotation {
+            let parking = annotation.parking
             self.selectedParking = parking
             self.bookParkingVC.parking = parking
 
@@ -90,14 +140,15 @@ extension FindParkingViewController {
                 popupView.imageView.sd_setImage(with: imageReference)
             }
 
-            UIView.animate(withDuration: 0.15, animations: {
+            UIView.animate(withDuration: 0.15, animations: { 
                 self.popupView.isHidden = false
-                self.popupView.frame.origin.y = self.containerView.frame.height - self.tabBar.frame.height
+                let yOrigin = self.mapView.frame.height - self.tabBar.frame.height
+                self.popupView.frame.origin.y = yOrigin
             })
         }
     }
 
-    func parkingDeselected() {
+    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
         if self.shouldDismissPopupview {
             UIView.animate(withDuration: 0.15, animations: {
                 self.popupView.frame.origin.y = self.tabBar.frame.origin.y
@@ -106,6 +157,17 @@ extension FindParkingViewController {
             self.shouldDismissPopupview = true
         }
     }
+
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if let annotation = annotation as? ParkingAnnotation {
+            let annotationView = MKPinAnnotationView.init()
+            if annotation.parking.isAvailable {
+                annotationView.pinTintColor = UIColor.red
+            } else {
+                annotationView.pinTintColor = UIColor.gray
+            }
+            return annotationView
+        }
+        return nil
+    }
 }
-
-

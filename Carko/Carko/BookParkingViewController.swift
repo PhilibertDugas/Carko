@@ -67,6 +67,11 @@ class BookParkingViewController: UIViewController {
         super.viewDidLoad()
         creditCardLabel.delegate = self
 
+        let effect = UIBlurEffect(style: UIBlurEffectStyle.light)
+        let blurView = UIVisualEffectView.init(effect: effect)
+        blurView.frame = CGRect.init(x: 0.0, y: 0.0, width: view.bounds.width, height: 20.0)
+        parkingImageView.addSubview(blurView)
+
         // TODO CHANGE THIS
         paymentContext = STPPaymentContext.init(apiAdapter: APIClient.shared)
         paymentContext.paymentCurrency = "CAD"

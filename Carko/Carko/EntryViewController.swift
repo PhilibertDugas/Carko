@@ -31,34 +31,14 @@ class EntryViewController: UIViewController {
         self.pageViewController.didMove(toParentViewController: self)
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination
-        destination.modalPresentationCapturesStatusBarAppearance = true
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        if FIRAuth.auth()?.currentUser != nil {
-            transitionToHomePage()
-        }
-    }
-    
-    func transitionToHomePage() {
-        if let value = UserDefaults.standard.dictionary(forKey: "user") {
-            let customer = Customer.init(customer: value)
-            AppState.shared.customer = customer
-            self.performSegue(withIdentifier: "UserAlreadyLoggedIn", sender: nil)
-        } else {
-            Customer.getCustomer { (customer, error) in
-                if let error = error {
-                    print("Shit something went wrong display something to the user: \(error.localizedDescription)")
-                } else if let customer = customer {
-                    UserDefaults.standard.set(customer.toDictionnary(), forKey: "user")
-                    AppState.shared.customer = customer
-                    self.performSegue(withIdentifier: "UserAlreadyLoggedIn", sender: nil)
-                }
-            }
-        }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
 }
 

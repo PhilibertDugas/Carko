@@ -86,7 +86,7 @@ extension ParkingTransitionAnimation: TransitionAnimatable {
             self.rootVC.tabBar.frame.origin.y = min(max(tabY, self.tabBarStartFrame.origin.y), tabEndOriginY)
 
             let alpha = 1.0 - (1.0 * percentComplete)
-            self.rootVC.containerView.alpha = alpha + 0.5
+            self.rootVC.mapView.alpha = alpha + 0.5
             self.rootVC.tabBar.alpha = alpha
             self.rootVC.popupView.subviews.forEach { $0.alpha = alpha }
         } else {
@@ -96,7 +96,7 @@ extension ParkingTransitionAnimation: TransitionAnimatable {
             let diff = -startOriginY + endOriginY
 
             // tabBar
-            let tabStartOriginY = self.rootVC.containerView.bounds.size.height
+            let tabStartOriginY = self.rootVC.mapView.bounds.size.height
             let tabEndOriginY = self.tabBarStartFrame.origin.y
             let tabDiff = tabStartOriginY - tabEndOriginY
 
@@ -106,7 +106,7 @@ extension ParkingTransitionAnimation: TransitionAnimatable {
             self.rootVC.tabBar.frame.origin.y = tabStartOriginY - (tabDiff * percentComplete)
 
             let alpha = 1.0 * percentComplete
-            self.rootVC.containerView.alpha = alpha + 0.5
+            self.rootVC.mapView.alpha = alpha + 0.5
             self.rootVC.tabBar.alpha = alpha
             self.rootVC.popupView.alpha = 1.0
             self.rootVC.popupView.subviews.forEach { $0.alpha = alpha }

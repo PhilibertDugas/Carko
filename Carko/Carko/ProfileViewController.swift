@@ -23,7 +23,7 @@ class ProfileViewController: UITableViewController {
 
     func logoutTapped() {
         try! FIRAuth.auth()!.signOut()
-        navigationController?.dismiss(animated: true, completion: nil)
+        self.tabBarController?.selectedIndex = 0
     }
 
     override func viewDidLoad() {

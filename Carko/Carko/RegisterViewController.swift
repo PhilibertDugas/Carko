@@ -44,11 +44,6 @@ class RegisterViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.customerRegisteredError), name: NSNotification.Name(rawValue: "CustomerRegisteredError"), object: nil)
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination
-        destination.modalPresentationCapturesStatusBarAppearance = true
-    }
-
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self)
@@ -65,7 +60,6 @@ extension RegisterViewController {
                 UserDefaults.standard.set(customer.toDictionnary(), forKey: "user")
                 AppState.shared.customer = customer
                 self.dismiss(animated: true, completion: nil)
-                self.performSegue(withIdentifier: "UserRegistered", sender: nil)
             }
         }
     }

@@ -14,7 +14,7 @@ class RoundedCornerButton: UIButton {
         super.init(coder: aDecoder)
         layer.cornerRadius = 5
         layer.borderWidth = 1
-        layer.borderColor = UIColor.black.cgColor
+        layer.borderColor = UIColor.init(netHex: 0x515052).cgColor
     }
 
 }

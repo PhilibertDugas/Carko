@@ -54,7 +54,6 @@ class LoginViewController: UIViewController {
                 UserDefaults.standard.set(customer.toDictionnary(), forKey: "user")
                 AppState.shared.customer = customer
                 self.dismiss(animated: true, completion: nil)
-                self.performSegue(withIdentifier: "UserLoggedIn", sender: nil)
             }
         }
     }

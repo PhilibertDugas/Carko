@@ -17,7 +17,7 @@ class UnderlineTextField: UITextField {
         let path = UIBezierPath.init()
         path.move(to: startingPoint)
         path.addLine(to: endingPoint)
-        path.lineWidth = 2.0
+        path.lineWidth = 1.2
 
         tintColor.setStroke()
         path.stroke()

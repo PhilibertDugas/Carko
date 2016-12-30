@@ -22,7 +22,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="parking-icon-png-18.png" translatesAutoresizingMaskIntoConstraints="NO" id="Lrt-SM-W06">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lrt-SM-W06">
                     <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="70" id="TH5-9g-mZZ"/>
@@ -61,7 +61,4 @@
             <point key="canvasLocation" x="-339.5" y="-308.5"/>
         </view>
     </objects>
-    <resources>
-        <image name="parking-icon-png-18.png" width="256" height="256"/>
-    </resources>
 </document>
