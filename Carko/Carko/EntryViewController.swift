@@ -9,8 +9,8 @@
 import UIKit
 import FirebaseAuth
 
-class EntryViewController: UIViewController {
 
+class EntryViewController: UIViewController {
     let pageTitles = ["Connect with close professionals", "Get noticed", "Skyrocket your career", "Live your dream"]
     let pageImages = ["page1.png", "page2.png", "page3.png", "page4.png"]
     
@@ -29,6 +29,11 @@ class EntryViewController: UIViewController {
         self.addChildViewController(pageViewController)
         self.view.addSubview(pageViewController.view)
         self.pageViewController.didMove(toParentViewController: self)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination
+        destination.modalPresentationCapturesStatusBarAppearance = true
     }
     
     override func viewDidAppear(_ animated: Bool) {

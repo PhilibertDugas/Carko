@@ -9,10 +9,13 @@
 import UIKit
 import MapKit
 
+protocol HandleMapSearch: class {
+    func selectedPlacemark(placemark:MKPlacemark)
+}
 
 class LocationSearchTableViewController: UITableViewController {
     var matchingItems:[MKMapItem] = []
-    var mapView: MKMapView? = nil
+    var mapView: MKMapView! = nil
     var handleMapSearchDelegate: HandleMapSearch?
 
     override func viewDidLoad() {
@@ -62,7 +65,7 @@ extension LocationSearchTableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedItem = matchingItems[indexPath.row].placemark
-        handleMapSearchDelegate?.dropPinZoomIn(placemark: selectedItem)
+        handleMapSearchDelegate?.selectedPlacemark(placemark: selectedItem)
         dismiss(animated: true, completion: nil)
     }
 

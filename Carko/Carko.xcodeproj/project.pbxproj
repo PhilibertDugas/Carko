@@ -244,12 +244,12 @@
 			isa = PBXGroup;
 			children = (
 				4564F6DD1DB981BA001B709C /* MapPopup */,
-				C56ADAB71DAAE6680033516C /* FindParking.storyboard */,
 				45B77B431DDC0E39009ABF53 /* ParkingTransitionAnimation.swift */,
 				45EA513C1DDE74AC00BD076C /* ParkingAnnotation.swift */,
 				4564F6E01DB98509001B709C /* BookParkingViewController.swift */,
 				45EA513A1DDE6F2300BD076C /* FindParkingViewController.swift */,
 				459503CA1DDE7F9300DA471C /* MapContainerViewController.swift */,
+				C56ADAB71DAAE6680033516C /* FindParking.storyboard */,
 			);
 			name = "Tab - Find";
 			sourceTree = "<group>";

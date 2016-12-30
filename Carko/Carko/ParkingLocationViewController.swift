@@ -9,9 +9,6 @@
 import UIKit
 import MapKit
 
-protocol HandleMapSearch: class {
-    func dropPinZoomIn(placemark:MKPlacemark)
-}
 
 protocol ParkingLocationDelegate: class {
     func userDidChooseLocation(address: String, latitude: CLLocationDegrees, longitude: CLLocationDegrees)
@@ -130,19 +127,11 @@ extension ParkingLocationViewController: MKMapViewDelegate {
 }
 
 extension ParkingLocationViewController: HandleMapSearch {
-    func dropPinZoomIn(placemark: MKPlacemark){
+    func selectedPlacemark(placemark: MKPlacemark){
         selectedPin = placemark
         mapView.removeAnnotations(mapView.annotations)
         centerAnnotation = MKPointAnnotation()
         centerAnnotation!.coordinate = placemark.coordinate
-
-        /*annotation.title = placemark.name
-
-        if let city = placemark.locality,
-            let state = placemark.administrativeArea {
-            annotation.subtitle = "\(city) \(state)"
-        }*/
-
         mapView.addAnnotation(centerAnnotation!)
 
         let region = MKCoordinateRegionMakeWithDistance(placemark.coordinate, CLLocationDistance.init(15), CLLocationDistance.init(15))

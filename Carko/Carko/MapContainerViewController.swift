@@ -15,7 +15,6 @@ class MapContainerViewController: UIViewController {
     var firstZoom = true
     let locationManager = CLLocationManager()
 
-
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         Parking.getAllParkings()
@@ -25,6 +24,13 @@ class MapContainerViewController: UIViewController {
         super.viewDidLoad()
         self.mapView.showsUserLocation = true
         self.mapView.delegate = self
+
+        let effect = UIBlurEffect(style: UIBlurEffectStyle.light)
+        let blurView = UIVisualEffectView.init(effect: effect)
+        blurView.frame = CGRect.init(x: 0.0, y: 0.0, width: view.bounds.width, height: 20.0)
+        mapView.addSubview(blurView)
+
+
         locationManager.requestWhenInUseAuthorization()
         NotificationCenter.default.addObserver(self, selector: #selector(MapContainerViewController.parkingFetched), name: Notification.Name.init(rawValue: "ParkingFetched"), object: nil)
     }

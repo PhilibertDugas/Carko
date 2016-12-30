@@ -21,16 +21,17 @@ class FindParkingViewController: UIViewController {
     var animator: ARNTransitionAnimator!
     var selectedParking: Parking?
     var shouldDismissPopupview = true
-    var blurView: UIVisualEffectView!
+
+    @IBAction func annotationTapped(_ sender: Any) {
+        self.shouldDismissPopupview = false
+        self.present(self.bookParkingVC, animated: true, completion: nil)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.popupView.isHidden = true
 
-        self.tabBar = self.tabBarController?.tabBar
-        let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(FindParkingViewController.annotationTapped))
-        self.popupView.addGestureRecognizer(tapGesture)
-
+        self.tabBar = self.tabBarController!.tabBar
         self.bookParkingVC = storyboard?.instantiateViewController(withIdentifier: "bookParkingViewController") as? BookParkingViewController
         self.bookParkingVC.modalPresentationStyle = .overCurrentContext
 
@@ -45,48 +46,9 @@ class FindParkingViewController: UIViewController {
 
         self.setupAnimator()
     }
+}
 
-    func parkingSelected(_ notification: Notification) {
-        if let parkingData = notification.userInfo as? [String: Any] {
-            let parking = parkingData["data"] as! Parking
-            self.selectedParking = parking
-            self.bookParkingVC.parking = parking
-            
-            popupView.descriptionLabel.text = parking.address
-            popupView.priceLabel.text = "\(parking.price.asLocaleCurrency)/h"
-
-            if let url = parking.photoURL {
-                let imageReference = AppState.shared.storageReference.storage.reference(forURL: url.absoluteString)
-                popupView.imageView.sd_setImage(with: imageReference)
-            }
-
-            UIView.animate(withDuration: 0.15, animations: { 
-                self.popupView.isHidden = false
-                self.popupView.frame.origin.y = self.containerView.frame.height - self.tabBar.frame.height
-            }, completion: { _ in
-                let effect = UIBlurEffect(style: UIBlurEffectStyle.light)
-                self.blurView = UIVisualEffectView.init(effect: effect)
-                self.blurView.frame = self.popupView.bounds
-                self.containerView.insertSubview(self.blurView, at: 1)
-            })
-        }
-    }
-
-    func parkingDeselected() {
-        if self.shouldDismissPopupview {
-            UIView.animate(withDuration: 0.15, animations: {
-                self.popupView.frame.origin.y = self.tabBar.frame.origin.y
-            })
-        } else {
-            self.shouldDismissPopupview = true
-        }
-    }
-
-    func annotationTapped() {
-        self.shouldDismissPopupview = false
-        self.present(self.bookParkingVC, animated: true, completion: nil)
-    }
-
+extension FindParkingViewController {
     func setupAnimator() {
         let animation = ParkingTransitionAnimation(rootVC: self, modalVC: self.bookParkingVC)
 
@@ -110,6 +72,39 @@ class FindParkingViewController: UIViewController {
         self.animator?.registerInteractiveTransitioning(.present, gestureHandler: gestureHandler)
 
         self.bookParkingVC.transitioningDelegate = self.animator
+    }
+}
+
+extension FindParkingViewController {
+    func parkingSelected(_ notification: Notification) {
+        if let parkingData = notification.userInfo as? [String: Any] {
+            let parking = parkingData["data"] as! Parking
+            self.selectedParking = parking
+            self.bookParkingVC.parking = parking
+
+            popupView.descriptionLabel.text = parking.address
+            popupView.priceLabel.text = "\(parking.price.asLocaleCurrency)/h"
+
+            if let url = parking.photoURL {
+                let imageReference = AppState.shared.storageReference.storage.reference(forURL: url.absoluteString)
+                popupView.imageView.sd_setImage(with: imageReference)
+            }
+
+            UIView.animate(withDuration: 0.15, animations: {
+                self.popupView.isHidden = false
+                self.popupView.frame.origin.y = self.containerView.frame.height - self.tabBar.frame.height
+            })
+        }
+    }
+
+    func parkingDeselected() {
+        if self.shouldDismissPopupview {
+            UIView.animate(withDuration: 0.15, animations: {
+                self.popupView.frame.origin.y = self.tabBar.frame.origin.y
+            })
+        } else {
+            self.shouldDismissPopupview = true
+        }
     }
 }
 

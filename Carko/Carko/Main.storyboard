@@ -23,23 +23,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wgw-7B-IS6">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="qSd-vx-67b"/>
-                                </constraints>
-                                <items>
-                                    <navigationItem title="Sign in" id="1m6-dB-6Bp">
-                                        <barButtonItem key="backBarButtonItem" title="Back" id="yT3-3U-Q7x"/>
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="Pja-Iu-fbj">
-                                            <color key="tintColor" red="0.112871848" green="0.75954872370000004" blue="0.28861063720000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <connections>
-                                                <action selector="backTapped:" destination="YXJ-kN-NHX" id="bgO-ik-Cxe"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="75H-03-rPq">
                                 <rect key="frame" x="16" y="268.5" width="343" height="38"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -61,7 +44,7 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R9X-1O-TSe">
-                                <rect key="frame" x="125" y="360.5" width="124" height="62"/>
+                                <rect key="frame" x="125" y="384.5" width="124" height="62"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UVk-eQ-6kd" customClass="RoundedCornerButton" customModule="Carko" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="124" height="62"/>
@@ -96,13 +79,30 @@
                                     <constraint firstItem="UVk-eQ-6kd" firstAttribute="centerY" secondItem="kWv-DE-opb" secondAttribute="centerY" id="shZ-X6-FGn"/>
                                 </constraints>
                             </view>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wgw-7B-IS6">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="qSd-vx-67b"/>
+                                </constraints>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <navigationItem title="Sign in" id="1m6-dB-6Bp">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="Pja-Iu-fbj">
+                                            <color key="tintColor" red="0.112871848" green="0.75954872370000004" blue="0.28861063720000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <connections>
+                                                <action selector="backTapped:" destination="YXJ-kN-NHX" id="bgO-ik-Cxe"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wgw-7B-IS6" firstAttribute="leading" secondItem="YGM-a9-Csk" secondAttribute="leading" id="Bcx-kr-u9x"/>
                             <constraint firstItem="Xf9-fK-4sh" firstAttribute="centerY" secondItem="YGM-a9-Csk" secondAttribute="centerY" id="VQi-zP-wmp"/>
                             <constraint firstItem="Xf9-fK-4sh" firstAttribute="trailing" secondItem="YGM-a9-Csk" secondAttribute="trailingMargin" id="VsB-a1-1Q7"/>
-                            <constraint firstItem="R9X-1O-TSe" firstAttribute="top" secondItem="Xf9-fK-4sh" secondAttribute="bottom" constant="8" id="XhQ-ft-dyg"/>
+                            <constraint firstItem="R9X-1O-TSe" firstAttribute="top" secondItem="Xf9-fK-4sh" secondAttribute="bottom" constant="32" id="XhQ-ft-dyg"/>
                             <constraint firstItem="Xf9-fK-4sh" firstAttribute="top" secondItem="75H-03-rPq" secondAttribute="bottom" constant="8" id="bhh-5H-HZ4"/>
                             <constraint firstItem="75H-03-rPq" firstAttribute="trailing" secondItem="YGM-a9-Csk" secondAttribute="trailingMargin" id="cgt-zU-ff8"/>
                             <constraint firstAttribute="trailing" secondItem="wgw-7B-IS6" secondAttribute="trailing" id="doo-VR-NcU"/>
@@ -117,7 +117,7 @@
                         <outlet property="indicator" destination="kWv-DE-opb" id="Tvh-Bm-R0f"/>
                         <outlet property="loginButton" destination="UVk-eQ-6kd" id="4MX-qe-6L0"/>
                         <outlet property="password" destination="Xf9-fK-4sh" id="CYY-kD-nKM"/>
-                        <segue destination="BlE-fA-HKp" kind="show" identifier="UserLoggedIn" id="B86-Qb-Qer"/>
+                        <segue destination="BlE-fA-HKp" kind="presentation" identifier="UserLoggedIn" modalPresentationStyle="overFullScreen" modalTransitionStyle="coverVertical" id="B86-Qb-Qer"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vda-6L-x7u" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -174,7 +174,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <segue destination="BlE-fA-HKp" kind="show" identifier="UserAlreadyLoggedIn" id="sHm-8J-gyY"/>
+                        <segue destination="BlE-fA-HKp" kind="presentation" identifier="UserAlreadyLoggedIn" modalPresentationStyle="overFullScreen" modalTransitionStyle="coverVertical" id="sHm-8J-gyY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CFo-QF-R5Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -251,12 +251,10 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="WMv-rU-dVh"/>
                                 </constraints>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <items>
                                     <navigationItem title="Sign up" id="gfh-wz-TYy">
-                                        <barButtonItem key="backBarButtonItem" title="Back" id="0mg-Av-dvK">
-                                            <color key="tintColor" red="0.112871848" green="0.75954872370000004" blue="0.28861063720000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </barButtonItem>
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="Z2e-tS-4za">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="Z2e-tS-4za">
                                             <color key="tintColor" red="0.112871848" green="0.75954872370000004" blue="0.28861063720000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <connections>
                                                 <action selector="backTapped:" destination="lKW-f6-EBE" id="JGe-UH-JDd"/>
@@ -306,12 +304,12 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By signing up, you are agreeing to our Terms of Service" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7BF-wA-EXZ">
-                                <rect key="frame" x="16" y="406.5" width="343" height="21"/>
+                                <rect key="frame" x="16" y="430.5" width="343" height="21"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="QI5-Wz-boZ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <connections>
@@ -319,7 +317,7 @@
                                 </connections>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L87-Zu-8D5">
-                                <rect key="frame" x="125" y="435" width="124" height="62"/>
+                                <rect key="frame" x="125" y="505" width="124" height="62"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u2M-Jh-drg" customClass="RoundedCornerButton" customModule="Carko" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="124" height="62"/>
@@ -369,13 +367,13 @@
                             <constraint firstItem="lhR-i9-aIb" firstAttribute="trailing" secondItem="Vze-vc-3la" secondAttribute="trailingMargin" id="Scj-St-HF0"/>
                             <constraint firstItem="7BF-wA-EXZ" firstAttribute="leading" secondItem="Vze-vc-3la" secondAttribute="leadingMargin" id="Tuj-0N-fOv"/>
                             <constraint firstItem="ckv-IO-BQ8" firstAttribute="trailing" secondItem="Vze-vc-3la" secondAttribute="trailingMargin" id="Z3b-dR-ddL"/>
-                            <constraint firstItem="7BF-wA-EXZ" firstAttribute="top" secondItem="TQu-Yn-at2" secondAttribute="bottom" constant="8" id="blV-nS-QSI"/>
+                            <constraint firstItem="7BF-wA-EXZ" firstAttribute="top" secondItem="TQu-Yn-at2" secondAttribute="bottom" constant="32" id="blV-nS-QSI"/>
                             <constraint firstItem="zUC-eD-HaN" firstAttribute="leading" secondItem="Vze-vc-3la" secondAttribute="leading" id="ezp-Es-8bZ"/>
                             <constraint firstItem="zUC-eD-HaN" firstAttribute="top" secondItem="zt5-HQ-HZq" secondAttribute="bottom" id="kvp-1V-VLA"/>
                             <constraint firstItem="ckv-IO-BQ8" firstAttribute="top" secondItem="zED-Wd-lrn" secondAttribute="bottom" constant="8" id="l7J-3I-k9n"/>
                             <constraint firstItem="L87-Zu-8D5" firstAttribute="centerX" secondItem="Vze-vc-3la" secondAttribute="centerX" id="oKd-Dm-dJn"/>
                             <constraint firstItem="lhR-i9-aIb" firstAttribute="leading" secondItem="Vze-vc-3la" secondAttribute="leadingMargin" id="od5-E2-l9A"/>
-                            <constraint firstItem="toZ-Dn-wnR" firstAttribute="top" secondItem="L87-Zu-8D5" secondAttribute="bottom" constant="170" id="s91-Gm-xcD"/>
+                            <constraint firstItem="toZ-Dn-wnR" firstAttribute="top" secondItem="L87-Zu-8D5" secondAttribute="bottom" constant="100" id="s91-Gm-xcD"/>
                             <constraint firstItem="ckv-IO-BQ8" firstAttribute="leading" secondItem="Vze-vc-3la" secondAttribute="leadingMargin" id="tsP-B9-YL6"/>
                             <constraint firstItem="lhR-i9-aIb" firstAttribute="top" secondItem="ckv-IO-BQ8" secondAttribute="bottom" constant="8" id="uM5-OZ-ouo"/>
                         </constraints>
@@ -387,7 +385,7 @@
                         <outlet property="lastName" destination="lhR-i9-aIb" id="S2S-Rx-xyk"/>
                         <outlet property="password" destination="TQu-Yn-at2" id="D5Q-1Y-zXS"/>
                         <outlet property="registerButton" destination="u2M-Jh-drg" id="WW8-a9-fkc"/>
-                        <segue destination="BlE-fA-HKp" kind="show" identifier="UserRegistered" id="3eU-Rg-oPT"/>
+                        <segue destination="BlE-fA-HKp" kind="presentation" identifier="UserRegistered" modalPresentationStyle="overFullScreen" modalTransitionStyle="coverVertical" id="3eU-Rg-oPT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wjE-gf-69l" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -419,7 +417,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HTK-RC-H4v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1140" y="175"/>
+            <point key="canvasLocation" x="-330" y="172"/>
         </scene>
         <!--ParkingList-->
         <scene sceneID="6bg-5v-8Ia">
@@ -429,7 +427,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QqV-gm-mbt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-49" y="246"/>
+            <point key="canvasLocation" x="670" y="172"/>
         </scene>
         <!--Profile-->
         <scene sceneID="unp-1m-Cxi">
@@ -439,20 +437,20 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BZe-rY-oim" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-48" y="323"/>
+            <point key="canvasLocation" x="672" y="249"/>
         </scene>
         <!--FindParking-->
         <scene sceneID="cYh-6o-Ekx">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JrX-Vc-WLP" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardName="FindParking" id="W64-o7-yGy" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Find" id="y8X-XN-2Dp"/>
                 </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JrX-Vc-WLP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-46" y="175"/>
+            <point key="canvasLocation" x="673" y="101"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="B86-Qb-Qer"/>
+        <segue reference="sHm-8J-gyY"/>
     </inferredMetricsTieBreakers>
 </document>

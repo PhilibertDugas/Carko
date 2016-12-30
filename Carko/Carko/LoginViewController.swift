@@ -40,6 +40,11 @@ class LoginViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.customerLoggedInError), name: NSNotification.Name(rawValue: "CustomerLoggedInError"), object: nil)
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination
+        destination.modalPresentationCapturesStatusBarAppearance = true
+    }
+
     func customerLoggedIn(_ notification: Notification) {
         indicator.stopAnimating()
         Customer.getCustomer { (customer, error) in
