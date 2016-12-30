@@ -23,6 +23,7 @@ class ProfileViewController: UITableViewController {
 
     func logoutTapped() {
         try! FIRAuth.auth()!.signOut()
+        UserDefaults.standard.removeObject(forKey: "user")
         self.tabBarController?.selectedIndex = 0
     }
 

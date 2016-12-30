@@ -60,18 +60,18 @@ class FindParkingViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        NotificationCenter.default.addObserver(self, selector: #selector(FindParkingViewController.parkingFetched), name: Notification.Name.init(rawValue: "ParkingFetched"), object: nil)
-        Parking.getAllParkings()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         let customer = UserDefaults.standard.dictionary(forKey: "user")
         if FIRAuth.auth()?.currentUser == nil || customer == nil {
             self.performSegue(withIdentifier: "showLoginScreen", sender: nil)
         } else if AppState.shared.customer == nil {
             AppState.shared.customer = Customer.init(customer: customer!)
         }
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(self, selector: #selector(FindParkingViewController.parkingFetched), name: Notification.Name.init(rawValue: "ParkingFetched"), object: nil)
+        Parking.getAllParkings()
     }
 
     override func viewWillDisappear(_ animated: Bool) {

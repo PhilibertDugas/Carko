@@ -36,9 +36,9 @@
 		4533143C1E036DDA00BF0B65 /* AccountClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4533143B1E036DDA00BF0B65 /* AccountClient.swift */; };
 		45418F2A1E170E010050DDF5 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45418F291E170E010050DDF5 /* TabBarViewController.swift */; };
 		45418F2C1E1711710050DDF5 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45418F2B1E1711710050DDF5 /* Login.storyboard */; };
+		45418F2E1E1719E00050DDF5 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45418F2D1E1719E00050DDF5 /* ForgotPasswordViewController.swift */; };
 		4554EBCE1DB5A36F0066E452 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4554EBCD1DB5A36F0066E452 /* APIClient.swift */; };
 		4554EBD01DB5AA520066E452 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4554EBCF1DB5AA520066E452 /* ProfileViewController.swift */; };
-		455FF9EE1DE29FE500F256BD /* CircularButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455FF9ED1DE29FE500F256BD /* CircularButton.swift */; };
 		45637CFF1DEB184500DD42C0 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45637CFE1DEB184500DD42C0 /* AppState.swift */; };
 		4564F6E11DB98509001B709C /* BookParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4564F6E01DB98509001B709C /* BookParkingViewController.swift */; };
 		4571700B1DEA5DEE00A0FDF5 /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4571700A1DEA5DEE00A0FDF5 /* Reservation.swift */; };
@@ -57,7 +57,7 @@
 		45B0890F1DE7B1290003C0BD /* success@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B0890D1DE7B1290003C0BD /* success@2x.png */; };
 		45B089101DE7B1290003C0BD /* success@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B0890E1DE7B1290003C0BD /* success@3x.png */; };
 		45B77B441DDC0E39009ABF53 /* ParkingTransitionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B77B431DDC0E39009ABF53 /* ParkingTransitionAnimation.swift */; };
-		45BB39651DBBF0010019C2A3 /* RoundedCornerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BB39641DBBF0010019C2A3 /* RoundedCornerButton.swift */; };
+		45BB39651DBBF0010019C2A3 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BB39641DBBF0010019C2A3 /* Buttons.swift */; };
 		45BC29451DA18249000C54BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC29441DA18249000C54BC /* AppDelegate.swift */; };
 		45BC294C1DA18249000C54BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45BC294B1DA18249000C54BC /* Assets.xcassets */; };
 		45BC294F1DA18249000C54BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45BC294D1DA18249000C54BC /* LaunchScreen.storyboard */; };
@@ -137,9 +137,9 @@
 		4533143B1E036DDA00BF0B65 /* AccountClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountClient.swift; sourceTree = "<group>"; };
 		45418F291E170E010050DDF5 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		45418F2B1E1711710050DDF5 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		45418F2D1E1719E00050DDF5 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		4554EBCD1DB5A36F0066E452 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		4554EBCF1DB5AA520066E452 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		455FF9ED1DE29FE500F256BD /* CircularButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularButton.swift; sourceTree = "<group>"; };
 		45637CFE1DEB184500DD42C0 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		4564F6E01DB98509001B709C /* BookParkingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookParkingViewController.swift; sourceTree = "<group>"; };
 		4571700A1DEA5DEE00A0FDF5 /* Reservation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reservation.swift; sourceTree = "<group>"; };
@@ -158,7 +158,7 @@
 		45B0890D1DE7B1290003C0BD /* success@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "success@2x.png"; sourceTree = "<group>"; };
 		45B0890E1DE7B1290003C0BD /* success@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "success@3x.png"; sourceTree = "<group>"; };
 		45B77B431DDC0E39009ABF53 /* ParkingTransitionAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingTransitionAnimation.swift; sourceTree = "<group>"; };
-		45BB39641DBBF0010019C2A3 /* RoundedCornerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCornerButton.swift; sourceTree = "<group>"; };
+		45BB39641DBBF0010019C2A3 /* Buttons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		45BC29411DA18249000C54BC /* Carko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Carko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45BC29441DA18249000C54BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45BC294B1DA18249000C54BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -238,6 +238,7 @@
 				450E123F1DAF27330027EFBC /* RegisterViewController.swift */,
 				450E12491DAF2B000027EFBC /* EntryViewController.swift */,
 				450E124B1DAF2B3C0027EFBC /* PageContentViewController.swift */,
+				45418F2D1E1719E00050DDF5 /* ForgotPasswordViewController.swift */,
 				45418F2B1E1711710050DDF5 /* Login.storyboard */,
 			);
 			name = "Tab - Login";
@@ -381,9 +382,8 @@
 		45BB39631DBBEFEC0019C2A3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				45BB39641DBBF0010019C2A3 /* RoundedCornerButton.swift */,
+				45BB39641DBBF0010019C2A3 /* Buttons.swift */,
 				458A982F1DBCFD44007F53EE /* UnderlineTextField.swift */,
-				455FF9ED1DE29FE500F256BD /* CircularButton.swift */,
 				452738E61DF7AEB700D74F0D /* BorderedView.swift */,
 				45CC922F1E14BBF5002338F7 /* SimpleSearchBar.swift */,
 			);
@@ -828,9 +828,8 @@
 				4554EBCE1DB5A36F0066E452 /* APIClient.swift in Sources */,
 				C51150531DAF38D5004E2A7D /* ParkingDescriptionViewController.swift in Sources */,
 				4564F6E11DB98509001B709C /* BookParkingViewController.swift in Sources */,
-				45BB39651DBBF0010019C2A3 /* RoundedCornerButton.swift in Sources */,
+				45BB39651DBBF0010019C2A3 /* Buttons.swift in Sources */,
 				451FC46F1E072BC70083C0CB /* VehiculeClient.swift in Sources */,
-				455FF9EE1DE29FE500F256BD /* CircularButton.swift in Sources */,
 				45E9B91E1DB82FDF00C9E9FA /* MarkerPopup.swift in Sources */,
 				45637CFF1DEB184500DD42C0 /* AppState.swift in Sources */,
 				4554EBD01DB5AA520066E452 /* ProfileViewController.swift in Sources */,
@@ -850,6 +849,7 @@
 				45CC92301E14BBF5002338F7 /* SimpleSearchBar.swift in Sources */,
 				450E12401DAF27330027EFBC /* RegisterViewController.swift in Sources */,
 				451E424D1DB078E000747370 /* KeyboardDimissExtension.swift in Sources */,
+				45418F2E1E1719E00050DDF5 /* ForgotPasswordViewController.swift in Sources */,
 				4591D5F91DFCA51D00366691 /* StripeClient.swift in Sources */,
 				4571700B1DEA5DEE00A0FDF5 /* Reservation.swift in Sources */,
 				4518537C1DA4787B005CC5E6 /* ParkingLocationViewController.swift in Sources */,
