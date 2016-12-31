@@ -51,7 +51,6 @@
 		4591D5F91DFCA51D00366691 /* StripeClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4591D5F81DFCA51D00366691 /* StripeClient.swift */; };
 		4591D5FB1DFCA54600366691 /* ReservationClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4591D5FA1DFCA54600366691 /* ReservationClient.swift */; };
 		4599E6E51E1755C9005494E4 /* GoogleService-Info-Production.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4599E6E41E1755C9005494E4 /* GoogleService-Info-Production.plist */; };
-		4599E6E71E176386005494E4 /* SimpleSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4599E6E61E176386005494E4 /* SimpleSearchBar.swift */; };
 		459AD2571DA49B6C0018B7B9 /* Parking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459AD2561DA49B6C0018B7B9 /* Parking.swift */; };
 		459AD2591DA49C590018B7B9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 459AD2581DA49C590018B7B9 /* GoogleService-Info.plist */; };
 		45B0890B1DE7B0820003C0BD /* close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B089091DE7B0820003C0BD /* close@2x.png */; };
@@ -153,7 +152,6 @@
 		4591D5F81DFCA51D00366691 /* StripeClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StripeClient.swift; sourceTree = "<group>"; };
 		4591D5FA1DFCA54600366691 /* ReservationClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationClient.swift; sourceTree = "<group>"; };
 		4599E6E41E1755C9005494E4 /* GoogleService-Info-Production.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Production.plist"; sourceTree = "<group>"; };
-		4599E6E61E176386005494E4 /* SimpleSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleSearchBar.swift; sourceTree = "<group>"; };
 		459AD2561DA49B6C0018B7B9 /* Parking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parking.swift; sourceTree = "<group>"; };
 		459AD2581DA49C590018B7B9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Carko/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		45B089091DE7B0820003C0BD /* close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close@2x.png"; sourceTree = "<group>"; };
@@ -263,8 +261,8 @@
 			children = (
 				C56ADAB91DAC00320033516C /* CustomCell */,
 				C511504F1DAF386B004E2A7D /* ParkingInfo */,
-				C56ADAB51DAAE6510033516C /* ParkingList.storyboard */,
 				451853791DA476F1005CC5E6 /* MyParkingsViewController.swift */,
+				C56ADAB51DAAE6510033516C /* ParkingList.storyboard */,
 			);
 			name = "Tab - Add";
 			sourceTree = "<group>";
@@ -385,7 +383,6 @@
 		45BB39631DBBEFEC0019C2A3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				4599E6E61E176386005494E4 /* SimpleSearchBar.swift */,
 				45BB39641DBBF0010019C2A3 /* Buttons.swift */,
 				458A982F1DBCFD44007F53EE /* UnderlineTextField.swift */,
 				452738E61DF7AEB700D74F0D /* BorderedView.swift */,
@@ -420,8 +417,8 @@
 			isa = PBXGroup;
 			children = (
 				4591D5F31DFCA49C00366691 /* API */,
-				451853781DA476CB005CC5E6 /* Tab - Add */,
 				451853771DA476B5005CC5E6 /* Tab - Find */,
+				451853781DA476CB005CC5E6 /* Tab - Add */,
 				45099A851DAF25EA00392FF1 /* Tab - Login */,
 				45D5A5071DB2BE640025C45A /* Tab - Profile */,
 				45B4C0E11DA4AAE6002979DC /* Global */,
@@ -840,7 +837,6 @@
 				458A98301DBCFD44007F53EE /* UnderlineTextField.swift in Sources */,
 				458BC76A1DE218DC0028AC5B /* LocationSearchTableTableViewController.swift in Sources */,
 				4591D5F21DFC9D4700366691 /* Charge.swift in Sources */,
-				4599E6E71E176386005494E4 /* SimpleSearchBar.swift in Sources */,
 				45EA513B1DDE6F2300BD076C /* FindParkingViewController.swift in Sources */,
 				45099A871DAF261200392FF1 /* LoginViewController.swift in Sources */,
 				45BC29451DA18249000C54BC /* AppDelegate.swift in Sources */,

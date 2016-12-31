@@ -22,11 +22,11 @@ class ParkingLocationViewController: UIViewController {
 
     var blurView: UIVisualEffectView!
     var searchController: UISearchController!
-    var selectedPin: MKPlacemark?
-    var centerAnnotation: MKPointAnnotation?
+    var selectedPin: MKPlacemark!
+    var centerAnnotation: MKPointAnnotation!
     var justZoomedIn = false
 
-    weak var delegate: ParkingLocationDelegate? = nil
+    var delegate: ParkingLocationDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,17 +54,17 @@ class ParkingLocationViewController: UIViewController {
         locationSearchTable.mapView = mapView
         locationSearchTable.handleMapSearchDelegate = self
 
-        searchController = SimpleSearchController.init(searchResultsController: locationSearchTable)
+        searchController = UISearchController.init(searchResultsController: locationSearchTable)
         searchController.searchResultsUpdater = locationSearchTable
 
         let searchBar = searchController.searchBar
+        searchBar.delegate = self
         searchBar.sizeToFit()
         searchBar.placeholder = "Search for places"
         navigationItem.titleView = searchController.searchBar
 
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.dimsBackgroundDuringPresentation = true
-        searchBar.delegate = self
         definesPresentationContext = true
     }
     
@@ -74,7 +74,7 @@ class ParkingLocationViewController: UIViewController {
         let longitude = currentMapCoordinate.longitude
         let address = LocationSearchTableViewController.parseAddress(selectedItem: selectedPin!)
         let _ = self.navigationController?.popViewController(animated: true)
-        delegate?.userDidChooseLocation(address: address, latitude: latitude, longitude: longitude)
+        delegate.userDidChooseLocation(address: address, latitude: latitude, longitude: longitude)
     }
 }
 
@@ -84,10 +84,12 @@ extension ParkingLocationViewController: UISearchBarDelegate {
         blurView = UIVisualEffectView.init(effect: effect)
         blurView.frame = mapView.bounds
         mapView.addSubview(blurView)
+        navigationItem.setHidesBackButton(true, animated: true)
     }
 
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         blurView.removeFromSuperview()
+        navigationItem.setHidesBackButton(false, animated: true)
     }
 }
 
@@ -109,7 +111,6 @@ extension ParkingLocationViewController : CLLocationManagerDelegate {
         let region = MKCoordinateRegionMakeWithDistance(location.coordinate, 800, 800)
         mapView.setRegion(region, animated: true)
         locationManager.stopUpdatingLocation()
-        addButton.isHidden = false
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -120,7 +121,7 @@ extension ParkingLocationViewController : CLLocationManagerDelegate {
 extension ParkingLocationViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         if selectedPin != nil && !justZoomedIn {
-            centerAnnotation?.coordinate = mapView.centerCoordinate
+            centerAnnotation.coordinate = mapView.centerCoordinate
         }
         justZoomedIn = false
     }
@@ -131,12 +132,13 @@ extension ParkingLocationViewController: HandleMapSearch {
         selectedPin = placemark
         mapView.removeAnnotations(mapView.annotations)
         centerAnnotation = MKPointAnnotation()
-        centerAnnotation!.coordinate = placemark.coordinate
+        centerAnnotation.coordinate = placemark.coordinate
         mapView.addAnnotation(centerAnnotation!)
 
         let region = MKCoordinateRegionMakeWithDistance(placemark.coordinate, CLLocationDistance.init(15), CLLocationDistance.init(15))
         justZoomedIn = true
         mapView.mapType = MKMapType.satellite
         mapView.setRegion(region, animated: true)
+        addButton.isHidden = false
     }
 }
