@@ -11,16 +11,20 @@ import CoreLocation
 import OHHTTPStubs
 @testable import Carko
 
-class CarkoAPIClientTest: XCTestCase {
-
-    var client: CarkoAPIClient!
+class ParkingTest: XCTestCase {
     var newParking: Parking!
 
     override func setUp() {
         super.setUp()
-        self.client = CarkoAPIClient.sharedClient
-
-        self.newParking = Parking.init(latitude: CLLocationDegrees.init(-74.00), longitude: CLLocationDegrees.init(135.00), photoURL: URL.init(string: "www.test.com")!, address: "1160 Rue Villeray", price: 2.00, pDescription: "Unit Test Parking", availabilityInfo: AvailabilityInfo.init())
+        self.newParking = Parking.init(latitude: CLLocationDegrees.init(-74.00),
+                                       longitude: CLLocationDegrees.init(135.00),
+                                       photoURL: URL.init(string: "www.test.com")!,
+                                       address: "1160 Rue Villeray",
+                                       price: 2.00,
+                                       pDescription: "Unit Test Parking",
+                                       isAvailable: true,
+                                       availabilityInfo: AvailabilityInfo.init(),
+                                       customerId: 1)
 
         OHHTTPStubs.setEnabled(true)
         OHHTTPStubs.onStubActivation { (request: URLRequest, stub: OHHTTPStubsDescriptor, response: OHHTTPStubsResponse) in
@@ -32,16 +36,15 @@ class CarkoAPIClientTest: XCTestCase {
         super.tearDown()
         OHHTTPStubs.removeAllStubs()
     }
-    
-    func testNoErrorWhenCreateParkingSuccess() {
+
+    func testNoErrorWhenPersistWorked() {
         let postStub = stub(condition: isMethodPOST() && isPath("/parkings")) { _ in
             return OHHTTPStubsResponse.init(data: Data.init(), statusCode: 201, headers: nil)
         }
         postStub.name = "Post Parking Success"
 
         let successExpectation = expectation(description: "PostParkingSuccess")
-
-        self.client.createParking(parking: self.newParking) { (error) in
+        self.newParking.persist { (error) in
             XCTAssertNil(error)
             successExpectation.fulfill()
         }
@@ -49,7 +52,7 @@ class CarkoAPIClientTest: XCTestCase {
         waitForExpectations(timeout: 2, handler: nil)
     }
 
-    func testErrorReturnedWhenCreateParkingFails() {
+    func testErrorReturnedWhenPersistFailed() {
         let postStub = stub(condition: isMethodPOST() && isPath("/parkings")) { _ in
             return OHHTTPStubsResponse.init(error: NSError.init(domain: "Error posting", code: 100, userInfo: nil))
         }
@@ -57,7 +60,7 @@ class CarkoAPIClientTest: XCTestCase {
 
         let successExpectation = expectation(description: "PostParkingFailure")
 
-        self.client.createParking(parking: self.newParking) { (error) in
+        self.newParking.persist { (error) in
             XCTAssertNotNil(error)
             successExpectation.fulfill()
         }

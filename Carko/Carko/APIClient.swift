@@ -11,13 +11,8 @@ import FirebaseAuth
 
 class APIClient: NSObject {
     static let shared = APIClient.init()
-    let baseUrlString = "https://fast-crag-37122.herokuapp.com"
-    //let baseUrlString = "https://f4891eda.ngrok.io"
+    // This is initialized in the AppDelegate depending of the build scheme (Development or Production)
     var baseUrl: URL!
-
-    override init() {
-        self.baseUrl = URL.init(string: baseUrlString)
-    }
 
     func customerId() -> String {
         return (FIRAuth.auth()?.currentUser?.uid)!

@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.sharedManager().enable = true
 
         setupStripe()
-        setupFirebase()
+        setupServers()
         setupPageControl()
         return true
     }
@@ -37,11 +37,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         pageControl.backgroundColor = UIColor.white
     }
 
-    func setupFirebase() {
-        //let buildFor = ProcessInfo.processInfo.environment["BUILD_FOR"]! as String
-        let firebasePlistFileName = "GoogleService-Info"
-        let firbaseOptions = FIROptions(contentsOfFile: Bundle.main.path(forResource: firebasePlistFileName, ofType: "plist"))
+    func setupServers() {
+        let buildFor = ProcessInfo.processInfo.environment["BUILD_FOR"]! as String
+        var firebaseFile: String
+        var apiUrl: String
+        if buildFor == "PROD" {
+            firebaseFile = "GoogleService-Info-Production"
+            apiUrl = "https://apya.herokuapp.com"
+        } else {
+            firebaseFile = "GoogleService-Info"
+            apiUrl = "https://integration-apya.herokuapp.com"
+        }
+        let firbaseOptions = FIROptions(contentsOfFile: Bundle.main.path(forResource: firebaseFile, ofType: "plist"))
         FIRApp.configure(with: firbaseOptions!)
+        APIClient.shared.baseUrl = URL.init(string: apiUrl)!
 
     }
 

@@ -8,13 +8,14 @@
 
 import Foundation
 import FirebaseStorage
+import Firebase
 
 class AppState: NSObject {
     static let shared = AppState.init()
     static let KEYBOARD_OFFSET = 80.0
 
     var customer: Customer!
-    let storageReference = FIRStorage.storage().reference(forURL: "gs://carko-1475431423846.appspot.com")
+    let storageReference = FIRStorage.storage().reference()
 
     // Return IP address of WiFi interface (en0) as a String, or `nil`
     class func getWiFiAddress() -> String? {
