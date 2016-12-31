@@ -9,7 +9,7 @@
 import Foundation
 import FirebaseAuth
 
-class Customer {
+struct Customer {
     var email: String
     var id: Int
     var firstName: String
@@ -36,7 +36,7 @@ class Customer {
         self.reservations = []
     }
 
-    convenience init(customer: [String: Any]) {
+    init(customer: [String: Any]) {
         let email = customer["email"] as! String
         let firstName = customer["first_name"] as! String
         let lastName = customer["last_name"] as! String
@@ -98,7 +98,7 @@ class Customer {
         return dict
     }
     
-    class func logIn(email: String, password: String) {
+    static func logIn(email: String, password: String) {
         FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (customer, error) in
             if let error = error {
                 NotificationCenter.default.post(name: Notification.Name.init("CustomerLoggedInError"), object: nil, userInfo: ["data": error.localizedDescription])
@@ -108,7 +108,7 @@ class Customer {
         })
     }
     
-    class func getCustomer(complete: @escaping (Customer?, Error?) -> Void) {
+    static func getCustomer(complete: @escaping (Customer?, Error?) -> Void) {
         APIClient.shared.getCustomer(complete: complete)
     }
 

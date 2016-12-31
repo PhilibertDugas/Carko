@@ -24,7 +24,7 @@ class BookParkingViewController: UIViewController {
 
     var endTimeParking: String!
     var totalCost: Float!
-    var sliderValue: Int?
+    var sliderValue: Int!
     var paymentContext: STPPaymentContext!
     var parking: Parking!
 
@@ -113,7 +113,7 @@ class BookParkingViewController: UIViewController {
 
     func setTimeLabel() {
         let calendar = Calendar.current
-        let until = calendar.date(byAdding: Calendar.Component.minute, value: self.sliderValue!, to: Date())
+        let until = calendar.date(byAdding: Calendar.Component.minute, value: self.sliderValue, to: Date())
         let dateFormatter = DateFormatter.init()
         dateFormatter.dateFormat = "HH:mm"
         endTimeParking = dateFormatter.string(from: until!)

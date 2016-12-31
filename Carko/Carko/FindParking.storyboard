@@ -49,7 +49,7 @@
                     <connections>
                         <outlet property="mapView" destination="F3O-Ph-Xpo" id="XCQ-di-Sbv"/>
                         <outlet property="popupView" destination="vJw-M0-R9n" id="Zeg-QR-0s8"/>
-                        <segue destination="PFI-OV-uJx" kind="presentation" identifier="showLoginScreen" id="5Rc-wB-NgD"/>
+                        <segue destination="PFI-OV-uJx" kind="presentation" identifier="showLoginScreen" animates="NO" id="5Rc-wB-NgD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5JO-7F-TCV" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Charge {
+struct Charge {
     var customer: String
     var amount: Int
     var currency: String
@@ -21,7 +21,7 @@ class Charge {
         self.parkingId = parkingId
     }
 
-    convenience init(charge: [String: Any]) {
+    init(charge: [String: Any]) {
         let customer = charge["customer"] as! String
         let amount = charge["amount"] as! Int
         let currency = charge["currency"] as! String

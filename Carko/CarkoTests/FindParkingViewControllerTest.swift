@@ -53,9 +53,9 @@ class FindParkingViewControllerTest: XCTestCase {
 
 extension FindParkingViewControllerTest {
     func setupTestParking() -> [(Parking)] {
-        let parking1 = Parking.init(latitude: CLLocationDegrees.init(-74.00),longitude: CLLocationDegrees.init(135.00),photoURL: URL.init(string: "www.test.com")!, address: "1160 Rue Villeray", price: 2.00, pDescription: "Unit Test Parking", isAvailable: true, availabilityInfo: AvailabilityInfo.init(), customerId: 1)
+        let parking1 = Parking.init(latitude: CLLocationDegrees.init(-74.00),longitude: CLLocationDegrees.init(135.00),photoURL: nil, address: "1160 Rue Villeray", price: 2.00, pDescription: "Unit Test Parking", isAvailable: true, availabilityInfo: AvailabilityInfo.init(), customerId: 1)
         parking1.id = 1
-        let parking2 = Parking.init(latitude: CLLocationDegrees.init(-74.00),longitude: CLLocationDegrees.init(135.00),photoURL: URL.init(string: "www.test.com")!, address: "1160 Rue Villeray", price: 2.00, pDescription: "Unit Test Parking", isAvailable: false, availabilityInfo: AvailabilityInfo.init(), customerId: 2)
+        let parking2 = Parking.init(latitude: CLLocationDegrees.init(-74.00),longitude: CLLocationDegrees.init(135.00),photoURL: nil, address: "1160 Rue Villeray", price: 2.00, pDescription: "Unit Test Parking", isAvailable: false, availabilityInfo: AvailabilityInfo.init(), customerId: 2)
         parking2.id = 2
         return [parking1, parking2]
     }

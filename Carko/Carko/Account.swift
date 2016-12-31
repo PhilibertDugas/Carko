@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Account {
+struct Account {
     var firstName: String
     var lastName: String
     let type = "individual"
@@ -40,13 +40,13 @@ class Account {
         APIClient.shared.postAccount(account: self, complete: completion)
     }
 
-    class func associateExternalAccount(token: String, completion: @escaping (Error?) -> Void) {
+    static func associateExternalAccount(token: String, completion: @escaping (Error?) -> Void) {
         APIClient.shared.postExternalAccount(token: token, complete: completion)
     }
 
 }
 
-class AccountAddress {
+struct AccountAddress {
     var city: String
     var line1: String
     var postalCode: String
@@ -69,7 +69,7 @@ class AccountAddress {
     }
 }
 
-class AccountDateOfBirth {
+struct AccountDateOfBirth {
     var day: String
     var month: String
     var year: String
