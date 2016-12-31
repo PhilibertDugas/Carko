@@ -34,27 +34,16 @@ class FindParkingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.popupView.isHidden = true
-
         self.mapView.showsUserLocation = true
         self.mapView.delegate = self
+        locationManager.requestWhenInUseAuthorization()
 
         let effect = UIBlurEffect(style: UIBlurEffectStyle.light)
         let statusBarBlur = UIVisualEffectView.init(effect: effect)
         statusBarBlur.frame = CGRect.init(x: 0.0, y: 0.0, width: view.bounds.width, height: 20.0)
         mapView.addSubview(statusBarBlur)
 
-        locationManager.requestWhenInUseAuthorization()
-
-        self.tabBar = self.tabBarController!.tabBar
-        self.bookParkingVC = storyboard?.instantiateViewController(withIdentifier: "bookParkingViewController") as? BookParkingViewController
-        self.bookParkingVC.modalPresentationStyle = .overCurrentContext
-
-        self.bookParkingVC.tapCloseButtonActionHandler = { _ in
-            self.tabBar.frame.origin.y = self.mapView.frame.height
-            self.popupView.descriptionLabel.text = self.selectedParking.address
-            self.popupView.frame.origin.y = self.mapView.frame.height - self.tabBar.frame.height
-        }
-
+        self.prepareAnimation()
         self.setupAnimator()
     }
 
@@ -70,17 +59,34 @@ class FindParkingViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        NotificationCenter.default.addObserver(self, selector: #selector(FindParkingViewController.parkingFetched), name: Notification.Name.init(rawValue: "ParkingFetched"), object: nil)
-        Parking.getAllParkings()
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        NotificationCenter.default.removeObserver(self)
+        Parking.getAllParkings { (parkings, error) in
+            if let error = error {
+                self.displayErrorMessage(error.localizedDescription)
+            } else {
+                self.parkingFetched(parkings)
+            }
+        }
     }
 }
 
 extension FindParkingViewController {
+    func prepareAnimation() {
+        if let tabController = self.tabBarController {
+            self.tabBar = tabController.tabBar
+        } else {
+            self.tabBar = UITabBarController.init().tabBar
+        }
+
+        self.bookParkingVC = storyboard?.instantiateViewController(withIdentifier: "bookParkingViewController") as? BookParkingViewController
+        self.bookParkingVC.modalPresentationStyle = .overCurrentContext
+
+        self.bookParkingVC.tapCloseButtonActionHandler = { _ in
+            self.tabBar.frame.origin.y = self.mapView.frame.height
+            self.popupView.descriptionLabel.text = self.selectedParking.address
+            self.popupView.frame.origin.y = self.mapView.frame.height - self.tabBar.frame.height
+        }
+    }
+
     func setupAnimator() {
         let animation = ParkingTransitionAnimation(rootVC: self, modalVC: self.bookParkingVC)
 
@@ -107,14 +113,11 @@ extension FindParkingViewController {
 }
 
 extension FindParkingViewController: MKMapViewDelegate {
-    func parkingFetched(_ notification: Notification) {
-        if let parkingData = notification.userInfo as? [String: Any] {
-            self.mapView.removeAnnotations(mapView.annotations)
-            let parkings = parkingData["data"] as! [(Parking)]
-            for parking in parkings {
-                let annotation = ParkingAnnotation.init(parking: parking)
-                self.mapView.addAnnotation(annotation)
-            }
+    func parkingFetched(_ parkings: [(Parking)]) {
+        self.mapView.removeAnnotations(mapView.annotations)
+        for parking in parkings {
+            let annotation = ParkingAnnotation.init(parking: parking)
+            self.mapView.addAnnotation(annotation)
         }
     }
 

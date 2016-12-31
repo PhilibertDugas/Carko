@@ -13,12 +13,22 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
-            skipped = "NO">
+            skipped = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "45BC29541DA18249000C54BC"
                BuildableName = "CarkoTests.xctest"
                BlueprintName = "CarkoTests"
+               ReferencedContainer = "container:Carko.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "45BC295F1DA18249000C54BC"
+               BuildableName = "CarkoUITests.xctest"
+               BlueprintName = "CarkoUITests"
                ReferencedContainer = "container:Carko.xcodeproj">
             </BuildableReference>
          </TestableReference>

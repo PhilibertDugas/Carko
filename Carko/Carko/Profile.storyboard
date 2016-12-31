@@ -13,7 +13,6 @@
         <!--Navigation Controller-->
         <scene sceneID="P1N-5R-PAT">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uuG-Fu-NVm" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="Zcy-Hj-txo" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qXp-J8-gYs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -24,6 +23,7 @@
                         <segue destination="7ex-GH-xvd" kind="relationship" relationship="rootViewController" id="Zxf-bk-NA4"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uuG-Fu-NVm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1623" y="-100"/>
         </scene>
@@ -40,15 +40,15 @@
                         <sections>
                             <tableViewSection id="gXX-AS-5bq">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="100" id="J9d-LW-sep">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="J9d-LW-sep">
                                         <rect key="frame" x="0.0" y="35" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="J9d-LW-sep" id="8HV-wl-YUd">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="99"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N56-0x-y9c">
-                                                    <rect key="frame" x="76" y="8" width="249" height="35"/>
+                                                    <rect key="frame" x="76" y="8" width="282" height="35"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="35" id="iwR-p8-hJe"/>
                                                     </constraints>
@@ -57,7 +57,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="voQ-8N-bte">
-                                                    <rect key="frame" x="76" y="51" width="249" height="35"/>
+                                                    <rect key="frame" x="76" y="51" width="282" height="35"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="35" id="3F3-fy-pqj"/>
                                                     </constraints>

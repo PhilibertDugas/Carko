@@ -21,8 +21,6 @@ class Parking {
 
     var availabilityInfo: AvailabilityInfo
 
-    var reservation: [(Reservation)]?
-
     init(latitude: CLLocationDegrees, longitude: CLLocationDegrees, photoURL: URL?, address: String, price: Float, pDescription: String, isAvailable: Bool, availabilityInfo: AvailabilityInfo, customerId: Int) {
         self.latitude = latitude
         self.longitude = longitude
@@ -95,15 +93,8 @@ extension Parking {
         ]
     }
 
-    class func getAllParkings() {
-        APIClient.shared.getAllParkings { (parkings, error) in
-            if let error = error {
-                print(error)
-            } else {
-                let data = ["data" : parkings]
-                NotificationCenter.default.post(name: Notification.Name.init("ParkingFetched"), object: nil, userInfo: data)
-            }
-        }
+    class func getAllParkings(_ complete: @escaping([(Parking)], Error?) -> Void) {
+        APIClient.shared.getAllParkings(complete: complete)
     }
 
     class func getCustomerParkings() {
@@ -118,7 +109,7 @@ extension Parking {
     }
 }
 
-class AvailabilityInfo {
+class AvailabilityInfo: NSObject {
     var startTime: String
     var stopTime: String
     var alwaysAvailable: Bool
@@ -147,7 +138,7 @@ class AvailabilityInfo {
         self.init(alwaysAvailable: alwaysAvailable, startTime: startTime, stopTime: stopTime, daysAvailable: daysAvailable)
     }
 
-    convenience init() {
+    convenience override init() {
         let startTime = "00:00"
         let stopTime = "23:59"
         let daysAvailable = [false, false, false, false, false, false, false]
@@ -162,6 +153,13 @@ class AvailabilityInfo {
             "stop_time": stopTime,
             "days_available": daysIntegerFormat()
         ]
+    }
+
+    override func isEqual(_ object: Any?) -> Bool {
+        guard let info = object as? AvailabilityInfo else { return false }
+        return (info.startTime == self.startTime &&
+        info.stopTime == self.stopTime &&
+        info.alwaysAvailable == self.alwaysAvailable)
     }
 
     private func daysIntegerFormat() -> [(Int)] {
