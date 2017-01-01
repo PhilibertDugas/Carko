@@ -8,19 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		3081C8E38A69D2E93352EB95 /* Pods_Carko.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 538BFE4EA50CCE486CF330C6 /* Pods_Carko.framework */; };
-		4506D42C1DF0E67300672924 /* parking_background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4506D42B1DF0E67300672924 /* parking_background.jpg */; };
-		4506D42E1DF0E7CE00672924 /* photo-camera@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4506D42D1DF0E7CE00672924 /* photo-camera@3x.png */; };
 		4508FD951E182692004458F0 /* FindParkingViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4508FD941E182692004458F0 /* FindParkingViewControllerTest.swift */; };
 		4508FD971E182ABE004458F0 /* FindParking.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4508FD961E182ABE004458F0 /* FindParking.storyboard */; };
 		45099A871DAF261200392FF1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45099A861DAF261200392FF1 /* LoginViewController.swift */; };
 		450CB59F1E11834000FD2095 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450CB59E1E11834000FD2095 /* UIColor.swift */; };
-		450CB5A11E11B7B300FD2095 /* private-garage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 450CB5A01E11B7B300FD2095 /* private-garage@2x.png */; };
-		450CB5A31E11B82C00FD2095 /* placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 450CB5A21E11B82C00FD2095 /* placeholder@2x.png */; };
 		450E12401DAF27330027EFBC /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450E123F1DAF27330027EFBC /* RegisterViewController.swift */; };
-		450E12451DAF2A880027EFBC /* page1.png in Resources */ = {isa = PBXBuildFile; fileRef = 450E12411DAF2A880027EFBC /* page1.png */; };
-		450E12461DAF2A880027EFBC /* page2.png in Resources */ = {isa = PBXBuildFile; fileRef = 450E12421DAF2A880027EFBC /* page2.png */; };
-		450E12471DAF2A880027EFBC /* page3.png in Resources */ = {isa = PBXBuildFile; fileRef = 450E12431DAF2A880027EFBC /* page3.png */; };
-		450E12481DAF2A880027EFBC /* page4.png in Resources */ = {isa = PBXBuildFile; fileRef = 450E12441DAF2A880027EFBC /* page4.png */; };
 		450E124A1DAF2B000027EFBC /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450E12491DAF2B000027EFBC /* EntryViewController.swift */; };
 		450E124C1DAF2B3C0027EFBC /* PageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450E124B1DAF2B3C0027EFBC /* PageContentViewController.swift */; };
 		4518537A1DA476F1005CC5E6 /* MyParkingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451853791DA476F1005CC5E6 /* MyParkingsViewController.swift */; };
@@ -54,10 +46,6 @@
 		4599E6E51E1755C9005494E4 /* GoogleService-Info-Production.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4599E6E41E1755C9005494E4 /* GoogleService-Info-Production.plist */; };
 		459AD2571DA49B6C0018B7B9 /* Parking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459AD2561DA49B6C0018B7B9 /* Parking.swift */; };
 		459AD2591DA49C590018B7B9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 459AD2581DA49C590018B7B9 /* GoogleService-Info.plist */; };
-		45B0890B1DE7B0820003C0BD /* close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B089091DE7B0820003C0BD /* close@2x.png */; };
-		45B0890C1DE7B0820003C0BD /* close@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B0890A1DE7B0820003C0BD /* close@3x.png */; };
-		45B0890F1DE7B1290003C0BD /* success@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B0890D1DE7B1290003C0BD /* success@2x.png */; };
-		45B089101DE7B1290003C0BD /* success@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B0890E1DE7B1290003C0BD /* success@3x.png */; };
 		45B77B441DDC0E39009ABF53 /* ParkingTransitionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B77B431DDC0E39009ABF53 /* ParkingTransitionAnimation.swift */; };
 		45BB39651DBBF0010019C2A3 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BB39641DBBF0010019C2A3 /* Buttons.swift */; };
 		45BC29451DA18249000C54BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC29441DA18249000C54BC /* AppDelegate.swift */; };
@@ -66,19 +54,10 @@
 		45BC29651DA18249000C54BC /* CarkoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC29641DA18249000C54BC /* CarkoUITests.swift */; };
 		45C1DBED1DD7870A00B2C96F /* ParkingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C1DBEC1DD7870A00B2C96F /* ParkingTest.swift */; };
 		45D5A5091DB2BE8F0025C45A /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45D5A5081DB2BE8F0025C45A /* Profile.storyboard */; };
-		45E043CA1E05BD2800513225 /* right-arrow-circular-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45E043C91E05BD2800513225 /* right-arrow-circular-button@2x.png */; };
-		45E043CC1E05BD3900513225 /* user@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45E043CB1E05BD3900513225 /* user@2x.png */; };
-		45E043CE1E05BD4100513225 /* check_example@3x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 45E043CD1E05BD4100513225 /* check_example@3x.jpg */; };
 		45E9B91C1DB82F3500C9E9FA /* MarkerPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45E9B91B1DB82F3500C9E9FA /* MarkerPopup.xib */; };
 		45E9B91E1DB82FDF00C9E9FA /* MarkerPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E9B91D1DB82FDF00C9E9FA /* MarkerPopup.swift */; };
 		45EA513B1DDE6F2300BD076C /* FindParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EA513A1DDE6F2300BD076C /* FindParkingViewController.swift */; };
 		45EA513D1DDE74AC00BD076C /* ParkingAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EA513C1DDE74AC00BD076C /* ParkingAnnotation.swift */; };
-		45EEAA201DE3DF390064AFE3 /* clock@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45EEAA1F1DE3DF390064AFE3 /* clock@3x.png */; };
-		45EEAA221DE3DF7E0064AFE3 /* money-bag@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45EEAA211DE3DF7E0064AFE3 /* money-bag@3x.png */; };
-		45EEAA241DE3DFBD0064AFE3 /* credit-card@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45EEAA231DE3DFBD0064AFE3 /* credit-card@3x.png */; };
-		45EEAA261DE3DFE30064AFE3 /* car@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45EEAA251DE3DFE30064AFE3 /* car@3x.png */; };
-		45EEAA281DE3E0370064AFE3 /* map@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45EEAA271DE3E0370064AFE3 /* map@3x.png */; };
-		45EEAA2A1DE3E0760064AFE3 /* parking@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45EEAA291DE3E0760064AFE3 /* parking@3x.png */; };
 		C51150531DAF38D5004E2A7D /* ParkingDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51150521DAF38D5004E2A7D /* ParkingDescriptionViewController.swift */; };
 		C51150551DAF38EC004E2A7D /* ParkingRatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51150541DAF38EC004E2A7D /* ParkingRatesViewController.swift */; };
 		C51150571DAF393F004E2A7D /* ParkingAvailabilityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51150561DAF393F004E2A7D /* ParkingAvailabilityViewController.swift */; };
@@ -108,19 +87,11 @@
 /* Begin PBXFileReference section */
 		182BF97C1B2157DE2E06FBDD /* Pods-Carko.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carko.release.xcconfig"; path = "Pods/Target Support Files/Pods-Carko/Pods-Carko.release.xcconfig"; sourceTree = "<group>"; };
 		388EE17981D2264091796560 /* Pods-CarkoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarkoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CarkoTests/Pods-CarkoTests.release.xcconfig"; sourceTree = "<group>"; };
-		4506D42B1DF0E67300672924 /* parking_background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = parking_background.jpg; sourceTree = "<group>"; };
-		4506D42D1DF0E7CE00672924 /* photo-camera@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo-camera@3x.png"; sourceTree = "<group>"; };
 		4508FD941E182692004458F0 /* FindParkingViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindParkingViewControllerTest.swift; sourceTree = "<group>"; };
 		4508FD961E182ABE004458F0 /* FindParking.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FindParking.storyboard; sourceTree = "<group>"; };
 		45099A861DAF261200392FF1 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		450CB59E1E11834000FD2095 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
-		450CB5A01E11B7B300FD2095 /* private-garage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "private-garage@2x.png"; sourceTree = "<group>"; };
-		450CB5A21E11B82C00FD2095 /* placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "placeholder@2x.png"; sourceTree = "<group>"; };
 		450E123F1DAF27330027EFBC /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		450E12411DAF2A880027EFBC /* page1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page1.png; sourceTree = "<group>"; };
-		450E12421DAF2A880027EFBC /* page2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page2.png; sourceTree = "<group>"; };
-		450E12431DAF2A880027EFBC /* page3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page3.png; sourceTree = "<group>"; };
-		450E12441DAF2A880027EFBC /* page4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page4.png; sourceTree = "<group>"; };
 		450E12491DAF2B000027EFBC /* EntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
 		450E124B1DAF2B3C0027EFBC /* PageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageContentViewController.swift; sourceTree = "<group>"; };
 		451853791DA476F1005CC5E6 /* MyParkingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyParkingsViewController.swift; sourceTree = "<group>"; };
@@ -154,10 +125,6 @@
 		4599E6E41E1755C9005494E4 /* GoogleService-Info-Production.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Production.plist"; sourceTree = "<group>"; };
 		459AD2561DA49B6C0018B7B9 /* Parking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parking.swift; sourceTree = "<group>"; };
 		459AD2581DA49C590018B7B9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Carko/GoogleService-Info.plist"; sourceTree = "<group>"; };
-		45B089091DE7B0820003C0BD /* close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close@2x.png"; sourceTree = "<group>"; };
-		45B0890A1DE7B0820003C0BD /* close@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close@3x.png"; sourceTree = "<group>"; };
-		45B0890D1DE7B1290003C0BD /* success@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "success@2x.png"; sourceTree = "<group>"; };
-		45B0890E1DE7B1290003C0BD /* success@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "success@3x.png"; sourceTree = "<group>"; };
 		45B77B431DDC0E39009ABF53 /* ParkingTransitionAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingTransitionAnimation.swift; sourceTree = "<group>"; };
 		45BB39641DBBF0010019C2A3 /* Buttons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		45BC29411DA18249000C54BC /* Carko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Carko.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -172,19 +139,10 @@
 		45BC29661DA18249000C54BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45C1DBEC1DD7870A00B2C96F /* ParkingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingTest.swift; sourceTree = "<group>"; };
 		45D5A5081DB2BE8F0025C45A /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
-		45E043C91E05BD2800513225 /* right-arrow-circular-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right-arrow-circular-button@2x.png"; sourceTree = "<group>"; };
-		45E043CB1E05BD3900513225 /* user@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user@2x.png"; sourceTree = "<group>"; };
-		45E043CD1E05BD4100513225 /* check_example@3x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "check_example@3x.jpg"; sourceTree = "<group>"; };
 		45E9B91B1DB82F3500C9E9FA /* MarkerPopup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MarkerPopup.xib; sourceTree = "<group>"; };
 		45E9B91D1DB82FDF00C9E9FA /* MarkerPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkerPopup.swift; sourceTree = "<group>"; };
 		45EA513A1DDE6F2300BD076C /* FindParkingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindParkingViewController.swift; sourceTree = "<group>"; };
 		45EA513C1DDE74AC00BD076C /* ParkingAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingAnnotation.swift; sourceTree = "<group>"; };
-		45EEAA1F1DE3DF390064AFE3 /* clock@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clock@3x.png"; sourceTree = "<group>"; };
-		45EEAA211DE3DF7E0064AFE3 /* money-bag@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "money-bag@3x.png"; sourceTree = "<group>"; };
-		45EEAA231DE3DFBD0064AFE3 /* credit-card@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "credit-card@3x.png"; sourceTree = "<group>"; };
-		45EEAA251DE3DFE30064AFE3 /* car@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "car@3x.png"; sourceTree = "<group>"; };
-		45EEAA271DE3E0370064AFE3 /* map@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map@3x.png"; sourceTree = "<group>"; };
-		45EEAA291DE3E0760064AFE3 /* parking@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "parking@3x.png"; sourceTree = "<group>"; };
 		51BE0236C2E899D05DB12FEF /* Pods-CarkoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarkoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CarkoUITests/Pods-CarkoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		538BFE4EA50CCE486CF330C6 /* Pods_Carko.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Carko.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B75E7E9A81373F8C2777563 /* Pods-CarkoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarkoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CarkoUITests/Pods-CarkoUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -325,35 +283,6 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
-		45A4CA2E1DB2B8B700741099 /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				450CB5A01E11B7B300FD2095 /* private-garage@2x.png */,
-				450CB5A21E11B82C00FD2095 /* placeholder@2x.png */,
-				45E043CD1E05BD4100513225 /* check_example@3x.jpg */,
-				45E043C91E05BD2800513225 /* right-arrow-circular-button@2x.png */,
-				45E043CB1E05BD3900513225 /* user@2x.png */,
-				4506D42D1DF0E7CE00672924 /* photo-camera@3x.png */,
-				45EEAA251DE3DFE30064AFE3 /* car@3x.png */,
-				45B0890D1DE7B1290003C0BD /* success@2x.png */,
-				45B0890E1DE7B1290003C0BD /* success@3x.png */,
-				45EEAA291DE3E0760064AFE3 /* parking@3x.png */,
-				45EEAA231DE3DFBD0064AFE3 /* credit-card@3x.png */,
-				4506D42B1DF0E67300672924 /* parking_background.jpg */,
-				45B089091DE7B0820003C0BD /* close@2x.png */,
-				45B0890A1DE7B0820003C0BD /* close@3x.png */,
-				45EEAA1F1DE3DF390064AFE3 /* clock@3x.png */,
-				45EEAA211DE3DF7E0064AFE3 /* money-bag@3x.png */,
-				45EEAA271DE3E0370064AFE3 /* map@3x.png */,
-				450E12411DAF2A880027EFBC /* page1.png */,
-				450E12421DAF2A880027EFBC /* page2.png */,
-				450E12431DAF2A880027EFBC /* page3.png */,
-				450E12441DAF2A880027EFBC /* page4.png */,
-				45BC294B1DA18249000C54BC /* Assets.xcassets */,
-			);
-			name = Assets;
-			sourceTree = "<group>";
-		};
 		45ACDDA01E0CAA2C007464F8 /* plist */ = {
 			isa = PBXGroup;
 			children = (
@@ -367,9 +296,10 @@
 		45B4C0E11DA4AAE6002979DC /* Global */ = {
 			isa = PBXGroup;
 			children = (
-				C5B3105E1DB023450051C90B /* Extensions */,
+				459AD2551DA49AE20018B7B9 /* Models */,
 				45BB39631DBBEFEC0019C2A3 /* Views */,
-				45A4CA2E1DB2B8B700741099 /* Assets */,
+				C5B3105E1DB023450051C90B /* Extensions */,
+				45BC294B1DA18249000C54BC /* Assets.xcassets */,
 				45BC29441DA18249000C54BC /* AppDelegate.swift */,
 				45637CFE1DEB184500DD42C0 /* AppState.swift */,
 			);
@@ -418,7 +348,6 @@
 				45099A851DAF25EA00392FF1 /* Tab - Login */,
 				45D5A5071DB2BE640025C45A /* Tab - Profile */,
 				45B4C0E11DA4AAE6002979DC /* Global */,
-				459AD2551DA49AE20018B7B9 /* Models */,
 				45253B9E1DA3FF36006BEDAF /* Main.storyboard */,
 				45BC294D1DA18249000C54BC /* LaunchScreen.storyboard */,
 			);
@@ -629,37 +558,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				450CB5A31E11B82C00FD2095 /* placeholder@2x.png in Resources */,
-				45B0890C1DE7B0820003C0BD /* close@3x.png in Resources */,
-				45B089101DE7B1290003C0BD /* success@3x.png in Resources */,
 				C56ADAB61DAAE6510033516C /* ParkingList.storyboard in Resources */,
 				45D5A5091DB2BE8F0025C45A /* Profile.storyboard in Resources */,
 				45E9B91C1DB82F3500C9E9FA /* MarkerPopup.xib in Resources */,
 				45253B9F1DA3FF37006BEDAF /* Main.storyboard in Resources */,
 				45418F2C1E1711710050DDF5 /* Login.storyboard in Resources */,
-				45EEAA241DE3DFBD0064AFE3 /* credit-card@3x.png in Resources */,
 				4599E6E51E1755C9005494E4 /* GoogleService-Info-Production.plist in Resources */,
-				450E12461DAF2A880027EFBC /* page2.png in Resources */,
-				45E043CE1E05BD4100513225 /* check_example@3x.jpg in Resources */,
-				45B0890B1DE7B0820003C0BD /* close@2x.png in Resources */,
 				459AD2591DA49C590018B7B9 /* GoogleService-Info.plist in Resources */,
-				450E12481DAF2A880027EFBC /* page4.png in Resources */,
-				4506D42E1DF0E7CE00672924 /* photo-camera@3x.png in Resources */,
-				45B0890F1DE7B1290003C0BD /* success@2x.png in Resources */,
-				4506D42C1DF0E67300672924 /* parking_background.jpg in Resources */,
-				450CB5A11E11B7B300FD2095 /* private-garage@2x.png in Resources */,
-				45EEAA201DE3DF390064AFE3 /* clock@3x.png in Resources */,
-				45EEAA261DE3DFE30064AFE3 /* car@3x.png in Resources */,
-				450E12471DAF2A880027EFBC /* page3.png in Resources */,
 				45BC294F1DA18249000C54BC /* LaunchScreen.storyboard in Resources */,
-				450E12451DAF2A880027EFBC /* page1.png in Resources */,
 				4508FD971E182ABE004458F0 /* FindParking.storyboard in Resources */,
-				45E043CA1E05BD2800513225 /* right-arrow-circular-button@2x.png in Resources */,
-				45EEAA2A1DE3E0760064AFE3 /* parking@3x.png in Resources */,
 				45BC294C1DA18249000C54BC /* Assets.xcassets in Resources */,
-				45E043CC1E05BD3900513225 /* user@2x.png in Resources */,
-				45EEAA281DE3E0370064AFE3 /* map@3x.png in Resources */,
-				45EEAA221DE3DF7E0064AFE3 /* money-bag@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
