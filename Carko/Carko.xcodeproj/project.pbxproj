@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06F0F158B753B53815387EDC /* Pods_Carko_CarkoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30759D0CD7ED81144FFA1563 /* Pods_Carko_CarkoTests.framework */; };
 		3081C8E38A69D2E93352EB95 /* Pods_Carko.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 538BFE4EA50CCE486CF330C6 /* Pods_Carko.framework */; };
+		321DDAA535DBF3EF8D95BB2B /* Pods_CarkoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B113161E65ADDC326CA4C14 /* Pods_CarkoUITests.framework */; };
 		4508FD951E182692004458F0 /* FindParkingViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4508FD941E182692004458F0 /* FindParkingViewControllerTest.swift */; };
-		4508FD971E182ABE004458F0 /* FindParking.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4508FD961E182ABE004458F0 /* FindParking.storyboard */; };
 		45099A871DAF261200392FF1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45099A861DAF261200392FF1 /* LoginViewController.swift */; };
 		450CB59F1E11834000FD2095 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450CB59E1E11834000FD2095 /* UIColor.swift */; };
 		450E12401DAF27330027EFBC /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450E123F1DAF27330027EFBC /* RegisterViewController.swift */; };
@@ -22,14 +23,18 @@
 		451FC46B1E072A830083C0CB /* VehiculeInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451FC46A1E072A830083C0CB /* VehiculeInformationViewController.swift */; };
 		451FC46D1E072B3C0083C0CB /* Vehicule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451FC46C1E072B3C0083C0CB /* Vehicule.swift */; };
 		451FC46F1E072BC70083C0CB /* VehiculeClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451FC46E1E072BC70083C0CB /* VehiculeClient.swift */; };
-		45253B9F1DA3FF37006BEDAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45253B9E1DA3FF36006BEDAF /* Main.storyboard */; };
 		452738E71DF7AEB700D74F0D /* BorderedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452738E61DF7AEB700D74F0D /* BorderedView.swift */; };
 		453314321E03669000BF0B65 /* AccountCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453314311E03669000BF0B65 /* AccountCreationViewController.swift */; };
 		453314341E03672700BF0B65 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453314331E03672700BF0B65 /* Account.swift */; };
 		4533143A1E036CF300BF0B65 /* BankCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453314391E036CF300BF0B65 /* BankCreationViewController.swift */; };
 		4533143C1E036DDA00BF0B65 /* AccountClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4533143B1E036DDA00BF0B65 /* AccountClient.swift */; };
-		45418F2C1E1711710050DDF5 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45418F2B1E1711710050DDF5 /* Login.storyboard */; };
 		45418F2E1E1719E00050DDF5 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45418F2D1E1719E00050DDF5 /* ForgotPasswordViewController.swift */; };
+		4550D6631E19D7720080758D /* Find.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4550D6651E19D7720080758D /* Find.storyboard */; };
+		4550D6661E19D7780080758D /* Add.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4550D6681E19D7780080758D /* Add.storyboard */; };
+		4550D6691E19D7810080758D /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4550D66B1E19D7810080758D /* Login.storyboard */; };
+		4550D66C1E19D7870080758D /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4550D66E1E19D7870080758D /* Profile.storyboard */; };
+		4550D66F1E19D78B0080758D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4550D6711E19D78B0080758D /* Main.storyboard */; };
+		4550D67E1E19DD790080758D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4550D6801E19DD790080758D /* Localizable.strings */; };
 		4554EBCE1DB5A36F0066E452 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4554EBCD1DB5A36F0066E452 /* APIClient.swift */; };
 		4554EBD01DB5AA520066E452 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4554EBCF1DB5AA520066E452 /* ProfileViewController.swift */; };
 		45637CFF1DEB184500DD42C0 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45637CFE1DEB184500DD42C0 /* AppState.swift */; };
@@ -53,7 +58,6 @@
 		45BC294F1DA18249000C54BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45BC294D1DA18249000C54BC /* LaunchScreen.storyboard */; };
 		45BC29651DA18249000C54BC /* CarkoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC29641DA18249000C54BC /* CarkoUITests.swift */; };
 		45C1DBED1DD7870A00B2C96F /* ParkingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C1DBEC1DD7870A00B2C96F /* ParkingTest.swift */; };
-		45D5A5091DB2BE8F0025C45A /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45D5A5081DB2BE8F0025C45A /* Profile.storyboard */; };
 		45E9B91C1DB82F3500C9E9FA /* MarkerPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45E9B91B1DB82F3500C9E9FA /* MarkerPopup.xib */; };
 		45E9B91E1DB82FDF00C9E9FA /* MarkerPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E9B91D1DB82FDF00C9E9FA /* MarkerPopup.swift */; };
 		45EA513B1DDE6F2300BD076C /* FindParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EA513A1DDE6F2300BD076C /* FindParkingViewController.swift */; };
@@ -62,7 +66,6 @@
 		C51150551DAF38EC004E2A7D /* ParkingRatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51150541DAF38EC004E2A7D /* ParkingRatesViewController.swift */; };
 		C51150571DAF393F004E2A7D /* ParkingAvailabilityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51150561DAF393F004E2A7D /* ParkingAvailabilityViewController.swift */; };
 		C51150591DAF397E004E2A7D /* ParkingInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51150581DAF397E004E2A7D /* ParkingInfoViewController.swift */; };
-		C56ADAB61DAAE6510033516C /* ParkingList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C56ADAB51DAAE6510033516C /* ParkingList.storyboard */; };
 		C56ADABB1DAC00870033516C /* ParkingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56ADABA1DAC00870033516C /* ParkingTableViewCell.swift */; };
 		C5B310601DB023610051C90B /* FloatExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B3105F1DB023610051C90B /* FloatExtension.swift */; };
 /* End PBXBuildFile section */
@@ -86,9 +89,9 @@
 
 /* Begin PBXFileReference section */
 		182BF97C1B2157DE2E06FBDD /* Pods-Carko.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carko.release.xcconfig"; path = "Pods/Target Support Files/Pods-Carko/Pods-Carko.release.xcconfig"; sourceTree = "<group>"; };
+		30759D0CD7ED81144FFA1563 /* Pods_Carko_CarkoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Carko_CarkoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		388EE17981D2264091796560 /* Pods-CarkoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarkoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CarkoTests/Pods-CarkoTests.release.xcconfig"; sourceTree = "<group>"; };
 		4508FD941E182692004458F0 /* FindParkingViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindParkingViewControllerTest.swift; sourceTree = "<group>"; };
-		4508FD961E182ABE004458F0 /* FindParking.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FindParking.storyboard; sourceTree = "<group>"; };
 		45099A861DAF261200392FF1 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		450CB59E1E11834000FD2095 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		450E123F1DAF27330027EFBC /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -101,14 +104,26 @@
 		451FC46A1E072A830083C0CB /* VehiculeInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehiculeInformationViewController.swift; sourceTree = "<group>"; };
 		451FC46C1E072B3C0083C0CB /* Vehicule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vehicule.swift; sourceTree = "<group>"; };
 		451FC46E1E072BC70083C0CB /* VehiculeClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehiculeClient.swift; sourceTree = "<group>"; };
-		45253B9E1DA3FF36006BEDAF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		452738E61DF7AEB700D74F0D /* BorderedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderedView.swift; sourceTree = "<group>"; };
 		453314311E03669000BF0B65 /* AccountCreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCreationViewController.swift; sourceTree = "<group>"; };
 		453314331E03672700BF0B65 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		453314391E036CF300BF0B65 /* BankCreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankCreationViewController.swift; sourceTree = "<group>"; };
 		4533143B1E036DDA00BF0B65 /* AccountClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountClient.swift; sourceTree = "<group>"; };
-		45418F2B1E1711710050DDF5 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		45418F2D1E1719E00050DDF5 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		4550D6641E19D7720080758D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Find.storyboard; sourceTree = "<group>"; };
+		4550D6671E19D7780080758D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Add.storyboard; sourceTree = "<group>"; };
+		4550D66A1E19D7810080758D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
+		4550D66D1E19D7870080758D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
+		4550D6701E19D78B0080758D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4550D6741E19D7C40080758D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Find.strings; sourceTree = "<group>"; };
+		4550D6751E19D7C40080758D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Add.strings; sourceTree = "<group>"; };
+		4550D6761E19D7C40080758D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Login.strings; sourceTree = "<group>"; };
+		4550D6771E19D7C40080758D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Profile.strings; sourceTree = "<group>"; };
+		4550D6781E19D7C40080758D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		4550D6791E19D7C40080758D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		4550D67B1E19DAFB0080758D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Find.strings; sourceTree = "<group>"; };
+		4550D67F1E19DD790080758D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4550D6811E19DD7A0080758D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4554EBCD1DB5A36F0066E452 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		4554EBCF1DB5AA520066E452 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		45637CFE1DEB184500DD42C0 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
@@ -138,7 +153,6 @@
 		45BC29641DA18249000C54BC /* CarkoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarkoUITests.swift; sourceTree = "<group>"; };
 		45BC29661DA18249000C54BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45C1DBEC1DD7870A00B2C96F /* ParkingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingTest.swift; sourceTree = "<group>"; };
-		45D5A5081DB2BE8F0025C45A /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		45E9B91B1DB82F3500C9E9FA /* MarkerPopup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MarkerPopup.xib; sourceTree = "<group>"; };
 		45E9B91D1DB82FDF00C9E9FA /* MarkerPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkerPopup.swift; sourceTree = "<group>"; };
 		45EA513A1DDE6F2300BD076C /* FindParkingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindParkingViewController.swift; sourceTree = "<group>"; };
@@ -148,11 +162,11 @@
 		5B75E7E9A81373F8C2777563 /* Pods-CarkoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarkoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CarkoUITests/Pods-CarkoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7A5C604335A78729BBDD02CF /* Pods-CarkoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarkoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CarkoTests/Pods-CarkoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8434CF39E1312BC65B8DF4B2 /* Pods-Carko-CarkoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carko-CarkoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Carko-CarkoTests/Pods-Carko-CarkoTests.release.xcconfig"; sourceTree = "<group>"; };
+		9B113161E65ADDC326CA4C14 /* Pods_CarkoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarkoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C51150521DAF38D5004E2A7D /* ParkingDescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingDescriptionViewController.swift; sourceTree = "<group>"; };
 		C51150541DAF38EC004E2A7D /* ParkingRatesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingRatesViewController.swift; sourceTree = "<group>"; };
 		C51150561DAF393F004E2A7D /* ParkingAvailabilityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingAvailabilityViewController.swift; sourceTree = "<group>"; };
 		C51150581DAF397E004E2A7D /* ParkingInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingInfoViewController.swift; sourceTree = "<group>"; };
-		C56ADAB51DAAE6510033516C /* ParkingList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ParkingList.storyboard; sourceTree = "<group>"; };
 		C56ADABA1DAC00870033516C /* ParkingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingTableViewCell.swift; sourceTree = "<group>"; };
 		C5B3105F1DB023610051C90B /* FloatExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatExtension.swift; sourceTree = "<group>"; };
 		DF3DC78B5F06CA9F23866878 /* Pods-Carko-CarkoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carko-CarkoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Carko-CarkoTests/Pods-Carko-CarkoTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -172,6 +186,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06F0F158B753B53815387EDC /* Pods_Carko_CarkoTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,6 +194,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				321DDAA535DBF3EF8D95BB2B /* Pods_CarkoUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,7 +209,7 @@
 				450E12491DAF2B000027EFBC /* EntryViewController.swift */,
 				450E124B1DAF2B3C0027EFBC /* PageContentViewController.swift */,
 				45418F2D1E1719E00050DDF5 /* ForgotPasswordViewController.swift */,
-				45418F2B1E1711710050DDF5 /* Login.storyboard */,
+				4550D66B1E19D7810080758D /* Login.storyboard */,
 			);
 			name = "Tab - Login";
 			sourceTree = "<group>";
@@ -205,7 +221,7 @@
 				4564F6DD1DB981BA001B709C /* Subviews */,
 				4564F6E01DB98509001B709C /* BookParkingViewController.swift */,
 				45EA513A1DDE6F2300BD076C /* FindParkingViewController.swift */,
-				4508FD961E182ABE004458F0 /* FindParking.storyboard */,
+				4550D6651E19D7720080758D /* Find.storyboard */,
 			);
 			name = "Tab - Find";
 			sourceTree = "<group>";
@@ -216,7 +232,7 @@
 				C56ADAB91DAC00320033516C /* CustomCell */,
 				C511504F1DAF386B004E2A7D /* ParkingInfo */,
 				451853791DA476F1005CC5E6 /* MyParkingsViewController.swift */,
-				C56ADAB51DAAE6510033516C /* ParkingList.storyboard */,
+				4550D6681E19D7780080758D /* Add.storyboard */,
 			);
 			name = "Tab - Add";
 			sourceTree = "<group>";
@@ -302,6 +318,7 @@
 				45BC294B1DA18249000C54BC /* Assets.xcassets */,
 				45BC29441DA18249000C54BC /* AppDelegate.swift */,
 				45637CFE1DEB184500DD42C0 /* AppState.swift */,
+				4550D6801E19DD790080758D /* Localizable.strings */,
 			);
 			name = Global;
 			sourceTree = "<group>";
@@ -348,7 +365,7 @@
 				45099A851DAF25EA00392FF1 /* Tab - Login */,
 				45D5A5071DB2BE640025C45A /* Tab - Profile */,
 				45B4C0E11DA4AAE6002979DC /* Global */,
-				45253B9E1DA3FF36006BEDAF /* Main.storyboard */,
+				4550D6711E19D78B0080758D /* Main.storyboard */,
 				45BC294D1DA18249000C54BC /* LaunchScreen.storyboard */,
 			);
 			path = Carko;
@@ -379,7 +396,7 @@
 				451FC4691E072A6D0083C0CB /* Vehicule Information */,
 				453314301E03667200BF0B65 /* Payout Information */,
 				4554EBCF1DB5AA520066E452 /* ProfileViewController.swift */,
-				45D5A5081DB2BE8F0025C45A /* Profile.storyboard */,
+				4550D66E1E19D7870080758D /* Profile.storyboard */,
 			);
 			name = "Tab - Profile";
 			sourceTree = "<group>";
@@ -435,6 +452,8 @@
 			isa = PBXGroup;
 			children = (
 				538BFE4EA50CCE486CF330C6 /* Pods_Carko.framework */,
+				30759D0CD7ED81144FFA1563 /* Pods_Carko_CarkoTests.framework */,
+				9B113161E65ADDC326CA4C14 /* Pods_CarkoUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -540,6 +559,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = 45BC29381DA18249000C54BC;
 			productRefGroup = 45BC29421DA18249000C54BC /* Products */;
@@ -558,15 +578,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C56ADAB61DAAE6510033516C /* ParkingList.storyboard in Resources */,
-				45D5A5091DB2BE8F0025C45A /* Profile.storyboard in Resources */,
+				4550D6661E19D7780080758D /* Add.storyboard in Resources */,
+				4550D66C1E19D7870080758D /* Profile.storyboard in Resources */,
+				4550D67E1E19DD790080758D /* Localizable.strings in Resources */,
 				45E9B91C1DB82F3500C9E9FA /* MarkerPopup.xib in Resources */,
-				45253B9F1DA3FF37006BEDAF /* Main.storyboard in Resources */,
-				45418F2C1E1711710050DDF5 /* Login.storyboard in Resources */,
+				4550D66F1E19D78B0080758D /* Main.storyboard in Resources */,
+				4550D6691E19D7810080758D /* Login.storyboard in Resources */,
 				4599E6E51E1755C9005494E4 /* GoogleService-Info-Production.plist in Resources */,
 				459AD2591DA49C590018B7B9 /* GoogleService-Info.plist in Resources */,
 				45BC294F1DA18249000C54BC /* LaunchScreen.storyboard in Resources */,
-				4508FD971E182ABE004458F0 /* FindParking.storyboard in Resources */,
+				4550D6631E19D7720080758D /* Find.storyboard in Resources */,
 				45BC294C1DA18249000C54BC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -810,10 +831,66 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		4550D6651E19D7720080758D /* Find.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4550D6641E19D7720080758D /* Base */,
+				4550D6741E19D7C40080758D /* fr */,
+				4550D67B1E19DAFB0080758D /* en */,
+			);
+			name = Find.storyboard;
+			sourceTree = "<group>";
+		};
+		4550D6681E19D7780080758D /* Add.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4550D6671E19D7780080758D /* Base */,
+				4550D6751E19D7C40080758D /* fr */,
+			);
+			name = Add.storyboard;
+			sourceTree = "<group>";
+		};
+		4550D66B1E19D7810080758D /* Login.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4550D66A1E19D7810080758D /* Base */,
+				4550D6761E19D7C40080758D /* fr */,
+			);
+			name = Login.storyboard;
+			sourceTree = "<group>";
+		};
+		4550D66E1E19D7870080758D /* Profile.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4550D66D1E19D7870080758D /* Base */,
+				4550D6771E19D7C40080758D /* fr */,
+			);
+			name = Profile.storyboard;
+			sourceTree = "<group>";
+		};
+		4550D6711E19D78B0080758D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4550D6701E19D78B0080758D /* Base */,
+				4550D6781E19D7C40080758D /* fr */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4550D6801E19DD790080758D /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4550D67F1E19DD790080758D /* en */,
+				4550D6811E19DD7A0080758D /* fr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		45BC294D1DA18249000C54BC /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				45BC294E1DA18249000C54BC /* Base */,
+				4550D6791E19D7C40080758D /* fr */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -826,6 +903,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -878,6 +956,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -922,7 +1001,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E698A5AD42366D0AB15C9348 /* Pods-Carko.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = GYH3TK45ZC;
 				INFOPLIST_FILE = Carko/Info.plist;
@@ -940,7 +1018,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 182BF97C1B2157DE2E06FBDD /* Pods-Carko.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = GYH3TK45ZC;
 				INFOPLIST_FILE = Carko/Info.plist;
@@ -958,7 +1035,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DF3DC78B5F06CA9F23866878 /* Pods-Carko-CarkoTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = GYH3TK45ZC;
 				INFOPLIST_FILE = CarkoTests/Info.plist;
@@ -974,7 +1050,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8434CF39E1312BC65B8DF4B2 /* Pods-Carko-CarkoTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = GYH3TK45ZC;
 				INFOPLIST_FILE = CarkoTests/Info.plist;

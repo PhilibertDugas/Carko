@@ -1,0 +1,114 @@
+
+/* Class = "UILabel"; text = "Make available 24/7"; ObjectID = "1Ak-JJ-8KI"; */
+"1Ak-JJ-8KI.text" = "Make available 24/7";
+
+/* Class = "UIButton"; normalTitle = "Add"; ObjectID = "1e0-JI-oxL"; */
+"1e0-JI-oxL.normalTitle" = "Add";
+
+/* Class = "UILabel"; text = "price"; ObjectID = "2xe-fJ-2FX"; */
+"2xe-fJ-2FX.text" = "price";
+
+/* Class = "UILabel"; text = "Availability"; ObjectID = "86S-1J-gOq"; */
+"86S-1J-gOq.text" = "Availability";
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "8Bo-UA-366"; */
+"8Bo-UA-366.text" = "Description";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "BJx-g3-09r"; */
+"BJx-g3-09r.text" = "Title";
+
+/* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "Bnh-Rj-rgD"; */
+"Bnh-Rj-rgD.title" = "Save";
+
+/* Class = "UIBarButtonItem"; title = "Create"; ObjectID = "DVV-gS-19T"; */
+"DVV-gS-19T.title" = "Create";
+
+/* Class = "UILabel"; text = "Hourly Rate"; ObjectID = "ETt-Ge-UUQ"; */
+"ETt-Ge-UUQ.text" = "Hourly Rate";
+
+/* Class = "UILabel"; text = "At what time each day, is your space available?"; ObjectID = "Ec9-9N-4bP"; */
+"Ec9-9N-4bP.text" = "At what time each day, is your space available?";
+
+/* Class = "UILabel"; text = "Rates"; ObjectID = "G5g-Qk-mVP"; */
+"G5g-Qk-mVP.text" = "Rates";
+
+/* Class = "UIButton"; normalTitle = "Fri"; ObjectID = "H57-Wc-Y9D"; */
+"H57-Wc-Y9D.normalTitle" = "Fri";
+
+/* Class = "UIBarButtonItem"; title = "New"; ObjectID = "Hic-Gl-mqf"; */
+"Hic-Gl-mqf.title" = "New";
+
+/* Class = "UINavigationItem"; title = "Description"; ObjectID = "IlI-uu-l32"; */
+"IlI-uu-l32.title" = "Description";
+
+/* Class = "UITabBarItem"; title = "Add"; ObjectID = "KB9-u6-Fss"; */
+"KB9-u6-Fss.title" = "Add";
+
+/* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "M4l-au-OgE"; */
+"M4l-au-OgE.title" = "Save";
+
+/* Class = "UIButton"; normalTitle = "Wed"; ObjectID = "MiS-if-DpI"; */
+"MiS-if-DpI.normalTitle" = "Wed";
+
+/* Class = "UILabel"; text = "Availability:"; ObjectID = "N6X-f2-ljk"; */
+"N6X-f2-ljk.text" = "Availability:";
+
+/* Class = "UINavigationItem"; title = "Add"; ObjectID = "QDU-MA-Qu1"; */
+"QDU-MA-Qu1.title" = "Add";
+
+/* Class = "UILabel"; text = "Parking Address"; ObjectID = "RND-iX-WRx"; */
+"RND-iX-WRx.text" = "Parking Address";
+
+/* Class = "UIButton"; normalTitle = "Thu"; ObjectID = "U0R-dg-MSF"; */
+"U0R-dg-MSF.normalTitle" = "Thu";
+
+/* Class = "UILabel"; text = "Posted Rate"; ObjectID = "Y9E-Jw-3sC"; */
+"Y9E-Jw-3sC.text" = "Posted Rate";
+
+/* Class = "UILabel"; text = "Address"; ObjectID = "bqZ-oX-Lex"; */
+"bqZ-oX-Lex.text" = "Address";
+
+/* Class = "UIButton"; normalTitle = "Mon"; ObjectID = "c0e-M4-kkA"; */
+"c0e-M4-kkA.normalTitle" = "Mon";
+
+/* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "ckJ-fC-hJi"; */
+"ckJ-fC-hJi.title" = "Save";
+
+/* Class = "UILabel"; text = "To:"; ObjectID = "eH1-V1-Ep6"; */
+"eH1-V1-Ep6.text" = "To:";
+
+/* Class = "UINavigationItem"; title = "Schedule"; ObjectID = "eI7-Zk-Xn3"; */
+"eI7-Zk-Xn3.title" = "Schedule";
+
+/* Class = "UIButton"; normalTitle = "Sat"; ObjectID = "fFf-Q3-YGb"; */
+"fFf-Q3-YGb.normalTitle" = "Sat";
+
+/* Class = "UILabel"; text = "On what day(s) is your space available?"; ObjectID = "gTG-3v-cyo"; */
+"gTG-3v-cyo.text" = "On what day(s) is your space available?";
+
+/* Class = "UILabel"; text = "From:"; ObjectID = "ge7-DZ-L09"; */
+"ge7-DZ-L09.text" = "From:";
+
+/* Class = "UILabel"; text = "Add Photos"; ObjectID = "hQ8-QM-62U"; */
+"hQ8-QM-62U.text" = "Add Photos";
+
+/* Class = "UINavigationItem"; title = "Location"; ObjectID = "kLf-H2-fDY"; */
+"kLf-H2-fDY.title" = "Location";
+
+/* Class = "UIButton"; normalTitle = "Tue"; ObjectID = "kdL-2C-L2u"; */
+"kdL-2C-L2u.normalTitle" = "Tue";
+
+/* Class = "UILabel"; text = "How much do you want to charge?"; ObjectID = "ofj-o5-2wm"; */
+"ofj-o5-2wm.text" = "How much do you want to charge?";
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "pb4-ET-CCn"; */
+"pb4-ET-CCn.text" = "Subtitle";
+
+/* Class = "UIButton"; normalTitle = "Sun"; ObjectID = "q3B-OU-4yc"; */
+"q3B-OU-4yc.normalTitle" = "Sun";
+
+/* Class = "UILabel"; text = "Do you want to make your space available at all times?"; ObjectID = "x0d-GK-Bf9"; */
+"x0d-GK-Bf9.text" = "Do you want to make your space available at all times?";
+
+/* Class = "UINavigationItem"; title = "Rates"; ObjectID = "y27-mO-23T"; */
+"y27-mO-23T.title" = "Rates";

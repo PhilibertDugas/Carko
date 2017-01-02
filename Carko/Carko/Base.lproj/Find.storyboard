@@ -141,7 +141,7 @@
                                             <constraint firstAttribute="height" constant="40" id="UYw-hf-frr"/>
                                         </constraints>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zc9-0f-ESQ" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
@@ -150,7 +150,7 @@
                                             <constraint firstAttribute="height" constant="40" id="jH7-v4-ReP"/>
                                         </constraints>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
@@ -198,22 +198,21 @@
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="60" minValue="15" maxValue="120" translatesAutoresizingMaskIntoConstraints="NO" id="0Gf-o8-LL7">
-                                <rect key="frame" x="157" y="302" width="204" height="31"/>
+                                <rect key="frame" x="153.5" y="302" width="207.5" height="31"/>
                                 <color key="tintColor" red="0.082330532371997833" green="0.59346586465835571" blue="0.22379577159881592" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="7jT-Tn-mho"/>
-                                    <constraint firstAttribute="width" constant="200" id="JsO-gh-2RG"/>
                                 </constraints>
                                 <connections>
                                     <action selector="sliderChanged:" destination="PnB-Lw-Vkk" eventType="valueChanged" id="XI2-zL-QmX"/>
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How long will you stay?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RGQ-q8-Kwd">
-                                <rect key="frame" x="16" y="302" width="135" height="30"/>
+                                <rect key="frame" x="16" y="302" width="131.5" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="xRE-0j-tjh"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                 <color key="textColor" red="0.60310596227645874" green="0.62698125839233398" blue="0.66024726629257202" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -237,14 +236,14 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nLw-V2-mPK">
                                         <rect key="frame" x="56" y="62" width="279" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s41-rb-2sO">
                                         <rect key="frame" x="56" y="8" width="279" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
