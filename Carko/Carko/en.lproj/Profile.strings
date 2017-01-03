@@ -1,0 +1,87 @@
+
+/* Class = "UITextField"; placeholder = "Routing Number"; ObjectID = "2IC-pI-c7k"; */
+"2IC-pI-c7k.placeholder" = "Routing Number";
+
+/* Class = "UITextField"; placeholder = "Date of birth"; ObjectID = "2bv-DF-asf"; */
+"2bv-DF-asf.placeholder" = "Date of birth";
+
+/* Class = "UILabel"; text = "Enter your vehicule details"; ObjectID = "5Xq-fN-Rjj"; */
+"5Xq-fN-Rjj.text" = "Enter your vehicule details";
+
+/* Class = "UITabBarItem"; title = "Profile"; ObjectID = "5dA-Az-Z4Q"; */
+"5dA-Az-Z4Q.title" = "Profile";
+
+/* Class = "UILabel"; text = "Sign Out"; ObjectID = "5gO-Ur-726"; */
+"5gO-Ur-726.text" = "Sign Out";
+
+/* Class = "UITextField"; placeholder = "City"; ObjectID = "72X-Jc-uGU"; */
+"72X-Jc-uGU.placeholder" = "City";
+
+/* Class = "UITableViewController"; title = "Profile"; ObjectID = "7ex-GH-xvd"; */
+"7ex-GH-xvd.title" = "Profile";
+
+/* Class = "UILabel"; text = "Enter the account address"; ObjectID = "8sF-2T-vvx"; */
+"8sF-2T-vvx.text" = "Enter the account address";
+
+/* Class = "UITextField"; placeholder = "Model"; ObjectID = "8zg-J5-Gy3"; */
+"8zg-J5-Gy3.placeholder" = "Model";
+
+/* Class = "UIViewController"; title = "Vehicule Information"; ObjectID = "DAF-Sj-mQX"; */
+"DAF-Sj-mQX.title" = "Vehicule Information";
+
+/* Class = "UITextField"; placeholder = "Account Number"; ObjectID = "ECj-eV-L0Q"; */
+"ECj-eV-L0Q.placeholder" = "Account Number";
+
+/* Class = "UIViewController"; title = "Account information"; ObjectID = "EIA-Tj-76l"; */
+"EIA-Tj-76l.title" = "Account information";
+
+/* Class = "UINavigationItem"; title = "Profile"; ObjectID = "Jpv-2g-g3J"; */
+"Jpv-2g-g3J.title" = "Profile";
+
+/* Class = "UILabel"; text = "Payment Information"; ObjectID = "KJi-jm-RRJ"; */
+"KJi-jm-RRJ.text" = "Payment Information";
+
+/* Class = "UITextField"; placeholder = "Color"; ObjectID = "SRu-hf-uoV"; */
+"SRu-hf-uoV.placeholder" = "Color";
+
+/* Class = "UITextField"; placeholder = "Year"; ObjectID = "Upm-gF-k4n"; */
+"Upm-gF-k4n.placeholder" = "Year";
+
+/* Class = "UITextField"; placeholder = "Province"; ObjectID = "UzN-ZS-XQI"; */
+"UzN-ZS-XQI.placeholder" = "Province";
+
+/* Class = "UITextField"; placeholder = "License Plate"; ObjectID = "W18-br-rUC"; */
+"W18-br-rUC.placeholder" = "License Plate";
+
+/* Class = "UIViewController"; title = "Bank information"; ObjectID = "aWT-Jx-dCK"; */
+"aWT-Jx-dCK.title" = "Bank information";
+
+/* Class = "UITextField"; placeholder = "Country"; ObjectID = "d38-EY-VnM"; */
+"d38-EY-VnM.placeholder" = "Country";
+
+/* Class = "UITextField"; text = "Canada"; ObjectID = "d38-EY-VnM"; */
+"d38-EY-VnM.text" = "Canada";
+
+/* Class = "UITextField"; placeholder = "State (e.g QC or ON)"; ObjectID = "fp3-sY-MPq"; */
+"fp3-sY-MPq.placeholder" = "State (e.g QC or ON)";
+
+/* Class = "UITableViewSection"; headerTitle = "Payment & Vehicule"; ObjectID = "gEy-H6-Fqt"; */
+"gEy-H6-Fqt.headerTitle" = "Payment & Vehicule";
+
+/* Class = "UILabel"; text = "Payout Information"; ObjectID = "qRv-Sw-Tk9"; */
+"qRv-Sw-Tk9.text" = "Payout Information";
+
+/* Class = "UILabel"; text = "Enter the bank information"; ObjectID = "rTD-Ip-IDr"; */
+"rTD-Ip-IDr.text" = "Enter the bank information";
+
+/* Class = "UITextField"; placeholder = "Postal Code"; ObjectID = "uZd-0s-zDS"; */
+"uZd-0s-zDS.placeholder" = "Postal Code";
+
+/* Class = "UITextField"; placeholder = "Address"; ObjectID = "vdX-ON-AFp"; */
+"vdX-ON-AFp.placeholder" = "Address";
+
+/* Class = "UILabel"; text = "Vehicule Information"; ObjectID = "yQT-ZA-ZlV"; */
+"yQT-ZA-ZlV.text" = "Vehicule Information";
+
+/* Class = "UITextField"; placeholder = "Make"; ObjectID = "zfZ-Mf-oYk"; */
+"zfZ-Mf-oYk.placeholder" = "Make";

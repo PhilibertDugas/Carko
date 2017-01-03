@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  Carko
+
+  Created by Philibert Dugas on 2017-01-01.
+  Copyright © 2017 QH4L. All rights reserved.
+*/
+
+"find.label.until" = "Jusqu'à";
+"find.label.cost" = "Coût:";
+"find.label.availability" = "Disponible jusqu'à";
+"find.error.busy" = "Le stationnement est occupé";
+"find.error.own" = "Ce stationnement est le votre. Vous ne pouvez pas louer votre propre stationnement";

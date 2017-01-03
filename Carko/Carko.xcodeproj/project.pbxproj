@@ -34,7 +34,6 @@
 		4550D6691E19D7810080758D /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4550D66B1E19D7810080758D /* Login.storyboard */; };
 		4550D66C1E19D7870080758D /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4550D66E1E19D7870080758D /* Profile.storyboard */; };
 		4550D66F1E19D78B0080758D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4550D6711E19D78B0080758D /* Main.storyboard */; };
-		4550D67E1E19DD790080758D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4550D6801E19DD790080758D /* Localizable.strings */; };
 		4554EBCE1DB5A36F0066E452 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4554EBCD1DB5A36F0066E452 /* APIClient.swift */; };
 		4554EBD01DB5AA520066E452 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4554EBCF1DB5AA520066E452 /* ProfileViewController.swift */; };
 		45637CFF1DEB184500DD42C0 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45637CFE1DEB184500DD42C0 /* AppState.swift */; };
@@ -51,13 +50,15 @@
 		4599E6E51E1755C9005494E4 /* GoogleService-Info-Production.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4599E6E41E1755C9005494E4 /* GoogleService-Info-Production.plist */; };
 		459AD2571DA49B6C0018B7B9 /* Parking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459AD2561DA49B6C0018B7B9 /* Parking.swift */; };
 		459AD2591DA49C590018B7B9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 459AD2581DA49C590018B7B9 /* GoogleService-Info.plist */; };
+		45B2624F1E1A8644002C2A9D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4550D6801E19DD790080758D /* Localizable.strings */; };
 		45B77B441DDC0E39009ABF53 /* ParkingTransitionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B77B431DDC0E39009ABF53 /* ParkingTransitionAnimation.swift */; };
 		45BB39651DBBF0010019C2A3 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BB39641DBBF0010019C2A3 /* Buttons.swift */; };
 		45BC29451DA18249000C54BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC29441DA18249000C54BC /* AppDelegate.swift */; };
-		45BC294C1DA18249000C54BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45BC294B1DA18249000C54BC /* Assets.xcassets */; };
 		45BC294F1DA18249000C54BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45BC294D1DA18249000C54BC /* LaunchScreen.storyboard */; };
 		45BC29651DA18249000C54BC /* CarkoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC29641DA18249000C54BC /* CarkoUITests.swift */; };
 		45C1DBED1DD7870A00B2C96F /* ParkingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C1DBEC1DD7870A00B2C96F /* ParkingTest.swift */; };
+		45D5D60E1E1B211B006BE596 /* AddInitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D5D60D1E1B211B006BE596 /* AddInitialViewController.swift */; };
+		45D5D6101E1B2EDE006BE596 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45D5D60F1E1B2EDE006BE596 /* Assets.xcassets */; };
 		45E9B91C1DB82F3500C9E9FA /* MarkerPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45E9B91B1DB82F3500C9E9FA /* MarkerPopup.xib */; };
 		45E9B91E1DB82FDF00C9E9FA /* MarkerPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E9B91D1DB82FDF00C9E9FA /* MarkerPopup.swift */; };
 		45EA513B1DDE6F2300BD076C /* FindParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EA513A1DDE6F2300BD076C /* FindParkingViewController.swift */; };
@@ -144,7 +145,6 @@
 		45BB39641DBBF0010019C2A3 /* Buttons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		45BC29411DA18249000C54BC /* Carko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Carko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45BC29441DA18249000C54BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		45BC294B1DA18249000C54BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45BC294E1DA18249000C54BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		45BC29501DA18249000C54BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Carko/Info.plist; sourceTree = "<group>"; };
 		45BC29551DA18249000C54BC /* CarkoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarkoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,6 +153,13 @@
 		45BC29641DA18249000C54BC /* CarkoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarkoUITests.swift; sourceTree = "<group>"; };
 		45BC29661DA18249000C54BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45C1DBEC1DD7870A00B2C96F /* ParkingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingTest.swift; sourceTree = "<group>"; };
+		45D5D60D1E1B211B006BE596 /* AddInitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddInitialViewController.swift; sourceTree = "<group>"; };
+		45D5D60F1E1B2EDE006BE596 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		45E3750F1E19EC9100538803 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Add.strings; sourceTree = "<group>"; };
+		45E375111E19EC9E00538803 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Login.strings; sourceTree = "<group>"; };
+		45E375131E19ECA300538803 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		45E375151E19ECA800538803 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		45E375171E19ECC900538803 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Profile.strings; sourceTree = "<group>"; };
 		45E9B91B1DB82F3500C9E9FA /* MarkerPopup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MarkerPopup.xib; sourceTree = "<group>"; };
 		45E9B91D1DB82FDF00C9E9FA /* MarkerPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkerPopup.swift; sourceTree = "<group>"; };
 		45EA513A1DDE6F2300BD076C /* FindParkingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindParkingViewController.swift; sourceTree = "<group>"; };
@@ -232,6 +239,7 @@
 				C56ADAB91DAC00320033516C /* CustomCell */,
 				C511504F1DAF386B004E2A7D /* ParkingInfo */,
 				451853791DA476F1005CC5E6 /* MyParkingsViewController.swift */,
+				45D5D60D1E1B211B006BE596 /* AddInitialViewController.swift */,
 				4550D6681E19D7780080758D /* Add.storyboard */,
 			);
 			name = "Tab - Add";
@@ -315,9 +323,9 @@
 				459AD2551DA49AE20018B7B9 /* Models */,
 				45BB39631DBBEFEC0019C2A3 /* Views */,
 				C5B3105E1DB023450051C90B /* Extensions */,
-				45BC294B1DA18249000C54BC /* Assets.xcassets */,
 				45BC29441DA18249000C54BC /* AppDelegate.swift */,
 				45637CFE1DEB184500DD42C0 /* AppState.swift */,
+				45D5D60F1E1B2EDE006BE596 /* Assets.xcassets */,
 				4550D6801E19DD790080758D /* Localizable.strings */,
 			);
 			name = Global;
@@ -578,9 +586,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45B2624F1E1A8644002C2A9D /* Localizable.strings in Resources */,
 				4550D6661E19D7780080758D /* Add.storyboard in Resources */,
+				45D5D6101E1B2EDE006BE596 /* Assets.xcassets in Resources */,
 				4550D66C1E19D7870080758D /* Profile.storyboard in Resources */,
-				4550D67E1E19DD790080758D /* Localizable.strings in Resources */,
 				45E9B91C1DB82F3500C9E9FA /* MarkerPopup.xib in Resources */,
 				4550D66F1E19D78B0080758D /* Main.storyboard in Resources */,
 				4550D6691E19D7810080758D /* Login.storyboard in Resources */,
@@ -588,7 +597,6 @@
 				459AD2591DA49C590018B7B9 /* GoogleService-Info.plist in Resources */,
 				45BC294F1DA18249000C54BC /* LaunchScreen.storyboard in Resources */,
 				4550D6631E19D7720080758D /* Find.storyboard in Resources */,
-				45BC294C1DA18249000C54BC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -785,6 +793,7 @@
 				459AD2571DA49B6C0018B7B9 /* Parking.swift in Sources */,
 				4591D5FB1DFCA54600366691 /* ReservationClient.swift in Sources */,
 				45EA513D1DDE74AC00BD076C /* ParkingAnnotation.swift in Sources */,
+				45D5D60E1E1B211B006BE596 /* AddInitialViewController.swift in Sources */,
 				451FC46B1E072A830083C0CB /* VehiculeInformationViewController.swift in Sources */,
 				C5B310601DB023610051C90B /* FloatExtension.swift in Sources */,
 				C51150571DAF393F004E2A7D /* ParkingAvailabilityViewController.swift in Sources */,
@@ -846,6 +855,7 @@
 			children = (
 				4550D6671E19D7780080758D /* Base */,
 				4550D6751E19D7C40080758D /* fr */,
+				45E3750F1E19EC9100538803 /* en */,
 			);
 			name = Add.storyboard;
 			sourceTree = "<group>";
@@ -855,6 +865,7 @@
 			children = (
 				4550D66A1E19D7810080758D /* Base */,
 				4550D6761E19D7C40080758D /* fr */,
+				45E375111E19EC9E00538803 /* en */,
 			);
 			name = Login.storyboard;
 			sourceTree = "<group>";
@@ -864,6 +875,7 @@
 			children = (
 				4550D66D1E19D7870080758D /* Base */,
 				4550D6771E19D7C40080758D /* fr */,
+				45E375171E19ECC900538803 /* en */,
 			);
 			name = Profile.storyboard;
 			sourceTree = "<group>";
@@ -873,6 +885,7 @@
 			children = (
 				4550D6701E19D78B0080758D /* Base */,
 				4550D6781E19D7C40080758D /* fr */,
+				45E375131E19ECA300538803 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -891,6 +904,7 @@
 			children = (
 				45BC294E1DA18249000C54BC /* Base */,
 				4550D6791E19D7C40080758D /* fr */,
+				45E375151E19ECA800538803 /* en */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
