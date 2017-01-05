@@ -18,8 +18,6 @@ class MyParkingsViewController: UITableViewController {
         super.viewDidLoad()
 
         navigationItem.leftBarButtonItem = editButtonItem
-
-        NotificationCenter.default.addObserver(self, selector: #selector(self.parkingFetched), name: Notification.Name.init(rawValue: "CustomerParkingFetched"), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.parkingListUpdate), name: Notification.Name.init(rawValue: "NewParking"), object: nil)
 
@@ -30,20 +28,16 @@ class MyParkingsViewController: UITableViewController {
         parkingListUpdate()
     }
 
-    func parkingFetched(_ notification: Notification) {
-        if let parkingData = notification.userInfo as? [String: Any] {
-            parkingList.removeAll()
-            
-            let parkings = parkingData["data"] as! [(Parking)]
-            for (parking) in parkings {
-                parkingList.append(parking)
-            }
-            tableView.reloadData()
-        }
-    }
     
     func parkingListUpdate() {
-        Parking.getCustomerParkings()
+        Parking.getCustomerParkings { (parkings, error) in
+            if let error = error {
+                print(error)
+            } else {
+                self.parkingList = parkings
+                self.tableView.reloadData()
+            }
+        }
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {        

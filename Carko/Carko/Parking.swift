@@ -97,15 +97,8 @@ extension Parking {
         APIClient.shared.getAllParkings(complete: complete)
     }
 
-    class func getCustomerParkings() {
-        APIClient.shared.getCustomerParkings { (parkings, error) in
-            if let error = error {
-                print(error)
-            } else {
-                let data = ["data" : parkings]
-                NotificationCenter.default.post(name: Notification.Name.init("CustomerParkingFetched"), object: nil, userInfo: data)
-            }
-        }
+    class func getCustomerParkings(_ complete: @escaping([(Parking)], Error?) -> Void) {
+        APIClient.shared.getCustomerParkings(complete: complete)
     }
 }
 
