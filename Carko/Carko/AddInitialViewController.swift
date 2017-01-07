@@ -10,8 +10,8 @@ import UIKit
 
 class AddInitialViewController: UINavigationController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         if AppState.shared.customer.parkings.count > 0 {
             self.performSegue(withIdentifier: "firstParking", sender: nil)
         }

@@ -98,7 +98,12 @@ extension Parking {
     }
 
     class func getCustomerParkings(_ complete: @escaping([(Parking)], Error?) -> Void) {
-        APIClient.shared.getCustomerParkings(complete: complete)
+        APIClient.shared.getCustomerParkings { (parkings, error) in
+            if error == nil {
+                AppState.shared.customer.parkings = parkings
+            }
+            complete(parkings, error)
+        }
     }
 }
 

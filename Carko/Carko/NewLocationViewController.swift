@@ -47,7 +47,7 @@ class NewLocationViewController: UIViewController {
         let searchBar = searchController.searchBar
         searchBar.delegate = self
         searchBar.sizeToFit()
-        searchBar.placeholder = "Search for places"
+        searchBar.placeholder = "ENTER YOUR ADDRESS"
         navigationItem.titleView = searchController.searchBar
 
         searchController.hidesNavigationBarDuringPresentation = false

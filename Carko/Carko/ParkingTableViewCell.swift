@@ -9,8 +9,6 @@
 import UIKit
 
 class ParkingTableViewCell: UITableViewCell {
-    @IBOutlet weak var address: UILabel!
-    @IBOutlet weak var availabilityLabel: UILabel!
+    @IBOutlet var label: UILabel!
     @IBOutlet var parkingImage: UIImageView!
-    @IBOutlet var priceLabel: UILabel!
 }

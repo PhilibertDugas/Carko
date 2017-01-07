@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseStorageUI
 
-class MyParkingsViewController: UITableViewController {
+class ListParkingViewController: UITableViewController {
     var parkingList = [Parking]()
     var isEditingAvailability = false
     var selectedRowIndex = 0
@@ -17,8 +17,6 @@ class MyParkingsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.leftBarButtonItem = editButtonItem
-        
         NotificationCenter.default.addObserver(self, selector: #selector(self.parkingListUpdate), name: Notification.Name.init(rawValue: "NewParking"), object: nil)
 
         NotificationCenter.default.addObserver(self, selector: #selector(self.parkingListUpdate), name: Notification.Name.init(rawValue: "ParkingDeleted"), object: nil)
@@ -34,6 +32,10 @@ class MyParkingsViewController: UITableViewController {
             if let error = error {
                 print(error)
             } else {
+                if parkings.count > 0 {
+                    self.navigationItem.leftBarButtonItem = self.editButtonItem
+                }
+
                 self.parkingList = parkings
                 self.tableView.reloadData()
             }
@@ -48,7 +50,7 @@ class MyParkingsViewController: UITableViewController {
     }
 }
 
-extension MyParkingsViewController {
+extension ListParkingViewController {
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         selectedRowIndex = indexPath.row
         return indexPath
@@ -72,10 +74,8 @@ extension MyParkingsViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "parkingCell", for: indexPath) as! ParkingTableViewCell
         let parking = parkingList[indexPath.row]
-        cell.address.text = parking.address
-        cell.availabilityLabel.text = parking.availabilityInfo.daysEnumerationText()
-        cell.priceLabel.text = "\(parking.price.asLocaleCurrency)/h"
-
+        cell.label.text = parking.address
+        
         if let url = parking.photoURL {
             let imageReference = AppState.shared.storageReference.storage.reference(forURL: url.absoluteString)
             cell.parkingImage.sd_setImage(with: imageReference)
