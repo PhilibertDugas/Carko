@@ -4,75 +4,60 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>10Clock.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>ARNTransitionAnimator.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>5</integer>
 		</dict>
 		<key>Alamofire.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>4</integer>
 		</dict>
 		<key>IQKeyboardManagerSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>6</integer>
 		</dict>
 		<key>OHHTTPStubs.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>7</integer>
 		</dict>
 		<key>Pods-Carko-CarkoTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>9</integer>
 		</dict>
 		<key>Pods-Carko.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>8</integer>
 		</dict>
 		<key>Pods-CarkoUITests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>10</integer>
 		</dict>
 		<key>SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>11</integer>
 		</dict>
 		<key>Stripe-Stripe.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>13</integer>
 		</dict>
 		<key>Stripe.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>12</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -82,22 +67,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1BB15C8150F95EB3AC6ADFB35F74D14B</key>
+		<key>21048FD49D8F2A29F2636942AD414A99</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>294D60C9AABEB015322697D59F1D2878</key>
+		<key>35EE2CBE71AA4D442F050A56584A79D0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>47E34EF6382BC7143B5A097DB4E7CE18</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>4DC059E04CBA98AEDDB5C34E02D551E9</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>6CA507166C280570EA544931E4E117B1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -112,17 +97,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8B493FCCF837BE2F8051C423E2637200</key>
+		<key>A6F1813D7D55D56FE7A3AEA7DA80BC0C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A70E5345F90D3E9A4DA36A6E690F6F84</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BB5695EEE2E65B8FDEF4E2F3A7651877</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>E1459187DAC96FFDFD7802F350D7F953</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>ED52A1FB603D2B0A7BC2AAF69873C68F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

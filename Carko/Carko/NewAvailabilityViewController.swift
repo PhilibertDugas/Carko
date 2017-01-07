@@ -8,51 +8,19 @@
 
 import UIKit
 import Foundation
-
+import _10Clock
 
 class NewAvailabilityViewController: UIViewController {
 
     @IBOutlet var mondayButton: UIButton!
-    @IBOutlet weak var permanentAvailabilitySwitch: UISwitch!
-    @IBOutlet weak var fromTextField: UITextField!
-    @IBOutlet weak var toTextField: UITextField!
-    @IBOutlet weak var availabilitySelectionView: UIView!
+    @IBOutlet var clock: TenClock!
+    @IBOutlet var fromLabel: UILabel!
+    @IBOutlet var toLabel: UILabel!
 
     weak var delegate: ParkingAvailabilityDelegate? = nil
     var availability: AvailabilityInfo!
-    var dateFormatter: DateFormatter?
-
-    @IBAction func saveChange(_ sender: AnyObject) {
-        let _ = self.navigationController?.popViewController(animated: true)
-        delegate?.userDidChangeAvailability(value: availability)
-    }
-
-    @IBAction func permanentAvailabilityToggle(_ sender: UISwitch) {
-        if sender.isOn {
-            availability.alwaysAvailable = true
-        } else {
-            availability.alwaysAvailable = false
-        }
-        availabilitySelectionView.isHidden = availability.alwaysAvailable
-    }
-
-    @IBAction func timeEditBegin(_ sender: UITextField) {
-        let datePicker = UIDatePicker.init()
-        datePicker.datePickerMode = UIDatePickerMode.time
-        sender.inputView = datePicker
-    }
-
-    @IBAction func timeEditEnd(_ sender: UITextField) {
-        let datePicker = sender.inputView as! UIDatePicker
-        let newTime = self.dateFormatter!.string(from: datePicker.date)
-
-        sender.text = newTime
-        if sender == fromTextField {
-            availability.startTime = newTime
-        } else if sender == toTextField {
-            availability.stopTime = newTime
-        }
-    }
+    var dateFormatter: DateFormatter!
+    var parking: Parking!
 
     @IBAction func dayToggle(_ sender: UIButton) {
         let dayId = sender.tag
@@ -63,9 +31,11 @@ class NewAvailabilityViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        availability = parking.availabilityInfo
         self.hideKeyboardWhenTappedAround()
         self.dateFormatter = DateFormatter.init()
-        self.dateFormatter!.dateFormat = "HH:mm"
+        self.dateFormatter.dateFormat = "HH:mm"
+        setupClock()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -73,10 +43,23 @@ class NewAvailabilityViewController: UIViewController {
         updateAvailability()
     }
 
-    func updateAvailability() {
-        permanentAvailabilitySwitch.isOn = availability.alwaysAvailable
-        availabilitySelectionView.isHidden = availability.alwaysAvailable
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "newPhoto" {
+            let vc = segue.destination as! NewPhotoViewController
+            vc.parking = parking
+        }
+    }
 
+    func setupClock() {
+        self.clock.delegate = self
+        self.clock.minorTicksEnabled = false
+        self.clock.centerTextColor = UIColor.black
+        // For some reasone endDate & startDate are reversed
+        self.clock.endDate = self.availability.startDate()
+        self.clock.startDate = self.availability.stopDate()
+    }
+
+    func updateAvailability() {
         let daysAvailable = availability.daysAvailable
 
         // findDayButton with tag=0 returns every other views. Creating a mondayButton reference is easier than changing the tag for every view in the scene
@@ -86,8 +69,12 @@ class NewAvailabilityViewController: UIViewController {
             updateButton(isOn: daysAvailable[index], button: findDayButton(tag: index))
         }
 
-        fromTextField.text = availability.startTime
-        toTextField.text = availability.stopTime
+        updateTimeLabel(startTime: availability.startTime, endTime: availability.stopTime)
+    }
+
+    func updateTimeLabel(startTime: String, endTime: String) {
+        fromLabel.text = startTime
+        toLabel.text = endTime
     }
 
     func updateButton(isOn: Bool, button: UIButton!) {
@@ -101,5 +88,21 @@ class NewAvailabilityViewController: UIViewController {
 
     private func findDayButton(tag: Int) -> UIButton {
         return self.view.viewWithTag(tag) as! UIButton
+    }
+}
+
+extension NewAvailabilityViewController: TenClockDelegate {
+    func timesChanged(_ clock: TenClock, startDate: Date, endDate: Date) {
+        let startTime = dateFormatter.string(from: endDate)
+        let stopTime = dateFormatter.string(from: startDate)
+        availability.startTime = startTime
+        availability.stopTime = stopTime
+    }
+
+    func timesUpdated(_ clock: TenClock, startDate: Date, endDate: Date) {
+        // For some reason, startDate & endDate are reversed
+        let startTime = dateFormatter.string(from: endDate)
+        let stopTime = dateFormatter.string(from: startDate)
+        updateTimeLabel(startTime: startTime, endTime: stopTime)
     }
 }

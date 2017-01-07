@@ -17,7 +17,8 @@ class NewRatesViewController: UIViewController {
     @IBOutlet var postedRateSlider: UISlider!
 
     let appPercentageCut:Float = 0.2
-    var parkingRate: Float?
+    var parkingRate: Float!
+    var parking: Parking!
 
     @IBAction func postedRateSliderChanged(_ sender: AnyObject) {
         parkingRate = Float(postedRateSlider.value).asCurrency
@@ -28,16 +29,16 @@ class NewRatesViewController: UIViewController {
         super.viewDidLoad()
         super.hideKeyboardWhenTappedAround()
 
-        if let rate = parkingRate {
-            postedRateSlider.value = rate
-            ratesUpdated()
-        }
+        parkingRate = parking.price
+        postedRateSlider.value = parkingRate
+        ratesUpdated()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "pushAvailability" {
+            parking.price = parkingRate!
             let vc = segue.destination as! NewAvailabilityViewController
-            vc.availability = AvailabilityInfo.init()
+            vc.parking = parking
         }
     }
 

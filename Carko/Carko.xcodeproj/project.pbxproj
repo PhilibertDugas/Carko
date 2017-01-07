@@ -34,6 +34,8 @@
 		4550D6691E19D7810080758D /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4550D66B1E19D7810080758D /* Login.storyboard */; };
 		4550D66C1E19D7870080758D /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4550D66E1E19D7870080758D /* Profile.storyboard */; };
 		4550D66F1E19D78B0080758D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4550D6711E19D78B0080758D /* Main.storyboard */; };
+		4554A0961E21708D007FB04C /* NewParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4554A0951E21708D007FB04C /* NewParkingViewController.swift */; };
+		4554A0981E217358007FB04C /* NewPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4554A0971E217358007FB04C /* NewPhotoViewController.swift */; };
 		4554EBCE1DB5A36F0066E452 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4554EBCD1DB5A36F0066E452 /* APIClient.swift */; };
 		4554EBD01DB5AA520066E452 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4554EBCF1DB5AA520066E452 /* ProfileViewController.swift */; };
 		45637CFF1DEB184500DD42C0 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45637CFE1DEB184500DD42C0 /* AppState.swift */; };
@@ -128,6 +130,8 @@
 		4550D67B1E19DAFB0080758D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Find.strings; sourceTree = "<group>"; };
 		4550D67F1E19DD790080758D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4550D6811E19DD7A0080758D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4554A0951E21708D007FB04C /* NewParkingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewParkingViewController.swift; sourceTree = "<group>"; };
+		4554A0971E217358007FB04C /* NewPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPhotoViewController.swift; sourceTree = "<group>"; };
 		4554EBCD1DB5A36F0066E452 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		4554EBCF1DB5AA520066E452 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		45637CFE1DEB184500DD42C0 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
@@ -422,6 +426,8 @@
 				45E9D0FD1E1DCE7C000EDEE8 /* NewLocationViewController.swift */,
 				45E9D0FF1E1DD137000EDEE8 /* NewRatesViewController.swift */,
 				45E9D1011E1DD218000EDEE8 /* NewAvailabilityViewController.swift */,
+				4554A0951E21708D007FB04C /* NewParkingViewController.swift */,
+				4554A0971E217358007FB04C /* NewPhotoViewController.swift */,
 			);
 			name = "Parking Creation";
 			sourceTree = "<group>";
@@ -800,6 +806,7 @@
 				451E424B1DB071EC00747370 /* Customer.swift in Sources */,
 				452738E71DF7AEB700D74F0D /* View.swift in Sources */,
 				450E12401DAF27330027EFBC /* RegisterViewController.swift in Sources */,
+				4554A0961E21708D007FB04C /* NewParkingViewController.swift in Sources */,
 				451E424D1DB078E000747370 /* KeyboardDimissExtension.swift in Sources */,
 				45E9D1001E1DD137000EDEE8 /* NewRatesViewController.swift in Sources */,
 				45418F2E1E1719E00050DDF5 /* ForgotPasswordViewController.swift in Sources */,
@@ -823,6 +830,7 @@
 				451FC46D1E072B3C0083C0CB /* Vehicule.swift in Sources */,
 				C51150591DAF397E004E2A7D /* ParkingInfoViewController.swift in Sources */,
 				C51150551DAF38EC004E2A7D /* ParkingRatesViewController.swift in Sources */,
+				4554A0981E217358007FB04C /* NewPhotoViewController.swift in Sources */,
 				4591D5F51DFCA4C400366691 /* ParkingClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

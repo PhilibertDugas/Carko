@@ -137,8 +137,8 @@ class AvailabilityInfo: NSObject {
     }
 
     convenience override init() {
-        let startTime = "00:00"
-        let stopTime = "23:59"
+        let startTime = "09:00"
+        let stopTime = "17:00"
         let daysAvailable = [false, false, false, false, false, false, false]
         let alwaysAvailable = false
         self.init(alwaysAvailable: alwaysAvailable, startTime: startTime, stopTime: stopTime, daysAvailable: daysAvailable)
@@ -175,6 +175,18 @@ class AvailabilityInfo: NSObject {
         } else {
             return (startTime + "-" + stopTime)
         }
+    }
+
+    func startDate() -> Date {
+        let dateFormatter = DateFormatter.init()
+        dateFormatter.dateFormat = "HH:mm"
+        return dateFormatter.date(from: self.startTime)!
+    }
+
+    func stopDate() -> Date {
+        let dateFormatter = DateFormatter.init()
+        dateFormatter.dateFormat = "HH:mm"
+        return dateFormatter.date(from: self.stopTime)!
     }
 
     func daysEnumerationText() -> String {

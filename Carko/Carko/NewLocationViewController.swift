@@ -14,6 +14,7 @@ class NewLocationViewController: UIViewController {
     var justZoomedIn = false
 
     var delegate: ParkingLocationDelegate!
+    var parking: Parking!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +54,24 @@ class NewLocationViewController: UIViewController {
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.dimsBackgroundDuringPresentation = true
         definesPresentationContext = true
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addNewLocation" {
+            updateParking()
+            let vc = segue.destination as! NewRatesViewController
+            vc.parking = parking
+        }
+    }
+
+    func updateParking() {
+        let currentMapCoordinate = mapView.centerCoordinate
+        let latitude = currentMapCoordinate.latitude
+        let longitude = currentMapCoordinate.longitude
+        let address = LocationSearchTableViewController.parseAddress(selectedItem: selectedPin!)
+        parking.address = address
+        parking.latitude = latitude
+        parking.longitude = longitude
     }
 
     @IBAction func addButtonTapped(_ sender: AnyObject) {
