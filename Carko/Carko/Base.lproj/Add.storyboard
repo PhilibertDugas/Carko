@@ -662,7 +662,7 @@
         <!--Rates-->
         <scene sceneID="Q24-Mp-ZsA">
             <objects>
-                <viewController id="4KK-eC-WxM" customClass="NewRatesViewController" customModule="Carko" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="4KK-eC-WxM" customClass="RatesViewController" customModule="Carko" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JDc-Tp-Prs"/>
                         <viewControllerLayoutGuide type="bottom" id="C0g-yv-Nj5"/>
@@ -869,7 +869,7 @@
         <!--Schedule-->
         <scene sceneID="Hfq-ep-gvI">
             <objects>
-                <viewController id="ghF-ch-oHV" customClass="NewAvailabilityViewController" customModule="Carko" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ghF-ch-oHV" customClass="AvailabilityViewController" customModule="Carko" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ivx-Ka-DPN"/>
                         <viewControllerLayoutGuide type="bottom" id="pDh-MQ-PDh"/>

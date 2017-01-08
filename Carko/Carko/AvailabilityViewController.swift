@@ -15,7 +15,6 @@ protocol ParkingAvailabilityDelegate {
 }
 
 class AvailabilityViewController: UIViewController {
-
     @IBOutlet var mondayButton: UIButton!
     @IBOutlet var clock: TenClock!
     @IBOutlet var fromLabel: UILabel!
