@@ -1,11 +1,3 @@
-//
-//  parkingTableViewController.swift
-//  Carko
-//
-//  Created by Guillaume Lalande on 2016-10-12.
-//  Copyright © 2016 QH4L. All rights reserved.
-//
-
 import UIKit
 import CoreLocation
 import FirebaseStorage
@@ -22,31 +14,8 @@ class ParkingInfoViewController: UITableViewController {
     @IBOutlet var daysAvailableLabel: UILabel!
     @IBOutlet var parkingRate: UILabel!
 
-    @IBOutlet var updateButton: UIBarButtonItem!
-
     var parking: Parking!
-    var isNewParking = true
-    var validation = ["address": false, "description": false, "rates": false, "availability": false, "photo": false]
     let imagePicker = UIImagePickerController.init()
-
-
-    @IBAction func saveParkingTapped(_ sender: Any) {
-        if isNewParking {
-            if parkingIsValid() {
-                parking.persist(complete: completeParkingUpdate)
-            }
-        } else if parking.isAvailable {
-            parking.update(complete: completeParkingUpdate)
-        } else {
-            super.displayErrorMessage("You can't modify the details of a parking while it's in use. Please wait after the parking duration")
-        }
-    }
-
-    @IBAction func tappedAddPhotos(_ sender: Any) {
-        imagePicker.allowsEditing = true
-        imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
-        present(imagePicker, animated: true, completion: nil)
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,57 +23,13 @@ class ParkingInfoViewController: UITableViewController {
         imagePicker.delegate = self
         initializeParking()
         loadParkingPicture()
-
-        if isNewParking {
-            self.title = "New"
-            self.updateButton.title = "Create"
-        } else {
-            self.title = "Edit"
-            self.updateButton.title = "Update"
-        }
     }
 
-    func parkingIsValid() -> Bool{
-        let fields = validation.filter { (_, value) in return !value }.map { (key, _) in return key.capitalized }
-        if fields.count > 0 {
-            super.displayErrorMessage("Make sure to fill the following fields: \(fields.joined(separator: ", "))")
-            return false
-        } else if AppState.shared.customer.accountId == nil {
-            super.displayErrorMessage("Please fill out the bank information in the profile section before listing a parking")
-            return false
-        } else {
-            return true
-        }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
     }
 
-    func initializeParking() {
-        if self.parking != nil {
-            isNewParking = false
-            for field in ["address", "availability", "rates", "description"] {
-                updateLabels(field: field)
-            }
-        } else {
-            let newAvailabilityInfo = AvailabilityInfo.init()
-            self.parking = Parking.init(latitude: CLLocationDegrees.init(75), longitude: CLLocationDegrees.init(-135), photoURL: URL.init(string: ""), address: "Select a location", price: 1.0, pDescription: "", isAvailable: true, availabilityInfo: newAvailabilityInfo, customerId: AppState.shared.customer.id)
-        }
-    }
-
-    func updateLabels(field: String) {
-        switch field {
-        case "address":
-            streetAddressLabel.text = self.parking.address
-        case "availability":
-            timeOfDayLabel.text = self.parking.availabilityInfo.lapsOfTimeText()
-            daysAvailableLabel.text = self.parking.availabilityInfo.daysEnumerationText()
-        case "rates":
-            parkingRate.text = self.parking.price.asLocaleCurrency
-        case "description":
-            parkingDescriptionLabel.text = self.parking.pDescription
-        default:
-            print("Error, shouldn't have happened")
-        }
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ChangeRates" {
             let destinationVC = segue.destination as! RatesViewController
@@ -128,19 +53,57 @@ class ParkingInfoViewController: UITableViewController {
         }
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        NotificationCenter.default.removeObserver(self)
-    }
-}
-
-extension ParkingInfoViewController {
-    func completeParkingUpdate(error: Error?) {
-        if let error = error {
-            super.displayErrorMessage(error.localizedDescription)
+    @IBAction func saveTapped(_ sender: Any) {
+        if parking.isAvailable {
+            parking.update(complete: { (error) in
+                if let error = error {
+                    super.displayErrorMessage(error.localizedDescription)
+                } else {
+                    NotificationCenter.default.post(name: Notification.Name.init("NewParking"), object: nil, userInfo: nil)
+                    let _ = self.navigationController?.popViewController(animated: true)
+                }
+            })
         } else {
-            NotificationCenter.default.post(name: Notification.Name.init("NewParking"), object: nil, userInfo: nil)
-            let _ = self.navigationController?.popViewController(animated: true)
+            super.displayErrorMessage("You can't modify the details of a parking while it's in use. Please wait after the parking duration")
+        }
+    }
+
+    @IBAction func tappedAddPhotos(_ sender: Any) {
+        imagePicker.allowsEditing = true
+        imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        present(imagePicker, animated: true, completion: nil)
+    }
+
+
+    func parkingIsValid() -> Bool {
+        // FIXME: Migrate this over the add flow
+        if AppState.shared.customer.accountId == nil {
+            super.displayErrorMessage("Please fill out the bank information in the profile section before listing a parking")
+            return false
+        } else {
+            return true
+        }
+    }
+
+    func initializeParking() {
+        for field in ["address", "availability", "rates", "description"] {
+            updateLabels(field: field)
+        }
+    }
+
+    func updateLabels(field: String) {
+        switch field {
+        case "address":
+            streetAddressLabel.text = self.parking.address
+        case "availability":
+            timeOfDayLabel.text = self.parking.availabilityInfo.lapsOfTimeText()
+            daysAvailableLabel.text = self.parking.availabilityInfo.daysEnumerationText()
+        case "rates":
+            parkingRate.text = self.parking.price.asLocaleCurrency
+        case "description":
+            parkingDescriptionLabel.text = self.parking.pDescription
+        default:
+            print("Error, shouldn't have happened")
         }
     }
 }
@@ -149,19 +112,16 @@ extension ParkingInfoViewController: ParkingRateDelegate, ParkingDescriptionDele
     func userDidChangeRate(value: Float) {
         parking.price = value
         updateLabels(field: "rates")
-        validation["rates"] = true
     }
 
     func userDidChangeDescription(value: String) {
         parking.pDescription = value
         updateLabels(field: "description")
-        validation["description"] = true
     }
 
     func userDidChangeAvailability(value: AvailabilityInfo) {
         parking.availabilityInfo = value
         updateLabels(field: "availability")
-        validation["availability"] = true
     }
 
     func userDidChooseLocation(address: String, latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
@@ -169,7 +129,6 @@ extension ParkingInfoViewController: ParkingRateDelegate, ParkingDescriptionDele
         parking.latitude = latitude
         parking.longitude = longitude
         updateLabels(field: "address")
-        validation["address"] = true
     }
 }
 
@@ -203,7 +162,6 @@ extension ParkingInfoViewController: UIImagePickerControllerDelegate {
             if let metadata = snapshot.metadata {
                 if let url = metadata.downloadURL() {
                     self.parking.photoURL = url
-                    self.validation["photo"] = true
                     self.uploadIndicator.stopAnimating()
                     self.displayImage(alpha: 1.0)
                 }

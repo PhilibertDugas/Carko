@@ -28,6 +28,7 @@ class LocationViewController: UIViewController {
 
         if !newParking {
             progressView.isHidden = true
+            addButton.setTitle(NSLocalizedString("Save", comment: ""), for: UIControlState.normal)
         }
 
         addButton.isHidden = true
@@ -81,7 +82,7 @@ class LocationViewController: UIViewController {
         let searchBar = searchController.searchBar
         searchBar.delegate = self
         searchBar.sizeToFit()
-        searchBar.placeholder = "ENTER YOUR ADDRESS"
+        searchBar.placeholder = NSLocalizedString("Enter your address", comment: "")
         navigationItem.titleView = searchController.searchBar
 
         searchController.hidesNavigationBarDuringPresentation = false

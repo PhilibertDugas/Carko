@@ -31,10 +31,13 @@ class ListParkingViewController: UITableViewController {
     func parkingListUpdate() {
         Parking.getCustomerParkings { (parkings, error) in
             if let error = error {
-                print(error)
+                super.displayErrorMessage(error.localizedDescription)
             } else {
                 if parkings.count > 0 {
                     self.navigationItem.leftBarButtonItem = self.editButtonItem
+                    self.setEditing(false, animated: true)
+                } else {
+                    self.performSegue(withIdentifier: "firstParking", sender: nil)
                 }
                 self.parkingList = parkings
                 self.tableView.reloadData()

@@ -1,11 +1,3 @@
-//
-//  LocationSearchTableTableViewController.swift
-//  Carko
-//
-//  Created by Philibert Dugas on 2016-11-20.
-//  Copyright © 2016 QH4L. All rights reserved.
-//
-
 import UIKit
 import MapKit
 

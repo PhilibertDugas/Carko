@@ -42,6 +42,7 @@ class NewPhotoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
+        descriptionText.text = NSLocalizedString("Enter a description...", comment: "")
     }
 }
 

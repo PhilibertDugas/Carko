@@ -13,12 +13,10 @@
         <scene sceneID="3Wq-Vv-XmN">
             <objects>
                 <tabBarController id="BlE-fA-HKp" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="fye-mz-OfL">
+                    <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" id="fye-mz-OfL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.31768825650215149" green="0.3135833740234375" blue="0.32179906964302063" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="tintColor" red="0.99995142221450806" green="1" blue="0.97945672273635864" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="barTintColor" red="0.31768825650215149" green="0.3135833740234375" blue="0.32179906964302063" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="selectedImageTintColor" red="0.99995142221450806" green="1" blue="0.97945672273635864" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>

@@ -1,11 +1,3 @@
-//
-//  NewRatesViewController.swift
-//  Carko
-//
-//  Created by Guillaume Lalande on 2016-10-12.
-//  Copyright © 2016 QH4L. All rights reserved.
-//
-
 import UIKit
 
 protocol ParkingRateDelegate {
@@ -18,6 +10,7 @@ class RatesViewController: UIViewController {
     @IBOutlet var hourlyRateField: UITextField!
     @IBOutlet var postedRateSlider: UISlider!
     @IBOutlet var progressView: UIView!
+    @IBOutlet var mainButton: RoundedCornerButton!
 
     var delegate: ParkingRateDelegate?
 
@@ -31,6 +24,7 @@ class RatesViewController: UIViewController {
 
         if !newParking {
             progressView.isHidden = true
+            mainButton.setTitle("SAVE", for: UIControlState.normal)
         }
 
         parkingRate = parking.price

@@ -12,17 +12,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Add Initial View Controller-->
+        <!--Navigation Controller-->
         <scene sceneID="jb1-fA-WdS">
             <objects>
-                <navigationController id="vi7-JE-Kbh" customClass="AddInitialViewController" customModule="Carko" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="vi7-JE-Kbh" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="1Rf-Ak-g2M">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.112871848" green="0.75954872370000004" blue="0.28861063720000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="PT5-Ei-7aZ" kind="show" identifier="firstParking" id="TUA-cM-QYC"/>
                         <segue destination="uNE-wI-Rjd" kind="relationship" relationship="rootViewController" id="svf-eq-dbQ"/>
                     </connections>
                 </navigationController>
@@ -74,7 +73,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DuN-75-JDO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1079" y="844"/>
+            <point key="canvasLocation" x="1080" y="844"/>
         </scene>
         <!--List your parking-->
         <scene sceneID="ECX-DS-zrG">
@@ -127,7 +126,7 @@
                                                 <constraint firstAttribute="height" constant="15" id="yyp-ot-EgD"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                            <color key="textColor" red="0.9999514222" green="1" blue="0.97945672269999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="W2S-37-wGy">
@@ -162,6 +161,9 @@
                     <tabBarItem key="tabBarItem" title="Add" image="private-garage.png" selectedImage="private-garage.png" id="mix-pB-lly"/>
                     <navigationItem key="navigationItem" title="List your parking" id="0oF-sZ-t7R"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="PT5-Ei-7aZ" kind="show" identifier="firstParking" id="lRq-1E-yRR"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tRP-zR-Gwh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -180,11 +182,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="SyP-yK-IPs">
-                                <rect key="frame" x="20" y="72" width="374" height="672"/>
+                                <rect key="frame" x="20" y="72" width="374" height="607"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="672" id="9xX-zo-9pc"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -192,6 +191,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="SyP-yK-IPs" firstAttribute="top" secondItem="gRY-Sn-Zm1" secondAttribute="bottom" constant="8" id="7h2-YL-639"/>
+                            <constraint firstItem="mT5-r8-q3G" firstAttribute="top" secondItem="SyP-yK-IPs" secondAttribute="bottom" constant="8" id="TSm-CI-U0V"/>
                             <constraint firstItem="SyP-yK-IPs" firstAttribute="leading" secondItem="0pP-5N-YdB" secondAttribute="leadingMargin" id="vif-Z6-oVA"/>
                             <constraint firstItem="SyP-yK-IPs" firstAttribute="trailing" secondItem="0pP-5N-YdB" secondAttribute="trailingMargin" id="z6b-NV-vF3"/>
                         </constraints>
@@ -211,7 +211,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lBD-TD-95e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3022" y="-121"/>
+            <point key="canvasLocation" x="3021.739130434783" y="-121.46739130434784"/>
         </scene>
         <!--Location Search Table View Controller-->
         <scene sceneID="Jhy-Em-Wa0">
@@ -274,7 +274,7 @@
             </objects>
             <point key="canvasLocation" x="1948" y="1511"/>
         </scene>
-        <!--Parking Info View Controller-->
+        <!--Edit-->
         <scene sceneID="MCb-5G-TIR">
             <objects>
                 <tableViewController id="8hk-DP-4Kf" customClass="ParkingInfoViewController" customModule="Carko" customModuleProvider="target" sceneMemberID="viewController">
@@ -519,11 +519,10 @@
                             <outlet property="delegate" destination="8hk-DP-4Kf" id="oLH-LJ-0hZ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="2tf-pB-fMh">
-                        <barButtonItem key="rightBarButtonItem" title="Create" style="done" id="DVV-gS-19T">
-                            <color key="tintColor" red="0.112871848" green="0.75954872370000004" blue="0.28861063720000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <navigationItem key="navigationItem" title="Edit" id="K9f-hI-6id">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="Km3-f7-cRb">
                             <connections>
-                                <action selector="saveParkingTapped:" destination="8hk-DP-4Kf" id="AQR-u8-Z24"/>
+                                <action selector="saveTapped:" destination="8hk-DP-4Kf" id="jdo-m5-mCf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -536,7 +535,6 @@
                         <outlet property="parkingRate" destination="hAH-rO-qsY" id="cdB-UP-dxj"/>
                         <outlet property="streetAddressLabel" destination="Kjh-Nu-QZw" id="4CW-nD-I1W"/>
                         <outlet property="timeOfDayLabel" destination="u9U-uf-kAn" id="StX-ae-e2R"/>
-                        <outlet property="updateButton" destination="DVV-gS-19T" id="aRC-Nk-7PX"/>
                         <outlet property="uploadIndicator" destination="NMv-l0-NQ8" id="0Wh-Kh-Lgs"/>
                     </connections>
                 </tableViewController>
@@ -856,6 +854,7 @@
                     <navigationItem key="navigationItem" title="Rates" id="Q7e-OM-70D"/>
                     <connections>
                         <outlet property="hourlyRateField" destination="Jgd-A9-dfa" id="ZDk-ki-I4P"/>
+                        <outlet property="mainButton" destination="t4C-wh-NZX" id="T6Y-zC-7VH"/>
                         <outlet property="postedRateField" destination="uch-QZ-XTm" id="Yx2-GJ-ODO"/>
                         <outlet property="postedRateSlider" destination="7Lp-1M-Di6" id="uG4-RS-Nzl"/>
                         <outlet property="progressView" destination="Duf-IF-UUT" id="F2s-Ud-Ivu"/>
@@ -964,7 +963,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="bzF-H2-r9B" secondAttribute="height" multiplier="1:1" id="0r1-Qx-aoc"/>
                                         </constraints>
-                                        <state key="normal" title="Mon">
+                                        <state key="normal" title="M">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -974,7 +973,7 @@
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ovd-aJ-23N" customClass="CircularButton" customModule="Carko" customModuleProvider="target">
                                         <rect key="frame" x="59.000000000000007" y="37" width="42.666666666666679" height="43"/>
                                         <color key="backgroundColor" red="0.1137254902" green="0.76078431369999999" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Tue">
+                                        <state key="normal" title="T">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -984,7 +983,7 @@
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ymg-2K-Qcw" customClass="CircularButton" customModule="Carko" customModuleProvider="target">
                                         <rect key="frame" x="109.66666666666666" y="37" width="43" height="43"/>
                                         <color key="backgroundColor" red="0.112871848" green="0.75954872370000004" blue="0.28861063720000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Wed">
+                                        <state key="normal" title="W">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -994,7 +993,7 @@
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qfb-9s-ZGu" customClass="CircularButton" customModule="Carko" customModuleProvider="target">
                                         <rect key="frame" x="160.66666666666666" y="37" width="43" height="43"/>
                                         <color key="backgroundColor" red="0.112871848" green="0.75954872370000004" blue="0.28861063720000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Thu">
+                                        <state key="normal" title="T">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -1004,7 +1003,7 @@
                                     <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EJG-Ox-cnR" customClass="CircularButton" customModule="Carko" customModuleProvider="target">
                                         <rect key="frame" x="211.66666666666669" y="37" width="42.666666666666657" height="43"/>
                                         <color key="backgroundColor" red="0.112871848" green="0.75954872370000004" blue="0.28861063720000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Fri">
+                                        <state key="normal" title="F">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -1014,7 +1013,7 @@
                                     <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rWB-DT-V3h" customClass="CircularButton" customModule="Carko" customModuleProvider="target">
                                         <rect key="frame" x="262.33333333333331" y="37" width="43" height="43"/>
                                         <color key="backgroundColor" red="0.112871848" green="0.75954872370000004" blue="0.28861063720000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Sat">
+                                        <state key="normal" title="S">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -1024,7 +1023,7 @@
                                     <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C9e-BV-2Ah" customClass="CircularButton" customModule="Carko" customModuleProvider="target">
                                         <rect key="frame" x="323" y="37" width="43" height="43"/>
                                         <color key="backgroundColor" red="0.112871848" green="0.75954872370000004" blue="0.28861063720000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Sun">
+                                        <state key="normal" title="S">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -1135,6 +1134,7 @@
                     <connections>
                         <outlet property="clock" destination="TmO-xF-bFp" id="7vt-FP-6Yq"/>
                         <outlet property="fromLabel" destination="Qeb-fG-rmh" id="Zkv-DX-60z"/>
+                        <outlet property="mainButton" destination="VBX-HI-Y7F" id="Eiy-97-4Iy"/>
                         <outlet property="mondayButton" destination="bzF-H2-r9B" id="kj2-IE-TbX"/>
                         <outlet property="progressView" destination="Jpt-4z-6nf" id="OJI-g6-jqM"/>
                         <outlet property="toLabel" destination="q8W-qn-aRA" id="LKQ-Rg-YVZ"/>
@@ -1180,10 +1180,9 @@
                                         <color key="color" red="0.9999514222" green="1" blue="0.97945672269999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </activityIndicatorView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Photos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e2E-46-TtK">
-                                        <rect key="frame" x="157" y="155" width="100" height="20"/>
+                                        <rect key="frame" x="8" y="155" width="398" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="fGc-Kv-BKb"/>
-                                            <constraint firstAttribute="width" constant="100" id="vi6-TN-6y9"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                                         <nil key="textColor"/>
@@ -1193,6 +1192,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="e2E-46-TtK" secondAttribute="trailing" constant="8" id="0S8-tv-3ho"/>
                                     <constraint firstItem="l4C-KN-fDl" firstAttribute="centerY" secondItem="VUt-V2-h0h" secondAttribute="centerY" id="2IY-D8-Vch"/>
                                     <constraint firstItem="eCS-Zq-Q79" firstAttribute="top" secondItem="VUt-V2-h0h" secondAttribute="top" id="5wJ-QW-XKN"/>
                                     <constraint firstItem="eCS-Zq-Q79" firstAttribute="leading" secondItem="VUt-V2-h0h" secondAttribute="leading" id="6Zf-Nc-VpO"/>
@@ -1200,8 +1200,8 @@
                                     <constraint firstAttribute="trailing" secondItem="eCS-Zq-Q79" secondAttribute="trailing" id="8kI-bP-6MF"/>
                                     <constraint firstItem="e2E-46-TtK" firstAttribute="top" secondItem="C0K-gv-kcW" secondAttribute="bottom" constant="8" id="Qlp-g5-L33"/>
                                     <constraint firstItem="C0K-gv-kcW" firstAttribute="centerX" secondItem="VUt-V2-h0h" secondAttribute="centerX" id="Y4m-VQ-sK8"/>
+                                    <constraint firstItem="e2E-46-TtK" firstAttribute="leading" secondItem="VUt-V2-h0h" secondAttribute="leading" constant="8" id="ZhV-is-Ap2"/>
                                     <constraint firstItem="C0K-gv-kcW" firstAttribute="centerY" secondItem="VUt-V2-h0h" secondAttribute="centerY" id="eBn-v3-YoA"/>
-                                    <constraint firstItem="e2E-46-TtK" firstAttribute="centerX" secondItem="VUt-V2-h0h" secondAttribute="centerX" id="okb-tc-zja"/>
                                     <constraint firstAttribute="bottom" secondItem="eCS-Zq-Q79" secondAttribute="bottom" id="vTk-LL-IGJ"/>
                                     <constraint firstAttribute="height" constant="244" id="wCK-tb-Bob"/>
                                 </constraints>
@@ -1285,9 +1285,9 @@
                             <constraint firstItem="Ofp-w2-QVc" firstAttribute="top" secondItem="9Jr-yv-Kkd" secondAttribute="bottom" constant="8" id="IL4-uW-0gs"/>
                             <constraint firstItem="4lg-0k-4D9" firstAttribute="leading" secondItem="NJX-Fd-H90" secondAttribute="leading" id="Qfy-JZ-aYU"/>
                             <constraint firstItem="9Jr-yv-Kkd" firstAttribute="trailing" secondItem="NJX-Fd-H90" secondAttribute="trailingMargin" id="RiF-kF-uiD"/>
-                            <constraint firstItem="9Jr-yv-Kkd" firstAttribute="top" secondItem="VUt-V2-h0h" secondAttribute="bottom" constant="8" id="WUb-Yc-P5L"/>
                             <constraint firstItem="VUt-V2-h0h" firstAttribute="top" secondItem="vUR-Qj-2VA" secondAttribute="bottom" constant="10" id="Wgn-Lq-2FR"/>
                             <constraint firstItem="Ofp-w2-QVc" firstAttribute="leading" secondItem="NJX-Fd-H90" secondAttribute="leadingMargin" id="YQp-v9-QXu"/>
+                            <constraint firstItem="9Jr-yv-Kkd" firstAttribute="top" secondItem="VUt-V2-h0h" secondAttribute="bottom" constant="8" id="b1R-ih-PDN"/>
                             <constraint firstAttribute="trailing" secondItem="VUt-V2-h0h" secondAttribute="trailing" id="gs2-cE-gaN"/>
                             <constraint firstItem="Ofp-w2-QVc" firstAttribute="trailing" secondItem="NJX-Fd-H90" secondAttribute="trailingMargin" id="qnd-zk-Fg7"/>
                             <constraint firstItem="VUt-V2-h0h" firstAttribute="leading" secondItem="NJX-Fd-H90" secondAttribute="leading" id="wX8-af-udz"/>
@@ -1309,7 +1309,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="4958" y="844"/>
+            <point key="canvasLocation" x="4957.971014492754" y="843.75000000000011"/>
         </scene>
     </scenes>
     <resources>
@@ -1320,8 +1320,8 @@
         <image name="private-garage.png" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="B5t-pn-wov"/>
+        <segue reference="B6a-W8-S4z"/>
         <segue reference="vcX-eF-sRG"/>
-        <segue reference="ubd-XU-kpe"/>
+        <segue reference="B5t-pn-wov"/>
     </inferredMetricsTieBreakers>
 </document>

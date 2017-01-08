@@ -6,8 +6,11 @@
   Copyright © 2017 QH4L. All rights reserved.
 */
 
-"find.label.until" = "Jusqu'à";
-"find.label.cost" = "Coût:";
-"find.label.availability" = "Disponible jusqu'à";
-"find.error.busy" = "Le stationnement est occupé";
-"find.error.own" = "Ce stationnement est le votre. Vous ne pouvez pas louer votre propre stationnement";
+"Until" = "Jusqu'à";
+"Cost:" = "Coût:";
+"Available until" = "Disponible jusqu'à";
+"The parking is currently busy" = "Le stationnement est occupé";
+"The parking is your own. You can't rent your own parking" = "Ce stationnement est le votre. Vous ne pouvez pas louer votre propre stationnement";
+"Enter your address" = "Entrez votre addresse";
+"Save" = "Sauvegardez";
+"Enter a description..." = "Entrez une description...";

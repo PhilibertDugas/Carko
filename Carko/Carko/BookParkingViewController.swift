@@ -43,9 +43,9 @@ class BookParkingViewController: UIViewController {
 
     @IBAction func tappedConfirm(_ sender: Any) {
         if !parking.isAvailable {
-            super.displayErrorMessage(NSLocalizedString("find.error.busy", comment: "Busy parking can't be rented"))
+            super.displayErrorMessage(NSLocalizedString("The parking is currently busy", comment: ""))
         } else if parking.customerId == AppState.shared.customer.id {
-            super.displayErrorMessage(NSLocalizedString("find.error.own", comment: "Own parking can't be rented"))
+            super.displayErrorMessage(NSLocalizedString("The parking is your own. You can't rent your own parking", comment: ""))
         } else {
             // TODO: Internationalize
             let paymentMessage = "Confirm payment of \(String.init(format: "%.02f", totalCost))$ to get a parking until \(endTimeParking!)"
@@ -84,7 +84,7 @@ class BookParkingViewController: UIViewController {
         super.viewWillAppear(animated)
 
         addressLabel.text = parking.address
-        availabilityLabel.text = "\(NSLocalizedString("find.label.availability", comment: "header")) \(parking.availabilityInfo.stopTime)"
+        availabilityLabel.text = "\(NSLocalizedString("Available until", comment: "")) \(parking.availabilityInfo.stopTime)"
 
         let minuteDelta = self.parking.stopDate().timeIntervalSince(Date.init()) / 60
         self.timeSlider.maximumValue = Float(minuteDelta)
@@ -118,12 +118,12 @@ class BookParkingViewController: UIViewController {
         let dateFormatter = DateFormatter.init()
         dateFormatter.dateFormat = "HH:mm"
         endTimeParking = dateFormatter.string(from: until!)
-        timeLabel.text = "\(NSLocalizedString("find.label.until", comment: "label displaying time left")) \(endTimeParking!)"
+        timeLabel.text = "\(NSLocalizedString("Until", comment: "")) \(endTimeParking!)"
     }
 
     func setCostLabel() {
         totalCost = (Float(self.sliderValue!) / 60 * parking.price) + 0.5
-        costLabel.text = "\(NSLocalizedString("find.label.cost", comment: "label displaying cost")) \(String.init(format: "%.02f", totalCost)) $"
+        costLabel.text = "\(NSLocalizedString("Cost:", comment: "")) \(String.init(format: "%.02f", totalCost)) $"
     }
 
     func setVehiculeLabel() {

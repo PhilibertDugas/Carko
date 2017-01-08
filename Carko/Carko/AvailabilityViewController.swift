@@ -1,11 +1,3 @@
-//
-//  NewAvailabilityViewController.swift
-//  Carko
-//
-//  Created by Guillaume Lalande on 2016-10-12.
-//  Copyright © 2016 QH4L. All rights reserved.
-//
-
 import UIKit
 import Foundation
 import _10Clock
@@ -20,6 +12,7 @@ class AvailabilityViewController: UIViewController {
     @IBOutlet var fromLabel: UILabel!
     @IBOutlet var toLabel: UILabel!
     @IBOutlet var progressView: UIView!
+    @IBOutlet var mainButton: RoundedCornerButton!
 
     var delegate: ParkingAvailabilityDelegate?
 
@@ -33,6 +26,7 @@ class AvailabilityViewController: UIViewController {
 
         if !newParking {
             progressView.isHidden = true
+            mainButton.setTitle("SAVE", for: UIControlState.normal)
         }
 
         availability = parking.availabilityInfo
