@@ -14,3 +14,8 @@
 "Enter your address" = "Enter your address";
 "Save" = "Save";
 "Enter a description..." = "Enter a description...";
+"Drag the marker to the exact location" = "Select the exact location";
+"Confirm payment of %s$ to get a parking until %s" = "Confirm payment of %s$ to get a parking until %s";
+"Confirm payment" = "Confirm payment";
+"Cancel" = "Cancel";
+"Ok" = "Ok";

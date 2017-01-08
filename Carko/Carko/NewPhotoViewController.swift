@@ -19,6 +19,7 @@ class NewPhotoViewController: UIViewController {
     @IBOutlet var descriptionText: UITextView!
 
     var parking: Parking!
+    var photoIsSaved = false
     let imagePicker = UIImagePickerController.init()
 
     @IBAction func tappedPhoto(_ sender: Any) {
@@ -28,21 +29,29 @@ class NewPhotoViewController: UIViewController {
     }
 
     @IBAction func tappedSave(_ sender: Any) {
-        parking.pDescription = self.descriptionText.text
-        parking.persist { (error) in
-            if let error = error {
-                super.displayErrorMessage(error.localizedDescription)
-            } else {
-                NotificationCenter.default.post(name: Notification.Name.init("NewParking"), object: nil, userInfo: nil)
-                let _ = self.navigationController?.popToRootViewController(animated: true)
+        if photoIsSaved {
+            parking.pDescription = self.descriptionText.text
+            if AppState.shared.customer.accountId != nil {
+                parking.isComplete = true
             }
+
+            parking.persist { (error) in
+                if let error = error {
+                    super.displayErrorMessage(error.localizedDescription)
+                } else {
+                    NotificationCenter.default.post(name: Notification.Name.init("NewParking"), object: nil, userInfo: nil)
+                    let _ = self.navigationController?.popToRootViewController(animated: true)
+                }
+            }
+        } else {
+            super.displayErrorMessage("Please select a picture before saving")
         }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
-        descriptionText.text = NSLocalizedString("Enter a description...", comment: "")
+        descriptionText.placeholderText = NSLocalizedString("Enter a description...", comment: "")
     }
 }
 
@@ -78,6 +87,7 @@ extension NewPhotoViewController: UIImagePickerControllerDelegate {
                     self.parking.photoURL = url
                     self.uploadIndicator.stopAnimating()
                     self.displayImage(alpha: 1.0)
+                    self.photoIsSaved = true
                 }
             }
         }

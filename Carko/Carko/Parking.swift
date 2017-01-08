@@ -17,11 +17,12 @@ class Parking {
     var price: Float
     var pDescription: String
     var isAvailable: Bool
+    var isComplete: Bool
     var customerId: Int
 
     var availabilityInfo: AvailabilityInfo
 
-    init(latitude: CLLocationDegrees, longitude: CLLocationDegrees, photoURL: URL?, address: String, price: Float, pDescription: String, isAvailable: Bool, availabilityInfo: AvailabilityInfo, customerId: Int) {
+    init(latitude: CLLocationDegrees, longitude: CLLocationDegrees, photoURL: URL?, address: String, price: Float, pDescription: String, isAvailable: Bool, isComplete: Bool, availabilityInfo: AvailabilityInfo, customerId: Int) {
         self.latitude = latitude
         self.longitude = longitude
         self.photoURL = photoURL
@@ -31,8 +32,23 @@ class Parking {
         self.isAvailable = isAvailable
         self.availabilityInfo = availabilityInfo
         self.customerId = customerId
+        self.isComplete = isComplete
     }
-    
+
+    convenience init() {
+        self.init(latitude: CLLocationDegrees.init(75),
+                     longitude: CLLocationDegrees.init(-135),
+                     photoURL: URL.init(string: ""),
+                     address: "Select a location",
+                     price: 1.0,
+                     pDescription: "",
+                     isAvailable: true,
+                     isComplete: false,
+                     availabilityInfo: AvailabilityInfo.init(),
+                     customerId: AppState.shared.customer.id)
+
+    }
+
     convenience init(parking: [String : Any]) {
         let latitude = parking["latitude"] as! CLLocationDegrees
         let longitude = parking["longitude"] as! CLLocationDegrees
@@ -42,10 +58,11 @@ class Parking {
         let pDescription = parking["description"] as! String
         let isAvailable = parking["is_available"] as! Bool
         let customerId = parking["customer_id"] as! Int
+        let isComplete = parking["is_complete"] as! Bool
 
         let availabilityInfo = AvailabilityInfo.init(availabilityInfo: parking["availability_info"] as! [String : Any])
         
-        self.init(latitude: latitude, longitude: longitude, photoURL: photoURL, address: address, price: price, pDescription: pDescription, isAvailable: isAvailable, availabilityInfo: availabilityInfo, customerId: customerId)
+        self.init(latitude: latitude, longitude: longitude, photoURL: photoURL, address: address, price: price, pDescription: pDescription, isAvailable: isAvailable, isComplete: isComplete, availabilityInfo: availabilityInfo, customerId: customerId)
 
         if let identifier = parking["id"] as? Int {
             self.id = identifier
@@ -64,6 +81,43 @@ class Parking {
         dateFormatter.dateFormat = "d.M.yyyy HH:mm"
         dateFormatter.timeZone = NSTimeZone.local
         return dateFormatter.date(from: convertString)!
+    }
+
+    func scheduleAvailable(_ date: Date) -> Bool {
+        let myCalendar = Calendar.init(identifier: Calendar.Identifier.gregorian)
+        var weekDay = myCalendar.component(.weekday, from: date)
+        let hour = myCalendar.component(.hour, from: date)
+        let minute = myCalendar.component(.minute, from: date)
+
+        // Shifting to our own date system
+        if weekDay == 0 {
+            weekDay = 9
+        } else if weekDay == 1 {
+            weekDay = 8
+        }
+        weekDay -= 2
+
+        let startSplitted = availabilityInfo.startTime.components(separatedBy: ":")
+        var startValid = false
+        let startHour = Int(startSplitted[0])!
+        let startMinute = Int(startSplitted[1])!
+        if startHour == hour && startMinute < minute {
+            startValid = true
+        } else if startHour < hour {
+            startValid = true
+        }
+
+        let stopSplitted = availabilityInfo.stopTime.components(separatedBy: ":")
+        var stopValid = false
+        let stopHour = Int(stopSplitted[0])!
+        let stopMinute = Int(stopSplitted[1])!
+        if stopHour == hour && stopMinute > minute {
+            stopValid = true
+        } else if stopHour > hour {
+            stopValid = true
+        }
+
+        return startValid && stopValid && availabilityInfo.daysAvailable[weekDay]
     }
 }
 
@@ -89,6 +143,7 @@ extension Parking {
             "description": pDescription,
             "customer_id": customerId,
             "is_available": isAvailable,
+            "is_complete": isComplete,
             "availability_info": availabilityInfo.toDictionary()
         ]
     }
@@ -139,7 +194,7 @@ class AvailabilityInfo: NSObject {
     convenience override init() {
         let startTime = "09:00"
         let stopTime = "17:00"
-        let daysAvailable = [false, false, false, false, false, false, false]
+        let daysAvailable = [true, true, true, true, true, true, true]
         let alwaysAvailable = false
         self.init(alwaysAvailable: alwaysAvailable, startTime: startTime, stopTime: stopTime, daysAvailable: daysAvailable)
     }
@@ -169,6 +224,13 @@ class AvailabilityInfo: NSObject {
         return daysIntegerFormat
     }
 
+    class func formatter() -> DateFormatter {
+        let dateFormatter = DateFormatter.init()
+        dateFormatter.dateFormat = "HH:mm"
+        dateFormatter.timeZone = NSTimeZone.local
+        return dateFormatter
+    }
+
     func lapsOfTimeText() -> String {
         if startTime == "0:00 AM" && startTime == "12:00 PM" {
             return "All Day"
@@ -178,15 +240,11 @@ class AvailabilityInfo: NSObject {
     }
 
     func startDate() -> Date {
-        let dateFormatter = DateFormatter.init()
-        dateFormatter.dateFormat = "HH:mm"
-        return dateFormatter.date(from: self.startTime)!
+        return AvailabilityInfo.formatter().date(from: self.startTime)!
     }
 
     func stopDate() -> Date {
-        let dateFormatter = DateFormatter.init()
-        dateFormatter.dateFormat = "HH:mm"
-        return dateFormatter.date(from: self.stopTime)!
+        return AvailabilityInfo.formatter().date(from: self.stopTime)!
     }
 
     func daysEnumerationText() -> String {

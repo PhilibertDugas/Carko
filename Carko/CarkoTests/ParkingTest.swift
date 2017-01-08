@@ -16,7 +16,7 @@ class ParkingTest: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        self.newParking = Parking.init(latitude: CLLocationDegrees.init(-74.00),longitude: CLLocationDegrees.init(135.00),photoURL: URL.init(string: "www.test.com")!, address: "1160 Rue Villeray", price: 2.00, pDescription: "Unit Test Parking", isAvailable: true, availabilityInfo: AvailabilityInfo.init(), customerId: 1)
+        self.newParking = Parking.init(latitude: CLLocationDegrees.init(-74.00),longitude: CLLocationDegrees.init(135.00),photoURL: URL.init(string: "www.test.com")!, address: "1160 Rue Villeray", price: 2.00, pDescription: "Unit Test Parking", isAvailable: true, isComplete: true, availabilityInfo: AvailabilityInfo.init(), customerId: 1)
         self.newParking.id = 1
 
         OHHTTPStubs.setEnabled(true)
@@ -109,11 +109,30 @@ class ParkingTest: XCTestCase {
         todayFormater.timeZone = NSTimeZone.local
         let todayString = todayFormater.string(from: Date.init())
         let convertString = "\(todayString) \(self.newParking.availabilityInfo.stopTime)"
-        let dateFormatter = DateFormatter.init()
-        dateFormatter.dateFormat = "d.M.yyyy HH:mm"
-        dateFormatter.timeZone = NSTimeZone.local
-        let expectedDate = dateFormatter.date(from: convertString)!
+
+        let expectedDate = dateFromString(convertString)
         let date = self.newParking.stopDate()
         XCTAssertEqual(expectedDate, date)
+    }
+
+    func testScheduleAvailableIsFalseWhenDayIsNotAvailable() {
+        self.newParking.availabilityInfo.daysAvailable = [false, false, true, false, false, false, false]
+        let sunday = dateFromString("8.1.2017 00:00")
+        let wednesday = dateFromString("11.1.2017 10:30")
+        let wednesdayMorning = dateFromString("11.1.2017 06:30")
+        let wednesdayNight = dateFromString("11.1.2017 22:30")
+
+        XCTAssert(!newParking.scheduleAvailable(sunday))
+        XCTAssert(newParking.scheduleAvailable(wednesday))
+        XCTAssert(!newParking.scheduleAvailable(wednesdayMorning))
+        XCTAssert(!newParking.scheduleAvailable(wednesdayNight))
+    }
+}
+
+extension ParkingTest {
+    func dateFromString(_ date: String) -> Date {
+        let formatter = DateFormatter.init()
+        formatter.dateFormat = "d.M.yyyy HH:mm"
+        return formatter.date(from: date)!
     }
 }

@@ -9,6 +9,7 @@ class LocationViewController: UIViewController {
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var addButton: UIButton!
     @IBOutlet var progressView: UIView!
+    @IBOutlet var helperLabel: UILabel!
 
     var delegate: ParkingLocationDelegate?
 
@@ -107,11 +108,13 @@ extension LocationViewController: UISearchBarDelegate {
         blurView = UIVisualEffectView.init(effect: effect)
         blurView.frame = mapView.bounds
         mapView.addSubview(blurView)
+        helperLabel.isHidden = true
         navigationItem.setHidesBackButton(true, animated: true)
     }
 
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         blurView.removeFromSuperview()
+        helperLabel.isHidden = false
         navigationItem.setHidesBackButton(false, animated: true)
     }
 }
@@ -163,5 +166,6 @@ extension LocationViewController: HandleMapSearch {
         mapView.mapType = MKMapType.satellite
         mapView.setRegion(region, animated: true)
         addButton.isHidden = false
+        helperLabel.text = NSLocalizedString("Drag the marker to the exact location", comment: "")
     }
 }

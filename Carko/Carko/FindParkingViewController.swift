@@ -115,9 +115,12 @@ extension FindParkingViewController {
 extension FindParkingViewController: MKMapViewDelegate {
     func parkingFetched(_ parkings: [(Parking)]) {
         self.mapView.removeAnnotations(mapView.annotations)
+        let now = Date.init()
         for parking in parkings {
-            let annotation = ParkingAnnotation.init(parking: parking)
-            self.mapView.addAnnotation(annotation)
+            if parking.isComplete && parking.scheduleAvailable(now) {
+                let annotation = ParkingAnnotation.init(parking: parking)
+                self.mapView.addAnnotation(annotation)
+            }
         }
     }
 

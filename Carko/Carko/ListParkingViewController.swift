@@ -51,15 +51,7 @@ class ListParkingViewController: UITableViewController {
             destinationVC.parking = parkingList[selectedRowIndex]
         } else if segue.identifier == "newParking" {
             let vc = segue.destination as! LocationViewController
-            vc.parking = Parking.init(latitude: CLLocationDegrees.init(75),
-                                      longitude: CLLocationDegrees.init(-135),
-                                      photoURL: URL.init(string: ""),
-                                      address: "Select a location",
-                                      price: 1.0,
-                                      pDescription: "",
-                                      isAvailable: true,
-                                      availabilityInfo: AvailabilityInfo.init(),
-                                      customerId: AppState.shared.customer.id)
+            vc.parking = Parking.init()
             vc.newParking = true
         }
     }

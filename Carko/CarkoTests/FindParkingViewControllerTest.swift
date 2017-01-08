@@ -9,6 +9,7 @@
 import XCTest
 import CoreLocation
 import MapKit
+import OHHTTPStubs
 @testable import Carko
 
 
@@ -17,16 +18,17 @@ class FindParkingViewControllerTest: XCTestCase {
 
     override func setUp() {
         super.setUp()
-
         // Gymnastic to get the view controller properly intialized
-        let storyboard = UIStoryboard.init(name: "FindParking", bundle: Bundle.main)
+        let storyboard = UIStoryboard.init(name: "Find", bundle: Bundle.main)
         vc = storyboard.instantiateInitialViewController() as! FindParkingViewController
         UIApplication.shared.keyWindow?.rootViewController = vc
         let _ = vc.view
+        OHHTTPStubs.setEnabled(true)
     }
 
     override func tearDown() {
         super.tearDown()
+        OHHTTPStubs.removeAllStubs()
     }
 
     func testFetchedParkingAppearOnTheMap() {
@@ -53,10 +55,19 @@ class FindParkingViewControllerTest: XCTestCase {
 
 extension FindParkingViewControllerTest {
     func setupTestParking() -> [(Parking)] {
-        let parking1 = Parking.init(latitude: CLLocationDegrees.init(-74.00),longitude: CLLocationDegrees.init(135.00),photoURL: nil, address: "1160 Rue Villeray", price: 2.00, pDescription: "Unit Test Parking", isAvailable: true, availabilityInfo: AvailabilityInfo.init(), customerId: 1)
-        parking1.id = 1
-        let parking2 = Parking.init(latitude: CLLocationDegrees.init(-74.00),longitude: CLLocationDegrees.init(135.00),photoURL: nil, address: "1160 Rue Villeray", price: 2.00, pDescription: "Unit Test Parking", isAvailable: false, availabilityInfo: AvailabilityInfo.init(), customerId: 2)
-        parking2.id = 2
+        let parking1 = Parking.init()
+        completeParking(parking1, id: 1)
+        let parking2 = Parking.init()
+        completeParking(parking2, id: 2)
+        parking2.isAvailable = false
         return [parking1, parking2]
+    }
+
+    private func completeParking(_ parking: Parking, id: Int) {
+        parking.id = id
+        parking.customerId = id
+        parking.isComplete = true
+        parking.availabilityInfo.startTime = "00:00"
+        parking.availabilityInfo.stopTime = "23:59"
     }
 }

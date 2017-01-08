@@ -12,9 +12,11 @@ import UIKit
 @objc public  protocol TenClockDelegate {
     //Executed for every touch.
     @objc optional func timesUpdated(_ clock:TenClock, startDate:Date,  endDate:Date  ) -> ()
+
     //Executed after the user lifts their finger from the control.
     @objc optional func timesChanged(_ clock:TenClock, startDate:Date,  endDate:Date  ) -> ()
 }
+
 func medStepFunction(_ val: CGFloat, stepSize:CGFloat) -> CGFloat{
     let dStepSize = Double(stepSize)
     let dval  = Double(val)
@@ -34,7 +36,7 @@ open class TenClock : UIControl{
     var internalShift: CGFloat = 5;
     var pathWidth:CGFloat = 54
 
-    var timeStepSize: CGFloat = 5
+    open var timeStepSize: CGFloat = 5
     let gradientLayer = CAGradientLayer()
     let trackLayer = CAShapeLayer()
     let pathLayer = CAShapeLayer()
@@ -108,6 +110,9 @@ open class TenClock : UIControl{
     open var headBackgroundColor = UIColor.white.withAlphaComponent(0.8)
     open var tailBackgroundColor = UIColor.white.withAlphaComponent(0.8)
 
+    open var headText: String = "Start"
+    open var tailText: String = "End"
+
     open var headTextColor = UIColor.black
     open var tailTextColor = UIColor.black
 
@@ -123,9 +128,6 @@ open class TenClock : UIControl{
     func disabledFormattedColor(_ color:UIColor) -> UIColor{
         return disabled ? color.greyscale : color
     }
-
-
-
 
     var trackWidth:CGFloat {return pathWidth }
     func proj(_ theta:Angle) -> CGPoint{
@@ -143,18 +145,17 @@ open class TenClock : UIControl{
 
     lazy internal var calendar = Calendar(identifier:Calendar.Identifier.gregorian)
     func toDate(_ val:CGFloat)-> Date {
-//        var comps = DateComponents()
-//        comps.minute = Int(val)
         return calendar.date(byAdding: Calendar.Component.minute , value: Int(val), to: Date().startOfDay as Date)!
-//        return calendar.dateByAddingComponents(comps, toDate: Date().startOfDay as Date, options: .init(rawValue:0))!
     }
+
     open var startDate: Date{
-        get{return angleToTime(headAngle) }
-        set{ headAngle = timeToAngle(newValue) }
-    }
-    open var endDate: Date{
         get{return angleToTime(tailAngle) }
         set{ tailAngle = timeToAngle(newValue) }
+    }
+
+    open var endDate: Date{
+        get {return angleToTime(headAngle) }
+        set { headAngle = timeToAngle(newValue) }
     }
 
     var internalRadius:CGFloat {
@@ -315,8 +316,8 @@ open class TenClock : UIControl{
         topTailLayer.fillColor = disabledFormattedColor(tailBackgroundColor).cgColor
         topHeadLayer.sublayers?.forEach({$0.removeFromSuperlayer()})
         topTailLayer.sublayers?.forEach({$0.removeFromSuperlayer()})
-        let stText = tlabel("Start", color: disabledFormattedColor(headTextColor))
-        let endText = tlabel("End",color: disabledFormattedColor(tailTextColor))
+        let stText = tlabel(headText, color: disabledFormattedColor(headTextColor))
+        let endText = tlabel(tailText, color: disabledFormattedColor(tailTextColor))
         stText.position = topTailLayer.center
         endText.position = topHeadLayer.center
         topHeadLayer.addSublayer(endText)

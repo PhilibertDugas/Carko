@@ -1,6 +1,5 @@
 import UIKit
 import Foundation
-import _10Clock
 
 protocol ParkingAvailabilityDelegate {
     func userDidChangeAvailability(value: AvailabilityInfo)
@@ -67,9 +66,8 @@ class AvailabilityViewController: UIViewController {
         self.clock.delegate = self
         self.clock.minorTicksEnabled = false
         self.clock.centerTextColor = UIColor.black
-        // FIXME: For some reasone endDate & startDate are reversed
-        self.clock.endDate = self.availability.startDate()
-        self.clock.startDate = self.availability.stopDate()
+        self.clock.endDate = self.availability.stopDate()
+        self.clock.startDate = self.availability.startDate()
     }
 
     func updateAvailability() {
@@ -106,16 +104,15 @@ class AvailabilityViewController: UIViewController {
 
 extension AvailabilityViewController: TenClockDelegate {
     func timesChanged(_ clock: TenClock, startDate: Date, endDate: Date) {
-        let startTime = dateFormatter.string(from: endDate)
-        let stopTime = dateFormatter.string(from: startDate)
+        let startTime = dateFormatter.string(from: startDate)
+        let stopTime = dateFormatter.string(from: endDate)
         availability.startTime = startTime
         availability.stopTime = stopTime
     }
 
     func timesUpdated(_ clock: TenClock, startDate: Date, endDate: Date) {
-        // FIXME: For some reason, startDate & endDate are reversed
-        let startTime = dateFormatter.string(from: endDate)
-        let stopTime = dateFormatter.string(from: startDate)
+        let startTime = dateFormatter.string(from: startDate)
+        let stopTime = dateFormatter.string(from: endDate)
         updateTimeLabel(startTime: startTime, endTime: stopTime)
     }
 }

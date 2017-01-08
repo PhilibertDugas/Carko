@@ -1,8 +1,3 @@
-//
-// Created by joe on 12/2/16.
-// Copyright (c) 2016 Joseph Daniels. All rights reserved.
-//
-
 import Foundation
 import UIKit
 public class ConditionallyScrollingTableView: UITableView {

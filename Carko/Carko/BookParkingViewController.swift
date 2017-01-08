@@ -47,14 +47,12 @@ class BookParkingViewController: UIViewController {
         } else if parking.customerId == AppState.shared.customer.id {
             super.displayErrorMessage(NSLocalizedString("The parking is your own. You can't rent your own parking", comment: ""))
         } else {
-            // TODO: Internationalize
-            let paymentMessage = "Confirm payment of \(String.init(format: "%.02f", totalCost))$ to get a parking until \(endTimeParking!)"
-            let alertController = UIAlertController.init(title: "Confirm payment", message: paymentMessage, preferredStyle: UIAlertControllerStyle.actionSheet)
-            let cancelAction = UIAlertAction.init(title: "Cancel", style: UIAlertActionStyle.cancel) { (result : UIAlertAction) -> Void in
-                print("Canceled")
+            let paymentMessage = String.init(format: NSLocalizedString("Confirm payment of %s$ to get a parking until %s", comment: ""), [String.init(format: "%.02f", totalCost), endTimeParking!])
+            let alertController = UIAlertController.init(title: NSLocalizedString("Confirm Payment", comment: ""), message: paymentMessage, preferredStyle: UIAlertControllerStyle.actionSheet)
+            let cancelAction = UIAlertAction.init(title: NSLocalizedString("Cancel", comment: ""), style: UIAlertActionStyle.cancel) { (result : UIAlertAction) -> Void in
             }
 
-            let okAction = UIAlertAction.init(title: "Ok", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
+            let okAction = UIAlertAction.init(title: NSLocalizedString("Ok", comment: ""), style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
                 self.completeBooking()
             }
 
@@ -115,9 +113,7 @@ class BookParkingViewController: UIViewController {
     func setTimeLabel() {
         let calendar = Calendar.current
         let until = calendar.date(byAdding: Calendar.Component.minute, value: self.sliderValue, to: Date())
-        let dateFormatter = DateFormatter.init()
-        dateFormatter.dateFormat = "HH:mm"
-        endTimeParking = dateFormatter.string(from: until!)
+        endTimeParking = AvailabilityInfo.formatter().string(from: until!)
         timeLabel.text = "\(NSLocalizedString("Until", comment: "")) \(endTimeParking!)"
     }
 
@@ -151,9 +147,7 @@ extension BookParkingViewController: STPPaymentContextDelegate {
 
         let calendar = Calendar.current
         let now = calendar.dateComponents(in: NSTimeZone.local, from: Date.init())
-        let dateFormatter = DateFormatter.init()
-        dateFormatter.dateFormat = "HH:mm"
-        let startTime = dateFormatter.string(from: now.date!)
+        let startTime = AvailabilityInfo.formatter().string(from: now.date!)
 
         let charge = Charge.init(customer: AppState.shared.customer.stripeId, amount: paymentContext.paymentAmount, currency: paymentContext.paymentCurrency, parkingId: parking.id!)
 

@@ -1,21 +1,12 @@
-//
-//  CoreGraphicsExtensions.swift
-//  SwiftClock
-//
-//  Created by Joseph Daniels on 01/09/16.
-//  Copyright © 2016 Joseph Daniels. All rights reserved.
-//
-
 import Foundation
 import UIKit
 
 extension UIColor {
     var greyscale: UIColor{
         var (hue, saturation, brightness, alpha) = (CGFloat(0.0), CGFloat(0.0), CGFloat(0.0), CGFloat(0.0))
-
         if self.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha) {
             return  UIColor(hue: hue, saturation: 0, brightness: brightness, alpha: alpha / 2)
-        }else {
+        } else {
             return UIColor.gray
         }
     }
@@ -40,6 +31,7 @@ extension UIColor {
 extension Angle{
     var reverse:Angle{return CGFloat(2 * M_PI) - self}
 }
+
 extension FloatingPoint{
     var isBad:Bool{ return isNaN || isInfinite }
     var checked:Self{
@@ -55,6 +47,7 @@ typealias Angle = CGFloat
 func df() -> CGFloat {
     return    CGFloat(drand48()).checked
 }
+
 func clockDescretization(_ val: CGFloat) -> CGFloat{
     let min:Double  = 0
     let max:Double = 2 * Double(M_PI)
@@ -65,6 +58,7 @@ func clockDescretization(_ val: CGFloat) -> CGFloat{
     return CGFloat(rest > stepSize / 2 ? stepSize * (nsf + 1) : stepSize * nsf).checked
     
 }
+
 extension CALayer {
     func doDebug(){
         self.borderColor = UIColor(hue: df() , saturation: df(), brightness: 1, alpha: 1).cgColor
@@ -72,6 +66,7 @@ extension CALayer {
         self.sublayers?.forEach({$0.doDebug()})
     }
 }
+
 extension CGSize{
     var hasNaN:Bool{return width.isBad || height.isBad }
     var checked:CGSize{
@@ -81,6 +76,7 @@ extension CGSize{
         return self
     }
 }
+
 extension CGRect{
     var center:CGPoint { return CGPoint(x:midX, y: midY).checked}
     var hasNaN:Bool{return size.hasNaN || origin.hasNaN}
@@ -92,6 +88,7 @@ extension CGRect{
     }
 
 }
+
 extension CGPoint{
     var vector:CGVector { return CGVector(dx: x, dy: y).checked}
     var checked:CGPoint{
@@ -102,6 +99,7 @@ extension CGPoint{
     }
     var hasNaN:Bool{return x.isBad || y.isBad }
 }
+
 extension CGVector{
     var hasNaN:Bool{return dx.isBad || dy.isBad}
     var checked:CGVector{

@@ -1,5 +1,4 @@
 PODS:
-  - 10Clock (0.0.20)
   - Alamofire (4.0.1)
   - ARNTransitionAnimator (2.0.3)
   - Firebase (3.7.1):
@@ -61,7 +60,6 @@ PODS:
   - Stripe (9.0.0)
 
 DEPENDENCIES:
-  - 10Clock (= 0.0.20)
   - Alamofire
   - ARNTransitionAnimator (= 2.0.3)
   - Firebase
@@ -74,7 +72,6 @@ DEPENDENCIES:
   - Stripe
 
 SPEC CHECKSUMS:
-  10Clock: 2a4041365787259a1311cd089695550291a063d2
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
   ARNTransitionAnimator: 51c63c904e61435d1ff741722ec49819cd38fc4f
   Firebase: be473484f0d515e72ffd04acf22f981773c23e58
@@ -93,6 +90,6 @@ SPEC CHECKSUMS:
   SDWebImage: '098e97e6176540799c27e804c96653ee0833d13c'
   Stripe: 935c6deb5e96cbd29d247074bf3aa98a8438e22c
 
-PODFILE CHECKSUM: 30d532301b83456857de573e981dd912a07f795d
+PODFILE CHECKSUM: c5cc43d7b5d9c3b54999f4715ba9682f66020e3b
 
 COCOAPODS: 1.2.0.beta.3
