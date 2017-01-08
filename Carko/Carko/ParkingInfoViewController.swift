@@ -107,19 +107,23 @@ class ParkingInfoViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ChangeRates" {
-            let destinationVC = segue.destination as! ParkingRatesViewController
-            destinationVC.parkingRate = parking.price
+            let destinationVC = segue.destination as! RatesViewController
+            destinationVC.parking = parking
+            destinationVC.newParking = false
             destinationVC.delegate = self
         } else if segue.identifier == "ChangeDescription" {
             let destinationVC = segue.destination as! ParkingDescriptionViewController
             destinationVC.parkingDescription = parking.pDescription
             destinationVC.delegate = self
         } else if segue.identifier == "ChangeAvailability" {
-            let destinationVC = segue.destination as! ParkingAvailabilityViewController
-            destinationVC.parkingAvailability = parking.availabilityInfo
+            let destinationVC = segue.destination as! AvailabilityViewController
+            destinationVC.parking = parking
+            destinationVC.newParking = false
             destinationVC.delegate = self
         } else if segue.identifier == "ChangeLocation" {
-            let destinationVC = segue.destination as! ParkingLocationViewController
+            let destinationVC = segue.destination as! LocationViewController
+            destinationVC.parking = self.parking
+            destinationVC.newParking = false
             destinationVC.delegate = self
         }
     }

@@ -1,9 +1,16 @@
 import UIKit
 import MapKit
 
-class NewLocationViewController: UIViewController {
+protocol ParkingLocationDelegate {
+    func userDidChooseLocation(address: String, latitude: CLLocationDegrees, longitude: CLLocationDegrees)
+}
+
+class LocationViewController: UIViewController {
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var addButton: UIButton!
+    @IBOutlet var progressView: UIView!
+
+    var delegate: ParkingLocationDelegate?
 
     let locationManager = CLLocationManager()
 
@@ -13,28 +20,54 @@ class NewLocationViewController: UIViewController {
     var centerAnnotation: MKPointAnnotation!
     var justZoomedIn = false
 
-    var delegate: ParkingLocationDelegate!
+    var newParking: Bool = false
     var parking: Parking!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if !newParking {
+            progressView.isHidden = true
+        }
+
         addButton.isHidden = true
         mapView.delegate = self
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
 
-        let panGesture = UIPanGestureRecognizer.init(target: self, action: #selector(NewLocationViewController.handlePan))
+        let panGesture = UIPanGestureRecognizer.init(target: self, action: #selector(self.handlePan))
         panGesture.delegate = self;
         mapView.addGestureRecognizer(panGesture)
 
+        setupLocationManager()
         setupSearchBar()
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "pushRates" {
+            let vc = segue.destination as! RatesViewController
+            vc.parking = parking
+            vc.newParking = true
+        }
+    }
+
+    @IBAction func mainButtonTapped(_ sender: Any) {
+        updateParking()
+        if newParking {
+            self.performSegue(withIdentifier: "pushRates", sender: nil)
+        } else {
+            delegate?.userDidChooseLocation(address: parking.address, latitude: parking.latitude, longitude: parking.longitude)
+            let _ = self.navigationController?.popViewController(animated: true)
+        }
     }
 
     func handlePan() {
         centerAnnotation?.coordinate = mapView.centerCoordinate;
+    }
+
+    func setupLocationManager() {
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
     }
 
     func setupSearchBar() {
@@ -56,14 +89,6 @@ class NewLocationViewController: UIViewController {
         definesPresentationContext = true
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "addNewLocation" {
-            updateParking()
-            let vc = segue.destination as! NewRatesViewController
-            vc.parking = parking
-        }
-    }
-
     func updateParking() {
         let currentMapCoordinate = mapView.centerCoordinate
         let latitude = currentMapCoordinate.latitude
@@ -73,18 +98,9 @@ class NewLocationViewController: UIViewController {
         parking.latitude = latitude
         parking.longitude = longitude
     }
-
-    @IBAction func addButtonTapped(_ sender: AnyObject) {
-        let currentMapCoordinate = mapView.centerCoordinate
-        let latitude = currentMapCoordinate.latitude
-        let longitude = currentMapCoordinate.longitude
-        let address = LocationSearchTableViewController.parseAddress(selectedItem: selectedPin!)
-        let _ = self.navigationController?.popViewController(animated: true)
-        delegate.userDidChooseLocation(address: address, latitude: latitude, longitude: longitude)
-    }
 }
 
-extension NewLocationViewController: UISearchBarDelegate {
+extension LocationViewController: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         let effect = UIBlurEffect(style: UIBlurEffectStyle.light)
         blurView = UIVisualEffectView.init(effect: effect)
@@ -99,13 +115,13 @@ extension NewLocationViewController: UISearchBarDelegate {
     }
 }
 
-extension NewLocationViewController: UIGestureRecognizerDelegate {
+extension LocationViewController: UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
 }
 
-extension NewLocationViewController : CLLocationManagerDelegate {
+extension LocationViewController : CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedWhenInUse {
             locationManager.requestLocation()
@@ -124,7 +140,7 @@ extension NewLocationViewController : CLLocationManagerDelegate {
     }
 }
 
-extension NewLocationViewController: MKMapViewDelegate {
+extension LocationViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         if selectedPin != nil && !justZoomedIn {
             centerAnnotation.coordinate = mapView.centerCoordinate
@@ -133,7 +149,7 @@ extension NewLocationViewController: MKMapViewDelegate {
     }
 }
 
-extension NewLocationViewController: HandleMapSearch {
+extension LocationViewController: HandleMapSearch {
     func selectedPlacemark(placemark: MKPlacemark){
         selectedPin = placemark
         mapView.removeAnnotations(mapView.annotations)

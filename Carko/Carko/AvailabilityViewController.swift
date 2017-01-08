@@ -10,29 +10,33 @@ import UIKit
 import Foundation
 import _10Clock
 
-class NewAvailabilityViewController: UIViewController {
+protocol ParkingAvailabilityDelegate {
+    func userDidChangeAvailability(value: AvailabilityInfo)
+}
+
+class AvailabilityViewController: UIViewController {
 
     @IBOutlet var mondayButton: UIButton!
     @IBOutlet var clock: TenClock!
     @IBOutlet var fromLabel: UILabel!
     @IBOutlet var toLabel: UILabel!
+    @IBOutlet var progressView: UIView!
 
-    weak var delegate: ParkingAvailabilityDelegate? = nil
+    var delegate: ParkingAvailabilityDelegate?
+
     var availability: AvailabilityInfo!
     var dateFormatter: DateFormatter!
     var parking: Parking!
-
-    @IBAction func dayToggle(_ sender: UIButton) {
-        let dayId = sender.tag
-        let newAvailability = !availability.daysAvailable[dayId]
-        availability.daysAvailable[dayId] = newAvailability
-        updateButton(isOn: newAvailability, button: sender)
-    }
+    var newParking: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        if !newParking {
+            progressView.isHidden = true
+        }
+
         availability = parking.availabilityInfo
-        self.hideKeyboardWhenTappedAround()
         self.dateFormatter = DateFormatter.init()
         self.dateFormatter.dateFormat = "HH:mm"
         setupClock()
@@ -44,17 +48,33 @@ class NewAvailabilityViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "newPhoto" {
+        if segue.identifier == "pushPhoto" {
             let vc = segue.destination as! NewPhotoViewController
             vc.parking = parking
         }
+    }
+
+    @IBAction func mainButtonTapped(_ sender: Any) {
+        if newParking {
+            self.performSegue(withIdentifier: "pushPhoto", sender: nil)
+        } else {
+            delegate?.userDidChangeAvailability(value: availability)
+            let _ = self.navigationController?.popViewController(animated: true)
+        }
+    }
+
+    @IBAction func dayToggle(_ sender: UIButton) {
+        let dayId = sender.tag
+        let newAvailability = !availability.daysAvailable[dayId]
+        availability.daysAvailable[dayId] = newAvailability
+        updateButton(isOn: newAvailability, button: sender)
     }
 
     func setupClock() {
         self.clock.delegate = self
         self.clock.minorTicksEnabled = false
         self.clock.centerTextColor = UIColor.black
-        // For some reasone endDate & startDate are reversed
+        // FIXME: For some reasone endDate & startDate are reversed
         self.clock.endDate = self.availability.startDate()
         self.clock.startDate = self.availability.stopDate()
     }
@@ -91,7 +111,7 @@ class NewAvailabilityViewController: UIViewController {
     }
 }
 
-extension NewAvailabilityViewController: TenClockDelegate {
+extension AvailabilityViewController: TenClockDelegate {
     func timesChanged(_ clock: TenClock, startDate: Date, endDate: Date) {
         let startTime = dateFormatter.string(from: endDate)
         let stopTime = dateFormatter.string(from: startDate)
@@ -100,7 +120,7 @@ extension NewAvailabilityViewController: TenClockDelegate {
     }
 
     func timesUpdated(_ clock: TenClock, startDate: Date, endDate: Date) {
-        // For some reason, startDate & endDate are reversed
+        // FIXME: For some reason, startDate & endDate are reversed
         let startTime = dateFormatter.string(from: endDate)
         let stopTime = dateFormatter.string(from: startDate)
         updateTimeLabel(startTime: startTime, endTime: stopTime)
