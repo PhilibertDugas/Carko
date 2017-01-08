@@ -68,6 +68,7 @@ class AvailabilityViewController: UIViewController {
         self.clock.centerTextColor = UIColor.black
         self.clock.endDate = self.availability.stopDate()
         self.clock.startDate = self.availability.startDate()
+        self.clock.timeStepSize = 15
     }
 
     func updateAvailability() {
