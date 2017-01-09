@@ -69,6 +69,8 @@ class AvailabilityViewController: UIViewController {
         self.clock.endDate = self.availability.stopDate()
         self.clock.startDate = self.availability.startDate()
         self.clock.timeStepSize = 15
+        self.clock.headText = NSLocalizedString("Start", comment: "")
+        self.clock.tailText = NSLocalizedString("End", comment: "") 
     }
 
     func updateAvailability() {

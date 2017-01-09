@@ -88,6 +88,7 @@ extension ParkingTransitionAnimation: TransitionAnimatable {
             let alpha = 1.0 - (1.0 * percentComplete)
             self.rootVC.mapView.alpha = alpha + 0.5
             self.rootVC.tabBar.alpha = alpha
+            self.rootVC.navigationController?.navigationBar.alpha = alpha
             self.rootVC.popupView.subviews.forEach { $0.alpha = alpha }
         } else {
             // popupView
@@ -108,6 +109,7 @@ extension ParkingTransitionAnimation: TransitionAnimatable {
             let alpha = 1.0 * percentComplete
             self.rootVC.mapView.alpha = alpha + 0.5
             self.rootVC.tabBar.alpha = alpha
+            self.rootVC.navigationController?.navigationBar.alpha = alpha
             self.rootVC.popupView.alpha = 1.0
             self.rootVC.popupView.subviews.forEach { $0.alpha = alpha }
         }

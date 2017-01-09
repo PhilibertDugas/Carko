@@ -356,6 +356,7 @@ open class TenClock : UIControl{
         titleTextLayer.font = cgFont
         let steps = 60 / Int(timeStepSize)
         var increment = Int(((tailAngle - headAngle) / twoPi) * 12 * CGFloat.init(steps))
+
         if increment < 0 {
             increment += 24 * steps
         }

@@ -55,6 +55,9 @@ class ParkingInfoViewController: UITableViewController {
 
     @IBAction func saveTapped(_ sender: Any) {
         if parking.isAvailable {
+            if AppState.shared.customer.accountId != nil {
+                parking.isComplete = true
+            }
             parking.update(complete: { (error) in
                 if let error = error {
                     super.displayErrorMessage(error.localizedDescription)

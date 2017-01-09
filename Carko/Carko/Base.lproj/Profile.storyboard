@@ -222,7 +222,7 @@
                             <outlet property="delegate" destination="7ex-GH-xvd" id="8Nc-kX-dCU"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Profile" image="user.png" selectedImage="user.png" id="5dA-Az-Z4Q"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="user.png" id="5dA-Az-Z4Q"/>
                     <navigationItem key="navigationItem" title="Profile" id="Jpv-2g-g3J"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
