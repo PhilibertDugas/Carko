@@ -6,6 +6,7 @@ target 'Carko' do
   pod 'Firebase'
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
+  pod 'Firebase/Crash'
   pod 'FirebaseUI/Storage', '~> 1.0'
   pod 'Stripe'
   pod 'Alamofire'

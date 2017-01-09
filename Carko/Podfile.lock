@@ -9,6 +9,9 @@ PODS:
   - Firebase/Core (3.7.1):
     - FirebaseAnalytics (= 3.4.4)
     - FirebaseCore (= 3.4.3)
+  - Firebase/Crash (3.7.1):
+    - Firebase/Core
+    - FirebaseCrash (= 1.0.7)
   - Firebase/Storage (3.7.1):
     - Firebase/Core
     - FirebaseStorage (= 1.0.3)
@@ -23,6 +26,12 @@ PODS:
     - GoogleUtilities (~> 1.2)
   - FirebaseCore (3.4.3):
     - GoogleInterchangeUtilities (~> 1.2)
+    - GoogleUtilities (~> 1.2)
+  - FirebaseCrash (1.0.7):
+    - FirebaseAnalytics (~> 3.2)
+    - FirebaseInstanceID (~> 1.0)
+    - GoogleInterchangeUtilities (~> 1.2)
+    - GoogleSymbolUtilities (~> 1.1)
     - GoogleUtilities (~> 1.2)
   - FirebaseInstanceID (1.0.8)
   - FirebaseStorage (1.0.3):
@@ -64,6 +73,7 @@ DEPENDENCIES:
   - ARNTransitionAnimator (= 2.0.3)
   - Firebase
   - Firebase/Auth
+  - Firebase/Crash
   - Firebase/Storage
   - FirebaseUI/Storage (~> 1.0)
   - IQKeyboardManagerSwift
@@ -78,6 +88,7 @@ SPEC CHECKSUMS:
   FirebaseAnalytics: 0533a00b681e08fd0b2cd0444b7ddf0ef9fd7a1a
   FirebaseAuth: 75a062bbf2d3c97d1e6e55bbc110e13a6853e25d
   FirebaseCore: 5a885548bbc5f0c410b04f8e9ac9d73ff1221907
+  FirebaseCrash: 2efeb3715b76ac843b841529ce413efb67e5fd4d
   FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
   FirebaseStorage: 3992817bf405f5c1a4f8349678d22724cd0ef509
   FirebaseUI: 82bd64fc3fc5a9451c37a720aee813990e727cf1
@@ -90,6 +101,6 @@ SPEC CHECKSUMS:
   SDWebImage: '098e97e6176540799c27e804c96653ee0833d13c'
   Stripe: 935c6deb5e96cbd29d247074bf3aa98a8438e22c
 
-PODFILE CHECKSUM: c5cc43d7b5d9c3b54999f4715ba9682f66020e3b
+PODFILE CHECKSUM: 022d818ae46b8f0ac55d50c7a99fba97d47d6aeb
 
 COCOAPODS: 1.2.0.beta.3

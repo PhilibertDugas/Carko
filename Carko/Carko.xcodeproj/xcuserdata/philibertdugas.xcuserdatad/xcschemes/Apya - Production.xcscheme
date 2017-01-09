@@ -52,9 +52,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "45BC29401DA18249000C54BC"
-            BuildableName = "Carko.app"
-            BlueprintName = "Carko"
+            BlueprintIdentifier = "45ECDA5D1E243A6900E999D8"
+            BuildableName = "Carko - Production.app"
+            BlueprintName = "Carko - Production"
             ReferencedContainer = "container:Carko.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -75,9 +75,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "45BC29401DA18249000C54BC"
-            BuildableName = "Carko.app"
-            BlueprintName = "Carko"
+            BlueprintIdentifier = "45ECDA5D1E243A6900E999D8"
+            BuildableName = "Carko - Production.app"
+            BlueprintName = "Carko - Production"
             ReferencedContainer = "container:Carko.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

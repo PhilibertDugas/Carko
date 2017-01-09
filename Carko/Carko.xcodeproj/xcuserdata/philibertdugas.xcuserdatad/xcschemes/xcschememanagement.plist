@@ -6,6 +6,8 @@
 	<dict>
 		<key>Apya - Development - French.xcscheme_^#shared#^_</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
@@ -16,7 +18,7 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>Apya - Production.xcscheme_^#shared#^_</key>
+		<key>Apya - Production.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<true/>
@@ -42,6 +44,11 @@
 			<true/>
 		</dict>
 		<key>45BC295F1DA18249000C54BC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>45ECDA5D1E243A6900E999D8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
