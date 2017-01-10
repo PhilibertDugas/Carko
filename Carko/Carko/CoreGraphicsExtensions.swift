@@ -10,6 +10,7 @@ extension UIColor {
             return UIColor.gray
         }
     }
+
     func modified(withAdditionalHue hue: CGFloat, additionalSaturation: CGFloat, additionalBrightness: CGFloat) -> UIColor {
         
         var currentHue: CGFloat = 0.0
@@ -51,6 +52,7 @@ func df() -> CGFloat {
 func clockDescretization(_ val: CGFloat) -> CGFloat{
     let min:Double  = 0
     let max:Double = 2 * Double(M_PI)
+    // TODO: Understand 144 == 12 * 60/5 ?
     let steps:Double = 144
     let stepSize = (max - min) / steps
     let nsf = floor(Double(val) / stepSize)

@@ -156,8 +156,7 @@ extension BookParkingViewController: STPPaymentContextDelegate {
         reservation.persist() { (successfulReservation, error) in
             if let error = error {
                 super.displayErrorMessage(error.localizedDescription)
-            } else if let successfulReservation = successfulReservation {
-                AppState.shared.customer.reservations.append(successfulReservation)
+            } else if successfulReservation != nil {
                 self.tapCloseButtonActionHandler?()
                 self.dismiss(animated: true, completion: nil)
             }

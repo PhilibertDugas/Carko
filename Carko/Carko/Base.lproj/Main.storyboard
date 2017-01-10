@@ -13,7 +13,7 @@
         <scene sceneID="3Wq-Vv-XmN">
             <objects>
                 <tabBarController id="BlE-fA-HKp" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="fye-mz-OfL">
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="fye-mz-OfL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -35,7 +35,7 @@
         <scene sceneID="6bg-5v-8Ia">
             <objects>
                 <viewControllerPlaceholder storyboardName="Add" id="VL7-ff-8nA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Share" id="Nmf-Gd-126"/>
+                    <tabBarItem key="tabBarItem" title="Add" id="Nmf-Gd-126"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QqV-gm-mbt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

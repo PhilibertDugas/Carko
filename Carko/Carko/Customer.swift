@@ -22,9 +22,6 @@ struct Customer {
     var externalLast4Digits: String?
     var externalBankName: String?
 
-    var parkings: [(Parking)]
-    var reservations: [(Reservation)]
-
     init(email: String, firstName: String, lastName: String, id: Int, firebaseId: String, stripeId: String) {
         self.email = email
         self.firstName = firstName
@@ -32,8 +29,6 @@ struct Customer {
         self.id = id
         self.firebaseId = firebaseId
         self.stripeId = stripeId
-        self.parkings = []
-        self.reservations = []
     }
 
     init(customer: [String: Any]) {
@@ -58,16 +53,6 @@ struct Customer {
         if let vehicule = customer["vehicule"] as? [String: Any] {
             self.vehicule = Vehicule.init(vehicule: vehicule)
         }
-
-        for parkingDict in customer["parkings"] as! NSArray {
-            let parking = Parking.init(parking: parkingDict as! [String:Any])
-            self.parkings.append(parking)
-        }
-        
-        for reservationDict in customer["reservations"] as! NSArray {
-            let reservation = Reservation.init(reservation: reservationDict as! [String : Any])
-            self.reservations.append(reservation)
-        }
     }
     
     func toDictionnary() -> [String : Any] {
@@ -77,9 +62,7 @@ struct Customer {
             "last_name": lastName,
             "firebase_id": firebaseId,
             "id": id,
-            "stripe_id": stripeId,
-            "parkings": parkingsAsDict(),
-            "reservations": reservationsAsDict()
+            "stripe_id": stripeId
         ]
 
         if let vehicule = self.vehicule {
@@ -110,22 +93,6 @@ struct Customer {
     
     static func getCustomer(complete: @escaping (Customer?, Error?) -> Void) {
         APIClient.shared.getCustomer(complete: complete)
-    }
-
-    private func parkingsAsDict() -> [[String: Any]] {
-        var dictArray: [[String: Any]] = []
-        for parking in self.parkings {
-            dictArray.append(parking.toDictionary())
-        }
-        return dictArray
-    }
-
-    private func reservationsAsDict() -> [[String: Any]] {
-        var dictArray: [[String: Any]] = []
-        for reservation in self.reservations {
-            dictArray.append(reservation.toDictionnary())
-        }
-        return dictArray
     }
 }
 

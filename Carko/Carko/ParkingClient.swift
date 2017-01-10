@@ -25,6 +25,7 @@ extension APIClient {
             complete(response.error)
         }
     }
+
     func getAllParkings(complete: @escaping([(Parking)], Error?) -> Void) {
         let getUrl = baseUrl.appendingPathComponent("/parkings")
         request(getUrl).responseJSON { (response) in

@@ -58,6 +58,7 @@ class FindParkingViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isTranslucent = true
         Parking.getAllParkings { (parkings, error) in
             if let error = error {
                 self.displayErrorMessage(error.localizedDescription)
@@ -65,6 +66,11 @@ class FindParkingViewController: UIViewController {
                 self.parkingFetched(parkings)
             }
         }
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.tabBarController?.tabBar.isTranslucent = false
     }
 }
 
