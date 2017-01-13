@@ -31,6 +31,22 @@ extension LocationSearchTableViewController: UISearchResultsUpdating {
             self.tableView.reloadData()
         }
     }
+
+    func updateSearchs(for queryString: String?) {
+        guard let mapView = mapView,
+            let searchBarText = queryString else { return }
+        let request = MKLocalSearchRequest()
+        request.naturalLanguageQuery = searchBarText
+        request.region = mapView.region
+        let search = MKLocalSearch(request: request)
+        search.start { response, _ in
+            guard let response = response else {
+                return
+            }
+            self.matchingItems = response.mapItems
+            self.tableView.reloadData()
+        }
+    }
 }
 
 extension LocationSearchTableViewController {

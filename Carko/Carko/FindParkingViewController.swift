@@ -15,8 +15,10 @@ import FirebaseAuth
 class FindParkingViewController: UIViewController {
     @IBOutlet var popupView: MarkerPopup!
     @IBOutlet var mapView: MKMapView!
+    @IBOutlet var searchField: UITextField!
+    @IBOutlet var resultViews: UIView!
 
-    var searchController: UISearchController!
+    var locationSearchTable: LocationSearchTableViewController!
     var blurView: UIVisualEffectView!
 
     let locationManager = CLLocationManager()
@@ -44,6 +46,7 @@ class FindParkingViewController: UIViewController {
         self.prepareAnimation()
         self.setupAnimator()
         self.setupSearchBar()
+        self.blurStatusBar()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -72,41 +75,54 @@ class FindParkingViewController: UIViewController {
         super.viewWillDisappear(animated)
         self.tabBarController?.tabBar.isTranslucent = false
     }
+
+    override func viewDidLayoutSubviews() {
+        self.navigationController?.navigationBar.frame = CGRect.init(x: 0, y: 0, width: self.view.frame.width, height: 64)
+    }
+
+    func blurStatusBar() {
+        let effect = UIBlurEffect(style: UIBlurEffectStyle.light)
+        let blurView = UIVisualEffectView.init(effect: effect)
+        blurView.frame = CGRect.init(x: 0.0, y: 0.0, width: view.bounds.width, height: 20.0)
+        mapView.addSubview(blurView)
+    }
 }
 
 extension FindParkingViewController {
     func setupSearchBar() {
-        let locationSearchTable = storyboard?.instantiateViewController(withIdentifier: "locationSearchTable") as! LocationSearchTableViewController
+        self.searchField.delegate = self
+        self.searchField.addTarget(self, action: #selector(self.textChanged), for: UIControlEvents.editingChanged)
+
+        locationSearchTable = storyboard?.instantiateViewController(withIdentifier: "locationSearchTable") as! LocationSearchTableViewController
         locationSearchTable.mapView = mapView
         locationSearchTable.handleMapSearchDelegate = self
 
-        searchController = UISearchController.init(searchResultsController: locationSearchTable)
-        searchController.searchResultsUpdater = locationSearchTable
-
-        let searchBar = searchController.searchBar
-        searchBar.delegate = self
-        searchBar.sizeToFit()
-        searchBar.placeholder = NSLocalizedString("Search for a location", comment: "")
-        navigationItem.titleView = searchController.searchBar
-
-        searchController.hidesNavigationBarDuringPresentation = false
-        searchController.dimsBackgroundDuringPresentation = true
         definesPresentationContext = true
     }
 }
 
-extension FindParkingViewController: UISearchBarDelegate {
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        definesPresentationContext = true
-        let effect = UIBlurEffect(style: UIBlurEffectStyle.light)
-        blurView = UIVisualEffectView.init(effect: effect)
-        blurView.frame = mapView.bounds
-        mapView.addSubview(blurView)
+extension FindParkingViewController: UITextFieldDelegate {
+    func textChanged() {
+        locationSearchTable.updateSearchs(for: self.searchField.text)
     }
 
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        definesPresentationContext = true
+        let effect = UIBlurEffect(style: UIBlurEffectStyle.light)
+        self.blurView = UIVisualEffectView.init(effect: effect)
+        self.blurView.frame = mapView.bounds
+        self.mapView.addSubview(blurView)
+
+        self.resultViews.addSubview(locationSearchTable.view)
+        self.view.insertSubview(self.resultViews, aboveSubview: self.mapView)
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
         definesPresentationContext = false
-        blurView.removeFromSuperview()
+        self.blurView.removeFromSuperview()
+        self.resultViews.removeFromSuperview()
+        self.view.insertSubview(self.resultViews, belowSubview: self.mapView)
+        self.locationSearchTable.view.removeFromSuperview()
     }
 }
 
@@ -114,6 +130,7 @@ extension FindParkingViewController: HandleMapSearch {
     func selectedPlacemark(placemark: MKPlacemark){
         let region = MKCoordinateRegionMakeWithDistance(placemark.coordinate, 800, 800)
         mapView.setRegion(region, animated: true)
+        self.searchField.endEditing(true)
     }
 }
 

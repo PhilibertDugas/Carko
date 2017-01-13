@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="SQZ-BI-WVF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="415-jb-YhG">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -22,6 +22,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uz2-d2-T0j">
+                                <rect key="frame" x="16" y="80" width="343" height="460"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" rotateEnabled="NO" pitchEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F3O-Ph-Xpo">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -37,10 +41,40 @@
                                     <outletCollection property="gestureRecognizers" destination="dCC-8g-gcs" appends="YES" id="Rnd-Fn-fkc"/>
                                 </connections>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f8N-P4-Nht">
+                                <rect key="frame" x="16" y="28" width="343" height="44"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" alpha="0.94999999999999996" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search" translatesAutoresizingMaskIntoConstraints="NO" id="9NF-pA-o96">
+                                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="44" id="hyH-cC-eJa"/>
+                                        </constraints>
+                                    </imageView>
+                                    <textField opaque="NO" clipsSubviews="YES" alpha="0.94999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Where are you going?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zp5-db-7QN">
+                                        <rect key="frame" x="44" y="0.0" width="299" height="44"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="ar9-n2-z4z"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="f8N-P4-Nht" firstAttribute="top" secondItem="XfT-na-pou" secondAttribute="bottom" constant="8" id="1vB-1H-zJs"/>
+                            <constraint firstItem="Uz2-d2-T0j" firstAttribute="top" secondItem="f8N-P4-Nht" secondAttribute="bottom" constant="8" id="Dow-7c-foR"/>
+                            <constraint firstItem="Uz2-d2-T0j" firstAttribute="trailing" secondItem="Njl-x4-YWd" secondAttribute="trailingMargin" id="P3Y-A8-TJ5"/>
+                            <constraint firstItem="f8N-P4-Nht" firstAttribute="trailing" secondItem="Njl-x4-YWd" secondAttribute="trailingMargin" id="TfH-ds-m5Z"/>
                             <constraint firstAttribute="trailing" secondItem="vJw-M0-R9n" secondAttribute="trailing" id="bgO-EG-c4i"/>
+                            <constraint firstItem="vJw-M0-R9n" firstAttribute="top" secondItem="Uz2-d2-T0j" secondAttribute="bottom" constant="8" id="euz-LZ-iPZ"/>
+                            <constraint firstItem="f8N-P4-Nht" firstAttribute="leading" secondItem="Njl-x4-YWd" secondAttribute="leadingMargin" id="jjP-aG-sR3"/>
                             <constraint firstItem="vpB-74-N3m" firstAttribute="top" secondItem="vJw-M0-R9n" secondAttribute="bottom" id="jxx-5a-X7l"/>
+                            <constraint firstItem="Uz2-d2-T0j" firstAttribute="leading" secondItem="Njl-x4-YWd" secondAttribute="leadingMargin" id="ok5-Z4-BmJ"/>
                             <constraint firstItem="vJw-M0-R9n" firstAttribute="leading" secondItem="Njl-x4-YWd" secondAttribute="leading" id="s76-IW-S9c"/>
                         </constraints>
                     </view>
@@ -50,6 +84,8 @@
                     <connections>
                         <outlet property="mapView" destination="F3O-Ph-Xpo" id="XCQ-di-Sbv"/>
                         <outlet property="popupView" destination="vJw-M0-R9n" id="Zeg-QR-0s8"/>
+                        <outlet property="resultViews" destination="Uz2-d2-T0j" id="1bf-Iz-8ow"/>
+                        <outlet property="searchField" destination="Zp5-db-7QN" id="2ek-oq-obU"/>
                         <segue destination="PFI-OV-uJx" kind="presentation" identifier="showLoginScreen" animates="NO" id="5Rc-wB-NgD"/>
                     </connections>
                 </viewController>
@@ -69,23 +105,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aRf-lo-uJZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-116" y="75"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="XV0-Ah-9jd">
-            <objects>
-                <navigationController id="SQZ-BI-WVF" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ndC-Pe-M9p">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="0.112871848" green="0.75954872370000004" blue="0.28861063720000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="415-jb-YhG" kind="relationship" relationship="rootViewController" id="TWL-vC-jgc"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qdb-Fr-qrh" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-839" y="-450"/>
         </scene>
         <!--Book Parking View Controller-->
         <scene sceneID="PO2-QN-Cvr">
@@ -331,7 +350,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ABE-BI-0g4" id="4SB-u5-VaZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2i4-ej-H8X">
@@ -386,6 +405,7 @@
         <image name="credit-card.png" width="32" height="32"/>
         <image name="money-bag.png" width="32" height="32"/>
         <image name="placeholder.png" width="32" height="32"/>
+        <image name="search" width="44" height="44"/>
         <image name="success.png" width="32" height="32"/>
     </resources>
 </document>
