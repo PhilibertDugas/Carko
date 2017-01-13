@@ -97,6 +97,7 @@ extension FindParkingViewController {
 
 extension FindParkingViewController: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        definesPresentationContext = true
         let effect = UIBlurEffect(style: UIBlurEffectStyle.light)
         blurView = UIVisualEffectView.init(effect: effect)
         blurView.frame = mapView.bounds
@@ -104,6 +105,7 @@ extension FindParkingViewController: UISearchBarDelegate {
     }
 
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        definesPresentationContext = false
         blurView.removeFromSuperview()
     }
 }

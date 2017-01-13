@@ -120,6 +120,7 @@ extension ParkingTransitionAnimation: TransitionAnimatable {
 
         if transitionType.isPresenting {
             if didComplete {
+                self.rootVC.definesPresentationContext = false
                 self.rootVC.popupView.alpha = 0.0
                 self.modalVC.view.removeFromSuperview()
                 self.containerView?.addSubview(self.modalVC.view)
@@ -131,6 +132,7 @@ extension ParkingTransitionAnimation: TransitionAnimatable {
             }
         } else {
             if didComplete {
+                self.rootVC.definesPresentationContext = false
                 self.modalVC.view.removeFromSuperview()
                 self.superView.addSubview(self.rootVC.tabBar)
                 self.completion?(transitionType.isPresenting)
