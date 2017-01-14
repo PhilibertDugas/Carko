@@ -10,12 +10,5 @@ import UIKit
 import CoreLocation
 
 class NewParkingViewController: UIViewController {
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "createParking" {
-            let vc = segue.destination as! LocationViewController
-            vc.parking = Parking.init()
-            vc.newParking = true
-        }
-    }
+    @IBOutlet var mainActionButton: RoundedCornerButton!
 }

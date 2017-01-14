@@ -14,6 +14,7 @@ class ListParkingViewController: UITableViewController {
     var parkingList = [Parking]()
     var isEditingAvailability = false
     var selectedRowIndex = 0
+    var firstParkingView: NewParkingView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,15 +35,25 @@ class ListParkingViewController: UITableViewController {
                 super.displayErrorMessage(error.localizedDescription)
             } else {
                 if parkings.count > 0 {
+                    if let firstView = self.firstParkingView {
+                        firstView.removeFromSuperview()
+                    }
                     self.navigationItem.leftBarButtonItem = self.editButtonItem
                     self.setEditing(false, animated: true)
                 } else {
-                    self.performSegue(withIdentifier: "firstParking", sender: nil)
+                    self.navigationItem.leftBarButtonItem = nil
+                    self.firstParkingView = NewParkingView.init(frame: self.tableView.frame)
+                    self.firstParkingView!.mainActionButton.addTarget(self, action: #selector(self.newParkingTapped), for: UIControlEvents.touchUpInside)
+                    self.view.insertSubview(self.firstParkingView!, aboveSubview: self.tableView)
                 }
                 self.parkingList = parkings
                 self.tableView.reloadData()
             }
         }
+    }
+
+    func newParkingTapped() {
+        self.performSegue(withIdentifier: "newParking", sender: nil)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {        
@@ -69,7 +80,9 @@ extension ListParkingViewController {
             if parking.isAvailable {
                 parking.delete(complete: completeParkingDelete)
             } else {
-                super.displayErrorMessage("You can't remove a parking while it's in use. Please wait after the parking duration")
+                super.displayDestructiveMessage("YOUR PARKING IS CURRENTLY IN USE, ARE YOU SURE YOU WANT TO REMOVE IT?", title: "PARKING IN USE", handle: { (action) in
+                    parking.delete(complete: self.completeParkingDelete)
+                })
             }
         }
     }
@@ -96,7 +109,6 @@ extension ListParkingViewController {
             super.displayErrorMessage(error.localizedDescription)
         } else {
             NotificationCenter.default.post(name: Notification.Name.init("ParkingDeleted"), object: nil, userInfo: nil)
-            let _ = self.navigationController?.popViewController(animated: true)
         }
     }
 }

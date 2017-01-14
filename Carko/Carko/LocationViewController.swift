@@ -8,15 +8,20 @@ protocol ParkingLocationDelegate {
 class LocationViewController: UIViewController {
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var addButton: UIButton!
-    @IBOutlet var progressView: UIView!
-    @IBOutlet var helperLabel: UILabel!
+    @IBOutlet var searchStack: UIView!
+    @IBOutlet var searchField: UITextField!
+    @IBOutlet var resultView: UIView!
+    @IBOutlet var searchStackTopConstraint: NSLayoutConstraint!
 
     var delegate: ParkingLocationDelegate?
 
     let locationManager = CLLocationManager()
 
     var blurView: UIVisualEffectView!
-    var searchController: UISearchController!
+    var searchResultView: UIView!
+    var locationSearchTable: LocationSearchTableViewController!
+    var firstSearch = true
+
     var selectedPin: MKPlacemark!
     var centerAnnotation: MKPointAnnotation!
     var justZoomedIn = false
@@ -27,8 +32,9 @@ class LocationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.searchStackTopConstraint.constant = (self.view.frame.height / 2) - 40
+
         if !newParking {
-            progressView.isHidden = true
             addButton.setTitle(NSLocalizedString("Save", comment: ""), for: UIControlState.normal)
         }
 
@@ -39,8 +45,19 @@ class LocationViewController: UIViewController {
         panGesture.delegate = self;
         mapView.addGestureRecognizer(panGesture)
 
-        setupLocationManager()
-        setupSearchBar()
+        self.setupLocationManager()
+        self.setupSearchBar()
+        self.blurMap()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.navigationBar.isHidden = false
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -72,25 +89,6 @@ class LocationViewController: UIViewController {
         locationManager.startUpdatingLocation()
     }
 
-    func setupSearchBar() {
-        let locationSearchTable = storyboard?.instantiateViewController(withIdentifier: "locationSearchTable") as! LocationSearchTableViewController
-        locationSearchTable.mapView = mapView
-        locationSearchTable.handleMapSearchDelegate = self
-
-        searchController = UISearchController.init(searchResultsController: locationSearchTable)
-        searchController.searchResultsUpdater = locationSearchTable
-
-        let searchBar = searchController.searchBar
-        searchBar.delegate = self
-        searchBar.sizeToFit()
-        searchBar.placeholder = NSLocalizedString("Enter your address", comment: "")
-        navigationItem.titleView = searchController.searchBar
-
-        searchController.hidesNavigationBarDuringPresentation = false
-        searchController.dimsBackgroundDuringPresentation = true
-        definesPresentationContext = true
-    }
-
     func updateParking() {
         let currentMapCoordinate = mapView.centerCoordinate
         let latitude = currentMapCoordinate.latitude
@@ -102,20 +100,68 @@ class LocationViewController: UIViewController {
     }
 }
 
-extension LocationViewController: UISearchBarDelegate {
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        let effect = UIBlurEffect(style: UIBlurEffectStyle.light)
-        blurView = UIVisualEffectView.init(effect: effect)
-        blurView.frame = mapView.bounds
-        mapView.addSubview(blurView)
-        helperLabel.isHidden = true
-        navigationItem.setHidesBackButton(true, animated: true)
+extension LocationViewController {
+    func setupSearchBar() {
+        self.searchField.delegate = self
+        self.searchField.addTarget(self, action: #selector(self.textChanged), for: UIControlEvents.editingChanged)
+
+        self.locationSearchTable = storyboard?.instantiateViewController(withIdentifier: "locationSearchTable") as! LocationSearchTableViewController
+        self.locationSearchTable.mapView = mapView
+        self.locationSearchTable.handleMapSearchDelegate = self
+    }
+}
+
+extension LocationViewController: UITextFieldDelegate {
+    func textChanged() {
+        locationSearchTable.updateSearchs(for: self.searchField.text)
     }
 
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        blurView.removeFromSuperview()
-        helperLabel.isHidden = false
-        navigationItem.setHidesBackButton(false, animated: true)
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if firstSearch {
+            self.searchStackTopConstraint.constant = 16
+            UIView.animate(withDuration: 1.0, animations: {
+                self.view.layoutIfNeeded()
+            }, completion: { (complete) in
+                if complete {
+                    self.firstSearch = false
+                    self.blurSearchBar()
+                }
+            })
+        } else {
+            self.blurMap()
+            self.locationSearchTable.lightText = true
+        }
+
+        self.searchResultView = UIView.init(frame: self.resultView.frame)
+        self.searchResultView.addSubview(self.locationSearchTable.view)
+        self.view.insertSubview(self.searchResultView, aboveSubview: self.mapView)
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        self.blurView.removeFromSuperview()
+        self.searchResultView.removeFromSuperview()
+    }
+
+    func blurMap() {
+        let effect = UIBlurEffect(style: UIBlurEffectStyle.light)
+        self.blurView = UIVisualEffectView.init(effect: effect)
+        self.blurView.frame = mapView.bounds
+        self.mapView.addSubview(blurView)
+
+    }
+
+    func blurStatutBar() {
+        let effect = UIBlurEffect(style: UIBlurEffectStyle.light)
+        let statusBarBlur = UIVisualEffectView.init(effect: effect)
+        statusBarBlur.frame = CGRect.init(x: 0.0, y: 0.0, width: view.bounds.width, height: 20.0)
+        self.mapView.addSubview(statusBarBlur)
+    }
+
+    func blurSearchBar() {
+        let effect = UIBlurEffect(style: UIBlurEffectStyle.light)
+        let searchBarBlur = UIVisualEffectView.init(effect: effect)
+        searchBarBlur.frame = searchStack.frame
+        mapView.addSubview(searchBarBlur)
     }
 }
 
@@ -166,6 +212,6 @@ extension LocationViewController: HandleMapSearch {
         mapView.mapType = MKMapType.satellite
         mapView.setRegion(region, animated: true)
         addButton.isHidden = false
-        helperLabel.text = NSLocalizedString("Drag the marker to the exact location", comment: "")
+        self.searchField.endEditing(true)
     }
 }

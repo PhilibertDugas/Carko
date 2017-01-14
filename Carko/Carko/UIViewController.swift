@@ -25,4 +25,11 @@ extension UIViewController {
         alert.addAction(UIAlertAction.init(title: "OK", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
+
+    func displayDestructiveMessage(_ message: String, title: String, handle: @escaping (UIAlertAction) -> Void) {
+        let alert = UIAlertController.init(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction.init(title: "OK", style: UIAlertActionStyle.destructive, handler: handle))
+        alert.addAction(UIAlertAction.init(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
 }

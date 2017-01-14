@@ -64,7 +64,6 @@ class FindParkingViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.tabBarController?.tabBar.isTranslucent = true
         Parking.getAllParkings { (parkings, error) in
             if let error = error {
                 self.displayErrorMessage(error.localizedDescription)
@@ -77,7 +76,6 @@ class FindParkingViewController: UIViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.tabBarController?.tabBar.isTranslucent = false
     }
 
     func blurMap() {
@@ -231,7 +229,10 @@ extension FindParkingViewController: MKMapViewDelegate {
 
         UIView.animate(withDuration: 0.15, animations: {
             self.popupView.frame.origin.y = self.tabBar.frame.origin.y
-            self.popupView.isHidden = true
+        }, completion: { (complete) in
+            if complete {
+                self.popupView.isHidden = true
+            }
         })
     }
 

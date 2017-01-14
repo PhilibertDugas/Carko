@@ -9,6 +9,7 @@ class LocationSearchTableViewController: UITableViewController {
     var matchingItems:[MKMapItem] = []
     var mapView: MKMapView! = nil
     var handleMapSearchDelegate: HandleMapSearch?
+    var lightText = false
 
     override func viewDidLoad() {
         tableView.backgroundColor = UIColor.clear
@@ -68,6 +69,10 @@ extension LocationSearchTableViewController {
         let selectedItem = matchingItems[indexPath.row].placemark
         cell.titleLabel.text = selectedItem.name
         cell.subtitleLabel.text = LocationSearchTableViewController.parseAddress(selectedItem: selectedItem)
+        if self.lightText {
+            cell.titleLabel.textColor = UIColor.white
+            cell.subtitleLabel.textColor = UIColor.white
+        }
         return cell
     }
 

@@ -40,7 +40,7 @@
                                     <outletCollection property="gestureRecognizers" destination="dCC-8g-gcs" appends="YES" id="Rnd-Fn-fkc"/>
                                 </connections>
                             </view>
-                            <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YRc-ok-e44">
+                            <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YRc-ok-e44">
                                 <rect key="frame" x="16" y="36" width="343" height="44"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Where are you going?" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Zp5-db-7QN">
