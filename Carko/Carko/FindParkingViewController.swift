@@ -17,9 +17,13 @@ class FindParkingViewController: UIViewController {
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var searchField: UITextField!
     @IBOutlet var resultViews: UIView!
+    @IBOutlet var searchStack: UIView!
 
     var locationSearchTable: LocationSearchTableViewController!
+
     var blurView: UIVisualEffectView!
+    var popupBlur: UIVisualEffectView!
+    var searchResultView: UIView!
 
     let locationManager = CLLocationManager()
     var firstZoom = true
@@ -27,18 +31,15 @@ class FindParkingViewController: UIViewController {
     var tabBar: UITabBar!
     var bookParkingVC: BookParkingViewController!
     var animator: ARNTransitionAnimator!
-    var shouldDismissPopupview = true
 
     var selectedParking: Parking!
 
     @IBAction func annotationTapped(_ sender: Any) {
-        self.shouldDismissPopupview = false
         self.present(self.bookParkingVC, animated: true, completion: nil)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.popupView.isHidden = true
         self.mapView.showsUserLocation = true
         self.mapView.delegate = self
         locationManager.requestWhenInUseAuthorization()
@@ -46,11 +47,13 @@ class FindParkingViewController: UIViewController {
         self.prepareAnimation()
         self.setupAnimator()
         self.setupSearchBar()
-        self.blurStatusBar()
+        self.blurMap()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        self.popupView.isHidden = true
+
         let customer = UserDefaults.standard.dictionary(forKey: "user")
         if FIRAuth.auth()?.currentUser == nil || customer == nil {
             self.performSegue(withIdentifier: "showLoginScreen", sender: nil)
@@ -68,6 +71,7 @@ class FindParkingViewController: UIViewController {
             } else {
                 self.parkingFetched(parkings)
             }
+
         }
     }
 
@@ -76,15 +80,14 @@ class FindParkingViewController: UIViewController {
         self.tabBarController?.tabBar.isTranslucent = false
     }
 
-    override func viewDidLayoutSubviews() {
-        self.navigationController?.navigationBar.frame = CGRect.init(x: 0, y: 0, width: self.view.frame.width, height: 64)
-    }
-
-    func blurStatusBar() {
+    func blurMap() {
         let effect = UIBlurEffect(style: UIBlurEffectStyle.light)
-        let blurView = UIVisualEffectView.init(effect: effect)
-        blurView.frame = CGRect.init(x: 0.0, y: 0.0, width: view.bounds.width, height: 20.0)
-        mapView.addSubview(blurView)
+        let statusBarBlur = UIVisualEffectView.init(effect: effect)
+        let searchBarBlur = UIVisualEffectView.init(effect: effect)
+        statusBarBlur.frame = CGRect.init(x: 0.0, y: 0.0, width: view.bounds.width, height: 20.0)
+        searchBarBlur.frame = searchStack.frame
+        mapView.addSubview(statusBarBlur)
+        mapView.addSubview(searchBarBlur)
     }
 }
 
@@ -93,11 +96,9 @@ extension FindParkingViewController {
         self.searchField.delegate = self
         self.searchField.addTarget(self, action: #selector(self.textChanged), for: UIControlEvents.editingChanged)
 
-        locationSearchTable = storyboard?.instantiateViewController(withIdentifier: "locationSearchTable") as! LocationSearchTableViewController
-        locationSearchTable.mapView = mapView
-        locationSearchTable.handleMapSearchDelegate = self
-
-        definesPresentationContext = true
+        self.locationSearchTable = storyboard?.instantiateViewController(withIdentifier: "locationSearchTable") as! LocationSearchTableViewController
+        self.locationSearchTable.mapView = mapView
+        self.locationSearchTable.handleMapSearchDelegate = self
     }
 }
 
@@ -107,22 +108,19 @@ extension FindParkingViewController: UITextFieldDelegate {
     }
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        definesPresentationContext = true
         let effect = UIBlurEffect(style: UIBlurEffectStyle.light)
         self.blurView = UIVisualEffectView.init(effect: effect)
         self.blurView.frame = mapView.bounds
         self.mapView.addSubview(blurView)
 
-        self.resultViews.addSubview(locationSearchTable.view)
-        self.view.insertSubview(self.resultViews, aboveSubview: self.mapView)
+        self.searchResultView = UIView.init(frame: self.resultViews.frame)
+        self.searchResultView.addSubview(self.locationSearchTable.view)
+        self.view.insertSubview(self.searchResultView, aboveSubview: self.mapView)
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
-        definesPresentationContext = false
         self.blurView.removeFromSuperview()
-        self.resultViews.removeFromSuperview()
-        self.view.insertSubview(self.resultViews, belowSubview: self.mapView)
-        self.locationSearchTable.view.removeFromSuperview()
+        self.searchResultView.removeFromSuperview()
     }
 }
 
@@ -147,7 +145,6 @@ extension FindParkingViewController {
         self.bookParkingVC.modalPresentationStyle = .overCurrentContext
 
         self.bookParkingVC.tapCloseButtonActionHandler = { _ in
-            self.tabBar.frame.origin.y = self.mapView.frame.height
             self.popupView.descriptionLabel.text = self.selectedParking.address
             self.popupView.frame.origin.y = self.mapView.frame.height - self.tabBar.frame.height
         }
@@ -216,18 +213,26 @@ extension FindParkingViewController: MKMapViewDelegate {
                 self.popupView.isHidden = false
                 let yOrigin = self.mapView.frame.height - self.tabBar.frame.height
                 self.popupView.frame.origin.y = yOrigin
+            }, completion: { (complete) in
+                if complete {
+                    let effect = UIBlurEffect(style: UIBlurEffectStyle.light)
+                    self.popupBlur = UIVisualEffectView.init(effect: effect)
+                    self.popupBlur.frame = self.popupView.frame
+                    mapView.addSubview(self.popupBlur)
+                }
             })
         }
     }
 
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-        if self.shouldDismissPopupview {
-            UIView.animate(withDuration: 0.15, animations: {
-                self.popupView.frame.origin.y = self.tabBar.frame.origin.y
-            })
-        } else {
-            self.shouldDismissPopupview = true
+        if self.popupBlur != nil {
+            self.popupBlur.removeFromSuperview()
         }
+
+        UIView.animate(withDuration: 0.15, animations: {
+            self.popupView.frame.origin.y = self.tabBar.frame.origin.y
+            self.popupView.isHidden = true
+        })
     }
 
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
