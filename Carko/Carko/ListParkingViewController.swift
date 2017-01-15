@@ -11,21 +11,23 @@ import FirebaseStorageUI
 import CoreLocation
 
 class ListParkingViewController: UITableViewController {
+    @IBOutlet var headerView: UIView!
+
     var parkingList = [Parking]()
     var isEditingAvailability = false
     var selectedRowIndex = 0
-    var firstParkingView: NewParkingView?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         NotificationCenter.default.addObserver(self, selector: #selector(self.parkingListUpdate), name: Notification.Name.init(rawValue: "NewParking"), object: nil)
 
-        NotificationCenter.default.addObserver(self, selector: #selector(self.parkingListUpdate), name: Notification.Name.init(rawValue: "ParkingDeleted"), object: nil)
+        parkingListUpdate()
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        parkingListUpdate()
+        super.viewWillAppear(animated)
+        self.updateTable(AppState.shared.parkingList())
     }
 
     
@@ -34,22 +36,39 @@ class ListParkingViewController: UITableViewController {
             if let error = error {
                 super.displayErrorMessage(error.localizedDescription)
             } else {
-                if parkings.count > 0 {
-                    if let firstView = self.firstParkingView {
-                        firstView.removeFromSuperview()
-                    }
-                    self.navigationItem.leftBarButtonItem = self.editButtonItem
-                    self.setEditing(false, animated: true)
-                } else {
-                    self.navigationItem.leftBarButtonItem = nil
-                    self.firstParkingView = NewParkingView.init(frame: self.tableView.frame)
-                    self.firstParkingView!.mainActionButton.addTarget(self, action: #selector(self.newParkingTapped), for: UIControlEvents.touchUpInside)
-                    self.view.insertSubview(self.firstParkingView!, aboveSubview: self.tableView)
-                }
-                self.parkingList = parkings
-                self.tableView.reloadData()
+                self.updateTable(parkings)
             }
         }
+    }
+
+    func updateTable(_ parkings: [(Parking)]) {
+        if parkings.count > 0 {
+            self.navigationController?.navigationBar.isHidden = false
+            self.headerView.isHidden = false
+            self.navigationItem.leftBarButtonItem = self.editButtonItem
+            self.setEditing(false, animated: true)
+            self.removeFirstParkingView()
+        } else {
+            self.navigationController?.navigationBar.isHidden = true
+            self.headerView.isHidden = true
+            self.setupFirstParkingView()
+        }
+        self.parkingList = parkings
+        self.tableView.reloadData()
+    }
+
+    func removeFirstParkingView() {
+        for view in self.view.subviews {
+            if let firstView = view as? NewParkingView {
+                firstView.removeFromSuperview()
+            }
+        }
+    }
+
+    func setupFirstParkingView() {
+        let firstParkingView = NewParkingView.init(frame: self.tableView.frame)
+        firstParkingView.mainActionButton.addTarget(self, action: #selector(self.newParkingTapped), for: UIControlEvents.touchUpInside)
+        self.view.insertSubview(firstParkingView, aboveSubview: self.tableView)
     }
 
     func newParkingTapped() {
@@ -109,6 +128,7 @@ extension ListParkingViewController {
             super.displayErrorMessage(error.localizedDescription)
         } else {
             NotificationCenter.default.post(name: Notification.Name.init("ParkingDeleted"), object: nil, userInfo: nil)
+            self.parkingListUpdate()
         }
     }
 }

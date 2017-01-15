@@ -17,9 +17,10 @@
 "Drag the marker to the exact location" = "Choisissez l'emplacement exacte";
 "Confirm payment of %s$ to get a parking until %s" = "Confirmez le paiement de %s$ pour un stationnement jusqu'à %s";
 "Confirm payment" = "Confirmez le paiement";
+"Error" = "Erreur";
 "Cancel" = "Annuler";
 "Ok" = "Ok";
 "Start" = "Début";
-"End" = "Find";
+"End" = "Fin";
 "Search for a location" = "Recherchez une location";
 

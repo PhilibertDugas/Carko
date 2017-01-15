@@ -26,7 +26,6 @@ extension APIClient {
                     complete(nil, NSError.init(domain: errorMessage, code: response.statusCode, userInfo: nil))
                 }
             }
-
         }
     }
 }

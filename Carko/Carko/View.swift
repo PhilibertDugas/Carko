@@ -42,3 +42,11 @@ class CircularView: UIView {
         super.draw(rect)
     }
 }
+
+class RoundedCornerView: UIView {
+    override func draw(_ rect: CGRect) {
+        layer.cornerRadius = 5
+        layer.masksToBounds = true
+        super.draw(rect)
+    }
+}

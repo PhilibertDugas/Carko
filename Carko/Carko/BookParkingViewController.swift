@@ -14,17 +14,18 @@ class BookParkingViewController: UIViewController {
 
     @IBOutlet var parkingImageView: UIImageView!
     @IBOutlet var addressLabel: UILabel!
-    @IBOutlet var availabilityLabel: UILabel!
     @IBOutlet var creditCardLabel: UnderlineTextField!
     @IBOutlet var vehiculeLabel: UnderlineTextField!
     @IBOutlet var timeLabel: UILabel!
     @IBOutlet var costLabel: UILabel!
     @IBOutlet var timeSlider: UISlider!
     @IBOutlet var confirmButton: CircularButton!
+    @IBOutlet var startTime: UILabel!
+    @IBOutlet var endTime: UILabel!
 
     var endTimeParking: String!
     var totalCost: Float!
-    var sliderValue: Int!
+    var sliderValue: Float!
     var paymentContext: STPPaymentContext!
     var parking: Parking!
 
@@ -77,7 +78,8 @@ class BookParkingViewController: UIViewController {
         super.viewWillAppear(animated)
 
         addressLabel.text = parking.address
-        availabilityLabel.text = "\(NSLocalizedString("Available until", comment: "")) \(parking.availabilityInfo.stopTime)"
+        startTime.text = DateHelper.currentTime()
+        endTime.text = parking.availabilityInfo.stopTime
 
         let minuteDelta = self.parking.stopDate().timeIntervalSince(Date.init()) / 60
         self.timeSlider.maximumValue = Float(minuteDelta)
@@ -99,15 +101,19 @@ class BookParkingViewController: UIViewController {
     }
 
     func setSliderValue() {
-        var value = Int(timeSlider.value)
+        let value = Int(timeSlider.value)
         let stepSize = 15
-        value = (value - value % stepSize)
-        self.sliderValue = value
+        let diff = Int(timeSlider.maximumValue) - value
+        if diff < 15 {
+            self.sliderValue = timeSlider.maximumValue
+        } else {
+            self.sliderValue = Float.init(value - value % stepSize)
+        }
     }
 
     func setTimeLabel() {
         let calendar = Calendar.current
-        let until = calendar.date(byAdding: Calendar.Component.minute, value: self.sliderValue, to: Date())
+        let until = calendar.date(byAdding: Calendar.Component.minute, value: Int(self.sliderValue), to: Date())
         endTimeParking = AvailabilityInfo.formatter().string(from: until!)
         timeLabel.text = "\(NSLocalizedString("Until", comment: "")) \(endTimeParking!)"
     }

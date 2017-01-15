@@ -10,19 +10,41 @@ import Foundation
 import Alamofire
 
 extension APIClient {
-    func createParking(parking: Parking, complete: @escaping (Error?) -> Void ) {
+    func createParking(parking: Parking, complete: @escaping (Error?, Parking?) -> Void ) {
         let parameters: Parameters = ["parking": parking.toDictionary()]
         let postUrl = baseUrl.appendingPathComponent("/parkings")
-        request(postUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).response { (response) in
-            complete(response.error)
+        request(postUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { (dataResponse) in
+            if let error = dataResponse.result.error {
+                complete(error, nil)
+            } else if let response = dataResponse.response, let value = dataResponse.result.value {
+                if response.statusCode == 201 {
+                    let parking = value as! [String: Any]
+                    complete(nil, Parking.init(parking: parking))
+                } else {
+                    let error = value as! NSDictionary
+                    let errorMessage = error.object(forKey: "error") as! String
+                    complete(NSError.init(domain: errorMessage, code: response.statusCode, userInfo: nil), nil)
+                }
+            }
         }
     }
 
-    func updateParking(parking: Parking, complete: @escaping (Error?) -> Void ) {
+    func updateParking(parking: Parking, complete: @escaping (Error?, Parking?) -> Void ) {
         let parameters: Parameters = ["parking": parking.toDictionary()]
         let patchUrl = baseUrl.appendingPathComponent("/parkings/\(parking.id!)")
-        request(patchUrl, method: .patch, parameters: parameters, encoding: JSONEncoding.default).response { (response) in
-            complete(response.error)
+        request(patchUrl, method: .patch, parameters: parameters, encoding: JSONEncoding.default).responseJSON { (dataResponse) in
+            if let error = dataResponse.result.error {
+                complete(error, nil)
+            } else if let response = dataResponse.response, let value = dataResponse.result.value {
+                if response.statusCode == 200 {
+                    let parking = value as! [String: Any]
+                    complete(nil, Parking.init(parking: parking))
+                } else {
+                    let error = value as! NSDictionary
+                    let errorMessage = error.object(forKey: "error") as! String
+                    complete(NSError.init(domain: errorMessage, code: response.statusCode, userInfo: nil), nil)
+                }
+            }
         }
     }
 

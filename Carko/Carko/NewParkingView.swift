@@ -11,6 +11,8 @@ import UIKit
 class NewParkingView: UIView {
 
     @IBOutlet weak var view: UIView!
+    @IBOutlet var mainImage: UIImageView!
+    @IBOutlet var mainLabel: UILabel!
     @IBOutlet var mainActionButton: RoundedCornerButton!
 
     override init(frame: CGRect) {

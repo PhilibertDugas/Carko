@@ -11,9 +11,8 @@ import UIKit
 class RoundedCornerButton: UIButton {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        layer.cornerRadius = 1
-        layer.borderWidth = 1
-        layer.borderColor = UIColor.init(netHex: 0x515052).cgColor
+        layer.cornerRadius = 3
+        layer.borderWidth = 0
     }
 }
 

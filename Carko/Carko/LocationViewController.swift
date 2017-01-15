@@ -40,6 +40,7 @@ class LocationViewController: UIViewController {
 
         addButton.isHidden = true
         mapView.delegate = self
+        mapView.mapType = MKMapType.satellite
 
         let panGesture = UIPanGestureRecognizer.init(target: self, action: #selector(self.handlePan))
         panGesture.delegate = self;
@@ -48,6 +49,7 @@ class LocationViewController: UIViewController {
         self.setupLocationManager()
         self.setupSearchBar()
         self.blurMap()
+        self.blurStatusBar()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -106,6 +108,7 @@ extension LocationViewController {
         self.searchField.addTarget(self, action: #selector(self.textChanged), for: UIControlEvents.editingChanged)
 
         self.locationSearchTable = storyboard?.instantiateViewController(withIdentifier: "locationSearchTable") as! LocationSearchTableViewController
+        self.locationSearchTable.lightText = true
         self.locationSearchTable.mapView = mapView
         self.locationSearchTable.handleMapSearchDelegate = self
     }
@@ -129,10 +132,10 @@ extension LocationViewController: UITextFieldDelegate {
             })
         } else {
             self.blurMap()
-            self.locationSearchTable.lightText = true
         }
 
         self.searchResultView = UIView.init(frame: self.resultView.frame)
+        self.locationSearchTable.view.frame = self.searchResultView.bounds
         self.searchResultView.addSubview(self.locationSearchTable.view)
         self.view.insertSubview(self.searchResultView, aboveSubview: self.mapView)
     }
@@ -150,7 +153,7 @@ extension LocationViewController: UITextFieldDelegate {
 
     }
 
-    func blurStatutBar() {
+    func blurStatusBar() {
         let effect = UIBlurEffect(style: UIBlurEffectStyle.light)
         let statusBarBlur = UIVisualEffectView.init(effect: effect)
         statusBarBlur.frame = CGRect.init(x: 0.0, y: 0.0, width: view.bounds.width, height: 20.0)
@@ -209,7 +212,6 @@ extension LocationViewController: HandleMapSearch {
 
         let region = MKCoordinateRegionMakeWithDistance(placemark.coordinate, CLLocationDistance.init(15), CLLocationDistance.init(15))
         justZoomedIn = true
-        mapView.mapType = MKMapType.satellite
         mapView.setRegion(region, animated: true)
         addButton.isHidden = false
         self.searchField.endEditing(true)

@@ -123,14 +123,45 @@ class Parking {
 
 extension Parking {
     func persist(complete: @escaping (Error?) -> Void) {
-        APIClient.shared.createParking(parking: self, complete: complete)
+        APIClient.shared.createParking(parking: self) { (error, parking) in
+            if let parking = parking {
+                AppState.shared.customerParkings[parking.id!] = parking
+            }
+            complete(error)
+        }
     }
 
     func update(complete: @escaping (Error?) -> Void) {
-        APIClient.shared.updateParking(parking: self, complete: complete)
+        APIClient.shared.updateParking(parking: self) { (error, parking) in
+            if let parking = parking {
+                AppState.shared.customerParkings[parking.id!] = parking
+            }
+            complete(error)
+        }
     }
+
     func delete(complete: @escaping (Error?) -> Void) {
-        APIClient.shared.deleteParking(parking: self, complete: complete)
+        APIClient.shared.deleteParking(parking: self) { (error) in
+            if error == nil {
+                AppState.shared.customerParkings.removeValue(forKey: self.id!)
+            }
+            complete(error)
+        }
+    }
+
+    class func getAllParkings(_ complete: @escaping([(Parking)], Error?) -> Void) {
+        APIClient.shared.getAllParkings(complete: complete)
+    }
+
+    class func getCustomerParkings(_ complete: @escaping([(Parking)], Error?) -> Void) {
+        APIClient.shared.getCustomerParkings { (parkings, error) in
+            if error == nil {
+                for parking in parkings {
+                    AppState.shared.customerParkings[parking.id!] = parking
+                }
+            }
+            complete(parkings, error)
+        }
     }
 
     func toDictionary() -> [String : Any] {
@@ -146,16 +177,6 @@ extension Parking {
             "is_complete": isComplete,
             "availability_info": availabilityInfo.toDictionary()
         ]
-    }
-
-    class func getAllParkings(_ complete: @escaping([(Parking)], Error?) -> Void) {
-        APIClient.shared.getAllParkings(complete: complete)
-    }
-
-    class func getCustomerParkings(_ complete: @escaping([(Parking)], Error?) -> Void) {
-        APIClient.shared.getCustomerParkings { (parkings, error) in
-            complete(parkings, error)
-        }
     }
 }
 

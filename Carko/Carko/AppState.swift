@@ -12,10 +12,18 @@ import Firebase
 
 class AppState: NSObject {
     static let shared = AppState.init()
-    static let KEYBOARD_OFFSET = 80.0
 
     var customer: Customer!
+    var customerParkings = [Int: Parking]()
     let storageReference = FIRStorage.storage().reference()
+
+    func parkingList() -> [(Parking)] {
+        var parkings = [Parking]()
+        for (_, parking) in self.customerParkings {
+            parkings.append(parking)
+        }
+        return parkings
+    }
 
     // Return IP address of WiFi interface (en0) as a String, or `nil`
     class func getWiFiAddress() -> String? {

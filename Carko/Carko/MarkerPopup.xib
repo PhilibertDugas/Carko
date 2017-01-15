@@ -19,7 +19,7 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="390" height="70"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lrt-SM-W06">
@@ -30,20 +30,20 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKO-kN-VzP">
-                    <rect key="frame" x="78" y="8" width="289" height="21"/>
+                    <rect key="frame" x="78" y="8" width="304" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="NE4-Y7-bYn"/>
                     </constraints>
-                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ay-i6-2T7">
-                    <rect key="frame" x="78" y="37" width="289" height="21"/>
+                    <rect key="frame" x="78" y="37" width="304" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="ykq-5Y-Yeg"/>
                     </constraints>
-                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -58,7 +58,9 @@
                 <constraint firstAttribute="trailing" secondItem="4ay-i6-2T7" secondAttribute="trailing" constant="8" id="q93-j3-IEo"/>
                 <constraint firstAttribute="trailing" secondItem="LKO-kN-VzP" secondAttribute="trailing" constant="8" id="wSw-Wm-riW"/>
             </constraints>
-            <point key="canvasLocation" x="-339.5" y="-308.5"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-332" y="-607"/>
         </view>
     </objects>
 </document>

@@ -70,22 +70,7 @@ class FindParkingViewController: UIViewController {
             } else {
                 self.parkingFetched(parkings)
             }
-
         }
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-    }
-
-    func blurMap() {
-        let effect = UIBlurEffect(style: UIBlurEffectStyle.light)
-        let statusBarBlur = UIVisualEffectView.init(effect: effect)
-        let searchBarBlur = UIVisualEffectView.init(effect: effect)
-        statusBarBlur.frame = CGRect.init(x: 0.0, y: 0.0, width: view.bounds.width, height: 20.0)
-        searchBarBlur.frame = searchStack.frame
-        mapView.addSubview(statusBarBlur)
-        mapView.addSubview(searchBarBlur)
     }
 }
 
@@ -99,37 +84,6 @@ extension FindParkingViewController {
         self.locationSearchTable.handleMapSearchDelegate = self
     }
 }
-
-extension FindParkingViewController: UITextFieldDelegate {
-    func textChanged() {
-        locationSearchTable.updateSearchs(for: self.searchField.text)
-    }
-
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        let effect = UIBlurEffect(style: UIBlurEffectStyle.light)
-        self.blurView = UIVisualEffectView.init(effect: effect)
-        self.blurView.frame = mapView.bounds
-        self.mapView.addSubview(blurView)
-
-        self.searchResultView = UIView.init(frame: self.resultViews.frame)
-        self.searchResultView.addSubview(self.locationSearchTable.view)
-        self.view.insertSubview(self.searchResultView, aboveSubview: self.mapView)
-    }
-
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        self.blurView.removeFromSuperview()
-        self.searchResultView.removeFromSuperview()
-    }
-}
-
-extension FindParkingViewController: HandleMapSearch {
-    func selectedPlacemark(placemark: MKPlacemark){
-        let region = MKCoordinateRegionMakeWithDistance(placemark.coordinate, 800, 800)
-        mapView.setRegion(region, animated: true)
-        self.searchField.endEditing(true)
-    }
-}
-
 
 extension FindParkingViewController {
     func prepareAnimation() {
@@ -173,6 +127,29 @@ extension FindParkingViewController {
     }
 }
 
+extension FindParkingViewController: UITextFieldDelegate {
+    func textChanged() {
+        locationSearchTable.updateSearchs(for: self.searchField.text)
+    }
+
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        let effect = UIBlurEffect(style: UIBlurEffectStyle.light)
+        self.blurView = UIVisualEffectView.init(effect: effect)
+        self.blurView.frame = mapView.bounds
+        self.mapView.addSubview(blurView)
+
+        self.searchResultView = UIView.init(frame: self.resultViews.frame)
+        self.locationSearchTable.view.frame = self.searchResultView.bounds
+        self.searchResultView.addSubview(self.locationSearchTable.view)
+        self.view.insertSubview(self.searchResultView, aboveSubview: self.mapView)
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        self.blurView.removeFromSuperview()
+        self.searchResultView.removeFromSuperview()
+    }
+}
+
 extension FindParkingViewController: MKMapViewDelegate {
     func parkingFetched(_ parkings: [(Parking)]) {
         self.mapView.removeAnnotations(mapView.annotations)
@@ -183,6 +160,16 @@ extension FindParkingViewController: MKMapViewDelegate {
                 self.mapView.addAnnotation(annotation)
             }
         }
+    }
+
+    func blurMap() {
+        let effect = UIBlurEffect(style: UIBlurEffectStyle.light)
+        let statusBarBlur = UIVisualEffectView.init(effect: effect)
+        let searchBarBlur = UIVisualEffectView.init(effect: effect)
+        statusBarBlur.frame = CGRect.init(x: 0.0, y: 0.0, width: view.bounds.width, height: 20.0)
+        searchBarBlur.frame = searchStack.frame
+        mapView.addSubview(statusBarBlur)
+        mapView.addSubview(searchBarBlur)
     }
 
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
@@ -211,13 +198,6 @@ extension FindParkingViewController: MKMapViewDelegate {
                 self.popupView.isHidden = false
                 let yOrigin = self.mapView.frame.height - self.tabBar.frame.height
                 self.popupView.frame.origin.y = yOrigin
-            }, completion: { (complete) in
-                if complete {
-                    let effect = UIBlurEffect(style: UIBlurEffectStyle.light)
-                    self.popupBlur = UIVisualEffectView.init(effect: effect)
-                    self.popupBlur.frame = self.popupView.frame
-                    mapView.addSubview(self.popupBlur)
-                }
             })
         }
     }
@@ -238,14 +218,17 @@ extension FindParkingViewController: MKMapViewDelegate {
 
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if let annotation = annotation as? ParkingAnnotation {
-            let annotationView = MKPinAnnotationView.init()
-            if annotation.parking.isAvailable {
-                annotationView.pinTintColor = UIColor.red
-            } else {
-                annotationView.pinTintColor = UIColor.gray
-            }
+            let annotationView = ParkingAnnotationView.init(annotation: annotation, reuseIdentifier: nil)
             return annotationView
         }
         return nil
+    }
+}
+
+extension FindParkingViewController: HandleMapSearch {
+    func selectedPlacemark(placemark: MKPlacemark){
+        let region = MKCoordinateRegionMakeWithDistance(placemark.coordinate, 800, 800)
+        mapView.setRegion(region, animated: true)
+        self.searchField.endEditing(true)
     }
 }
