@@ -425,7 +425,6 @@
 				C5B3105E1DB023450051C90B /* Extensions */,
 				45BC29441DA18249000C54BC /* AppDelegate.swift */,
 				45637CFE1DEB184500DD42C0 /* AppState.swift */,
-				45D5D60F1E1B2EDE006BE596 /* Assets.xcassets */,
 				4550D6801E19DD790080758D /* Localizable.strings */,
 			);
 			name = Global;
@@ -474,6 +473,7 @@
 				451853781DA476CB005CC5E6 /* Tab - Add */,
 				45099A851DAF25EA00392FF1 /* Tab - Login */,
 				45B4C0E11DA4AAE6002979DC /* Global */,
+				45D5D60F1E1B2EDE006BE596 /* Assets.xcassets */,
 				4550D6711E19D78B0080758D /* Main.storyboard */,
 				45BC294D1DA18249000C54BC /* LaunchScreen.storyboard */,
 			);
