@@ -7,9 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>721174258185-o6bg5j49ueeq274l0eig1dsitcavb5vq.apps.googleusercontent.com</string>
+	<string>721174258185-m1uqeoh3pujven9jrqag935klqint5vb.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.721174258185-o6bg5j49ueeq274l0eig1dsitcavb5vq</string>
+	<string>com.googleusercontent.apps.721174258185-m1uqeoh3pujven9jrqag935klqint5vb</string>
 	<key>API_KEY</key>
 	<string>AIzaSyA1-3Dhi6VkbJ5jea0mz1DaaGUNq3_rOTE</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,7 +17,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.qh4l.Carko</string>
+	<string>com.qh4l.Apya</string>
 	<key>PROJECT_ID</key>
 	<string>carko-1475431423846</string>
 	<key>STORAGE_BUCKET</key>
@@ -33,7 +33,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:721174258185:ios:db09f8c569e88862</string>
+	<string>1:721174258185:ios:84e3bc42977ba067</string>
 	<key>DATABASE_URL</key>
 	<string>https://carko-1475431423846.firebaseio.com</string>
 </dict>

@@ -7,11 +7,10 @@ protocol ParkingAvailabilityDelegate {
 
 class AvailabilityViewController: UIViewController {
     @IBOutlet var mondayButton: UIButton!
-    @IBOutlet var clock: TenClock!
-    @IBOutlet var fromLabel: UILabel!
-    @IBOutlet var toLabel: UILabel!
     @IBOutlet var progressView: UIView!
     @IBOutlet var mainButton: RoundedCornerButton!
+    @IBOutlet var fromPicker: UIDatePicker!
+    @IBOutlet var toPicker: UIDatePicker!
 
     var delegate: ParkingAvailabilityDelegate?
 
@@ -29,9 +28,6 @@ class AvailabilityViewController: UIViewController {
         }
 
         availability = parking.availabilityInfo
-        self.dateFormatter = DateFormatter.init()
-        self.dateFormatter.dateFormat = "HH:mm"
-        setupClock()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -47,6 +43,10 @@ class AvailabilityViewController: UIViewController {
     }
 
     @IBAction func mainButtonTapped(_ sender: Any) {
+        let startTime = AvailabilityInfo.formatter().string(from: fromPicker.date)
+        let stopTime = AvailabilityInfo.formatter().string(from: toPicker.date)
+        self.availability.startTime = startTime
+        self.availability.stopTime = stopTime
         if newParking {
             self.performSegue(withIdentifier: "pushPhoto", sender: nil)
         } else {
@@ -62,16 +62,6 @@ class AvailabilityViewController: UIViewController {
         updateButton(isOn: newAvailability, button: sender)
     }
 
-    func setupClock() {
-        self.clock.delegate = self
-        self.clock.minorTicksEnabled = false
-        self.clock.centerTextColor = UIColor.black
-        self.clock.endDate = self.availability.stopDate()
-        self.clock.startDate = self.availability.startDate()
-        self.clock.headText = NSLocalizedString("Start", comment: "")
-        self.clock.tailText = NSLocalizedString("End", comment: "") 
-    }
-
     func updateAvailability() {
         let daysAvailable = availability.daysAvailable
 
@@ -81,13 +71,6 @@ class AvailabilityViewController: UIViewController {
         for index in 1...6 {
             updateButton(isOn: daysAvailable[index], button: findDayButton(tag: index))
         }
-
-        updateTimeLabel(startTime: availability.startTime, endTime: availability.stopTime)
-    }
-
-    func updateTimeLabel(startTime: String, endTime: String) {
-        fromLabel.text = startTime
-        toLabel.text = endTime
     }
 
     func updateButton(isOn: Bool, button: UIButton!) {
@@ -101,20 +84,5 @@ class AvailabilityViewController: UIViewController {
 
     private func findDayButton(tag: Int) -> UIButton {
         return self.view.viewWithTag(tag) as! UIButton
-    }
-}
-
-extension AvailabilityViewController: TenClockDelegate {
-    func timesChanged(_ clock: TenClock, startDate: Date, endDate: Date) {
-        let startTime = dateFormatter.string(from: startDate)
-        let stopTime = dateFormatter.string(from: endDate)
-        availability.startTime = startTime
-        availability.stopTime = stopTime
-    }
-
-    func timesUpdated(_ clock: TenClock, startDate: Date, endDate: Date) {
-        let startTime = dateFormatter.string(from: startDate)
-        let stopTime = dateFormatter.string(from: endDate)
-        updateTimeLabel(startTime: startTime, endTime: stopTime)
     }
 }

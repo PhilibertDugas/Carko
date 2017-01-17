@@ -56,7 +56,7 @@ class RatesViewController: UIViewController {
     }
 
     func ratesUpdated() {
-        postedRateField.text = "\(parkingRate!)"
-        hourlyRateField.text = "\((parkingRate! * (1 - appPercentageCut)))"
+        postedRateField.text = String.init(format: "%.02f", parkingRate!)
+        hourlyRateField.text = String.init(format: "%.02f", (parkingRate! * (1 - appPercentageCut)))
     }
 }

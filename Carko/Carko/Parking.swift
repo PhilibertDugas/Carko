@@ -212,7 +212,7 @@ class AvailabilityInfo: NSObject {
     convenience override init() {
         let startTime = "09:00"
         let stopTime = "17:00"
-        let daysAvailable = [true, true, true, true, true, true, true]
+        let daysAvailable = [false, false, false, false, false, false, false]
         let alwaysAvailable = false
         self.init(alwaysAvailable: alwaysAvailable, startTime: startTime, stopTime: stopTime, daysAvailable: daysAvailable)
     }

@@ -35,6 +35,22 @@ class BorderedView: UIView {
     }
 }
 
+class UnderlinedView: UIView {
+    override func draw(_ rect: CGRect) {
+        let lowerLeft = CGPoint.init(x: rect.minX, y: rect.maxY)
+        let lowerRight = CGPoint.init(x: rect.maxX, y: rect.maxY)
+
+        let path = UIBezierPath.init()
+        path.move(to: lowerLeft)
+        path.addLine(to: lowerRight)
+
+        path.lineWidth = 1.0
+        tintColor.setStroke()
+        path.stroke()
+        super.draw(rect)
+    }
+}
+
 class CircularView: UIView {
     override func draw(_ rect: CGRect) {
         layer.cornerRadius = 0.5 * bounds.size.width
