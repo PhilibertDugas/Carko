@@ -198,6 +198,7 @@
 		45637CFE1DEB184500DD42C0 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		4564F6E01DB98509001B709C /* BookParkingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookParkingViewController.swift; sourceTree = "<group>"; };
 		4571700A1DEA5DEE00A0FDF5 /* Reservation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reservation.swift; sourceTree = "<group>"; };
+		45782C241E2E9A1E002E9DFD /* Carko.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Carko.entitlements; sourceTree = "<group>"; };
 		45877E741E158709006A7709 /* SimpleCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleCellTableViewCell.swift; sourceTree = "<group>"; };
 		458A982F1DBCFD44007F53EE /* UnderlineTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnderlineTextField.swift; sourceTree = "<group>"; };
 		458BC7691DE218DC0028AC5B /* LocationSearchTableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchTableTableViewController.swift; sourceTree = "<group>"; };
@@ -468,6 +469,7 @@
 		45BC29431DA18249000C54BC /* Carko */ = {
 			isa = PBXGroup;
 			children = (
+				45782C241E2E9A1E002E9DFD /* Carko.entitlements */,
 				45D5A5071DB2BE640025C45A /* Tab - Profile */,
 				451853771DA476B5005CC5E6 /* Tab - Find */,
 				451853781DA476CB005CC5E6 /* Tab - Add */,
@@ -679,6 +681,9 @@
 						SystemCapabilities = {
 							com.apple.Keychain = {
 								enabled = 0;
+							};
+							com.apple.Push = {
+								enabled = 1;
 							};
 						};
 					};
@@ -1305,6 +1310,7 @@
 			baseConfigurationReference = E698A5AD42366D0AB15C9348 /* Pods-Carko.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Carko/Carko.entitlements;
 				DEVELOPMENT_TEAM = NS2A2ZLLX3;
 				INFOPLIST_FILE = Carko/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10;
@@ -1323,6 +1329,7 @@
 			baseConfigurationReference = 182BF97C1B2157DE2E06FBDD /* Pods-Carko.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Carko/Carko.entitlements;
 				DEVELOPMENT_TEAM = NS2A2ZLLX3;
 				INFOPLIST_FILE = Carko/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10;
