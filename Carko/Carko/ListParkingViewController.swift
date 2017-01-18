@@ -10,9 +10,8 @@ import UIKit
 import FirebaseStorageUI
 import CoreLocation
 
-class ListParkingViewController: UITableViewController {
-    @IBOutlet var headerView: UIView!
-
+class ListParkingViewController: UIViewController {
+    @IBOutlet var parkingTableView: UITableView!
     var parkingList = [Parking]()
     var isEditingAvailability = false
     var selectedRowIndex = 0
@@ -44,17 +43,22 @@ class ListParkingViewController: UITableViewController {
     func updateTable(_ parkings: [(Parking)]) {
         if parkings.count > 0 {
             self.navigationController?.navigationBar.isHidden = false
-            self.headerView.isHidden = false
             self.navigationItem.leftBarButtonItem = self.editButtonItem
+            self.editButtonItem.action = #selector(self.setTableEditMode)
             self.setEditing(false, animated: true)
+            self.parkingTableView.setEditing(false, animated: true)
             self.removeFirstParkingView()
         } else {
             self.navigationController?.navigationBar.isHidden = true
-            self.headerView.isHidden = true
             self.setupFirstParkingView()
         }
         self.parkingList = parkings
-        self.tableView.reloadData()
+        self.parkingTableView.reloadData()
+    }
+
+    func setTableEditMode() {
+        self.parkingTableView.setEditing(!self.parkingTableView.isEditing, animated: true)
+        self.setEditing(!self.isEditing, animated: true)
     }
 
     func removeFirstParkingView() {
@@ -66,9 +70,9 @@ class ListParkingViewController: UITableViewController {
     }
 
     func setupFirstParkingView() {
-        let firstParkingView = NewParkingView.init(frame: self.tableView.frame)
+        let firstParkingView = NewParkingView.init(frame: self.view.frame)
         firstParkingView.mainActionButton.addTarget(self, action: #selector(self.newParkingTapped), for: UIControlEvents.touchUpInside)
-        self.view.insertSubview(firstParkingView, aboveSubview: self.tableView)
+        self.view.addSubview(firstParkingView)
     }
 
     func newParkingTapped() {
@@ -87,13 +91,13 @@ class ListParkingViewController: UITableViewController {
     }
 }
 
-extension ListParkingViewController {
-    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+extension ListParkingViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         selectedRowIndex = indexPath.row
         return indexPath
     }
 
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCellEditingStyle.delete {
             let parking = parkingList[indexPath.row]
             if parking.isAvailable {
@@ -106,11 +110,11 @@ extension ListParkingViewController {
         }
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return parkingList.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "parkingCell", for: indexPath) as! ParkingTableViewCell
         let parking = parkingList[indexPath.row]
         cell.label.text = parking.address

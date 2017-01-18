@@ -141,7 +141,7 @@ extension ParkingInfoViewController: UIImagePickerControllerDelegate {
     }
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+        if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
             parkingImageView.image = image
             displayImage(alpha: 0.4)
             uploadImage()

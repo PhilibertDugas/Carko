@@ -12,6 +12,7 @@ target 'Carko' do
   pod 'Alamofire'
   pod 'ARNTransitionAnimator', '2.0.3'
   pod 'IQKeyboardManagerSwift'
+  pod 'SCLAlertView'
 
   target 'CarkoTests' do
     pod 'Firebase'

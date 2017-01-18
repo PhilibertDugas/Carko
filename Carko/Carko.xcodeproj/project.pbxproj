@@ -116,7 +116,6 @@
 		45ECDA8F1E243A6900E999D8 /* ParkingInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51150581DAF397E004E2A7D /* ParkingInfoViewController.swift */; };
 		45ECDA901E243A6900E999D8 /* NewPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4554A0971E217358007FB04C /* NewPhotoViewController.swift */; };
 		45ECDA921E243A6900E999D8 /* ParkingClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4591D5F41DFCA4C400366691 /* ParkingClient.swift */; };
-		45ECDA941E243A6900E999D8 /* Pods_Carko.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 538BFE4EA50CCE486CF330C6 /* Pods_Carko.framework */; };
 		45ECDA961E243A6900E999D8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4550D6801E19DD790080758D /* Localizable.strings */; };
 		45ECDA971E243A6900E999D8 /* Add.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4550D6681E19D7780080758D /* Add.storyboard */; };
 		45ECDA981E243A6900E999D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45D5D60F1E1B2EDE006BE596 /* Assets.xcassets */; };
@@ -132,6 +131,7 @@
 		C51150591DAF397E004E2A7D /* ParkingInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51150581DAF397E004E2A7D /* ParkingInfoViewController.swift */; };
 		C56ADABB1DAC00870033516C /* ParkingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56ADABA1DAC00870033516C /* ParkingTableViewCell.swift */; };
 		C5B310601DB023610051C90B /* FloatExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B3105F1DB023610051C90B /* FloatExtension.swift */; };
+		EB84532286AE1C3449A3B1EA /* Pods_Carko.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 538BFE4EA50CCE486CF330C6 /* Pods_Carko.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,7 +152,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		182BF97C1B2157DE2E06FBDD /* Pods-Carko.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carko.release.xcconfig"; path = "Pods/Target Support Files/Pods-Carko/Pods-Carko.release.xcconfig"; sourceTree = "<group>"; };
 		30759D0CD7ED81144FFA1563 /* Pods_Carko_CarkoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Carko_CarkoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		388EE17981D2264091796560 /* Pods-CarkoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarkoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CarkoTests/Pods-CarkoTests.release.xcconfig"; sourceTree = "<group>"; };
 		4508FD941E182692004458F0 /* FindParkingViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindParkingViewControllerTest.swift; sourceTree = "<group>"; };
@@ -247,8 +246,9 @@
 		C51150581DAF397E004E2A7D /* ParkingInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingInfoViewController.swift; sourceTree = "<group>"; };
 		C56ADABA1DAC00870033516C /* ParkingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingTableViewCell.swift; sourceTree = "<group>"; };
 		C5B3105F1DB023610051C90B /* FloatExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatExtension.swift; sourceTree = "<group>"; };
+		D0E89F5CBCCDBDCAFD9AF986 /* Pods-Carko.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carko.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Carko/Pods-Carko.debug.xcconfig"; sourceTree = "<group>"; };
 		DF3DC78B5F06CA9F23866878 /* Pods-Carko-CarkoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carko-CarkoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Carko-CarkoTests/Pods-Carko-CarkoTests.debug.xcconfig"; sourceTree = "<group>"; };
-		E698A5AD42366D0AB15C9348 /* Pods-Carko.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carko.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Carko/Pods-Carko.debug.xcconfig"; sourceTree = "<group>"; };
+		F9FE12AEF604DC6A236BBD68 /* Pods-Carko.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carko.release.xcconfig"; path = "Pods/Target Support Files/Pods-Carko/Pods-Carko.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -257,6 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3081C8E38A69D2E93352EB95 /* Pods_Carko.framework in Frameworks */,
+				EB84532286AE1C3449A3B1EA /* Pods_Carko.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,7 +281,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45ECDA941E243A6900E999D8 /* Pods_Carko.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,14 +527,14 @@
 		BE9AA67A9636250C12944D99 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E698A5AD42366D0AB15C9348 /* Pods-Carko.debug.xcconfig */,
-				182BF97C1B2157DE2E06FBDD /* Pods-Carko.release.xcconfig */,
 				51BE0236C2E899D05DB12FEF /* Pods-CarkoUITests.debug.xcconfig */,
 				5B75E7E9A81373F8C2777563 /* Pods-CarkoUITests.release.xcconfig */,
 				DF3DC78B5F06CA9F23866878 /* Pods-Carko-CarkoTests.debug.xcconfig */,
 				8434CF39E1312BC65B8DF4B2 /* Pods-Carko-CarkoTests.release.xcconfig */,
 				7A5C604335A78729BBDD02CF /* Pods-CarkoTests.debug.xcconfig */,
 				388EE17981D2264091796560 /* Pods-CarkoTests.release.xcconfig */,
+				D0E89F5CBCCDBDCAFD9AF986 /* Pods-Carko.debug.xcconfig */,
+				F9FE12AEF604DC6A236BBD68 /* Pods-Carko.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -647,12 +647,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 45ECDAA31E243A6900E999D8 /* Build configuration list for PBXNativeTarget "Carko - Production" */;
 			buildPhases = (
-				45ECDA5E1E243A6900E999D8 /* [CP] Check Pods Manifest.lock */,
 				45ECDA5F1E243A6900E999D8 /* Sources */,
 				45ECDA931E243A6900E999D8 /* Frameworks */,
 				45ECDA951E243A6900E999D8 /* Resources */,
-				45ECDAA11E243A6900E999D8 /* [CP] Embed Pods Frameworks */,
-				45ECDAA21E243A6900E999D8 /* [CP] Copy Pods Resources */,
 				451C68911E243CF8009B01CE /* Firebase crash reporting */,
 			);
 			buildRules = (
@@ -854,51 +851,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Replace this with the GOOGLE_APP_ID from your GoogleService-Info.plist file\nGOOGLE_APP_ID=1:643842340334:ios:db09f8c569e88862\n\n# Replace the /Path/To/ServiceAccount.json with the path to the key you just downloaded\n\"${PODS_ROOT}\"/FirebaseCrash/upload-sym \"/Users/philibertdugas/Desktop/apya-27e74-firebase-crashreporting-nvocd-13c4315127.json\"";
-		};
-		45ECDA5E1E243A6900E999D8 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		45ECDAA11E243A6900E999D8 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Carko/Pods-Carko-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		45ECDAA21E243A6900E999D8 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Carko/Pods-Carko-resources.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 		45ECDAAA1E243B5300E999D8 /* Firebase crash reporting */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1307,7 +1259,7 @@
 		};
 		45BC296A1DA18249000C54BC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E698A5AD42366D0AB15C9348 /* Pods-Carko.debug.xcconfig */;
+			baseConfigurationReference = D0E89F5CBCCDBDCAFD9AF986 /* Pods-Carko.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Carko/Carko.entitlements;
@@ -1326,7 +1278,7 @@
 		};
 		45BC296B1DA18249000C54BC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 182BF97C1B2157DE2E06FBDD /* Pods-Carko.release.xcconfig */;
+			baseConfigurationReference = F9FE12AEF604DC6A236BBD68 /* Pods-Carko.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Carko/Carko.entitlements;
@@ -1405,7 +1357,6 @@
 		};
 		45ECDAA41E243A6900E999D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E698A5AD42366D0AB15C9348 /* Pods-Carko.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = GYH3TK45ZC;
@@ -1422,7 +1373,6 @@
 		};
 		45ECDAA51E243A6900E999D8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 182BF97C1B2157DE2E06FBDD /* Pods-Carko.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = GYH3TK45ZC;

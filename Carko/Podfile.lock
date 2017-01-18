@@ -63,6 +63,7 @@ PODS:
   - OHHTTPStubs/OHPathHelpers (5.2.1)
   - OHHTTPStubs/Swift (5.2.1):
     - OHHTTPStubs/Core
+  - SCLAlertView (0.7.0)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
@@ -79,6 +80,7 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
   - OHHTTPStubs
   - OHHTTPStubs/Swift
+  - SCLAlertView
   - Stripe
 
 SPEC CHECKSUMS:
@@ -98,9 +100,10 @@ SPEC CHECKSUMS:
   GoogleUtilities: 8bbc733218aad26306f9d4a253823986110e3358
   IQKeyboardManagerSwift: 58bbcf46b5cf9fd4ed625d28a60cb2fbae4ab0f4
   OHHTTPStubs: 3a42f25c00563b71355ac73112ba2324e9e6cef4
+  SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
   SDWebImage: '098e97e6176540799c27e804c96653ee0833d13c'
   Stripe: 935c6deb5e96cbd29d247074bf3aa98a8438e22c
 
-PODFILE CHECKSUM: 022d818ae46b8f0ac55d50c7a99fba97d47d6aeb
+PODFILE CHECKSUM: 89fdf3eb0138297113f3a490a17d0d9188186de6
 
 COCOAPODS: 1.2.0.beta.3

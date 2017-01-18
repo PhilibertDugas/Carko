@@ -8,7 +8,7 @@
 
 import UIKit
 import FirebaseStorage
-
+import SCLAlertView
 
 class NewPhotoViewController: UIViewController {
     @IBOutlet var parkingImageView: UIImageView!
@@ -40,11 +40,18 @@ class NewPhotoViewController: UIViewController {
                     super.displayErrorMessage(error.localizedDescription)
                 } else {
                     NotificationCenter.default.post(name: Notification.Name.init("NewParking"), object: nil, userInfo: nil)
-                    let _ = self.navigationController?.popToRootViewController(animated: true)
+                    self.displaySuccessMessage()
                 }
             }
         } else {
             super.displayErrorMessage("Please select a picture before saving")
+        }
+    }
+
+    func displaySuccessMessage() {
+        let responder = SCLAlertView.init().showSuccess(NSLocalizedString("Congratulations", comment: ""), subTitle: NSLocalizedString("You just listed a parking", comment: ""))
+        responder.setDismissBlock {
+            let _ = self.navigationController?.popToRootViewController(animated: true)
         }
     }
 
@@ -61,7 +68,7 @@ extension NewPhotoViewController: UIImagePickerControllerDelegate {
     }
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+        if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
             parkingImageView.image = image
             displayImage(alpha: 0.4)
             uploadImage()
