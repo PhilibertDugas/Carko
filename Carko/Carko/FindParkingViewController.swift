@@ -11,6 +11,7 @@ import ARNTransitionAnimator
 import MapKit
 import FirebaseStorageUI
 import FirebaseAuth
+import SCLAlertView
 
 class FindParkingViewController: UIViewController {
     @IBOutlet var popupView: MarkerPopup!
@@ -42,7 +43,6 @@ class FindParkingViewController: UIViewController {
         super.viewDidLoad()
         self.mapView.showsUserLocation = true
         self.mapView.delegate = self
-        locationManager.requestWhenInUseAuthorization()
 
         self.prepareAnimation()
         self.setupAnimator()
@@ -59,6 +59,18 @@ class FindParkingViewController: UIViewController {
             self.performSegue(withIdentifier: "showLoginScreen", sender: nil)
         } else if AppState.shared.customer == nil {
             AppState.shared.customer = Customer.init(customer: customer!)
+            self.setupFirstView()
+        }
+    }
+
+    func setupFirstView() {
+        let alreadyViewed = UserDefaults.standard.bool(forKey: "alreadyViewedFind")
+        if alreadyViewed == false {
+            let responder = SCLAlertView.init().showInfo("How it works", subTitle: "Find any parking spot on the map to see their availability and book them!", colorStyle: 0x00C441, colorTextButton: 0xFFFFFA)
+            responder.setDismissBlock {
+                UserDefaults.standard.set(true, forKey: "alreadyViewedFind")
+                self.locationManager.requestWhenInUseAuthorization()
+            }
         }
     }
 
@@ -71,6 +83,20 @@ class FindParkingViewController: UIViewController {
                 self.parkingFetched(parkings)
             }
         }
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showLoginScreen" {
+            let vc = segue.destination as! UINavigationController
+            let entryVc = vc.viewControllers.first as! EntryViewController
+            entryVc.delegate = self
+        }
+    }
+}
+
+extension FindParkingViewController: AuthenticatedDelegate {
+    func userAuthenticated() {
+        setupFirstView()
     }
 }
 
@@ -155,7 +181,8 @@ extension FindParkingViewController: MKMapViewDelegate {
         self.mapView.removeAnnotations(mapView.annotations)
         let now = Date.init()
         for parking in parkings {
-            if parking.isComplete && parking.scheduleAvailable(now) {
+            //if parking.isComplete && parking.scheduleAvailable(now) {
+            if parking.scheduleAvailable(now) {
                 let annotation = ParkingAnnotation.init(parking: parking)
                 self.mapView.addAnnotation(annotation)
             }

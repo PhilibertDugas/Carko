@@ -426,7 +426,6 @@
 				C5B3105E1DB023450051C90B /* Extensions */,
 				45BC29441DA18249000C54BC /* AppDelegate.swift */,
 				45637CFE1DEB184500DD42C0 /* AppState.swift */,
-				4550D6801E19DD790080758D /* Localizable.strings */,
 			);
 			name = Global;
 			sourceTree = "<group>";
@@ -478,6 +477,7 @@
 				45D5D60F1E1B2EDE006BE596 /* Assets.xcassets */,
 				4550D6711E19D78B0080758D /* Main.storyboard */,
 				45BC294D1DA18249000C54BC /* LaunchScreen.storyboard */,
+				4550D6801E19DD790080758D /* Localizable.strings */,
 			);
 			path = Carko;
 			sourceTree = "<group>";

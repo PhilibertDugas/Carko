@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -207,7 +206,7 @@
                                     <color key="titleColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="MIh-4P-V3E" kind="show" id="ah9-E3-PPN">
+                                    <segue destination="MIh-4P-V3E" kind="show" identifier="showSignIn" id="ah9-E3-PPN">
                                         <nil key="action"/>
                                     </segue>
                                 </connections>
@@ -222,7 +221,7 @@
                                     <color key="titleColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="SmW-TF-Y86" kind="show" id="2A6-33-ePO">
+                                    <segue destination="SmW-TF-Y86" kind="show" identifier="showSignUp" id="2A6-33-ePO">
                                         <nil key="action"/>
                                     </segue>
                                 </connections>

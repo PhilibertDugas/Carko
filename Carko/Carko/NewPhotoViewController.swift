@@ -15,8 +15,7 @@ class NewPhotoViewController: UIViewController {
     @IBOutlet var helperImageView: UIImageView!
     @IBOutlet var helperImageLabel: UILabel!
     @IBOutlet var uploadIndicator: UIActivityIndicatorView!
-    
-    @IBOutlet var descriptionText: UITextView!
+    @IBOutlet var descriptionText: UILabel!
 
     var parking: Parking!
     var photoIsSaved = false
@@ -30,7 +29,6 @@ class NewPhotoViewController: UIViewController {
 
     @IBAction func tappedSave(_ sender: Any) {
         if photoIsSaved {
-            parking.pDescription = self.descriptionText.text
             if AppState.shared.customer.accountId != nil {
                 parking.isComplete = true
             }
@@ -58,7 +56,22 @@ class NewPhotoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
-        descriptionText.placeholderText = NSLocalizedString("Enter a description...", comment: "")
+        self.descriptionText.text = NSLocalizedString("Enter a description...", comment: "")
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDescription" {
+            let destinationVC = segue.destination as! ParkingDescriptionViewController
+            destinationVC.parkingDescription = parking.pDescription
+            destinationVC.delegate = self
+        }
+    }
+}
+
+extension NewPhotoViewController: ParkingDescriptionDelegate {
+    func userDidChangeDescription(value: String) {
+        self.descriptionText.text = value
+        parking.pDescription = value
     }
 }
 

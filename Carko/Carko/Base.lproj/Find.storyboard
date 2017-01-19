@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -44,11 +43,11 @@
                                     <outletCollection property="gestureRecognizers" destination="dCC-8g-gcs" appends="YES" id="Rnd-Fn-fkc"/>
                                 </connections>
                             </view>
-                            <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YRc-ok-e44">
+                            <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YRc-ok-e44" customClass="SearchWrapperView" customModule="Carko" customModuleProvider="target">
                                 <rect key="frame" x="16" y="36" width="343" height="44"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Where are you going?" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Zp5-db-7QN">
-                                        <rect key="frame" x="44" y="0.0" width="299" height="44"/>
+                                        <rect key="frame" x="44" y="1" width="298" height="42"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -56,7 +55,6 @@
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search" translatesAutoresizingMaskIntoConstraints="NO" id="9NF-pA-o96">
                                         <rect key="frame" x="8" y="10" width="25" height="25"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="25" id="hyH-cC-eJa"/>
                                             <constraint firstAttribute="height" constant="25" id="oHv-A9-XBU"/>
@@ -64,14 +62,15 @@
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="0.31768825649999999" green="0.31358337400000003" blue="0.32179906959999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="9NF-pA-o96" firstAttribute="leading" secondItem="YRc-ok-e44" secondAttribute="leading" constant="8" id="24l-GH-QiY"/>
                                     <constraint firstAttribute="height" constant="44" id="NUg-nK-Eaz"/>
-                                    <constraint firstAttribute="trailing" secondItem="Zp5-db-7QN" secondAttribute="trailing" id="P6o-rk-HiS"/>
+                                    <constraint firstAttribute="trailing" secondItem="Zp5-db-7QN" secondAttribute="trailing" constant="1" id="P6o-rk-HiS"/>
                                     <constraint firstItem="Zp5-db-7QN" firstAttribute="leading" secondItem="9NF-pA-o96" secondAttribute="trailing" constant="11" id="ch8-Zq-9Yq"/>
-                                    <constraint firstItem="Zp5-db-7QN" firstAttribute="top" secondItem="YRc-ok-e44" secondAttribute="top" id="iLU-lR-NKd"/>
+                                    <constraint firstItem="Zp5-db-7QN" firstAttribute="top" secondItem="YRc-ok-e44" secondAttribute="top" constant="1" id="iLU-lR-NKd"/>
                                     <constraint firstItem="9NF-pA-o96" firstAttribute="centerY" secondItem="YRc-ok-e44" secondAttribute="centerY" id="oJx-WX-C1F"/>
-                                    <constraint firstAttribute="bottom" secondItem="Zp5-db-7QN" secondAttribute="bottom" id="wgD-mq-FZv"/>
+                                    <constraint firstAttribute="bottom" secondItem="Zp5-db-7QN" secondAttribute="bottom" constant="1" id="wgD-mq-FZv"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -398,7 +397,7 @@
                                 <rect key="frame" x="0.0" y="43" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ABE-BI-0g4" id="4SB-u5-VaZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2i4-ej-H8X">

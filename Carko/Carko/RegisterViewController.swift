@@ -17,6 +17,8 @@ class RegisterViewController: UIViewController {
     @IBOutlet var bottomConstraint: NSLayoutConstraint!
     @IBOutlet var indicator: UIActivityIndicatorView!
 
+    var delegate: AuthenticatedDelegate!
+
     @IBAction func tosTapped(_ sender: Any) {
         UIApplication.shared.open(URL(string: "https://stripe.com/ca/connect-account/legal")!, options: [:], completionHandler: nil)
     }
@@ -59,7 +61,9 @@ extension RegisterViewController {
             } else if let customer = customer {
                 UserDefaults.standard.set(customer.toDictionnary(), forKey: "user")
                 AppState.shared.customer = customer
-                self.dismiss(animated: true, completion: nil)
+                self.dismiss(animated: true) {
+                    self.delegate.userAuthenticated()
+                }
             }
         }
     }
