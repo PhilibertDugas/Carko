@@ -236,10 +236,6 @@ extension FindParkingViewController: MKMapViewDelegate {
 
         UIView.animate(withDuration: 0.15, animations: {
             self.popupView.frame.origin.y = self.tabBar.frame.origin.y
-        }, completion: { (complete) in
-            if complete {
-                self.popupView.isHidden = true
-            }
         })
     }
 
@@ -248,7 +244,13 @@ extension FindParkingViewController: MKMapViewDelegate {
             let annotationView = ParkingAnnotationView.init(annotation: annotation, reuseIdentifier: nil)
             return annotationView
         }
+
         return nil
+    }
+
+    func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
+        let av = self.mapView.view(for: self.mapView.userLocation)
+        av?.isEnabled = false
     }
 }
 

@@ -33,8 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setupPageControl() {
         let pageControl = UIPageControl.appearance()
         pageControl.pageIndicatorTintColor = UIColor.lightGray
-        pageControl.currentPageIndicatorTintColor = UIColor.black
-        pageControl.backgroundColor = UIColor.white
+        pageControl.currentPageIndicatorTintColor = UIColor.white
+        pageControl.backgroundColor = UIColor.black
     }
 
     func setupServers() {

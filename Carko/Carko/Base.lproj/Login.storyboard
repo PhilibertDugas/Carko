@@ -198,12 +198,12 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Mn-6X-1VF" customClass="RoundedCornerButton" customModule="Carko" customModuleProvider="target">
                                 <rect key="frame" x="16" y="597" width="169" height="62"/>
-                                <color key="backgroundColor" red="0.31768825649999999" green="0.31358337400000003" blue="0.32179906959999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.9999514222" green="1" blue="0.97945672269999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="62" id="cpm-zx-794"/>
                                 </constraints>
                                 <state key="normal" title="Sign in">
-                                    <color key="titleColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.112871848" green="0.75954872370000004" blue="0.28861063720000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="MIh-4P-V3E" kind="show" identifier="showSignIn" id="ah9-E3-PPN">
@@ -227,7 +227,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="1ed-QR-rAi" firstAttribute="trailing" secondItem="Nu3-Fc-HVK" secondAttribute="trailingMargin" id="0la-OG-NCU"/>
                             <constraint firstItem="EwK-BE-XVn" firstAttribute="top" secondItem="1Mn-6X-1VF" secondAttribute="bottom" constant="8" id="HQA-0s-Emo"/>
@@ -238,7 +238,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wjq-bM-8f3"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <nil key="simulatedTopBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bkb-EV-KxX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -260,14 +260,21 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UbU-Ld-VyA">
-                                <rect key="frame" x="16" y="28" width="343" height="38"/>
+                                <rect key="frame" x="16" y="314" width="343" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="wEp-sL-QSj"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-98" translatesAutoresizingMaskIntoConstraints="NO" id="cWJ-ZC-bYV">
+                                <rect key="frame" x="138" y="28" width="98" height="98"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="98" id="R7h-Ql-uhe"/>
+                                    <constraint firstAttribute="width" constant="98" id="r9n-PI-8SW"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -276,8 +283,10 @@
                             <constraint firstItem="UbU-Ld-VyA" firstAttribute="trailing" secondItem="SEx-XE-dad" secondAttribute="trailingMargin" id="D0s-DJ-9BE"/>
                             <constraint firstAttribute="trailing" secondItem="6E8-PU-489" secondAttribute="trailing" id="Jl2-a4-ToJ"/>
                             <constraint firstItem="6E8-PU-489" firstAttribute="leading" secondItem="SEx-XE-dad" secondAttribute="leading" id="Nmk-s2-3Ex"/>
+                            <constraint firstItem="cWJ-ZC-bYV" firstAttribute="centerX" secondItem="SEx-XE-dad" secondAttribute="centerX" id="S84-Du-w7d"/>
+                            <constraint firstItem="cWJ-ZC-bYV" firstAttribute="top" secondItem="vxP-LZ-Znc" secondAttribute="bottom" constant="8" id="XY5-Yx-L31"/>
                             <constraint firstItem="UbU-Ld-VyA" firstAttribute="leading" secondItem="SEx-XE-dad" secondAttribute="leadingMargin" id="gHa-7I-hZF"/>
-                            <constraint firstItem="UbU-Ld-VyA" firstAttribute="top" secondItem="vxP-LZ-Znc" secondAttribute="bottom" constant="8" id="xo9-MG-V6j"/>
+                            <constraint firstItem="UbU-Ld-VyA" firstAttribute="centerY" secondItem="SEx-XE-dad" secondAttribute="centerY" id="vpC-Jv-EuX"/>
                         </constraints>
                     </view>
                     <connections>
@@ -287,7 +296,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2hz-UM-hfs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3615" y="-372"/>
+            <point key="canvasLocation" x="-3615" y="-321"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HF5-31-kHl">
@@ -459,4 +468,7 @@
             <point key="canvasLocation" x="-2279" y="1110"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Icon-98" width="98" height="98"/>
+    </resources>
 </document>

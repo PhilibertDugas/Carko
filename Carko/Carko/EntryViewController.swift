@@ -14,8 +14,8 @@ protocol AuthenticatedDelegate {
 }
 
 class EntryViewController: UIViewController {
-    let pageTitles = ["Connect with close professionals", "Get noticed", "Skyrocket your career", "Live your dream"]
-    let pageImages = ["page1.png", "page2.png", "page3.png", "page4.png"]
+    let pageTitles = ["Future of parking", "Make full use of your space"]
+    let pageImages = ["page1.png", "page2.png"]
     
     var pageViewController: UIPageViewController!
     var delegate: AuthenticatedDelegate!
