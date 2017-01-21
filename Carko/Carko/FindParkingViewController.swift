@@ -244,7 +244,6 @@ extension FindParkingViewController: MKMapViewDelegate {
             let annotationView = ParkingAnnotationView.init(annotation: annotation, reuseIdentifier: nil)
             return annotationView
         }
-
         return nil
     }
 

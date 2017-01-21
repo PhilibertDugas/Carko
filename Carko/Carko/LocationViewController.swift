@@ -200,6 +200,11 @@ extension LocationViewController: MKMapViewDelegate {
         }
         justZoomedIn = false
     }
+
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let annotationView = NewParkingPin.init(annotation: annotation, reuseIdentifier: nil)
+        return annotationView
+    }
 }
 
 extension LocationViewController: HandleMapSearch {

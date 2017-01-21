@@ -15,14 +15,18 @@ class ParkingAnnotationView: MKAnnotationView {
 
         let parkingAnnotation = annotation as! ParkingAnnotation
         let parking = parkingAnnotation.parking
-        self.image = UIImage.init(named: "placeholder-green")
 
-        let label = UILabel.init(frame: CGRect.init(x: 10, y: 0, width: self.frame.width, height: self.frame.height))
-        label.text = "\(parking.price)$/h"
-        label.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.caption2)
-        label.textColor = UIColor.init(netHex: 0x515052)
+        if parking.isAvailable {
+            self.image = UIImage.init(named: "pin-apya-green")
+            let label = UILabel.init(frame: CGRect.init(x: 2, y: -8, width: self.frame.width - 4, height: self.frame.height))
+            label.text = "\(parking.price)$"
+            label.adjustsFontSizeToFitWidth = true
+            label.textColor = UIColor.init(netHex: 0x515052)
 
-        self.addSubview(label)
+            self.addSubview(label)
+        } else {
+            self.image = UIImage.init(named: "pin-apya-gray")
+        }
     }
 
     required init?(coder aDecoder: NSCoder) {
