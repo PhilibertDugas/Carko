@@ -24,7 +24,7 @@ class NewPhotoViewController: UIViewController {
     @IBAction func tappedPhoto(_ sender: Any) {
         imagePicker.allowsEditing = true
         imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
-        present(imagePicker, animated: true, completion: nil)
+        self.present(imagePicker, animated: true, completion: nil)
     }
 
     @IBAction func tappedSave(_ sender: Any) {

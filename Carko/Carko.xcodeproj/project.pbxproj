@@ -472,10 +472,10 @@
 			isa = PBXGroup;
 			children = (
 				45782C241E2E9A1E002E9DFD /* Carko.entitlements */,
-				45D5A5071DB2BE640025C45A /* Tab - Profile */,
+				45099A851DAF25EA00392FF1 /* Tab - Login */,
 				451853771DA476B5005CC5E6 /* Tab - Find */,
 				451853781DA476CB005CC5E6 /* Tab - Add */,
-				45099A851DAF25EA00392FF1 /* Tab - Login */,
+				45D5A5071DB2BE640025C45A /* Tab - Profile */,
 				45B4C0E11DA4AAE6002979DC /* Global */,
 				45D5D60F1E1B2EDE006BE596 /* Assets.xcassets */,
 				4550D6711E19D78B0080758D /* Main.storyboard */,
@@ -700,7 +700,8 @@
 						TestTargetID = 45BC29401DA18249000C54BC;
 					};
 					45ECDA5D1E243A6900E999D8 = {
-						DevelopmentTeam = GYH3TK45ZC;
+						DevelopmentTeam = NS2A2ZLLX3;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -1369,11 +1370,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = GYH3TK45ZC;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = NS2A2ZLLX3;
 				INFOPLIST_FILE = "$(SRCROOT)/Carko/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.qh4l.Carko;
+				PRODUCT_BUNDLE_IDENTIFIER = com.qh4l.Apya;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "0f4556a2-0edc-4ffd-b3ff-3c2b08fd7bad";
+				PROVISIONING_PROFILE_SPECIFIER = "XC iOS: com.qh4l.Apya";
 				SWIFT_OBJC_BRIDGING_HEADER = "Carko-Bridging-Header.h";
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "Carko-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
@@ -1385,11 +1389,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = GYH3TK45ZC;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = NS2A2ZLLX3;
 				INFOPLIST_FILE = "$(SRCROOT)/Carko/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.qh4l.Carko;
+				PRODUCT_BUNDLE_IDENTIFIER = com.qh4l.Apya;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "0f4556a2-0edc-4ffd-b3ff-3c2b08fd7bad";
+				PROVISIONING_PROFILE_SPECIFIER = "XC iOS: com.qh4l.Apya";
 				SWIFT_OBJC_BRIDGING_HEADER = "Carko-Bridging-Header.h";
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "Carko-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
