@@ -25,6 +25,24 @@ class AppState: NSObject {
         return parkings
     }
 
+    func cacheVehicule(_ vehicule: Vehicule) {
+        self.customer.vehicule = vehicule
+        updateCache()
+    }
+
+    func cacheCustomer(_ customer: Customer) {
+        self.customer = customer
+        updateCache()
+    }
+
+    func cachedCustomer() -> [String : Any]? {
+        return UserDefaults.standard.dictionary(forKey: "user")
+    }
+
+    private func updateCache() {
+        UserDefaults.standard.set(self.customer.toDictionnary(), forKey: "user")
+    }
+
     // Return IP address of WiFi interface (en0) as a String, or `nil`
     class func getWiFiAddress() -> String? {
         var address : String?

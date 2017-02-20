@@ -134,7 +134,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="alf-os-Upw" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="16" y="142" width="343" height="38"/>
+                                <rect key="frame" x="16" y="170" width="343" height="38"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="zFS-KQ-AQg"/>
@@ -143,17 +143,27 @@
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your email" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgo-Wg-AQM">
-                                <rect key="frame" x="16" y="72" width="343" height="40"/>
+                            <view alpha="0.85000002384185791" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ihc-FJ-OgA" customClass="RoundedCornerView" customModule="Carko" customModuleProvider="target">
+                                <rect key="frame" x="16" y="72" width="343" height="90"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your email address and we will send you an email to reset your password" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tOi-s1-km7">
+                                        <rect key="frame" x="8" y="8" width="327" height="74"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.31768825649999999" green="0.31358337400000003" blue="0.32179906959999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="KGp-3j-o6N"/>
+                                    <constraint firstItem="tOi-s1-km7" firstAttribute="leading" secondItem="Ihc-FJ-OgA" secondAttribute="leading" constant="8" id="44d-72-vnX"/>
+                                    <constraint firstItem="tOi-s1-km7" firstAttribute="top" secondItem="Ihc-FJ-OgA" secondAttribute="top" constant="8" id="4sB-We-vcs"/>
+                                    <constraint firstAttribute="bottom" secondItem="tOi-s1-km7" secondAttribute="bottom" constant="8" id="KbJ-1U-gFC"/>
+                                    <constraint firstAttribute="height" constant="90" id="cCX-9T-Qou"/>
+                                    <constraint firstAttribute="trailing" secondItem="tOi-s1-km7" secondAttribute="trailing" constant="8" id="g6i-Qc-4SE"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1c8-7W-8YC" customClass="RoundedCornerButton" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="125" y="212" width="124" height="62"/>
+                                <rect key="frame" x="125" y="240" width="124" height="62"/>
                                 <color key="backgroundColor" red="0.112871848" green="0.75954872370000004" blue="0.28861063720000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="124" id="2A8-0X-QZ5"/>
@@ -171,11 +181,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="alf-os-Upw" firstAttribute="leading" secondItem="dca-Hq-inm" secondAttribute="leadingMargin" id="0dX-8R-CXx"/>
-                            <constraint firstItem="cgo-Wg-AQM" firstAttribute="trailing" secondItem="dca-Hq-inm" secondAttribute="trailingMargin" id="5gu-LL-tPn"/>
+                            <constraint firstItem="Ihc-FJ-OgA" firstAttribute="leading" secondItem="dca-Hq-inm" secondAttribute="leadingMargin" id="2qZ-WI-BMe"/>
                             <constraint firstItem="1c8-7W-8YC" firstAttribute="centerX" secondItem="dca-Hq-inm" secondAttribute="centerX" id="9lB-Er-Urx"/>
-                            <constraint firstItem="alf-os-Upw" firstAttribute="top" secondItem="cgo-Wg-AQM" secondAttribute="bottom" constant="30" id="Bah-Et-NM3"/>
-                            <constraint firstItem="cgo-Wg-AQM" firstAttribute="top" secondItem="GfE-cj-Udl" secondAttribute="bottom" constant="8" id="Ngh-rZ-YJk"/>
-                            <constraint firstItem="cgo-Wg-AQM" firstAttribute="leading" secondItem="dca-Hq-inm" secondAttribute="leadingMargin" id="bVj-8H-qjH"/>
+                            <constraint firstItem="Ihc-FJ-OgA" firstAttribute="top" secondItem="GfE-cj-Udl" secondAttribute="bottom" constant="8" id="Mbu-kR-XKc"/>
+                            <constraint firstItem="alf-os-Upw" firstAttribute="top" secondItem="Ihc-FJ-OgA" secondAttribute="bottom" constant="8" id="OvT-rQ-Oo2"/>
+                            <constraint firstItem="Ihc-FJ-OgA" firstAttribute="trailing" secondItem="dca-Hq-inm" secondAttribute="trailingMargin" id="agF-qU-a48"/>
                             <constraint firstItem="1c8-7W-8YC" firstAttribute="top" secondItem="alf-os-Upw" secondAttribute="bottom" constant="32" id="k5F-yh-ZIo"/>
                             <constraint firstItem="alf-os-Upw" firstAttribute="trailing" secondItem="dca-Hq-inm" secondAttribute="trailingMargin" id="nKG-TS-pdy"/>
                         </constraints>

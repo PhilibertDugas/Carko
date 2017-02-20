@@ -59,8 +59,7 @@ extension RegisterViewController {
             if let error = error {
                 super.displayErrorMessage(error.localizedDescription)
             } else if let customer = customer {
-                UserDefaults.standard.set(customer.toDictionnary(), forKey: "user")
-                AppState.shared.customer = customer
+                AppState.shared.cacheCustomer(customer)
                 self.dismiss(animated: true) {
                     self.delegate.userAuthenticated()
                 }

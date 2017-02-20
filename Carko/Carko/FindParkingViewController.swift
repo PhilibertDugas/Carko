@@ -54,11 +54,11 @@ class FindParkingViewController: UIViewController {
         super.viewDidAppear(animated)
         self.popupView.isHidden = true
 
-        let customer = UserDefaults.standard.dictionary(forKey: "user")
+        let customer = AppState.shared.cachedCustomer()
         if FIRAuth.auth()?.currentUser == nil || customer == nil {
             self.performSegue(withIdentifier: "showLoginScreen", sender: nil)
         } else if AppState.shared.customer == nil {
-            AppState.shared.customer = Customer.init(customer: customer!)
+            AppState.shared.cacheCustomer(Customer.init(customer: customer!))
             self.setupFirstView()
         }
     }

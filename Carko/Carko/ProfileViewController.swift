@@ -50,14 +50,9 @@ class ProfileViewController: UITableViewController {
             vehiculeLabel.text = vehicule.description
         }
     }
+}
 
-    func setCreditCardLabel(paymentContext: STPPaymentContext) {
-        if let paymentMethod = paymentContext.selectedPaymentMethod {
-            creditCardLabel.text = paymentMethod.label
-            creditCardImage.image = paymentMethod.image
-        }
-    }
-
+extension ProfileViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
@@ -78,7 +73,7 @@ class ProfileViewController: UITableViewController {
             self.paymentContext.pushPaymentMethodsViewController()
             break
         case 1:
-            self.performSegue(withIdentifier: "showVehiculeInformation", sender: nil)
+            self.performSegue(withIdentifier: "showVehicule", sender: nil)
             break
         case 2:
             self.performSegue(withIdentifier: "showAccountCreation", sender: nil)
@@ -90,6 +85,13 @@ class ProfileViewController: UITableViewController {
 }
 
 extension ProfileViewController: STPPaymentContextDelegate {
+    func setCreditCardLabel(paymentContext: STPPaymentContext) {
+        if let paymentMethod = paymentContext.selectedPaymentMethod {
+            creditCardLabel.text = paymentMethod.label
+            creditCardImage.image = paymentMethod.image
+        }
+    }
+
     public func paymentContext(_ paymentContext: STPPaymentContext, didCreatePaymentResult paymentResult: STPPaymentResult, completion: @escaping STPErrorBlock) {
         return
     }
