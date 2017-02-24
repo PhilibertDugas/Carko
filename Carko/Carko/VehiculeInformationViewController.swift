@@ -92,7 +92,11 @@ class VehiculeInformationViewController: UIViewController {
         yearTextField.inputView = pickerView
         var selectedRow: Int
         if let year = self.yearTextField.text {
-            selectedRow = self.years.index(of: year)!
+            if year != "" {
+                selectedRow = self.years.index(of: year)!
+            } else {
+                selectedRow = self.years.index(of: "\(currentYear())")!
+            }
         } else {
             selectedRow = self.years.index(of: "\(currentYear())")!
         }
