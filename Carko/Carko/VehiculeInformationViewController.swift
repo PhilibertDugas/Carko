@@ -18,6 +18,8 @@ class VehiculeInformationViewController: UIViewController {
     @IBOutlet var provinceTextField: UnderlineTextField!
     @IBOutlet var saveButton: RoundedCornerButton!
 
+    var years: [(String)] = []
+
     @IBAction func saveTapped(_ sender: Any) {
         if allFieldsFilled() {
             let vehicule = Vehicule.init(license: licensePlateTextField.text!, make: makeTextField.text!, model: modelTextField.text!, year: yearTextField.text!, color: colorTextField.text!, province: provinceTextField.text!)
@@ -48,7 +50,24 @@ class VehiculeInformationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        setupYears()
+        setupFields()
+        setupPickers()
+    }
 
+    func setupYears() {
+        for i in 1960...currentYear() {
+            years.append("\(i)")
+        }
+    }
+
+    func currentYear() -> Int {
+        let formatter = DateFormatter.init()
+        formatter.dateFormat = "yyyy"
+        return Int(formatter.string(from: Date.init()))!
+    }
+
+    func setupFields() {
         if let vehicule = AppState.shared.customer.vehicule {
             licensePlateTextField.text = vehicule.license
             makeTextField.text = vehicule.make
@@ -61,9 +80,24 @@ class VehiculeInformationViewController: UIViewController {
         licensePlateTextField.addTarget(self, action: #selector(self.textChanged), for: UIControlEvents.editingChanged)
         makeTextField.addTarget(self, action: #selector(self.textChanged), for: UIControlEvents.editingChanged)
         modelTextField.addTarget(self, action: #selector(self.textChanged), for: UIControlEvents.editingChanged)
-        yearTextField.addTarget(self, action: #selector(self.textChanged), for: UIControlEvents.editingChanged)
+        yearTextField.addTarget(self, action: #selector(self.textChanged), for: UIControlEvents.editingDidBegin)
         colorTextField.addTarget(self, action: #selector(self.textChanged), for: UIControlEvents.editingChanged)
         provinceTextField.addTarget(self, action: #selector(self.textChanged), for: UIControlEvents.editingChanged)
+    }
+
+    func setupPickers() {
+        let pickerView = UIPickerView.init()
+        pickerView.dataSource = self
+        pickerView.delegate = self
+        yearTextField.inputView = pickerView
+        var selectedRow: Int
+        if let year = self.yearTextField.text {
+            selectedRow = self.years.index(of: year)!
+        } else {
+            selectedRow = self.years.index(of: "\(currentYear())")!
+        }
+        pickerView.selectRow(selectedRow, inComponent: 0, animated: false)
+
     }
 
     func displaySuccessMessage() {
@@ -71,5 +105,23 @@ class VehiculeInformationViewController: UIViewController {
         responder.setDismissBlock {
             let _ = self.navigationController?.popToRootViewController(animated: true)
         }
+    }
+}
+
+extension VehiculeInformationViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return self.years.count
+    }
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return self.years[row]
+    }
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.yearTextField.text = self.years[row]
     }
 }
