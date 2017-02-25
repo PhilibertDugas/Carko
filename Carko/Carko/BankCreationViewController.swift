@@ -8,15 +8,19 @@
 
 import UIKit
 import Stripe
+import SCLAlertView
 
 class BankCreationViewController: UIViewController {
     @IBOutlet var routingNumberTextField: UnderlineTextField!
     @IBOutlet var accountNumberTextField: UnderlineTextField!
 
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
     var account: Account!
 
-    @IBAction func BankInformationEntered(_ sender: Any) {
+    @IBAction func saveTapped(_ sender: Any) {
         if let routingNumber = routingNumberTextField.text, let accountNumber = accountNumberTextField.text {
+            self.activityIndicator.isHidden = false
+            self.activityIndicator.startAnimating()
             createAccounts(routingNumber: routingNumber, accountNumber: accountNumber)
         }
     }
@@ -24,6 +28,8 @@ class BankCreationViewController: UIViewController {
     func createAccounts(routingNumber: String, accountNumber: String) {
         self.account.persist { (error) in
             if let error = error {
+                self.activityIndicator.stopAnimating()
+                self.activityIndicator.isHidden = true
                 super.displayErrorMessage(error.localizedDescription)
             } else {
                 let params = STPBankAccountParams.init()
@@ -35,16 +41,20 @@ class BankCreationViewController: UIViewController {
                 params.currency = "CAD"
                 STPAPIClient.shared().createToken(withBankAccount: params, completion: { (token, error) in
                     if let error = error {
-                        print(error.localizedDescription)
+                        self.activityIndicator.stopAnimating()
+                        self.activityIndicator.isHidden = true
+                        super.displayErrorMessage(error.localizedDescription)
                     } else if let token = token {
                         Account.associateExternalAccount(token: token.tokenId, completion: { (error) in
                             if let error = error {
+                                self.activityIndicator.stopAnimating()
+                                self.activityIndicator.isHidden = true
                                 super.displayErrorMessage(error.localizedDescription)
                             } else {
-                                AppState.shared.customer.accountId = token.tokenId
-                                AppState.shared.customer.externalLast4Digits = token.bankAccount?.last4()
-                                AppState.shared.customer.externalBankName = token.bankAccount?.bankName!
-                                let _ = self.navigationController?.popToRootViewController(animated: true)
+                                self.activityIndicator.stopAnimating()
+                                self.activityIndicator.isHidden = true
+                                AppState.shared.cacheBankToken(token)
+                                self.displaySuccessMessage()
                             }
                         })
                     }
@@ -56,5 +66,13 @@ class BankCreationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        self.activityIndicator.isHidden = true
+    }
+
+    func displaySuccessMessage() {
+        let responder = SCLAlertView.init().showSuccess(NSLocalizedString("Congratulations", comment: ""), subTitle: NSLocalizedString("You just added your payout information", comment: ""))
+        responder.setDismissBlock {
+            let _ = self.navigationController?.popToRootViewController(animated: true)
+        }
     }
 }

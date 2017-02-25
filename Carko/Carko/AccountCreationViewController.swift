@@ -42,18 +42,17 @@ class AccountCreationViewController: UIViewController {
         sender.text = "\(day)-\(month)-\(year)"
     }
 
-    @IBAction func nextTapped(_ sender: Any) {
+    @IBAction func continueTapped(_ sender: Any) {
         if let city = cityTextField.text, let line1 = addressTextField.text, let postalCode = postalCodeTextField.text, let stateText = stateTextField.text {
             self.address = AccountAddress.init(city: city, line1: line1, postalCode: postalCode, state: stateText)
         } else {
-            super.displayErrorMessage("BRUH")
+            super.displayErrorMessage("Please enter all fields")
         }
 
         if let address = self.address, let dob = self.dob {
             self.account = Account.init(firstName: AppState.shared.customer.firstName, lastName: AppState.shared.customer.lastName, address: address, dob: dob)
             self.performSegue(withIdentifier: "showBankInformation", sender: nil)
         }
-
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -251,8 +251,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view alpha="0.85000002384185791" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G8e-05-hGg" customClass="RoundedCornerView" customModule="Carko" customModuleProvider="target">
+                                <rect key="frame" x="16" y="72" width="343" height="90"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To receive payment, please enter the following information." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5he-Nx-YBk">
+                                        <rect key="frame" x="8" y="8" width="327" height="74"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.31768825649999999" green="0.31358337400000003" blue="0.32179906959999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="5he-Nx-YBk" firstAttribute="leading" secondItem="G8e-05-hGg" secondAttribute="leading" constant="8" id="B9f-iV-qcd"/>
+                                    <constraint firstAttribute="bottom" secondItem="5he-Nx-YBk" secondAttribute="bottom" constant="8" id="Rr9-lH-zAG"/>
+                                    <constraint firstAttribute="trailing" secondItem="5he-Nx-YBk" secondAttribute="trailing" constant="8" id="fbA-Na-aX5"/>
+                                    <constraint firstAttribute="height" constant="90" id="hcK-Sa-aZa"/>
+                                    <constraint firstItem="5he-Nx-YBk" firstAttribute="top" secondItem="G8e-05-hGg" secondAttribute="top" constant="8" id="qnj-2L-JNg"/>
+                                </constraints>
+                            </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vdX-ON-AFp" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="16" y="157" width="343" height="50"/>
+                                <rect key="frame" x="16" y="170" width="343" height="50"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="0ig-9Z-d47"/>
@@ -262,7 +281,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="City" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="72X-Jc-uGU" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="16" y="215" width="343" height="50"/>
+                                <rect key="frame" x="16" y="228" width="343" height="50"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="aha-cz-ZGX"/>
@@ -272,7 +291,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="State (e.g QC or ON)" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="fp3-sY-MPq" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="16" y="273" width="343" height="50"/>
+                                <rect key="frame" x="16" y="286" width="343" height="50"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ixf-Gu-DVx"/>
@@ -282,7 +301,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Postal Code" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="uZd-0s-zDS" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="16" y="331" width="343" height="50"/>
+                                <rect key="frame" x="16" y="344" width="343" height="50"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="mBR-dY-dH0"/>
@@ -291,17 +310,8 @@
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the account address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8sF-2T-vvx">
-                                <rect key="frame" x="16" y="72" width="343" height="55"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="mZZ-K8-dXi"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Canada" placeholder="Country" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d38-EY-VnM" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="16" y="389" width="343" height="50"/>
+                                <rect key="frame" x="16" y="402" width="343" height="50"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="RIu-Ev-3xy"/>
@@ -310,16 +320,8 @@
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g9l-Yx-giV" customClass="CircularButton" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="299" y="550" width="60" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="right-arrow-circular-button.png"/>
-                                <connections>
-                                    <action selector="nextTapped:" destination="EIA-Tj-76l" eventType="touchUpInside" id="ip4-rR-PiG"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Date of birth" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2bv-DF-asf" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="16" y="447" width="343" height="50"/>
+                                <rect key="frame" x="16" y="460" width="343" height="50"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="nTH-4c-8lj"/>
@@ -332,10 +334,28 @@
                                     <action selector="timeEditEnd:" destination="EIA-Tj-76l" eventType="editingDidEnd" id="7qP-2c-aHr"/>
                                 </connections>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Btq-XI-LZu" customClass="RoundedCornerButton" customModule="Carko" customModuleProvider="target">
+                                <rect key="frame" x="16" y="565" width="343" height="45"/>
+                                <color key="backgroundColor" red="0.112871848" green="0.75954872370000004" blue="0.28861063720000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="sTl-vy-FPd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <color key="tintColor" red="0.112871848" green="0.75954872370000004" blue="0.28861063720000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Continue">
+                                    <color key="titleColor" red="0.9999514222" green="1" blue="0.97945672269999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="continueTapped:" destination="EIA-Tj-76l" eventType="touchUpInside" id="SOS-Kz-kTI"/>
+                                    <action selector="saveTapped:" destination="DAF-Sj-mQX" eventType="touchUpInside" id="A6H-kx-QyL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="8sF-2T-vvx" firstAttribute="top" secondItem="btP-Gi-ejr" secondAttribute="bottom" constant="8" id="A94-Yv-NLY"/>
+                            <constraint firstItem="Btq-XI-LZu" firstAttribute="leading" secondItem="KOR-6C-5hj" secondAttribute="leadingMargin" id="806-kI-X5F"/>
+                            <constraint firstItem="d7Y-IL-sSA" firstAttribute="top" secondItem="Btq-XI-LZu" secondAttribute="bottom" constant="8" id="A0L-ic-yOE"/>
+                            <constraint firstItem="Btq-XI-LZu" firstAttribute="trailing" secondItem="KOR-6C-5hj" secondAttribute="trailingMargin" id="BQD-rn-p5x"/>
                             <constraint firstItem="2bv-DF-asf" firstAttribute="trailing" secondItem="KOR-6C-5hj" secondAttribute="trailingMargin" id="Dh1-Hw-NWr"/>
                             <constraint firstItem="2bv-DF-asf" firstAttribute="top" secondItem="d38-EY-VnM" secondAttribute="bottom" constant="8" id="GQl-pl-uXF"/>
                             <constraint firstItem="fp3-sY-MPq" firstAttribute="trailing" secondItem="KOR-6C-5hj" secondAttribute="trailingMargin" id="GpW-xX-Ijq"/>
@@ -344,22 +364,22 @@
                             <constraint firstItem="72X-Jc-uGU" firstAttribute="top" secondItem="vdX-ON-AFp" secondAttribute="bottom" constant="8" id="Mem-qi-PiM"/>
                             <constraint firstItem="72X-Jc-uGU" firstAttribute="trailing" secondItem="KOR-6C-5hj" secondAttribute="trailingMargin" id="NVJ-Wt-TRh"/>
                             <constraint firstItem="uZd-0s-zDS" firstAttribute="leading" secondItem="KOR-6C-5hj" secondAttribute="leadingMargin" id="OfK-Jj-JAw"/>
-                            <constraint firstItem="8sF-2T-vvx" firstAttribute="trailing" secondItem="KOR-6C-5hj" secondAttribute="trailingMargin" id="Rk3-bU-f7I"/>
+                            <constraint firstItem="G8e-05-hGg" firstAttribute="top" secondItem="btP-Gi-ejr" secondAttribute="bottom" constant="8" id="Q1d-5e-2oj"/>
                             <constraint firstItem="2bv-DF-asf" firstAttribute="leading" secondItem="KOR-6C-5hj" secondAttribute="leadingMargin" id="Ta5-EG-7Mt"/>
-                            <constraint firstItem="8sF-2T-vvx" firstAttribute="leading" secondItem="KOR-6C-5hj" secondAttribute="leadingMargin" id="WsZ-So-sf2"/>
-                            <constraint firstItem="vdX-ON-AFp" firstAttribute="top" secondItem="8sF-2T-vvx" secondAttribute="bottom" constant="30" id="ZQr-jx-n9Q"/>
                             <constraint firstItem="72X-Jc-uGU" firstAttribute="leading" secondItem="KOR-6C-5hj" secondAttribute="leadingMargin" id="ch3-e8-fs4"/>
                             <constraint firstItem="vdX-ON-AFp" firstAttribute="leading" secondItem="KOR-6C-5hj" secondAttribute="leadingMargin" id="eot-1e-RRx"/>
                             <constraint firstItem="fp3-sY-MPq" firstAttribute="leading" secondItem="KOR-6C-5hj" secondAttribute="leadingMargin" id="ftk-tk-in8"/>
                             <constraint firstItem="vdX-ON-AFp" firstAttribute="trailing" secondItem="KOR-6C-5hj" secondAttribute="trailingMargin" id="kGr-kX-Dwe"/>
                             <constraint firstItem="d38-EY-VnM" firstAttribute="trailing" secondItem="KOR-6C-5hj" secondAttribute="trailingMargin" id="lVg-Po-1og"/>
                             <constraint firstItem="d38-EY-VnM" firstAttribute="leading" secondItem="KOR-6C-5hj" secondAttribute="leadingMargin" id="sJy-ux-EiP"/>
+                            <constraint firstItem="vdX-ON-AFp" firstAttribute="top" secondItem="G8e-05-hGg" secondAttribute="bottom" constant="8" id="uUw-3j-CUx"/>
                             <constraint firstItem="uZd-0s-zDS" firstAttribute="top" secondItem="fp3-sY-MPq" secondAttribute="bottom" constant="8" id="ukA-5g-X7j"/>
                             <constraint firstItem="fp3-sY-MPq" firstAttribute="top" secondItem="72X-Jc-uGU" secondAttribute="bottom" constant="8" id="wRz-4b-RQg"/>
+                            <constraint firstItem="G8e-05-hGg" firstAttribute="trailing" secondItem="KOR-6C-5hj" secondAttribute="trailingMargin" id="wo5-Jq-SJl"/>
+                            <constraint firstItem="G8e-05-hGg" firstAttribute="leading" secondItem="KOR-6C-5hj" secondAttribute="leadingMargin" id="zrw-nW-FcS"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="IQLayoutGuideConstraint" destination="A94-Yv-NLY" id="sfg-iO-dvQ"/>
                         <outlet property="addressTextField" destination="vdX-ON-AFp" id="Z1h-NP-6rI"/>
                         <outlet property="cityTextField" destination="72X-Jc-uGU" id="yAp-TA-oAL"/>
                         <outlet property="countryTextField" destination="d38-EY-VnM" id="tlx-pm-fIj"/>
@@ -385,17 +405,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the bank information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rTD-Ip-IDr">
-                                <rect key="frame" x="16" y="72" width="343" height="55"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="OxG-C6-DbH"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Routing Number" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="2IC-pI-c7k" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="16" y="157" width="343" height="50"/>
+                                <rect key="frame" x="16" y="170" width="343" height="50"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="nKM-wp-4tY"/>
@@ -405,7 +416,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Account Number" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ECj-eV-L0Q" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="16" y="215" width="343" height="50"/>
+                                <rect key="frame" x="16" y="228" width="343" height="50"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="cxn-HH-mj8"/>
@@ -415,50 +426,91 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check_example.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Bql-Bg-ujr">
-                                <rect key="frame" x="16" y="325" width="343" height="140"/>
+                                <rect key="frame" x="16" y="338" width="343" height="140"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="140" id="zp0-Be-w1c"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qQ1-e4-9df" customClass="CircularButton" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="299" y="550" width="60" height="60"/>
+                            <view alpha="0.85000002384185791" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tw5-R0-HB4" customClass="RoundedCornerView" customModule="Carko" customModuleProvider="target">
+                                <rect key="frame" x="16" y="72" width="343" height="90"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apya does not store or share any banking information. All banking information is communicated through Stripe." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DLM-Ik-psT">
+                                        <rect key="frame" x="8" y="8" width="327" height="74"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.31768825649999999" green="0.31358337400000003" blue="0.32179906959999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="rwv-JF-bmS"/>
-                                    <constraint firstAttribute="height" constant="60" id="w4l-rN-JvK"/>
+                                    <constraint firstAttribute="trailing" secondItem="DLM-Ik-psT" secondAttribute="trailing" constant="8" id="Dt3-5u-ddm"/>
+                                    <constraint firstItem="DLM-Ik-psT" firstAttribute="leading" secondItem="Tw5-R0-HB4" secondAttribute="leading" constant="8" id="HJM-Gn-Eg9"/>
+                                    <constraint firstAttribute="height" constant="90" id="Lb3-A1-2vg"/>
+                                    <constraint firstItem="DLM-Ik-psT" firstAttribute="top" secondItem="Tw5-R0-HB4" secondAttribute="top" constant="8" id="PP2-lh-vUJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="DLM-Ik-psT" secondAttribute="bottom" constant="8" id="RX7-x1-xxt"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="success.png"/>
-                                <connections>
-                                    <action selector="BankInformationEntered:" destination="aWT-Jx-dCK" eventType="touchUpInside" id="WgU-WU-Yuj"/>
-                                </connections>
-                            </button>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="go1-zU-b4U">
+                                <rect key="frame" x="16" y="565" width="343" height="45"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lLy-pT-45z" customClass="RoundedCornerButton" customModule="Carko" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="45"/>
+                                        <color key="backgroundColor" red="0.112871848" green="0.75954872370000004" blue="0.28861063720000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <color key="tintColor" red="0.112871848" green="0.75954872370000004" blue="0.28861063720000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Save">
+                                            <color key="titleColor" red="0.9999514222" green="1" blue="0.97945672269999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="saveTapped:" destination="aWT-Jx-dCK" eventType="touchUpInside" id="Igo-ty-6Je"/>
+                                            <action selector="saveTapped:" destination="DAF-Sj-mQX" eventType="touchUpInside" id="wbn-jl-h4r"/>
+                                        </connections>
+                                    </button>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="xrY-Od-lYT">
+                                        <rect key="frame" x="298" y="4" width="37" height="37"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="xrY-Od-lYT" firstAttribute="top" secondItem="go1-zU-b4U" secondAttribute="top" constant="4" id="355-kR-bS1"/>
+                                    <constraint firstAttribute="trailing" secondItem="lLy-pT-45z" secondAttribute="trailing" id="7SI-Lu-dbO"/>
+                                    <constraint firstAttribute="trailing" secondItem="xrY-Od-lYT" secondAttribute="trailing" constant="8" id="BKh-GV-d57"/>
+                                    <constraint firstAttribute="bottom" secondItem="xrY-Od-lYT" secondAttribute="bottom" constant="4" id="QG8-PP-Qaa"/>
+                                    <constraint firstAttribute="bottom" secondItem="lLy-pT-45z" secondAttribute="bottom" id="SPk-nf-4eG"/>
+                                    <constraint firstAttribute="height" constant="45" id="ggU-64-8nV"/>
+                                    <constraint firstItem="lLy-pT-45z" firstAttribute="leading" secondItem="go1-zU-b4U" secondAttribute="leading" id="mnR-a5-lr2"/>
+                                    <constraint firstItem="lLy-pT-45z" firstAttribute="top" secondItem="go1-zU-b4U" secondAttribute="top" id="quD-f5-Z1m"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="2IC-pI-c7k" firstAttribute="top" secondItem="Tw5-R0-HB4" secondAttribute="bottom" constant="8" id="17g-i8-MXG"/>
                             <constraint firstItem="ECj-eV-L0Q" firstAttribute="leading" secondItem="ds2-Mr-fGj" secondAttribute="leadingMargin" id="3EP-2x-Qwf"/>
                             <constraint firstItem="ECj-eV-L0Q" firstAttribute="top" secondItem="2IC-pI-c7k" secondAttribute="bottom" constant="8" id="5p8-xU-JOk"/>
-                            <constraint firstItem="rTD-Ip-IDr" firstAttribute="top" secondItem="jMk-GN-uXT" secondAttribute="bottom" constant="8" id="9oP-Bc-geW"/>
-                            <constraint firstItem="rTD-Ip-IDr" firstAttribute="trailing" secondItem="ds2-Mr-fGj" secondAttribute="trailingMargin" id="A9T-6F-45H"/>
-                            <constraint firstItem="2IC-pI-c7k" firstAttribute="top" secondItem="rTD-Ip-IDr" secondAttribute="bottom" constant="30" id="Gjm-x6-8YZ"/>
                             <constraint firstItem="Bql-Bg-ujr" firstAttribute="trailing" secondItem="ds2-Mr-fGj" secondAttribute="trailingMargin" id="KWv-jb-emN"/>
                             <constraint firstItem="2IC-pI-c7k" firstAttribute="trailing" secondItem="ds2-Mr-fGj" secondAttribute="trailingMargin" id="KxO-qZ-QB3"/>
                             <constraint firstItem="ECj-eV-L0Q" firstAttribute="trailing" secondItem="ds2-Mr-fGj" secondAttribute="trailingMargin" id="RRy-jM-4Sq"/>
+                            <constraint firstItem="go1-zU-b4U" firstAttribute="leading" secondItem="ds2-Mr-fGj" secondAttribute="leadingMargin" id="UgJ-NS-0Xf"/>
+                            <constraint firstItem="Tw5-R0-HB4" firstAttribute="leading" secondItem="ds2-Mr-fGj" secondAttribute="leadingMargin" id="Ybc-1P-b8E"/>
+                            <constraint firstItem="Tw5-R0-HB4" firstAttribute="trailing" secondItem="ds2-Mr-fGj" secondAttribute="trailingMargin" id="aBG-j4-FM4"/>
                             <constraint firstItem="Bql-Bg-ujr" firstAttribute="leading" secondItem="ds2-Mr-fGj" secondAttribute="leadingMargin" id="fLP-tf-f7h"/>
-                            <constraint firstItem="B1d-qZ-Cmm" firstAttribute="top" secondItem="qQ1-e4-9df" secondAttribute="bottom" constant="8" id="jN2-ak-dDh"/>
-                            <constraint firstItem="rTD-Ip-IDr" firstAttribute="leading" secondItem="ds2-Mr-fGj" secondAttribute="leadingMargin" id="ox6-ag-YPh"/>
-                            <constraint firstItem="qQ1-e4-9df" firstAttribute="trailing" secondItem="ds2-Mr-fGj" secondAttribute="trailingMargin" id="pZj-cZ-BSs"/>
+                            <constraint firstItem="Tw5-R0-HB4" firstAttribute="top" secondItem="jMk-GN-uXT" secondAttribute="bottom" constant="8" id="lwq-Ax-7tT"/>
+                            <constraint firstItem="go1-zU-b4U" firstAttribute="trailing" secondItem="ds2-Mr-fGj" secondAttribute="trailingMargin" id="mOv-1M-stM"/>
+                            <constraint firstItem="B1d-qZ-Cmm" firstAttribute="top" secondItem="go1-zU-b4U" secondAttribute="bottom" constant="8" id="oiz-Hs-qEd"/>
                             <constraint firstItem="Bql-Bg-ujr" firstAttribute="top" secondItem="ECj-eV-L0Q" secondAttribute="bottom" constant="60" id="tLl-1d-fRq"/>
                             <constraint firstItem="2IC-pI-c7k" firstAttribute="leading" secondItem="ds2-Mr-fGj" secondAttribute="leadingMargin" id="zgg-GR-NZP"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="IQLayoutGuideConstraint" destination="9oP-Bc-geW" id="9Eq-RD-2ao"/>
                         <outlet property="accountNumberTextField" destination="ECj-eV-L0Q" id="gpP-Ko-glQ"/>
+                        <outlet property="activityIndicator" destination="xrY-Od-lYT" id="Ytf-Zo-b5t"/>
                         <outlet property="routingNumberTextField" destination="2IC-pI-c7k" id="BRb-E6-0Xf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JTs-dv-le3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1137" y="-394"/>
+            <point key="canvasLocation" x="1136.8" y="-394.45277361319341"/>
         </scene>
         <!--Vehicule Information-->
         <scene sceneID="Kfq-BG-q4b">
@@ -615,8 +667,6 @@
         <image name="check_example.jpg" width="32" height="32"/>
         <image name="credit-card.png" width="32" height="32"/>
         <image name="money-bag.png" width="32" height="32"/>
-        <image name="right-arrow-circular-button.png" width="64" height="64"/>
-        <image name="success.png" width="32" height="32"/>
         <image name="user.png" width="32" height="32"/>
     </resources>
 </document>

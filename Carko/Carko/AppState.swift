@@ -9,6 +9,7 @@
 import Foundation
 import FirebaseStorage
 import Firebase
+import Stripe
 
 class AppState: NSObject {
     static let shared = AppState.init()
@@ -32,6 +33,13 @@ class AppState: NSObject {
 
     func cacheCustomer(_ customer: Customer) {
         self.customer = customer
+        updateCache()
+    }
+
+    func cacheBankToken(_ token: STPToken) {
+        self.customer.accountId = token.tokenId
+        self.customer.externalLast4Digits = token.bankAccount?.last4()
+        self.customer.externalBankName = token.bankAccount?.bankName!
         updateCache()
     }
 
