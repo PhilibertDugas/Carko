@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func setupStripe() {
-        STPPaymentConfiguration.shared().publishableKey = "pk_test_1LYkk7fCrA1bWDbXRUx1zWBx"
+        STPPaymentConfiguration.shared().publishableKey = "pk_test_mdqoFho85XAZuABtZMyS1D5r"
     }
 
     func setupPageControl() {

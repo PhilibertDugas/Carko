@@ -19,5 +19,53 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Carko/BankCreationViewController.swift"
+            timestampString = "510182818.143295"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "createAccounts(routingNumber:accountNumber:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Carko.BankCreationViewController.(createAccounts (routingNumber : Swift.String, accountNumber : Swift.String) -&gt; ()).(closure #1).(closure #1)"
+                  moduleName = "Carko"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/philibertdugas/src/QH4L/Carko/Carko/Carko/BankCreationViewController.swift"
+                  timestampString = "513052293.467523"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "913">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Carko.BankCreationViewController.(createAccounts (routingNumber : Swift.String, accountNumber : Swift.String) -&gt; ()).(closure #1).(closure #1).(closure #1)"
+                  moduleName = "Carko"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/philibertdugas/src/QH4L/Carko/Carko/Carko/BankCreationViewController.swift"
+                  timestampString = "513052293.469868"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "23">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
