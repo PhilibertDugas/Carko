@@ -12,7 +12,7 @@ class RoundedCornerButton: UIButton {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         layer.cornerRadius = 3
-        layer.borderWidth = 0
+        layer.borderWidth = 0.5
     }
 }
 

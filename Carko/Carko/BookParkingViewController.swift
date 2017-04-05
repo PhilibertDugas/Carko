@@ -19,9 +19,10 @@ class BookParkingViewController: UIViewController {
     @IBOutlet var timeLabel: UILabel!
     @IBOutlet var costLabel: UILabel!
     @IBOutlet var timeSlider: UISlider!
-    @IBOutlet var confirmButton: CircularButton!
+    @IBOutlet var confirmButton: RoundedCornerButton!
     @IBOutlet var startTime: UILabel!
     @IBOutlet var endTime: UILabel!
+    @IBOutlet var indicator: UIActivityIndicatorView!
 
     var endTimeParking: String!
     var totalCost: Float!
@@ -77,6 +78,8 @@ class BookParkingViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        self.indicator.isHidden = true
+
         addressLabel.text = parking.address
         startTime.text = DateHelper.currentTime()
         endTime.text = parking.availabilityInfo.stopTime
@@ -96,6 +99,8 @@ class BookParkingViewController: UIViewController {
     }
 
     func completeBooking() {
+        self.indicator.isHidden = false
+        self.indicator.startAnimating()
         self.paymentContext.paymentAmount = Int(self.totalCost * 100)
         self.paymentContext.requestPayment()
     }
@@ -158,6 +163,8 @@ extension BookParkingViewController: STPPaymentContextDelegate {
             if let error = error {
                 super.displayErrorMessage(error.localizedDescription)
             } else if successfulReservation != nil {
+                self.indicator.isHidden = true
+                self.indicator.stopAnimating()
                 self.tapCloseButtonActionHandler?()
                 self.dismiss(animated: true, completion: nil)
             }
