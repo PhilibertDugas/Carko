@@ -12,6 +12,7 @@ import FirebaseStorageUI
 
 class BookParkingViewController: UIViewController {
 
+    @IBOutlet var creditCardImage: UIImageView!
     @IBOutlet var parkingImageView: UIImageView!
     @IBOutlet var addressLabel: UILabel!
     @IBOutlet var creditCardLabel: UnderlineTextField!
@@ -67,6 +68,7 @@ class BookParkingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         creditCardLabel.delegate = self
+        vehiculeLabel.delegate = self
 
         // TODO CHANGE THIS
         paymentContext = STPPaymentContext.init(apiAdapter: APIClient.shared)
@@ -173,6 +175,7 @@ extension BookParkingViewController: STPPaymentContextDelegate {
 
     func paymentContextDidChange(_ paymentContext: STPPaymentContext) {
         creditCardLabel.text = paymentContext.selectedPaymentMethod?.label
+        creditCardImage.image = paymentContext.selectedPaymentMethod?.image
         self.paymentContext = paymentContext
         return
     }

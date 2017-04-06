@@ -267,13 +267,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="23u-Xa-iLr">
                                 <rect key="frame" x="16" y="465" width="343" height="110"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="credit-card" translatesAutoresizingMaskIntoConstraints="NO" id="Pfd-WJ-KQZ">
-                                        <rect key="frame" x="8" y="8" width="40" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="UOw-Zb-pR5"/>
-                                            <constraint firstAttribute="height" constant="40" id="pwk-DY-wUr"/>
-                                        </constraints>
-                                    </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="car" translatesAutoresizingMaskIntoConstraints="NO" id="c7x-h2-u7K">
                                         <rect key="frame" x="8" y="62" width="40" height="40"/>
                                         <constraints>
@@ -301,16 +294,23 @@
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="credit-card" translatesAutoresizingMaskIntoConstraints="NO" id="Pfd-WJ-KQZ">
+                                        <rect key="frame" x="8" y="18" width="32" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="32" id="UOw-Zb-pR5"/>
+                                            <constraint firstAttribute="height" constant="20" id="pwk-DY-wUr"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="lGZ-L5-Dop" firstAttribute="leading" secondItem="Pfd-WJ-KQZ" secondAttribute="trailing" constant="8" id="4oQ-A8-XaC"/>
+                                    <constraint firstItem="lGZ-L5-Dop" firstAttribute="leading" secondItem="Pfd-WJ-KQZ" secondAttribute="trailing" constant="16" id="4oQ-A8-XaC"/>
                                     <constraint firstAttribute="trailing" secondItem="lGZ-L5-Dop" secondAttribute="trailing" constant="8" id="9KG-Sr-olv"/>
                                     <constraint firstItem="Zc9-0f-ESQ" firstAttribute="leading" secondItem="c7x-h2-u7K" secondAttribute="trailing" constant="8" id="EMg-73-s0j"/>
                                     <constraint firstAttribute="height" constant="110" id="Lrw-r0-UDU"/>
                                     <constraint firstAttribute="bottom" secondItem="Zc9-0f-ESQ" secondAttribute="bottom" constant="8" id="MYR-BX-zB5"/>
                                     <constraint firstItem="c7x-h2-u7K" firstAttribute="leading" secondItem="23u-Xa-iLr" secondAttribute="leading" constant="8" id="TYL-lr-AUI"/>
-                                    <constraint firstItem="Pfd-WJ-KQZ" firstAttribute="top" secondItem="23u-Xa-iLr" secondAttribute="top" constant="8" id="TcM-7D-FZI"/>
+                                    <constraint firstItem="Pfd-WJ-KQZ" firstAttribute="top" secondItem="23u-Xa-iLr" secondAttribute="top" constant="18" id="bwp-80-9WW"/>
                                     <constraint firstItem="Pfd-WJ-KQZ" firstAttribute="leading" secondItem="23u-Xa-iLr" secondAttribute="leading" constant="8" id="cQV-Hy-fRg"/>
                                     <constraint firstItem="lGZ-L5-Dop" firstAttribute="top" secondItem="23u-Xa-iLr" secondAttribute="top" constant="8" id="iVP-w7-wzA"/>
                                     <constraint firstAttribute="trailing" secondItem="Zc9-0f-ESQ" secondAttribute="trailing" constant="8" id="pcd-0E-ktN"/>
@@ -388,6 +388,7 @@
                         <outlet property="addressLabel" destination="Foz-45-Nlo" id="0Mh-7E-Y3y"/>
                         <outlet property="confirmButton" destination="eNc-qq-HT7" id="rOL-5B-fLu"/>
                         <outlet property="costLabel" destination="nLw-V2-mPK" id="BPC-r6-Jcv"/>
+                        <outlet property="creditCardImage" destination="Pfd-WJ-KQZ" id="5Gu-7N-zhZ"/>
                         <outlet property="creditCardLabel" destination="lGZ-L5-Dop" id="lmc-Pn-Bre"/>
                         <outlet property="endTime" destination="ywD-dv-cYc" id="WoJ-nW-GEX"/>
                         <outlet property="indicator" destination="dlE-aj-1W3" id="I4H-LA-BQZ"/>

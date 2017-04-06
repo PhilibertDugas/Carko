@@ -131,7 +131,9 @@ extension LocationViewController: UITextFieldDelegate {
                 }
             })
         } else {
-            self.blurMap()
+            if selectedPin != nil {
+                self.blurMap()
+            }
         }
 
         self.searchResultView = UIView.init(frame: self.resultView.frame)
@@ -141,7 +143,9 @@ extension LocationViewController: UITextFieldDelegate {
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
-        self.blurView.removeFromSuperview()
+        if selectedPin != nil {
+            self.blurView.removeFromSuperview()
+        }
         self.searchResultView.removeFromSuperview()
     }
 
@@ -150,7 +154,6 @@ extension LocationViewController: UITextFieldDelegate {
         self.blurView = UIVisualEffectView.init(effect: effect)
         self.blurView.frame = mapView.bounds
         self.mapView.addSubview(blurView)
-
     }
 
     func blurStatusBar() {
