@@ -66,9 +66,8 @@ extension APIClient {
     }
 
     func getCustomerParkings(complete: @escaping([(Parking)], Error?) -> Void) {
-        let getUrl = baseUrl.appendingPathComponent("/customers/\(self.customerId())")
-        let parameters: Parameters = ["type": "parkings"]
-        request(getUrl, parameters: parameters).responseJSON { (returned) in
+        let getUrl = baseUrl.appendingPathComponent("/customers/\(AppState.shared.customer.id)/parkings")
+        request(getUrl).responseJSON { (returned) in
             if let error = returned.result.error {
                 complete([], error)
             } else if let response = returned.response, let value = returned.result.value {

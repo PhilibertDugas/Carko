@@ -11,7 +11,7 @@ import Alamofire
 
 extension APIClient {
     func getCustomer(complete: @escaping(Customer?, Error?) -> Void) {
-        let url = baseUrl.appendingPathComponent("/customers/\(customerId())")
+        let url = baseUrl.appendingPathComponent("/customers/\(AppState.shared.customer.id)")
         request(url).responseJSON { (response) in
             if let error = response.result.error {
                 complete(nil, error)

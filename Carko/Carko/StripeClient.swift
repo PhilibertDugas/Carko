@@ -12,7 +12,7 @@ import Stripe
 
 extension APIClient: STPBackendAPIAdapter {
     func retrieveCustomer(_ completion: @escaping STPCustomerCompletionBlock) {
-        let getUrl = baseUrl.appendingPathComponent("customers/\(self.customerId())")
+        let getUrl = baseUrl.appendingPathComponent("customers/\(AppState.shared.customer.id)")
         let parameters: Parameters = ["type": "stripe"]
         request(getUrl, parameters: parameters).response { (response) in
             let deserializer = STPCustomerDeserializer.init(data: response.data, urlResponse: response.response, error: response.error)
@@ -26,7 +26,7 @@ extension APIClient: STPBackendAPIAdapter {
     }
 
     func selectDefaultCustomerSource(_ source: STPSource, completion: @escaping STPErrorBlock) {
-        let postUrl = baseUrl.appendingPathComponent("/customers/\(customerId())/default_source")
+        let postUrl = baseUrl.appendingPathComponent("/customers/\(AppState.shared.customer.id)/default_source")
         let parameters: Parameters = ["customer": ["default_source": source.stripeID]]
 
         request(postUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).response { (response) in
@@ -39,7 +39,7 @@ extension APIClient: STPBackendAPIAdapter {
     }
 
     func attachSource(toCustomer source: STPSource, completion: @escaping STPErrorBlock) {
-        let postUrl = baseUrl.appendingPathComponent("/customers/\(self.customerId())/sources")
+        let postUrl = baseUrl.appendingPathComponent("/customers/\(AppState.shared.customer.id)/sources")
         let parameters: Parameters = ["customer": ["source": source.stripeID]]
 
         request(postUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).response { (response) in
