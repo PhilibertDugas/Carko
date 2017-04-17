@@ -59,7 +59,7 @@ class FindParkingViewController: UIViewController {
             self.performSegue(withIdentifier: "showLoginScreen", sender: nil)
         } else if AppState.shared.customer == nil {
             AppState.shared.cacheCustomer(Customer.init(customer: customer!))
-            self.setupFirstView()
+            self.userAuthenticated()
         }
     }
 
@@ -72,16 +72,13 @@ class FindParkingViewController: UIViewController {
                 self.locationManager.requestWhenInUseAuthorization()
             }
         }
+        fetchParkings()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        Parking.getAllParkings { (parkings, error) in
-            if let error = error {
-                self.displayErrorMessage(error.localizedDescription)
-            } else {
-                self.parkingFetched(parkings)
-            }
+        if AppState.shared.customer != nil {
+            fetchParkings()
         }
     }
 
@@ -92,11 +89,30 @@ class FindParkingViewController: UIViewController {
             entryVc.delegate = self
         }
     }
+
+    func fetchParkings() {
+        Parking.getAllParkings { (parkings, error) in
+            if let error = error {
+                self.displayErrorMessage(error.localizedDescription)
+            } else {
+                self.parkingFetched(parkings)
+            }
+        }
+    }
 }
 
 extension FindParkingViewController: AuthenticatedDelegate {
     func userAuthenticated() {
-        setupFirstView()
+        let currentUser = FIRAuth.auth()?.currentUser
+        currentUser?.getTokenForcingRefresh(true, completion: { (idToken, error) in
+            if let error = error {
+                print("\(error.localizedDescription)")
+                self.performSegue(withIdentifier: "showLoginScreen", sender: nil)
+            } else if let token = idToken {
+                AppState.shared.authToken = token
+                self.setupFirstView()
+            }
+        })
     }
 }
 

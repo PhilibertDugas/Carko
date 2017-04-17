@@ -13,7 +13,7 @@ extension APIClient {
     func createReservation(reservation: NewReservation, complete: @escaping (Reservation?, Error?) -> Void) {
         let parameters: Parameters = ["reservation": reservation.toDictionnary()]
         let url = baseUrl.appendingPathComponent("/reservations")
-        request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { (returned) in
+        request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: authHeaders()).responseJSON { (returned) in
             if let error = returned.result.error {
                 complete(nil, error)
             } else if let response = returned.response, let value = returned.result.value {

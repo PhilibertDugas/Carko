@@ -13,7 +13,7 @@ extension APIClient {
     func postVehicule(vehicule: Vehicule, complete: @escaping (Error?) -> Void) {
         let parameters: Parameters = vehicule.toDictionary()
         let url = baseUrl.appendingPathComponent("/customers/\(AppState.shared.customer.id)/vehicules")
-        request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { (data) in
+        request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: authHeaders()).responseJSON { (data) in
             if let error = data.result.error {
                 complete(error)
             } else if let response = data.response, let value = data.result.value {

@@ -14,7 +14,7 @@ extension APIClient: STPBackendAPIAdapter {
     func retrieveCustomer(_ completion: @escaping STPCustomerCompletionBlock) {
         let getUrl = baseUrl.appendingPathComponent("customers/\(AppState.shared.customer.id)")
         let parameters: Parameters = ["type": "stripe"]
-        request(getUrl, parameters: parameters).response { (response) in
+        request(getUrl, parameters: parameters, headers: authHeaders()).response { (response) in
             let deserializer = STPCustomerDeserializer.init(data: response.data, urlResponse: response.response, error: response.error)
             if let error = deserializer.error {
                 completion(nil, error)
@@ -29,7 +29,7 @@ extension APIClient: STPBackendAPIAdapter {
         let postUrl = baseUrl.appendingPathComponent("/customers/\(AppState.shared.customer.id)/default_source")
         let parameters: Parameters = ["customer": ["default_source": source.stripeID]]
 
-        request(postUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).response { (response) in
+        request(postUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: authHeaders()).response { (response) in
             if let error = response.error {
                 completion(error)
                 return
@@ -42,19 +42,12 @@ extension APIClient: STPBackendAPIAdapter {
         let postUrl = baseUrl.appendingPathComponent("/customers/\(AppState.shared.customer.id)/sources")
         let parameters: Parameters = ["customer": ["source": source.stripeID]]
 
-        request(postUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).response { (response) in
+        request(postUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: authHeaders()).response { (response) in
             if let error = response.error {
                 completion(error)
                 return
             }
             completion(nil)
-        }
-    }
-
-    func createBankAccount(bankAccountParams: STPBankAccountParams) {
-        let client = STPAPIClient.shared()
-        client.createToken(withBankAccount: bankAccountParams) { (token, error) in
-            print("\(token)")
         }
     }
 }

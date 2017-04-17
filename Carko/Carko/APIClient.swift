@@ -8,6 +8,7 @@
 
 import Foundation
 import FirebaseAuth
+import Alamofire
 
 class APIClient: NSObject {
     static let shared = APIClient.init()
@@ -16,5 +17,9 @@ class APIClient: NSObject {
 
     func customerId() -> String {
         return (FIRAuth.auth()?.currentUser?.uid)!
+    }
+
+    func authHeaders() -> HTTPHeaders! {
+        return ["Authorization": "Bearer \(AppState.shared.authToken!)"]
     }
 }

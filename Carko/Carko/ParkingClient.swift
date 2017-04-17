@@ -13,7 +13,7 @@ extension APIClient {
     func createParking(parking: Parking, complete: @escaping (Error?, Parking?) -> Void ) {
         let parameters: Parameters = ["parking": parking.toDictionary()]
         let postUrl = baseUrl.appendingPathComponent("/parkings")
-        request(postUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { (dataResponse) in
+        request(postUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: authHeaders()).responseJSON { (dataResponse) in
             if let error = dataResponse.result.error {
                 complete(error, nil)
             } else if let response = dataResponse.response, let value = dataResponse.result.value {
@@ -32,7 +32,7 @@ extension APIClient {
     func updateParking(parking: Parking, complete: @escaping (Error?, Parking?) -> Void ) {
         let parameters: Parameters = ["parking": parking.toDictionary()]
         let patchUrl = baseUrl.appendingPathComponent("/parkings/\(parking.id!)")
-        request(patchUrl, method: .patch, parameters: parameters, encoding: JSONEncoding.default).responseJSON { (dataResponse) in
+        request(patchUrl, method: .patch, parameters: parameters, encoding: JSONEncoding.default, headers: authHeaders()).responseJSON { (dataResponse) in
             if let error = dataResponse.result.error {
                 complete(error, nil)
             } else if let response = dataResponse.response, let value = dataResponse.result.value {
@@ -50,7 +50,7 @@ extension APIClient {
 
     func getAllParkings(complete: @escaping([(Parking)], Error?) -> Void) {
         let getUrl = baseUrl.appendingPathComponent("/parkings")
-        request(getUrl).responseJSON { (response) in
+        request(getUrl, headers: authHeaders()).responseJSON { (response) in
             if let error = response.result.error {
                 complete([], error)
             } else if let result = response.result.value {
@@ -67,7 +67,7 @@ extension APIClient {
 
     func getCustomerParkings(complete: @escaping([(Parking)], Error?) -> Void) {
         let getUrl = baseUrl.appendingPathComponent("/customers/\(AppState.shared.customer.id)/parkings")
-        request(getUrl).responseJSON { (returned) in
+        request(getUrl, headers: authHeaders()).responseJSON { (returned) in
             if let error = returned.result.error {
                 complete([], error)
             } else if let response = returned.response, let value = returned.result.value {
@@ -89,7 +89,7 @@ extension APIClient {
 
     func deleteParking(parking: Parking, complete: @escaping (Error?) -> Void) {
         let deleteUrl = baseUrl.appendingPathComponent("/parkings/\(parking.id!)")
-        request(deleteUrl, method: .delete).response { (response) in
+        request(deleteUrl, method: .delete, headers: authHeaders()).response { (response) in
             if let error = response.error {
                 complete(error)
             } else {

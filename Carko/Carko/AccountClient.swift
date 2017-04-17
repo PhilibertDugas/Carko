@@ -20,7 +20,7 @@ extension APIClient {
                 ]
             ]]
             let url = baseUrl.appendingPathComponent("/customers/\(AppState.shared.customer.id)/accounts")
-            request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).response { (response) in
+            request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: authHeaders()).response { (response) in
                 complete(response.error)
             }
 
@@ -30,7 +30,7 @@ extension APIClient {
     func postExternalAccount(token: String, complete: @escaping (Error?) -> Void) {
         let parameters: Parameters = ["external": ["token": token]]
         let url = baseUrl.appendingPathComponent("/customers/\(AppState.shared.customer.id)/external")
-        request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).response { (response) in
+        request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: authHeaders()).response { (response) in
             complete(response.error)
         }
     }

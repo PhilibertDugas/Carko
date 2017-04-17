@@ -15,6 +15,7 @@ class AppState: NSObject {
     static let shared = AppState.init()
 
     var customer: Customer!
+    var authToken: String!
     var customerParkings = [Int: Parking]()
     let storageReference = FIRStorage.storage().reference()
 
