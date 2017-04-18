@@ -12,7 +12,7 @@ import Alamofire
 extension APIClient {
     func createParking(parking: Parking, complete: @escaping (Error?, Parking?) -> Void ) {
         let parameters: Parameters = ["parking": parking.toDictionary()]
-        let postUrl = baseUrl.appendingPathComponent("/parkings")
+        let postUrl = baseUrl.appendingPathComponent("/customers/\(AppState.shared.customer.id)/parkings")
         request(postUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: authHeaders()).responseJSON { (dataResponse) in
             if let error = dataResponse.result.error {
                 complete(error, nil)
@@ -31,7 +31,7 @@ extension APIClient {
 
     func updateParking(parking: Parking, complete: @escaping (Error?, Parking?) -> Void ) {
         let parameters: Parameters = ["parking": parking.toDictionary()]
-        let patchUrl = baseUrl.appendingPathComponent("/parkings/\(parking.id!)")
+        let patchUrl = baseUrl.appendingPathComponent("/customers/\(AppState.shared.customer.id)/parkings/\(parking.id!)")
         request(patchUrl, method: .patch, parameters: parameters, encoding: JSONEncoding.default, headers: authHeaders()).responseJSON { (dataResponse) in
             if let error = dataResponse.result.error {
                 complete(error, nil)
@@ -88,7 +88,7 @@ extension APIClient {
     }
 
     func deleteParking(parking: Parking, complete: @escaping (Error?) -> Void) {
-        let deleteUrl = baseUrl.appendingPathComponent("/parkings/\(parking.id!)")
+        let deleteUrl = baseUrl.appendingPathComponent("/customers/\(AppState.shared.customer.id)/parkings/\(parking.id!)")
         request(deleteUrl, method: .delete, headers: authHeaders()).response { (response) in
             if let error = response.error {
                 complete(error)

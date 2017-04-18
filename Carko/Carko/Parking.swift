@@ -172,7 +172,6 @@ extension Parking {
             "address": address,
             "price": String.init(format: "%.2f", price),
             "description": pDescription,
-            "customer_id": customerId,
             "is_available": isAvailable,
             "is_complete": isComplete,
             "availability_info": availabilityInfo.toDictionary()
