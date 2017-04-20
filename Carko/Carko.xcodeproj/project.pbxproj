@@ -63,6 +63,8 @@
 		45BC294F1DA18249000C54BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45BC294D1DA18249000C54BC /* LaunchScreen.storyboard */; };
 		45BC29651DA18249000C54BC /* CarkoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC29641DA18249000C54BC /* CarkoUITests.swift */; };
 		45C1DBED1DD7870A00B2C96F /* ParkingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C1DBEC1DD7870A00B2C96F /* ParkingTest.swift */; };
+		45D073311EA84924000604D3 /* EventsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D073301EA84924000604D3 /* EventsCollectionViewController.swift */; };
+		45D073331EA84A75000604D3 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D073321EA84A75000604D3 /* Event.swift */; };
 		45D5D6101E1B2EDE006BE596 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45D5D60F1E1B2EDE006BE596 /* Assets.xcassets */; };
 		45E9B91C1DB82F3500C9E9FA /* MarkerPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45E9B91B1DB82F3500C9E9FA /* MarkerPopup.xib */; };
 		45E9B91E1DB82FDF00C9E9FA /* MarkerPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E9B91D1DB82FDF00C9E9FA /* MarkerPopup.swift */; };
@@ -221,6 +223,8 @@
 		45BC29641DA18249000C54BC /* CarkoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarkoUITests.swift; sourceTree = "<group>"; };
 		45BC29661DA18249000C54BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45C1DBEC1DD7870A00B2C96F /* ParkingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingTest.swift; sourceTree = "<group>"; };
+		45D073301EA84924000604D3 /* EventsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsCollectionViewController.swift; sourceTree = "<group>"; };
+		45D073321EA84A75000604D3 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		45D5D60F1E1B2EDE006BE596 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45E375111E19EC9E00538803 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Login.strings; sourceTree = "<group>"; };
 		45E375131E19ECA300538803 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
@@ -317,6 +321,7 @@
 				4564F6DD1DB981BA001B709C /* Subviews */,
 				4564F6E01DB98509001B709C /* BookParkingViewController.swift */,
 				45EA513A1DDE6F2300BD076C /* FindParkingViewController.swift */,
+				45D073301EA84924000604D3 /* EventsCollectionViewController.swift */,
 				4550D6651E19D7720080758D /* Find.storyboard */,
 			);
 			name = "Tab - Find";
@@ -402,6 +407,7 @@
 				4591D5F11DFC9D4700366691 /* Charge.swift */,
 				453314331E03672700BF0B65 /* Account.swift */,
 				451FC46C1E072B3C0083C0CB /* Vehicule.swift */,
+				45D073321EA84A75000604D3 /* Event.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -962,6 +968,7 @@
 				45637CFF1DEB184500DD42C0 /* AppState.swift in Sources */,
 				4554EBD01DB5AA520066E452 /* ProfileViewController.swift in Sources */,
 				458A98301DBCFD44007F53EE /* UnderlineTextField.swift in Sources */,
+				45D073331EA84A75000604D3 /* Event.swift in Sources */,
 				458BC76A1DE218DC0028AC5B /* LocationSearchTableTableViewController.swift in Sources */,
 				4591D5F21DFC9D4700366691 /* Charge.swift in Sources */,
 				45EA513B1DDE6F2300BD076C /* FindParkingViewController.swift in Sources */,
@@ -975,6 +982,7 @@
 				451E424B1DB071EC00747370 /* Customer.swift in Sources */,
 				45137EB21E341DA300AFCD49 /* NewParkingPin.swift in Sources */,
 				452738E71DF7AEB700D74F0D /* View.swift in Sources */,
+				45D073311EA84924000604D3 /* EventsCollectionViewController.swift in Sources */,
 				450E12401DAF27330027EFBC /* RegisterViewController.swift in Sources */,
 				4554A0961E21708D007FB04C /* NewParkingViewController.swift in Sources */,
 				451E424D1DB078E000747370 /* UIViewController.swift in Sources */,
