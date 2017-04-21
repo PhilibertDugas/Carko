@@ -9,7 +9,6 @@
 import UIKit
 
 class UnderlineTextField: UITextField {
-
     override func draw(_ rect: CGRect) {
         let startingPoint = CGPoint.init(x: rect.minX, y: rect.maxY)
         let endingPoint = CGPoint.init(x: rect.maxX, y: rect.maxY)

@@ -35,7 +35,7 @@ struct Event {
         let longitude = event["longitude"] as! CLLocationDegrees
         let photoURL = URL.init(string: event["photo_url"] as! String)
         let range = event["range"] as! Int
-        let price = event["price"] as! Float
+        let price = Float.init(event["price"] as! String)!
         let label = event["label"] as! String
         let targetAudience = event["target_audience"] as! Int
         self.init(id: id, latitude: latitude, longitude: longitude, photoURL: photoURL, range: range, price: price, label: label, targetAudience: targetAudience)
@@ -43,6 +43,10 @@ struct Event {
 }
 
 extension Event {
+    static func getAllEvents(_ complete: @escaping([(Event)], Error?) -> Void) {
+        APIClient.shared.getAllEvents(complete: complete)
+    }
+
     func toDictionary() -> [String : Any] {
         return [
             "id": self.id,

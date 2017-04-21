@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import FirebaseStorageUI
+import FirebaseAuth
 
-private let reuseIdentifier = "EventCell"
 
 class EventsCollectionViewController: UICollectionViewController {
 
-    private let events: [(Event)] = []
+    fileprivate let reuseIdentifier = "EventCell"
+    fileprivate var events: [(Event)] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,14 +23,45 @@ class EventsCollectionViewController: UICollectionViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        self.collectionView!.register(EventCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if AppState.shared.customer != nil {
+            fetchEvents()
+        }
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        let customer = AppState.shared.cachedCustomer()
+        if FIRAuth.auth()?.currentUser == nil || customer == nil {
+            self.performSegue(withIdentifier: "showLoginScreen", sender: nil)
+        } else if AppState.shared.customer == nil {
+            AppState.shared.cacheCustomer(Customer.init(customer: customer!))
+            self.userAuthenticated()
+        }
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showLoginScreen" {
+            let vc = segue.destination as! UINavigationController
+            let entryVc = vc.viewControllers.first as! EntryViewController
+            entryVc.delegate = self
+        }
+    }
+
+    fileprivate func fetchEvents() {
+        Event.getAllEvents { (events, error) in
+            if let error = error {
+                self.displayErrorMessage(error.localizedDescription)
+            } else {
+                self.events = events
+                self.collectionView?.reloadData()
+            }
+        }
     }
 
     /*
@@ -49,15 +82,16 @@ class EventsCollectionViewController: UICollectionViewController {
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 0
+        return self.events.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    
-        // Configure the cell
-    
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! EventCollectionViewCell
+        let event = self.events[indexPath.row]
+        if let url = event.photoURL {
+            let imageReference = AppState.shared.storageReference.storage.reference(forURL: url.absoluteString)
+            cell.image.sd_setImage(with: imageReference)
+        }
         return cell
     }
 
@@ -92,4 +126,19 @@ class EventsCollectionViewController: UICollectionViewController {
     }
     */
 
+}
+
+extension EventsCollectionViewController: AuthenticatedDelegate {
+    func userAuthenticated() {
+        let currentUser = FIRAuth.auth()?.currentUser
+        currentUser?.getTokenForcingRefresh(true, completion: { (idToken, error) in
+            if let error = error {
+                print("\(error.localizedDescription)")
+                self.performSegue(withIdentifier: "showLoginScreen", sender: nil)
+            } else if let token = idToken {
+                AppState.shared.authToken = token
+                self.fetchEvents()
+            }
+        })
+    }
 }

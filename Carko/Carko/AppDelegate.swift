@@ -47,8 +47,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 firebaseFile = "GoogleService-Info"
                 apiUrl = "https://integration-apya.herokuapp.com"
             }
-            let firbaseOptions = FIROptions(contentsOfFile: Bundle.main.path(forResource: firebaseFile, ofType: "plist"))
-            FIRApp.configure(with: firbaseOptions!)
+            let firebaseOptions = FIROptions(contentsOfFile: Bundle.main.path(forResource: firebaseFile, ofType: "plist"))
+            FIRApp.configure(with: firebaseOptions!)
+
             APIClient.shared.baseUrl = URL.init(string: apiUrl)!
         } else {
             FIRApp.configure()

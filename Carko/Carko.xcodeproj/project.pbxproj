@@ -47,6 +47,7 @@
 		4564F6E11DB98509001B709C /* BookParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4564F6E01DB98509001B709C /* BookParkingViewController.swift */; };
 		4571700B1DEA5DEE00A0FDF5 /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4571700A1DEA5DEE00A0FDF5 /* Reservation.swift */; };
 		45877E751E158709006A7709 /* SimpleCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45877E741E158709006A7709 /* SimpleCellTableViewCell.swift */; };
+		458859431EA91C58008DDED8 /* EventClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458859421EA91C58008DDED8 /* EventClient.swift */; };
 		458A98301DBCFD44007F53EE /* UnderlineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458A982F1DBCFD44007F53EE /* UnderlineTextField.swift */; };
 		458BC76A1DE218DC0028AC5B /* LocationSearchTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458BC7691DE218DC0028AC5B /* LocationSearchTableTableViewController.swift */; };
 		4591D5F21DFC9D4700366691 /* Charge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4591D5F11DFC9D4700366691 /* Charge.swift */; };
@@ -66,6 +67,7 @@
 		45D073311EA84924000604D3 /* EventsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D073301EA84924000604D3 /* EventsCollectionViewController.swift */; };
 		45D073331EA84A75000604D3 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D073321EA84A75000604D3 /* Event.swift */; };
 		45D5D6101E1B2EDE006BE596 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45D5D60F1E1B2EDE006BE596 /* Assets.xcassets */; };
+		45DC42FC1EA97D53009F8E8D /* EventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DC42FB1EA97D53009F8E8D /* EventCollectionViewCell.swift */; };
 		45E9B91C1DB82F3500C9E9FA /* MarkerPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45E9B91B1DB82F3500C9E9FA /* MarkerPopup.xib */; };
 		45E9B91E1DB82FDF00C9E9FA /* MarkerPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E9B91D1DB82FDF00C9E9FA /* MarkerPopup.swift */; };
 		45E9D0FE1E1DCE7C000EDEE8 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E9D0FD1E1DCE7C000EDEE8 /* LocationViewController.swift */; };
@@ -202,6 +204,7 @@
 		4571700A1DEA5DEE00A0FDF5 /* Reservation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reservation.swift; sourceTree = "<group>"; };
 		45782C241E2E9A1E002E9DFD /* Carko.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Carko.entitlements; sourceTree = "<group>"; };
 		45877E741E158709006A7709 /* SimpleCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleCellTableViewCell.swift; sourceTree = "<group>"; };
+		458859421EA91C58008DDED8 /* EventClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventClient.swift; sourceTree = "<group>"; };
 		458A982F1DBCFD44007F53EE /* UnderlineTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnderlineTextField.swift; sourceTree = "<group>"; };
 		458BC7691DE218DC0028AC5B /* LocationSearchTableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchTableTableViewController.swift; sourceTree = "<group>"; };
 		4591D5F11DFC9D4700366691 /* Charge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Charge.swift; sourceTree = "<group>"; };
@@ -226,6 +229,7 @@
 		45D073301EA84924000604D3 /* EventsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsCollectionViewController.swift; sourceTree = "<group>"; };
 		45D073321EA84A75000604D3 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		45D5D60F1E1B2EDE006BE596 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		45DC42FB1EA97D53009F8E8D /* EventCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCollectionViewCell.swift; sourceTree = "<group>"; };
 		45E375111E19EC9E00538803 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Login.strings; sourceTree = "<group>"; };
 		45E375131E19ECA300538803 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		45E375151E19ECA800538803 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -317,6 +321,7 @@
 		451853771DA476B5005CC5E6 /* Tab - Find */ = {
 			isa = PBXGroup;
 			children = (
+				45DC42FD1EA97D5B009F8E8D /* Cell */,
 				45418F281E16F2DD0050DDF5 /* Animation */,
 				4564F6DD1DB981BA001B709C /* Subviews */,
 				4564F6E01DB98509001B709C /* BookParkingViewController.swift */,
@@ -394,6 +399,7 @@
 				4591D5FA1DFCA54600366691 /* ReservationClient.swift */,
 				4533143B1E036DDA00BF0B65 /* AccountClient.swift */,
 				451FC46E1E072BC70083C0CB /* VehiculeClient.swift */,
+				458859421EA91C58008DDED8 /* EventClient.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -421,20 +427,6 @@
 				4599E6E41E1755C9005494E4 /* GoogleService-Info-Production.plist */,
 			);
 			name = plist;
-			sourceTree = "<group>";
-		};
-		45B4C0E11DA4AAE6002979DC /* Global */ = {
-			isa = PBXGroup;
-			children = (
-				4544AA7D1E2BFA78008A760F /* Helpers */,
-				4591D5F31DFCA49C00366691 /* API */,
-				459AD2551DA49AE20018B7B9 /* Models */,
-				45BB39631DBBEFEC0019C2A3 /* Views */,
-				C5B3105E1DB023450051C90B /* Extensions */,
-				45BC29441DA18249000C54BC /* AppDelegate.swift */,
-				45637CFE1DEB184500DD42C0 /* AppState.swift */,
-			);
-			name = Global;
 			sourceTree = "<group>";
 		};
 		45BB39631DBBEFEC0019C2A3 /* Views */ = {
@@ -476,11 +468,17 @@
 			isa = PBXGroup;
 			children = (
 				45782C241E2E9A1E002E9DFD /* Carko.entitlements */,
+				45637CFE1DEB184500DD42C0 /* AppState.swift */,
+				45BC29441DA18249000C54BC /* AppDelegate.swift */,
+				C5B3105E1DB023450051C90B /* Extensions */,
+				45BB39631DBBEFEC0019C2A3 /* Views */,
+				459AD2551DA49AE20018B7B9 /* Models */,
+				4591D5F31DFCA49C00366691 /* API */,
+				4544AA7D1E2BFA78008A760F /* Helpers */,
 				45099A851DAF25EA00392FF1 /* Tab - Login */,
 				451853771DA476B5005CC5E6 /* Tab - Find */,
 				451853781DA476CB005CC5E6 /* Tab - Add */,
 				45D5A5071DB2BE640025C45A /* Tab - Profile */,
-				45B4C0E11DA4AAE6002979DC /* Global */,
 				45D5D60F1E1B2EDE006BE596 /* Assets.xcassets */,
 				4550D6711E19D78B0080758D /* Main.storyboard */,
 				45BC294D1DA18249000C54BC /* LaunchScreen.storyboard */,
@@ -517,6 +515,14 @@
 				4550D66E1E19D7870080758D /* Profile.storyboard */,
 			);
 			name = "Tab - Profile";
+			sourceTree = "<group>";
+		};
+		45DC42FD1EA97D5B009F8E8D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				45DC42FB1EA97D53009F8E8D /* EventCollectionViewCell.swift */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 		45E9D0FC1E1DCE42000EDEE8 /* Parking Creation */ = {
@@ -960,6 +966,7 @@
 				4554EBCE1DB5A36F0066E452 /* APIClient.swift in Sources */,
 				4544AA7F1E2BFA8E008A760F /* DateHelper.swift in Sources */,
 				45E9D1021E1DD218000EDEE8 /* AvailabilityViewController.swift in Sources */,
+				458859431EA91C58008DDED8 /* EventClient.swift in Sources */,
 				C51150531DAF38D5004E2A7D /* ParkingDescriptionViewController.swift in Sources */,
 				4564F6E11DB98509001B709C /* BookParkingViewController.swift in Sources */,
 				45BB39651DBBF0010019C2A3 /* Buttons.swift in Sources */,
@@ -1004,6 +1011,7 @@
 				450E124C1DAF2B3C0027EFBC /* PageContentViewController.swift in Sources */,
 				4591D5F71DFCA4DE00366691 /* CustomerClient.swift in Sources */,
 				C56ADABB1DAC00870033516C /* ParkingTableViewCell.swift in Sources */,
+				45DC42FC1EA97D53009F8E8D /* EventCollectionViewCell.swift in Sources */,
 				451FC46D1E072B3C0083C0CB /* Vehicule.swift in Sources */,
 				C51150591DAF397E004E2A7D /* ParkingInfoViewController.swift in Sources */,
 				4554A0981E217358007FB04C /* NewPhotoViewController.swift in Sources */,

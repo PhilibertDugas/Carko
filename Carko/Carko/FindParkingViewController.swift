@@ -53,14 +53,6 @@ class FindParkingViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.popupView.isHidden = true
-
-        let customer = AppState.shared.cachedCustomer()
-        if FIRAuth.auth()?.currentUser == nil || customer == nil {
-            self.performSegue(withIdentifier: "showLoginScreen", sender: nil)
-        } else if AppState.shared.customer == nil {
-            AppState.shared.cacheCustomer(Customer.init(customer: customer!))
-            self.userAuthenticated()
-        }
     }
 
     func setupFirstView() {
@@ -83,11 +75,6 @@ class FindParkingViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showLoginScreen" {
-            let vc = segue.destination as! UINavigationController
-            let entryVc = vc.viewControllers.first as! EntryViewController
-            entryVc.delegate = self
-        }
     }
 
     func fetchParkings() {
@@ -98,21 +85,6 @@ class FindParkingViewController: UIViewController {
                 self.parkingFetched(parkings)
             }
         }
-    }
-}
-
-extension FindParkingViewController: AuthenticatedDelegate {
-    func userAuthenticated() {
-        let currentUser = FIRAuth.auth()?.currentUser
-        currentUser?.getTokenForcingRefresh(true, completion: { (idToken, error) in
-            if let error = error {
-                print("\(error.localizedDescription)")
-                self.performSegue(withIdentifier: "showLoginScreen", sender: nil)
-            } else if let token = idToken {
-                AppState.shared.authToken = token
-                self.setupFirstView()
-            }
-        })
     }
 }
 
