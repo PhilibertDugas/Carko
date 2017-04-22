@@ -30,7 +30,6 @@ class ProfileViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         displayNameLabel.text = "\(AppState.shared.customer.firstName) \(AppState.shared.customer.lastName)"
-
         emailLabel.text = "\(AppState.shared.customer.email)"
 
         paymentContext = STPPaymentContext.init(apiAdapter: APIClient.shared)

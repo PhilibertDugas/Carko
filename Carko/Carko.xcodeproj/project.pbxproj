@@ -18,6 +18,7 @@
 		450E12401DAF27330027EFBC /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450E123F1DAF27330027EFBC /* RegisterViewController.swift */; };
 		450E124A1DAF2B000027EFBC /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450E12491DAF2B000027EFBC /* EntryViewController.swift */; };
 		450E124C1DAF2B3C0027EFBC /* PageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450E124B1DAF2B3C0027EFBC /* PageContentViewController.swift */; };
+		45113DF81EAB9D4F0083C959 /* ApyaLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45113DF71EAB9D4F0083C959 /* ApyaLayout.swift */; };
 		45137EB21E341DA300AFCD49 /* NewParkingPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45137EB11E341DA300AFCD49 /* NewParkingPin.swift */; };
 		4518537A1DA476F1005CC5E6 /* ListParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451853791DA476F1005CC5E6 /* ListParkingViewController.swift */; };
 		451E424B1DB071EC00747370 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451E424A1DB071EC00747370 /* Customer.swift */; };
@@ -71,7 +72,6 @@
 		45E9B91C1DB82F3500C9E9FA /* MarkerPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45E9B91B1DB82F3500C9E9FA /* MarkerPopup.xib */; };
 		45E9B91E1DB82FDF00C9E9FA /* MarkerPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E9B91D1DB82FDF00C9E9FA /* MarkerPopup.swift */; };
 		45E9D0FE1E1DCE7C000EDEE8 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E9D0FD1E1DCE7C000EDEE8 /* LocationViewController.swift */; };
-		45E9D1001E1DD137000EDEE8 /* RatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E9D0FF1E1DD137000EDEE8 /* RatesViewController.swift */; };
 		45E9D1021E1DD218000EDEE8 /* AvailabilityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E9D1011E1DD218000EDEE8 /* AvailabilityViewController.swift */; };
 		45EA513B1DDE6F2300BD076C /* FindParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EA513A1DDE6F2300BD076C /* FindParkingViewController.swift */; };
 		45EA513D1DDE74AC00BD076C /* ParkingAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EA513C1DDE74AC00BD076C /* ParkingAnnotation.swift */; };
@@ -101,7 +101,6 @@
 		45ECDA7B1E243A6900E999D8 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450E123F1DAF27330027EFBC /* RegisterViewController.swift */; };
 		45ECDA7C1E243A6900E999D8 /* NewParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4554A0951E21708D007FB04C /* NewParkingViewController.swift */; };
 		45ECDA7D1E243A6900E999D8 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451E424C1DB078E000747370 /* UIViewController.swift */; };
-		45ECDA7E1E243A6900E999D8 /* RatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E9D0FF1E1DD137000EDEE8 /* RatesViewController.swift */; };
 		45ECDA7F1E243A6900E999D8 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45418F2D1E1719E00050DDF5 /* ForgotPasswordViewController.swift */; };
 		45ECDA801E243A6900E999D8 /* StripeClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4591D5F81DFCA51D00366691 /* StripeClient.swift */; };
 		45ECDA811E243A6900E999D8 /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4571700A1DEA5DEE00A0FDF5 /* Reservation.swift */; };
@@ -166,6 +165,7 @@
 		450E123F1DAF27330027EFBC /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		450E12491DAF2B000027EFBC /* EntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
 		450E124B1DAF2B3C0027EFBC /* PageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageContentViewController.swift; sourceTree = "<group>"; };
+		45113DF71EAB9D4F0083C959 /* ApyaLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApyaLayout.swift; sourceTree = "<group>"; };
 		45137EB11E341DA300AFCD49 /* NewParkingPin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewParkingPin.swift; sourceTree = "<group>"; };
 		451853791DA476F1005CC5E6 /* ListParkingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListParkingViewController.swift; sourceTree = "<group>"; };
 		451E424A1DB071EC00747370 /* Customer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
@@ -239,7 +239,6 @@
 		45E9B91B1DB82F3500C9E9FA /* MarkerPopup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MarkerPopup.xib; sourceTree = "<group>"; };
 		45E9B91D1DB82FDF00C9E9FA /* MarkerPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkerPopup.swift; sourceTree = "<group>"; };
 		45E9D0FD1E1DCE7C000EDEE8 /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
-		45E9D0FF1E1DD137000EDEE8 /* RatesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatesViewController.swift; sourceTree = "<group>"; };
 		45E9D1011E1DD218000EDEE8 /* AvailabilityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvailabilityViewController.swift; sourceTree = "<group>"; };
 		45EA513A1DDE6F2300BD076C /* FindParkingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindParkingViewController.swift; sourceTree = "<group>"; };
 		45EA513C1DDE74AC00BD076C /* ParkingAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingAnnotation.swift; sourceTree = "<group>"; };
@@ -321,12 +320,11 @@
 		451853771DA476B5005CC5E6 /* Tab - Find */ = {
 			isa = PBXGroup;
 			children = (
-				45DC42FD1EA97D5B009F8E8D /* Cell */,
+				45DC42FD1EA97D5B009F8E8D /* CollectionView */,
 				45418F281E16F2DD0050DDF5 /* Animation */,
 				4564F6DD1DB981BA001B709C /* Subviews */,
 				4564F6E01DB98509001B709C /* BookParkingViewController.swift */,
 				45EA513A1DDE6F2300BD076C /* FindParkingViewController.swift */,
-				45D073301EA84924000604D3 /* EventsCollectionViewController.swift */,
 				4550D6651E19D7720080758D /* Find.storyboard */,
 			);
 			name = "Tab - Find";
@@ -517,19 +515,20 @@
 			name = "Tab - Profile";
 			sourceTree = "<group>";
 		};
-		45DC42FD1EA97D5B009F8E8D /* Cell */ = {
+		45DC42FD1EA97D5B009F8E8D /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
+				45D073301EA84924000604D3 /* EventsCollectionViewController.swift */,
 				45DC42FB1EA97D53009F8E8D /* EventCollectionViewCell.swift */,
+				45113DF71EAB9D4F0083C959 /* ApyaLayout.swift */,
 			);
-			name = Cell;
+			name = CollectionView;
 			sourceTree = "<group>";
 		};
 		45E9D0FC1E1DCE42000EDEE8 /* Parking Creation */ = {
 			isa = PBXGroup;
 			children = (
 				45E9D0FD1E1DCE7C000EDEE8 /* LocationViewController.swift */,
-				45E9D0FF1E1DD137000EDEE8 /* RatesViewController.swift */,
 				45E9D1011E1DD218000EDEE8 /* AvailabilityViewController.swift */,
 				4554A0951E21708D007FB04C /* NewParkingViewController.swift */,
 				4554A0971E217358007FB04C /* NewPhotoViewController.swift */,
@@ -963,6 +962,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45E9D0FE1E1DCE7C000EDEE8 /* LocationViewController.swift in Sources */,
+				45113DF81EAB9D4F0083C959 /* ApyaLayout.swift in Sources */,
 				4554EBCE1DB5A36F0066E452 /* APIClient.swift in Sources */,
 				4544AA7F1E2BFA8E008A760F /* DateHelper.swift in Sources */,
 				45E9D1021E1DD218000EDEE8 /* AvailabilityViewController.swift in Sources */,
@@ -993,7 +993,6 @@
 				450E12401DAF27330027EFBC /* RegisterViewController.swift in Sources */,
 				4554A0961E21708D007FB04C /* NewParkingViewController.swift in Sources */,
 				451E424D1DB078E000747370 /* UIViewController.swift in Sources */,
-				45E9D1001E1DD137000EDEE8 /* RatesViewController.swift in Sources */,
 				45418F2E1E1719E00050DDF5 /* ForgotPasswordViewController.swift in Sources */,
 				4591D5F91DFCA51D00366691 /* StripeClient.swift in Sources */,
 				4571700B1DEA5DEE00A0FDF5 /* Reservation.swift in Sources */,
@@ -1066,7 +1065,6 @@
 				45ECDA7B1E243A6900E999D8 /* RegisterViewController.swift in Sources */,
 				45ECDA7C1E243A6900E999D8 /* NewParkingViewController.swift in Sources */,
 				45ECDA7D1E243A6900E999D8 /* UIViewController.swift in Sources */,
-				45ECDA7E1E243A6900E999D8 /* RatesViewController.swift in Sources */,
 				45ECDA7F1E243A6900E999D8 /* ForgotPasswordViewController.swift in Sources */,
 				45ECDA801E243A6900E999D8 /* StripeClient.swift in Sources */,
 				45ECDA811E243A6900E999D8 /* Reservation.swift in Sources */,
@@ -1220,7 +1218,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1267,7 +1265,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -1285,7 +1283,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = NS2A2ZLLX3;
 				INFOPLIST_FILE = Carko/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qh4l.Apya;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1307,7 +1305,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = NS2A2ZLLX3;
 				INFOPLIST_FILE = Carko/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qh4l.Apya;
 				PRODUCT_NAME = "$(TARGET_NAME)";

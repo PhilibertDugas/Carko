@@ -12,7 +12,6 @@ class ParkingInfoViewController: UITableViewController {
     @IBOutlet var parkingDescriptionLabel: UILabel!
     @IBOutlet var timeOfDayLabel: UILabel!
     @IBOutlet var daysAvailableLabel: UILabel!
-    @IBOutlet var parkingRate: UILabel!
 
     var parking: Parking!
     let imagePicker = UIImagePickerController.init()
@@ -31,12 +30,7 @@ class ParkingInfoViewController: UITableViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ChangeRates" {
-            let destinationVC = segue.destination as! RatesViewController
-            destinationVC.parking = parking
-            destinationVC.newParking = false
-            destinationVC.delegate = self
-        } else if segue.identifier == "ChangeDescription" {
+        if segue.identifier == "ChangeDescription" {
             let destinationVC = segue.destination as! ParkingDescriptionViewController
             destinationVC.parkingDescription = parking.pDescription
             destinationVC.delegate = self
@@ -101,8 +95,6 @@ class ParkingInfoViewController: UITableViewController {
         case "availability":
             timeOfDayLabel.text = self.parking.availabilityInfo.lapsOfTimeText()
             daysAvailableLabel.text = self.parking.availabilityInfo.daysEnumerationText()
-        case "rates":
-            parkingRate.text = self.parking.price.asLocaleCurrency
         case "description":
             parkingDescriptionLabel.text = self.parking.pDescription
         default:
@@ -111,12 +103,7 @@ class ParkingInfoViewController: UITableViewController {
     }
 }
 
-extension ParkingInfoViewController: ParkingRateDelegate, ParkingDescriptionDelegate, ParkingAvailabilityDelegate, ParkingLocationDelegate {
-    func userDidChangeRate(value: Float) {
-        parking.price = value
-        updateLabels(field: "rates")
-    }
-
+extension ParkingInfoViewController: ParkingDescriptionDelegate, ParkingAvailabilityDelegate, ParkingLocationDelegate {
     func userDidChangeDescription(value: String) {
         parking.pDescription = value
         updateLabels(field: "description")

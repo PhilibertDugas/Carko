@@ -16,24 +16,15 @@ import SCLAlertView
 class FindParkingViewController: UIViewController {
     @IBOutlet var popupView: MarkerPopup!
     @IBOutlet var mapView: MKMapView!
-    @IBOutlet var searchField: UITextField!
-    @IBOutlet var resultViews: UIView!
-    @IBOutlet var searchStack: UIView!
-
-    var locationSearchTable: LocationSearchTableViewController!
-
-    var blurView: UIVisualEffectView!
-    var popupBlur: UIVisualEffectView!
-    var searchResultView: UIView!
 
     let locationManager = CLLocationManager()
-    var firstZoom = true
 
     var tabBar: UITabBar!
     var bookParkingVC: BookParkingViewController!
     var animator: ARNTransitionAnimator!
 
     var selectedParking: Parking!
+    var event: Event!
 
     @IBAction func annotationTapped(_ sender: Any) {
         self.present(self.bookParkingVC, animated: true, completion: nil)
@@ -41,13 +32,15 @@ class FindParkingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.mapView.showsUserLocation = true
         self.mapView.delegate = self
+        let center = CLLocationCoordinate2D.init(latitude: event.latitude, longitude: event.longitude)
+        // FIXME
+        let region = MKCoordinateRegionMakeWithDistance(center, 900, 900)
+        self.mapView.setRegion(region, animated: true)
+        self.mapView.regionThatFits(region)
 
         self.prepareAnimation()
         self.setupAnimator()
-        self.setupSearchBar()
-        self.blurMap()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -74,9 +67,6 @@ class FindParkingViewController: UIViewController {
         }
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    }
-
     func fetchParkings() {
         Parking.getAllParkings { (parkings, error) in
             if let error = error {
@@ -85,17 +75,6 @@ class FindParkingViewController: UIViewController {
                 self.parkingFetched(parkings)
             }
         }
-    }
-}
-
-extension FindParkingViewController {
-    func setupSearchBar() {
-        self.searchField.delegate = self
-        self.searchField.addTarget(self, action: #selector(self.textChanged), for: UIControlEvents.editingChanged)
-
-        self.locationSearchTable = storyboard?.instantiateViewController(withIdentifier: "locationSearchTable") as! LocationSearchTableViewController
-        self.locationSearchTable.mapView = mapView
-        self.locationSearchTable.handleMapSearchDelegate = self
     }
 }
 
@@ -141,29 +120,6 @@ extension FindParkingViewController {
     }
 }
 
-extension FindParkingViewController: UITextFieldDelegate {
-    func textChanged() {
-        locationSearchTable.updateSearchs(for: self.searchField.text)
-    }
-
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        let effect = UIBlurEffect(style: UIBlurEffectStyle.light)
-        self.blurView = UIVisualEffectView.init(effect: effect)
-        self.blurView.frame = mapView.bounds
-        self.mapView.addSubview(blurView)
-
-        self.searchResultView = UIView.init(frame: self.resultViews.frame)
-        self.locationSearchTable.view.frame = self.searchResultView.bounds
-        self.searchResultView.addSubview(self.locationSearchTable.view)
-        self.view.insertSubview(self.searchResultView, aboveSubview: self.mapView)
-    }
-
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        self.blurView.removeFromSuperview()
-        self.searchResultView.removeFromSuperview()
-    }
-}
-
 extension FindParkingViewController: MKMapViewDelegate {
     func parkingFetched(_ parkings: [(Parking)]) {
         self.mapView.removeAnnotations(mapView.annotations)
@@ -171,27 +127,9 @@ extension FindParkingViewController: MKMapViewDelegate {
         for parking in parkings {
             //if parking.isComplete && parking.scheduleAvailable(now) {
             if parking.scheduleAvailable(now) {
-                let annotation = ParkingAnnotation.init(parking: parking)
+                let annotation = ParkingAnnotation.init(parking: parking, event: self.event)
                 self.mapView.addAnnotation(annotation)
             }
-        }
-    }
-
-    func blurMap() {
-        let effect = UIBlurEffect(style: UIBlurEffectStyle.light)
-        let statusBarBlur = UIVisualEffectView.init(effect: effect)
-        let searchBarBlur = UIVisualEffectView.init(effect: effect)
-        statusBarBlur.frame = CGRect.init(x: 0.0, y: 0.0, width: view.bounds.width, height: 20.0)
-        searchBarBlur.frame = searchStack.frame
-        mapView.addSubview(statusBarBlur)
-        mapView.addSubview(searchBarBlur)
-    }
-
-    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-        if firstZoom {
-            firstZoom = false
-            let region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 800, 800)
-            self.mapView.setRegion(self.mapView.regionThatFits(region), animated: true)
         }
     }
 
@@ -200,9 +138,10 @@ extension FindParkingViewController: MKMapViewDelegate {
             let parking = annotation.parking
             self.selectedParking = parking
             self.bookParkingVC.parking = parking
+            self.bookParkingVC.event = self.event
 
             popupView.descriptionLabel.text = parking.address
-            popupView.priceLabel.text = "\(parking.price.asLocaleCurrency)/h"
+            popupView.priceLabel.text = event.price.asLocaleCurrency
 
             if let url = parking.photoURL {
                 let imageReference = AppState.shared.storageReference.storage.reference(forURL: url.absoluteString)
@@ -218,10 +157,6 @@ extension FindParkingViewController: MKMapViewDelegate {
     }
 
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-        if self.popupBlur != nil {
-            self.popupBlur.removeFromSuperview()
-        }
-
         UIView.animate(withDuration: 0.15, animations: {
             self.popupView.frame.origin.y = self.tabBar.frame.origin.y
         })
@@ -238,13 +173,5 @@ extension FindParkingViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
         let av = self.mapView.view(for: self.mapView.userLocation)
         av?.isEnabled = false
-    }
-}
-
-extension FindParkingViewController: HandleMapSearch {
-    func selectedPlacemark(placemark: MKPlacemark){
-        let region = MKCoordinateRegionMakeWithDistance(placemark.coordinate, 800, 800)
-        mapView.setRegion(region, animated: true)
-        self.searchField.endEditing(true)
     }
 }

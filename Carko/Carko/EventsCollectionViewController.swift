@@ -9,29 +9,26 @@
 import UIKit
 import FirebaseStorageUI
 import FirebaseAuth
+import AVFoundation
 
 
 class EventsCollectionViewController: UICollectionViewController {
 
     fileprivate let reuseIdentifier = "EventCell"
     fileprivate var events: [(Event)] = []
+    fileprivate var selectedEvent: Event!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        self.collectionView!.register(EventCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
+        if let layout = collectionView?.collectionViewLayout as? ApyaLayout {
+            layout.delegate = self
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if AppState.shared.customer != nil {
-            fetchEvents()
+            userAuthenticated()
         }
     }
 
@@ -50,6 +47,9 @@ class EventsCollectionViewController: UICollectionViewController {
             let vc = segue.destination as! UINavigationController
             let entryVc = vc.viewControllers.first as! EntryViewController
             entryVc.delegate = self
+        } else if segue.identifier == "showEvent" {
+            let vc = segue.destination as! FindParkingViewController
+            vc.event = self.selectedEvent
         }
     }
 
@@ -63,23 +63,12 @@ class EventsCollectionViewController: UICollectionViewController {
             }
         }
     }
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    // MARK: UICollectionViewDataSource
-
+extension EventsCollectionViewController {
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.events.count
@@ -87,45 +76,14 @@ class EventsCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! EventCollectionViewCell
-        let event = self.events[indexPath.row]
-        if let url = event.photoURL {
-            let imageReference = AppState.shared.storageReference.storage.reference(forURL: url.absoluteString)
-            cell.image.sd_setImage(with: imageReference)
-        }
+        cell.event = self.events[indexPath.row]
         return cell
     }
 
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.selectedEvent = self.events[indexPath.row]
+        self.performSegue(withIdentifier: "showEvent", sender: nil)
     }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
-
 }
 
 extension EventsCollectionViewController: AuthenticatedDelegate {
@@ -141,4 +99,35 @@ extension EventsCollectionViewController: AuthenticatedDelegate {
             }
         })
     }
+}
+
+extension EventsCollectionViewController: ApyaLayoutDelegate {
+    func collectionView(collectionView:UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath, withWidth width: CGFloat) -> CGFloat {
+        let event = self.events[indexPath.item]
+        let boundingRect =  CGRect(x: 0, y: 0, width: width, height: CGFloat(MAXFLOAT))
+        if let url = event.photoURL {
+            let imageReference = AppState.shared.storageReference.storage.reference(forURL: url.absoluteString)
+            let imageView = UIImageView.init()
+            imageView.sd_setImage(with: imageReference, placeholderImage: UIImage.init(named: "placeholder-1"), completion: { (image, error, cache, reference) in
+                UIView.animate(withDuration: 0.3, animations: { 
+                    self.collectionView?.collectionViewLayout.invalidateLayout()
+                })
+            })
+            let rect = AVMakeRect(aspectRatio: imageView.image!.size, insideRect: boundingRect)
+            return rect.size.height
+        } else {
+            return (self.collectionView?.frame.size.height)! / 4
+        }
+    }
+
+    func collectionView(collectionView: UICollectionView, heightForAnnotationAtIndexPath indexPath: IndexPath, withWidth width: CGFloat) -> CGFloat {
+        let annotationPadding = CGFloat(4)
+        let annotationHeaderHeight = CGFloat(17)
+        let event = events[indexPath.item]
+        let font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.caption2)
+        let commentHeight = event.heightForLabel(font: font, width: width)
+        let height = annotationPadding + annotationHeaderHeight + commentHeight + annotationPadding
+        return height
+    }
+
 }

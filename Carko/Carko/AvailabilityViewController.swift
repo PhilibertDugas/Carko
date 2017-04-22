@@ -9,8 +9,6 @@ class AvailabilityViewController: UIViewController {
     @IBOutlet var mondayButton: UIButton!
     @IBOutlet var progressView: UIView!
     @IBOutlet var mainButton: RoundedCornerButton!
-    @IBOutlet var fromPicker: UIDatePicker!
-    @IBOutlet var toPicker: UIDatePicker!
 
     var delegate: ParkingAvailabilityDelegate?
 
@@ -43,10 +41,8 @@ class AvailabilityViewController: UIViewController {
     }
 
     @IBAction func mainButtonTapped(_ sender: Any) {
-        let startTime = AvailabilityInfo.formatter().string(from: fromPicker.date)
-        let stopTime = AvailabilityInfo.formatter().string(from: toPicker.date)
-        self.availability.startTime = startTime
-        self.availability.stopTime = stopTime
+        self.availability.startTime = "00:00"
+        self.availability.stopTime = "23:59"
         if newParking {
             self.performSegue(withIdentifier: "pushPhoto", sender: nil)
         } else {

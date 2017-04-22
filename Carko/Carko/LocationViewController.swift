@@ -63,8 +63,8 @@ class LocationViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "pushRates" {
-            let vc = segue.destination as! RatesViewController
+        if segue.identifier == "pushAvailability" {
+            let vc = segue.destination as! AvailabilityViewController
             vc.parking = parking
             vc.newParking = true
         }
@@ -73,7 +73,7 @@ class LocationViewController: UIViewController {
     @IBAction func mainButtonTapped(_ sender: Any) {
         updateParking()
         if newParking {
-            self.performSegue(withIdentifier: "pushRates", sender: nil)
+            self.performSegue(withIdentifier: "pushAvailability", sender: nil)
         } else {
             delegate?.userDidChooseLocation(address: parking.address, latitude: parking.latitude, longitude: parking.longitude)
             let _ = self.navigationController?.popViewController(animated: true)
@@ -99,6 +99,7 @@ class LocationViewController: UIViewController {
         parking.address = address
         parking.latitude = latitude
         parking.longitude = longitude
+        parking.price = 0.0
     }
 }
 
@@ -152,7 +153,7 @@ extension LocationViewController: UITextFieldDelegate {
     func blurMap() {
         let effect = UIBlurEffect(style: UIBlurEffectStyle.light)
         self.blurView = UIVisualEffectView.init(effect: effect)
-        self.blurView.frame = mapView.bounds
+        self.blurView.frame = CGRect.init(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
         self.mapView.addSubview(blurView)
     }
 

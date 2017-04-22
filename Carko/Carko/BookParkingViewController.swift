@@ -19,25 +19,15 @@ class BookParkingViewController: UIViewController {
     @IBOutlet var vehiculeLabel: UnderlineTextField!
     @IBOutlet var timeLabel: UILabel!
     @IBOutlet var costLabel: UILabel!
-    @IBOutlet var timeSlider: UISlider!
     @IBOutlet var confirmButton: RoundedCornerButton!
-    @IBOutlet var startTime: UILabel!
-    @IBOutlet var endTime: UILabel!
     @IBOutlet var indicator: UIActivityIndicatorView!
+    @IBOutlet var parkingLabel: UILabel!
 
-    var endTimeParking: String!
-    var totalCost: Float!
-    var sliderValue: Float!
     var paymentContext: STPPaymentContext!
     var parking: Parking!
+    var event: Event!
 
     var tapCloseButtonActionHandler : ((Void) -> Void)?
-
-    @IBAction func sliderChanged(_ sender: Any) {
-        setSliderValue()
-        setTimeLabel()
-        setCostLabel()
-    }
     
     @IBAction func tappedCloseArrow(_ sender: Any) {
         self.tapCloseButtonActionHandler?()
@@ -50,7 +40,7 @@ class BookParkingViewController: UIViewController {
         } else if parking.customerId == AppState.shared.customer.id {
             super.displayErrorMessage(NSLocalizedString("The parking is your own. You can't rent your own parking", comment: ""))
         } else {
-            let paymentMessage = String.init(format: NSLocalizedString("Confirm payment of %s$ to get a parking until %s", comment: ""), [String.init(format: "%.02f", totalCost), endTimeParking!])
+            let paymentMessage = String.init(format: NSLocalizedString("Confirm payment of %s$ to get a parking until %s", comment: ""), [String.init(format: "%.02f", event.price), event.endTime])
             let alertController = UIAlertController.init(title: NSLocalizedString("Confirm Payment", comment: ""), message: paymentMessage, preferredStyle: UIAlertControllerStyle.actionSheet)
             let cancelAction = UIAlertAction.init(title: NSLocalizedString("Cancel", comment: ""), style: UIAlertActionStyle.cancel) { (result : UIAlertAction) -> Void in
             }
@@ -83,15 +73,11 @@ class BookParkingViewController: UIViewController {
         self.indicator.isHidden = true
 
         addressLabel.text = parking.address
-        startTime.text = DateHelper.currentTime()
-        endTime.text = parking.availabilityInfo.stopTime
+        timeLabel.text = self.event.endTime
+        costLabel.text = self.event.price.asLocaleCurrency
+        parkingLabel.text = self.parking.pDescription
 
-        let minuteDelta = self.parking.stopDate().timeIntervalSince(Date.init()) / 60
-        self.timeSlider.maximumValue = Float(minuteDelta)
 
-        setSliderValue()
-        setTimeLabel()
-        setCostLabel()
         setVehiculeLabel()
 
         if let url = parking.photoURL {
@@ -103,31 +89,8 @@ class BookParkingViewController: UIViewController {
     func completeBooking() {
         self.indicator.isHidden = false
         self.indicator.startAnimating()
-        self.paymentContext.paymentAmount = Int(self.totalCost * 100)
+        self.paymentContext.paymentAmount = Int(self.event.price * 100)
         self.paymentContext.requestPayment()
-    }
-
-    func setSliderValue() {
-        let value = Int(timeSlider.value)
-        let stepSize = 15
-        let diff = Int(timeSlider.maximumValue) - value
-        if diff < 15 {
-            self.sliderValue = timeSlider.maximumValue
-        } else {
-            self.sliderValue = Float.init(value - value % stepSize)
-        }
-    }
-
-    func setTimeLabel() {
-        let calendar = Calendar.current
-        let until = calendar.date(byAdding: Calendar.Component.minute, value: Int(self.sliderValue), to: Date())
-        endTimeParking = AvailabilityInfo.formatter().string(from: until!)
-        timeLabel.text = "\(NSLocalizedString("Until", comment: "")) \(endTimeParking!)"
-    }
-
-    func setCostLabel() {
-        totalCost = (Float(self.sliderValue!) / 60 * parking.price) + 0.5
-        costLabel.text = "\(NSLocalizedString("Cost:", comment: "")) \(String.init(format: "%.02f", totalCost)) $"
     }
 
     func setVehiculeLabel() {
@@ -159,7 +122,7 @@ extension BookParkingViewController: STPPaymentContextDelegate {
 
         let charge = Charge.init(customer: AppState.shared.customer.stripeId, amount: paymentContext.paymentAmount, currency: paymentContext.paymentCurrency, parkingId: parking.id!)
 
-        let reservation = NewReservation.init(parkingId: parking.id!, customerId: AppState.shared.customer.id, isActive: true, startTime: startTime, stopTime: endTimeParking, totalCost: self.totalCost, charge: charge)
+        let reservation = NewReservation.init(parkingId: parking.id!, customerId: AppState.shared.customer.id, isActive: true, startTime: startTime, stopTime: self.event.endTime, totalCost: self.event.price, charge: charge)
 
         reservation.persist() { (successfulReservation, error) in
             if let error = error {

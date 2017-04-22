@@ -12,9 +12,9 @@ import Stripe
 
 extension APIClient: STPBackendAPIAdapter {
     func retrieveCustomer(_ completion: @escaping STPCustomerCompletionBlock) {
-        let getUrl = baseUrl.appendingPathComponent("customers/\(AppState.shared.customer.id)")
+        let getUrl = baseUrl.appendingPathComponent("customers/\(AppState.shared.customer.firebaseId)")
         let parameters: Parameters = ["type": "stripe"]
-        request(getUrl, parameters: parameters, headers: authHeaders()).response { (response) in
+        request(getUrl, parameters: parameters).response { (response) in
             let deserializer = STPCustomerDeserializer.init(data: response.data, urlResponse: response.response, error: response.error)
             if let error = deserializer.error {
                 completion(nil, error)

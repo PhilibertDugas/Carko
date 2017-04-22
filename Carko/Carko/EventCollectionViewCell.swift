@@ -9,17 +9,29 @@
 import UIKit
 
 class EventCollectionViewCell: UICollectionViewCell {
-    var image: UIImageView!
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    @IBOutlet var image: UIImageView!
+    @IBOutlet var imageViewHeightLayoutConstraint: NSLayoutConstraint!
+    @IBOutlet var label: UILabel!
+    @IBOutlet var time: UILabel!
 
-        image = UIImageView.init(frame: frame)
-        image.contentMode = UIViewContentMode.scaleAspectFit
-        contentView.addSubview(image)
+    var event: Event? {
+        didSet {
+            if let event = event {
+                if let url = event.photoURL {
+                    let imageReference = AppState.shared.storageReference.storage.reference(forURL: url.absoluteString)
+                    image.sd_setImage(with: imageReference)
+                }
+                label.text = event.label
+                time.text = event.startTime
+            }
+        }
     }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+
+    override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
+        super.apply(layoutAttributes)
+        if let attributes = layoutAttributes as? ApyaLayoutAttributes {
+            imageViewHeightLayoutConstraint.constant = attributes.photoHeight
+        }
     }
 }
