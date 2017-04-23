@@ -29,13 +29,6 @@ class ProfileViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        displayNameLabel.text = "\(AppState.shared.customer.firstName) \(AppState.shared.customer.lastName)"
-        emailLabel.text = "\(AppState.shared.customer.email)"
-
-        paymentContext = STPPaymentContext.init(apiAdapter: APIClient.shared)
-        paymentContext.delegate = self
-        paymentContext.hostViewController = self
-        setCreditCardLabel(paymentContext: paymentContext)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -48,6 +41,17 @@ class ProfileViewController: UITableViewController {
         if let vehicule = AppState.shared.customer.vehicule {
             vehiculeLabel.text = vehicule.description
         }
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        displayNameLabel.text = "\(AppState.shared.customer.firstName) \(AppState.shared.customer.lastName)"
+        emailLabel.text = "\(AppState.shared.customer.email)"
+
+        paymentContext = STPPaymentContext.init(apiAdapter: APIClient.shared)
+        paymentContext.delegate = self
+        paymentContext.hostViewController = self
+        setCreditCardLabel(paymentContext: paymentContext)
     }
 }
 

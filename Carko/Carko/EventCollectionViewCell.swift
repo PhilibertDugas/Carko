@@ -20,7 +20,7 @@ class EventCollectionViewCell: UICollectionViewCell {
             if let event = event {
                 if let url = event.photoURL {
                     let imageReference = AppState.shared.storageReference.storage.reference(forURL: url.absoluteString)
-                    image.sd_setImage(with: imageReference)
+                    image.sd_setImage(with: imageReference, placeholderImage: UIImage.init(named: "placeholder-1"))
                 }
                 label.text = event.label
                 time.text = event.startTime

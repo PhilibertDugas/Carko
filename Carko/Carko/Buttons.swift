@@ -20,6 +20,7 @@ class CircularButton: UIButton {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         layer.cornerRadius = 0.5 * bounds.size.width
+        layer.borderWidth = 0.5
         clipsToBounds = true
     }
 }

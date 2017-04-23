@@ -40,7 +40,8 @@ class BookParkingViewController: UIViewController {
         } else if parking.customerId == AppState.shared.customer.id {
             super.displayErrorMessage(NSLocalizedString("The parking is your own. You can't rent your own parking", comment: ""))
         } else {
-            let paymentMessage = String.init(format: NSLocalizedString("Confirm payment of %s$ to get a parking until %s", comment: ""), [String.init(format: "%.02f", event.price), event.endTime])
+            let translatedMessage = NSLocalizedString("Confirm payment of %s to get a parking until %s", comment: "")
+            let paymentMessage = String.init(format: translatedMessage, [event.price.asLocaleCurrency, event.endTime])
             let alertController = UIAlertController.init(title: NSLocalizedString("Confirm Payment", comment: ""), message: paymentMessage, preferredStyle: UIAlertControllerStyle.actionSheet)
             let cancelAction = UIAlertAction.init(title: NSLocalizedString("Cancel", comment: ""), style: UIAlertActionStyle.cancel) { (result : UIAlertAction) -> Void in
             }
@@ -122,7 +123,8 @@ extension BookParkingViewController: STPPaymentContextDelegate {
 
         let charge = Charge.init(customer: AppState.shared.customer.stripeId, amount: paymentContext.paymentAmount, currency: paymentContext.paymentCurrency, parkingId: parking.id!)
 
-        let reservation = NewReservation.init(parkingId: parking.id!, customerId: AppState.shared.customer.id, isActive: true, startTime: startTime, stopTime: self.event.endTime, totalCost: self.event.price, charge: charge)
+        // FIXME
+        let reservation = NewReservation.init(parkingId: parking.id!, customerId: AppState.shared.customer.id, isActive: true, startTime: startTime, stopTime: "23:59", totalCost: self.event.price, charge: charge)
 
         reservation.persist() { (successfulReservation, error) in
             if let error = error {

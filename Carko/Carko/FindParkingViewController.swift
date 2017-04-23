@@ -45,6 +45,10 @@ class FindParkingViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        let customer = AppState.shared.cachedCustomer()
+        if FIRAuth.auth()?.currentUser == nil || customer == nil {
+            self.navigationController?.popToRootViewController(animated: true)
+        }
         self.popupView.isHidden = true
     }
 
