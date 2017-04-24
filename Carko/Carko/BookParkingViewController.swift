@@ -125,17 +125,23 @@ extension BookParkingViewController: UITextFieldDelegate {
 
 extension BookParkingViewController: STPPaymentContextDelegate {
     public func paymentContext(_ paymentContext: STPPaymentContext, didCreatePaymentResult paymentResult: STPPaymentResult, completion: @escaping STPErrorBlock) {
+        let charge = Charge.init(
+            customer: AppState.shared.customer.stripeId,
+            amount: paymentContext.paymentAmount,
+            currency: paymentContext.paymentCurrency,
+            parkingId: parking.id!
+        )
 
-        let calendar = Calendar.current
-        let now = calendar.dateComponents(in: NSTimeZone.local, from: Date.init())
-        let startTime = AvailabilityInfo.dayFormatter().string(from: now.date!)
-        // FIXME MAGIC NUMBER 15 HOURS
-        let stopDate = calendar.date(byAdding: Calendar.Component.hour, value: 15, to: now.date!)
-        let stopTime = AvailabilityInfo.dayFormatter().string(from: stopDate!)
-
-        let charge = Charge.init(customer: AppState.shared.customer.stripeId, amount: paymentContext.paymentAmount, currency: paymentContext.paymentCurrency, parkingId: parking.id!)
-
-        let reservation = NewReservation.init(label: self.event.label, parkingId: parking.id!, customerId: AppState.shared.customer.id, isActive: true, startTime: startTime, stopTime: stopTime, totalCost: self.event.price, charge: charge)
+        let reservation = NewReservation.init(
+            label: self.event.label,
+            parkingId: parking.id!,
+            customerId: AppState.shared.customer.id,
+            isActive: true,
+            startTime: self.event.startTime,
+            stopTime: self.event.stopTime,
+            totalCost: self.event.price,
+            charge: charge
+        )
 
         reservation.persist() { (successfulReservation, error) in
             self.indicator.isHidden = true

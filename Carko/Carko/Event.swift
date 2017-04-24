@@ -21,6 +21,10 @@ struct Event {
     var startTime: String
     var endTime: String
 
+    var stopTime: String {
+        return endTime
+    }
+
     init(id: Int, latitude: CLLocationDegrees, longitude: CLLocationDegrees, photoURL: URL?, range: Int, price: Float, label: String, targetAudience: Int, startTime: String, endTime: String) {
         self.id = id
         self.latitude = latitude

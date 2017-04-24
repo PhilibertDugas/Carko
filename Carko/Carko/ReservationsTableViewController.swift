@@ -45,13 +45,7 @@ extension ReservationsTableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReservationCell", for: indexPath) as! ReservationTableViewCell
-
-        let reservation = reservations[indexPath.row]
-
-        cell.reservationLabel.text = reservation.label
-        cell.reservationPrice.text = reservation.totalCost.asLocaleCurrency
-        cell.reservationTime.text = "From \(reservation.startTime.formattedDays)"
-        
+        cell.reservation = reservations[indexPath.row]
         return cell
     }
 }
