@@ -155,11 +155,6 @@ extension Parking {
 
     class func getCustomerParkings(_ complete: @escaping([(Parking)], Error?) -> Void) {
         APIClient.shared.getCustomerParkings { (parkings, error) in
-            if error == nil {
-                for parking in parkings {
-                    AppState.shared.customerParkings[parking.id!] = parking
-                }
-            }
             complete(parkings, error)
         }
     }
@@ -248,20 +243,19 @@ class AvailabilityInfo: NSObject {
         return dateFormatter
     }
 
-    func lapsOfTimeText() -> String {
-        if startTime == "0:00 AM" && startTime == "12:00 PM" {
-            return "All Day"
-        } else {
-            return (startTime + "-" + stopTime)
-        }
+    class func dayFormatter() -> DateFormatter {
+        let dateFormatter = DateFormatter.init()
+        dateFormatter.dateFormat = "dd-MM-YYYY HH:mm"
+        dateFormatter.timeZone = NSTimeZone.local
+        return dateFormatter
     }
 
     func startDate() -> Date {
-        return AvailabilityInfo.formatter().date(from: self.startTime)!
+        return AvailabilityInfo.dayFormatter().date(from: self.startTime)!
     }
 
     func stopDate() -> Date {
-        return AvailabilityInfo.formatter().date(from: self.stopTime)!
+        return AvailabilityInfo.dayFormatter().date(from: self.stopTime)!
     }
 
     func daysEnumerationText() -> String {

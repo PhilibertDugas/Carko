@@ -28,4 +28,27 @@ extension APIClient {
             }
         }
     }
+
+    func getCustomerReservations(complete: @escaping ([(Reservation)], Error?) -> Void) {
+        let url = baseUrl.appendingPathComponent("/customers/\(AppState.shared.customer.id)/reservations")
+        request(url, method: .get, encoding: JSONEncoding.default, headers: authHeaders()).responseJSON { (returned) in
+            if let error = returned.result.error {
+                complete([], error)
+            } else if let response = returned.response, let value = returned.result.value {
+                if response.statusCode == 200 {
+                    let reservationArray = value as! NSArray
+                    var reservations = [(Reservation)]()
+                    for reservation in reservationArray {
+                        let dict = reservation as! [String : Any]
+                        reservations.append(Reservation.init(reservation: dict))
+                    }
+                    complete(reservations, nil)
+                } else {
+                    let error = value as! NSDictionary
+                    let errorMessage = error.object(forKey: "error") as! String
+                    complete([], NSError.init(domain: errorMessage, code: response.statusCode, userInfo: nil))
+                }
+            }
+        }
+    }
 }

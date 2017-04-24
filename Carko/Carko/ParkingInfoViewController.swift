@@ -10,7 +10,6 @@ class ParkingInfoViewController: UITableViewController {
 
     @IBOutlet var streetAddressLabel: UILabel!
     @IBOutlet var parkingDescriptionLabel: UILabel!
-    @IBOutlet var timeOfDayLabel: UILabel!
     @IBOutlet var daysAvailableLabel: UILabel!
 
     var parking: Parking!
@@ -18,6 +17,7 @@ class ParkingInfoViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.tableFooterView = UIView.init()
 
         imagePicker.delegate = self
         initializeParking()
@@ -93,7 +93,6 @@ class ParkingInfoViewController: UITableViewController {
         case "address":
             streetAddressLabel.text = self.parking.address
         case "availability":
-            timeOfDayLabel.text = self.parking.availabilityInfo.lapsOfTimeText()
             daysAvailableLabel.text = self.parking.availabilityInfo.daysEnumerationText()
         case "description":
             parkingDescriptionLabel.text = self.parking.pDescription

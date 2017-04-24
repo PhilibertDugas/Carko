@@ -19,39 +19,41 @@ class ListParkingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        NotificationCenter.default.addObserver(self, selector: #selector(self.parkingListUpdate), name: Notification.Name.init(rawValue: "NewParking"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.fetchParkings), name: Notification.Name.init(rawValue: "NewParking"), object: nil)
 
-        parkingListUpdate()
+        fetchParkings()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.updateTable(AppState.shared.parkingList())
+        if AppState.shared.cachedCustomerParkings().count > 0 {
+            updateTable(AppState.shared.cachedCustomerParkings())
+        } else {
+            self.setupFirstParkingView()
+        }
     }
 
     
-    func parkingListUpdate() {
+    func fetchParkings() {
         Parking.getCustomerParkings { (parkings, error) in
             if let error = error {
                 super.displayErrorMessage(error.localizedDescription)
-            } else {
+            } else if parkings.count > 0 {
+                AppState.shared.cacheCustomerParkings(parkings)
                 self.updateTable(parkings)
+            } else {
+                self.setupFirstParkingView()
             }
         }
     }
 
     func updateTable(_ parkings: [(Parking)]) {
-        if parkings.count > 0 {
-            self.navigationController?.navigationBar.isHidden = false
-            self.navigationItem.leftBarButtonItem = self.editButtonItem
-            self.editButtonItem.action = #selector(self.setTableEditMode)
-            self.setEditing(false, animated: true)
-            self.parkingTableView.setEditing(false, animated: true)
-            self.removeFirstParkingView()
-        } else {
-            self.navigationController?.navigationBar.isHidden = true
-            self.setupFirstParkingView()
-        }
+        self.navigationController?.navigationBar.isHidden = false
+        self.navigationItem.leftBarButtonItem = self.editButtonItem
+        self.editButtonItem.action = #selector(self.setTableEditMode)
+        self.setEditing(false, animated: true)
+        self.parkingTableView.setEditing(false, animated: true)
+        self.removeFirstParkingView()
         self.parkingList = parkings
         self.parkingTableView.reloadData()
     }
@@ -70,6 +72,7 @@ class ListParkingViewController: UIViewController {
     }
 
     func setupFirstParkingView() {
+        self.navigationController?.navigationBar.isHidden = true
         let firstParkingView = NewParkingView.init(frame: self.view.frame)
         firstParkingView.mainActionButton.addTarget(self, action: #selector(self.newParkingTapped), for: UIControlEvents.touchUpInside)
         self.view.addSubview(firstParkingView)
@@ -131,8 +134,7 @@ extension ListParkingViewController: UITableViewDelegate, UITableViewDataSource 
         if let error = error {
             super.displayErrorMessage(error.localizedDescription)
         } else {
-            NotificationCenter.default.post(name: Notification.Name.init("ParkingDeleted"), object: nil, userInfo: nil)
-            self.parkingListUpdate()
+            self.fetchParkings()
         }
     }
 }

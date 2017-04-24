@@ -15,7 +15,7 @@
 "Save" = "Sauvegardez";
 "Enter a description..." = "Entrez une description...";
 "Drag the marker to the exact location" = "Choisissez l'emplacement exacte";
-"Confirm payment of %s to get a parking until %s" = "Confirmez le paiement de %s pour un stationnement jusqu'à %s";
+"Confirm payment of %@ to get a parking on %@" = "Confirmez le paiement de %# pour un stationnement le %@";
 "Confirm payment" = "Confirmez le paiement";
 "Error" = "Erreur";
 "Cancel" = "Annuler";

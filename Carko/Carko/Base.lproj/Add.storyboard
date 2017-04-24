@@ -41,7 +41,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="SyP-yK-IPs">
-                                <rect key="frame" x="16" y="28" width="343" height="631"/>
+                                <rect key="frame" x="16" y="72" width="343" height="538"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -76,7 +76,7 @@
         <scene sceneID="MCb-5G-TIR">
             <objects>
                 <tableViewController id="8hk-DP-4Kf" customClass="ParkingInfoViewController" customModule="Carko" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Twc-8n-gHp">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Twc-8n-gHp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -219,11 +219,11 @@
                                             <segue destination="6yu-zW-V47" kind="show" identifier="ChangeDescription" id="edw-nD-MO5"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="80" id="Rzo-wt-e7Z">
-                                        <rect key="frame" x="0.0" y="374" width="375" height="80"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="65" id="Rzo-wt-e7Z">
+                                        <rect key="frame" x="0.0" y="374" width="375" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Rzo-wt-e7Z" id="WN7-ql-Ja8">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="79.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="64.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Availability" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="86S-1J-gOq">
@@ -244,26 +244,14 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u9U-uf-kAn">
-                                                    <rect key="frame" x="8" y="59" width="326" height="12"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="12" id="dgg-8l-GQQ"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="x9b-3J-uee" firstAttribute="top" secondItem="86S-1J-gOq" secondAttribute="bottom" constant="8" id="8LO-kQ-AMr"/>
                                                 <constraint firstItem="86S-1J-gOq" firstAttribute="trailing" secondItem="WN7-ql-Ja8" secondAttribute="trailingMargin" id="9JY-Fo-hV9"/>
                                                 <constraint firstItem="x9b-3J-uee" firstAttribute="leading" secondItem="WN7-ql-Ja8" secondAttribute="leadingMargin" id="9r8-IM-vIl"/>
-                                                <constraint firstAttribute="trailing" secondItem="u9U-uf-kAn" secondAttribute="trailing" constant="8" id="CzE-cv-TQh"/>
-                                                <constraint firstItem="u9U-uf-kAn" firstAttribute="bottom" secondItem="WN7-ql-Ja8" secondAttribute="bottomMargin" id="q9O-Qc-SfQ"/>
+                                                <constraint firstItem="x9b-3J-uee" firstAttribute="top" secondItem="86S-1J-gOq" secondAttribute="bottom" constant="8" id="jv4-WP-4iY"/>
                                                 <constraint firstItem="86S-1J-gOq" firstAttribute="leading" secondItem="WN7-ql-Ja8" secondAttribute="leadingMargin" id="tGZ-L1-O3f"/>
                                                 <constraint firstItem="x9b-3J-uee" firstAttribute="trailing" secondItem="WN7-ql-Ja8" secondAttribute="trailingMargin" id="v7F-vB-Mt3"/>
                                                 <constraint firstItem="86S-1J-gOq" firstAttribute="top" secondItem="WN7-ql-Ja8" secondAttribute="topMargin" id="ynr-fh-37I"/>
-                                                <constraint firstItem="u9U-uf-kAn" firstAttribute="leading" secondItem="WN7-ql-Ja8" secondAttribute="leadingMargin" id="zSe-Fw-dpr"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -292,7 +280,6 @@
                         <outlet property="parkingDescriptionLabel" destination="SmT-QS-09h" id="gkd-VF-SEo"/>
                         <outlet property="parkingImageView" destination="3aw-io-txD" id="VAi-Hu-7eY"/>
                         <outlet property="streetAddressLabel" destination="Kjh-Nu-QZw" id="4CW-nD-I1W"/>
-                        <outlet property="timeOfDayLabel" destination="u9U-uf-kAn" id="StX-ae-e2R"/>
                         <outlet property="uploadIndicator" destination="NMv-l0-NQ8" id="0Wh-Kh-Lgs"/>
                     </connections>
                 </tableViewController>
@@ -303,7 +290,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2061" y="-121"/>
+            <point key="canvasLocation" x="2060" y="-121.88905547226388"/>
         </scene>
         <!--List-->
         <scene sceneID="b9n-Ux-GMT">
@@ -975,8 +962,8 @@
         <image name="search" width="44" height="44"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kI1-LU-ncT"/>
-        <segue reference="FSc-LC-W9E"/>
         <segue reference="Kns-8F-D69"/>
+        <segue reference="TkR-cm-Vee"/>
+        <segue reference="edw-nD-MO5"/>
     </inferredMetricsTieBreakers>
 </document>

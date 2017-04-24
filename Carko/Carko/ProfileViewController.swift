@@ -21,12 +21,6 @@ class ProfileViewController: UITableViewController {
 
     var paymentContext: STPPaymentContext!
 
-    func logoutTapped() {
-        try! FIRAuth.auth()!.signOut()
-        UserDefaults.standard.removeObject(forKey: "user")
-        self.tabBarController?.selectedIndex = 0
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -61,13 +55,21 @@ extension ProfileViewController {
         case 0:
             break
         case 1:
-            handlePaymentSection(cellIndex: indexPath.row)
+            break
         case 2:
+            handlePaymentSection(cellIndex: indexPath.row)
+        case 3:
             logoutTapped()
             break
         default:
             break
         }
+    }
+
+    func logoutTapped() {
+        try! FIRAuth.auth()!.signOut()
+        UserDefaults.standard.removeObject(forKey: "user")
+        self.tabBarController?.selectedIndex = 0
     }
 
     func handlePaymentSection(cellIndex: Int) {

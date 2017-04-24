@@ -10,6 +10,10 @@ import UIKit
 import Stripe
 import FirebaseStorageUI
 
+protocol ReservationDelegate {
+    func reservationCompleted()
+}
+
 class BookParkingViewController: UIViewController {
 
     @IBOutlet var creditCardImage: UIImageView!
@@ -26,6 +30,7 @@ class BookParkingViewController: UIViewController {
     var paymentContext: STPPaymentContext!
     var parking: Parking!
     var event: Event!
+    var delegate: ReservationDelegate!
 
     var tapCloseButtonActionHandler : ((Void) -> Void)?
     
@@ -39,9 +44,13 @@ class BookParkingViewController: UIViewController {
             super.displayErrorMessage(NSLocalizedString("The parking is currently busy", comment: ""))
         } else if parking.customerId == AppState.shared.customer.id {
             super.displayErrorMessage(NSLocalizedString("The parking is your own. You can't rent your own parking", comment: ""))
+        } else if AppState.shared.customer.vehicule == nil {
+            super.displayErrorMessage("Please set your vehicule information in the profile section")
+        } else if paymentContext.selectedPaymentMethod == nil {
+            super.displayErrorMessage("Please select a payment method")
         } else {
-            let translatedMessage = NSLocalizedString("Confirm payment of %s to get a parking until %s", comment: "")
-            let paymentMessage = String.init(format: translatedMessage, [event.price.asLocaleCurrency, event.endTime])
+            let translatedMessage = NSLocalizedString("Confirm payment of %@ to get a parking on %@", comment: "")
+            let paymentMessage = String.init(format: translatedMessage, event.price.asLocaleCurrency, event.endTime.formattedDays)
             let alertController = UIAlertController.init(title: NSLocalizedString("Confirm Payment", comment: ""), message: paymentMessage, preferredStyle: UIAlertControllerStyle.actionSheet)
             let cancelAction = UIAlertAction.init(title: NSLocalizedString("Cancel", comment: ""), style: UIAlertActionStyle.cancel) { (result : UIAlertAction) -> Void in
             }
@@ -74,7 +83,7 @@ class BookParkingViewController: UIViewController {
         self.indicator.isHidden = true
 
         addressLabel.text = parking.address
-        timeLabel.text = self.event.endTime
+        timeLabel.text = self.event.endTime.formattedDays
         costLabel.text = self.event.price.asLocaleCurrency
         parkingLabel.text = self.parking.pDescription
 
@@ -119,20 +128,23 @@ extension BookParkingViewController: STPPaymentContextDelegate {
 
         let calendar = Calendar.current
         let now = calendar.dateComponents(in: NSTimeZone.local, from: Date.init())
-        let startTime = AvailabilityInfo.formatter().string(from: now.date!)
+        let startTime = AvailabilityInfo.dayFormatter().string(from: now.date!)
+        // FIXME MAGIC NUMBER 15 HOURS
+        let stopDate = calendar.date(byAdding: Calendar.Component.hour, value: 15, to: now.date!)
+        let stopTime = AvailabilityInfo.dayFormatter().string(from: stopDate!)
 
         let charge = Charge.init(customer: AppState.shared.customer.stripeId, amount: paymentContext.paymentAmount, currency: paymentContext.paymentCurrency, parkingId: parking.id!)
 
-        // FIXME
-        let reservation = NewReservation.init(parkingId: parking.id!, customerId: AppState.shared.customer.id, isActive: true, startTime: startTime, stopTime: "23:59", totalCost: self.event.price, charge: charge)
+        let reservation = NewReservation.init(label: self.event.label, parkingId: parking.id!, customerId: AppState.shared.customer.id, isActive: true, startTime: startTime, stopTime: stopTime, totalCost: self.event.price, charge: charge)
 
         reservation.persist() { (successfulReservation, error) in
+            self.indicator.isHidden = true
+            self.indicator.stopAnimating()
             if let error = error {
                 super.displayErrorMessage(error.localizedDescription)
             } else if successfulReservation != nil {
-                self.indicator.isHidden = true
-                self.indicator.stopAnimating()
                 self.tapCloseButtonActionHandler?()
+                self.delegate.reservationCompleted()
                 self.dismiss(animated: true, completion: nil)
             }
         }

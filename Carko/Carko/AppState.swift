@@ -19,14 +19,6 @@ class AppState: NSObject {
     var customerParkings = [Int: Parking]()
     let storageReference = FIRStorage.storage().reference()
 
-    func parkingList() -> [(Parking)] {
-        var parkings = [Parking]()
-        for (_, parking) in self.customerParkings {
-            parkings.append(parking)
-        }
-        return parkings
-    }
-
     func cacheVehicule(_ vehicule: Vehicule) {
         self.customer.vehicule = vehicule
         updateCache()
@@ -42,6 +34,20 @@ class AppState: NSObject {
         self.customer.externalLast4Digits = token.bankAccount?.last4()
         self.customer.externalBankName = token.bankAccount?.bankName!
         updateCache()
+    }
+
+    func cacheCustomerParkings(_ parkings: [(Parking)]) {
+        for parking in parkings {
+            self.customerParkings[parking.id!] = parking
+        }
+    }
+
+    func cachedCustomerParkings() -> [(Parking)] {
+        var parkings = [Parking]()
+        for (_, parking) in self.customerParkings {
+            parkings.append(parking)
+        }
+        return parkings
     }
 
     func cachedCustomer() -> [String : Any]? {

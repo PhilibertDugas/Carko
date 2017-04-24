@@ -23,6 +23,7 @@ class EventsCollectionViewController: UICollectionViewController {
         if let layout = collectionView?.collectionViewLayout as? ApyaLayout {
             layout.delegate = self
         }
+        self.navigationController?.navigationBar.isHidden = true
     }
 
     override func viewWillAppear(_ animated: Bool) {

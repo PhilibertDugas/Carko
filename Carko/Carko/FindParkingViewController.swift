@@ -92,6 +92,7 @@ extension FindParkingViewController {
 
         self.bookParkingVC = storyboard?.instantiateViewController(withIdentifier: "bookParkingViewController") as? BookParkingViewController
         self.bookParkingVC.modalPresentationStyle = .overCurrentContext
+        self.bookParkingVC.delegate = self
 
         self.bookParkingVC.tapCloseButtonActionHandler = { _ in
             self.popupView.descriptionLabel.text = self.selectedParking.address
@@ -154,6 +155,7 @@ extension FindParkingViewController: MKMapViewDelegate {
 
             UIView.animate(withDuration: 0.15, animations: { 
                 self.popupView.isHidden = false
+                self.popupView.backgroundColor = UIColor.white
                 let yOrigin = self.mapView.frame.height - self.tabBar.frame.height
                 self.popupView.frame.origin.y = yOrigin
             })
@@ -177,5 +179,11 @@ extension FindParkingViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
         let av = self.mapView.view(for: self.mapView.userLocation)
         av?.isEnabled = false
+    }
+}
+
+extension FindParkingViewController: ReservationDelegate {
+    func reservationCompleted() {
+        self.fetchParkings()
     }
 }

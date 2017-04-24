@@ -9,6 +9,7 @@
 import Foundation
 
 struct Reservation {
+    var label: String
     var parkingId: Int
     var customerId: Int
     var isActive: Bool
@@ -17,7 +18,8 @@ struct Reservation {
     var totalCost: Float
     var charge: String
 
-    init(parkingId: Int, customerId: Int, isActive: Bool, startTime: String, stopTime: String, totalCost: Float, charge: String) {
+    init(label: String, parkingId: Int, customerId: Int, isActive: Bool, startTime: String, stopTime: String, totalCost: Float, charge: String) {
+        self.label = label
         self.parkingId = parkingId
         self.customerId = customerId
         self.isActive = isActive
@@ -28,6 +30,7 @@ struct Reservation {
     }
 
     init(reservation: [String : Any]) {
+        let label = reservation["label"] as! String
         let parkingId = reservation["parking_id"] as! Int
         let customerId = reservation["customer_id"] as! Int
         let isActive = reservation["is_active"] as! Bool
@@ -35,11 +38,12 @@ struct Reservation {
         let stopTime = reservation["stop_time"] as! String
         let totalCost = reservation["total_cost"] as! Float
         let charge = reservation["charge"] as! String
-        self.init(parkingId: parkingId, customerId: customerId, isActive: isActive, startTime: startTime, stopTime: stopTime, totalCost: totalCost, charge: charge)
+        self.init(label: label, parkingId: parkingId, customerId: customerId, isActive: isActive, startTime: startTime, stopTime: stopTime, totalCost: totalCost, charge: charge)
     }
 
     func toDictionnary() -> [String : Any] {
         return [
+            "label": self.label,
             "parking_id": self.parkingId,
             "customer_id": self.customerId,
             "is_active": self.isActive,
@@ -49,9 +53,14 @@ struct Reservation {
             "charge": self.charge
         ]
     }
+
+    static func getCustomerReservations(_ completion: @escaping ([(Reservation)], Error?) -> Void) {
+        APIClient.shared.getCustomerReservations(complete: completion)
+    }
 }
 
 struct NewReservation {
+    var label: String
     var parkingId: Int
     var customerId: Int
     var isActive: Bool
@@ -60,7 +69,8 @@ struct NewReservation {
     var totalCost: Float
     var charge: Charge
 
-    init(parkingId: Int, customerId: Int, isActive: Bool, startTime: String, stopTime: String, totalCost: Float, charge: Charge) {
+    init(label: String, parkingId: Int, customerId: Int, isActive: Bool, startTime: String, stopTime: String, totalCost: Float, charge: Charge) {
+        self.label = label
         self.parkingId = parkingId
         self.customerId = customerId
         self.isActive = isActive
@@ -71,6 +81,7 @@ struct NewReservation {
     }
 
     init(reservation: [String : Any]) {
+        let label = reservation["label"] as! String
         let parkingId = reservation["parking_id"] as! Int
         let customerId = reservation["customer_id"] as! Int
         let isActive = reservation["is_active"] as! Bool
@@ -78,11 +89,12 @@ struct NewReservation {
         let stopTime = reservation["stop_time"] as! String
         let totalCost = reservation["total_cost"] as! Float
         let charge = Charge.init(charge: reservation["charge"] as! [String: Any])
-        self.init(parkingId: parkingId, customerId: customerId, isActive: isActive, startTime: startTime, stopTime: stopTime, totalCost: totalCost, charge: charge)
+        self.init(label: label, parkingId: parkingId, customerId: customerId, isActive: isActive, startTime: startTime, stopTime: stopTime, totalCost: totalCost, charge: charge)
     }
 
     func toDictionnary() -> [String : Any] {
         return [
+            "label": self.label,
             "parking_id": self.parkingId,
             "customer_id": self.customerId,
             "is_active": self.isActive,
