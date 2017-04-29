@@ -19,7 +19,6 @@ class VehiculeInformationViewController: UIViewController {
     @IBOutlet var saveButton: RoundedCornerButton!
 
     var years: [(String)] = []
-    let provinces = ["AB", "BC", "MB", "NB", "NL", "NS", "ON", "PE", "QC", "SK"]
     let licensePlateLength = 6
 
     @IBAction func saveTapped(_ sender: Any) {
@@ -131,7 +130,7 @@ extension VehiculeInformationViewController {
         var selectedRow: Int
         if let province = self.provinceTextField.text {
             if province != "" {
-                selectedRow = self.provinces.index(of: province)!
+                selectedRow = AppState.provinces.index(of: province)!
                 pickerView.selectRow(selectedRow, inComponent: 0, animated: false)
             }
         }
@@ -156,7 +155,7 @@ extension VehiculeInformationViewController: UIPickerViewDelegate, UIPickerViewD
         case 10:
             return self.years.count
         case 11:
-            return self.provinces.count
+            return AppState.provinces.count
         default:
             break
         }
@@ -168,7 +167,7 @@ extension VehiculeInformationViewController: UIPickerViewDelegate, UIPickerViewD
         case 10:
             return self.years[row]
         case 11:
-            return self.provinces[row]
+            return AppState.provinces[row]
         default:
             break
         }
@@ -181,7 +180,7 @@ extension VehiculeInformationViewController: UIPickerViewDelegate, UIPickerViewD
             self.yearTextField.text = self.years[row]
             break
         case 11:
-            self.provinceTextField.text = self.provinces[row]
+            self.provinceTextField.text = AppState.provinces[row]
             break
         default:
             break

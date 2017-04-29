@@ -43,10 +43,18 @@ class AccountCreationViewController: UIViewController {
     }
 
     @IBAction func continueTapped(_ sender: Any) {
-        if let city = cityTextField.text, let line1 = addressTextField.text, let postalCode = postalCodeTextField.text, let stateText = stateTextField.text {
+        if let city = cityTextField.text,
+            let line1 = addressTextField.text,
+            let postalCode = postalCodeTextField.text,
+            let stateText = stateTextField.text,
+            !city.isEmpty,
+            !line1.isEmpty,
+            !postalCode.isEmpty,
+            !stateText.isEmpty {
             self.address = AccountAddress.init(city: city, line1: line1, postalCode: postalCode, state: stateText)
         } else {
-            super.displayErrorMessage("Please enter all fields")
+            // FIXME : translate
+            super.displayErrorMessage("PLEASE ENTER ALL FIELDS")
         }
 
         if let address = self.address, let dob = self.dob {
@@ -65,6 +73,34 @@ class AccountCreationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        self.setupProvincePicker()
+    }
+}
+
+extension AccountCreationViewController {
+    func setupProvincePicker() {
+        let pickerView = UIPickerView.init()
+        pickerView.dataSource = self
+        pickerView.delegate = self
+        stateTextField.inputView = pickerView
+    }
+}
+
+extension AccountCreationViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return AppState.provinces.count
+    }
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return AppState.provinces[row]
+    }
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.stateTextField.text = AppState.provinces[row]
     }
 }
 

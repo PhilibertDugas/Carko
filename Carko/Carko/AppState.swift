@@ -13,6 +13,8 @@ import Stripe
 
 class AppState: NSObject {
     static let shared = AppState.init()
+    static let provinces = ["AB", "BC", "MB", "NB", "NL", "NS", "ON", "PE", "QC", "SK"]
+
 
     var customer: Customer!
     var authToken: String!

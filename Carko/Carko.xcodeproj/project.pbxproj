@@ -331,6 +331,7 @@
 				4564F6DD1DB981BA001B709C /* Subviews */,
 				4564F6E01DB98509001B709C /* BookParkingViewController.swift */,
 				45EA513A1DDE6F2300BD076C /* FindParkingViewController.swift */,
+				45D073301EA84924000604D3 /* EventsCollectionViewController.swift */,
 				4550D6651E19D7720080758D /* Find.storyboard */,
 			);
 			name = "Tab - Find";
@@ -347,23 +348,6 @@
 				4550D6681E19D7780080758D /* Add.storyboard */,
 			);
 			name = "Tab - Add";
-			sourceTree = "<group>";
-		};
-		451FC4691E072A6D0083C0CB /* Vehicule Information */ = {
-			isa = PBXGroup;
-			children = (
-				451FC46A1E072A830083C0CB /* VehiculeInformationViewController.swift */,
-			);
-			name = "Vehicule Information";
-			sourceTree = "<group>";
-		};
-		453314301E03667200BF0B65 /* Payout Information */ = {
-			isa = PBXGroup;
-			children = (
-				453314311E03669000BF0B65 /* AccountCreationViewController.swift */,
-				453314391E036CF300BF0B65 /* BankCreationViewController.swift */,
-			);
-			name = "Payout Information";
 			sourceTree = "<group>";
 		};
 		45418F281E16F2DD0050DDF5 /* Animation */ = {
@@ -396,7 +380,6 @@
 		457536541EAD750C00E70F7F /* Reservations */ = {
 			isa = PBXGroup;
 			children = (
-				457536551EAD752500E70F7F /* ReservationsTableViewController.swift */,
 				457536571EAD798300E70F7F /* ReservationTableViewCell.swift */,
 			);
 			name = Reservations;
@@ -523,8 +506,10 @@
 			isa = PBXGroup;
 			children = (
 				457536541EAD750C00E70F7F /* Reservations */,
-				451FC4691E072A6D0083C0CB /* Vehicule Information */,
-				453314301E03667200BF0B65 /* Payout Information */,
+				457536551EAD752500E70F7F /* ReservationsTableViewController.swift */,
+				453314391E036CF300BF0B65 /* BankCreationViewController.swift */,
+				453314311E03669000BF0B65 /* AccountCreationViewController.swift */,
+				451FC46A1E072A830083C0CB /* VehiculeInformationViewController.swift */,
 				4554EBCF1DB5AA520066E452 /* ProfileViewController.swift */,
 				4550D66E1E19D7870080758D /* Profile.storyboard */,
 			);
@@ -534,7 +519,6 @@
 		45DC42FD1EA97D5B009F8E8D /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				45D073301EA84924000604D3 /* EventsCollectionViewController.swift */,
 				45DC42FB1EA97D53009F8E8D /* EventCollectionViewCell.swift */,
 				45113DF71EAB9D4F0083C959 /* ApyaLayout.swift */,
 			);

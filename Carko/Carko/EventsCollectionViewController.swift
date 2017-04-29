@@ -17,6 +17,7 @@ class EventsCollectionViewController: UICollectionViewController {
     fileprivate let reuseIdentifier = "EventCell"
     fileprivate var events: [(Event)] = []
     fileprivate var selectedEvent: Event!
+    fileprivate let activityView: UIActivityIndicatorView = UIActivityIndicatorView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,9 @@ class EventsCollectionViewController: UICollectionViewController {
             layout.delegate = self
         }
         self.navigationController?.navigationBar.isHidden = true
+        self.activityView.frame = CGRect.init(x: self.view.frame.size.width / 2, y: self.view.frame.size.height / 2, width: 40.0, height: 40.0)
+        self.activityView.isHidden = true
+        self.view.addSubview(self.activityView)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -55,6 +59,8 @@ class EventsCollectionViewController: UICollectionViewController {
     }
 
     fileprivate func fetchEvents() {
+        self.activityView.startAnimating()
+        self.activityView.isHidden = false
         Event.getAllEvents { (events, error) in
             if let error = error {
                 self.displayErrorMessage(error.localizedDescription)
@@ -62,6 +68,8 @@ class EventsCollectionViewController: UICollectionViewController {
                 self.events = events
                 self.collectionView?.reloadData()
             }
+            self.activityView.isHidden = true
+            self.activityView.stopAnimating()
         }
     }
 }

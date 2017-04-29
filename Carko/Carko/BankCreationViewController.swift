@@ -18,7 +18,7 @@ class BankCreationViewController: UIViewController {
     var account: Account!
 
     @IBAction func saveTapped(_ sender: Any) {
-        if let routingNumber = routingNumberTextField.text, let accountNumber = accountNumberTextField.text {
+        if let routingNumber = routingNumberTextField.text, !routingNumber.isEmpty, let accountNumber = accountNumberTextField.text, !accountNumber.isEmpty {
             self.activityIndicator.isHidden = false
             self.activityIndicator.startAnimating()
             createAccounts(routingNumber: routingNumber, accountNumber: accountNumber)
