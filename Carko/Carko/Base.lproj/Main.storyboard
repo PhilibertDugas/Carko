@@ -9,25 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller-->
-        <scene sceneID="3Wq-Vv-XmN">
-            <objects>
-                <tabBarController id="BlE-fA-HKp" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="fye-mz-OfL">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="0.112871848" green="0.75954872370000004" blue="0.28861063720000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="W64-o7-yGy" kind="relationship" relationship="viewControllers" id="1MV-cE-vHf"/>
-                        <segue destination="VL7-ff-8nA" kind="relationship" relationship="viewControllers" id="HAP-Wt-5LK"/>
-                        <segue destination="v0W-TT-JD1" kind="relationship" relationship="viewControllers" id="uPk-9a-gMq"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HTK-RC-H4v" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-6073" y="-66"/>
-        </scene>
         <!--Add-->
         <scene sceneID="6bg-5v-8Ia">
             <objects>
@@ -94,13 +75,13 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="3244" translatesAutoresizingMaskIntoConstraints="NO" id="1Rz-UP-VN8">
-                                        <rect key="frame" x="29" y="30" width="90" height="90"/>
+                                        <rect key="frame" x="22" y="40" width="80" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Guillaume" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwO-0D-yHd">
-                                        <rect key="frame" x="138" y="87" width="172" height="33"/>
+                                        <rect key="frame" x="117" y="87" width="172" height="33"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="27"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="24"/>
                                         <color key="textColor" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -325,7 +306,4 @@
         <image name="3244" width="565" height="565"/>
         <image name="car-1" width="128" height="128"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="mU7-NG-gdL"/>
-    </inferredMetricsTieBreakers>
 </document>

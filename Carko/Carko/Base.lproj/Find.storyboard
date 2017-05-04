@@ -91,10 +91,10 @@
         <scene sceneID="RRg-26-Voq">
             <objects>
                 <navigationController id="r47-eP-Nd1" sceneMemberID="viewController">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6K4-3b-u28">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="0.112871848" green="0.75954872370000004" blue="0.28861063720000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="MPQ-ic-TB4" kind="relationship" relationship="rootViewController" id="b3h-Dn-3jQ"/>
@@ -108,7 +108,7 @@
         <scene sceneID="oc0-ja-GMb">
             <objects>
                 <collectionViewController id="MPQ-ic-TB4" customClass="EventsCollectionViewController" customModule="Carko" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="ZxP-jl-dXw">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="ZxP-jl-dXw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -171,7 +171,18 @@
                         </connections>
                     </collectionView>
                     <tabBarItem key="tabBarItem" title="Find" image="placeholder.png" id="2wr-SC-ug2"/>
-                    <navigationItem key="navigationItem" id="GNb-vh-rZy"/>
+                    <navigationItem key="navigationItem" id="GNb-vh-rZy">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="zJj-iS-U4O">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="60X-d9-7UB">
+                                <rect key="frame" x="16" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="navigationMenuPressed:" destination="MPQ-ic-TB4" eventType="touchUpInside" id="8pL-3h-u4z"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="PFI-OV-uJx" kind="presentation" identifier="showLoginScreen" id="nqX-sr-4pE"/>

@@ -12,20 +12,40 @@ import FirebaseAuth
 import AVFoundation
 
 
-class EventsCollectionViewController: UICollectionViewController {
+class EventsCollectionViewController: UICollectionViewController, SWRevealViewControllerDelegate {
 
+    
     fileprivate let reuseIdentifier = "EventCell"
     fileprivate var events: [(Event)] = []
     fileprivate var selectedEvent: Event!
     fileprivate var refresher: UIRefreshControl!
+    
+    @IBAction func navigationMenuPressed(_ sender: Any) {
+        // toggles the navigation menu
+        self.revealViewController().revealToggle(self)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         if let layout = collectionView?.collectionViewLayout as? ApyaLayout {
             layout.delegate = self
         }
-        self.navigationController?.navigationBar.isHidden = true
         self.setupPullToRefresh()
+        
+        //sliding window settings
+        let revealViewController = self.revealViewController()
+        
+        //revealVC = revealViewController
+        
+        revealViewController?.delegate = self
+        
+        
+        revealViewController?.bounceBackOnOverdraw = true
+        revealViewController?.stableDragOnOverdraw = false
+        revealViewController?.toggleAnimationType = .spring
+        revealViewController?.rearViewRevealDisplacement = 44
+        revealViewController?.rearViewRevealOverdraw = 10
+        revealViewController?.rearViewRevealWidth = 300
     }
 
     override func viewWillAppear(_ animated: Bool) {
