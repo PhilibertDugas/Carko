@@ -56,6 +56,10 @@ struct Event {
         let rect = NSString(string: self.label).boundingRect(with: CGSize(width: width, height: CGFloat(MAXFLOAT)), options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
         return ceil(rect.height)
     }
+
+    func coordinate() -> CLLocationCoordinate2D {
+        return CLLocationCoordinate2D.init(latitude: self.latitude, longitude: self.longitude)
+    }
 }
 
 extension Event {
