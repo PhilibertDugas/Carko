@@ -25,8 +25,9 @@ class EventsCollectionViewController: UICollectionViewController {
             layout.delegate = self
         }
         self.navigationController?.navigationBar.isHidden = true
-        self.activityView.frame = CGRect.init(x: self.view.frame.size.width / 2, y: self.view.frame.size.height / 2, width: 40.0, height: 40.0)
+        self.activityView.frame = CGRect.init(x: (self.view.frame.size.width / 2) - 80, y: self.view.frame.size.height / 2, width: 80.0, height: 80.0)
         self.activityView.isHidden = true
+        self.activityView.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
         self.view.addSubview(self.activityView)
     }
 
