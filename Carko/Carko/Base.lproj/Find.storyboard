@@ -23,7 +23,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" rotateEnabled="NO" pitchEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F3O-Ph-Xpo">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" showsBuildings="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F3O-Ph-Xpo">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <gestureRecognizers/>
                             </mapView>
@@ -37,17 +37,30 @@
                                     <outletCollection property="gestureRecognizers" destination="dCC-8g-gcs" appends="YES" id="Rnd-Fn-fkc"/>
                                 </connections>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FE4-an-UWj">
+                                <rect key="frame" x="16" y="72" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="vOR-2m-xfq"/>
+                                    <constraint firstAttribute="height" constant="32" id="zwd-xZ-20Y"/>
+                                </constraints>
+                                <state key="normal" image="back-arrow"/>
+                                <connections>
+                                    <action selector="backTapped:" destination="415-jb-YhG" eventType="touchUpInside" id="PbA-nd-fNL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.112871848" green="0.75954872370000004" blue="0.28861063720000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="F3O-Ph-Xpo" secondAttribute="trailing" id="BiT-Qm-d85"/>
                             <constraint firstItem="F3O-Ph-Xpo" firstAttribute="leading" secondItem="Njl-x4-YWd" secondAttribute="leading" id="SLa-dl-rhi"/>
+                            <constraint firstItem="FE4-an-UWj" firstAttribute="leading" secondItem="Njl-x4-YWd" secondAttribute="leadingMargin" id="UMS-cm-v1E"/>
                             <constraint firstAttribute="trailing" secondItem="vJw-M0-R9n" secondAttribute="trailing" id="bgO-EG-c4i"/>
                             <constraint firstItem="vpB-74-N3m" firstAttribute="top" secondItem="F3O-Ph-Xpo" secondAttribute="bottom" id="cXC-Oc-Prf"/>
                             <constraint firstItem="vpB-74-N3m" firstAttribute="top" secondItem="vJw-M0-R9n" secondAttribute="bottom" id="jxx-5a-X7l"/>
                             <constraint firstItem="F3O-Ph-Xpo" firstAttribute="top" secondItem="Njl-x4-YWd" secondAttribute="top" id="nfV-2C-x0V"/>
                             <constraint firstItem="vJw-M0-R9n" firstAttribute="leading" secondItem="Njl-x4-YWd" secondAttribute="leading" id="s76-IW-S9c"/>
+                            <constraint firstItem="FE4-an-UWj" firstAttribute="top" secondItem="XfT-na-pou" secondAttribute="bottom" constant="8" id="tgB-Jt-8ym"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="R9l-Ne-DWL"/>
@@ -419,6 +432,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="back-arrow" width="32" height="32"/>
         <image name="car" width="16" height="16"/>
         <image name="clock" width="55" height="55"/>
         <image name="close" width="32" height="32"/>

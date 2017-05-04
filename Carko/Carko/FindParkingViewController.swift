@@ -34,8 +34,8 @@ class FindParkingViewController: UIViewController {
         super.viewDidLoad()
         self.mapView.delegate = self
         let center = CLLocationCoordinate2D.init(latitude: event.latitude, longitude: event.longitude)
-        // FIXME
-        let region = MKCoordinateRegionMakeWithDistance(center, 900, 900)
+
+        let region = MKCoordinateRegionMakeWithDistance(center, CLLocationDistance(self.event.range * 2), CLLocationDistance(self.event.range * 2))
         self.mapView.setRegion(region, animated: true)
         self.mapView.regionThatFits(region)
 
@@ -69,6 +69,10 @@ class FindParkingViewController: UIViewController {
         if AppState.shared.customer != nil {
             fetchParkings()
         }
+    }
+
+    @IBAction func backTapped(_ sender: Any) {
+        self.navigationController?.popToRootViewController(animated: true)
     }
 
     func fetchParkings() {
@@ -128,6 +132,7 @@ extension FindParkingViewController {
 extension FindParkingViewController: MKMapViewDelegate {
     func parkingFetched(_ parkings: [(Parking)]) {
         self.mapView.removeAnnotations(mapView.annotations)
+        self.setupEventPin()
         let now = Date.init()
         for parking in parkings {
             //if parking.isComplete && parking.scheduleAvailable(now) {
@@ -136,6 +141,15 @@ extension FindParkingViewController: MKMapViewDelegate {
                 self.mapView.addAnnotation(annotation)
             }
         }
+    }
+
+    func setupEventPin() {
+        let centerAnnotation = MKPointAnnotation.init()
+        centerAnnotation.coordinate = self.event.coordinate()
+        let circle = MKCircle.init(center: self.event.coordinate(), radius: Double(self.event.range) as CLLocationDistance)
+        self.mapView.addAnnotation(centerAnnotation)
+        self.mapView.add(circle)
+
     }
 
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
@@ -179,6 +193,18 @@ extension FindParkingViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
         let av = self.mapView.view(for: self.mapView.userLocation)
         av?.isEnabled = false
+    }
+
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        if overlay is MKCircle {
+            let circle = MKCircleRenderer.init(overlay: overlay)
+            circle.strokeColor = UIColor.red
+            circle.fillColor = UIColor(red: 255, green: 0, blue: 0, alpha: 0.1)
+            circle.lineWidth = 1
+            return circle
+        } else {
+            return MKOverlayRenderer.init()
+        }
     }
 }
 
