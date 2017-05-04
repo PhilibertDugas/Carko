@@ -17,7 +17,7 @@ class EventsCollectionViewController: UICollectionViewController {
     fileprivate let reuseIdentifier = "EventCell"
     fileprivate var events: [(Event)] = []
     fileprivate var selectedEvent: Event!
-    fileprivate let activityView: UIActivityIndicatorView = UIActivityIndicatorView()
+    fileprivate var refresher: UIRefreshControl!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,10 +25,7 @@ class EventsCollectionViewController: UICollectionViewController {
             layout.delegate = self
         }
         self.navigationController?.navigationBar.isHidden = true
-        self.activityView.frame = CGRect.init(x: (self.view.frame.size.width / 2) - 80, y: self.view.frame.size.height / 2, width: 80.0, height: 80.0)
-        self.activityView.isHidden = true
-        self.activityView.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
-        self.view.addSubview(self.activityView)
+        self.setupPullToRefresh()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -60,8 +57,6 @@ class EventsCollectionViewController: UICollectionViewController {
     }
 
     fileprivate func fetchEvents() {
-        self.activityView.startAnimating()
-        self.activityView.isHidden = false
         Event.getAllEvents { (events, error) in
             if let error = error {
                 self.displayErrorMessage(error.localizedDescription)
@@ -69,9 +64,19 @@ class EventsCollectionViewController: UICollectionViewController {
                 self.events = events
                 self.collectionView?.reloadData()
             }
-            self.activityView.isHidden = true
-            self.activityView.stopAnimating()
+            self.refresher.endRefreshing()
         }
+    }
+
+    fileprivate func setupPullToRefresh() {
+        self.collectionView!.alwaysBounceVertical = true
+        self.refresher = UIRefreshControl.init()
+        refresher.addTarget(self, action: #selector(EventsCollectionViewController.refreshTriggered), for: .valueChanged)
+        self.collectionView?.addSubview(self.refresher)
+    }
+
+    func refreshTriggered() {
+        self.fetchEvents()
     }
 }
 
