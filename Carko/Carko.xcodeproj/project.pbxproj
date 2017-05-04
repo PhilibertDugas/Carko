@@ -134,6 +134,10 @@
 		45ECDA9F1E243A6900E999D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45BC294D1DA18249000C54BC /* LaunchScreen.storyboard */; };
 		45ECDAA01E243A6900E999D8 /* Find.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4550D6651E19D7720080758D /* Find.storyboard */; };
 		45ECDAA91E243B2F00E999D8 /* carko-development-firebase-reporting.json in Resources */ = {isa = PBXBuildFile; fileRef = 45ECDAA81E243B2F00E999D8 /* carko-development-firebase-reporting.json */; };
+		C5075F8D1EBA418600602B8C /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5075F8C1EBA418600602B8C /* SWRevealViewController.m */; };
+		C5075F971EBBA84000602B8C /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5075F961EBBA84000602B8C /* NavigationViewController.swift */; };
+		C5075F991EBBA95100602B8C /* NavigationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5075F981EBBA95100602B8C /* NavigationTableViewController.swift */; };
+		C5075F9C1EBBAA9100602B8C /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5075F9B1EBBAA9100602B8C /* ProfileHeaderView.swift */; };
 		C51150531DAF38D5004E2A7D /* ParkingDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51150521DAF38D5004E2A7D /* ParkingDescriptionViewController.swift */; };
 		C51150591DAF397E004E2A7D /* ParkingInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51150581DAF397E004E2A7D /* ParkingInfoViewController.swift */; };
 		C56ADABB1DAC00870033516C /* ParkingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56ADABA1DAC00870033516C /* ParkingTableViewCell.swift */; };
@@ -256,6 +260,11 @@
 		7A5C604335A78729BBDD02CF /* Pods-CarkoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarkoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CarkoTests/Pods-CarkoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8434CF39E1312BC65B8DF4B2 /* Pods-Carko-CarkoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carko-CarkoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Carko-CarkoTests/Pods-Carko-CarkoTests.release.xcconfig"; sourceTree = "<group>"; };
 		9B113161E65ADDC326CA4C14 /* Pods_CarkoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarkoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5075F8B1EBA418600602B8C /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = "../../../SWRevealViewController-master/SWRevealViewController/SWRevealViewController.h"; sourceTree = "<group>"; };
+		C5075F8C1EBA418600602B8C /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = "../../../SWRevealViewController-master/SWRevealViewController/SWRevealViewController.m"; sourceTree = "<group>"; };
+		C5075F961EBBA84000602B8C /* NavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
+		C5075F981EBBA95100602B8C /* NavigationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationTableViewController.swift; sourceTree = "<group>"; };
+		C5075F9B1EBBAA9100602B8C /* ProfileHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		C51150521DAF38D5004E2A7D /* ParkingDescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingDescriptionViewController.swift; sourceTree = "<group>"; };
 		C51150581DAF397E004E2A7D /* ParkingInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingInfoViewController.swift; sourceTree = "<group>"; };
 		C56ADABA1DAC00870033516C /* ParkingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingTableViewCell.swift; sourceTree = "<group>"; };
@@ -463,6 +472,7 @@
 		45BC29431DA18249000C54BC /* Carko */ = {
 			isa = PBXGroup;
 			children = (
+				C5075F891EBA413400602B8C /* Libraries */,
 				45782C241E2E9A1E002E9DFD /* Carko.entitlements */,
 				45637CFE1DEB184500DD42C0 /* AppState.swift */,
 				45BC29441DA18249000C54BC /* AppDelegate.swift */,
@@ -475,6 +485,7 @@
 				451853771DA476B5005CC5E6 /* Tab - Find */,
 				451853781DA476CB005CC5E6 /* Tab - Add */,
 				45D5A5071DB2BE640025C45A /* Tab - Profile */,
+				C5075F8E1EBA4B0B00602B8C /* SideMenu */,
 				45D5D60F1E1B2EDE006BE596 /* Assets.xcassets */,
 				4550D6711E19D78B0080758D /* Main.storyboard */,
 				45BC294D1DA18249000C54BC /* LaunchScreen.storyboard */,
@@ -549,6 +560,49 @@
 				F9FE12AEF604DC6A236BBD68 /* Pods-Carko.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		C5075F891EBA413400602B8C /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				C5075F8A1EBA413E00602B8C /* SWRevealViewController */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		C5075F8A1EBA413E00602B8C /* SWRevealViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C5075F8B1EBA418600602B8C /* SWRevealViewController.h */,
+				C5075F8C1EBA418600602B8C /* SWRevealViewController.m */,
+			);
+			name = SWRevealViewController;
+			sourceTree = "<group>";
+		};
+		C5075F8E1EBA4B0B00602B8C /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				C5075F9A1EBBAA7E00602B8C /* Header */,
+				C5075F911EBB9F8D00602B8C /* Cells */,
+				C5075F961EBBA84000602B8C /* NavigationViewController.swift */,
+				C5075F981EBBA95100602B8C /* NavigationTableViewController.swift */,
+			);
+			name = SideMenu;
+			sourceTree = "<group>";
+		};
+		C5075F911EBB9F8D00602B8C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		C5075F9A1EBBAA7E00602B8C /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				C5075F9B1EBBAA9100602B8C /* ProfileHeaderView.swift */,
+			);
+			name = Header;
 			sourceTree = "<group>";
 		};
 		C511504F1DAF386B004E2A7D /* Parking Edit */ = {
@@ -985,6 +1039,7 @@
 				45BC29451DA18249000C54BC /* AppDelegate.swift in Sources */,
 				457536561EAD752500E70F7F /* ReservationsTableViewController.swift in Sources */,
 				453314341E03672700BF0B65 /* Account.swift in Sources */,
+				C5075F8D1EBA418600602B8C /* SWRevealViewController.m in Sources */,
 				4533143A1E036CF300BF0B65 /* BankCreationViewController.swift in Sources */,
 				4518537A1DA476F1005CC5E6 /* ListParkingViewController.swift in Sources */,
 				453314321E03669000BF0B65 /* AccountCreationViewController.swift in Sources */,
@@ -993,6 +1048,7 @@
 				45137EB21E341DA300AFCD49 /* NewParkingPin.swift in Sources */,
 				452738E71DF7AEB700D74F0D /* View.swift in Sources */,
 				45D073311EA84924000604D3 /* EventsCollectionViewController.swift in Sources */,
+				C5075F971EBBA84000602B8C /* NavigationViewController.swift in Sources */,
 				450E12401DAF27330027EFBC /* RegisterViewController.swift in Sources */,
 				4554A0961E21708D007FB04C /* NewParkingViewController.swift in Sources */,
 				451E424D1DB078E000747370 /* UIViewController.swift in Sources */,
@@ -1002,9 +1058,11 @@
 				4571700B1DEA5DEE00A0FDF5 /* Reservation.swift in Sources */,
 				450E124A1DAF2B000027EFBC /* EntryViewController.swift in Sources */,
 				45877E751E158709006A7709 /* SimpleCellTableViewCell.swift in Sources */,
+				C5075F9C1EBBAA9100602B8C /* ProfileHeaderView.swift in Sources */,
 				450B5D581E2AA4B100AEEA29 /* NewParkingView.swift in Sources */,
 				45B77B441DDC0E39009ABF53 /* ParkingTransitionAnimation.swift in Sources */,
 				450CB59F1E11834000FD2095 /* UIColor.swift in Sources */,
+				C5075F991EBBA95100602B8C /* NavigationTableViewController.swift in Sources */,
 				4544AA811E2C0D9E008A760F /* ParkingAnnotationView.swift in Sources */,
 				459AD2571DA49B6C0018B7B9 /* Parking.swift in Sources */,
 				4591D5FB1DFCA54600366691 /* ReservationClient.swift in Sources */,
