@@ -71,10 +71,6 @@ class FindParkingViewController: UIViewController {
         }
     }
 
-    @IBAction func backTapped(_ sender: Any) {
-        self.navigationController?.popToRootViewController(animated: true)
-    }
-
     func fetchParkings() {
         Parking.getAllParkings { (parkings, error) in
             if let error = error {

@@ -16,6 +16,10 @@ class ListParkingViewController: UIViewController {
     var isEditingAvailability = false
     var selectedRowIndex = 0
 
+    @IBAction func navigationMenuPressed(_ sender: Any) {
+        self.revealViewController().revealToggle(self)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -49,18 +53,9 @@ class ListParkingViewController: UIViewController {
 
     func updateTable(_ parkings: [(Parking)]) {
         self.navigationController?.navigationBar.isHidden = false
-        self.navigationItem.leftBarButtonItem = self.editButtonItem
-        self.editButtonItem.action = #selector(self.setTableEditMode)
-        self.setEditing(false, animated: true)
-        self.parkingTableView.setEditing(false, animated: true)
         self.removeFirstParkingView()
         self.parkingList = parkings
         self.parkingTableView.reloadData()
-    }
-
-    func setTableEditMode() {
-        self.parkingTableView.setEditing(!self.parkingTableView.isEditing, animated: true)
-        self.setEditing(!self.isEditing, animated: true)
     }
 
     func removeFirstParkingView() {
@@ -136,5 +131,19 @@ extension ListParkingViewController: UITableViewDelegate, UITableViewDataSource 
         } else {
             self.fetchParkings()
         }
+    }
+}
+
+extension ListParkingViewController: SWRevealViewControllerDelegate {
+
+    fileprivate func setupSidebar() {
+        let revealViewController = self.revealViewController()
+        revealViewController?.delegate = self
+        revealViewController?.bounceBackOnOverdraw = true
+        revealViewController?.stableDragOnOverdraw = false
+        revealViewController?.toggleAnimationType = .spring
+        revealViewController?.rearViewRevealDisplacement = 44
+        revealViewController?.rearViewRevealOverdraw = 10
+        revealViewController?.rearViewRevealWidth = 300
     }
 }

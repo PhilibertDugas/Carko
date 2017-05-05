@@ -28,7 +28,7 @@
 
 #import "SWRevealViewController.h"
 
-
+#pragma GCC diagnostic ignored "-Wwarning-flag"
 #pragma mark - StatusBar Helper Function
 
 // computes the required offset adjustment due to the status bar for the passed in view,
