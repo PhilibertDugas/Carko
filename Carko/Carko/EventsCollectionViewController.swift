@@ -108,6 +108,9 @@ extension EventsCollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! EventCollectionViewCell
         cell.event = self.events[indexPath.row]
+        cell.layer.cornerRadius = 3
+        cell.layer.borderWidth = 0.5
+        cell.layer.borderColor = UIColor.gray.cgColor
         return cell
     }
 
