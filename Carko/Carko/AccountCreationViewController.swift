@@ -21,6 +21,11 @@ class AccountCreationViewController: UIViewController {
     var dob: AccountDateOfBirth?
     var account: Account?
 
+    @IBAction func menuTapped(_ sender: Any) {
+        self.revealViewController().revealToggle(self)
+
+    }
+
     @IBAction func timeEditBegin(_ sender: UITextField) {
         let datePicker = UIDatePicker.init()
         datePicker.datePickerMode = UIDatePickerMode.date
@@ -63,17 +68,26 @@ class AccountCreationViewController: UIViewController {
         }
     }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
+        self.setupProvincePicker()
+        self.setupSidebar()
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showBankInformation" {
             let destination = segue.destination as! BankCreationViewController
             destination.account = self.account!
         }
     }
+}
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.hideKeyboardWhenTappedAround()
-        self.setupProvincePicker()
+extension AccountCreationViewController: SWRevealViewControllerDelegate {
+    fileprivate func setupSidebar() {
+        let revealViewController = self.revealViewController()
+        revealViewController?.delegate = self
+        AppState.setupRevealViewController(revealViewController!)
     }
 }
 

@@ -39,12 +39,10 @@
 		4550D6631E19D7720080758D /* Find.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4550D6651E19D7720080758D /* Find.storyboard */; };
 		4550D6661E19D7780080758D /* Add.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4550D6681E19D7780080758D /* Add.storyboard */; };
 		4550D6691E19D7810080758D /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4550D66B1E19D7810080758D /* Login.storyboard */; };
-		4550D66C1E19D7870080758D /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4550D66E1E19D7870080758D /* Profile.storyboard */; };
 		4550D66F1E19D78B0080758D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4550D6711E19D78B0080758D /* Main.storyboard */; };
 		4554A0961E21708D007FB04C /* NewParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4554A0951E21708D007FB04C /* NewParkingViewController.swift */; };
 		4554A0981E217358007FB04C /* NewPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4554A0971E217358007FB04C /* NewPhotoViewController.swift */; };
 		4554EBCE1DB5A36F0066E452 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4554EBCD1DB5A36F0066E452 /* APIClient.swift */; };
-		4554EBD01DB5AA520066E452 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4554EBCF1DB5AA520066E452 /* ProfileViewController.swift */; };
 		45637CFF1DEB184500DD42C0 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45637CFE1DEB184500DD42C0 /* AppState.swift */; };
 		4564F6E11DB98509001B709C /* BookParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4564F6E01DB98509001B709C /* BookParkingViewController.swift */; };
 		4571700B1DEA5DEE00A0FDF5 /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4571700A1DEA5DEE00A0FDF5 /* Reservation.swift */; };
@@ -80,6 +78,9 @@
 		45E9D1021E1DD218000EDEE8 /* AvailabilityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E9D1011E1DD218000EDEE8 /* AvailabilityViewController.swift */; };
 		45EA513B1DDE6F2300BD076C /* FindParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EA513A1DDE6F2300BD076C /* FindParkingViewController.swift */; };
 		45EA513D1DDE74AC00BD076C /* ParkingAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EA513C1DDE74AC00BD076C /* ParkingAnnotation.swift */; };
+		45EA59B81EBD1EC4002B50BD /* Vehicule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45EA59B71EBD1EC4002B50BD /* Vehicule.storyboard */; };
+		45EA59BA1EBD1ECE002B50BD /* Payout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45EA59B91EBD1ECE002B50BD /* Payout.storyboard */; };
+		45EA59BC1EBD1ED9002B50BD /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45EA59BB1EBD1ED9002B50BD /* History.storyboard */; };
 		45ECDA611E243A6900E999D8 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E9D0FD1E1DCE7C000EDEE8 /* LocationViewController.swift */; };
 		45ECDA621E243A6900E999D8 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4554EBCD1DB5A36F0066E452 /* APIClient.swift */; };
 		45ECDA641E243A6900E999D8 /* AvailabilityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E9D1011E1DD218000EDEE8 /* AvailabilityViewController.swift */; };
@@ -89,7 +90,6 @@
 		45ECDA681E243A6900E999D8 /* VehiculeClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451FC46E1E072BC70083C0CB /* VehiculeClient.swift */; };
 		45ECDA691E243A6900E999D8 /* MarkerPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E9B91D1DB82FDF00C9E9FA /* MarkerPopup.swift */; };
 		45ECDA6A1E243A6900E999D8 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45637CFE1DEB184500DD42C0 /* AppState.swift */; };
-		45ECDA6B1E243A6900E999D8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4554EBCF1DB5AA520066E452 /* ProfileViewController.swift */; };
 		45ECDA6C1E243A6900E999D8 /* UnderlineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458A982F1DBCFD44007F53EE /* UnderlineTextField.swift */; };
 		45ECDA6D1E243A6900E999D8 /* LocationSearchTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458BC7691DE218DC0028AC5B /* LocationSearchTableTableViewController.swift */; };
 		45ECDA6E1E243A6900E999D8 /* Charge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4591D5F11DFC9D4700366691 /* Charge.swift */; };
@@ -128,7 +128,6 @@
 		45ECDA961E243A6900E999D8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4550D6801E19DD790080758D /* Localizable.strings */; };
 		45ECDA971E243A6900E999D8 /* Add.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4550D6681E19D7780080758D /* Add.storyboard */; };
 		45ECDA981E243A6900E999D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45D5D60F1E1B2EDE006BE596 /* Assets.xcassets */; };
-		45ECDA991E243A6900E999D8 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4550D66E1E19D7870080758D /* Profile.storyboard */; };
 		45ECDA9A1E243A6900E999D8 /* MarkerPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45E9B91B1DB82F3500C9E9FA /* MarkerPopup.xib */; };
 		45ECDA9B1E243A6900E999D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4550D6711E19D78B0080758D /* Main.storyboard */; };
 		45ECDA9C1E243A6900E999D8 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4550D66B1E19D7810080758D /* Login.storyboard */; };
@@ -194,11 +193,9 @@
 		4550D6641E19D7720080758D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Find.storyboard; sourceTree = "<group>"; };
 		4550D6671E19D7780080758D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Add.storyboard; sourceTree = "<group>"; };
 		4550D66A1E19D7810080758D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
-		4550D66D1E19D7870080758D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
 		4550D6701E19D78B0080758D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4550D6741E19D7C40080758D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Find.strings; sourceTree = "<group>"; };
 		4550D6761E19D7C40080758D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Login.strings; sourceTree = "<group>"; };
-		4550D6771E19D7C40080758D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Profile.strings; sourceTree = "<group>"; };
 		4550D6781E19D7C40080758D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		4550D6791E19D7C40080758D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		4550D67B1E19DAFB0080758D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Find.strings; sourceTree = "<group>"; };
@@ -207,7 +204,6 @@
 		4554A0951E21708D007FB04C /* NewParkingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewParkingViewController.swift; sourceTree = "<group>"; };
 		4554A0971E217358007FB04C /* NewPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPhotoViewController.swift; sourceTree = "<group>"; };
 		4554EBCD1DB5A36F0066E452 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
-		4554EBCF1DB5AA520066E452 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		45637CFE1DEB184500DD42C0 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		4564F6E01DB98509001B709C /* BookParkingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookParkingViewController.swift; sourceTree = "<group>"; };
 		4571700A1DEA5DEE00A0FDF5 /* Reservation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reservation.swift; sourceTree = "<group>"; };
@@ -247,7 +243,6 @@
 		45E375111E19EC9E00538803 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Login.strings; sourceTree = "<group>"; };
 		45E375131E19ECA300538803 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		45E375151E19ECA800538803 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		45E375171E19ECC900538803 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Profile.strings; sourceTree = "<group>"; };
 		45E4B1B01E2282F70060D057 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Add.strings; sourceTree = "<group>"; };
 		45E4B1B21E2282FA0060D057 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Add.strings; sourceTree = "<group>"; };
 		45E9B91B1DB82F3500C9E9FA /* MarkerPopup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MarkerPopup.xib; sourceTree = "<group>"; };
@@ -256,6 +251,9 @@
 		45E9D1011E1DD218000EDEE8 /* AvailabilityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvailabilityViewController.swift; sourceTree = "<group>"; };
 		45EA513A1DDE6F2300BD076C /* FindParkingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindParkingViewController.swift; sourceTree = "<group>"; };
 		45EA513C1DDE74AC00BD076C /* ParkingAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingAnnotation.swift; sourceTree = "<group>"; };
+		45EA59B71EBD1EC4002B50BD /* Vehicule.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Vehicule.storyboard; sourceTree = "<group>"; };
+		45EA59B91EBD1ECE002B50BD /* Payout.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Payout.storyboard; sourceTree = "<group>"; };
+		45EA59BB1EBD1ED9002B50BD /* History.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = History.storyboard; sourceTree = "<group>"; };
 		45ECDAA61E243A6900E999D8 /* Carko - Production.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Carko - Production.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		45ECDAA81E243B2F00E999D8 /* carko-development-firebase-reporting.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "carko-development-firebase-reporting.json"; sourceTree = "<group>"; };
 		51BE0236C2E899D05DB12FEF /* Pods-CarkoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarkoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CarkoUITests/Pods-CarkoUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -312,7 +310,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		45099A851DAF25EA00392FF1 /* Tab - Login */ = {
+		45099A851DAF25EA00392FF1 /* Login */ = {
 			isa = PBXGroup;
 			children = (
 				45099A861DAF261200392FF1 /* LoginViewController.swift */,
@@ -322,7 +320,7 @@
 				45418F2D1E1719E00050DDF5 /* ForgotPasswordViewController.swift */,
 				4550D66B1E19D7810080758D /* Login.storyboard */,
 			);
-			name = "Tab - Login";
+			name = Login;
 			sourceTree = "<group>";
 		};
 		450B5D561E2AA48D00AEEA29 /* Subviews */ = {
@@ -335,7 +333,7 @@
 			name = Subviews;
 			sourceTree = "<group>";
 		};
-		451853771DA476B5005CC5E6 /* Tab - Find */ = {
+		451853771DA476B5005CC5E6 /* Events */ = {
 			isa = PBXGroup;
 			children = (
 				45DC42FD1EA97D5B009F8E8D /* CollectionView */,
@@ -346,10 +344,10 @@
 				45D073301EA84924000604D3 /* EventsCollectionViewController.swift */,
 				4550D6651E19D7720080758D /* Find.storyboard */,
 			);
-			name = "Tab - Find";
+			name = Events;
 			sourceTree = "<group>";
 		};
-		451853781DA476CB005CC5E6 /* Tab - Add */ = {
+		451853781DA476CB005CC5E6 /* Rent your space */ = {
 			isa = PBXGroup;
 			children = (
 				450B5D561E2AA48D00AEEA29 /* Subviews */,
@@ -359,7 +357,7 @@
 				451853791DA476F1005CC5E6 /* ListParkingViewController.swift */,
 				4550D6681E19D7780080758D /* Add.storyboard */,
 			);
-			name = "Tab - Add";
+			name = "Rent your space";
 			sourceTree = "<group>";
 		};
 		45418F281E16F2DD0050DDF5 /* Animation */ = {
@@ -387,14 +385,6 @@
 				4544AA801E2C0D9E008A760F /* ParkingAnnotationView.swift */,
 			);
 			name = Subviews;
-			sourceTree = "<group>";
-		};
-		457536541EAD750C00E70F7F /* Reservations */ = {
-			isa = PBXGroup;
-			children = (
-				457536571EAD798300E70F7F /* ReservationTableViewCell.swift */,
-			);
-			name = Reservations;
 			sourceTree = "<group>";
 		};
 		4591D5F31DFCA49C00366691 /* API */ = {
@@ -485,11 +475,11 @@
 				459AD2551DA49AE20018B7B9 /* Models */,
 				4591D5F31DFCA49C00366691 /* API */,
 				4544AA7D1E2BFA78008A760F /* Helpers */,
-				45099A851DAF25EA00392FF1 /* Tab - Login */,
-				451853771DA476B5005CC5E6 /* Tab - Find */,
-				451853781DA476CB005CC5E6 /* Tab - Add */,
-				45D5A5071DB2BE640025C45A /* Tab - Profile */,
-				C5075F8E1EBA4B0B00602B8C /* SideMenu */,
+				45099A851DAF25EA00392FF1 /* Login */,
+				451853771DA476B5005CC5E6 /* Events */,
+				451853781DA476CB005CC5E6 /* Rent your space */,
+				45D5A5071DB2BE640025C45A /* Profile */,
+				C5075F8E1EBA4B0B00602B8C /* Side Menu */,
 				45D5D60F1E1B2EDE006BE596 /* Assets.xcassets */,
 				4550D6711E19D78B0080758D /* Main.storyboard */,
 				45BC294D1DA18249000C54BC /* LaunchScreen.storyboard */,
@@ -517,18 +507,14 @@
 			path = CarkoUITests;
 			sourceTree = "<group>";
 		};
-		45D5A5071DB2BE640025C45A /* Tab - Profile */ = {
+		45D5A5071DB2BE640025C45A /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				457536541EAD750C00E70F7F /* Reservations */,
-				457536551EAD752500E70F7F /* ReservationsTableViewController.swift */,
-				453314391E036CF300BF0B65 /* BankCreationViewController.swift */,
-				453314311E03669000BF0B65 /* AccountCreationViewController.swift */,
-				451FC46A1E072A830083C0CB /* VehiculeInformationViewController.swift */,
-				4554EBCF1DB5AA520066E452 /* ProfileViewController.swift */,
-				4550D66E1E19D7870080758D /* Profile.storyboard */,
+				45EA59C21EBD27D3002B50BD /* Payout */,
+				45EA59C11EBD27CA002B50BD /* Vehicule */,
+				45EA59BF1EBD27BF002B50BD /* History */,
 			);
-			name = "Tab - Profile";
+			name = Profile;
 			sourceTree = "<group>";
 		};
 		45DC42FD1EA97D5B009F8E8D /* CollectionView */ = {
@@ -549,6 +535,35 @@
 				4554A0971E217358007FB04C /* NewPhotoViewController.swift */,
 			);
 			name = "Parking Creation";
+			sourceTree = "<group>";
+		};
+		45EA59BF1EBD27BF002B50BD /* History */ = {
+			isa = PBXGroup;
+			children = (
+				457536571EAD798300E70F7F /* ReservationTableViewCell.swift */,
+				457536551EAD752500E70F7F /* ReservationsTableViewController.swift */,
+				45EA59BB1EBD1ED9002B50BD /* History.storyboard */,
+			);
+			name = History;
+			sourceTree = "<group>";
+		};
+		45EA59C11EBD27CA002B50BD /* Vehicule */ = {
+			isa = PBXGroup;
+			children = (
+				451FC46A1E072A830083C0CB /* VehiculeInformationViewController.swift */,
+				45EA59B71EBD1EC4002B50BD /* Vehicule.storyboard */,
+			);
+			name = Vehicule;
+			sourceTree = "<group>";
+		};
+		45EA59C21EBD27D3002B50BD /* Payout */ = {
+			isa = PBXGroup;
+			children = (
+				453314391E036CF300BF0B65 /* BankCreationViewController.swift */,
+				453314311E03669000BF0B65 /* AccountCreationViewController.swift */,
+				45EA59B91EBD1ECE002B50BD /* Payout.storyboard */,
+			);
+			name = Payout;
 			sourceTree = "<group>";
 		};
 		BE9AA67A9636250C12944D99 /* Pods */ = {
@@ -583,31 +598,15 @@
 			name = SWRevealViewController;
 			sourceTree = "<group>";
 		};
-		C5075F8E1EBA4B0B00602B8C /* SideMenu */ = {
+		C5075F8E1EBA4B0B00602B8C /* Side Menu */ = {
 			isa = PBXGroup;
 			children = (
-				C5075F9A1EBBAA7E00602B8C /* Header */,
-				C5075F911EBB9F8D00602B8C /* Cells */,
+				4546D3E01EBC25C400F17BAB /* ProfileHeaderView.xib */,
+				C5075F9B1EBBAA9100602B8C /* ProfileHeaderView.swift */,
 				C5075F961EBBA84000602B8C /* NavigationViewController.swift */,
 				C5075F981EBBA95100602B8C /* NavigationTableViewController.swift */,
 			);
-			name = SideMenu;
-			sourceTree = "<group>";
-		};
-		C5075F911EBB9F8D00602B8C /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Cells;
-			sourceTree = "<group>";
-		};
-		C5075F9A1EBBAA7E00602B8C /* Header */ = {
-			isa = PBXGroup;
-			children = (
-				C5075F9B1EBBAA9100602B8C /* ProfileHeaderView.swift */,
-				4546D3E01EBC25C400F17BAB /* ProfileHeaderView.xib */,
-			);
-			name = Header;
+			name = "Side Menu";
 			sourceTree = "<group>";
 		};
 		C511504F1DAF386B004E2A7D /* Parking Edit */ = {
@@ -807,14 +806,16 @@
 				45ECDAA91E243B2F00E999D8 /* carko-development-firebase-reporting.json in Resources */,
 				45D5D6101E1B2EDE006BE596 /* Assets.xcassets in Resources */,
 				4546D3E11EBC25C400F17BAB /* ProfileHeaderView.xib in Resources */,
-				4550D66C1E19D7870080758D /* Profile.storyboard in Resources */,
+				45EA59B81EBD1EC4002B50BD /* Vehicule.storyboard in Resources */,
 				45E9B91C1DB82F3500C9E9FA /* MarkerPopup.xib in Resources */,
 				4550D66F1E19D78B0080758D /* Main.storyboard in Resources */,
+				45EA59BA1EBD1ECE002B50BD /* Payout.storyboard in Resources */,
 				4550D6691E19D7810080758D /* Login.storyboard in Resources */,
 				4599E6E51E1755C9005494E4 /* GoogleService-Info-Production.plist in Resources */,
 				450B5D5A1E2AA4CA00AEEA29 /* NewParkingView.xib in Resources */,
 				45BC294F1DA18249000C54BC /* LaunchScreen.storyboard in Resources */,
 				4550D6631E19D7720080758D /* Find.storyboard in Resources */,
+				45EA59BC1EBD1ED9002B50BD /* History.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -839,7 +840,6 @@
 				45ECDA961E243A6900E999D8 /* Localizable.strings in Resources */,
 				45ECDA971E243A6900E999D8 /* Add.storyboard in Resources */,
 				45ECDA981E243A6900E999D8 /* Assets.xcassets in Resources */,
-				45ECDA991E243A6900E999D8 /* Profile.storyboard in Resources */,
 				45ECDA9A1E243A6900E999D8 /* MarkerPopup.xib in Resources */,
 				45ECDA9B1E243A6900E999D8 /* Main.storyboard in Resources */,
 				45ECDA9C1E243A6900E999D8 /* Login.storyboard in Resources */,
@@ -1034,7 +1034,6 @@
 				451FC46F1E072BC70083C0CB /* VehiculeClient.swift in Sources */,
 				45E9B91E1DB82FDF00C9E9FA /* MarkerPopup.swift in Sources */,
 				45637CFF1DEB184500DD42C0 /* AppState.swift in Sources */,
-				4554EBD01DB5AA520066E452 /* ProfileViewController.swift in Sources */,
 				458A98301DBCFD44007F53EE /* UnderlineTextField.swift in Sources */,
 				457536581EAD798300E70F7F /* ReservationTableViewCell.swift in Sources */,
 				45D073331EA84A75000604D3 /* Event.swift in Sources */,
@@ -1116,7 +1115,6 @@
 				45ECDA681E243A6900E999D8 /* VehiculeClient.swift in Sources */,
 				45ECDA691E243A6900E999D8 /* MarkerPopup.swift in Sources */,
 				45ECDA6A1E243A6900E999D8 /* AppState.swift in Sources */,
-				45ECDA6B1E243A6900E999D8 /* ProfileViewController.swift in Sources */,
 				45ECDA6C1E243A6900E999D8 /* UnderlineTextField.swift in Sources */,
 				45ECDA6D1E243A6900E999D8 /* LocationSearchTableTableViewController.swift in Sources */,
 				45ECDA6E1E243A6900E999D8 /* Charge.swift in Sources */,
@@ -1199,16 +1197,6 @@
 				45E375111E19EC9E00538803 /* en */,
 			);
 			name = Login.storyboard;
-			sourceTree = "<group>";
-		};
-		4550D66E1E19D7870080758D /* Profile.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4550D66D1E19D7870080758D /* Base */,
-				4550D6771E19D7C40080758D /* fr */,
-				45E375171E19ECC900538803 /* en */,
-			);
-			name = Profile.storyboard;
 			sourceTree = "<group>";
 		};
 		4550D6711E19D78B0080758D /* Main.storyboard */ = {
