@@ -12,13 +12,16 @@ import FirebaseAuth
 import AVFoundation
 
 
-class EventsCollectionViewController: UICollectionViewController {
+class EventsCollectionViewController: UICollectionViewController, SWRevealViewControllerDelegate {
+
+    
     fileprivate let reuseIdentifier = "EventCell"
     fileprivate var events: [(Event)] = []
     fileprivate var selectedEvent: Event!
     fileprivate var refresher: UIRefreshControl!
-
+    
     @IBAction func navigationMenuPressed(_ sender: Any) {
+        // toggles the navigation menu
         self.revealViewController().revealToggle(self)
     }
 
@@ -28,7 +31,21 @@ class EventsCollectionViewController: UICollectionViewController {
             layout.delegate = self
         }
         self.setupPullToRefresh()
-        self.setupSidebar()
+        
+        //sliding window settings
+        let revealViewController = self.revealViewController()
+        
+        //revealVC = revealViewController
+        
+        revealViewController?.delegate = self
+        
+        
+        revealViewController?.bounceBackOnOverdraw = true
+        revealViewController?.stableDragOnOverdraw = false
+        revealViewController?.toggleAnimationType = .spring
+        revealViewController?.rearViewRevealDisplacement = 44
+        revealViewController?.rearViewRevealOverdraw = 10
+        revealViewController?.rearViewRevealWidth = 300
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -80,19 +97,6 @@ class EventsCollectionViewController: UICollectionViewController {
 
     func refreshTriggered() {
         self.fetchEvents()
-    }
-}
-
-extension EventsCollectionViewController: SWRevealViewControllerDelegate {
-    fileprivate func setupSidebar() {
-        let revealViewController = self.revealViewController()
-        revealViewController?.delegate = self
-        revealViewController?.bounceBackOnOverdraw = true
-        revealViewController?.stableDragOnOverdraw = false
-        revealViewController?.toggleAnimationType = .spring
-        revealViewController?.rearViewRevealDisplacement = 44
-        revealViewController?.rearViewRevealOverdraw = 10
-        revealViewController?.rearViewRevealWidth = 300
     }
 }
 

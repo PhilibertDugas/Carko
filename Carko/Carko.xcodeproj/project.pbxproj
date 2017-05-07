@@ -34,7 +34,6 @@
 		45418F2E1E1719E00050DDF5 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45418F2D1E1719E00050DDF5 /* ForgotPasswordViewController.swift */; };
 		4544AA7F1E2BFA8E008A760F /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4544AA7E1E2BFA8E008A760F /* DateHelper.swift */; };
 		4544AA811E2C0D9E008A760F /* ParkingAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4544AA801E2C0D9E008A760F /* ParkingAnnotationView.swift */; };
-		4546D3E11EBC25C400F17BAB /* ProfileHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4546D3E01EBC25C400F17BAB /* ProfileHeaderView.xib */; };
 		454C55191E2C73E4000912BA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 454C55181E2C73E4000912BA /* GoogleService-Info.plist */; };
 		4550D6631E19D7720080758D /* Find.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4550D6651E19D7720080758D /* Find.storyboard */; };
 		4550D6661E19D7780080758D /* Add.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4550D6681E19D7780080758D /* Add.storyboard */; };
@@ -189,7 +188,6 @@
 		45418F2D1E1719E00050DDF5 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		4544AA7E1E2BFA8E008A760F /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		4544AA801E2C0D9E008A760F /* ParkingAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingAnnotationView.swift; sourceTree = "<group>"; };
-		4546D3E01EBC25C400F17BAB /* ProfileHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileHeaderView.xib; sourceTree = "<group>"; };
 		454C55181E2C73E4000912BA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4550D6641E19D7720080758D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Find.storyboard; sourceTree = "<group>"; };
 		4550D6671E19D7780080758D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Add.storyboard; sourceTree = "<group>"; };
@@ -475,11 +473,11 @@
 		45BC29431DA18249000C54BC /* Carko */ = {
 			isa = PBXGroup;
 			children = (
-				45782C241E2E9A1E002E9DFD /* Carko.entitlements */,
 				C5271B111EBBDDC4001B5094 /* Carko-Bridging-Header.h */,
+				C5075F891EBA413400602B8C /* Libraries */,
+				45782C241E2E9A1E002E9DFD /* Carko.entitlements */,
 				45637CFE1DEB184500DD42C0 /* AppState.swift */,
 				45BC29441DA18249000C54BC /* AppDelegate.swift */,
-				C5075F891EBA413400602B8C /* Libraries */,
 				C5B3105E1DB023450051C90B /* Extensions */,
 				45BB39631DBBEFEC0019C2A3 /* Views */,
 				459AD2551DA49AE20018B7B9 /* Models */,
@@ -605,7 +603,6 @@
 			isa = PBXGroup;
 			children = (
 				C5075F9B1EBBAA9100602B8C /* ProfileHeaderView.swift */,
-				4546D3E01EBC25C400F17BAB /* ProfileHeaderView.xib */,
 			);
 			name = Header;
 			sourceTree = "<group>";
@@ -806,7 +803,6 @@
 				4550D6661E19D7780080758D /* Add.storyboard in Resources */,
 				45ECDAA91E243B2F00E999D8 /* carko-development-firebase-reporting.json in Resources */,
 				45D5D6101E1B2EDE006BE596 /* Assets.xcassets in Resources */,
-				4546D3E11EBC25C400F17BAB /* ProfileHeaderView.xib in Resources */,
 				4550D66C1E19D7870080758D /* Profile.storyboard in Resources */,
 				45E9B91C1DB82F3500C9E9FA /* MarkerPopup.xib in Resources */,
 				4550D66F1E19D78B0080758D /* Main.storyboard in Resources */,

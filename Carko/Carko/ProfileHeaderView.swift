@@ -11,30 +11,11 @@ import QuartzCore
 
 class ProfileHeaderView: UIView {
 
-    @IBOutlet var view: UIView!
-    @IBOutlet var nameLabel: UILabel!
-
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.commonInit()
+    /*
+    // Only override draw() if you perform custom drawing.
+    // An empty implementation adversely affects performance during animation.
+    override func draw(_ rect: CGRect) {
+        // Drawing code
     }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        self.commonInit()
-    }
-
-    private func commonInit() {
-        Bundle.main.loadNibNamed("ProfileHeaderView", owner: self, options: nil)
-        guard let content = view else { return }
-        content.frame = self.bounds
-        content.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-
-        //headerView.layer.cornerRadius = 7
-        //headerView.layer.masksToBounds = true
-        //headerView.layer.borderColor = (#colorLiteral(red: 0.8200154901, green: 0.1567437351, blue: 0.2629780173, alpha: 1)).cgColor
-        //headerView.layer.borderWidth = 2.0
-        self.addSubview(content)
-    }
+    */
 }
