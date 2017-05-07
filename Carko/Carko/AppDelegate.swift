@@ -28,7 +28,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setupStripe() {
         STPPaymentConfiguration.shared().publishableKey = "pk_test_1LYkk7fCrA1bWDbXRUx1zWBx"
         STPTheme.default().accentColor = UIColor.primaryColor
-        STPTheme.default()
     }
 
     func setupPageControl() {

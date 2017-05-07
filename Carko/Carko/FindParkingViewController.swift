@@ -34,6 +34,7 @@ class FindParkingViewController: UIViewController {
         super.viewDidLoad()
         self.mapView.delegate = self
         let center = CLLocationCoordinate2D.init(latitude: event.latitude, longitude: event.longitude)
+
         let region = MKCoordinateRegionMakeWithDistance(center, CLLocationDistance(self.event.range * 2), CLLocationDistance(self.event.range * 2))
         self.mapView.setRegion(region, animated: true)
         self.mapView.regionThatFits(region)
