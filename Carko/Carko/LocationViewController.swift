@@ -110,7 +110,6 @@ extension LocationViewController {
 
         self.locationSearchTable = storyboard?.instantiateViewController(withIdentifier: "locationSearchTable") as! LocationSearchTableViewController
         self.locationSearchTable.lightText = true
-        self.locationSearchTable.mapView = mapView
         self.locationSearchTable.handleMapSearchDelegate = self
     }
 }

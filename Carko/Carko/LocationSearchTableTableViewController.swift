@@ -7,22 +7,24 @@ protocol HandleMapSearch: class {
 
 class LocationSearchTableViewController: UITableViewController {
     var matchingItems:[MKMapItem] = []
-    var mapView: MKMapView! = nil
     var handleMapSearchDelegate: HandleMapSearch?
     var lightText = false
 
+    let quebecCoordinate = CLLocationCoordinate2D.init(latitude: 52.9399, longitude: -73.5491)
+    var searchRegion: MKCoordinateRegion!
+
     override func viewDidLoad() {
+        self.searchRegion = MKCoordinateRegion.init(center: quebecCoordinate, span: MKCoordinateSpan.init(latitudeDelta: 1.0, longitudeDelta: 0.5))
         tableView.backgroundColor = UIColor.clear
     }
 }
 
 extension LocationSearchTableViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        guard let mapView = mapView,
-            let searchBarText = searchController.searchBar.text else { return }
+        guard let searchBarText = searchController.searchBar.text else { return }
         let request = MKLocalSearchRequest()
         request.naturalLanguageQuery = searchBarText
-        request.region = mapView.region
+        request.region = self.searchRegion
         let search = MKLocalSearch(request: request)
         search.start { response, _ in
             guard let response = response else {
@@ -34,11 +36,10 @@ extension LocationSearchTableViewController: UISearchResultsUpdating {
     }
 
     func updateSearchs(for queryString: String?) {
-        guard let mapView = mapView,
-            let searchBarText = queryString else { return }
+        guard let searchBarText = queryString else { return }
         let request = MKLocalSearchRequest()
         request.naturalLanguageQuery = searchBarText
-        request.region = mapView.region
+        request.region = self.searchRegion
         let search = MKLocalSearch(request: request)
         search.start { response, _ in
             guard let response = response else {

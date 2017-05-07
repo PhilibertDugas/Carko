@@ -23,7 +23,7 @@ class ListParkingViewController: UITableViewController {
         super.viewDidLoad()
         self.tableView.tableHeaderView = UIView.init(frame: (self.navigationController?.navigationBar.frame)!)
         self.setupSidebar()
-        NotificationCenter.default.addObserver(self, selector: #selector(self.fetchParkings), name: Notification.Name.init(rawValue: "NewParking"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.parkingAdded), name: Notification.Name.init(rawValue: "NewParking"), object: nil)
 
         fetchParkings()
     }
@@ -35,6 +35,11 @@ class ListParkingViewController: UITableViewController {
         } else {
             self.setupFirstParkingView()
         }
+    }
+
+    func parkingAdded() {
+        self.tableView.isScrollEnabled = true
+        self.fetchParkings()
     }
 
     
@@ -68,9 +73,10 @@ class ListParkingViewController: UITableViewController {
 
     func setupFirstParkingView() {
         self.navigationController?.navigationBar.isHidden = true
-        let firstParkingView = NewParkingView.init(frame: self.view.frame)
+        let firstParkingView = NewParkingView.init(frame: CGRect.init(x: self.view.frame.origin.x, y: self.view.frame.origin.y - 20, width: self.view.frame.size.width, height: self.view.frame.size.height))
         firstParkingView.mainActionButton.addTarget(self, action: #selector(self.newParkingTapped), for: UIControlEvents.touchUpInside)
         self.view.addSubview(firstParkingView)
+        self.tableView.isScrollEnabled = false
     }
 
     func newParkingTapped() {
