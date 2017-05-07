@@ -87,7 +87,12 @@ extension EventsCollectionViewController: SWRevealViewControllerDelegate {
     fileprivate func setupSidebar() {
         let revealViewController = self.revealViewController()
         revealViewController?.delegate = self
-        AppState.setupRevealViewController(revealViewController!)
+        revealViewController?.bounceBackOnOverdraw = true
+        revealViewController?.stableDragOnOverdraw = false
+        revealViewController?.toggleAnimationType = .spring
+        revealViewController?.rearViewRevealDisplacement = 44
+        revealViewController?.rearViewRevealOverdraw = 10
+        revealViewController?.rearViewRevealWidth = 300
     }
 }
 

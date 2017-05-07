@@ -15,6 +15,7 @@ class AppState: NSObject {
     static let shared = AppState.init()
     static let provinces = ["AB", "BC", "MB", "NB", "NL", "NS", "ON", "PE", "QC", "SK"]
 
+
     var customer: Customer!
     var authToken: String!
     var customerParkings = [Int: Parking]()
@@ -90,15 +91,7 @@ class AppState: NSObject {
             }
         }
         freeifaddrs(ifaddr)
+        
         return address
-    }
-
-    class func setupRevealViewController(_ vc: SWRevealViewController) {
-        vc.bounceBackOnOverdraw = true
-        vc.stableDragOnOverdraw = false
-        vc.toggleAnimationType = .spring
-        vc.rearViewRevealDisplacement = 44
-        vc.rearViewRevealOverdraw = 10
-        vc.rearViewRevealWidth = 300
     }
 }

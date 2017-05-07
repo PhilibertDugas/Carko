@@ -21,10 +21,6 @@ class VehiculeInformationViewController: UIViewController {
     var years: [(String)] = []
     let licensePlateLength = 6
 
-    @IBAction func menuTapped(_ sender: Any) {
-        self.revealViewController().revealToggle(self)
-    }
-
     @IBAction func saveTapped(_ sender: Any) {
         if allFieldsFilled() {
             let vehicule = Vehicule.init(license: licensePlateTextField.text!, make: makeTextField.text!, model: modelTextField.text!, year: yearTextField.text!, color: colorTextField.text!, province: provinceTextField.text!)
@@ -41,25 +37,6 @@ class VehiculeInformationViewController: UIViewController {
         }
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.hideKeyboardWhenTappedAround()
-        setupYears()
-        setupFields()
-        setupPickers()
-        self.setupSidebar()
-    }
-}
-
-extension VehiculeInformationViewController: SWRevealViewControllerDelegate {
-    fileprivate func setupSidebar() {
-        let revealViewController = self.revealViewController()
-        revealViewController?.delegate = self
-        AppState.setupRevealViewController(revealViewController!)
-    }
-}
-
-extension VehiculeInformationViewController {
     func textChanged() {
         if allFieldsFilled() {
             saveButton.isEnabled = true
@@ -69,6 +46,14 @@ extension VehiculeInformationViewController {
 
     func allFieldsFilled() -> Bool {
         return licensePlateTextField.text != nil && makeTextField.text != nil && modelTextField.text != nil && yearTextField.text != nil && colorTextField.text != nil && provinceTextField.text != nil
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
+        setupYears()
+        setupFields()
+        setupPickers()
     }
 
     func setupYears() {
