@@ -153,7 +153,7 @@ extension EventsCollectionViewController: ApyaLayoutDelegate {
         let annotationPadding = CGFloat(4)
         let annotationHeaderHeight = CGFloat(17)
         let event = events[indexPath.item]
-        let font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
+        let font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.caption2)
         let commentHeight = event.heightForLabel(font: font, width: width)
         let height = annotationPadding + annotationHeaderHeight + commentHeight + annotationPadding
         return height

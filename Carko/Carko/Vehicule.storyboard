@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="bGQ-vL-hvT" kind="relationship" relationship="rootViewController" id="7as-dd-FZu"/>
+                        <segue destination="bGQ-vL-hvT" kind="relationship" relationship="rootViewController" id="9TP-oo-Xxe"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zKL-bm-aaS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -162,9 +162,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="S0J-pa-iRk">
-                        <barButtonItem key="leftBarButtonItem" image="menu" id="Xzc-Oh-SH9">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="afi-9q-Az6">
                             <connections>
-                                <action selector="menuTapped:" destination="bGQ-vL-hvT" id="Hh7-JE-a5c"/>
+                                <action selector="menuTapped:" destination="bGQ-vL-hvT" id="Fvg-HW-5Ox"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -180,10 +180,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aJZ-Yu-HWQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1070" y="309"/>
+            <point key="canvasLocation" x="1137" y="309"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="menu" width="16" height="16"/>
-    </resources>
 </document>

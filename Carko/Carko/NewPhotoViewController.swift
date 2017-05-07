@@ -16,9 +16,9 @@ class NewPhotoViewController: UIViewController {
     @IBOutlet var helperImageLabel: UILabel!
     @IBOutlet var uploadIndicator: UIActivityIndicatorView!
     @IBOutlet var descriptionText: UILabel!
-    @IBOutlet var mainButton: RoundedCornerButton!
 
     var parking: Parking!
+    var photoIsSaved = false
     let imagePicker = UIImagePickerController.init()
 
     @IBAction func tappedPhoto(_ sender: Any) {
@@ -28,16 +28,21 @@ class NewPhotoViewController: UIViewController {
     }
 
     @IBAction func tappedSave(_ sender: Any) {
-        if AppState.shared.customer.accountId != nil {
-            parking.isComplete = true
-        }
-        parking.persist { (error) in
-            if let error = error {
-                super.displayErrorMessage(error.localizedDescription)
-            } else {
-                NotificationCenter.default.post(name: Notification.Name.init("NewParking"), object: nil, userInfo: nil)
-                self.displaySuccessMessage()
+        if photoIsSaved {
+            if AppState.shared.customer.accountId != nil {
+                parking.isComplete = true
             }
+
+            parking.persist { (error) in
+                if let error = error {
+                    super.displayErrorMessage(error.localizedDescription)
+                } else {
+                    NotificationCenter.default.post(name: Notification.Name.init("NewParking"), object: nil, userInfo: nil)
+                    self.displaySuccessMessage()
+                }
+            }
+        } else {
+            super.displayErrorMessage("Please select a picture before saving")
         }
     }
 
@@ -86,7 +91,13 @@ extension NewPhotoViewController: UIImagePickerControllerDelegate {
 
     func uploadImage() {
         self.uploadIndicator.startAnimating()
-        let path = "user_\(AppState.shared.customer.id)_\(Date.init())"
+        var path = ""
+        if let id = parking.id {
+            path = "parking_\(id)_\(Date.init())"
+        } else {
+            path = "user_\(AppState.shared.customer.id)_\(Date.init())"
+        }
+
         let data = UIImageJPEGRepresentation(parkingImageView.image!, 0.8)!
         let metadata = FIRStorageMetadata()
         metadata.contentType = "image/jpeg"
@@ -96,8 +107,7 @@ extension NewPhotoViewController: UIImagePickerControllerDelegate {
                     self.parking.photoURL = url
                     self.uploadIndicator.stopAnimating()
                     self.displayImage(alpha: 1.0)
-                    self.mainButton.isEnabled = true
-                    self.mainButton.alpha = 1.0
+                    self.photoIsSaved = true
                 }
             }
         }
