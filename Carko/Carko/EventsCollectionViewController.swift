@@ -60,6 +60,7 @@ class EventsCollectionViewController: UICollectionViewController {
     }
 
     fileprivate func fetchEvents() {
+        self.refresher.beginRefreshing()
         Event.getAllEvents { (events, error) in
             if let error = error {
                 self.displayErrorMessage(error.localizedDescription)
