@@ -22,7 +22,7 @@ class ListParkingViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.tableHeaderView = UIView.init(frame: (self.navigationController?.navigationBar.frame)!)
-        self.setupSidebar()
+
         NotificationCenter.default.addObserver(self, selector: #selector(self.fetchParkings), name: Notification.Name.init(rawValue: "NewParking"), object: nil)
 
         fetchParkings()

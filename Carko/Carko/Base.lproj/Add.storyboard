@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -14,10 +15,10 @@
         <scene sceneID="jb1-fA-WdS">
             <objects>
                 <navigationController id="vi7-JE-Kbh" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="1Rf-Ak-g2M">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1Rf-Ak-g2M">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="0.76862745099999996" green="0.066666666669999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.112871848" green="0.75954872370000004" blue="0.28861063720000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="e3l-Ri-97n" kind="relationship" relationship="rootViewController" id="qy3-lG-OW3"/>
@@ -961,7 +962,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Kns-8F-D69"/>
-        <segue reference="TkR-cm-Vee"/>
-        <segue reference="edw-nD-MO5"/>
+        <segue reference="FSc-LC-W9E"/>
+        <segue reference="kI1-LU-ncT"/>
     </inferredMetricsTieBreakers>
 </document>
