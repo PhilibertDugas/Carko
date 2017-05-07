@@ -87,6 +87,7 @@ extension AccountCreationViewController: SWRevealViewControllerDelegate {
     fileprivate func setupSidebar() {
         let revealViewController = self.revealViewController()
         revealViewController?.delegate = self
+        self.view.addGestureRecognizer((revealViewController?.panGestureRecognizer())!)
         AppState.setupRevealViewController(revealViewController!)
     }
 }

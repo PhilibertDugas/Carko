@@ -78,7 +78,7 @@ class AvailabilityViewController: UIViewController {
 
     func updateButton(isOn: Bool, button: UIButton!) {
         if isOn {
-            button.backgroundColor = UIColor.init(netHex: 0x00C441)
+            button.backgroundColor = UIColor.primaryColor
         }
         else {
             button.backgroundColor = UIColor.clear

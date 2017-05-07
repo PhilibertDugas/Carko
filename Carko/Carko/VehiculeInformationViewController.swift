@@ -56,6 +56,7 @@ extension VehiculeInformationViewController: SWRevealViewControllerDelegate {
         let revealViewController = self.revealViewController()
         revealViewController?.delegate = self
         AppState.setupRevealViewController(revealViewController!)
+        self.view.addGestureRecognizer((revealViewController?.panGestureRecognizer())!)
     }
 }
 
