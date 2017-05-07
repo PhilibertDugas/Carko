@@ -12,7 +12,7 @@ import FirebaseAuth
 import AVFoundation
 
 
-class EventsCollectionViewController: UICollectionViewController, SWRevealViewControllerDelegate {
+class EventsCollectionViewController: UICollectionViewController {
 
     
     fileprivate let reuseIdentifier = "EventCell"
@@ -32,20 +32,7 @@ class EventsCollectionViewController: UICollectionViewController, SWRevealViewCo
         }
         self.setupPullToRefresh()
         
-        //sliding window settings
-        let revealViewController = self.revealViewController()
-        
-        //revealVC = revealViewController
-        
-        revealViewController?.delegate = self
-        
-        
-        revealViewController?.bounceBackOnOverdraw = true
-        revealViewController?.stableDragOnOverdraw = false
-        revealViewController?.toggleAnimationType = .spring
-        revealViewController?.rearViewRevealDisplacement = 44
-        revealViewController?.rearViewRevealOverdraw = 10
-        revealViewController?.rearViewRevealWidth = 300
+        self.setupSideBar()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -97,6 +84,24 @@ class EventsCollectionViewController: UICollectionViewController, SWRevealViewCo
 
     func refreshTriggered() {
         self.fetchEvents()
+    }
+}
+
+extension EventsCollectionViewController: SWRevealViewControllerDelegate {
+    fileprivate func setupSideBar() {
+        //sliding window settings
+        let revealViewController = self.revealViewController()
+        
+        //revealVC = revealViewController
+        
+        revealViewController?.delegate = self
+        
+        revealViewController?.bounceBackOnOverdraw = true
+        revealViewController?.stableDragOnOverdraw = false
+        revealViewController?.toggleAnimationType = .spring
+        revealViewController?.rearViewRevealDisplacement = 44
+        revealViewController?.rearViewRevealOverdraw = 10
+        revealViewController?.rearViewRevealWidth = 300
     }
 }
 

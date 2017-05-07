@@ -27,7 +27,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BZe-rY-oim" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4883" y="-97"/>
+            <point key="canvasLocation" x="-2629" y="-196"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="7um-HZ-8YN">
@@ -87,6 +87,10 @@
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.1019446626" green="0.10197005419999999" blue="0.1019430831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="V2L-rH-Bqp" appends="YES" id="H3E-Oh-CQb"/>
+                                </connections>
                             </view>
                         </subviews>
                     </view>
@@ -96,6 +100,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9AU-dJ-btI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="V2L-rH-Bqp">
+                    <connections>
+                        <action selector="ProfileTap:" destination="igd-4C-9NW" id="Oir-sJ-0uS"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-3234.4000000000001" y="91.304347826086968"/>
         </scene>
