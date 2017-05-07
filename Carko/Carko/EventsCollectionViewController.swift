@@ -87,7 +87,6 @@ extension EventsCollectionViewController: SWRevealViewControllerDelegate {
     fileprivate func setupSidebar() {
         let revealViewController = self.revealViewController()
         revealViewController?.delegate = self
-        self.view.addGestureRecognizer((revealViewController?.panGestureRecognizer())!)
         AppState.setupRevealViewController(revealViewController!)
     }
 }
@@ -106,7 +105,7 @@ extension EventsCollectionViewController {
         cell.event = self.events[indexPath.row]
         cell.layer.cornerRadius = 3
         cell.layer.borderWidth = 0.5
-        cell.layer.borderColor = UIColor.primaryColor.cgColor
+        cell.layer.borderColor = UIColor.gray.cgColor
         return cell
     }
 

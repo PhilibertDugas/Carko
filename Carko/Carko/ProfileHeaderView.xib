@@ -25,7 +25,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="33" id="ROy-6k-NFP"/>
                     </constraints>
-                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="24"/>
                     <color key="textColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>

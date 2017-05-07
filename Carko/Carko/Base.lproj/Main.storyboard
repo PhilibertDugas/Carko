@@ -101,12 +101,12 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="33" id="IHI-un-kdG"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="24"/>
                                         <color key="textColor" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.1450980392" green="0.14901960780000001" blue="0.1529411765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.1019446626" green="0.10197005419999999" blue="0.1019430831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="gwO-0D-yHd" firstAttribute="leading" secondItem="1Rz-UP-VN8" secondAttribute="trailing" constant="8" id="0gq-lz-VtM"/>
@@ -166,14 +166,13 @@
         <scene sceneID="zS7-wj-1zy">
             <objects>
                 <tableViewController id="gbG-Q3-IQf" customClass="NavigationTableViewController" customModule="Carko" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="plain" separatorStyle="none" sectionIndexMinimumDisplayRowCount="1" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="0Br-xz-kAk">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" sectionIndexMinimumDisplayRowCount="1" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="0Br-xz-kAk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="700"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.76862745099999996" green="0.066666666669999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="tintColor" red="0.76862745099999996" green="0.066666666669999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="separatorColor" red="0.59859156609999997" green="0.48580044509999998" blue="0.48472779989999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.76862745099999996" green="0.066666666669999999" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <inset key="separatorInset" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        <color key="sectionIndexColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="sectionIndexColor" red="0.1450980392" green="0.14901960780000001" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <sections>
@@ -186,15 +185,15 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Payments" translatesAutoresizingMaskIntoConstraints="NO" id="Q66-I5-THf">
-                                                    <rect key="frame" x="8" y="14" width="32" height="32"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="money-bills" translatesAutoresizingMaskIntoConstraints="NO" id="Q66-I5-THf">
+                                                    <rect key="frame" x="8" y="10" width="40" height="40"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="32" id="XlN-Te-6JC"/>
-                                                        <constraint firstAttribute="width" constant="32" id="YX5-m1-Vjd"/>
+                                                        <constraint firstAttribute="height" constant="40" id="XlN-Te-6JC"/>
+                                                        <constraint firstAttribute="width" constant="40" id="YX5-m1-Vjd"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pHi-s6-HwS">
-                                                    <rect key="frame" x="48" y="10" width="319" height="40"/>
+                                                    <rect key="frame" x="56" y="10" width="311" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="5aO-At-WIE"/>
                                                     </constraints>
@@ -225,15 +224,15 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Car" translatesAutoresizingMaskIntoConstraints="NO" id="IOS-wG-VVQ">
-                                                    <rect key="frame" x="8" y="14" width="32" height="32"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="car-1" translatesAutoresizingMaskIntoConstraints="NO" id="IOS-wG-VVQ">
+                                                    <rect key="frame" x="8" y="10" width="40" height="40"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="32" id="Ua6-Ef-q5R"/>
-                                                        <constraint firstAttribute="height" constant="32" id="zYc-ef-xuR"/>
+                                                        <constraint firstAttribute="width" constant="40" id="Ua6-Ef-q5R"/>
+                                                        <constraint firstAttribute="height" constant="40" id="zYc-ef-xuR"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vehicule" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y3i-Ov-QC6">
-                                                    <rect key="frame" x="48" y="10" width="319" height="40"/>
+                                                    <rect key="frame" x="56" y="10" width="311" height="40"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" red="0.1450980392" green="0.14901960780000001" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -262,15 +261,15 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="History" translatesAutoresizingMaskIntoConstraints="NO" id="Iut-5l-epk">
-                                                    <rect key="frame" x="8" y="14" width="32" height="32"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock" translatesAutoresizingMaskIntoConstraints="NO" id="Iut-5l-epk">
+                                                    <rect key="frame" x="8" y="10" width="40" height="40"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="32" id="LsO-fj-sYJ"/>
-                                                        <constraint firstAttribute="height" constant="32" id="Qjm-d5-Qjq"/>
+                                                        <constraint firstAttribute="width" constant="40" id="LsO-fj-sYJ"/>
+                                                        <constraint firstAttribute="height" constant="40" id="Qjm-d5-Qjq"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mg4-mq-60X">
-                                                    <rect key="frame" x="48" y="10" width="319" height="40"/>
+                                                    <rect key="frame" x="56" y="10" width="311" height="40"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" red="0.1450980392" green="0.14901960780000001" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -300,15 +299,15 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Help" translatesAutoresizingMaskIntoConstraints="NO" id="qQc-EK-uaV">
-                                                    <rect key="frame" x="8" y="14" width="32" height="32"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-98" translatesAutoresizingMaskIntoConstraints="NO" id="qQc-EK-uaV">
+                                                    <rect key="frame" x="8" y="10" width="40" height="40"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="32" id="HPg-VC-9fO"/>
-                                                        <constraint firstAttribute="width" constant="32" id="ag3-wm-Khn"/>
+                                                        <constraint firstAttribute="height" constant="40" id="HPg-VC-9fO"/>
+                                                        <constraint firstAttribute="width" constant="40" id="ag3-wm-Khn"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Help" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Kg-Uc-bDr">
-                                                    <rect key="frame" x="48" y="10" width="319" height="40"/>
+                                                    <rect key="frame" x="56" y="10" width="311" height="40"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" red="0.1450980392" green="0.14901960780000001" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -347,15 +346,15 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rent" translatesAutoresizingMaskIntoConstraints="NO" id="fiF-X6-bcL">
-                                                    <rect key="frame" x="8" y="14" width="32" height="32"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="private-garage" translatesAutoresizingMaskIntoConstraints="NO" id="fiF-X6-bcL">
+                                                    <rect key="frame" x="8" y="10" width="40" height="40"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="32" id="IIg-t2-9Wj"/>
-                                                        <constraint firstAttribute="width" constant="32" id="WAl-35-QOw"/>
+                                                        <constraint firstAttribute="height" constant="40" id="IIg-t2-9Wj"/>
+                                                        <constraint firstAttribute="width" constant="40" id="WAl-35-QOw"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rent your Space" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Eq-bL-gvq">
-                                                    <rect key="frame" x="48" y="10" width="319" height="40"/>
+                                                    <rect key="frame" x="56" y="10" width="311" height="40"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" red="0.1450980392" green="0.14901960780000001" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -383,15 +382,16 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Payout" translatesAutoresizingMaskIntoConstraints="NO" id="FGo-Cr-bEL">
-                                                    <rect key="frame" x="8" y="14" width="32" height="32"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="money-bag" translatesAutoresizingMaskIntoConstraints="NO" id="FGo-Cr-bEL">
+                                                    <rect key="frame" x="8" y="10" width="40" height="40"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="32" id="7Kj-fz-KDL"/>
-                                                        <constraint firstAttribute="width" constant="32" id="P5d-0c-CMl"/>
+                                                        <constraint firstAttribute="height" constant="40" id="7Kj-fz-KDL"/>
+                                                        <constraint firstAttribute="width" constant="40" id="P5d-0c-CMl"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Kh-If-AGZ">
-                                                    <rect key="frame" x="48" y="10" width="319" height="40"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Payout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Kh-If-AGZ">
+                                                    <rect key="frame" x="56" y="10" width="311" height="40"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" red="0.1450980392" green="0.14901960780000001" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -400,11 +400,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="FGo-Cr-bEL" firstAttribute="centerY" secondItem="YCS-uU-O5u" secondAttribute="centerY" id="8uM-Af-Oqd"/>
-                                                <constraint firstItem="4Kh-If-AGZ" firstAttribute="trailing" secondItem="YCS-uU-O5u" secondAttribute="trailingMargin" id="NVZ-hJ-lKo"/>
                                                 <constraint firstItem="FGo-Cr-bEL" firstAttribute="leading" secondItem="YCS-uU-O5u" secondAttribute="leadingMargin" id="PDf-YP-4hb"/>
-                                                <constraint firstItem="4Kh-If-AGZ" firstAttribute="top" secondItem="YCS-uU-O5u" secondAttribute="topMargin" constant="2" id="VL0-Gb-SU8"/>
-                                                <constraint firstItem="4Kh-If-AGZ" firstAttribute="leading" secondItem="FGo-Cr-bEL" secondAttribute="trailing" constant="8" id="e8v-gl-8BW"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="4Kh-If-AGZ" secondAttribute="bottom" constant="2" id="zoq-cJ-4UH"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -423,7 +419,7 @@
                                                     <rect key="frame" x="8" y="10" width="359" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                    <color key="textColor" red="0.76862745099999996" green="0.066666666669999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" red="1" green="0.0" blue="0.0187217119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -477,11 +473,11 @@
     </scenes>
     <resources>
         <image name="3244" width="565" height="565"/>
-        <image name="Car" width="32" height="32"/>
-        <image name="Help" width="32" height="32"/>
-        <image name="History" width="32" height="32"/>
-        <image name="Payments" width="32" height="32"/>
-        <image name="Payout" width="32" height="32"/>
-        <image name="Rent" width="32" height="32"/>
+        <image name="Icon-98" width="98" height="98"/>
+        <image name="car-1" width="128" height="128"/>
+        <image name="clock" width="55" height="55"/>
+        <image name="money-bag" width="50" height="50"/>
+        <image name="money-bills" width="32" height="32"/>
+        <image name="private-garage" width="32" height="32"/>
     </resources>
 </document>
