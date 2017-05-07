@@ -79,7 +79,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="J1d-qV-GiY">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="4rl-ur-vAr">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="4rl-ur-vAr">
                             <connections>
                                 <action selector="menuTapped:" destination="68N-vn-MdZ" id="FCH-hM-NOt"/>
                             </connections>
@@ -107,4 +107,7 @@
             <point key="canvasLocation" x="-623" y="-833"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="menu" width="16" height="16"/>
+    </resources>
 </document>

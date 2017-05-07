@@ -7,7 +7,6 @@ protocol ParkingAvailabilityDelegate {
 
 class AvailabilityViewController: UIViewController {
     @IBOutlet var mondayButton: UIButton!
-    @IBOutlet var progressView: UIView!
     @IBOutlet var mainButton: RoundedCornerButton!
 
     var delegate: ParkingAvailabilityDelegate?
@@ -21,7 +20,6 @@ class AvailabilityViewController: UIViewController {
         super.viewDidLoad()
 
         if !newParking {
-            progressView.isHidden = true
             mainButton.setTitle("SAVE", for: UIControlState.normal)
         }
 
@@ -56,12 +54,21 @@ class AvailabilityViewController: UIViewController {
         let newAvailability = !availability.daysAvailable[dayId]
         availability.daysAvailable[dayId] = newAvailability
         updateButton(isOn: newAvailability, button: sender)
+        if availability.daysAvailable.contains(true) {
+            enableMainButton()
+        } else {
+            disableMainButton()
+        }
     }
 
     func updateAvailability() {
         let daysAvailable = availability.daysAvailable
+        if daysAvailable.contains(true) {
+            enableMainButton()
+        } else {
+            disableMainButton()
+        }
 
-        // findDayButton with tag=0 returns every other views. Creating a mondayButton reference is easier than changing the tag for every view in the scene
         updateButton(isOn: daysAvailable[0], button: mondayButton)
 
         for index in 1...6 {
@@ -80,5 +87,15 @@ class AvailabilityViewController: UIViewController {
 
     private func findDayButton(tag: Int) -> UIButton {
         return self.view.viewWithTag(tag) as! UIButton
+    }
+
+    fileprivate func enableMainButton() {
+        mainButton.isEnabled = true
+        mainButton.alpha = 1.0
+    }
+
+    fileprivate func disableMainButton() {
+        mainButton.isEnabled = false
+        mainButton.alpha = 0.5
     }
 }

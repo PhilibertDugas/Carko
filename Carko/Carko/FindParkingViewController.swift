@@ -174,7 +174,8 @@ extension FindParkingViewController: MKMapViewDelegate {
 
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
         UIView.animate(withDuration: 0.15, animations: {
-            self.popupView.frame.origin.y = self.tabBar.frame.origin.y
+            self.popupView.frame.origin.y = self.view.frame.maxY
+            self.popupView.isHidden = true
         })
     }
 
@@ -196,7 +197,7 @@ extension FindParkingViewController: MKMapViewDelegate {
             let circle = MKCircleRenderer.init(overlay: overlay)
             circle.strokeColor = UIColor.red
             circle.fillColor = UIColor(red: 255, green: 0, blue: 0, alpha: 0.1)
-            circle.lineWidth = 1
+            circle.lineWidth = 0.1
             return circle
         } else {
             return MKOverlayRenderer.init()

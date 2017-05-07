@@ -13,7 +13,6 @@ class EventCollectionViewCell: UICollectionViewCell {
     @IBOutlet var image: UIImageView!
     @IBOutlet var imageViewHeightLayoutConstraint: NSLayoutConstraint!
     @IBOutlet var label: UILabel!
-    @IBOutlet var time: UILabel!
 
     var event: Event? {
         didSet {
@@ -23,7 +22,6 @@ class EventCollectionViewCell: UICollectionViewCell {
                     image.sd_setImage(with: imageReference, placeholderImage: UIImage.init(named: "placeholder-1"))
                 }
                 label.text = event.label
-                time.text = event.startTime
             }
         }
     }

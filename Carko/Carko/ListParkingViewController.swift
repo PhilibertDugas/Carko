@@ -10,8 +10,7 @@ import UIKit
 import FirebaseStorageUI
 import CoreLocation
 
-class ListParkingViewController: UIViewController {
-    @IBOutlet var parkingTableView: UITableView!
+class ListParkingViewController: UITableViewController {
     var parkingList = [Parking]()
     var isEditingAvailability = false
     var selectedRowIndex = 0
@@ -22,6 +21,7 @@ class ListParkingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.tableHeaderView = UIView.init(frame: (self.navigationController?.navigationBar.frame)!)
 
         NotificationCenter.default.addObserver(self, selector: #selector(self.fetchParkings), name: Notification.Name.init(rawValue: "NewParking"), object: nil)
 
@@ -55,7 +55,7 @@ class ListParkingViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = false
         self.removeFirstParkingView()
         self.parkingList = parkings
-        self.parkingTableView.reloadData()
+        self.tableView.reloadData()
     }
 
     func removeFirstParkingView() {
@@ -89,30 +89,17 @@ class ListParkingViewController: UIViewController {
     }
 }
 
-extension ListParkingViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+extension ListParkingViewController {
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         selectedRowIndex = indexPath.row
         return indexPath
     }
-
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == UITableViewCellEditingStyle.delete {
-            let parking = parkingList[indexPath.row]
-            if parking.isAvailable {
-                parking.delete(complete: completeParkingDelete)
-            } else {
-                super.displayDestructiveMessage("YOUR PARKING IS CURRENTLY IN USE, ARE YOU SURE YOU WANT TO REMOVE IT?", title: "PARKING IN USE", handle: { (action) in
-                    parking.delete(complete: self.completeParkingDelete)
-                })
-            }
-        }
-    }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return parkingList.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "parkingCell", for: indexPath) as! ParkingTableViewCell
         let parking = parkingList[indexPath.row]
         cell.label.text = parking.address
@@ -124,18 +111,9 @@ extension ListParkingViewController: UITableViewDelegate, UITableViewDataSource 
 
         return cell
     }
-
-    func completeParkingDelete(error: Error?) {
-        if let error = error {
-            super.displayErrorMessage(error.localizedDescription)
-        } else {
-            self.fetchParkings()
-        }
-    }
 }
 
 extension ListParkingViewController: SWRevealViewControllerDelegate {
-
     fileprivate func setupSidebar() {
         let revealViewController = self.revealViewController()
         revealViewController?.delegate = self

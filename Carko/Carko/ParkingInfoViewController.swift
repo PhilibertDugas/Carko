@@ -12,12 +12,13 @@ class ParkingInfoViewController: UITableViewController {
     @IBOutlet var parkingDescriptionLabel: UILabel!
     @IBOutlet var daysAvailableLabel: UILabel!
 
+    @IBOutlet var saveButton: RoundedCornerButton!
+
     var parking: Parking!
     let imagePicker = UIImagePickerController.init()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.tableFooterView = UIView.init()
 
         imagePicker.delegate = self
         initializeParking()
@@ -65,21 +66,20 @@ class ParkingInfoViewController: UITableViewController {
         }
     }
 
+    @IBAction func deletedTapped(_ sender: Any) {
+        if self.parking.isAvailable {
+            self.parking.delete(complete: completeParkingDelete)
+        } else {
+            super.displayDestructiveMessage("YOUR PARKING IS CURRENTLY IN USE, ARE YOU SURE YOU WANT TO REMOVE IT?", title: "PARKING IN USE", handle: { (action) in
+                self.parking.delete(complete: self.completeParkingDelete)
+            })
+        }
+
+    }
     @IBAction func tappedAddPhotos(_ sender: Any) {
         imagePicker.allowsEditing = true
         imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
         present(imagePicker, animated: true, completion: nil)
-    }
-
-
-    func parkingIsValid() -> Bool {
-        // FIXME: Migrate this over the add flow
-        if AppState.shared.customer.accountId == nil {
-            super.displayErrorMessage("Please fill out the bank information in the profile section before listing a parking")
-            return false
-        } else {
-            return true
-        }
     }
 
     func initializeParking() {
@@ -100,24 +100,41 @@ class ParkingInfoViewController: UITableViewController {
             print("Error, shouldn't have happened")
         }
     }
+
+    func completeParkingDelete(error: Error?) {
+        if let error = error {
+            super.displayErrorMessage(error.localizedDescription)
+        } else {
+            self.navigationController?.popToRootViewController(animated: true)
+        }
+    }
 }
 
 extension ParkingInfoViewController: ParkingDescriptionDelegate, ParkingAvailabilityDelegate, ParkingLocationDelegate {
     func userDidChangeDescription(value: String) {
+        enableSaveButton()
         parking.pDescription = value
         updateLabels(field: "description")
     }
 
     func userDidChangeAvailability(value: AvailabilityInfo) {
+        enableSaveButton()
         parking.availabilityInfo = value
         updateLabels(field: "availability")
     }
 
     func userDidChooseLocation(address: String, latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
+        enableSaveButton()
         parking.address = address
         parking.latitude = latitude
         parking.longitude = longitude
         updateLabels(field: "address")
+    }
+
+    func enableSaveButton() {
+        self.saveButton.isEnabled = true
+        self.saveButton.alpha = 1.0
+
     }
 }
 
@@ -137,13 +154,7 @@ extension ParkingInfoViewController: UIImagePickerControllerDelegate {
 
     func uploadImage() {
         self.uploadIndicator.startAnimating()
-        var path = ""
-        if let id = parking.id {
-            path = "parking_\(id)_\(Date.init())"
-        } else {
-            path = "user_\(AppState.shared.customer.id)_\(Date.init())"
-        }
-
+        let path = "user_\(AppState.shared.customer.id)_\(Date.init())"
         let data = UIImageJPEGRepresentation(parkingImageView.image!, 0.8)!
         let metadata = FIRStorageMetadata()
         metadata.contentType = "image/jpeg"

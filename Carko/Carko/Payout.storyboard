@@ -151,7 +151,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ki7-7U-kWL">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="iHH-S0-61G">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="iHH-S0-61G">
                             <connections>
                                 <action selector="menuTapped:" destination="2ha-zQ-wU2" id="3UP-Qf-UU5"/>
                             </connections>
@@ -308,5 +308,6 @@
     </scenes>
     <resources>
         <image name="check_example.jpg" width="16" height="16"/>
+        <image name="menu" width="16" height="16"/>
     </resources>
 </document>
