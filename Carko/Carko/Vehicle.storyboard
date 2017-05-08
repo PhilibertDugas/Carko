@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F71b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DAF-Sj-mQX">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Vehicule Information-->
+        <scene sceneID="Kfq-BG-q4b">
+            <objects>
+                <viewController title="Vehicule Information" id="DAF-Sj-mQX" customClass="VehiculeInformationViewController" customModule="Carko" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zcr-tg-yD9"/>
+                        <viewControllerLayoutGuide type="bottom" id="aZn-n6-2Wt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Xne-4Q-BH7">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.85000002384185791" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CMl-jH-4fH" customClass="RoundedCornerView" customModule="Carko" customModuleProvider="target">
+                                <rect key="frame" x="16" y="72" width="343" height="90"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the details of your vehicule to ensure your parking places" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="huy-MF-DvE">
+                                        <rect key="frame" x="8" y="8" width="327" height="74"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.31768825649999999" green="0.31358337400000003" blue="0.32179906959999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="IOW-Lw-nuN"/>
+                                    <constraint firstItem="huy-MF-DvE" firstAttribute="leading" secondItem="CMl-jH-4fH" secondAttribute="leading" constant="8" id="KoX-zH-gkb"/>
+                                    <constraint firstAttribute="trailing" secondItem="huy-MF-DvE" secondAttribute="trailing" constant="8" id="au7-kg-cF5"/>
+                                    <constraint firstItem="huy-MF-DvE" firstAttribute="top" secondItem="CMl-jH-4fH" secondAttribute="top" constant="8" id="l52-To-qE2"/>
+                                    <constraint firstAttribute="bottom" secondItem="huy-MF-DvE" secondAttribute="bottom" constant="8" id="pGp-vv-QzA"/>
+                                </constraints>
+                            </view>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="License Plate" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="W18-br-rUC" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
+                                <rect key="frame" x="16" y="170" width="343" height="50"/>
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Wde-Cr-k1w"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Make" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="zfZ-Mf-oYk" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
+                                <rect key="frame" x="16" y="228" width="343" height="50"/>
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="15R-gZ-GdG"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Model" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8zg-J5-Gy3" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
+                                <rect key="frame" x="16" y="286" width="343" height="50"/>
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="dAd-1p-8ob"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Year" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Upm-gF-k4n" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
+                                <rect key="frame" x="16" y="344" width="343" height="50"/>
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="UiZ-b4-dG8"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Color" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="SRu-hf-uoV" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
+                                <rect key="frame" x="16" y="402" width="343" height="50"/>
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="fYW-aU-mR5"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Province" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="UzN-ZS-XQI" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
+                                <rect key="frame" x="16" y="460" width="343" height="50"/>
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="loK-Ua-Wyi"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="06e-a0-64N" customClass="RoundedCornerButton" customModule="Carko" customModuleProvider="target">
+                                <rect key="frame" x="16" y="565" width="343" height="45"/>
+                                <color key="backgroundColor" red="0.112871848" green="0.75954872370000004" blue="0.28861063720000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="iCm-22-Iyc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <color key="tintColor" red="0.112871848" green="0.75954872370000004" blue="0.28861063720000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" red="0.9999514222" green="1" blue="0.97945672269999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveTapped:" destination="DAF-Sj-mQX" eventType="touchUpInside" id="smz-Ne-EuJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Upm-gF-k4n" firstAttribute="leading" secondItem="Xne-4Q-BH7" secondAttribute="leadingMargin" id="2Se-Lp-NdC"/>
+                            <constraint firstItem="W18-br-rUC" firstAttribute="top" secondItem="CMl-jH-4fH" secondAttribute="bottom" constant="8" id="Bj0-6S-6F4"/>
+                            <constraint firstItem="W18-br-rUC" firstAttribute="leading" secondItem="Xne-4Q-BH7" secondAttribute="leadingMargin" id="Ffn-Ex-p9k"/>
+                            <constraint firstItem="Upm-gF-k4n" firstAttribute="trailing" secondItem="Xne-4Q-BH7" secondAttribute="trailingMargin" id="GvT-bK-OfE"/>
+                            <constraint firstItem="UzN-ZS-XQI" firstAttribute="leading" secondItem="Xne-4Q-BH7" secondAttribute="leadingMargin" id="Hsa-me-0k0"/>
+                            <constraint firstItem="zfZ-Mf-oYk" firstAttribute="leading" secondItem="Xne-4Q-BH7" secondAttribute="leadingMargin" id="I7z-RB-lmV"/>
+                            <constraint firstItem="zfZ-Mf-oYk" firstAttribute="top" secondItem="W18-br-rUC" secondAttribute="bottom" constant="8" id="NmK-2b-ecN"/>
+                            <constraint firstItem="Upm-gF-k4n" firstAttribute="top" secondItem="8zg-J5-Gy3" secondAttribute="bottom" constant="8" id="OKQ-y5-xDC"/>
+                            <constraint firstItem="CMl-jH-4fH" firstAttribute="leading" secondItem="Xne-4Q-BH7" secondAttribute="leadingMargin" id="Q1a-pJ-Fea"/>
+                            <constraint firstItem="SRu-hf-uoV" firstAttribute="trailing" secondItem="Xne-4Q-BH7" secondAttribute="trailingMargin" id="QfI-uF-MyL"/>
+                            <constraint firstItem="SRu-hf-uoV" firstAttribute="leading" secondItem="Xne-4Q-BH7" secondAttribute="leadingMargin" id="UsR-dm-hqj"/>
+                            <constraint firstItem="8zg-J5-Gy3" firstAttribute="leading" secondItem="Xne-4Q-BH7" secondAttribute="leadingMargin" id="UwJ-3b-lEC"/>
+                            <constraint firstItem="W18-br-rUC" firstAttribute="trailing" secondItem="Xne-4Q-BH7" secondAttribute="trailingMargin" id="VcL-CC-ayo"/>
+                            <constraint firstItem="UzN-ZS-XQI" firstAttribute="top" secondItem="SRu-hf-uoV" secondAttribute="bottom" constant="8" id="WiR-gI-HRS"/>
+                            <constraint firstItem="CMl-jH-4fH" firstAttribute="top" secondItem="zcr-tg-yD9" secondAttribute="bottom" constant="8" id="bhb-z3-uXi"/>
+                            <constraint firstItem="06e-a0-64N" firstAttribute="trailing" secondItem="Xne-4Q-BH7" secondAttribute="trailingMargin" id="dNi-Kd-O0I"/>
+                            <constraint firstItem="SRu-hf-uoV" firstAttribute="top" secondItem="Upm-gF-k4n" secondAttribute="bottom" constant="8" id="eRE-nf-HL1"/>
+                            <constraint firstItem="aZn-n6-2Wt" firstAttribute="top" secondItem="06e-a0-64N" secondAttribute="bottom" constant="8" id="fcx-sW-f1z"/>
+                            <constraint firstItem="UzN-ZS-XQI" firstAttribute="trailing" secondItem="Xne-4Q-BH7" secondAttribute="trailingMargin" id="kJa-Cs-pxq"/>
+                            <constraint firstItem="8zg-J5-Gy3" firstAttribute="top" secondItem="zfZ-Mf-oYk" secondAttribute="bottom" constant="8" id="lih-3P-RZa"/>
+                            <constraint firstItem="zfZ-Mf-oYk" firstAttribute="trailing" secondItem="Xne-4Q-BH7" secondAttribute="trailingMargin" id="mIP-uI-MRH"/>
+                            <constraint firstItem="06e-a0-64N" firstAttribute="leading" secondItem="Xne-4Q-BH7" secondAttribute="leadingMargin" id="olb-S9-XKk"/>
+                            <constraint firstItem="CMl-jH-4fH" firstAttribute="trailing" secondItem="Xne-4Q-BH7" secondAttribute="trailingMargin" id="qQd-z5-uSA"/>
+                            <constraint firstItem="8zg-J5-Gy3" firstAttribute="trailing" secondItem="Xne-4Q-BH7" secondAttribute="trailingMargin" id="rF4-vi-4Yu"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO">
+                        <color key="tintColor" red="0.112871848" green="0.75954872370000004" blue="0.28861063720000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </simulatedNavigationBarMetrics>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4_7.fullscreen"/>
+                    <connections>
+                        <outlet property="colorTextField" destination="SRu-hf-uoV" id="bdk-17-ugS"/>
+                        <outlet property="licensePlateTextField" destination="W18-br-rUC" id="k7a-u3-n9B"/>
+                        <outlet property="makeTextField" destination="zfZ-Mf-oYk" id="j8r-L6-QeL"/>
+                        <outlet property="modelTextField" destination="8zg-J5-Gy3" id="Wyo-VG-s9R"/>
+                        <outlet property="provinceTextField" destination="UzN-ZS-XQI" id="lZI-Xw-w5X"/>
+                        <outlet property="saveButton" destination="06e-a0-64N" id="Oos-oh-JgH"/>
+                        <outlet property="yearTextField" destination="Upm-gF-k4n" id="v9N-ua-b5K"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5g6-HO-L1k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1137" y="309"/>
+        </scene>
+    </scenes>
+</document>

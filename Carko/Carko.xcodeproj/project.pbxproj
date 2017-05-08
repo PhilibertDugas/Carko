@@ -142,6 +142,9 @@
 		C51150591DAF397E004E2A7D /* ParkingInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51150581DAF397E004E2A7D /* ParkingInfoViewController.swift */; };
 		C56ADABB1DAC00870033516C /* ParkingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56ADABA1DAC00870033516C /* ParkingTableViewCell.swift */; };
 		C5B310601DB023610051C90B /* FloatExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B3105F1DB023610051C90B /* FloatExtension.swift */; };
+		C5B5BDA01EBFE00900418809 /* Payout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5B5BD9E1EBFE00900418809 /* Payout.storyboard */; };
+		C5B5BDA21EBFE05200418809 /* Vehicle.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5B5BDA11EBFE05200418809 /* Vehicle.storyboard */; };
+		C5B5BDA51EBFE08C00418809 /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5B5BDA31EBFE08C00418809 /* History.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -270,6 +273,9 @@
 		C5271B111EBBDDC4001B5094 /* Carko-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Carko-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		C56ADABA1DAC00870033516C /* ParkingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingTableViewCell.swift; sourceTree = "<group>"; };
 		C5B3105F1DB023610051C90B /* FloatExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatExtension.swift; sourceTree = "<group>"; };
+		C5B5BD9F1EBFE00900418809 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Payout.storyboard; sourceTree = "<group>"; };
+		C5B5BDA11EBFE05200418809 /* Vehicle.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Vehicle.storyboard; sourceTree = "<group>"; };
+		C5B5BDA41EBFE08C00418809 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/History.storyboard; sourceTree = "<group>"; };
 		D0E89F5CBCCDBDCAFD9AF986 /* Pods-Carko.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carko.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Carko/Pods-Carko.debug.xcconfig"; sourceTree = "<group>"; };
 		DF3DC78B5F06CA9F23866878 /* Pods-Carko-CarkoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carko-CarkoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Carko-CarkoTests/Pods-Carko-CarkoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F9FE12AEF604DC6A236BBD68 /* Pods-Carko.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carko.release.xcconfig"; path = "Pods/Target Support Files/Pods-Carko/Pods-Carko.release.xcconfig"; sourceTree = "<group>"; };
@@ -310,7 +316,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		45099A851DAF25EA00392FF1 /* Tab - Login */ = {
+		45099A851DAF25EA00392FF1 /* Login */ = {
 			isa = PBXGroup;
 			children = (
 				45099A861DAF261200392FF1 /* LoginViewController.swift */,
@@ -320,7 +326,7 @@
 				45418F2D1E1719E00050DDF5 /* ForgotPasswordViewController.swift */,
 				4550D66B1E19D7810080758D /* Login.storyboard */,
 			);
-			name = "Tab - Login";
+			name = Login;
 			sourceTree = "<group>";
 		};
 		450B5D561E2AA48D00AEEA29 /* Subviews */ = {
@@ -333,7 +339,7 @@
 			name = Subviews;
 			sourceTree = "<group>";
 		};
-		451853771DA476B5005CC5E6 /* Tab - Find */ = {
+		451853771DA476B5005CC5E6 /* Events */ = {
 			isa = PBXGroup;
 			children = (
 				45DC42FD1EA97D5B009F8E8D /* CollectionView */,
@@ -344,10 +350,10 @@
 				45D073301EA84924000604D3 /* EventsCollectionViewController.swift */,
 				4550D6651E19D7720080758D /* Find.storyboard */,
 			);
-			name = "Tab - Find";
+			name = Events;
 			sourceTree = "<group>";
 		};
-		451853781DA476CB005CC5E6 /* Tab - Add */ = {
+		451853781DA476CB005CC5E6 /* Rent */ = {
 			isa = PBXGroup;
 			children = (
 				450B5D561E2AA48D00AEEA29 /* Subviews */,
@@ -357,7 +363,7 @@
 				451853791DA476F1005CC5E6 /* ListParkingViewController.swift */,
 				4550D6681E19D7780080758D /* Add.storyboard */,
 			);
-			name = "Tab - Add";
+			name = Rent;
 			sourceTree = "<group>";
 		};
 		45418F281E16F2DD0050DDF5 /* Animation */ = {
@@ -385,14 +391,6 @@
 				4544AA801E2C0D9E008A760F /* ParkingAnnotationView.swift */,
 			);
 			name = Subviews;
-			sourceTree = "<group>";
-		};
-		457536541EAD750C00E70F7F /* Reservations */ = {
-			isa = PBXGroup;
-			children = (
-				457536571EAD798300E70F7F /* ReservationTableViewCell.swift */,
-			);
-			name = Reservations;
 			sourceTree = "<group>";
 		};
 		4591D5F31DFCA49C00366691 /* API */ = {
@@ -483,10 +481,10 @@
 				459AD2551DA49AE20018B7B9 /* Models */,
 				4591D5F31DFCA49C00366691 /* API */,
 				4544AA7D1E2BFA78008A760F /* Helpers */,
-				45099A851DAF25EA00392FF1 /* Tab - Login */,
-				451853771DA476B5005CC5E6 /* Tab - Find */,
-				451853781DA476CB005CC5E6 /* Tab - Add */,
-				45D5A5071DB2BE640025C45A /* Tab - Profile */,
+				45099A851DAF25EA00392FF1 /* Login */,
+				451853771DA476B5005CC5E6 /* Events */,
+				451853781DA476CB005CC5E6 /* Rent */,
+				45D5A5071DB2BE640025C45A /* Profile */,
 				C5075F8E1EBA4B0B00602B8C /* SideMenu */,
 				45D5D60F1E1B2EDE006BE596 /* Assets.xcassets */,
 				4550D6711E19D78B0080758D /* Main.storyboard */,
@@ -515,18 +513,16 @@
 			path = CarkoUITests;
 			sourceTree = "<group>";
 		};
-		45D5A5071DB2BE640025C45A /* Tab - Profile */ = {
+		45D5A5071DB2BE640025C45A /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				457536541EAD750C00E70F7F /* Reservations */,
-				457536551EAD752500E70F7F /* ReservationsTableViewController.swift */,
-				453314391E036CF300BF0B65 /* BankCreationViewController.swift */,
-				453314311E03669000BF0B65 /* AccountCreationViewController.swift */,
-				451FC46A1E072A830083C0CB /* VehiculeInformationViewController.swift */,
+				C5B5BD9D1EBFDDE200418809 /* History */,
+				C5B5BD9C1EBFDDDB00418809 /* Vehicule */,
+				C5B5BD9B1EBFDDD300418809 /* Payout */,
 				4554EBCF1DB5AA520066E452 /* ProfileViewController.swift */,
 				4550D66E1E19D7870080758D /* Profile.storyboard */,
 			);
-			name = "Tab - Profile";
+			name = Profile;
 			sourceTree = "<group>";
 		};
 		45DC42FD1EA97D5B009F8E8D /* CollectionView */ = {
@@ -634,6 +630,35 @@
 				457536591EAD87AA00E70F7F /* StringExtension.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		C5B5BD9B1EBFDDD300418809 /* Payout */ = {
+			isa = PBXGroup;
+			children = (
+				C5B5BD9E1EBFE00900418809 /* Payout.storyboard */,
+				453314311E03669000BF0B65 /* AccountCreationViewController.swift */,
+				453314391E036CF300BF0B65 /* BankCreationViewController.swift */,
+			);
+			name = Payout;
+			sourceTree = "<group>";
+		};
+		C5B5BD9C1EBFDDDB00418809 /* Vehicule */ = {
+			isa = PBXGroup;
+			children = (
+				C5B5BDA11EBFE05200418809 /* Vehicle.storyboard */,
+				451FC46A1E072A830083C0CB /* VehiculeInformationViewController.swift */,
+			);
+			name = Vehicule;
+			sourceTree = "<group>";
+		};
+		C5B5BD9D1EBFDDE200418809 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				C5B5BDA31EBFE08C00418809 /* History.storyboard */,
+				457536571EAD798300E70F7F /* ReservationTableViewCell.swift */,
+				457536551EAD752500E70F7F /* ReservationsTableViewController.swift */,
+			);
+			name = History;
 			sourceTree = "<group>";
 		};
 		F71F1D1EB70D52FDEF31D66A /* Frameworks */ = {
@@ -800,6 +825,7 @@
 			files = (
 				454C55191E2C73E4000912BA /* GoogleService-Info.plist in Resources */,
 				45B2624F1E1A8644002C2A9D /* Localizable.strings in Resources */,
+				C5B5BDA01EBFE00900418809 /* Payout.storyboard in Resources */,
 				4550D6661E19D7780080758D /* Add.storyboard in Resources */,
 				45ECDAA91E243B2F00E999D8 /* carko-development-firebase-reporting.json in Resources */,
 				45D5D6101E1B2EDE006BE596 /* Assets.xcassets in Resources */,
@@ -808,8 +834,10 @@
 				4550D66F1E19D78B0080758D /* Main.storyboard in Resources */,
 				4550D6691E19D7810080758D /* Login.storyboard in Resources */,
 				4599E6E51E1755C9005494E4 /* GoogleService-Info-Production.plist in Resources */,
+				C5B5BDA51EBFE08C00418809 /* History.storyboard in Resources */,
 				450B5D5A1E2AA4CA00AEEA29 /* NewParkingView.xib in Resources */,
 				45BC294F1DA18249000C54BC /* LaunchScreen.storyboard in Resources */,
+				C5B5BDA21EBFE05200418809 /* Vehicle.storyboard in Resources */,
 				4550D6631E19D7720080758D /* Find.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1234,6 +1262,22 @@
 				45E375151E19ECA800538803 /* en */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		C5B5BD9E1EBFE00900418809 /* Payout.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C5B5BD9F1EBFE00900418809 /* Base */,
+			);
+			name = Payout.storyboard;
+			sourceTree = "<group>";
+		};
+		C5B5BDA31EBFE08C00418809 /* History.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C5B5BDA41EBFE08C00418809 /* Base */,
+			);
+			name = History.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

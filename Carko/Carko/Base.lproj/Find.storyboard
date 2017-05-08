@@ -112,6 +112,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <collectionViewLayout key="collectionViewLayout" id="c87-KU-3Ek" customClass="ApyaLayout" customModule="Carko" customModuleProvider="target"/>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="EventCell" id="6DP-6O-eL9" customClass="EventCollectionViewCell" customModule="Carko" customModuleProvider="target">
@@ -185,6 +186,7 @@
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="eventsCollectionView" destination="ZxP-jl-dXw" id="iIq-Ha-Cgy"/>
                         <segue destination="PFI-OV-uJx" kind="presentation" identifier="showLoginScreen" id="nqX-sr-4pE"/>
                         <segue destination="415-jb-YhG" kind="show" identifier="showEvent" id="zkM-e5-6jq"/>
                     </connections>

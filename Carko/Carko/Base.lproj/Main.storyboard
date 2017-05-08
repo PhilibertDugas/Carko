@@ -27,7 +27,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BZe-rY-oim" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2629" y="-196"/>
+            <point key="canvasLocation" x="-2642" y="-137"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="7um-HZ-8YN">
@@ -97,6 +97,7 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="headerView" destination="5aG-uL-wB5" id="AGo-eY-gIP"/>
+                        <segue destination="v0W-TT-JD1" kind="presentation" identifier="showProfile" id="4Fq-GL-vvj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9AU-dJ-btI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -117,13 +118,13 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JrX-Vc-WLP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4362" y="380"/>
+            <point key="canvasLocation" x="-4368" y="357"/>
         </scene>
-        <!--Navigation Menu View Controller-->
+        <!--Navigation Table View Controller-->
         <scene sceneID="zS7-wj-1zy">
             <objects>
-                <tableViewController id="gbG-Q3-IQf" customClass="NavigationMenuViewController" customModule="Carko" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" sectionIndexMinimumDisplayRowCount="1" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="0Br-xz-kAk">
+                <tableViewController id="gbG-Q3-IQf" customClass="NavigationTableViewController" customModule="Carko" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" sectionIndexMinimumDisplayRowCount="1" rowHeight="44" sectionHeaderHeight="30" sectionFooterHeight="28" id="0Br-xz-kAk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="518"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.76862745099999996" green="0.066666666669999999" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -157,6 +158,9 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <segue destination="Qr4-FZ-n5M" kind="presentation" id="0J4-kc-JKs"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="Byp-ph-iFH">
                                         <rect key="frame" x="0.0" y="60" width="375" height="60"/>
@@ -180,6 +184,9 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <segue destination="glX-PC-6CS" kind="presentation" id="b9w-Ak-iaK"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="HsT-GM-BwI">
                                         <rect key="frame" x="0.0" y="120" width="375" height="60"/>
@@ -203,6 +210,9 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <segue destination="GVA-v5-V9J" kind="presentation" id="XI5-M6-TQo"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="Cj1-mR-ZLt">
                                         <rect key="frame" x="0.0" y="180" width="375" height="60"/>
@@ -252,7 +262,7 @@
                             <tableViewSection headerTitle="Parking" id="CGG-wn-lgo">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="svV-jz-C8u">
-                                        <rect key="frame" x="0.0" y="388" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="390" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="svV-jz-C8u" id="ya5-9q-7lL">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
@@ -273,9 +283,12 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <segue destination="dIl-ot-xcK" kind="presentation" id="Zjo-5X-kKC"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="Jnz-Ky-Jzz">
-                                        <rect key="frame" x="0.0" y="448" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="450" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jnz-Ky-Jzz" id="YCS-uU-O5u">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
@@ -296,6 +309,9 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <segue destination="n3H-mh-QNw" kind="presentation" id="5UX-L7-gRZ"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -309,6 +325,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lap-50-j3g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3234" y="820"/>
+        </scene>
+        <!--Payout-->
+        <scene sceneID="XaK-Ft-8is">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Payout" id="Qr4-FZ-n5M" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i6O-vw-Wve" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2640" y="610"/>
+        </scene>
+        <!--Vehicle-->
+        <scene sceneID="W2Y-L0-w68">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Vehicle" id="glX-PC-6CS" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zha-uW-mx9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2638" y="669"/>
+        </scene>
+        <!--History-->
+        <scene sceneID="0dz-5t-HBI">
+            <objects>
+                <viewControllerPlaceholder storyboardName="History" id="GVA-v5-V9J" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="67P-1W-5fR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2638" y="727"/>
+        </scene>
+        <!--Add-->
+        <scene sceneID="ZbD-Zo-DS4">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Add" id="dIl-ot-xcK" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RtS-To-9gG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2654" y="968"/>
+        </scene>
+        <!--Payout-->
+        <scene sceneID="YyJ-d6-4oX">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Payout" id="n3H-mh-QNw" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YR6-rb-fJO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2640" y="1031"/>
         </scene>
     </scenes>
     <resources>
