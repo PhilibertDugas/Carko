@@ -145,6 +145,7 @@
 		C5B5BDA01EBFE00900418809 /* Payout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5B5BD9E1EBFE00900418809 /* Payout.storyboard */; };
 		C5B5BDA21EBFE05200418809 /* Vehicle.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5B5BDA11EBFE05200418809 /* Vehicle.storyboard */; };
 		C5B5BDA51EBFE08C00418809 /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5B5BDA31EBFE08C00418809 /* History.storyboard */; };
+		C5B5BDA71EC1191500418809 /* HistoryEmpty.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5B5BDA61EC1191500418809 /* HistoryEmpty.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -276,6 +277,7 @@
 		C5B5BD9F1EBFE00900418809 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Payout.storyboard; sourceTree = "<group>"; };
 		C5B5BDA11EBFE05200418809 /* Vehicle.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Vehicle.storyboard; sourceTree = "<group>"; };
 		C5B5BDA41EBFE08C00418809 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/History.storyboard; sourceTree = "<group>"; };
+		C5B5BDA61EC1191500418809 /* HistoryEmpty.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryEmpty.xib; sourceTree = "<group>"; };
 		D0E89F5CBCCDBDCAFD9AF986 /* Pods-Carko.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carko.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Carko/Pods-Carko.debug.xcconfig"; sourceTree = "<group>"; };
 		DF3DC78B5F06CA9F23866878 /* Pods-Carko-CarkoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carko-CarkoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Carko-CarkoTests/Pods-Carko-CarkoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F9FE12AEF604DC6A236BBD68 /* Pods-Carko.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carko.release.xcconfig"; path = "Pods/Target Support Files/Pods-Carko/Pods-Carko.release.xcconfig"; sourceTree = "<group>"; };
@@ -657,6 +659,7 @@
 				C5B5BDA31EBFE08C00418809 /* History.storyboard */,
 				457536571EAD798300E70F7F /* ReservationTableViewCell.swift */,
 				457536551EAD752500E70F7F /* ReservationsTableViewController.swift */,
+				C5B5BDA61EC1191500418809 /* HistoryEmpty.xib */,
 			);
 			name = History;
 			sourceTree = "<group>";
@@ -829,6 +832,7 @@
 				4550D6661E19D7780080758D /* Add.storyboard in Resources */,
 				45ECDAA91E243B2F00E999D8 /* carko-development-firebase-reporting.json in Resources */,
 				45D5D6101E1B2EDE006BE596 /* Assets.xcassets in Resources */,
+				C5B5BDA71EC1191500418809 /* HistoryEmpty.xib in Resources */,
 				4550D66C1E19D7870080758D /* Profile.storyboard in Resources */,
 				45E9B91C1DB82F3500C9E9FA /* MarkerPopup.xib in Resources */,
 				4550D66F1E19D78B0080758D /* Main.storyboard in Resources */,
