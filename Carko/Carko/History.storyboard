@@ -79,10 +79,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="J1d-qV-GiY">
-                        <barButtonItem key="leftBarButtonItem" image="menu" id="4rl-ur-vAr">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="4rl-ur-vAr">
                             <color key="tintColor" red="0.76862745099999996" green="0.066666666669999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <action selector="menuTapped:" destination="68N-vn-MdZ" id="FCH-hM-NOt"/>
+                                <action selector="OnClosePressed:" destination="68N-vn-MdZ" id="oql-iY-lkX"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -108,7 +108,4 @@
             <point key="canvasLocation" x="-623" y="-833"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="menu" width="16" height="16"/>
-    </resources>
 </document>

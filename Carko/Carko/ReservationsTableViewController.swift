@@ -11,6 +11,10 @@ import UIKit
 class ReservationsTableViewController: UITableViewController {
     fileprivate var reservations: [(Reservation)] = []
 
+    @IBAction func OnClosePressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.tableFooterView = UIView.init()
@@ -21,6 +25,17 @@ class ReservationsTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         self.fetchReservations()
     }
+    
+    fileprivate func updateBackgroundImage() {
+        if reservations.count == 0
+        {
+            self.tableView.backgroundView = (Bundle.main.loadNibNamed("HistoryEmpty", owner: self, options: nil)?[0] as! UIView)
+        }
+        else
+        {
+            self.tableView.backgroundView = nil
+        }
+    }
 
     fileprivate func fetchReservations() {
         Reservation.getCustomerReservations { (reservations, error) in
@@ -29,6 +44,7 @@ class ReservationsTableViewController: UITableViewController {
             } else {
                 self.reservations = reservations
                 self.tableView.reloadData()
+                self.updateBackgroundImage()
             }
         }
     }
