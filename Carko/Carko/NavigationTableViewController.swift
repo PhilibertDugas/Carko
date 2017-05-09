@@ -44,6 +44,23 @@ class NavigationTableViewController: UITableViewController {
 
 }
 
+extension NavigationTableViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)!
+        switch cell.tag {
+        case 4:
+            self.contactUsMail()
+            break;
+        default:
+            break;
+        }
+    }
+
+    fileprivate func contactUsMail() {
+        UIApplication.shared.open(URL.init(string: "mailto:\(AppState.companyEmail)")!)
+    }
+}
+
 extension NavigationTableViewController: AuthenticatedDelegate {
     func userAuthenticated() {
         let currentUser = FIRAuth.auth()?.currentUser

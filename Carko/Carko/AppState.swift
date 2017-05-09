@@ -13,6 +13,7 @@ import Stripe
 
 class AppState: NSObject {
     static let shared = AppState.init()
+    static let companyEmail = "apyaparking@gmail.com"
     static let provinces = ["AB", "BC", "MB", "NB", "NL", "NS", "ON", "PE", "QC", "SK"]
 
     var customer: Customer!
