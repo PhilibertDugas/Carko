@@ -1,12 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F71b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="EIA-Tj-76l">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F71b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="04G-7f-DB4">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="7kU-Lr-bTB">
+            <objects>
+                <navigationController id="04G-7f-DB4" sceneMemberID="viewController">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="Ikc-UM-ZjJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="EIA-Tj-76l" kind="relationship" relationship="rootViewController" id="u6v-eM-QCS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4xn-38-gWC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-153" y="-259"/>
+        </scene>
         <!--Account information-->
         <scene sceneID="TtU-gg-yCo">
             <objects>
@@ -16,11 +37,11 @@
                         <viewControllerLayoutGuide type="bottom" id="d7Y-IL-sSA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="KOR-6C-5hj">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view alpha="0.85000002384185791" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G8e-05-hGg" customClass="RoundedCornerView" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="16" y="72" width="343" height="90"/>
+                                <rect key="frame" x="16" y="8" width="343" height="90"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To receive payment, please enter the following information." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5he-Nx-YBk">
                                         <rect key="frame" x="8" y="8" width="327" height="74"/>
@@ -39,7 +60,7 @@
                                 </constraints>
                             </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vdX-ON-AFp" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="16" y="170" width="343" height="50"/>
+                                <rect key="frame" x="16" y="106" width="343" height="50"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="0ig-9Z-d47"/>
@@ -49,7 +70,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="City" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="72X-Jc-uGU" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="16" y="228" width="343" height="50"/>
+                                <rect key="frame" x="16" y="164" width="343" height="50"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="aha-cz-ZGX"/>
@@ -59,7 +80,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Province" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="fp3-sY-MPq" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="16" y="286" width="343" height="50"/>
+                                <rect key="frame" x="16" y="222" width="343" height="50"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ixf-Gu-DVx"/>
@@ -69,7 +90,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Postal Code" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="uZd-0s-zDS" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="16" y="344" width="343" height="50"/>
+                                <rect key="frame" x="16" y="280" width="343" height="50"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="mBR-dY-dH0"/>
@@ -79,7 +100,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Canada" placeholder="Country" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d38-EY-VnM" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="16" y="402" width="343" height="50"/>
+                                <rect key="frame" x="16" y="338" width="343" height="50"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="RIu-Ev-3xy"/>
@@ -89,7 +110,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Date of birth" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2bv-DF-asf" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="16" y="460" width="343" height="50"/>
+                                <rect key="frame" x="16" y="396" width="343" height="50"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="nTH-4c-8lj"/>
@@ -103,7 +124,7 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Btq-XI-LZu" customClass="RoundedCornerButton" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="16" y="565" width="343" height="45"/>
+                                <rect key="frame" x="16" y="550" width="343" height="45"/>
                                 <color key="backgroundColor" red="0.112871848" green="0.75954872370000004" blue="0.28861063720000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="sTl-vy-FPd"/>
@@ -146,11 +167,14 @@
                             <constraint firstItem="G8e-05-hGg" firstAttribute="leading" secondItem="KOR-6C-5hj" secondAttribute="leadingMargin" id="zrw-nW-FcS"/>
                         </constraints>
                     </view>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO">
-                        <color key="tintColor" red="0.112871848" green="0.75954872370000004" blue="0.28861063720000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </simulatedNavigationBarMetrics>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4_7.fullscreen"/>
+                    <navigationItem key="navigationItem" id="JaY-HJ-ob3">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="3e1-La-k1Y">
+                            <connections>
+                                <action selector="onClosePressed:" destination="EIA-Tj-76l" id="C0J-yf-r37"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="addressTextField" destination="vdX-ON-AFp" id="Z1h-NP-6rI"/>
                         <outlet property="cityTextField" destination="72X-Jc-uGU" id="yAp-TA-oAL"/>
@@ -163,7 +187,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="74S-qL-fzA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1055" y="-546"/>
+            <point key="canvasLocation" x="574" y="-259"/>
         </scene>
         <!--Bank information-->
         <scene sceneID="8k2-pf-KMk">
@@ -173,12 +197,12 @@
                         <viewControllerLayoutGuide type="top" id="jMk-GN-uXT"/>
                         <viewControllerLayoutGuide type="bottom" id="B1d-qZ-Cmm"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ds2-Mr-fGj">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="ds2-Mr-fGj">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Routing Number" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="2IC-pI-c7k" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="16" y="170" width="343" height="50"/>
+                                <rect key="frame" x="16" y="106" width="343" height="50"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="nKM-wp-4tY"/>
@@ -188,7 +212,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Account Number" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ECj-eV-L0Q" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="16" y="228" width="343" height="50"/>
+                                <rect key="frame" x="16" y="164" width="343" height="50"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="cxn-HH-mj8"/>
@@ -198,13 +222,13 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check_example.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Bql-Bg-ujr">
-                                <rect key="frame" x="16" y="338" width="343" height="181"/>
+                                <rect key="frame" x="16" y="274" width="343" height="181"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Bql-Bg-ujr" secondAttribute="height" multiplier="1.9:1" id="7zb-jf-sU1"/>
                                 </constraints>
                             </imageView>
                             <view alpha="0.85000002384185791" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tw5-R0-HB4" customClass="RoundedCornerView" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="16" y="72" width="343" height="90"/>
+                                <rect key="frame" x="16" y="8" width="343" height="90"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apya does not store or share any banking information. All banking information is communicated through Stripe." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DLM-Ik-psT">
                                         <rect key="frame" x="8" y="8" width="327" height="74"/>
@@ -223,7 +247,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="go1-zU-b4U">
-                                <rect key="frame" x="16" y="565" width="343" height="45"/>
+                                <rect key="frame" x="16" y="550" width="343" height="45"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lLy-pT-45z" customClass="RoundedCornerButton" customModule="Carko" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="45"/>
@@ -281,7 +305,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JTs-dv-le3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1836" y="-546"/>
+            <point key="canvasLocation" x="1356" y="-259"/>
         </scene>
     </scenes>
     <resources>

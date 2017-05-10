@@ -21,6 +21,10 @@ class VehiculeInformationViewController: UIViewController {
     var years: [(String)] = []
     let licensePlateLength = 6
 
+    @IBAction func onClosePressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func saveTapped(_ sender: Any) {
         if allFieldsFilled() {
             let vehicule = Vehicule.init(license: licensePlateTextField.text!, make: makeTextField.text!, model: modelTextField.text!, year: yearTextField.text!, color: colorTextField.text!, province: provinceTextField.text!)

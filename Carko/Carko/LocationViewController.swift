@@ -54,12 +54,10 @@ class LocationViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = true
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.navigationController?.navigationBar.isHidden = false
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -128,7 +126,6 @@ extension LocationViewController: UITextFieldDelegate {
             }, completion: { (complete) in
                 if complete {
                     self.firstSearch = false
-                    self.blurSearchBar()
                 }
             })
         } else {

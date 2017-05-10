@@ -11,11 +11,18 @@ import FirebaseStorageUI
 import CoreLocation
 
 class ListParkingViewController: UIViewController {
+    
     @IBOutlet var parkingTableView: UITableView!
+    @IBOutlet weak var addParkingButton: RoundedCornerButton!
+    
     var parkingList = [Parking]()
     var isEditingAvailability = false
     var selectedRowIndex = 0
 
+    @IBAction func onClosePressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -48,8 +55,7 @@ class ListParkingViewController: UIViewController {
     }
 
     func updateTable(_ parkings: [(Parking)]) {
-        self.navigationController?.navigationBar.isHidden = false
-        self.navigationItem.leftBarButtonItem = self.editButtonItem
+        self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.editButtonItem.action = #selector(self.setTableEditMode)
         self.setEditing(false, animated: true)
         self.parkingTableView.setEditing(false, animated: true)
@@ -64,18 +70,13 @@ class ListParkingViewController: UIViewController {
     }
 
     func removeFirstParkingView() {
-        for view in self.view.subviews {
-            if let firstView = view as? NewParkingView {
-                firstView.removeFromSuperview()
-            }
-        }
+        parkingTableView.backgroundView = nil
+        addParkingButton.setTitle("Add", for: .normal)
     }
 
     func setupFirstParkingView() {
-        self.navigationController?.navigationBar.isHidden = true
-        let firstParkingView = NewParkingView.init(frame: self.view.frame)
-        firstParkingView.mainActionButton.addTarget(self, action: #selector(self.newParkingTapped), for: UIControlEvents.touchUpInside)
-        self.view.addSubview(firstParkingView)
+        parkingTableView.backgroundView = NewParkingView()
+        addParkingButton.setTitle("Get Started", for: .normal)
     }
 
     func newParkingTapped() {

@@ -20,6 +20,10 @@ class AccountCreationViewController: UIViewController {
     var address: AccountAddress?
     var dob: AccountDateOfBirth?
     var account: Account?
+    
+    @IBAction func onClosePressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 
     @IBAction func timeEditBegin(_ sender: UITextField) {
         let datePicker = UIDatePicker.init()

@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F71b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewParkingView" customModule="Carko" customModuleProvider="target">
             <connections>
-                <outlet property="mainActionButton" destination="T2f-jH-OKc" id="nCU-2A-fFW"/>
                 <outlet property="mainImage" destination="yOu-zZ-Qf3" id="IAU-8h-rbA"/>
                 <outlet property="mainLabel" destination="O3s-F9-IjH" id="D23-IG-qyT"/>
                 <outlet property="view" destination="iN0-l3-epB" id="K2g-Fb-b6G"/>
@@ -23,19 +22,8 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="first_parking_bg" translatesAutoresizingMaskIntoConstraints="NO" id="yOu-zZ-Qf3">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <rect key="frame" x="0.0" y="-20" width="375" height="687"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T2f-jH-OKc" customClass="RoundedCornerButton" customModule="Carko" customModuleProvider="target">
-                    <rect key="frame" x="16" y="542" width="343" height="45"/>
-                    <color key="backgroundColor" red="0.112871848" green="0.75954872370000004" blue="0.28861063720000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="45" id="V9m-gh-Jpf"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                    <state key="normal" title="Get started">
-                        <color key="titleColor" red="0.9999514222" green="1" blue="0.97945672269999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                </button>
                 <view alpha="0.84999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0QZ-Yp-guc" customClass="RoundedCornerView" customModule="Carko" customModuleProvider="target">
                     <rect key="frame" x="16" y="75" width="343" height="75"/>
                     <subviews>
@@ -60,18 +48,13 @@
             <constraints>
                 <constraint firstItem="yOu-zZ-Qf3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="2h4-Ua-cnN"/>
                 <constraint firstAttribute="bottom" secondItem="yOu-zZ-Qf3" secondAttribute="bottom" id="DZk-bi-ZI3"/>
-                <constraint firstAttribute="bottom" secondItem="T2f-jH-OKc" secondAttribute="bottom" constant="80" id="J0o-A0-LdJ"/>
                 <constraint firstItem="0QZ-Yp-guc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="75" id="JUY-OC-KJJ"/>
                 <constraint firstAttribute="trailing" secondItem="yOu-zZ-Qf3" secondAttribute="trailing" id="KEx-DO-d76"/>
-                <constraint firstItem="T2f-jH-OKc" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="UnD-hw-Usp"/>
-                <constraint firstItem="T2f-jH-OKc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="YJk-fY-QJs"/>
                 <constraint firstAttribute="trailing" secondItem="0QZ-Yp-guc" secondAttribute="trailing" constant="16" id="cU7-Bz-qVc"/>
-                <constraint firstItem="yOu-zZ-Qf3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="pnj-eU-rgh"/>
-                <constraint firstAttribute="trailing" secondItem="T2f-jH-OKc" secondAttribute="trailing" constant="16" id="xTv-HP-dUg"/>
+                <constraint firstItem="yOu-zZ-Qf3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="-20" id="pnj-eU-rgh"/>
                 <constraint firstItem="0QZ-Yp-guc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="xks-QI-a2D"/>
             </constraints>
-            <nil key="simulatedTopBarMetrics"/>
-            <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
             <point key="canvasLocation" x="117.5" y="53.5"/>
         </view>
     </objects>
