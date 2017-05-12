@@ -15,10 +15,6 @@ class NavigationViewController: UIViewController {
     
     @IBOutlet weak var headerView: ProfileHeaderView!
 
-    @IBAction func profileTap(_ sender: Any) {
-        performSegue(withIdentifier: "showProfile", sender: sender)
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
     }

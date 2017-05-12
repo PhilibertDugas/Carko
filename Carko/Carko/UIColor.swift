@@ -19,7 +19,11 @@ extension UIColor {
         self.init(red:(netHex >> 16) & 0xff, green:(netHex >> 8) & 0xff, blue:netHex & 0xff)
     }
 
-    class var primaryColor: UIColor {
+    class var accentColor: UIColor {
         return UIColor.init(netHex: 0xC41134)
+    }
+
+    class var primaryColor: UIColor {
+        return UIColor.init(netHex: 0x252627)
     }
 }

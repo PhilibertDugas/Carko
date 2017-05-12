@@ -115,9 +115,6 @@
                                     <constraint firstItem="gwO-0D-yHd" firstAttribute="centerY" secondItem="5aG-uL-wB5" secondAttribute="centerY" id="LSA-DI-9HH"/>
                                     <constraint firstItem="1Rz-UP-VN8" firstAttribute="leading" secondItem="5aG-uL-wB5" secondAttribute="leading" constant="8" id="tdV-Zb-Cix"/>
                                 </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="Ctv-fB-0oI" appends="YES" id="k3g-bH-afN"/>
-                                </connections>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9t3-Hq-KYi">
                                 <rect key="frame" x="0.0" y="150" width="375" height="517"/>
@@ -142,11 +139,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9AU-dJ-btI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="Ctv-fB-0oI">
-                    <connections>
-                        <action selector="profileTap:" destination="igd-4C-9NW" id="wrH-gH-RI9"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-3234.4000000000001" y="91.304347826086968"/>
         </scene>

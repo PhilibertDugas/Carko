@@ -120,7 +120,7 @@ extension EventsCollectionViewController {
         cell.event = self.events[indexPath.row]
         cell.layer.cornerRadius = 3
         cell.layer.borderWidth = 0.5
-        cell.layer.borderColor = UIColor.primaryColor.cgColor
+        cell.layer.borderColor = UIColor.accentColor.cgColor
         return cell
     }
 
