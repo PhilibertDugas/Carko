@@ -41,7 +41,7 @@
                 <viewControllerPlaceholder storyboardName="Payout" id="Xf7-Ex-KMf" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C8x-7X-SsT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2661" y="1020"/>
+            <point key="canvasLocation" x="-2442" y="857"/>
         </scene>
         <!--Login-->
         <scene sceneID="wjy-aO-haL">
@@ -144,7 +144,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9AU-dJ-btI" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="Ctv-fB-0oI">
                     <connections>
-                        <segue destination="BOm-bA-4Dc" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="Vc6-AQ-SmK"/>
+                        <action selector="profileTap:" destination="igd-4C-9NW" id="wrH-gH-RI9"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -251,7 +251,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <segue destination="kjO-Je-B1s" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="kGI-h2-GCo"/>
+                                            <segue destination="kjO-Je-B1s" kind="presentation" id="kGI-h2-GCo"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="HsT-GM-BwI">
@@ -289,7 +289,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <segue destination="abS-Ie-eoE" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="Vha-QH-WMS"/>
+                                            <segue destination="abS-Ie-eoE" kind="presentation" id="Vha-QH-WMS"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" tag="4" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="Cj1-mR-ZLt">
@@ -372,7 +372,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <segue destination="VL7-ff-8nA" kind="custom" identifier="" customClass="SWRevealViewControllerSeguePushController" id="jFQ-It-vKn"/>
+                                            <segue destination="VL7-ff-8nA" kind="presentation" identifier="" id="jFQ-It-vKn"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="Jnz-Ky-Jzz">
@@ -408,7 +408,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <segue destination="Xf7-Ex-KMf" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="Y23-Rs-Gai"/>
+                                            <segue destination="Xf7-Ex-KMf" kind="presentation" id="Y23-Rs-Gai"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="JF2-fa-iRS">
@@ -461,17 +461,6 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-3234.4000000000001" y="819.49025487256381"/>
-        </scene>
-        <!--Find-->
-        <scene sceneID="yBP-Rn-Lgt">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Find" id="BOm-bA-4Dc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Find" id="G3T-hp-al9"/>
-                    <navigationItem key="navigationItem" id="W9q-of-yjx"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9ge-4L-l8a" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2694" y="-154"/>
         </scene>
     </scenes>
     <resources>

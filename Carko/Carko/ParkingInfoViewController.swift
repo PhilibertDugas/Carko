@@ -2,6 +2,10 @@ import UIKit
 import CoreLocation
 import FirebaseStorage
 
+protocol ParkingDeleteDelegate {
+    func parkingDeleted()
+}
+
 class ParkingInfoViewController: UITableViewController {
     @IBOutlet var parkingImageView: UIImageView!
     @IBOutlet var helperImageView: UIImageView!
@@ -15,6 +19,7 @@ class ParkingInfoViewController: UITableViewController {
     @IBOutlet var saveButton: RoundedCornerButton!
 
     var parking: Parking!
+    var deleteDelegate: ParkingDeleteDelegate!
     let imagePicker = UIImagePickerController.init()
 
     override func viewDidLoad() {
@@ -105,6 +110,7 @@ class ParkingInfoViewController: UITableViewController {
         if let error = error {
             super.displayErrorMessage(error.localizedDescription)
         } else {
+            self.deleteDelegate.parkingDeleted()
             self.navigationController?.popToRootViewController(animated: true)
         }
     }

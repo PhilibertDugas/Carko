@@ -15,14 +15,13 @@ class ListParkingViewController: UITableViewController {
     var isEditingAvailability = false
     var selectedRowIndex = 0
 
-    @IBAction func navigationMenuPressed(_ sender: Any) {
-        self.revealViewController().revealToggle(self)
+    @IBAction func cancelPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.tableHeaderView = UIView.init(frame: (self.navigationController?.navigationBar.frame)!)
-        self.setupSidebar()
         NotificationCenter.default.addObserver(self, selector: #selector(self.parkingAdded), name: Notification.Name.init(rawValue: "NewParking"), object: nil)
 
         fetchParkings()
@@ -39,10 +38,10 @@ class ListParkingViewController: UITableViewController {
 
     func parkingAdded() {
         self.tableView.isScrollEnabled = true
+        self.tableView.tableFooterView?.isHidden = false
         self.fetchParkings()
     }
 
-    
     func fetchParkings() {
         Parking.getCustomerParkings { (parkings, error) in
             if let error = error {
@@ -51,6 +50,8 @@ class ListParkingViewController: UITableViewController {
                 AppState.shared.cacheCustomerParkings(parkings)
                 self.updateTable(parkings)
             } else {
+                self.parkingList.removeAll()
+                self.tableView.reloadData()
                 self.setupFirstParkingView()
             }
         }
@@ -64,18 +65,19 @@ class ListParkingViewController: UITableViewController {
     }
 
     func removeFirstParkingView() {
-        for view in self.view.subviews {
-            if let firstView = view as? NewParkingView {
-                firstView.removeFromSuperview()
-            }
-        }
+        self.tableView.tableFooterView?.isHidden = false
+
+        tableView.backgroundView = nil
+        self.tableView.isScrollEnabled = true
     }
 
     func setupFirstParkingView() {
-        self.navigationController?.navigationBar.isHidden = true
-        let firstParkingView = NewParkingView.init(frame: CGRect.init(x: self.view.frame.origin.x, y: self.view.frame.origin.y - 20, width: self.view.frame.size.width, height: self.view.frame.size.height))
+        self.tableView.tableFooterView?.isHidden = true
+
+        let firstParkingView = NewParkingView.init()
         firstParkingView.mainActionButton.addTarget(self, action: #selector(self.newParkingTapped), for: UIControlEvents.touchUpInside)
-        self.view.addSubview(firstParkingView)
+
+        self.tableView.backgroundView = firstParkingView
         self.tableView.isScrollEnabled = false
     }
 
@@ -87,6 +89,7 @@ class ListParkingViewController: UITableViewController {
         if segue.identifier == "showParkingInfo" {
             let destinationVC = segue.destination as! ParkingInfoViewController
             destinationVC.parking = parkingList[selectedRowIndex]
+            destinationVC.deleteDelegate = self
         } else if segue.identifier == "newParking" {
             let vc = segue.destination as! LocationViewController
             vc.parking = Parking.init()
@@ -119,11 +122,8 @@ extension ListParkingViewController {
     }
 }
 
-extension ListParkingViewController: SWRevealViewControllerDelegate {
-    fileprivate func setupSidebar() {
-        let revealViewController = self.revealViewController()
-        revealViewController?.delegate = self
-        AppState.setupRevealViewController(revealViewController!)
-        self.view.addGestureRecognizer((revealViewController?.panGestureRecognizer())!)
+extension ListParkingViewController: ParkingDeleteDelegate {
+    func parkingDeleted() {
+        self.fetchParkings()
     }
 }

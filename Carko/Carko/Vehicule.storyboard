@@ -163,10 +163,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="S0J-pa-iRk">
-                        <barButtonItem key="leftBarButtonItem" image="menu" id="Xzc-Oh-SH9">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="Xzc-Oh-SH9">
                             <color key="tintColor" red="0.76862745099999996" green="0.066666666669999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <action selector="menuTapped:" destination="bGQ-vL-hvT" id="Hh7-JE-a5c"/>
+                                <action selector="cancelTapped:" destination="bGQ-vL-hvT" id="uMd-xE-6kw"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -185,7 +185,4 @@
             <point key="canvasLocation" x="1070" y="309"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="menu" width="16" height="16"/>
-    </resources>
 </document>

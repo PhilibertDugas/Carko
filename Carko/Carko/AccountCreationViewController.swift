@@ -21,9 +21,8 @@ class AccountCreationViewController: UIViewController {
     var dob: AccountDateOfBirth?
     var account: Account?
 
-    @IBAction func menuTapped(_ sender: Any) {
-        self.revealViewController().revealToggle(self)
-
+    @IBAction func cancelTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
 
     @IBAction func timeEditBegin(_ sender: UITextField) {
@@ -72,7 +71,6 @@ class AccountCreationViewController: UIViewController {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         self.setupProvincePicker()
-        self.setupSidebar()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -80,15 +78,6 @@ class AccountCreationViewController: UIViewController {
             let destination = segue.destination as! BankCreationViewController
             destination.account = self.account!
         }
-    }
-}
-
-extension AccountCreationViewController: SWRevealViewControllerDelegate {
-    fileprivate func setupSidebar() {
-        let revealViewController = self.revealViewController()
-        revealViewController?.delegate = self
-        self.view.addGestureRecognizer((revealViewController?.panGestureRecognizer())!)
-        AppState.setupRevealViewController(revealViewController!)
     }
 }
 

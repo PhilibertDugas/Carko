@@ -11,15 +11,10 @@ import UIKit
 class ReservationsTableViewController: UITableViewController {
     fileprivate var reservations: [(Reservation)] = []
 
-    @IBAction func menuTapped(_ sender: Any) {
-        self.revealViewController().revealToggle(self)
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.tableFooterView = UIView.init()
         self.fetchReservations()
-        self.setupSidebar()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -36,15 +31,6 @@ class ReservationsTableViewController: UITableViewController {
                 self.tableView.reloadData()
             }
         }
-    }
-}
-
-extension ReservationsTableViewController: SWRevealViewControllerDelegate {
-    fileprivate func setupSidebar() {
-        let revealViewController = self.revealViewController()
-        revealViewController?.delegate = self
-        AppState.setupRevealViewController(revealViewController!)
-        self.view.addGestureRecognizer((revealViewController?.panGestureRecognizer())!)
     }
 }
 

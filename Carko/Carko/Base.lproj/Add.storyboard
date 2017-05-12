@@ -426,10 +426,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="HJf-bA-RnH">
-                        <barButtonItem key="leftBarButtonItem" image="menu" id="jKE-mL-R9Z">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="jKE-mL-R9Z">
                             <color key="tintColor" red="0.76862745099999996" green="0.066666666669999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <action selector="navigationMenuPressed:" destination="e3l-Ri-97n" id="lJv-M0-5q9"/>
+                                <action selector="cancelPressed:" destination="e3l-Ri-97n" id="vl7-k6-ynh"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -955,13 +955,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="menu" width="16" height="16"/>
         <image name="parking_background" width="1920" height="1200"/>
         <image name="photo-camera" width="42" height="42"/>
         <image name="search" width="44" height="44"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Kns-8F-D69"/>
+        <segue reference="unS-f7-ZOS"/>
         <segue reference="TkR-cm-Vee"/>
         <segue reference="edw-nD-MO5"/>
     </inferredMetricsTieBreakers>

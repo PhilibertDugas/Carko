@@ -21,8 +21,8 @@ class VehiculeInformationViewController: UIViewController {
     var years: [(String)] = []
     let licensePlateLength = 6
 
-    @IBAction func menuTapped(_ sender: Any) {
-        self.revealViewController().revealToggle(self)
+    @IBAction func cancelTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
 
     @IBAction func saveTapped(_ sender: Any) {
@@ -47,16 +47,6 @@ class VehiculeInformationViewController: UIViewController {
         setupYears()
         setupFields()
         setupPickers()
-        self.setupSidebar()
-    }
-}
-
-extension VehiculeInformationViewController: SWRevealViewControllerDelegate {
-    fileprivate func setupSidebar() {
-        let revealViewController = self.revealViewController()
-        revealViewController?.delegate = self
-        AppState.setupRevealViewController(revealViewController!)
-        self.view.addGestureRecognizer((revealViewController?.panGestureRecognizer())!)
     }
 }
 

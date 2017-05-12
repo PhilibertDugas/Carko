@@ -13,13 +13,17 @@ import AVFoundation
 
 
 class EventsCollectionViewController: UICollectionViewController {
+    private var isHamburgerMenuOpen = false
+
     fileprivate let reuseIdentifier = "EventCell"
     fileprivate var events: [(Event)] = []
     fileprivate var selectedEvent: Event!
     fileprivate var refresher: UIRefreshControl!
+    fileprivate var revealViewController: SWRevealViewController!
+
 
     @IBAction func navigationMenuPressed(_ sender: Any) {
-        self.revealViewController().revealToggle(self)
+        revealViewController.revealToggle(sender)
     }
 
     override func viewDidLoad() {
@@ -86,10 +90,19 @@ class EventsCollectionViewController: UICollectionViewController {
 
 extension EventsCollectionViewController: SWRevealViewControllerDelegate {
     fileprivate func setupSidebar() {
-        let revealViewController = self.revealViewController()
+        revealViewController = self.revealViewController()
+
         revealViewController?.delegate = self
-        self.view.addGestureRecognizer((revealViewController?.panGestureRecognizer())!)
-        AppState.setupRevealViewController(revealViewController!)
+
+        revealViewController?.bounceBackOnOverdraw = true
+        revealViewController?.stableDragOnOverdraw = false
+        revealViewController?.toggleAnimationType = .spring
+        revealViewController?.rearViewRevealDisplacement = 44
+        revealViewController?.rearViewRevealOverdraw = 10
+        revealViewController?.rearViewRevealWidth = 300
+
+        let _ = revealViewController?.panGestureRecognizer()
+        let _ = revealViewController?.tapGestureRecognizer()
     }
 }
 
