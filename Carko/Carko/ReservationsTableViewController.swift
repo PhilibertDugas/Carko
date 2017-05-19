@@ -27,12 +27,10 @@ class ReservationsTableViewController: UITableViewController {
     }
     
     fileprivate func updateBackgroundImage() {
-        if reservations.count == 0
-        {
+        if reservations.count == 0 {
             self.tableView.backgroundView = (Bundle.main.loadNibNamed("HistoryEmpty", owner: self, options: nil)?[0] as! UIView)
         }
-        else
-        {
+        else {
             self.tableView.backgroundView = nil
         }
     }

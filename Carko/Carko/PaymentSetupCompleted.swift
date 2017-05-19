@@ -1,18 +1,16 @@
 //
-//  ProfileHeaderView.swift
+//  PaymentSetupCompleted.swift
 //  Carko
 //
-//  Created by Guillaume Lalande on 2017-05-04.
+//  Created by Philibert Dugas on 2017-05-12.
 //  Copyright © 2017 QH4L. All rights reserved.
 //
 
 import UIKit
-import QuartzCore
 
-class ProfileHeaderView: UIView {
-
+class PaymentSetupCompleted: UIView {
     @IBOutlet var view: UIView!
-    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var changeButton: UIButton!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,15 +23,11 @@ class ProfileHeaderView: UIView {
     }
 
     private func commonInit() {
-        Bundle.main.loadNibNamed("ProfileHeaderView", owner: self, options: nil)
+        Bundle.main.loadNibNamed("PayoutSetupCompleted", owner: self, options: nil)
         guard let content = view else { return }
         content.frame = self.bounds
         content.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-
-        //headerView.layer.cornerRadius = 7
-        //headerView.layer.masksToBounds = true
-        //headerView.layer.borderColor = (#colorLiteral(red: 0.8200154901, green: 0.1567437351, blue: 0.2629780173, alpha: 1)).cgColor
-        //headerView.layer.borderWidth = 2.0
         self.addSubview(content)
     }
+
 }

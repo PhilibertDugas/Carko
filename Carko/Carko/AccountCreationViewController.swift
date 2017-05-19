@@ -21,6 +21,8 @@ class AccountCreationViewController: UIViewController {
     var dob: AccountDateOfBirth?
     var account: Account?
 
+    var completedView: PaymentSetupCompleted?
+
     @IBAction func cancelTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -78,6 +80,34 @@ class AccountCreationViewController: UIViewController {
             let destination = segue.destination as! BankCreationViewController
             destination.account = self.account!
         }
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.setupBackgroundView()
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if let completedView = self.completedView {
+            completedView.frame = self.view.bounds
+        }
+    }
+
+    fileprivate func setupBackgroundView() {
+        if AppState.shared.customer.accountId != nil {
+            self.completedView = PaymentSetupCompleted.init(frame: self.view.frame)
+            self.completedView?.changeButton.addTarget(self, action: #selector(self.dismissBackgroundView), for: UIControlEvents.touchUpInside)
+            self.view.addSubview(self.completedView!)
+        } else {
+            if let completedView = self.completedView {
+                completedView.removeFromSuperview()
+            }
+        }
+    }
+
+    func dismissBackgroundView() {
+        self.completedView?.removeFromSuperview()
     }
 }
 

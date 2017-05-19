@@ -61,6 +61,8 @@
 		4591D5FB1DFCA54600366691 /* ReservationClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4591D5FA1DFCA54600366691 /* ReservationClient.swift */; };
 		4599E6E51E1755C9005494E4 /* GoogleService-Info-Production.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4599E6E41E1755C9005494E4 /* GoogleService-Info-Production.plist */; };
 		459AD2571DA49B6C0018B7B9 /* Parking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459AD2561DA49B6C0018B7B9 /* Parking.swift */; };
+		45AA40E51EC696A4000D306E /* PayoutSetupCompleted.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45AA40E41EC696A4000D306E /* PayoutSetupCompleted.xib */; };
+		45AA40E71EC699BB000D306E /* PaymentSetupCompleted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AA40E61EC699BB000D306E /* PaymentSetupCompleted.swift */; };
 		45B2624F1E1A8644002C2A9D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4550D6801E19DD790080758D /* Localizable.strings */; };
 		45B77B441DDC0E39009ABF53 /* ParkingTransitionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B77B431DDC0E39009ABF53 /* ParkingTransitionAnimation.swift */; };
 		45BB39651DBBF0010019C2A3 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BB39641DBBF0010019C2A3 /* Buttons.swift */; };
@@ -225,6 +227,8 @@
 		4591D5FA1DFCA54600366691 /* ReservationClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationClient.swift; sourceTree = "<group>"; };
 		4599E6E41E1755C9005494E4 /* GoogleService-Info-Production.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Production.plist"; sourceTree = "<group>"; };
 		459AD2561DA49B6C0018B7B9 /* Parking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parking.swift; sourceTree = "<group>"; };
+		45AA40E41EC696A4000D306E /* PayoutSetupCompleted.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayoutSetupCompleted.xib; sourceTree = "<group>"; };
+		45AA40E61EC699BB000D306E /* PaymentSetupCompleted.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentSetupCompleted.swift; sourceTree = "<group>"; };
 		45B77B431DDC0E39009ABF53 /* ParkingTransitionAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingTransitionAnimation.swift; sourceTree = "<group>"; };
 		45BB39641DBBF0010019C2A3 /* Buttons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		45BC29411DA18249000C54BC /* Carko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Carko.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -565,6 +569,8 @@
 				453314391E036CF300BF0B65 /* BankCreationViewController.swift */,
 				453314311E03669000BF0B65 /* AccountCreationViewController.swift */,
 				45EA59B91EBD1ECE002B50BD /* Payout.storyboard */,
+				45AA40E41EC696A4000D306E /* PayoutSetupCompleted.xib */,
+				45AA40E61EC699BB000D306E /* PaymentSetupCompleted.swift */,
 			);
 			name = Payout;
 			sourceTree = "<group>";
@@ -812,6 +818,7 @@
 				45FDF49C1EC5555200A9904A /* HistoryEmpty.xib in Resources */,
 				45EA59B81EBD1EC4002B50BD /* Vehicule.storyboard in Resources */,
 				45E9B91C1DB82F3500C9E9FA /* MarkerPopup.xib in Resources */,
+				45AA40E51EC696A4000D306E /* PayoutSetupCompleted.xib in Resources */,
 				4550D66F1E19D78B0080758D /* Main.storyboard in Resources */,
 				45EA59BA1EBD1ECE002B50BD /* Payout.storyboard in Resources */,
 				4550D6691E19D7810080758D /* Login.storyboard in Resources */,
@@ -1040,6 +1047,7 @@
 				45637CFF1DEB184500DD42C0 /* AppState.swift in Sources */,
 				458A98301DBCFD44007F53EE /* UnderlineTextField.swift in Sources */,
 				457536581EAD798300E70F7F /* ReservationTableViewCell.swift in Sources */,
+				45AA40E71EC699BB000D306E /* PaymentSetupCompleted.swift in Sources */,
 				45D073331EA84A75000604D3 /* Event.swift in Sources */,
 				458BC76A1DE218DC0028AC5B /* LocationSearchTableTableViewController.swift in Sources */,
 				4591D5F21DFC9D4700366691 /* Charge.swift in Sources */,
