@@ -49,6 +49,7 @@
 		457536561EAD752500E70F7F /* ReservationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457536551EAD752500E70F7F /* ReservationsTableViewController.swift */; };
 		457536581EAD798300E70F7F /* ReservationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457536571EAD798300E70F7F /* ReservationTableViewCell.swift */; };
 		4575365A1EAD87AA00E70F7F /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457536591EAD87AA00E70F7F /* StringExtension.swift */; };
+		457BF1F51ECFE303007ABB28 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457BF1F41ECFE303007ABB28 /* Loader.swift */; };
 		457CF5D41EBC0D9800A1397F /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 457CF5D31EBC0D9800A1397F /* SWRevealViewController.m */; };
 		45877E751E158709006A7709 /* SimpleCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45877E741E158709006A7709 /* SimpleCellTableViewCell.swift */; };
 		458859431EA91C58008DDED8 /* EventClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458859421EA91C58008DDED8 /* EventClient.swift */; };
@@ -214,6 +215,7 @@
 		457536571EAD798300E70F7F /* ReservationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationTableViewCell.swift; sourceTree = "<group>"; };
 		457536591EAD87AA00E70F7F /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		45782C241E2E9A1E002E9DFD /* Carko.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Carko.entitlements; sourceTree = "<group>"; };
+		457BF1F41ECFE303007ABB28 /* Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		457CF5D31EBC0D9800A1397F /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		457CF5D51EBC0DA700A1397F /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		45877E741E158709006A7709 /* SimpleCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleCellTableViewCell.swift; sourceTree = "<group>"; };
@@ -391,6 +393,14 @@
 				4544AA801E2C0D9E008A760F /* ParkingAnnotationView.swift */,
 			);
 			name = Subviews;
+			sourceTree = "<group>";
+		};
+		457BF1F31ECFE2F6007ABB28 /* Loader */ = {
+			isa = PBXGroup;
+			children = (
+				457BF1F41ECFE303007ABB28 /* Loader.swift */,
+			);
+			name = Loader;
 			sourceTree = "<group>";
 		};
 		4591D5F31DFCA49C00366691 /* API */ = {
@@ -593,6 +603,7 @@
 		C5075F891EBA413400602B8C /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				457BF1F31ECFE2F6007ABB28 /* Loader */,
 				C5075F8A1EBA413E00602B8C /* SWRevealViewController */,
 			);
 			name = Libraries;
@@ -1085,6 +1096,7 @@
 				45EA513D1DDE74AC00BD076C /* ParkingAnnotation.swift in Sources */,
 				451FC46B1E072A830083C0CB /* VehiculeInformationViewController.swift in Sources */,
 				C5B310601DB023610051C90B /* FloatExtension.swift in Sources */,
+				457BF1F51ECFE303007ABB28 /* Loader.swift in Sources */,
 				450E124C1DAF2B3C0027EFBC /* PageContentViewController.swift in Sources */,
 				4591D5F71DFCA4DE00366691 /* CustomerClient.swift in Sources */,
 				457CF5D41EBC0D9800A1397F /* SWRevealViewController.m in Sources */,

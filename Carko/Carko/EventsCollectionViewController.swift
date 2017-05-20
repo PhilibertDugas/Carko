@@ -16,10 +16,11 @@ class EventsCollectionViewController: UICollectionViewController {
     private var isHamburgerMenuOpen = false
 
     fileprivate let reuseIdentifier = "EventCell"
-    fileprivate var events: [(Event)] = []
+    fileprivate var events: [(Event)] = [Event.init(), Event.init(), Event.init()]
     fileprivate var selectedEvent: Event!
     fileprivate var refresher: UIRefreshControl!
     fileprivate var revealViewController: SWRevealViewController!
+    fileprivate var loadedOnce = false
 
 
     @IBAction func navigationMenuPressed(_ sender: Any) {
@@ -43,6 +44,10 @@ class EventsCollectionViewController: UICollectionViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
+        if !self.loadedOnce {
+            Loader.addLoaderTo(self.collectionView!)
+        }
+
         let customer = AppState.shared.cachedCustomer()
         if FIRAuth.auth()?.currentUser == nil || customer == nil {
             self.performSegue(withIdentifier: "showLoginScreen", sender: nil)
@@ -70,6 +75,10 @@ class EventsCollectionViewController: UICollectionViewController {
                 self.displayErrorMessage(error.localizedDescription)
             } else {
                 self.events = events
+                if !self.loadedOnce {
+                    self.loadedOnce = true
+                    Loader.removeLoaderFrom(self.collectionView!)
+                }
                 self.collectionView?.reloadData()
             }
             self.refresher.endRefreshing()
@@ -112,7 +121,11 @@ extension EventsCollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.events.count
+        if self.events.count == 0 {
+            return 3
+        } else {
+            return self.events.count
+        }
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -160,7 +173,8 @@ extension EventsCollectionViewController: ApyaLayoutDelegate {
             let rect = AVMakeRect(aspectRatio: imageView.image!.size, insideRect: boundingRect)
             return rect.size.height
         } else {
-            return (self.collectionView?.frame.size.height)! / 4
+            let image = UIImage.init(named: "placeholder-1")
+            return (image?.size.height)!
         }
     }
 

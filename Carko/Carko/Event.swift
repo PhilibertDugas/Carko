@@ -25,6 +25,11 @@ struct Event {
         return endTime
     }
 
+    // Convenience init, only for placeholder cells in the EventsCollectionView
+    init() {
+        self.init(id: 1, latitude: 1.0, longitude: 1.0, photoURL: nil, range: 10, price: 10.0, label: "Placeholder", targetAudience: 100, startTime: "", endTime: "")
+    }
+
     init(id: Int, latitude: CLLocationDegrees, longitude: CLLocationDegrees, photoURL: URL?, range: Int, price: Float, label: String, targetAudience: Int, startTime: String, endTime: String) {
         self.id = id
         self.latitude = latitude
