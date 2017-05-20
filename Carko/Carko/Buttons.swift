@@ -14,6 +14,12 @@ class RoundedCornerButton: UIButton {
         layer.cornerRadius = 3
         layer.borderWidth = 0.5
     }
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        layer.cornerRadius = 3
+        layer.borderWidth = 0.5
+    }
 }
 
 class CircularButton: UIButton {

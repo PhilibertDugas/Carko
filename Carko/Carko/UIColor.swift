@@ -26,4 +26,8 @@ extension UIColor {
     class var primaryColor: UIColor {
         return UIColor.init(netHex: 0x252627)
     }
+
+    class var primaryWhiteTextColor: UIColor {
+        return UIColor.init(netHex: 0xE8E8E8)
+    }
 }
