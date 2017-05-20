@@ -49,17 +49,6 @@ class LocationViewController: UIViewController {
         self.setupLocationManager()
         self.setupSearchBar()
         self.blurMap()
-        self.blurStatusBar()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = true
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.navigationController?.navigationBar.isHidden = false
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -154,13 +143,6 @@ extension LocationViewController: UITextFieldDelegate {
         self.blurView = UIVisualEffectView.init(effect: effect)
         self.blurView.frame = CGRect.init(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
         self.mapView.addSubview(blurView)
-    }
-
-    func blurStatusBar() {
-        let effect = UIBlurEffect(style: UIBlurEffectStyle.light)
-        let statusBarBlur = UIVisualEffectView.init(effect: effect)
-        statusBarBlur.frame = CGRect.init(x: 0.0, y: 0.0, width: view.bounds.width, height: 20.0)
-        self.mapView.addSubview(statusBarBlur)
     }
 
     func blurSearchBar() {
