@@ -121,11 +121,7 @@ extension EventsCollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if self.events.count == 0 {
-            return 3
-        } else {
-            return self.events.count
-        }
+        return self.events.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
