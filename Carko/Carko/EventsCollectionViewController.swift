@@ -134,6 +134,11 @@ extension EventsCollectionViewController {
         cell.layer.cornerRadius = 3
         cell.layer.borderWidth = 0.5
         cell.layer.borderColor = UIColor.accentColor.cgColor
+
+        // Placeholder cells which don't have a photoURL shouldn't be touched / interacted with
+        if cell.event?.photoURL == nil {
+            cell.isUserInteractionEnabled = false
+        }
         return cell
     }
 
