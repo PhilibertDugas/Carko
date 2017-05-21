@@ -26,6 +26,8 @@
 		451FC46B1E072A830083C0CB /* VehiculeInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451FC46A1E072A830083C0CB /* VehiculeInformationViewController.swift */; };
 		451FC46D1E072B3C0083C0CB /* Vehicule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451FC46C1E072B3C0083C0CB /* Vehicule.swift */; };
 		451FC46F1E072BC70083C0CB /* VehiculeClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451FC46E1E072BC70083C0CB /* VehiculeClient.swift */; };
+		4520D5D71ED122F50036AF07 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4520D5D11ED122F50036AF07 /* Profile.storyboard */; };
+		4520D5D91ED122F50036AF07 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4520D5D61ED122F50036AF07 /* ProfileViewController.swift */; };
 		452738E71DF7AEB700D74F0D /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452738E61DF7AEB700D74F0D /* View.swift */; };
 		453314321E03669000BF0B65 /* AccountCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453314311E03669000BF0B65 /* AccountCreationViewController.swift */; };
 		453314341E03672700BF0B65 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453314331E03672700BF0B65 /* Account.swift */; };
@@ -184,6 +186,8 @@
 		451FC46A1E072A830083C0CB /* VehiculeInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehiculeInformationViewController.swift; sourceTree = "<group>"; };
 		451FC46C1E072B3C0083C0CB /* Vehicule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vehicule.swift; sourceTree = "<group>"; };
 		451FC46E1E072BC70083C0CB /* VehiculeClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehiculeClient.swift; sourceTree = "<group>"; };
+		4520D5D21ED122F50036AF07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
+		4520D5D61ED122F50036AF07 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		452738E61DF7AEB700D74F0D /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		453314311E03669000BF0B65 /* AccountCreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCreationViewController.swift; sourceTree = "<group>"; };
 		453314331E03672700BF0B65 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
@@ -526,6 +530,8 @@
 		45D5A5071DB2BE640025C45A /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				4520D5D11ED122F50036AF07 /* Profile.storyboard */,
+				4520D5D61ED122F50036AF07 /* ProfileViewController.swift */,
 				45EA59C21EBD27D3002B50BD /* Payout */,
 				45EA59C11EBD27CA002B50BD /* Vehicule */,
 				45EA59BF1EBD27BF002B50BD /* History */,
@@ -821,6 +827,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				454C55191E2C73E4000912BA /* GoogleService-Info.plist in Resources */,
+				4520D5D71ED122F50036AF07 /* Profile.storyboard in Resources */,
 				45B2624F1E1A8644002C2A9D /* Localizable.strings in Resources */,
 				4550D6661E19D7780080758D /* Add.storyboard in Resources */,
 				45ECDAA91E243B2F00E999D8 /* carko-development-firebase-reporting.json in Resources */,
@@ -1104,6 +1111,7 @@
 				45DC42FC1EA97D53009F8E8D /* EventCollectionViewCell.swift in Sources */,
 				451FC46D1E072B3C0083C0CB /* Vehicule.swift in Sources */,
 				C51150591DAF397E004E2A7D /* ParkingInfoViewController.swift in Sources */,
+				4520D5D91ED122F50036AF07 /* ProfileViewController.swift in Sources */,
 				4554A0981E217358007FB04C /* NewPhotoViewController.swift in Sources */,
 				4591D5F51DFCA4C400366691 /* ParkingClient.swift in Sources */,
 			);
@@ -1193,6 +1201,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		4520D5D11ED122F50036AF07 /* Profile.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4520D5D21ED122F50036AF07 /* Base */,
+			);
+			name = Profile.storyboard;
+			sourceTree = "<group>";
+		};
 		4550D6651E19D7720080758D /* Find.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

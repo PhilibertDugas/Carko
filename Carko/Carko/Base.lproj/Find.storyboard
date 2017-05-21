@@ -91,11 +91,11 @@
             </objects>
             <point key="canvasLocation" x="-1772" y="-450"/>
         </scene>
-        <!--Events Collection View Controller-->
+        <!--Events-->
         <scene sceneID="oc0-ja-GMb">
             <objects>
                 <collectionViewController id="MPQ-ic-TB4" customClass="EventsCollectionViewController" customModule="Carko" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="ZxP-jl-dXw">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="ZxP-jl-dXw">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -146,7 +146,7 @@
                             <outlet property="delegate" destination="MPQ-ic-TB4" id="syF-tg-wBf"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="GNb-vh-rZy">
+                    <navigationItem key="navigationItem" title="Events" id="GNb-vh-rZy">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="Pdb-bS-22w">
                             <color key="tintColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>

@@ -13,13 +13,9 @@ import FirebaseAuth
 class NavigationTableViewController: UITableViewController {
     var paymentContext: STPPaymentContext!
 
-    @IBAction func signOutTapped(_ sender: Any) {
-        try! FIRAuth.auth()!.signOut()
-        UserDefaults.standard.removeObject(forKey: "user")
-        self.performSegue(withIdentifier: "loggedOut", sender: nil)
-    }
-
     @IBAction func paymentTapped(_ sender: Any) {
+        let revealViewController = self.revealViewController()
+        revealViewController?.revealToggle(sender)
         self.paymentContext.presentPaymentMethodsViewController()
     }
 
@@ -39,11 +35,6 @@ class NavigationTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
         let revealViewController = self.revealViewController()
         revealViewController?.revealToggle(sender)
-        if segue.identifier == "loggedOut" {
-            let vc = segue.destination as! UINavigationController
-            let entryVc = vc.viewControllers.first as! EntryViewController
-            entryVc.delegate = self
-        }
     }
 
 }
@@ -62,20 +53,6 @@ extension NavigationTableViewController {
 
     fileprivate func contactUsMail() {
         UIApplication.shared.open(URL.init(string: "mailto:\(AppState.companyEmail)")!)
-    }
-}
-
-extension NavigationTableViewController: AuthenticatedDelegate {
-    func userAuthenticated() {
-        let currentUser = FIRAuth.auth()?.currentUser
-        currentUser?.getTokenForcingRefresh(true, completion: { (idToken, error) in
-            if let error = error {
-                print("\(error.localizedDescription)")
-                self.performSegue(withIdentifier: "loggedOut", sender: nil)
-            } else if let token = idToken {
-                AppState.shared.authToken = token
-            }
-        })
     }
 }
 

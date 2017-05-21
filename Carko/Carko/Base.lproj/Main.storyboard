@@ -43,14 +43,6 @@
             </objects>
             <point key="canvasLocation" x="-2442" y="857"/>
         </scene>
-        <!--Login-->
-        <scene sceneID="wjy-aO-haL">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Login" id="Cft-fH-0Lc" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GvC-RT-rTL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2638" y="1093"/>
-        </scene>
         <!--Reveal View Controller-->
         <scene sceneID="7um-HZ-8YN">
             <objects>
@@ -115,6 +107,9 @@
                                     <constraint firstItem="gwO-0D-yHd" firstAttribute="centerY" secondItem="5aG-uL-wB5" secondAttribute="centerY" id="LSA-DI-9HH"/>
                                     <constraint firstItem="1Rz-UP-VN8" firstAttribute="leading" secondItem="5aG-uL-wB5" secondAttribute="leading" constant="8" id="tdV-Zb-Cix"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="9ut-vY-WDg" appends="YES" id="1Hx-VN-5gX"/>
+                                </connections>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9t3-Hq-KYi">
                                 <rect key="frame" x="0.0" y="150" width="375" height="517"/>
@@ -139,8 +134,21 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9AU-dJ-btI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="9ut-vY-WDg">
+                    <connections>
+                        <segue destination="9Mq-HK-dOZ" kind="presentation" id="Luc-sR-zxH"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-3234.4000000000001" y="91.304347826086968"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="l0j-hy-3Fa">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" id="9Mq-HK-dOZ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eb4-tb-sq0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2550" y="-117"/>
         </scene>
         <!--Find-->
         <scene sceneID="cYh-6o-Ekx">
@@ -403,28 +411,15 @@
                                             <segue destination="Xf7-Ex-KMf" kind="presentation" id="Y23-Rs-Gai"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="JF2-fa-iRS">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="N6m-m5-Gpy">
                                         <rect key="frame" x="0.0" y="448" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JF2-fa-iRS" id="rya-Wl-bxz">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="N6m-m5-Gpy" id="b7k-xz-K8e">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sign out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MA8-LB-cU3">
-                                                    <rect key="frame" x="8" y="10" width="359" height="40"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                    <color key="textColor" red="0.76862745099999996" green="0.066666666669999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <gestureRecognizers/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="1JI-WF-wnd" appends="YES" id="pAa-nf-ajY"/>
-                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -436,9 +431,6 @@
                     </tableView>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="700"/>
-                    <connections>
-                        <segue destination="Cft-fH-0Lc" kind="presentation" identifier="loggedOut" id="5wH-BF-70F"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lap-50-j3g" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="1JI-WF-wnd">
