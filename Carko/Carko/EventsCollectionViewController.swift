@@ -134,6 +134,8 @@ extension EventsCollectionViewController {
         // Placeholder cells which don't have a photoURL shouldn't be touched / interacted with
         if cell.event?.photoURL == nil {
             cell.isUserInteractionEnabled = false
+        } else {
+            cell.isUserInteractionEnabled = true
         }
         return cell
     }
