@@ -151,6 +151,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ki7-7U-kWL">
+                        <barButtonItem key="backBarButtonItem" title=" " id="hTq-Sc-1eA"/>
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="iHH-S0-61G">
                             <color key="tintColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>

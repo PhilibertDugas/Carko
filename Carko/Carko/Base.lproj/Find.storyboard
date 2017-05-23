@@ -49,7 +49,9 @@
                             <constraint firstItem="vJw-M0-R9n" firstAttribute="leading" secondItem="Njl-x4-YWd" secondAttribute="leading" id="s76-IW-S9c"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="R9l-Ne-DWL"/>
+                    <navigationItem key="navigationItem" id="R9l-Ne-DWL">
+                        <barButtonItem key="backBarButtonItem" title=" " id="O59-l8-x0E"/>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="F3O-Ph-Xpo" id="XCQ-di-Sbv"/>
@@ -147,6 +149,7 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Events" id="GNb-vh-rZy">
+                        <barButtonItem key="backBarButtonItem" title=" " id="nJ9-eT-kzi"/>
                         <barButtonItem key="leftBarButtonItem" image="menu" id="Pdb-bS-22w">
                             <color key="tintColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
