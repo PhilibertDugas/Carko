@@ -472,8 +472,8 @@
                                 <rect key="frame" x="24" y="60" width="327" height="482"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="EE5-xo-9TY">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="EE5-xo-9TY">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                             </mapView>
                             <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cmD-zf-w5F" customClass="SearchWrapperView" customModule="Carko" customModuleProvider="target">
                                 <rect key="frame" x="24" y="326" width="327" height="44"/>
@@ -563,7 +563,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1943.2" y="842.42878560719646"/>
+            <point key="canvasLocation" x="1942.5" y="841.5"/>
         </scene>
         <!--Schedule-->
         <scene sceneID="Hfq-ep-gvI">
@@ -974,7 +974,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jPO-c2-fHd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1948" y="1513"/>
+            <point key="canvasLocation" x="1943" y="1577"/>
         </scene>
     </scenes>
     <resources>

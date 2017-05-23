@@ -52,7 +52,7 @@
 		457536581EAD798300E70F7F /* ReservationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457536571EAD798300E70F7F /* ReservationTableViewCell.swift */; };
 		4575365A1EAD87AA00E70F7F /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457536591EAD87AA00E70F7F /* StringExtension.swift */; };
 		457BF1F51ECFE303007ABB28 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457BF1F41ECFE303007ABB28 /* Loader.swift */; };
-		457CF5D41EBC0D9800A1397F /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 457CF5D31EBC0D9800A1397F /* SWRevealViewController.m */; };
+		457CF5D41EBC0D9800A1397F /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 457CF5D31EBC0D9800A1397F /* SWRevealViewController.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		45877E751E158709006A7709 /* SimpleCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45877E741E158709006A7709 /* SimpleCellTableViewCell.swift */; };
 		458859431EA91C58008DDED8 /* EventClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458859421EA91C58008DDED8 /* EventClient.swift */; };
 		458A98301DBCFD44007F53EE /* UnderlineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458A982F1DBCFD44007F53EE /* UnderlineTextField.swift */; };
@@ -1379,7 +1379,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Carko/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qh4l.Apya;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1401,7 +1401,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Carko/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qh4l.Apya;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1481,6 +1481,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = NS2A2ZLLX3;
 				INFOPLIST_FILE = "$(SRCROOT)/Carko/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qh4l.Apya;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1500,6 +1501,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = NS2A2ZLLX3;
 				INFOPLIST_FILE = "$(SRCROOT)/Carko/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qh4l.Apya;
 				PRODUCT_NAME = "$(TARGET_NAME)";
