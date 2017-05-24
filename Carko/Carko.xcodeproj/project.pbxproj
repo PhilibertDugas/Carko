@@ -66,6 +66,7 @@
 		459AD2571DA49B6C0018B7B9 /* Parking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459AD2561DA49B6C0018B7B9 /* Parking.swift */; };
 		45AA40E51EC696A4000D306E /* PayoutSetupCompleted.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45AA40E41EC696A4000D306E /* PayoutSetupCompleted.xib */; };
 		45AA40E71EC699BB000D306E /* PaymentSetupCompleted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AA40E61EC699BB000D306E /* PaymentSetupCompleted.swift */; };
+		45ABAF131ED5EB4700D2C151 /* ImageViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ABAF121ED5EB4700D2C151 /* ImageViews.swift */; };
 		45B2624F1E1A8644002C2A9D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4550D6801E19DD790080758D /* Localizable.strings */; };
 		45B77B441DDC0E39009ABF53 /* ParkingTransitionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B77B431DDC0E39009ABF53 /* ParkingTransitionAnimation.swift */; };
 		45BB39651DBBF0010019C2A3 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BB39641DBBF0010019C2A3 /* Buttons.swift */; };
@@ -235,6 +236,7 @@
 		459AD2561DA49B6C0018B7B9 /* Parking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parking.swift; sourceTree = "<group>"; };
 		45AA40E41EC696A4000D306E /* PayoutSetupCompleted.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayoutSetupCompleted.xib; sourceTree = "<group>"; };
 		45AA40E61EC699BB000D306E /* PaymentSetupCompleted.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentSetupCompleted.swift; sourceTree = "<group>"; };
+		45ABAF121ED5EB4700D2C151 /* ImageViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViews.swift; sourceTree = "<group>"; };
 		45B77B431DDC0E39009ABF53 /* ParkingTransitionAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingTransitionAnimation.swift; sourceTree = "<group>"; };
 		45BB39641DBBF0010019C2A3 /* Buttons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		45BC29411DA18249000C54BC /* Carko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Carko.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -454,6 +456,7 @@
 				45BB39641DBBF0010019C2A3 /* Buttons.swift */,
 				458A982F1DBCFD44007F53EE /* UnderlineTextField.swift */,
 				452738E61DF7AEB700D74F0D /* View.swift */,
+				45ABAF121ED5EB4700D2C151 /* ImageViews.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1079,6 +1082,7 @@
 				453314321E03669000BF0B65 /* AccountCreationViewController.swift in Sources */,
 				4533143C1E036DDA00BF0B65 /* AccountClient.swift in Sources */,
 				451E424B1DB071EC00747370 /* Customer.swift in Sources */,
+				45ABAF131ED5EB4700D2C151 /* ImageViews.swift in Sources */,
 				45137EB21E341DA300AFCD49 /* NewParkingPin.swift in Sources */,
 				452738E71DF7AEB700D74F0D /* View.swift in Sources */,
 				45D073311EA84924000604D3 /* EventsCollectionViewController.swift in Sources */,
