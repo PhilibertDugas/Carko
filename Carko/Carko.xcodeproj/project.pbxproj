@@ -332,7 +332,6 @@
 				450E12491DAF2B000027EFBC /* EntryViewController.swift */,
 				450E124B1DAF2B3C0027EFBC /* PageContentViewController.swift */,
 				45418F2D1E1719E00050DDF5 /* ForgotPasswordViewController.swift */,
-				4550D66B1E19D7810080758D /* Login.storyboard */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -356,7 +355,6 @@
 				4564F6E01DB98509001B709C /* BookParkingViewController.swift */,
 				45EA513A1DDE6F2300BD076C /* FindParkingViewController.swift */,
 				45D073301EA84924000604D3 /* EventsCollectionViewController.swift */,
-				4550D6651E19D7720080758D /* Find.storyboard */,
 			);
 			name = Events;
 			sourceTree = "<group>";
@@ -369,7 +367,6 @@
 				45E9D0FC1E1DCE42000EDEE8 /* Parking Creation */,
 				C56ADAB91DAC00320033516C /* Custom Cell */,
 				451853791DA476F1005CC5E6 /* ListParkingViewController.swift */,
-				4550D6681E19D7780080758D /* Add.storyboard */,
 			);
 			name = "Rent your space";
 			sourceTree = "<group>";
@@ -449,6 +446,22 @@
 			name = plist;
 			sourceTree = "<group>";
 		};
+		45B215911ED88E3C007CDD2E /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				45BC294D1DA18249000C54BC /* LaunchScreen.storyboard */,
+				4550D6711E19D78B0080758D /* Main.storyboard */,
+				4520D5D11ED122F50036AF07 /* Profile.storyboard */,
+				4550D6681E19D7780080758D /* Add.storyboard */,
+				4550D6651E19D7720080758D /* Find.storyboard */,
+				4550D66B1E19D7810080758D /* Login.storyboard */,
+				45EA59B91EBD1ECE002B50BD /* Payout.storyboard */,
+				45EA59BB1EBD1ED9002B50BD /* History.storyboard */,
+				45EA59B71EBD1EC4002B50BD /* Vehicule.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
 		45BB39631DBBEFEC0019C2A3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -503,9 +516,8 @@
 				451853781DA476CB005CC5E6 /* Rent your space */,
 				45D5A5071DB2BE640025C45A /* Profile */,
 				C5075F8E1EBA4B0B00602B8C /* Side Menu */,
+				45B215911ED88E3C007CDD2E /* Storyboards */,
 				45D5D60F1E1B2EDE006BE596 /* Assets.xcassets */,
-				4550D6711E19D78B0080758D /* Main.storyboard */,
-				45BC294D1DA18249000C54BC /* LaunchScreen.storyboard */,
 				4550D6801E19DD790080758D /* Localizable.strings */,
 			);
 			path = Carko;
@@ -533,7 +545,6 @@
 		45D5A5071DB2BE640025C45A /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				4520D5D11ED122F50036AF07 /* Profile.storyboard */,
 				4520D5D61ED122F50036AF07 /* ProfileViewController.swift */,
 				45EA59C21EBD27D3002B50BD /* Payout */,
 				45EA59C11EBD27CA002B50BD /* Vehicule */,
@@ -568,7 +579,6 @@
 				457536571EAD798300E70F7F /* ReservationTableViewCell.swift */,
 				457536551EAD752500E70F7F /* ReservationsTableViewController.swift */,
 				45FDF49B1EC5555200A9904A /* HistoryEmpty.xib */,
-				45EA59BB1EBD1ED9002B50BD /* History.storyboard */,
 			);
 			name = History;
 			sourceTree = "<group>";
@@ -577,7 +587,6 @@
 			isa = PBXGroup;
 			children = (
 				451FC46A1E072A830083C0CB /* VehiculeInformationViewController.swift */,
-				45EA59B71EBD1EC4002B50BD /* Vehicule.storyboard */,
 			);
 			name = Vehicule;
 			sourceTree = "<group>";
@@ -587,7 +596,6 @@
 			children = (
 				453314391E036CF300BF0B65 /* BankCreationViewController.swift */,
 				453314311E03669000BF0B65 /* AccountCreationViewController.swift */,
-				45EA59B91EBD1ECE002B50BD /* Payout.storyboard */,
 				45AA40E41EC696A4000D306E /* PayoutSetupCompleted.xib */,
 				45AA40E61EC699BB000D306E /* PaymentSetupCompleted.swift */,
 			);

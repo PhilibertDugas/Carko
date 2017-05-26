@@ -81,7 +81,7 @@
             <objects>
                 <navigationController id="r47-eP-Nd1" sceneMemberID="viewController">
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="6K4-3b-u28">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="6K4-3b-u28">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -118,15 +118,15 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kn6-cw-bNF">
-                                            <rect key="frame" x="0.0" y="0.0" width="185" height="182"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="185" height="255"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="182" id="b9F-HS-bfJ"/>
+                                                <constraint firstAttribute="height" constant="255" id="b9F-HS-bfJ"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sPL-zx-NSx">
-                                            <rect key="frame" x="0.0" y="190" width="185" height="50"/>
+                                            <rect key="frame" x="0.0" y="235" width="185" height="20"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="50" id="frD-J6-oQP"/>
+                                                <constraint firstAttribute="height" constant="20" id="frD-J6-oQP"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <nil key="textColor"/>
@@ -140,7 +140,7 @@
                                     <constraint firstItem="kn6-cw-bNF" firstAttribute="leading" secondItem="6DP-6O-eL9" secondAttribute="leading" id="jqM-Sc-XVb"/>
                                     <constraint firstItem="kn6-cw-bNF" firstAttribute="top" secondItem="6DP-6O-eL9" secondAttribute="top" id="pQ2-l7-Uis"/>
                                     <constraint firstAttribute="trailing" secondItem="kn6-cw-bNF" secondAttribute="trailing" id="uHq-FK-w2p"/>
-                                    <constraint firstItem="sPL-zx-NSx" firstAttribute="top" secondItem="kn6-cw-bNF" secondAttribute="bottom" constant="8" id="xZb-ns-79X"/>
+                                    <constraint firstAttribute="bottom" secondItem="sPL-zx-NSx" secondAttribute="bottom" id="vgx-g5-Dw8"/>
                                 </constraints>
                                 <size key="customSize" width="185" height="255"/>
                                 <connections>
