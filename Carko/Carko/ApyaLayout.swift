@@ -19,7 +19,7 @@ protocol ApyaLayoutDelegate {
 class ApyaLayout: UICollectionViewLayout {
     var delegate: ApyaLayoutDelegate!
 
-    var numberOfColumns = 2
+    var numberOfColumns = 1
     var cellPadding: CGFloat = 6.0
 
     private var cache = [ApyaLayoutAttributes]()
@@ -40,7 +40,7 @@ class ApyaLayout: UICollectionViewLayout {
     }
 
     override func prepare() {
-        //if cache.isEmpty {
+            cache.removeAll()
             let columnWidth = contentWidth / CGFloat(numberOfColumns)
             var xOffset = [CGFloat]()
             for column in 0 ..< numberOfColumns {
@@ -54,9 +54,11 @@ class ApyaLayout: UICollectionViewLayout {
 
                 let width = columnWidth - cellPadding * 2
                 let photoHeight = delegate.collectionView(collectionView: collectionView!, heightForPhotoAtIndexPath: indexPath, withWidth: width)
-                let annotationHeight = delegate.collectionView(collectionView: collectionView!, heightForAnnotationAtIndexPath: indexPath, withWidth: width)
+                // let annotationHeight = delegate.collectionView(collectionView: collectionView!, heightForAnnotationAtIndexPath: indexPath, withWidth: width)
 
-                let height = cellPadding +  photoHeight + annotationHeight + cellPadding
+                // let height = cellPadding +  photoHeight + annotationHeight + cellPadding
+                let height = cellPadding +  photoHeight + cellPadding
+
                 let frame = CGRect(x: xOffset[column], y: yOffset[column], width: columnWidth, height: height)
                 let insetFrame = frame.insetBy(dx: cellPadding, dy: cellPadding)
 
@@ -74,7 +76,6 @@ class ApyaLayout: UICollectionViewLayout {
                     column = column + 1
                 }
             }
-        //}
     }
 
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
