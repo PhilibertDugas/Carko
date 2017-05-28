@@ -20,7 +20,7 @@
                         <color key="tintColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" red="0.76862745099999996" green="0.066666666669999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                             <color key="textColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="textShadowColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
@@ -169,7 +169,7 @@
                             <constraint firstItem="ULZ-dT-Wt8" firstAttribute="leading" secondItem="lRH-09-mbs" secondAttribute="leadingMargin" id="zpV-Ed-8l7"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="S0J-pa-iRk">
+                    <navigationItem key="navigationItem" title="Vehicule" id="S0J-pa-iRk">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="Xzc-Oh-SH9">
                             <color key="tintColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>

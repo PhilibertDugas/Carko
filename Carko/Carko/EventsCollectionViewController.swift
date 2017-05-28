@@ -29,6 +29,7 @@ class EventsCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.titleView = UIImageView.init(image: UIImage.init(named: "navigation_bar_title"))
         if let layout = collectionView?.collectionViewLayout as? ApyaLayout {
             layout.delegate = self
         }
@@ -129,12 +130,6 @@ extension EventsCollectionViewController {
         cell.event = self.events[indexPath.row]
         cell.layer.cornerRadius = 3
         cell.layer.borderWidth = 0.5
-        cell.layer.shadowColor = UIColor.lightGray.cgColor
-        cell.layer.shadowOffset = CGSize(width: 0, height: 2.0)
-        cell.layer.shadowRadius = 2.0
-        cell.layer.shadowOpacity = 1.0
-        cell.layer.masksToBounds = false
-        cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.contentView.layer.cornerRadius).cgPath
 
         // Placeholder cells which don't have a photoURL shouldn't be touched / interacted with
         if cell.event?.photoURL == nil {
