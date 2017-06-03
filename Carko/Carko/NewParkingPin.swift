@@ -12,7 +12,7 @@ import MapKit
 class NewParkingPin: MKAnnotationView {
     override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
-        self.image = UIImage.init(named: "pin-apya-green")
+        self.image = UIImage.init(named: "pin-available")
     }
 
     required init?(coder aDecoder: NSCoder) {

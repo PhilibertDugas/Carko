@@ -17,9 +17,9 @@ class ParkingAnnotationView: MKAnnotationView {
         let parking = parkingAnnotation.parking
 
         if parking.isAvailable {
-            self.image = UIImage.init(named: "pin-apya-green")
+            self.image = UIImage.init(named: "pin-available")
         } else {
-            self.image = UIImage.init(named: "pin-apya-gray")
+            self.image = UIImage.init(named: "pin-unavailable")
         }
     }
 
