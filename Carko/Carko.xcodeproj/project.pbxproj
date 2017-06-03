@@ -68,7 +68,6 @@
 		45AA40E71EC699BB000D306E /* PaymentSetupCompleted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AA40E61EC699BB000D306E /* PaymentSetupCompleted.swift */; };
 		45ABAF131ED5EB4700D2C151 /* ImageViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ABAF121ED5EB4700D2C151 /* ImageViews.swift */; };
 		45B2624F1E1A8644002C2A9D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4550D6801E19DD790080758D /* Localizable.strings */; };
-		45B77B441DDC0E39009ABF53 /* ParkingTransitionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B77B431DDC0E39009ABF53 /* ParkingTransitionAnimation.swift */; };
 		45BB39651DBBF0010019C2A3 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BB39641DBBF0010019C2A3 /* Buttons.swift */; };
 		45BC29451DA18249000C54BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC29441DA18249000C54BC /* AppDelegate.swift */; };
 		45BC294F1DA18249000C54BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45BC294D1DA18249000C54BC /* LaunchScreen.storyboard */; };
@@ -117,7 +116,6 @@
 		45ECDA811E243A6900E999D8 /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4571700A1DEA5DEE00A0FDF5 /* Reservation.swift */; };
 		45ECDA821E243A6900E999D8 /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450E12491DAF2B000027EFBC /* EntryViewController.swift */; };
 		45ECDA831E243A6900E999D8 /* SimpleCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45877E741E158709006A7709 /* SimpleCellTableViewCell.swift */; };
-		45ECDA841E243A6900E999D8 /* ParkingTransitionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B77B431DDC0E39009ABF53 /* ParkingTransitionAnimation.swift */; };
 		45ECDA851E243A6900E999D8 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450CB59E1E11834000FD2095 /* UIColor.swift */; };
 		45ECDA861E243A6900E999D8 /* Parking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459AD2561DA49B6C0018B7B9 /* Parking.swift */; };
 		45ECDA871E243A6900E999D8 /* ReservationClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4591D5FA1DFCA54600366691 /* ReservationClient.swift */; };
@@ -237,7 +235,6 @@
 		45AA40E41EC696A4000D306E /* PayoutSetupCompleted.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayoutSetupCompleted.xib; sourceTree = "<group>"; };
 		45AA40E61EC699BB000D306E /* PaymentSetupCompleted.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentSetupCompleted.swift; sourceTree = "<group>"; };
 		45ABAF121ED5EB4700D2C151 /* ImageViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViews.swift; sourceTree = "<group>"; };
-		45B77B431DDC0E39009ABF53 /* ParkingTransitionAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingTransitionAnimation.swift; sourceTree = "<group>"; };
 		45BB39641DBBF0010019C2A3 /* Buttons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		45BC29411DA18249000C54BC /* Carko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Carko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45BC29441DA18249000C54BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -350,7 +347,6 @@
 			isa = PBXGroup;
 			children = (
 				45DC42FD1EA97D5B009F8E8D /* CollectionView */,
-				45418F281E16F2DD0050DDF5 /* Animation */,
 				4564F6DD1DB981BA001B709C /* Subviews */,
 				4564F6E01DB98509001B709C /* BookParkingViewController.swift */,
 				45EA513A1DDE6F2300BD076C /* FindParkingViewController.swift */,
@@ -369,14 +365,6 @@
 				451853791DA476F1005CC5E6 /* ListParkingViewController.swift */,
 			);
 			name = "Rent your space";
-			sourceTree = "<group>";
-		};
-		45418F281E16F2DD0050DDF5 /* Animation */ = {
-			isa = PBXGroup;
-			children = (
-				45B77B431DDC0E39009ABF53 /* ParkingTransitionAnimation.swift */,
-			);
-			name = Animation;
 			sourceTree = "<group>";
 		};
 		4544AA7D1E2BFA78008A760F /* Helpers */ = {
@@ -1106,7 +1094,6 @@
 				45877E751E158709006A7709 /* SimpleCellTableViewCell.swift in Sources */,
 				C5075F9C1EBBAA9100602B8C /* ProfileHeaderView.swift in Sources */,
 				450B5D581E2AA4B100AEEA29 /* NewParkingView.swift in Sources */,
-				45B77B441DDC0E39009ABF53 /* ParkingTransitionAnimation.swift in Sources */,
 				450CB59F1E11834000FD2095 /* UIColor.swift in Sources */,
 				C5075F991EBBA95100602B8C /* NavigationTableViewController.swift in Sources */,
 				4544AA811E2C0D9E008A760F /* ParkingAnnotationView.swift in Sources */,
@@ -1180,7 +1167,6 @@
 				45ECDA811E243A6900E999D8 /* Reservation.swift in Sources */,
 				45ECDA821E243A6900E999D8 /* EntryViewController.swift in Sources */,
 				45ECDA831E243A6900E999D8 /* SimpleCellTableViewCell.swift in Sources */,
-				45ECDA841E243A6900E999D8 /* ParkingTransitionAnimation.swift in Sources */,
 				45ECDA851E243A6900E999D8 /* UIColor.swift in Sources */,
 				45ECDA861E243A6900E999D8 /* Parking.swift in Sources */,
 				45ECDA871E243A6900E999D8 /* ReservationClient.swift in Sources */,

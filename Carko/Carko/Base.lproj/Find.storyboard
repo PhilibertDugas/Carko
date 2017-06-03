@@ -27,27 +27,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <gestureRecognizers/>
                             </mapView>
-                            <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vJw-M0-R9n" customClass="MarkerPopup" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="484" width="375" height="70"/>
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="7DT-Dp-2Ce"/>
-                                </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="dCC-8g-gcs" appends="YES" id="Rnd-Fn-fkc"/>
-                                </connections>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.112871848" green="0.75954872370000004" blue="0.28861063720000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="F3O-Ph-Xpo" secondAttribute="trailing" id="BiT-Qm-d85"/>
                             <constraint firstItem="F3O-Ph-Xpo" firstAttribute="leading" secondItem="Njl-x4-YWd" secondAttribute="leading" id="SLa-dl-rhi"/>
-                            <constraint firstAttribute="trailing" secondItem="vJw-M0-R9n" secondAttribute="trailing" id="bgO-EG-c4i"/>
-                            <constraint firstItem="vpB-74-N3m" firstAttribute="top" secondItem="vJw-M0-R9n" secondAttribute="bottom" id="jxx-5a-X7l"/>
                             <constraint firstAttribute="bottom" secondItem="F3O-Ph-Xpo" secondAttribute="bottom" id="kdF-dJ-ff0"/>
                             <constraint firstItem="F3O-Ph-Xpo" firstAttribute="top" secondItem="Njl-x4-YWd" secondAttribute="top" id="nfV-2C-x0V"/>
-                            <constraint firstItem="vJw-M0-R9n" firstAttribute="leading" secondItem="Njl-x4-YWd" secondAttribute="leading" id="s76-IW-S9c"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="R9l-Ne-DWL">
@@ -56,7 +43,6 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="F3O-Ph-Xpo" id="XCQ-di-Sbv"/>
-                        <outlet property="popupView" destination="vJw-M0-R9n" id="Zeg-QR-0s8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5JO-7F-TCV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -81,7 +67,7 @@
             <objects>
                 <navigationController id="r47-eP-Nd1" sceneMemberID="viewController">
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="6K4-3b-u28">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="6K4-3b-u28">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -439,7 +425,7 @@
         <image name="Payments" width="32" height="32"/>
         <image name="Time-Left" width="32" height="32"/>
         <image name="close" width="32" height="32"/>
-        <image name="menu" width="16" height="16"/>
+        <image name="menu" width="20" height="12"/>
         <image name="placeholder" width="34" height="34"/>
     </resources>
 </document>

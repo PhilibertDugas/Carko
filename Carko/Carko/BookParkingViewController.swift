@@ -15,7 +15,6 @@ protocol ReservationDelegate {
 }
 
 class BookParkingViewController: UIViewController {
-
     @IBOutlet var creditCardImage: UIImageView!
     @IBOutlet var parkingImageView: UIImageView!
     @IBOutlet var addressLabel: UILabel!
@@ -32,10 +31,13 @@ class BookParkingViewController: UIViewController {
     var event: Event!
     var delegate: ReservationDelegate!
 
-    var tapCloseButtonActionHandler : ((Void) -> Void)?
-    
+    let fullView: CGFloat = 10
+    var partialView: CGFloat {
+        //return UIScreen.main.bounds.height - (left.frame.maxY + UIApplication.shared.statusBarFrame.height)
+        return UIScreen.main.bounds.height - (120 + UIApplication.shared.statusBarFrame.height)
+    }
+
     @IBAction func tappedCloseArrow(_ sender: Any) {
-        self.tapCloseButtonActionHandler?()
         self.dismiss(animated: true, completion: nil)
     }
 
@@ -75,13 +77,18 @@ class BookParkingViewController: UIViewController {
         paymentContext.paymentCurrency = "CAD"
         paymentContext.delegate = self
         paymentContext.hostViewController = self
+
+        let gesture = UIPanGestureRecognizer.init(target: self, action: #selector(BookParkingViewController.panGesture))
+        view.addGestureRecognizer(gesture)
+
+        self.roundViews()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        prepareBackgroundView()
 
         self.indicator.isHidden = true
-
         addressLabel.text = parking.address
         timeLabel.text = self.event.endTime.formattedDays
         costLabel.text = self.event.price.asLocaleCurrency
@@ -94,6 +101,60 @@ class BookParkingViewController: UIViewController {
             let imageReference = AppState.shared.storageReference.storage.reference(forURL: url.absoluteString)
             parkingImageView.sd_setImage(with: imageReference)
         }
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        UIView.animate(withDuration: 0.6, animations: { [weak self] in
+            let frame = self?.view.frame
+            let yComponent = self?.partialView
+            self?.view.frame = CGRect(x: 0, y: yComponent!, width: frame!.size.width, height: frame!.size.height)
+        })
+    }
+
+    func prepareBackgroundView(){
+        let blurEffect = UIBlurEffect.init(style: .dark)
+        let visualEffect = UIVisualEffectView.init(effect: blurEffect)
+        let bluredView = UIVisualEffectView.init(effect: blurEffect)
+        bluredView.contentView.addSubview(visualEffect)
+
+        visualEffect.frame = UIScreen.main.bounds
+        bluredView.frame = UIScreen.main.bounds
+
+        view.insertSubview(bluredView, at: 0)
+    }
+
+    func panGesture(_ recognizer: UIPanGestureRecognizer) {
+        let translation = recognizer.translation(in: self.view)
+        let velocity = recognizer.velocity(in: self.view)
+        let y = self.view.frame.minY
+        if ( y + translation.y >= fullView) && (y + translation.y <= partialView ) {
+            self.view.frame = CGRect(x: 0, y: y + translation.y, width: view.frame.width, height: view.frame.height)
+            recognizer.setTranslation(CGPoint.zero, in: self.view)
+        }
+
+        if recognizer.state == .ended {
+            UIView.animate(withDuration: 0.5, delay: 0.0, options: [.allowUserInteraction], animations: {
+                if velocity.y > 0 {
+                    self.view.frame = CGRect(x: 0, y: self.partialView, width: self.view.frame.width, height: self.view.frame.height)
+                } else if velocity.y < 0 {
+                    self.view.frame = CGRect(x: 0, y: self.fullView, width: self.view.frame.width, height: self.view.frame.height)
+                } else {
+                    if self.view.frame.origin.y < (self.view.frame.height / 2) {
+                        self.view.frame = CGRect(x: 0, y: self.fullView, width: self.view.frame.width, height: self.view.frame.height)
+
+                    } else {
+                        self.view.frame = CGRect(x: 0, y: self.partialView, width: self.view.frame.width, height: self.view.frame.height)
+                    }
+                }
+
+            }, completion: nil)
+        }
+    }
+
+    func roundViews() {
+        view.layer.cornerRadius = 5
+        view.clipsToBounds = true
     }
 
     func completeBooking() {
@@ -149,7 +210,6 @@ extension BookParkingViewController: STPPaymentContextDelegate {
             if let error = error {
                 super.displayErrorMessage(error.localizedDescription)
             } else if successfulReservation != nil {
-                self.tapCloseButtonActionHandler?()
                 self.delegate.reservationCompleted()
                 self.dismiss(animated: true, completion: nil)
             }
