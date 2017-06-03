@@ -15,11 +15,8 @@ protocol ReservationDelegate {
 }
 
 class BookParkingViewController: UIViewController {
-    @IBOutlet var creditCardImage: UIImageView!
     @IBOutlet var parkingImageView: UIImageView!
     @IBOutlet var addressLabel: UILabel!
-    @IBOutlet var creditCardLabel: UnderlineTextField!
-    @IBOutlet var vehiculeLabel: UnderlineTextField!
     @IBOutlet var timeLabel: UILabel!
     @IBOutlet var costLabel: UILabel!
     @IBOutlet var confirmButton: RoundedCornerButton!
@@ -34,7 +31,7 @@ class BookParkingViewController: UIViewController {
     let fullView: CGFloat = 10
     var partialView: CGFloat {
         //return UIScreen.main.bounds.height - (left.frame.maxY + UIApplication.shared.statusBarFrame.height)
-        return UIScreen.main.bounds.height - (120 + UIApplication.shared.statusBarFrame.height)
+        return UIScreen.main.bounds.height - (180 + UIApplication.shared.statusBarFrame.height)
     }
 
     @IBAction func tappedCloseArrow(_ sender: Any) {
@@ -69,8 +66,6 @@ class BookParkingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        creditCardLabel.delegate = self
-        vehiculeLabel.delegate = self
 
         // TODO CHANGE THIS
         paymentContext = STPPaymentContext.init(apiAdapter: APIClient.shared)
@@ -95,8 +90,6 @@ class BookParkingViewController: UIViewController {
         parkingLabel.text = self.parking.pDescription
 
 
-        setVehiculeLabel()
-
         if let url = parking.photoURL {
             let imageReference = AppState.shared.storageReference.storage.reference(forURL: url.absoluteString)
             parkingImageView.sd_setImage(with: imageReference)
@@ -117,10 +110,8 @@ class BookParkingViewController: UIViewController {
         let visualEffect = UIVisualEffectView.init(effect: blurEffect)
         let bluredView = UIVisualEffectView.init(effect: blurEffect)
         bluredView.contentView.addSubview(visualEffect)
-
         visualEffect.frame = UIScreen.main.bounds
         bluredView.frame = UIScreen.main.bounds
-
         view.insertSubview(bluredView, at: 0)
     }
 
@@ -153,7 +144,7 @@ class BookParkingViewController: UIViewController {
     }
 
     func roundViews() {
-        view.layer.cornerRadius = 5
+        view.layer.cornerRadius = 10
         view.clipsToBounds = true
     }
 
@@ -162,12 +153,6 @@ class BookParkingViewController: UIViewController {
         self.indicator.startAnimating()
         self.paymentContext.paymentAmount = Int(self.event.price * 100)
         self.paymentContext.requestPayment()
-    }
-
-    func setVehiculeLabel() {
-        if let vehicule = AppState.shared.customer.vehicule {
-            vehiculeLabel.text = vehicule.description
-        }
     }
 }
 
@@ -217,8 +202,6 @@ extension BookParkingViewController: STPPaymentContextDelegate {
     }
 
     func paymentContextDidChange(_ paymentContext: STPPaymentContext) {
-        creditCardLabel.text = paymentContext.selectedPaymentMethod?.label
-        creditCardImage.image = paymentContext.selectedPaymentMethod?.image
         self.paymentContext = paymentContext
         return
     }

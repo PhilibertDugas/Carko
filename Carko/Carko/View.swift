@@ -90,7 +90,7 @@ class SearchWrapperView: UIView {
 
 class RoundedCornerView: UIView {
     override func draw(_ rect: CGRect) {
-        layer.cornerRadius = 5
+        layer.cornerRadius = 3
         layer.masksToBounds = true
         super.draw(rect)
     }
