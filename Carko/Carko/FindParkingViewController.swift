@@ -93,7 +93,8 @@ extension FindParkingViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         if let annotation = view.annotation as? ParkingAnnotation {
             self.bookParkingVC = storyboard?.instantiateViewController(withIdentifier: "bookParkingViewController") as? BookParkingViewController
-
+            self.bookParkingVC.sheetDelegate = self
+            self.navigationController?.setNavigationBarHidden(true, animated: true)
             let parking = annotation.parking
             self.bookParkingVC.parking = parking
             self.bookParkingVC.event = self.event
@@ -108,6 +109,7 @@ extension FindParkingViewController: MKMapViewDelegate {
     }
 
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.bookParkingVC.view.removeFromSuperview()
         self.bookParkingVC.removeFromParentViewController()
     }
@@ -141,5 +143,20 @@ extension FindParkingViewController: MKMapViewDelegate {
 extension FindParkingViewController: ReservationDelegate {
     func reservationCompleted() {
         self.fetchParkings()
+    }
+}
+
+extension FindParkingViewController: MapSheetDelegate {
+    func didAppear() {
+        self.mapView.frame = CGRect.init(x: 8, y: 0, width: self.view.frame.width - 16, height: self.view.frame.height)
+        view.layer.cornerRadius = 10
+        view.clipsToBounds = true
+    }
+
+    func didDisappear() {
+        self.mapView.frame = CGRect.init(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        view.layer.cornerRadius = 0
+        view.clipsToBounds = false
+
     }
 }

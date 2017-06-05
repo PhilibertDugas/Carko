@@ -23,6 +23,10 @@ extension UIColor {
         return UIColor.init(netHex: 0xC41134)
     }
 
+    class var accentGradientColor: UIColor {
+        return UIColor.init(netHex: 0xF5515F)
+    }
+
     class var primaryColor: UIColor {
         return UIColor.init(netHex: 0x252627)
     }

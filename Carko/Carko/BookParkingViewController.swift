@@ -14,6 +14,11 @@ protocol ReservationDelegate {
     func reservationCompleted()
 }
 
+protocol MapSheetDelegate {
+    func didAppear()
+    func didDisappear()
+}
+
 class BookParkingViewController: UIViewController {
     @IBOutlet var parkingImageView: UIImageView!
     @IBOutlet var addressLabel: UILabel!
@@ -22,11 +27,13 @@ class BookParkingViewController: UIViewController {
     @IBOutlet var confirmButton: RoundedCornerButton!
     @IBOutlet var indicator: UIActivityIndicatorView!
     @IBOutlet var parkingLabel: UILabel!
+    @IBOutlet var eventLabel: UILabel!
 
     var paymentContext: STPPaymentContext!
     var parking: Parking!
     var event: Event!
     var delegate: ReservationDelegate!
+    var sheetDelegate: MapSheetDelegate!
 
     let fullView: CGFloat = 10
     var partialView: CGFloat {
@@ -48,19 +55,7 @@ class BookParkingViewController: UIViewController {
         } else if paymentContext.selectedPaymentMethod == nil {
             super.displayErrorMessage("Please select a payment method")
         } else {
-            let translatedMessage = NSLocalizedString("Confirm payment of %@ to get a parking on %@", comment: "")
-            let paymentMessage = String.init(format: translatedMessage, event.price.asLocaleCurrency, event.endTime.formattedDays)
-            let alertController = UIAlertController.init(title: NSLocalizedString("Confirm Payment", comment: ""), message: paymentMessage, preferredStyle: UIAlertControllerStyle.actionSheet)
-            let cancelAction = UIAlertAction.init(title: NSLocalizedString("Cancel", comment: ""), style: UIAlertActionStyle.cancel) { (result : UIAlertAction) -> Void in
-            }
-
-            let okAction = UIAlertAction.init(title: NSLocalizedString("Ok", comment: ""), style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
-                self.completeBooking()
-            }
-
-            alertController.addAction(cancelAction)
-            alertController.addAction(okAction)
-            self.present(alertController, animated: true, completion: nil)
+            promptCompletion()
         }
     }
 
@@ -88,7 +83,9 @@ class BookParkingViewController: UIViewController {
         timeLabel.text = self.event.endTime.formattedDays
         costLabel.text = self.event.price.asLocaleCurrency
         parkingLabel.text = self.parking.pDescription
-
+        // sizeToFit() to make sure the label is vertically aligned at the top of the view instead of in the center
+        parkingLabel.sizeToFit()
+        eventLabel.text = self.event.label
 
         if let url = parking.photoURL {
             let imageReference = AppState.shared.storageReference.storage.reference(forURL: url.absoluteString)
@@ -128,14 +125,17 @@ class BookParkingViewController: UIViewController {
             UIView.animate(withDuration: 0.5, delay: 0.0, options: [.allowUserInteraction], animations: {
                 if velocity.y > 0 {
                     self.view.frame = CGRect(x: 0, y: self.partialView, width: self.view.frame.width, height: self.view.frame.height)
+                    self.sheetDelegate.didDisappear()
                 } else if velocity.y < 0 {
                     self.view.frame = CGRect(x: 0, y: self.fullView, width: self.view.frame.width, height: self.view.frame.height)
+                    self.sheetDelegate.didAppear()
                 } else {
                     if self.view.frame.origin.y < (self.view.frame.height / 2) {
                         self.view.frame = CGRect(x: 0, y: self.fullView, width: self.view.frame.width, height: self.view.frame.height)
-
+                        self.sheetDelegate.didAppear()
                     } else {
                         self.view.frame = CGRect(x: 0, y: self.partialView, width: self.view.frame.width, height: self.view.frame.height)
+                        self.sheetDelegate.didDisappear()
                     }
                 }
 
@@ -146,13 +146,6 @@ class BookParkingViewController: UIViewController {
     func roundViews() {
         view.layer.cornerRadius = 10
         view.clipsToBounds = true
-    }
-
-    func completeBooking() {
-        self.indicator.isHidden = false
-        self.indicator.startAnimating()
-        self.paymentContext.paymentAmount = Int(self.event.price * 100)
-        self.paymentContext.requestPayment()
     }
 }
 
@@ -166,6 +159,31 @@ extension BookParkingViewController: UITextFieldDelegate {
         } else {
             return true
         }
+    }
+}
+
+extension BookParkingViewController {
+    func promptCompletion() {
+        let translatedMessage = NSLocalizedString("Confirm payment of %@ to get a parking on %@", comment: "")
+        let paymentMessage = String.init(format: translatedMessage, event.price.asLocaleCurrency, event.endTime.formattedDays)
+        let alertController = UIAlertController.init(title: NSLocalizedString("Confirm Payment", comment: ""), message: paymentMessage, preferredStyle: UIAlertControllerStyle.actionSheet)
+        let cancelAction = UIAlertAction.init(title: NSLocalizedString("Cancel", comment: ""), style: UIAlertActionStyle.cancel) { (result : UIAlertAction) -> Void in
+        }
+
+        let okAction = UIAlertAction.init(title: NSLocalizedString("Ok", comment: ""), style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
+            self.completeBooking()
+        }
+
+        alertController.addAction(cancelAction)
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+
+    func completeBooking() {
+        self.indicator.isHidden = false
+        self.indicator.startAnimating()
+        self.paymentContext.paymentAmount = Int(self.event.price * 100)
+        self.paymentContext.requestPayment()
     }
 }
 

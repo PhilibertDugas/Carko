@@ -29,6 +29,7 @@ class EventsCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.titleView = UIImageView.init(image: UIImage.init(named: "white_logo"))
         if let layout = collectionView?.collectionViewLayout as? ApyaLayout {
             layout.delegate = self
         }

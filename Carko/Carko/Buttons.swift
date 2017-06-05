@@ -25,12 +25,24 @@ class RoundedCornerButton: UIButton {
 class SmallRoundedCornerButton: UIButton {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        applyGradient()
         layer.cornerRadius = 10
+
     }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        applyGradient()
         layer.cornerRadius = 10
+    }
+
+    fileprivate func applyGradient() {
+        let gradient: CAGradientLayer = CAGradientLayer()
+        gradient.frame = self.bounds
+        gradient.colors = [UIColor.accentGradientColor.cgColor, UIColor.accentColor.cgColor]
+        gradient.locations = [0.0, 1.0]
+        gradient.cornerRadius = 10
+        self.layer.insertSublayer(gradient, at: 0)
     }
 }
 
