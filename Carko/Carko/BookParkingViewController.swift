@@ -41,10 +41,6 @@ class BookParkingViewController: UIViewController {
         return UIScreen.main.bounds.height - (180 + UIApplication.shared.statusBarFrame.height)
     }
 
-    @IBAction func tappedCloseArrow(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
-
     @IBAction func tappedConfirm(_ sender: Any) {
         if !parking.isAvailable {
             super.displayErrorMessage(NSLocalizedString("The parking is currently busy", comment: ""))
@@ -95,6 +91,10 @@ class BookParkingViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        animateToPartial()
+    }
+
+    func animateToPartial () {
         UIView.animate(withDuration: 0.6, animations: { [weak self] in
             let frame = self?.view.frame
             let yComponent = self?.partialView

@@ -94,6 +94,7 @@ extension FindParkingViewController: MKMapViewDelegate {
         if let annotation = view.annotation as? ParkingAnnotation {
             self.bookParkingVC = storyboard?.instantiateViewController(withIdentifier: "bookParkingViewController") as? BookParkingViewController
             self.bookParkingVC.sheetDelegate = self
+            self.bookParkingVC.delegate = self
             self.navigationController?.setNavigationBarHidden(true, animated: true)
             let parking = annotation.parking
             self.bookParkingVC.parking = parking
