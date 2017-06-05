@@ -24,10 +24,10 @@ class BookParkingViewController: UIViewController {
     @IBOutlet var addressLabel: UILabel!
     @IBOutlet var timeLabel: UILabel!
     @IBOutlet var costLabel: UILabel!
-    @IBOutlet var confirmButton: RoundedCornerButton!
     @IBOutlet var indicator: UIActivityIndicatorView!
     @IBOutlet var parkingLabel: UILabel!
     @IBOutlet var eventLabel: UILabel!
+    @IBOutlet var paymentPopup: PaymentPopup!
 
     var paymentContext: STPPaymentContext!
     var parking: Parking!
@@ -57,6 +57,7 @@ class BookParkingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.paymentPopup.isHidden = true
 
         // TODO CHANGE THIS
         paymentContext = STPPaymentContext.init(apiAdapter: APIClient.shared)
@@ -164,19 +165,19 @@ extension BookParkingViewController: UITextFieldDelegate {
 
 extension BookParkingViewController {
     func promptCompletion() {
-        let translatedMessage = NSLocalizedString("Confirm payment of %@ to get a parking on %@", comment: "")
-        let paymentMessage = String.init(format: translatedMessage, event.price.asLocaleCurrency, event.endTime.formattedDays)
-        let alertController = UIAlertController.init(title: NSLocalizedString("Confirm Payment", comment: ""), message: paymentMessage, preferredStyle: UIAlertControllerStyle.actionSheet)
-        let cancelAction = UIAlertAction.init(title: NSLocalizedString("Cancel", comment: ""), style: UIAlertActionStyle.cancel) { (result : UIAlertAction) -> Void in
-        }
+        self.paymentPopup.priceLabel.text = self.event.price.asLocaleCurrency
+        self.paymentPopup.creditCardLabel.text = self.paymentContext.selectedPaymentMethod?.label
+        self.paymentPopup.confirmButton.addTarget(self, action: #selector(self.completeBooking), for: UIControlEvents.touchUpInside)
+        self.paymentPopup.cancelButton.addTarget(self, action: #selector(self.cancelBooking), for: UIControlEvents.touchUpInside)
 
-        let okAction = UIAlertAction.init(title: NSLocalizedString("Ok", comment: ""), style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
-            self.completeBooking()
-        }
-
-        alertController.addAction(cancelAction)
-        alertController.addAction(okAction)
-        self.present(alertController, animated: true, completion: nil)
+        self.paymentPopup.view.backgroundColor = UIColor.primaryBlack
+        self.paymentPopup.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+        self.paymentPopup.view.alpha = 0.0
+        self.paymentPopup.isHidden = false
+        UIView.animate(withDuration: 0.25, animations: {
+            self.paymentPopup.view.alpha = 1.0
+            self.paymentPopup.view.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        })
     }
 
     func completeBooking() {
@@ -184,6 +185,17 @@ extension BookParkingViewController {
         self.indicator.startAnimating()
         self.paymentContext.paymentAmount = Int(self.event.price * 100)
         self.paymentContext.requestPayment()
+    }
+
+    func cancelBooking() {
+        UIView.animate(withDuration: 0.25, animations: {
+            self.paymentPopup.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+            self.paymentPopup.view.alpha = 0.0
+        }, completion: {(finished : Bool) in
+            if (finished) {
+                self.paymentPopup.isHidden = true
+            }
+        })
     }
 }
 

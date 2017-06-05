@@ -46,6 +46,19 @@ class SmallRoundedCornerButton: UIButton {
     }
 }
 
+class SecondarySmallRoundedCornerButton: UIButton {
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        layer.cornerRadius = 10
+
+    }
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        layer.cornerRadius = 10
+    }
+}
+
 class CircularButton: UIButton {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

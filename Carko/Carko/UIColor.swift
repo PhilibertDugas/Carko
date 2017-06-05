@@ -27,7 +27,7 @@ extension UIColor {
         return UIColor.init(netHex: 0xF5515F)
     }
 
-    class var primaryColor: UIColor {
+    class var primaryBlack: UIColor {
         return UIColor.init(netHex: 0x252627)
     }
 

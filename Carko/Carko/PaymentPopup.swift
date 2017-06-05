@@ -1,19 +1,20 @@
 //
-//  MarkerPopup.swift
+//  PaymentPopup.swift
 //  Carko
 //
-//  Created by Philibert Dugas on 2016-10-19.
-//  Copyright © 2016 QH4L. All rights reserved.
+//  Created by Philibert Dugas on 2017-06-05.
+//  Copyright © 2017 QH4L. All rights reserved.
 //
 
 import UIKit
 
-class MarkerPopup: UIView {
+class PaymentPopup: UIView {
 
-    @IBOutlet weak var view: UIView!
-    @IBOutlet var descriptionLabel: UILabel!
+    @IBOutlet var view: UIView!
     @IBOutlet var priceLabel: UILabel!
-    @IBOutlet var imageView: UIImageView!
+    @IBOutlet var creditCardLabel: UILabel!
+    @IBOutlet var confirmButton: SmallRoundedCornerButton!
+    @IBOutlet var cancelButton: SecondarySmallRoundedCornerButton!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,11 +27,13 @@ class MarkerPopup: UIView {
     }
 
     private func commonInit() {
-        Bundle.main.loadNibNamed("MarkerPopup", owner: self, options: nil)
+        Bundle.main.loadNibNamed("PaymentPopup", owner: self, options: nil)
         guard let content = view else { return }
+        content.layer.cornerRadius = 10
         content.frame = self.bounds
         content.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         content.backgroundColor = UIColor.clear
         self.addSubview(content)
     }
+
 }
