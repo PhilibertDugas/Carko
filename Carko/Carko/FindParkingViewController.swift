@@ -16,6 +16,7 @@ class FindParkingViewController: UIViewController {
     @IBOutlet var mapView: MKMapView!
 
     let locationManager = CLLocationManager()
+    var bluredView: UIVisualEffectView!
     var bookParkingVC: BookParkingViewController!
     var event: Event!
 
@@ -143,6 +144,7 @@ extension FindParkingViewController: MKMapViewDelegate {
 
 extension FindParkingViewController: ReservationDelegate {
     func reservationCompleted() {
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.fetchParkings()
     }
 }
@@ -158,6 +160,5 @@ extension FindParkingViewController: MapSheetDelegate {
         self.mapView.frame = CGRect.init(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
         view.layer.cornerRadius = 0
         view.clipsToBounds = false
-
     }
 }

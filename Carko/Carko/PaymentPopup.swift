@@ -12,8 +12,10 @@ class PaymentPopup: UIView {
 
     @IBOutlet var view: UIView!
     @IBOutlet var priceLabel: UILabel!
+    @IBOutlet var creditCardImage: UIImageView!
     @IBOutlet var creditCardLabel: UILabel!
     @IBOutlet var confirmButton: SmallRoundedCornerButton!
+    @IBOutlet var indicator: UIActivityIndicatorView!
     @IBOutlet var cancelButton: SecondarySmallRoundedCornerButton!
 
     override init(frame: CGRect) {

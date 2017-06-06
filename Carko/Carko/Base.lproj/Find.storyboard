@@ -249,13 +249,6 @@
                                             <action selector="tappedConfirm:" destination="PnB-Lw-Vkk" eventType="touchUpInside" id="ACQ-mD-opa"/>
                                         </connections>
                                     </button>
-                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="dlE-aj-1W3">
-                                        <rect key="frame" x="114.5" y="22.5" width="20" height="20"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="20" id="9TY-n8-d0p"/>
-                                            <constraint firstAttribute="height" constant="20" id="z9I-48-t8e"/>
-                                        </constraints>
-                                    </activityIndicatorView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Park Now" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aWm-Gn-fPM">
                                         <rect key="frame" x="7.5" y="12" width="127" height="21"/>
                                         <constraints>
@@ -276,14 +269,12 @@
                                     </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="dlE-aj-1W3" secondAttribute="trailing" constant="8" id="1bS-SH-Sde"/>
                                     <constraint firstItem="eNc-qq-HT7" firstAttribute="top" secondItem="fW3-1d-qRD" secondAttribute="top" id="2H4-Uo-ydi"/>
                                     <constraint firstAttribute="trailing" secondItem="aWm-Gn-fPM" secondAttribute="trailing" constant="8" id="DAr-m1-V7p"/>
                                     <constraint firstItem="aWm-Gn-fPM" firstAttribute="leading" secondItem="fW3-1d-qRD" secondAttribute="leading" constant="8" id="Oc4-tE-dLS"/>
                                     <constraint firstItem="nLw-V2-mPK" firstAttribute="leading" secondItem="fW3-1d-qRD" secondAttribute="leading" constant="8" id="SaZ-XE-RyO"/>
                                     <constraint firstItem="nLw-V2-mPK" firstAttribute="top" secondItem="aWm-Gn-fPM" secondAttribute="bottom" constant="4" id="ZAb-K9-lNO"/>
                                     <constraint firstAttribute="height" constant="65" id="hAC-lf-6uS"/>
-                                    <constraint firstItem="dlE-aj-1W3" firstAttribute="centerY" secondItem="fW3-1d-qRD" secondAttribute="centerY" id="jhR-ne-c7m"/>
                                     <constraint firstAttribute="trailing" secondItem="nLw-V2-mPK" secondAttribute="trailing" constant="8" id="moM-bq-zoz"/>
                                     <constraint firstItem="eNc-qq-HT7" firstAttribute="leading" secondItem="fW3-1d-qRD" secondAttribute="leading" id="ore-Rk-E7U"/>
                                     <constraint firstItem="aWm-Gn-fPM" firstAttribute="top" secondItem="fW3-1d-qRD" secondAttribute="top" constant="12" id="t8Z-m2-nK1"/>
@@ -411,9 +402,9 @@
                     </view>
                     <connections>
                         <outlet property="addressLabel" destination="Foz-45-Nlo" id="0Mh-7E-Y3y"/>
+                        <outlet property="confirmButton" destination="eNc-qq-HT7" id="11n-3g-3cE"/>
                         <outlet property="costLabel" destination="nLw-V2-mPK" id="BPC-r6-Jcv"/>
                         <outlet property="eventLabel" destination="ZTp-s4-lmA" id="JFo-rn-k8M"/>
-                        <outlet property="indicator" destination="dlE-aj-1W3" id="I4H-LA-BQZ"/>
                         <outlet property="parkingImageView" destination="6dg-JK-NSX" id="bjD-fr-P2n"/>
                         <outlet property="parkingLabel" destination="pDk-S5-c1a" id="ETX-88-v0C"/>
                         <outlet property="paymentPopup" destination="seN-Nl-jZA" id="dJt-gY-L9R"/>

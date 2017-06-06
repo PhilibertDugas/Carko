@@ -20,11 +20,11 @@ protocol MapSheetDelegate {
 }
 
 class BookParkingViewController: UIViewController {
+    @IBOutlet var confirmButton: SmallRoundedCornerButton!
     @IBOutlet var parkingImageView: UIImageView!
     @IBOutlet var addressLabel: UILabel!
     @IBOutlet var timeLabel: UILabel!
     @IBOutlet var costLabel: UILabel!
-    @IBOutlet var indicator: UIActivityIndicatorView!
     @IBOutlet var parkingLabel: UILabel!
     @IBOutlet var eventLabel: UILabel!
     @IBOutlet var paymentPopup: PaymentPopup!
@@ -34,6 +34,7 @@ class BookParkingViewController: UIViewController {
     var event: Event!
     var delegate: ReservationDelegate!
     var sheetDelegate: MapSheetDelegate!
+    var bluredView: UIVisualEffectView!
 
     let fullView: CGFloat = 10
     var partialView: CGFloat {
@@ -59,7 +60,7 @@ class BookParkingViewController: UIViewController {
         super.viewDidLoad()
         self.paymentPopup.isHidden = true
 
-        // TODO CHANGE THIS
+        // FIXME CHANGE THIS
         paymentContext = STPPaymentContext.init(apiAdapter: APIClient.shared)
         paymentContext.paymentCurrency = "CAD"
         paymentContext.delegate = self
@@ -75,7 +76,8 @@ class BookParkingViewController: UIViewController {
         super.viewWillAppear(animated)
         prepareBackgroundView()
 
-        self.indicator.isHidden = true
+        self.paymentPopup.indicator.isHidden = true
+
         addressLabel.text = parking.address
         timeLabel.text = self.event.endTime.formattedDays
         costLabel.text = self.event.price.asLocaleCurrency
@@ -125,23 +127,29 @@ class BookParkingViewController: UIViewController {
         if recognizer.state == .ended {
             UIView.animate(withDuration: 0.5, delay: 0.0, options: [.allowUserInteraction], animations: {
                 if velocity.y > 0 {
-                    self.view.frame = CGRect(x: 0, y: self.partialView, width: self.view.frame.width, height: self.view.frame.height)
-                    self.sheetDelegate.didDisappear()
+                    self.sheetDisappeared()
                 } else if velocity.y < 0 {
-                    self.view.frame = CGRect(x: 0, y: self.fullView, width: self.view.frame.width, height: self.view.frame.height)
-                    self.sheetDelegate.didAppear()
+                    self.sheetAppeared()
                 } else {
                     if self.view.frame.origin.y < (self.view.frame.height / 2) {
-                        self.view.frame = CGRect(x: 0, y: self.fullView, width: self.view.frame.width, height: self.view.frame.height)
-                        self.sheetDelegate.didAppear()
+                        self.sheetAppeared()
                     } else {
-                        self.view.frame = CGRect(x: 0, y: self.partialView, width: self.view.frame.width, height: self.view.frame.height)
-                        self.sheetDelegate.didDisappear()
+                        self.sheetDisappeared()
                     }
                 }
-
             }, completion: nil)
         }
+    }
+
+    func sheetAppeared() {
+        self.view.frame = CGRect(x: 0, y: self.fullView, width: self.view.frame.width, height: self.view.frame.height)
+        self.sheetDelegate.didAppear()
+
+    }
+
+    func sheetDisappeared() {
+        self.view.frame = CGRect(x: 0, y: self.partialView, width: self.view.frame.width, height: self.view.frame.height)
+        self.sheetDelegate.didDisappear()
     }
 
     func roundViews() {
@@ -165,8 +173,12 @@ extension BookParkingViewController: UITextFieldDelegate {
 
 extension BookParkingViewController {
     func promptCompletion() {
+        self.didPressPark()
         self.paymentPopup.priceLabel.text = self.event.price.asLocaleCurrency
         self.paymentPopup.creditCardLabel.text = self.paymentContext.selectedPaymentMethod?.label
+        self.paymentPopup.creditCardLabel.sizeToFit()
+        self.paymentPopup.creditCardImage.image = self.paymentContext.selectedPaymentMethod?.image
+
         self.paymentPopup.confirmButton.addTarget(self, action: #selector(self.completeBooking), for: UIControlEvents.touchUpInside)
         self.paymentPopup.cancelButton.addTarget(self, action: #selector(self.cancelBooking), for: UIControlEvents.touchUpInside)
 
@@ -174,6 +186,8 @@ extension BookParkingViewController {
         self.paymentPopup.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
         self.paymentPopup.view.alpha = 0.0
         self.paymentPopup.isHidden = false
+        self.paymentPopup.view.center = (self.view.superview?.center)!
+        self.view.superview?.insertSubview(self.paymentPopup.view, aboveSubview: self.bluredView)
         UIView.animate(withDuration: 0.25, animations: {
             self.paymentPopup.view.alpha = 1.0
             self.paymentPopup.view.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
@@ -181,13 +195,28 @@ extension BookParkingViewController {
     }
 
     func completeBooking() {
-        self.indicator.isHidden = false
-        self.indicator.startAnimating()
+        self.paymentPopup.indicator.isHidden = false
+        self.paymentPopup.indicator.startAnimating()
         self.paymentContext.paymentAmount = Int(self.event.price * 100)
         self.paymentContext.requestPayment()
     }
 
     func cancelBooking() {
+        self.didDismissPaymentPopup()
+    }
+
+    func didPressPark() {
+        let blurEffect = UIBlurEffect.init(style: .dark)
+        let visualEffect = UIVisualEffectView.init(effect: blurEffect)
+        bluredView = UIVisualEffectView.init(effect: blurEffect)
+        bluredView.contentView.addSubview(visualEffect)
+        visualEffect.frame = UIScreen.main.bounds
+        bluredView.frame = UIScreen.main.bounds
+        self.view.superview?.insertSubview(self.bluredView, aboveSubview: self.view)
+    }
+
+    func didDismissPaymentPopup() {
+        self.bluredView.removeFromSuperview()
         UIView.animate(withDuration: 0.25, animations: {
             self.paymentPopup.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
             self.paymentPopup.view.alpha = 0.0
@@ -220,13 +249,15 @@ extension BookParkingViewController: STPPaymentContextDelegate {
         )
 
         reservation.persist() { (successfulReservation, error) in
-            self.indicator.isHidden = true
-            self.indicator.stopAnimating()
+            self.paymentPopup.indicator.isHidden = true
+            self.paymentPopup.indicator.stopAnimating()
             if let error = error {
                 super.displayErrorMessage(error.localizedDescription)
             } else if successfulReservation != nil {
                 self.delegate.reservationCompleted()
-                self.dismiss(animated: true, completion: nil)
+                self.sheetDisappeared()
+                self.didDismissPaymentPopup()
+                self.navigationController?.popToRootViewController(animated: true)
             }
         }
     }
