@@ -27,7 +27,6 @@ class SmallRoundedCornerButton: UIButton {
         super.init(coder: aDecoder)
         applyGradient()
         layer.cornerRadius = 10
-
     }
 
     override init(frame: CGRect) {
