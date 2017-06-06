@@ -19,7 +19,13 @@ protocol ApyaLayoutDelegate {
 class ApyaLayout: UICollectionViewLayout {
     var delegate: ApyaLayoutDelegate!
 
-    var numberOfColumns = 1
+    let reservationCellHeight: CGFloat = 345
+    let reservationNumberOfColumns = 1
+    let firstEventNumberOfColumns = 1
+    let eventNumberOfColumns = 2
+
+    var currentColumn = 0
+    var yOffset = [CGFloat]()
     var cellPadding: CGFloat = 6.0
 
     private var cache = [ApyaLayoutAttributes]()
@@ -34,48 +40,98 @@ class ApyaLayout: UICollectionViewLayout {
         return CGSize(width: contentWidth, height: contentHeight)
     }
 
-
     override class var layoutAttributesClass: AnyClass {
         return ApyaLayoutAttributes.self
     }
 
     override func prepare() {
-            cache.removeAll()
-            let columnWidth = contentWidth / CGFloat(numberOfColumns)
-            var xOffset = [CGFloat]()
-            for column in 0 ..< numberOfColumns {
-                xOffset.append(CGFloat(column) * columnWidth )
+        cache.removeAll()
+
+        self.yOffset = [CGFloat](repeating: 0, count: eventNumberOfColumns)
+
+        self.currentColumn = 0
+        setupReservationCells()
+        setupEventCells()
+    }
+
+    fileprivate func setupReservationCells() {
+        let columnWidth = contentWidth / CGFloat(reservationNumberOfColumns)
+        var xOffset = [CGFloat]()
+        for column in 0 ..< reservationNumberOfColumns {
+            xOffset.append(CGFloat(column) * columnWidth )
+        }
+
+        for item in 0 ..< collectionView!.numberOfItems(inSection: 0) {
+            let indexPath = IndexPath.init(item: item, section: 0)
+
+            let height = cellPadding + reservationCellHeight + cellPadding
+
+            let frame = CGRect(x: xOffset[self.currentColumn], y: yOffset[self.currentColumn], width: columnWidth, height: height)
+            let insetFrame = frame.insetBy(dx: cellPadding, dy: cellPadding)
+
+            let attributes = ApyaLayoutAttributes.init(forCellWith: indexPath)
+            attributes.photoHeight = reservationCellHeight
+            attributes.frame = insetFrame
+            cache.append(attributes)
+
+            contentHeight = max(contentHeight, frame.maxY)
+            self.yOffset[0] = height
+            self.yOffset[1] = height
+
+            if self.currentColumn >= (reservationNumberOfColumns - 1) {
+                self.currentColumn = 0
+            } else {
+                self.currentColumn = self.currentColumn + 1
             }
-            var column = 0
-            var yOffset = [CGFloat](repeating: 0, count: numberOfColumns)
+        }
 
-            for item in 0 ..< collectionView!.numberOfItems(inSection: 0) {
-                let indexPath = IndexPath.init(item: item, section: 0)
+    }
 
-                let width = columnWidth - cellPadding * 2
-                let photoHeight = delegate.collectionView(collectionView: collectionView!, heightForPhotoAtIndexPath: indexPath, withWidth: width)
-                // let annotationHeight = delegate.collectionView(collectionView: collectionView!, heightForAnnotationAtIndexPath: indexPath, withWidth: width)
+    fileprivate func setupEventCells() {
+        var firstEvent = true
 
-                // let height = cellPadding +  photoHeight + annotationHeight + cellPadding
-                let height = cellPadding +  photoHeight + cellPadding
+        let columnWidth = contentWidth / CGFloat(eventNumberOfColumns)
+        let firstColumnWidth = contentWidth / CGFloat(firstEventNumberOfColumns)
+        var xOffset = [CGFloat]()
+        for column in 0 ..< eventNumberOfColumns {
+            xOffset.append(CGFloat(column) * columnWidth )
+        }
 
-                let frame = CGRect(x: xOffset[column], y: yOffset[column], width: columnWidth, height: height)
-                let insetFrame = frame.insetBy(dx: cellPadding, dy: cellPadding)
+        for item in 0 ..< collectionView!.numberOfItems(inSection: 1) {
+            let indexPath = IndexPath.init(item: item, section: 1)
 
-                let attributes = ApyaLayoutAttributes.init(forCellWith: indexPath)
-                attributes.photoHeight = photoHeight
-                attributes.frame = insetFrame
-                cache.append(attributes)
+            let width = firstEvent ? firstColumnWidth - cellPadding * 2 : columnWidth - cellPadding * 2
+            let photoHeight = delegate.collectionView(collectionView: collectionView!, heightForPhotoAtIndexPath: indexPath, withWidth: width)
+            let height = cellPadding + photoHeight + cellPadding
 
-                contentHeight = max(contentHeight, frame.maxY)
-                yOffset[column] = yOffset[column] + height
+            var frame: CGRect!
+            if firstEvent {
+                frame = CGRect(x: 0, y: self.yOffset[self.currentColumn], width: firstColumnWidth, height: height)
+            } else {
+                frame = CGRect(x: xOffset[self.currentColumn], y: self.yOffset[self.currentColumn], width: columnWidth, height: height)
+            }
 
-                if column >= (numberOfColumns - 1) {
-                    column = 0
+            let insetFrame = frame.insetBy(dx: cellPadding, dy: cellPadding)
+            let attributes = ApyaLayoutAttributes.init(forCellWith: indexPath)
+            attributes.photoHeight = photoHeight
+            attributes.frame = insetFrame
+            cache.append(attributes)
+
+            contentHeight = max(contentHeight, frame.maxY)
+
+            if firstEvent {
+                self.yOffset[0] = yOffset[0] + height
+                self.yOffset[1] = yOffset[1] + height
+            } else {
+                self.yOffset[self.currentColumn] = yOffset[self.currentColumn] + height
+                if self.currentColumn >= (eventNumberOfColumns - 1) {
+                    self.currentColumn = 0
                 } else {
-                    column = column + 1
+                    self.currentColumn = self.currentColumn + 1
                 }
             }
+            firstEvent = firstEvent ? !firstEvent : firstEvent
+        }
     }
 
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {

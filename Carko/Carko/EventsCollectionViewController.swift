@@ -15,8 +15,11 @@ import AVFoundation
 class EventsCollectionViewController: UICollectionViewController {
     private var isHamburgerMenuOpen = false
 
+    fileprivate let reservationIdentifier = "ReservationCell"
     fileprivate let reuseIdentifier = "EventCell"
     fileprivate var events: [(Event)] = [Event.init(), Event.init(), Event.init(), Event.init()]
+    fileprivate var reservations: [(Reservation)] = []
+
     fileprivate var selectedEvent: Event!
     fileprivate var refresher: UIRefreshControl!
     fileprivate var revealViewController: SWRevealViewController!
@@ -86,6 +89,17 @@ class EventsCollectionViewController: UICollectionViewController {
         }
     }
 
+    fileprivate func fetchReservations() {
+        Reservation.getCustomerActiveReservations { (reservations, error) in
+            if let error = error {
+                self.displayErrorMessage(error.localizedDescription)
+            } else {
+                self.reservations = reservations
+                self.collectionView?.reloadData()
+            }
+        }
+    }
+
     fileprivate func setupPullToRefresh() {
         self.collectionView!.alwaysBounceVertical = true
         self.refresher = UIRefreshControl.init()
@@ -95,6 +109,7 @@ class EventsCollectionViewController: UICollectionViewController {
 
     func refreshTriggered() {
         self.fetchEvents()
+        self.fetchReservations()
     }
 }
 
@@ -118,14 +133,30 @@ extension EventsCollectionViewController: SWRevealViewControllerDelegate {
 
 extension EventsCollectionViewController {
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return 2
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.events.count
+        if section == 0 {
+            return self.reservations.count
+        } else {
+            return self.events.count
+        }
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if indexPath.section == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reservationIdentifier, for: indexPath) as! ReservationCollectionViewCell
+            cell.reservation = self.reservations[indexPath.row]
+            cell.layer.cornerRadius = 3
+            cell.layer.borderWidth = 0.5
+            return cell
+        } else {
+            return setupEventCell(collectionView, cellForItemAt: indexPath)
+        }
+    }
+
+    fileprivate func setupEventCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! EventCollectionViewCell
         cell.event = self.events[indexPath.row]
         cell.layer.cornerRadius = 3
@@ -155,7 +186,7 @@ extension EventsCollectionViewController: AuthenticatedDelegate {
                 self.performSegue(withIdentifier: "showLoginScreen", sender: nil)
             } else if let token = idToken {
                 AppState.shared.authToken = token
-                self.fetchEvents()
+                self.refreshTriggered()
             }
         })
     }

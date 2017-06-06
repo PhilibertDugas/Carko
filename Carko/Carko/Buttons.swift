@@ -23,6 +23,8 @@ class RoundedCornerButton: UIButton {
 }
 
 class SmallRoundedCornerButton: UIButton {
+    var gradient: CAGradientLayer!
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         applyGradient()
@@ -36,12 +38,17 @@ class SmallRoundedCornerButton: UIButton {
     }
 
     fileprivate func applyGradient() {
-        let gradient: CAGradientLayer = CAGradientLayer()
+        gradient = CAGradientLayer()
         gradient.frame = self.bounds
         gradient.colors = [UIColor.accentGradientColor.cgColor, UIColor.accentColor.cgColor]
         gradient.locations = [0.0, 1.0]
         gradient.cornerRadius = 10
         self.layer.insertSublayer(gradient, at: 0)
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        gradient.frame = self.bounds
     }
 }
 

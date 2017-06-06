@@ -65,7 +65,7 @@
         <scene sceneID="RRg-26-Voq">
             <objects>
                 <navigationController id="r47-eP-Nd1" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="6K4-3b-u28">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="6K4-3b-u28">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -93,19 +93,19 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewLayout key="collectionViewLayout" id="c87-KU-3Ek" customClass="ApyaLayout" customModule="Carko" customModuleProvider="target"/>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="EventCell" id="6DP-6O-eL9" customClass="EventCollectionViewCell" customModule="Carko" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ReservationCell" id="6DP-6O-eL9" customClass="ReservationCollectionViewCell" customModule="Carko" customModuleProvider="target">
                                 <rect key="frame" x="95" y="0.0" width="185" height="255"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="185" height="255"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kn6-cw-bNF">
+                                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" showsBuildings="NO" showsCompass="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wt3-8p-Rcc">
                                             <rect key="frame" x="0.0" y="0.0" width="185" height="255"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="255" id="b9F-HS-bfJ"/>
+                                                <constraint firstAttribute="height" constant="255" id="iPX-Hu-7jT"/>
                                             </constraints>
-                                        </imageView>
+                                        </mapView>
                                         <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sYw-b3-1fN">
                                             <rect key="frame" x="0.0" y="235" width="185" height="20"/>
                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="vGc-dK-vHR">
@@ -128,7 +128,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="aJ7-6N-Qbo"/>
                                             </constraints>
-                                            <blurEffect style="light"/>
+                                            <blurEffect style="dark"/>
                                         </visualEffectView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sPL-zx-NSx">
                                             <rect key="frame" x="0.0" y="235" width="185" height="20"/>
@@ -142,21 +142,87 @@
                                     </subviews>
                                 </view>
                                 <constraints>
+                                    <constraint firstItem="Wt3-8p-Rcc" firstAttribute="leading" secondItem="6DP-6O-eL9" secondAttribute="leading" id="7yb-sJ-Jqr"/>
                                     <constraint firstAttribute="trailing" secondItem="sYw-b3-1fN" secondAttribute="trailing" id="EKz-Wt-ON0"/>
                                     <constraint firstAttribute="bottom" secondItem="sYw-b3-1fN" secondAttribute="bottom" id="Hd2-8J-tTZ"/>
                                     <constraint firstAttribute="trailing" secondItem="sPL-zx-NSx" secondAttribute="trailing" id="X0P-vf-DEY"/>
+                                    <constraint firstItem="Wt3-8p-Rcc" firstAttribute="top" secondItem="6DP-6O-eL9" secondAttribute="top" id="cZn-fR-rMW"/>
                                     <constraint firstItem="sPL-zx-NSx" firstAttribute="leading" secondItem="6DP-6O-eL9" secondAttribute="leading" id="fPt-0R-YUs"/>
                                     <constraint firstItem="sYw-b3-1fN" firstAttribute="leading" secondItem="6DP-6O-eL9" secondAttribute="leading" id="giP-g8-AXM"/>
-                                    <constraint firstItem="kn6-cw-bNF" firstAttribute="leading" secondItem="6DP-6O-eL9" secondAttribute="leading" id="jqM-Sc-XVb"/>
-                                    <constraint firstItem="kn6-cw-bNF" firstAttribute="top" secondItem="6DP-6O-eL9" secondAttribute="top" id="pQ2-l7-Uis"/>
-                                    <constraint firstAttribute="trailing" secondItem="kn6-cw-bNF" secondAttribute="trailing" id="uHq-FK-w2p"/>
                                     <constraint firstAttribute="bottom" secondItem="sPL-zx-NSx" secondAttribute="bottom" id="vgx-g5-Dw8"/>
+                                    <constraint firstAttribute="trailing" secondItem="Wt3-8p-Rcc" secondAttribute="trailing" id="yCt-uc-gpF"/>
                                 </constraints>
                                 <size key="customSize" width="185" height="255"/>
                                 <connections>
-                                    <outlet property="image" destination="kn6-cw-bNF" id="SmE-us-29M"/>
-                                    <outlet property="imageViewHeightLayoutConstraint" destination="b9F-HS-bfJ" id="7eB-RN-OHn"/>
-                                    <outlet property="label" destination="sPL-zx-NSx" id="pq7-oS-b4V"/>
+                                    <outlet property="imageViewHeightLayoutConstraint" destination="iPX-Hu-7jT" id="g7r-Ko-m9E"/>
+                                    <outlet property="label" destination="sPL-zx-NSx" id="3CL-9p-JmD"/>
+                                    <outlet property="mapView" destination="Wt3-8p-Rcc" id="cUk-yk-kaa"/>
+                                </connections>
+                            </collectionViewCell>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="EventCell" id="y1f-W2-xj4" customClass="EventCollectionViewCell" customModule="Carko" customModuleProvider="target">
+                                <rect key="frame" x="95" y="265" width="185" height="255"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="185" height="255"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CVJ-1U-FKb">
+                                            <rect key="frame" x="0.0" y="0.0" width="185" height="255"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="255" id="8fg-sx-DWi"/>
+                                            </constraints>
+                                        </imageView>
+                                        <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="igf-kg-r7r">
+                                            <rect key="frame" x="0.0" y="235" width="185" height="20"/>
+                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="cNI-kT-buI">
+                                                <rect key="frame" x="0.0" y="0.0" width="185" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yde-sR-EDG">
+                                                        <rect key="frame" x="0.0" y="0.0" width="185" height="20"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="lcf-GG-2Iz">
+                                                            <rect key="frame" x="0.0" y="0.0" width="185" height="20"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        </view>
+                                                        <vibrancyEffect>
+                                                            <blurEffect style="light"/>
+                                                        </vibrancyEffect>
+                                                    </visualEffectView>
+                                                </subviews>
+                                            </view>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="69Q-Gs-eCO"/>
+                                            </constraints>
+                                            <blurEffect style="light"/>
+                                        </visualEffectView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4N2-5N-Exv">
+                                            <rect key="frame" x="0.0" y="235" width="185" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="jPz-qX-qBv"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="4N2-5N-Exv" secondAttribute="trailing" id="1q5-gX-G9X"/>
+                                    <constraint firstItem="4N2-5N-Exv" firstAttribute="leading" secondItem="y1f-W2-xj4" secondAttribute="leading" id="Emr-oe-3u6"/>
+                                    <constraint firstItem="igf-kg-r7r" firstAttribute="leading" secondItem="y1f-W2-xj4" secondAttribute="leading" id="PPX-TX-Uoe"/>
+                                    <constraint firstAttribute="trailing" secondItem="CVJ-1U-FKb" secondAttribute="trailing" id="PUv-8i-6fc"/>
+                                    <constraint firstItem="CVJ-1U-FKb" firstAttribute="leading" secondItem="y1f-W2-xj4" secondAttribute="leading" id="cgQ-wY-i5e"/>
+                                    <constraint firstAttribute="bottom" secondItem="4N2-5N-Exv" secondAttribute="bottom" id="h98-Jn-Ghq"/>
+                                    <constraint firstItem="CVJ-1U-FKb" firstAttribute="top" secondItem="y1f-W2-xj4" secondAttribute="top" id="hN1-7M-CKZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="igf-kg-r7r" secondAttribute="bottom" id="iee-TJ-Zg8"/>
+                                    <constraint firstAttribute="trailing" secondItem="igf-kg-r7r" secondAttribute="trailing" id="jZd-Bn-e31"/>
+                                </constraints>
+                                <size key="customSize" width="185" height="255"/>
+                                <connections>
+                                    <outlet property="image" destination="CVJ-1U-FKb" id="fig-yq-jHE"/>
+                                    <outlet property="imageViewHeightLayoutConstraint" destination="8fg-sx-DWi" id="0k5-mb-1vq"/>
+                                    <outlet property="label" destination="4N2-5N-Exv" id="Usr-zl-J45"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -196,7 +262,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vak-tN-vlc" customClass="RoundedCornerView" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="170" y="22" width="34" height="4"/>
+                                <rect key="frame" x="170.5" y="22" width="34" height="4"/>
                                 <color key="backgroundColor" red="0.74901960779999999" green="0.74901960779999999" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="4" id="B38-o6-dXa"/>
@@ -354,7 +420,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="seN-Nl-jZA" customClass="PaymentPopup" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="75" y="166.5" width="225" height="333.5"/>
+                                <rect key="frame" x="75" y="167" width="225" height="333.5"/>
                             </view>
                         </subviews>
                         <constraints>

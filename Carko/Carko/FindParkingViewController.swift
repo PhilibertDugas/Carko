@@ -20,6 +20,8 @@ class FindParkingViewController: UIViewController {
     var bookParkingVC: BookParkingViewController!
     var event: Event!
 
+    var sheetAppeared: Bool = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.mapView.delegate = self
@@ -31,6 +33,7 @@ class FindParkingViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        self.sheetAppeared = false
         let customer = AppState.shared.cachedCustomer()
         if FIRAuth.auth()?.currentUser == nil || customer == nil {
             self.navigationController?.popToRootViewController(animated: true)
@@ -88,7 +91,6 @@ extension FindParkingViewController: MKMapViewDelegate {
         let circle = MKCircle.init(center: self.event.coordinate(), radius: Double(self.event.range) as CLLocationDistance)
         self.mapView.addAnnotation(centerAnnotation)
         self.mapView.add(circle)
-
     }
 
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
@@ -151,14 +153,20 @@ extension FindParkingViewController: ReservationDelegate {
 
 extension FindParkingViewController: MapSheetDelegate {
     func didAppear() {
-        self.mapView.frame = CGRect.init(x: 8, y: 0, width: self.view.frame.width - 16, height: self.view.frame.height)
-        view.layer.cornerRadius = 10
-        view.clipsToBounds = true
+        if !self.sheetAppeared {
+            self.view.frame = CGRect.init(x: 8, y: 0, width: self.view.frame.width - 16, height: self.view.frame.height)
+            view.layer.cornerRadius = 10
+            view.clipsToBounds = true
+            self.sheetAppeared = true
+        }
     }
 
     func didDisappear() {
-        self.mapView.frame = CGRect.init(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
-        view.layer.cornerRadius = 0
-        view.clipsToBounds = false
+        if self.sheetAppeared {
+            self.view.frame = CGRect.init(x: 0, y: 0, width: self.view.frame.width + 16, height: self.view.frame.height)
+            view.layer.cornerRadius = 0
+            view.clipsToBounds = false
+            self.sheetAppeared = false
+        }
     }
 }

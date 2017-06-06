@@ -57,7 +57,10 @@ struct Reservation {
     static func getCustomerReservations(_ completion: @escaping ([(Reservation)], Error?) -> Void) {
         APIClient.shared.getCustomerReservations(complete: completion)
     }
-}
+
+    static func getCustomerActiveReservations(_ completion: @escaping ([(Reservation)], Error?) -> Void) {
+        APIClient.shared.getCustomerActiveReservations(complete: completion)
+    }}
 
 struct NewReservation {
     var label: String
