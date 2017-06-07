@@ -195,7 +195,7 @@ extension EventsCollectionViewController: AuthenticatedDelegate {
 extension EventsCollectionViewController: ApyaLayoutDelegate {
     func collectionView(collectionView:UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath, withWidth width: CGFloat) -> CGFloat {
         let event = self.events[indexPath.item]
-        let boundingRect =  CGRect(x: 0, y: 0, width: width, height: CGFloat(MAXFLOAT))
+        let boundingRect = CGRect(x: 0, y: 0, width: width, height: CGFloat(MAXFLOAT))
         if let url = event.photoURL {
             let imageReference = AppState.shared.storageReference.storage.reference(forURL: url.absoluteString)
             let imageView = UIImageView.init()
@@ -211,15 +211,4 @@ extension EventsCollectionViewController: ApyaLayoutDelegate {
             return (image?.size.height)!
         }
     }
-
-    func collectionView(collectionView: UICollectionView, heightForAnnotationAtIndexPath indexPath: IndexPath, withWidth width: CGFloat) -> CGFloat {
-        let annotationPadding = CGFloat(4)
-        let annotationHeaderHeight = CGFloat(17)
-        let event = events[indexPath.item]
-        let font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
-        let commentHeight = event.heightForLabel(font: font, width: width)
-        let height = annotationPadding + annotationHeaderHeight + commentHeight + annotationPadding
-        return height
-    }
-
 }

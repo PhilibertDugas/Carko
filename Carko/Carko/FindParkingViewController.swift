@@ -24,39 +24,19 @@ class FindParkingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.mapView.delegate = self
-        let center = CLLocationCoordinate2D.init(latitude: event.latitude, longitude: event.longitude)
-        let region = MKCoordinateRegionMakeWithDistance(center, CLLocationDistance(self.event.range * 2), CLLocationDistance(self.event.range * 2))
-        self.mapView.setRegion(region, animated: true)
-        self.mapView.regionThatFits(region)
+        self.navigationItem.titleView = UIImageView.init(image: UIImage.init(named: "white_logo"))
+        self.initializeMap()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.sheetAppeared = false
-        let customer = AppState.shared.cachedCustomer()
-        if FIRAuth.auth()?.currentUser == nil || customer == nil {
-            self.navigationController?.popToRootViewController(animated: true)
-        }
+        self.locationManager.requestWhenInUseAuthorization()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if AppState.shared.customer != nil {
-            fetchParkings()
-        }
-    }
-
-    func setupFirstView() {
-        let alreadyViewed = UserDefaults.standard.bool(forKey: "alreadyViewedFind")
-        if alreadyViewed == false {
-            let responder = SCLAlertView.init().showInfo("How it works", subTitle: "Find any parking spot on the map to see their availability and book them!", colorStyle: 0x00C441, colorTextButton: 0xFFFFFA)
-            responder.setDismissBlock {
-                UserDefaults.standard.set(true, forKey: "alreadyViewedFind")
-                self.locationManager.requestWhenInUseAuthorization()
-            }
-        }
-        fetchParkings()
+        self.fetchParkings()
     }
 
     func fetchParkings() {
@@ -71,6 +51,14 @@ class FindParkingViewController: UIViewController {
 }
 
 extension FindParkingViewController: MKMapViewDelegate {
+    fileprivate func initializeMap() {
+        self.mapView.delegate = self
+        let center = CLLocationCoordinate2D.init(latitude: event.latitude, longitude: event.longitude)
+        let region = MKCoordinateRegionMakeWithDistance(center, CLLocationDistance(self.event.range * 2), CLLocationDistance(self.event.range * 2))
+        self.mapView.setRegion(region, animated: true)
+        self.mapView.regionThatFits(region)
+    }
+
     func parkingFetched(_ parkings: [(Parking)]) {
         self.mapView.removeAnnotations(mapView.annotations)
         self.setupEventPin()
@@ -98,6 +86,7 @@ extension FindParkingViewController: MKMapViewDelegate {
             self.bookParkingVC = storyboard?.instantiateViewController(withIdentifier: "bookParkingViewController") as? BookParkingViewController
             self.bookParkingVC.sheetDelegate = self
             self.bookParkingVC.delegate = self
+
             self.navigationController?.setNavigationBarHidden(true, animated: true)
             let parking = annotation.parking
             self.bookParkingVC.parking = parking
@@ -106,6 +95,7 @@ extension FindParkingViewController: MKMapViewDelegate {
             self.addChildViewController(self.bookParkingVC)
             self.view.addSubview(self.bookParkingVC.view)
             self.bookParkingVC.didMove(toParentViewController: self)
+
             let height = self.view.frame.height
             let width = self.view.frame.width
             self.bookParkingVC.view.frame = CGRect.init(x: 0, y: self.view.frame.maxY, width: width, height: height)
@@ -154,18 +144,18 @@ extension FindParkingViewController: ReservationDelegate {
 extension FindParkingViewController: MapSheetDelegate {
     func didAppear() {
         if !self.sheetAppeared {
-            self.view.frame = CGRect.init(x: 8, y: 0, width: self.view.frame.width - 16, height: self.view.frame.height)
-            view.layer.cornerRadius = 10
-            view.clipsToBounds = true
+            self.view.frame = CGRect.init(x: 0, y: 20, width: self.view.frame.width, height: self.view.frame.height)
+            self.view.layer.cornerRadius = 10
+            self.view.clipsToBounds = true
             self.sheetAppeared = true
         }
     }
 
     func didDisappear() {
         if self.sheetAppeared {
-            self.view.frame = CGRect.init(x: 0, y: 0, width: self.view.frame.width + 16, height: self.view.frame.height)
-            view.layer.cornerRadius = 0
-            view.clipsToBounds = false
+            self.view.frame = CGRect.init(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+            self.view.layer.cornerRadius = 0
+            self.view.clipsToBounds = false
             self.sheetAppeared = false
         }
     }

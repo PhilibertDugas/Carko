@@ -14,14 +14,31 @@ class ReservationCollectionViewCell: UICollectionViewCell {
     @IBOutlet var label: UILabel!
     @IBOutlet var imageViewHeightLayoutConstraint: NSLayoutConstraint!
 
+    let parkingRange = CLLocationDistance.init(500)
+
     var reservation: Reservation? {
         didSet {
             if let reservation = reservation {
                 // FIXME
                 // label.text = reservation.label
                 label.text = "ACTIVE RESERVATION"
+                self.setMapRegion(reservation)
+                self.setMapPin(reservation)
             }
         }
+    }
+
+    fileprivate func setMapRegion(_ reservation: Reservation) {
+        let center = reservation.parking.coordinate()
+        let region = MKCoordinateRegionMakeWithDistance(center, parkingRange, parkingRange)
+        self.mapView.setRegion(region, animated: true)
+        self.mapView.regionThatFits(region)
+    }
+
+    fileprivate func setMapPin(_ reservation: Reservation) {
+        let centerAnnotation = MKPointAnnotation.init()
+        centerAnnotation.coordinate = reservation.parking.coordinate()
+        self.mapView.addAnnotation(centerAnnotation)
     }
 
     override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {

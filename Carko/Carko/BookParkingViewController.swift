@@ -38,8 +38,7 @@ class BookParkingViewController: UIViewController {
 
     let fullView: CGFloat = 10
     var partialView: CGFloat {
-        //return UIScreen.main.bounds.height - (left.frame.maxY + UIApplication.shared.statusBarFrame.height)
-        return UIScreen.main.bounds.height - (180 + UIApplication.shared.statusBarFrame.height)
+        return 0.75 * UIScreen.main.bounds.height
     }
 
     @IBAction func tappedConfirm(_ sender: Any) {
@@ -67,7 +66,9 @@ class BookParkingViewController: UIViewController {
         paymentContext.hostViewController = self
 
         let gesture = UIPanGestureRecognizer.init(target: self, action: #selector(BookParkingViewController.panGesture))
+        let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(BookParkingViewController.tapGesture))
         view.addGestureRecognizer(gesture)
+        view.addGestureRecognizer(tapGesture)
 
         self.roundViews()
     }
@@ -98,11 +99,9 @@ class BookParkingViewController: UIViewController {
     }
 
     func animateToPartial () {
-        UIView.animate(withDuration: 0.6, animations: { [weak self] in
-            let frame = self?.view.frame
-            let yComponent = self?.partialView
-            self?.view.frame = CGRect(x: 0, y: yComponent!, width: frame!.size.width, height: frame!.size.height)
-        })
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: [.allowUserInteraction], animations: {
+            self.sheetDisappeared()
+        }, completion: nil)
     }
 
     func prepareBackgroundView(){
@@ -113,6 +112,16 @@ class BookParkingViewController: UIViewController {
         visualEffect.frame = UIScreen.main.bounds
         bluredView.frame = UIScreen.main.bounds
         view.insertSubview(bluredView, at: 0)
+    }
+
+    func tapGesture(_ recognizer: UITapGestureRecognizer) {
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: [.allowUserInteraction], animations: {
+            if self.view.frame.origin.y == self.partialView {
+                self.sheetAppeared()
+            } else if self.view.frame.origin.y == self.fullView {
+                self.sheetDisappeared()
+            }
+        }, completion: nil)
     }
 
     func panGesture(_ recognizer: UIPanGestureRecognizer) {
@@ -142,13 +151,12 @@ class BookParkingViewController: UIViewController {
     }
 
     func sheetAppeared() {
-        self.view.frame = CGRect(x: 0, y: self.fullView, width: self.view.frame.width, height: self.view.frame.height)
+        self.view.frame = CGRect(x: 0, y: self.fullView, width: UIScreen.main.bounds.width, height: self.view.frame.height)
         self.sheetDelegate.didAppear()
-
     }
 
     func sheetDisappeared() {
-        self.view.frame = CGRect(x: 0, y: self.partialView, width: self.view.frame.width, height: self.view.frame.height)
+        self.view.frame = CGRect(x: 0, y: self.partialView, width: UIScreen.main.bounds.width, height: self.view.frame.height)
         self.sheetDelegate.didDisappear()
     }
 
@@ -158,19 +166,7 @@ class BookParkingViewController: UIViewController {
     }
 }
 
-extension BookParkingViewController: UITextFieldDelegate {
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        if textField.tag == 10 {
-            paymentContext.presentPaymentMethodsViewController()
-            return false
-        } else if textField.tag == 11 {
-            return false
-        } else {
-            return true
-        }
-    }
-}
-
+// MARK -- Handling the payment popup
 extension BookParkingViewController {
     func promptCompletion() {
         self.didPressPark()
@@ -228,6 +224,7 @@ extension BookParkingViewController {
     }
 }
 
+// MARK -- Handling Stripe methods
 extension BookParkingViewController: STPPaymentContextDelegate {
     public func paymentContext(_ paymentContext: STPPaymentContext, didCreatePaymentResult paymentResult: STPPaymentResult, completion: @escaping STPErrorBlock) {
         let charge = Charge.init(

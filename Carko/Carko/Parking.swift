@@ -69,6 +69,10 @@ class Parking {
         }
     }
 
+    func coordinate() -> CLLocationCoordinate2D {
+        return CLLocationCoordinate2D.init(latitude: self.latitude, longitude: self.longitude)
+    }
+
     func stopDate() -> Date {
         let todayFormater = DateFormatter.init()
         todayFormater.dateFormat = "d.M.yyyy"

@@ -10,7 +10,7 @@ import Foundation
 
 struct Reservation {
     var label: String
-    var parkingId: Int
+    var parking: Parking
     var customerId: Int
     var isActive: Bool
     var startTime: String
@@ -18,9 +18,9 @@ struct Reservation {
     var totalCost: Float
     var charge: String
 
-    init(label: String, parkingId: Int, customerId: Int, isActive: Bool, startTime: String, stopTime: String, totalCost: Float, charge: String) {
+    init(label: String, parking: Parking, customerId: Int, isActive: Bool, startTime: String, stopTime: String, totalCost: Float, charge: String) {
         self.label = label
-        self.parkingId = parkingId
+        self.parking = parking
         self.customerId = customerId
         self.isActive = isActive
         self.startTime = startTime
@@ -31,20 +31,22 @@ struct Reservation {
 
     init(reservation: [String : Any]) {
         let label = reservation["label"] as! String
-        let parkingId = reservation["parking_id"] as! Int
         let customerId = reservation["customer_id"] as! Int
         let isActive = reservation["is_active"] as! Bool
         let startTime = reservation["start_time"] as! String
         let stopTime = reservation["stop_time"] as! String
         let totalCost = reservation["total_cost"] as! Float
         let charge = reservation["charge"] as! String
-        self.init(label: label, parkingId: parkingId, customerId: customerId, isActive: isActive, startTime: startTime, stopTime: stopTime, totalCost: totalCost, charge: charge)
+
+        let parking = reservation["parking"] as! [String: Any]
+
+        self.init(label: label, parking: Parking.init(parking: parking), customerId: customerId, isActive: isActive, startTime: startTime, stopTime: stopTime, totalCost: totalCost, charge: charge)
     }
 
     func toDictionnary() -> [String : Any] {
         return [
             "label": self.label,
-            "parking_id": self.parkingId,
+            "parking": self.parking.toDictionary(),
             "customer_id": self.customerId,
             "is_active": self.isActive,
             "start_time": self.startTime,

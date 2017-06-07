@@ -11,9 +11,6 @@ import UIKit
 protocol ApyaLayoutDelegate {
     func collectionView(collectionView:UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath,
                         withWidth:CGFloat) -> CGFloat
-
-    func collectionView(collectionView: UICollectionView,
-                        heightForAnnotationAtIndexPath indexPath: IndexPath, withWidth width: CGFloat) -> CGFloat
 }
 
 class ApyaLayout: UICollectionViewLayout {
