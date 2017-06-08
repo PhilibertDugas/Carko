@@ -27,4 +27,21 @@ extension APIClient {
             }
         }
     }
+
+    func getEventParkings(_ event: Event, complete: @escaping([(Parking)], Error?) -> Void) {
+        let getUrl = baseUrl.appendingPathComponent("/events/\(event.id)/parkings")
+        request(getUrl).responseJSON { (response) in
+            if let error = response.result.error {
+                complete([], error)
+            } else if let result = response.result.value {
+                let parkingArray = result as! NSArray
+                var parkings = [(Parking)]()
+                for parking in parkingArray {
+                    let dict = parking as! [String : Any]
+                    parkings.append(Parking.init(parking: dict))
+                }
+                complete(parkings, nil)
+            }
+        }
+    }
 }

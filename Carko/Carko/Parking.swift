@@ -72,57 +72,6 @@ class Parking {
     func coordinate() -> CLLocationCoordinate2D {
         return CLLocationCoordinate2D.init(latitude: self.latitude, longitude: self.longitude)
     }
-
-    func stopDate() -> Date {
-        let todayFormater = DateFormatter.init()
-        todayFormater.dateFormat = "d.M.yyyy"
-        todayFormater.timeZone = NSTimeZone.local
-        let todayString = todayFormater.string(from: Date.init())
-
-        let convertString = "\(todayString) \(self.availabilityInfo.stopTime)"
-
-        let dateFormatter = DateFormatter.init()
-        dateFormatter.dateFormat = "d.M.yyyy HH:mm"
-        dateFormatter.timeZone = NSTimeZone.local
-        return dateFormatter.date(from: convertString)!
-    }
-
-    func scheduleAvailable(_ date: Date) -> Bool {
-        let myCalendar = Calendar.init(identifier: Calendar.Identifier.gregorian)
-        var weekDay = myCalendar.component(.weekday, from: date)
-        let hour = myCalendar.component(.hour, from: date)
-        let minute = myCalendar.component(.minute, from: date)
-
-        // Shifting to our own date system
-        if weekDay == 0 {
-            weekDay = 9
-        } else if weekDay == 1 {
-            weekDay = 8
-        }
-        weekDay -= 2
-
-        let startSplitted = availabilityInfo.startTime.components(separatedBy: ":")
-        var startValid = false
-        let startHour = Int(startSplitted[0])!
-        let startMinute = Int(startSplitted[1])!
-        if startHour == hour && startMinute < minute {
-            startValid = true
-        } else if startHour < hour {
-            startValid = true
-        }
-
-        let stopSplitted = availabilityInfo.stopTime.components(separatedBy: ":")
-        var stopValid = false
-        let stopHour = Int(stopSplitted[0])!
-        let stopMinute = Int(stopSplitted[1])!
-        if stopHour == hour && stopMinute > minute {
-            stopValid = true
-        } else if stopHour > hour {
-            stopValid = true
-        }
-
-        return startValid && stopValid && availabilityInfo.daysAvailable[weekDay]
-    }
 }
 
 extension Parking {
@@ -184,6 +133,7 @@ class AvailabilityInfo: NSObject {
     var alwaysAvailable: Bool
 
     // Array of 7 elements. Index 0 represents Monday up to index 6 which represents Sunday
+    // 0 is true, 1 is false
     var daysAvailable: [(Bool)]
 
     init(alwaysAvailable: Bool, startTime: String, stopTime: String, daysAvailable: [(Bool)]) {
@@ -245,21 +195,6 @@ class AvailabilityInfo: NSObject {
         dateFormatter.dateFormat = "HH:mm"
         dateFormatter.timeZone = NSTimeZone.local
         return dateFormatter
-    }
-
-    class func dayFormatter() -> DateFormatter {
-        let dateFormatter = DateFormatter.init()
-        dateFormatter.dateFormat = "dd-MM-YYYY HH:mm"
-        dateFormatter.timeZone = NSTimeZone.local
-        return dateFormatter
-    }
-
-    func startDate() -> Date {
-        return AvailabilityInfo.dayFormatter().date(from: self.startTime)!
-    }
-
-    func stopDate() -> Date {
-        return AvailabilityInfo.dayFormatter().date(from: self.stopTime)!
     }
 
     func daysEnumerationText() -> String {

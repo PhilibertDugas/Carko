@@ -40,7 +40,7 @@ class FindParkingViewController: UIViewController {
     }
 
     func fetchParkings() {
-        Parking.getAllParkings { (parkings, error) in
+        self.event.getParkings { (parkings, error) in
             if let error = error {
                 self.displayErrorMessage(error.localizedDescription)
             } else {
@@ -62,14 +62,11 @@ extension FindParkingViewController: MKMapViewDelegate {
     func parkingFetched(_ parkings: [(Parking)]) {
         self.mapView.removeAnnotations(mapView.annotations)
         self.setupEventPin()
-        let now = Date.init()
         for parking in parkings {
             // FIXME
             //if parking.isComplete && parking.scheduleAvailable(now) {
-            if parking.scheduleAvailable(now) {
-                let annotation = ParkingAnnotation.init(parking: parking, event: self.event)
-                self.mapView.addAnnotation(annotation)
-            }
+            let annotation = ParkingAnnotation.init(parking: parking, event: self.event)
+            self.mapView.addAnnotation(annotation)
         }
     }
 
