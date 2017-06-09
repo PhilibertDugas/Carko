@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DZi-rU-28s">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DZi-rU-28s">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -318,7 +318,7 @@
         <scene sceneID="HF5-31-kHl">
             <objects>
                 <navigationController id="DZi-rU-28s" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="XGG-Mn-fKg">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="XGG-Mn-fKg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -439,12 +439,12 @@
                                     <constraint firstAttribute="height" constant="62" id="gMM-1v-5Dj"/>
                                     <constraint firstAttribute="trailing" secondItem="R3S-MU-eXp" secondAttribute="trailing" constant="8" id="pGx-N6-zyg"/>
                                     <constraint firstItem="Ga9-nb-TYj" firstAttribute="leading" secondItem="mm5-nN-Lab" secondAttribute="leading" id="vif-NJ-VVF"/>
+                                    <constraint firstItem="Ga9-nb-TYj" firstAttribute="top" secondItem="mm5-nN-Lab" secondAttribute="top" id="yWJ-bc-f83"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="u6H-p3-NGf" firstAttribute="top" secondItem="mm5-nN-Lab" secondAttribute="bottom" constant="100" id="15U-4n-VE0"/>
                             <constraint firstItem="mPX-xX-Erp" firstAttribute="leading" secondItem="mah-Dp-P5p" secondAttribute="leadingMargin" id="1UV-pH-hnw"/>
                             <constraint firstItem="pul-oF-m6s" firstAttribute="top" secondItem="mPX-xX-Erp" secondAttribute="bottom" constant="32" id="1t3-Rq-JOJ"/>
                             <constraint firstItem="Cdv-Xn-Jqb" firstAttribute="trailing" secondItem="mah-Dp-P5p" secondAttribute="trailingMargin" id="68o-vg-3jS"/>
@@ -461,6 +461,7 @@
                             <constraint firstItem="pul-oF-m6s" firstAttribute="trailing" secondItem="mah-Dp-P5p" secondAttribute="trailingMargin" id="lRl-S8-aXe"/>
                             <constraint firstItem="pul-oF-m6s" firstAttribute="leading" secondItem="mah-Dp-P5p" secondAttribute="leadingMargin" id="mZP-Ls-amg"/>
                             <constraint firstItem="mPX-xX-Erp" firstAttribute="trailing" secondItem="mah-Dp-P5p" secondAttribute="trailingMargin" id="p6K-mh-9jN"/>
+                            <constraint firstItem="mm5-nN-Lab" firstAttribute="top" secondItem="pul-oF-m6s" secondAttribute="bottom" constant="30.5" id="qSo-xZ-crn"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Sign up" id="LQw-bx-DnB"/>

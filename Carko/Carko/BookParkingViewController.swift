@@ -116,10 +116,10 @@ class BookParkingViewController: UIViewController {
 
     func tapGesture(_ recognizer: UITapGestureRecognizer) {
         UIView.animate(withDuration: 0.5, delay: 0.0, options: [.allowUserInteraction], animations: {
-            if self.view.frame.origin.y == self.partialView {
-                self.sheetAppeared()
-            } else if self.view.frame.origin.y == self.fullView {
+            if self.view.frame.origin.y == self.fullView {
                 self.sheetDisappeared()
+            } else {
+                self.sheetAppeared()
             }
         }, completion: nil)
     }
@@ -254,7 +254,6 @@ extension BookParkingViewController: STPPaymentContextDelegate {
                 self.delegate.reservationCompleted()
                 self.sheetDisappeared()
                 self.didDismissPaymentPopup()
-                self.navigationController?.popToRootViewController(animated: true)
             }
         }
     }

@@ -1,6 +1,5 @@
 PODS:
   - Alamofire (4.0.1)
-  - ARNTransitionAnimator (2.0.3)
   - Firebase (3.7.1):
     - Firebase/Core (= 3.7.1)
   - Firebase/Auth (3.7.1):
@@ -71,7 +70,6 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
-  - ARNTransitionAnimator (= 2.0.3)
   - Firebase
   - Firebase/Auth
   - Firebase/Crash
@@ -85,7 +83,6 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
-  ARNTransitionAnimator: 51c63c904e61435d1ff741722ec49819cd38fc4f
   Firebase: be473484f0d515e72ffd04acf22f981773c23e58
   FirebaseAnalytics: 0533a00b681e08fd0b2cd0444b7ddf0ef9fd7a1a
   FirebaseAuth: 75a062bbf2d3c97d1e6e55bbc110e13a6853e25d
@@ -104,6 +101,6 @@ SPEC CHECKSUMS:
   SDWebImage: '098e97e6176540799c27e804c96653ee0833d13c'
   Stripe: 935c6deb5e96cbd29d247074bf3aa98a8438e22c
 
-PODFILE CHECKSUM: 973c601f76e9ff986bea13eb5104aaf97e7c7d7d
+PODFILE CHECKSUM: 8e3cf64951b8093da6bf0455ae95aca80cf4f013
 
 COCOAPODS: 1.2.0.beta.3
