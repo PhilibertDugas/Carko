@@ -14,6 +14,7 @@ import SCLAlertView
 
 class FindParkingViewController: UIViewController {
     @IBOutlet var mapView: MKMapView!
+    @IBOutlet var navigationImageView: UIImageView!
 
     let locationManager = CLLocationManager()
     var bluredView: UIVisualEffectView!
@@ -22,9 +23,14 @@ class FindParkingViewController: UIViewController {
 
     var sheetAppeared: Bool = false
 
+    @IBAction func backTapped(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.titleView = UIImageView.init(image: UIImage.init(named: "white_logo"))
+        self.navigationImageView.frame = (self.navigationItem.titleView?.bounds)!
         self.initializeMap()
     }
 
@@ -36,7 +42,13 @@ class FindParkingViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
         self.fetchParkings()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+
     }
 
     func fetchParkings() {
@@ -84,7 +96,6 @@ extension FindParkingViewController: MKMapViewDelegate {
             self.bookParkingVC.sheetDelegate = self
             self.bookParkingVC.delegate = self
 
-            self.navigationController?.setNavigationBarHidden(true, animated: true)
             let parking = annotation.parking
             self.bookParkingVC.parking = parking
             self.bookParkingVC.event = self.event
@@ -100,7 +111,6 @@ extension FindParkingViewController: MKMapViewDelegate {
     }
 
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.bookParkingVC.view.removeFromSuperview()
         self.bookParkingVC.removeFromParentViewController()
     }

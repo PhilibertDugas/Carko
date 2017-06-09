@@ -83,7 +83,7 @@ class EventsCollectionViewController: UICollectionViewController {
                     self.loadedOnce = true
                     Loader.removeLoaderFrom(self.collectionView!)
                 }
-                self.collectionView?.reloadData()
+                self.collectionView!.reloadData()
             }
             self.refresher.endRefreshing()
         }

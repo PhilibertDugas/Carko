@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="r47-eP-Nd1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="r47-eP-Nd1">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,28 +20,66 @@
                         <viewControllerLayoutGuide type="bottom" id="vpB-74-N3m"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Njl-x4-YWd">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" showsBuildings="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F3O-Ph-Xpo">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <gestureRecognizers/>
                             </mapView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="auX-jE-ny4">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white_logo" translatesAutoresizingMaskIntoConstraints="NO" id="54q-fK-Q4j">
+                                        <rect key="frame" x="168.5" y="24" width="38" height="38"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="38" id="eeY-lq-XDn"/>
+                                            <constraint firstAttribute="width" constant="38" id="rhB-Lp-diJ"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DFX-iW-I53">
+                                        <rect key="frame" x="8" y="31" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="aTO-hL-LDJ"/>
+                                            <constraint firstAttribute="width" constant="25" id="bNy-Uw-0cn"/>
+                                        </constraints>
+                                        <state key="normal" image="back_arrow">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="backTapped:" destination="415-jb-YhG" eventType="touchUpInside" id="7xa-3R-y0R"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="54q-fK-Q4j" secondAttribute="bottom" constant="2" id="A2T-Wf-lHc"/>
+                                    <constraint firstItem="54q-fK-Q4j" firstAttribute="centerX" secondItem="auX-jE-ny4" secondAttribute="centerX" id="SPv-Pc-b8S"/>
+                                    <constraint firstItem="DFX-iW-I53" firstAttribute="leading" secondItem="auX-jE-ny4" secondAttribute="leading" constant="8" id="ZWW-6h-lD3"/>
+                                    <constraint firstAttribute="height" constant="64" id="ic5-RK-BLn"/>
+                                    <constraint firstAttribute="bottom" secondItem="DFX-iW-I53" secondAttribute="bottom" constant="8" id="xBI-wC-fYU"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.76862745099999996" green="0.066666666669999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="auX-jE-ny4" firstAttribute="top" secondItem="Njl-x4-YWd" secondAttribute="top" id="7OH-3h-KtA"/>
                             <constraint firstAttribute="trailing" secondItem="F3O-Ph-Xpo" secondAttribute="trailing" id="BiT-Qm-d85"/>
                             <constraint firstItem="F3O-Ph-Xpo" firstAttribute="leading" secondItem="Njl-x4-YWd" secondAttribute="leading" id="SLa-dl-rhi"/>
                             <constraint firstAttribute="bottom" secondItem="F3O-Ph-Xpo" secondAttribute="bottom" id="kdF-dJ-ff0"/>
                             <constraint firstItem="F3O-Ph-Xpo" firstAttribute="top" secondItem="Njl-x4-YWd" secondAttribute="top" id="nfV-2C-x0V"/>
+                            <constraint firstAttribute="trailing" secondItem="auX-jE-ny4" secondAttribute="trailing" id="qwv-rb-uNA"/>
+                            <constraint firstItem="auX-jE-ny4" firstAttribute="leading" secondItem="Njl-x4-YWd" secondAttribute="leading" id="wZp-b8-lEd"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="R9l-Ne-DWL">
                         <barButtonItem key="backBarButtonItem" title=" " id="O59-l8-x0E"/>
                     </navigationItem>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="F3O-Ph-Xpo" id="XCQ-di-Sbv"/>
+                        <outlet property="navigationImageView" destination="54q-fK-Q4j" id="giI-bC-H4E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5JO-7F-TCV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -87,7 +125,7 @@
         <scene sceneID="oc0-ja-GMb">
             <objects>
                 <collectionViewController id="MPQ-ic-TB4" customClass="EventsCollectionViewController" customModule="Carko" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="ZxP-jl-dXw">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="ZxP-jl-dXw">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -482,6 +520,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="back_arrow" width="25" height="25"/>
         <image name="menu" width="20" height="12"/>
+        <image name="white_logo" width="37" height="37"/>
     </resources>
 </document>
