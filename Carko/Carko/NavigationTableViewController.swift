@@ -16,18 +16,14 @@ class NavigationTableViewController: UITableViewController {
     @IBAction func paymentTapped(_ sender: Any) {
         let revealViewController = self.revealViewController()
         revealViewController?.revealToggle(sender)
-        self.paymentContext.presentPaymentMethodsViewController()
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        self.paymentContext = STPPaymentContext.init(apiAdapter: APIClient.shared)
-        self.paymentContext.delegate = self
-        self.paymentContext.hostViewController = self
+        if AuthenticationHelper.customerAvailable() {
+            self.paymentContext = STPPaymentContext.init(apiAdapter: APIClient.shared)
+            self.paymentContext.delegate = self
+            self.paymentContext.hostViewController = self
+            self.paymentContext.presentPaymentMethodsViewController()
+        } else {
+            self.performSegue(withIdentifier: "showLoginScreen", sender: nil)
+        }
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

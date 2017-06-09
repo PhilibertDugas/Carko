@@ -28,6 +28,14 @@
             </objects>
             <point key="canvasLocation" x="-2660" y="954"/>
         </scene>
+        <!--Login-->
+        <scene sceneID="uGV-kT-zxS">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Login" id="25y-3s-LxZ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SFi-Ao-jCy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2652" y="1064"/>
+        </scene>
         <!--History-->
         <scene sceneID="7x3-B6-IFt">
             <objects>
@@ -432,6 +440,9 @@
                     </tableView>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="700"/>
+                    <connections>
+                        <segue destination="25y-3s-LxZ" kind="presentation" identifier="showLoginScreen" id="OkD-BV-N5c"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lap-50-j3g" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="1JI-WF-wnd">

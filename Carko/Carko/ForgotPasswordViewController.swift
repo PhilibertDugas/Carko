@@ -22,6 +22,7 @@ class ForgotPasswordViewController: UIViewController {
                 }
             }
         } else {
+            // FIXME
             super.displayErrorMessage("")
         }
     }

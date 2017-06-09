@@ -8,7 +8,6 @@
 
 import UIKit
 import Stripe
-import FirebaseAuth
 
 class ProfileViewController: UITableViewController {
 
@@ -44,8 +43,7 @@ extension ProfileViewController {
     }
 
     func logoutTapped() {
-        try! FIRAuth.auth()!.signOut()
-        UserDefaults.standard.removeObject(forKey: "user")
+        AuthenticationHelper.resetCustomer()
         self.dismiss(animated: true, completion: nil)
     }
 }

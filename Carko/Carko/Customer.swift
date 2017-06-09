@@ -81,12 +81,18 @@ struct Customer {
         return dict
     }
     
-    static func logIn(email: String, password: String) {
+    static func logIn(email: String, password: String, complete: @escaping (Error?) -> Void) {
         FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (customer, error) in
             if let error = error {
-                NotificationCenter.default.post(name: Notification.Name.init("CustomerLoggedInError"), object: nil, userInfo: ["data": error.localizedDescription])
+                complete(error)
             } else {
-                NotificationCenter.default.post(name: Notification.Name.init("CustomerLoggedIn"), object: nil, userInfo: nil)
+                AuthenticationHelper.updateAuthToken({ (error) in
+                    if let error = error {
+                        complete(error)
+                    } else {
+                        complete(nil)
+                    }
+                })
             }
         })
     }
@@ -119,25 +125,27 @@ class NewCustomer {
         ]
     }
 
-    func register() {
+    func register(complete: @escaping (Error?) -> Void) {
         FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (customer, error) in
-            if error != nil {
-                self.postRegisterError(error!)
+            if let error = error {
+                complete(error)
             } else if let customer = customer {
                 self.firebaseId = customer.uid
                 APIClient.shared.postCustomer(customer: self, complete: { (error) in
-                    if error != nil {
+                    if let error = error {
                         try! FIRAuth.auth()!.signOut()
-                        self.postRegisterError(error!)
+                        complete(error)
                     } else {
-                        NotificationCenter.default.post(name: Notification.Name.init("CustomerRegistered"), object: nil, userInfo: nil)
+                        AuthenticationHelper.updateAuthToken({ (error) in
+                            if let error = error {
+                                complete(error)
+                            } else {
+                                complete(nil)
+                            }
+                        })
                     }
                 })
             }
         })
-    }
-
-    private func postRegisterError(_ error: Error) {
-        NotificationCenter.default.post(name: Notification.Name.init("CustomerRegisteredError"), object: nil, userInfo: ["data": error.localizedDescription])
     }
 }

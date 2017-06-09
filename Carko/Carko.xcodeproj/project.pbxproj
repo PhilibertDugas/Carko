@@ -59,6 +59,7 @@
 		45877E751E158709006A7709 /* SimpleCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45877E741E158709006A7709 /* SimpleCellTableViewCell.swift */; };
 		458859431EA91C58008DDED8 /* EventClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458859421EA91C58008DDED8 /* EventClient.swift */; };
 		458A98301DBCFD44007F53EE /* UnderlineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458A982F1DBCFD44007F53EE /* UnderlineTextField.swift */; };
+		458AF6691EEB064B00E3C402 /* AuthenticationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458AF6681EEB064B00E3C402 /* AuthenticationHelper.swift */; };
 		458BC76A1DE218DC0028AC5B /* LocationSearchTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458BC7691DE218DC0028AC5B /* LocationSearchTableTableViewController.swift */; };
 		4591D5F21DFC9D4700366691 /* Charge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4591D5F11DFC9D4700366691 /* Charge.swift */; };
 		4591D5F51DFCA4C400366691 /* ParkingClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4591D5F41DFCA4C400366691 /* ParkingClient.swift */; };
@@ -226,6 +227,7 @@
 		45877E741E158709006A7709 /* SimpleCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleCellTableViewCell.swift; sourceTree = "<group>"; };
 		458859421EA91C58008DDED8 /* EventClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventClient.swift; sourceTree = "<group>"; };
 		458A982F1DBCFD44007F53EE /* UnderlineTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnderlineTextField.swift; sourceTree = "<group>"; };
+		458AF6681EEB064B00E3C402 /* AuthenticationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationHelper.swift; sourceTree = "<group>"; };
 		458BC7691DE218DC0028AC5B /* LocationSearchTableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchTableTableViewController.swift; sourceTree = "<group>"; };
 		4591D5F11DFC9D4700366691 /* Charge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Charge.swift; sourceTree = "<group>"; };
 		4591D5F41DFCA4C400366691 /* ParkingClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingClient.swift; sourceTree = "<group>"; };
@@ -371,6 +373,7 @@
 			isa = PBXGroup;
 			children = (
 				4544AA7E1E2BFA8E008A760F /* DateHelper.swift */,
+				458AF6681EEB064B00E3C402 /* AuthenticationHelper.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -1067,6 +1070,7 @@
 				C51150531DAF38D5004E2A7D /* ParkingDescriptionViewController.swift in Sources */,
 				4564F6E11DB98509001B709C /* BookParkingViewController.swift in Sources */,
 				45BB39651DBBF0010019C2A3 /* Buttons.swift in Sources */,
+				458AF6691EEB064B00E3C402 /* AuthenticationHelper.swift in Sources */,
 				451FC46F1E072BC70083C0CB /* VehiculeClient.swift in Sources */,
 				45637CFF1DEB184500DD42C0 /* AppState.swift in Sources */,
 				458A98301DBCFD44007F53EE /* UnderlineTextField.swift in Sources */,

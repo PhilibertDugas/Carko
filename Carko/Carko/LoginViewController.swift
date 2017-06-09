@@ -15,12 +15,17 @@ class LoginViewController: UIViewController {
     @IBOutlet var loginButton: RoundedCornerButton!
     @IBOutlet var indicator: UIActivityIndicatorView!
 
-    var delegate: AuthenticatedDelegate!
-
     @IBAction func loginPressed(_ sender: AnyObject) {
         if let email = email.text, let password = password.text {
             indicator.startAnimating()
-            Customer.logIn(email: email, password: password)
+            Customer.logIn(email: email, password: password) { (error) in
+                if let error = error {
+                    self.customerLoggedInError(error)
+                }
+                else {
+                    self.customerLoggedIn()
+                }
+            }
         } else {
             super.displayErrorMessage("Invalid email or password")
         }
@@ -32,12 +37,7 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.hideKeyboardWhenTappedAround()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.customerLoggedIn), name: NSNotification.Name(rawValue: "CustomerLoggedIn"), object: nil)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.customerLoggedInError), name: NSNotification.Name(rawValue: "CustomerLoggedInError"), object: nil)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -45,25 +45,21 @@ class LoginViewController: UIViewController {
         destination.modalPresentationCapturesStatusBarAppearance = true
     }
 
-    func customerLoggedIn(_ notification: Notification) {
+    func customerLoggedIn() {
         indicator.stopAnimating()
         Customer.getCustomer { (customer, error) in
             if let error = error {
                 super.displayErrorMessage(error.localizedDescription)
             } else if let customer = customer {
                 AppState.shared.cacheCustomer(customer)
-                self.dismiss(animated: true) {
-                    self.delegate.userAuthenticated()
-                }
+                self.dismiss(animated: true)
             }
         }
     }
 
-    func customerLoggedInError(_ notification: Notification) {
+    func customerLoggedInError(_ error: Error) {
         indicator.stopAnimating()
-        if let userInfo = notification.userInfo {
-            super.displayErrorMessage(userInfo["data"] as! String)
-        }
+        super.displayErrorMessage(error.localizedDescription)
     }
 }
 

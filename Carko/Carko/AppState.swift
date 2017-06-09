@@ -31,6 +31,11 @@ class AppState: NSObject {
         updateCache()
     }
 
+    func cacheAuthToken(_ token: String) {
+        self.authToken = token
+        self.updateTokenCache()
+    }
+
     func cacheBankToken(_ token: STPToken) {
         self.customer.accountId = token.tokenId
         self.customer.externalLast4Digits = token.bankAccount?.last4()
@@ -52,12 +57,31 @@ class AppState: NSObject {
         return parkings
     }
 
-    func cachedCustomer() -> [String : Any]? {
-        return UserDefaults.standard.dictionary(forKey: "user")
+    func cachedCustomer() -> Customer? {
+        if self.customer == nil {
+            let customerDict = UserDefaults.standard.dictionary(forKey: "user")
+            if let dict = customerDict {
+                self.customer = Customer.init(customer: dict)
+            }
+        }
+        return self.customer
+    }
+
+    func resetCustomer() {
+        self.customer = nil
+        UserDefaults.standard.removeObject(forKey: "user")
+    }
+
+    func cachedToken() -> String? {
+        return UserDefaults.standard.string(forKey: "authToken")
     }
 
     private func updateCache() {
         UserDefaults.standard.set(self.customer.toDictionnary(), forKey: "user")
+    }
+
+    fileprivate func updateTokenCache() {
+        UserDefaults.standard.set(self.authToken, forKey: "authToken")
     }
 
     // Return IP address of WiFi interface (en0) as a String, or `nil`

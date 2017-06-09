@@ -13,7 +13,7 @@ extension APIClient {
     func getAllEvents(complete: @escaping([(Event)], Error?) -> Void) {
         // #warning fix error handling 
         let getUrl = baseUrl.appendingPathComponent("/events")
-        request(getUrl, headers: authHeaders()).responseJSON { (response) in
+        request(getUrl).responseJSON { (response) in
             if let error = response.result.error {
                 complete([], error)
             } else if let result = response.result.value {

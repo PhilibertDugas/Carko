@@ -9,16 +9,12 @@
 import UIKit
 import FirebaseAuth
 
-protocol AuthenticatedDelegate {
-    func userAuthenticated()
-}
 
 class EntryViewController: UIViewController {
     let pageTitles = ["Find your parking quickly", "Stop paying overpriced city parkings"]
     let pageImages = ["page1.png", "page2.png"]
     
     var pageViewController: UIPageViewController!
-    var delegate: AuthenticatedDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,16 +39,6 @@ class EntryViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: false)
-    }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showSignUp" {
-            let vc = segue.destination as! RegisterViewController
-            vc.delegate = self.delegate
-        } else if segue.identifier == "showSignIn" {
-            let vc = segue.destination as! LoginViewController
-            vc.delegate = self.delegate
-        }
     }
 }
 

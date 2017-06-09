@@ -14,13 +14,14 @@ class NavigationViewController: UIViewController {
 
     @IBOutlet weak var headerView: ProfileHeaderView!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.headerView.nameLabel.text = "\(AppState.shared.customer.firstName) \(AppState.shared.customer.lastName)"
+        if AuthenticationHelper.customerAvailable() {
+            let customer = AuthenticationHelper.getCustomer()
+            self.headerView.nameLabel.text = "\(customer.firstName) \(customer.lastName)"
+        } else {
+            self.headerView.nameLabel.text = ""
+        }
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

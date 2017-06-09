@@ -17,8 +17,6 @@ class RegisterViewController: UIViewController {
     @IBOutlet var bottomConstraint: NSLayoutConstraint!
     @IBOutlet var indicator: UIActivityIndicatorView!
 
-    var delegate: AuthenticatedDelegate!
-
     @IBAction func tosTapped(_ sender: Any) {
         UIApplication.shared.open(URL(string: "https://stripe.com/ca/connect-account/legal")!, options: [:], completionHandler: nil)
     }
@@ -31,7 +29,13 @@ class RegisterViewController: UIViewController {
         if let firstName = firstName.text, let lastName = lastName.text, let email = email.text, let password = password.text {
             indicator.startAnimating()
             let customer = NewCustomer.init(email: email, password: password, firstName: firstName, lastName: lastName)
-            customer.register()
+            customer.register(complete: { (error) in
+                if let error = error {
+                    self.customerRegisteredError(error)
+                } else {
+                    self.customerRegistered()
+                }
+            })
         } else {
             super.displayErrorMessage("Please fill every fields")
         }
@@ -40,10 +44,6 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
-
-        NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.customerRegistered), name: NSNotification.Name(rawValue: "CustomerRegistered"), object: nil)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.customerRegisteredError), name: NSNotification.Name(rawValue: "CustomerRegisteredError"), object: nil)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -53,25 +53,21 @@ class RegisterViewController: UIViewController {
 }
 
 extension RegisterViewController {
-    func customerRegistered(_ notification: Notification) {
+    func customerRegistered() {
         indicator.stopAnimating()
         Customer.getCustomer { (customer, error) in
             if let error = error {
                 super.displayErrorMessage(error.localizedDescription)
             } else if let customer = customer {
                 AppState.shared.cacheCustomer(customer)
-                self.dismiss(animated: true) {
-                    self.delegate.userAuthenticated()
-                }
+                self.dismiss(animated: true)
             }
         }
     }
 
-    func customerRegisteredError(_ notification: Notification) {
+    func customerRegisteredError(_ error: Error) {
         indicator.stopAnimating()
-        if let userInfo = notification.userInfo {
-            super.displayErrorMessage(userInfo["data"] as! String)
-        }
+        super.displayErrorMessage(error.localizedDescription)
     }
 }
 

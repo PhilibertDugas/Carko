@@ -40,33 +40,18 @@ class EventsCollectionViewController: UICollectionViewController {
         self.setupSidebar()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if AppState.shared.customer != nil {
-            userAuthenticated()
-        }
-    }
-
     override func viewDidAppear(_ animated: Bool) {
         if !self.loadedOnce {
             Loader.addLoaderTo(self.collectionView!)
         }
+    }
 
-        let customer = AppState.shared.cachedCustomer()
-        if FIRAuth.auth()?.currentUser == nil || customer == nil {
-            self.performSegue(withIdentifier: "showLoginScreen", sender: nil)
-        } else if AppState.shared.customer == nil {
-            AppState.shared.cacheCustomer(Customer.init(customer: customer!))
-            self.userAuthenticated()
-        }
+    override func viewWillAppear(_ animated: Bool) {
+        self.refreshTriggered()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showLoginScreen" {
-            let vc = segue.destination as! UINavigationController
-            let entryVc = vc.viewControllers.first as! EntryViewController
-            entryVc.delegate = self
-        } else if segue.identifier == "showEvent" {
+        if segue.identifier == "showEvent" {
             let vc = segue.destination as! FindParkingViewController
             vc.event = self.selectedEvent
         }
@@ -109,7 +94,9 @@ class EventsCollectionViewController: UICollectionViewController {
 
     func refreshTriggered() {
         self.fetchEvents()
-        self.fetchReservations()
+        if AppState.shared.cachedCustomer() != nil {
+            self.fetchReservations()
+        }
     }
 }
 
@@ -174,21 +161,6 @@ extension EventsCollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.selectedEvent = self.events[indexPath.row]
         self.performSegue(withIdentifier: "showEvent", sender: nil)
-    }
-}
-
-extension EventsCollectionViewController: AuthenticatedDelegate {
-    func userAuthenticated() {
-        let currentUser = FIRAuth.auth()?.currentUser
-        currentUser?.getTokenForcingRefresh(true, completion: { (idToken, error) in
-            if let error = error {
-                print("\(error.localizedDescription)")
-                self.performSegue(withIdentifier: "showLoginScreen", sender: nil)
-            } else if let token = idToken {
-                AppState.shared.authToken = token
-                self.refreshTriggered()
-            }
-        })
     }
 }
 

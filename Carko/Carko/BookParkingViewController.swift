@@ -42,28 +42,32 @@ class BookParkingViewController: UIViewController {
     }
 
     @IBAction func tappedConfirm(_ sender: Any) {
-        if !parking.isAvailable {
-            super.displayErrorMessage(NSLocalizedString("The parking is currently busy", comment: ""))
-        } else if parking.customerId == AppState.shared.customer.id {
-            super.displayErrorMessage(NSLocalizedString("The parking is your own. You can't rent your own parking", comment: ""))
-        } else if AppState.shared.customer.vehicule == nil {
-            super.displayErrorMessage("Please set your vehicule information in the profile section")
-        } else if paymentContext.selectedPaymentMethod == nil {
-            super.displayErrorMessage("Please select a payment method")
+        if AuthenticationHelper.customerAvailable() {
+            // FIXME CHANGE THIS
+            self.paymentContext = STPPaymentContext.init(apiAdapter: APIClient.shared)
+            self.paymentContext.paymentCurrency = "CAD"
+            self.paymentContext.delegate = self
+            self.paymentContext.hostViewController = self
+
+            if !self.parking.isAvailable {
+                super.displayErrorMessage(NSLocalizedString("The parking is currently busy", comment: ""))
+            } else if self.parking.customerId == AppState.shared.customer.id {
+                super.displayErrorMessage(NSLocalizedString("The parking is your own. You can't rent your own parking", comment: ""))
+            } else if AppState.shared.customer.vehicule == nil {
+                super.displayErrorMessage("Please set your vehicule information in the profile section")
+            } else if self.paymentContext.selectedPaymentMethod == nil {
+                super.displayErrorMessage("Please select a payment method")
+            } else {
+                self.promptCompletion()
+            }
         } else {
-            promptCompletion()
+            self.performSegue(withIdentifier: "showLoginScreen", sender: nil)
         }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.paymentPopup.isHidden = true
-
-        // FIXME CHANGE THIS
-        paymentContext = STPPaymentContext.init(apiAdapter: APIClient.shared)
-        paymentContext.paymentCurrency = "CAD"
-        paymentContext.delegate = self
-        paymentContext.hostViewController = self
 
         let gesture = UIPanGestureRecognizer.init(target: self, action: #selector(BookParkingViewController.panGesture))
         let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(BookParkingViewController.tapGesture))
