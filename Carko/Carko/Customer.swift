@@ -96,6 +96,10 @@ struct Customer {
             }
         })
     }
+
+    static func updateCustomerToken(_ token: String, complete: @escaping (Error?) -> Void) {
+        APIClient.shared.updateCustomerDeviceToken(token: token, complete: complete)
+    }
     
     static func getCustomer(complete: @escaping (Customer?, Error?) -> Void) {
         APIClient.shared.getCustomer(complete: complete)

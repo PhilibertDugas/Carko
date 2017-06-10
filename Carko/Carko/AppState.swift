@@ -59,8 +59,7 @@ class AppState: NSObject {
 
     func cachedCustomer() -> Customer? {
         if self.customer == nil {
-            let customerDict = UserDefaults.standard.dictionary(forKey: "user")
-            if let dict = customerDict {
+            if let dict = UserDefaults.standard.dictionary(forKey: "user") {
                 self.customer = Customer.init(customer: dict)
             }
         }
@@ -73,7 +72,12 @@ class AppState: NSObject {
     }
 
     func cachedToken() -> String? {
-        return UserDefaults.standard.string(forKey: "authToken")
+        if self.authToken == nil {
+            if let token = UserDefaults.standard.string(forKey: "authToken") {
+                self.authToken = token
+            }
+        }
+        return self.authToken
     }
 
     private func updateCache() {

@@ -22,12 +22,10 @@ class LocationViewController: UIViewController {
     var locationSearchTable: LocationSearchTableViewController!
     var firstSearch = true
 
-    var selectedPin: MKPlacemark!
-    var centerAnnotation: MKPointAnnotation!
-    var justZoomedIn = false
-
     var newParking: Bool = false
     var parking: Parking!
+    var selectedPin: MKPlacemark!
+    var pinImage: UIImageView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,12 +37,7 @@ class LocationViewController: UIViewController {
         }
 
         addButton.isHidden = true
-        mapView.delegate = self
         mapView.mapType = MKMapType.satellite
-
-        let panGesture = UIPanGestureRecognizer.init(target: self, action: #selector(self.handlePan))
-        panGesture.delegate = self;
-        mapView.addGestureRecognizer(panGesture)
 
         self.setupLocationManager()
         self.setupSearchBar()
@@ -67,10 +60,6 @@ class LocationViewController: UIViewController {
             delegate?.userDidChooseLocation(address: parking.address, latitude: parking.latitude, longitude: parking.longitude)
             let _ = self.navigationController?.popViewController(animated: true)
         }
-    }
-
-    func handlePan() {
-        centerAnnotation?.coordinate = mapView.centerCoordinate;
     }
 
     func setupLocationManager() {
@@ -174,34 +163,23 @@ extension LocationViewController : CLLocationManagerDelegate {
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("Error \(error.localizedDescription)")
-    }
-}
-
-extension LocationViewController: MKMapViewDelegate {
-    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        if selectedPin != nil && !justZoomedIn {
-            centerAnnotation.coordinate = mapView.centerCoordinate
-        }
-        justZoomedIn = false
-    }
-
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        let annotationView = NewParkingPin.init(annotation: annotation, reuseIdentifier: nil)
-        return annotationView
+        super.displayErrorMessage(error.localizedDescription)
     }
 }
 
 extension LocationViewController: HandleMapSearch {
-    func selectedPlacemark(placemark: MKPlacemark){
-        selectedPin = placemark
-        mapView.removeAnnotations(mapView.annotations)
-        centerAnnotation = MKPointAnnotation()
-        centerAnnotation.coordinate = placemark.coordinate
-        mapView.addAnnotation(centerAnnotation!)
+    func selectedPlacemark(placemark: MKPlacemark) {
+        self.selectedPin = placemark
+
+        if let imageView = self.pinImage {
+            imageView.removeFromSuperview()
+        }
+        let image = UIImage.init(named: "pin-available")
+        self.pinImage = UIImageView.init(image: image)
+        self.pinImage!.center = self.mapView.center
+        self.mapView.addSubview(self.pinImage!)
 
         let region = MKCoordinateRegionMakeWithDistance(placemark.coordinate, CLLocationDistance.init(15), CLLocationDistance.init(15))
-        justZoomedIn = true
         mapView.setRegion(region, animated: true)
         addButton.isHidden = false
         self.searchField.endEditing(true)

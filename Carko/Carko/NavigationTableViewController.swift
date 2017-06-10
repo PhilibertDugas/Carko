@@ -18,7 +18,6 @@ class NavigationTableViewController: UITableViewController {
         revealViewController?.revealToggle(sender)
         if AuthenticationHelper.customerAvailable() {
             self.paymentContext = STPPaymentContext.init(apiAdapter: APIClient.shared)
-            self.paymentContext.delegate = self
             self.paymentContext.hostViewController = self
             self.paymentContext.presentPaymentMethodsViewController()
         } else {
@@ -27,10 +26,13 @@ class NavigationTableViewController: UITableViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        let revealViewController = self.revealViewController()
-        revealViewController?.revealToggle(sender)
+        if segue.identifier != "showLoginScreen" {
+            let revealViewController = self.revealViewController()
+            revealViewController?.revealToggle(sender)
+            if !AuthenticationHelper.customerAvailable() {
+                self.performSegue(withIdentifier: "showLoginScreen", sender: nil)
+            }
+        }
     }
 
 }
@@ -51,22 +53,3 @@ extension NavigationTableViewController {
         UIApplication.shared.open(URL.init(string: "mailto:\(AppState.companyEmail)")!)
     }
 }
-
-extension NavigationTableViewController: STPPaymentContextDelegate {
-    public func paymentContext(_ paymentContext: STPPaymentContext, didCreatePaymentResult paymentResult: STPPaymentResult, completion: @escaping STPErrorBlock) {
-        return
-    }
-
-    func paymentContextDidChange(_ paymentContext: STPPaymentContext) {
-        return
-    }
-
-    func paymentContext(_ paymentContext: STPPaymentContext, didFailToLoadWithError error: Error) {
-        return
-    }
-
-    func paymentContext(_ paymentContext: STPPaymentContext, didFinishWith status: STPPaymentStatus, error: Error?) {
-        return
-    }
-}
-

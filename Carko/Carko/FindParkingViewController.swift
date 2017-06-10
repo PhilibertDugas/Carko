@@ -17,10 +17,9 @@ class FindParkingViewController: UIViewController {
     @IBOutlet var navigationImageView: UIImageView!
 
     let locationManager = CLLocationManager()
-    var bluredView: UIVisualEffectView!
-    var bookParkingVC: BookParkingViewController!
     var event: Event!
 
+    var bookParkingVC: BookParkingViewController!
     var sheetAppeared: Bool = false
 
     @IBAction func backTapped(_ sender: Any) {
@@ -115,7 +114,7 @@ extension FindParkingViewController: MKMapViewDelegate {
     }
 
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-        UIView.animate(withDuration: 0.5, animations: { 
+        UIView.animate(withDuration: 0.5, animations: {
             view.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
             self.bookParkingVC.view.frame = CGRect.init(x: 0, y: self.view.frame.height, width: self.view.frame.width, height: self.view.frame.height)
         }) { (finished) in
@@ -155,7 +154,7 @@ extension FindParkingViewController: MKMapViewDelegate {
         // Amener la sheet plus basse quand on se deplace sur la map
         if let bottomSheet = self.bookParkingVC {
             UIView.animate(withDuration: 0.5) {
-                bottomSheet.view.frame = CGRect.init(x: 0, y: self.view.frame.height - bottomSheet.confirmButton.frame.maxY - 40, width: self.view.frame.width, height: self.view.frame.height)
+                bottomSheet.view.frame = CGRect.init(x: 0, y: bottomSheet.minimalView, width: self.view.frame.width, height: self.view.frame.height)
             }
         }
     }

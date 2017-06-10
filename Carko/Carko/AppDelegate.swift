@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import Stripe
 import IQKeyboardManagerSwift
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,23 +23,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupStripe()
         setupServers()
         setupPageControl()
+
         return true
     }
 
-    func setupStripe() {
+    fileprivate func setupStripe() {
         STPPaymentConfiguration.shared().publishableKey = "pk_test_1LYkk7fCrA1bWDbXRUx1zWBx"
         STPTheme.default().accentColor = UIColor.accentColor
         STPTheme.default()
     }
 
-    func setupPageControl() {
+    fileprivate func setupPageControl() {
         let pageControl = UIPageControl.appearance()
         pageControl.pageIndicatorTintColor = UIColor.lightGray
         pageControl.currentPageIndicatorTintColor = UIColor.white
         pageControl.backgroundColor = UIColor.black
     }
 
-    func setupServers() {
+    fileprivate func setupServers() {
         if let buildFor = ProcessInfo.processInfo.environment["BUILD_FOR"] {
             var firebaseFile: String
             var apiUrl: String
@@ -57,7 +59,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             FIRApp.configure()
             APIClient.shared.baseUrl = URL.init(string: "https://integration-apya.herokuapp.com")!
         }
+    }
 
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
+        Customer.updateCustomerToken(deviceTokenString) { (error) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

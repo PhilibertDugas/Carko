@@ -25,7 +25,12 @@ class NavigationViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let revealViewController = self.revealViewController()
-        revealViewController?.revealToggle(sender)
+        if segue.identifier != "showLoginScreen" {
+            let revealViewController = self.revealViewController()
+            revealViewController?.revealToggle(sender)
+            if !AuthenticationHelper.customerAvailable() {
+                self.performSegue(withIdentifier: "showLoginScreen", sender: nil)
+            }
+        }
     }
 }

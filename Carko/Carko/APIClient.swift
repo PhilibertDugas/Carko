@@ -20,6 +20,6 @@ class APIClient: NSObject {
     }
 
     func authHeaders() -> HTTPHeaders! {
-        return ["Authorization": "Bearer \(AppState.shared.authToken!)"]
+        return ["Authorization": "Bearer \(AuthenticationHelper.getAuthToken())"]
     }
 }

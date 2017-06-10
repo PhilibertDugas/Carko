@@ -24,7 +24,8 @@ struct AuthenticationHelper {
 
     static func customerAvailable() -> Bool {
         let customer = AppState.shared.cachedCustomer()
-        if FIRAuth.auth()?.currentUser == nil || customer == nil {
+        let authToken = AppState.shared.cachedToken()
+        if FIRAuth.auth()?.currentUser == nil || customer == nil || authToken == nil {
             return false
         } else {
             return true
@@ -34,6 +35,11 @@ struct AuthenticationHelper {
     // This should only be called is customerAvailable() returns true
     static func getCustomer() -> Customer {
         return AppState.shared.cachedCustomer()!
+    }
+
+    // This should only be called is customerAvailable() returns true
+    static func getAuthToken() -> String {
+        return AppState.shared.cachedToken()!
     }
 
     static func resetCustomer() {

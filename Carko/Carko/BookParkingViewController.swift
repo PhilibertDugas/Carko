@@ -9,6 +9,7 @@
 import UIKit
 import Stripe
 import FirebaseStorageUI
+import UserNotifications
 
 protocol ReservationDelegate {
     func reservationCompleted()
@@ -40,14 +41,20 @@ class BookParkingViewController: UIViewController {
     var partialView: CGFloat {
         return 0.75 * UIScreen.main.bounds.height
     }
+    var minimalView: CGFloat {
+        return UIScreen.main.bounds.height - confirmButton.frame.maxY - 40
+    }
 
     @IBAction func tappedConfirm(_ sender: Any) {
         if AuthenticationHelper.customerAvailable() {
-            // FIXME CHANGE THIS
-            self.paymentContext = STPPaymentContext.init(apiAdapter: APIClient.shared)
-            self.paymentContext.paymentCurrency = "CAD"
-            self.paymentContext.delegate = self
-            self.paymentContext.hostViewController = self
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) {
+                (granted, error) in
+                if let error = error {
+                    super.displayErrorMessage(error.localizedDescription)
+                } else if granted {
+                    UIApplication.shared.registerForRemoteNotifications()
+                }
+            }
 
             if !self.parking.isAvailable {
                 super.displayErrorMessage(NSLocalizedString("The parking is currently busy", comment: ""))
@@ -99,6 +106,14 @@ class BookParkingViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+
+        if AuthenticationHelper.customerAvailable() {
+            // FIXME CHANGE THIS
+            self.paymentContext = STPPaymentContext.init(apiAdapter: APIClient.shared)
+            self.paymentContext.paymentCurrency = "CAD"
+            self.paymentContext.delegate = self
+            self.paymentContext.hostViewController = self
+        }
         animateToPartial()
     }
 
@@ -110,20 +125,25 @@ class BookParkingViewController: UIViewController {
 
     func prepareBackgroundView(){
         let blurEffect = UIBlurEffect.init(style: .dark)
-        let visualEffect = UIVisualEffectView.init(effect: blurEffect)
+        let vibrancyEffect = UIVibrancyEffect.init(blurEffect: UIBlurEffect.init(style: .light))
+        let visualEffect = UIVisualEffectView.init(effect: vibrancyEffect)
         let bluredView = UIVisualEffectView.init(effect: blurEffect)
         bluredView.contentView.addSubview(visualEffect)
         visualEffect.frame = UIScreen.main.bounds
         bluredView.frame = UIScreen.main.bounds
+        self.view.backgroundColor = UIColor.init(netHex: 0x181720)
         view.insertSubview(bluredView, at: 0)
     }
 
     func tapGesture(_ recognizer: UITapGestureRecognizer) {
         UIView.animate(withDuration: 0.5, delay: 0.0, options: [.allowUserInteraction], animations: {
-            if self.view.frame.origin.y == self.fullView {
+            let currentOrigin = self.view.frame.origin.y
+            if currentOrigin == self.fullView {
                 self.sheetDisappeared()
-            } else {
+            } else if currentOrigin == self.partialView {
                 self.sheetAppeared()
+            } else {
+                self.sheetPartialView()
             }
         }, completion: nil)
     }
@@ -132,22 +152,33 @@ class BookParkingViewController: UIViewController {
         let translation = recognizer.translation(in: self.view)
         let velocity = recognizer.velocity(in: self.view)
         let y = self.view.frame.minY
-        if ( y + translation.y >= fullView) && (y + translation.y <= partialView ) {
+        if (y + translation.y >= fullView) && (y + translation.y <= minimalView ) {
             self.view.frame = CGRect(x: 0, y: y + translation.y, width: view.frame.width, height: view.frame.height)
             recognizer.setTranslation(CGPoint.zero, in: self.view)
         }
 
         if recognizer.state == .ended {
-            UIView.animate(withDuration: 0.5, delay: 0.0, options: [.allowUserInteraction], animations: {
+            UIView.animate(withDuration: 0.3, delay: 0.0, options: [.allowUserInteraction], animations: {
+                let currentOrigin = self.view.frame.origin.y
                 if velocity.y > 0 {
-                    self.sheetDisappeared()
+                    if currentOrigin > self.partialView {
+                        self.sheetMinimalView()
+                    } else {
+                        self.sheetDisappeared()
+                    }
                 } else if velocity.y < 0 {
-                    self.sheetAppeared()
+                    if currentOrigin > self.partialView {
+                        self.sheetPartialView()
+                    } else {
+                        self.sheetAppeared()
+                    }
                 } else {
                     if self.view.frame.origin.y < (self.view.frame.height / 2) {
                         self.sheetAppeared()
-                    } else {
+                    } else if self.view.frame.origin.y < self.partialView {
                         self.sheetDisappeared()
+                    } else {
+                        self.sheetMinimalView()
                     }
                 }
             }, completion: nil)
@@ -160,8 +191,16 @@ class BookParkingViewController: UIViewController {
     }
 
     func sheetDisappeared() {
-        self.view.frame = CGRect(x: 0, y: self.partialView, width: UIScreen.main.bounds.width, height: self.view.frame.height)
+        self.sheetPartialView()
         self.sheetDelegate.didDisappear()
+    }
+
+    fileprivate func sheetPartialView() {
+        self.view.frame = CGRect(x: 0, y: self.partialView, width: UIScreen.main.bounds.width, height: self.view.frame.height)
+    }
+
+    func sheetMinimalView() {
+        self.view.frame = CGRect(x: 0, y: self.minimalView, width: UIScreen.main.bounds.width, height: self.view.frame.height)
     }
 
     func roundViews() {

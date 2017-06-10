@@ -94,7 +94,7 @@ class EventsCollectionViewController: UICollectionViewController {
 
     func refreshTriggered() {
         self.fetchEvents()
-        if AppState.shared.cachedCustomer() != nil {
+        if AuthenticationHelper.customerAvailable() {
             self.fetchReservations()
         }
     }

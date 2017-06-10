@@ -72,8 +72,8 @@ class ApyaLayout: UICollectionViewLayout {
             cache.append(attributes)
 
             contentHeight = max(contentHeight, frame.maxY)
-            self.yOffset[0] = height
-            self.yOffset[1] = height
+            self.yOffset[0] = self.yOffset[0] + height
+            self.yOffset[1] = self.yOffset[1] + height
 
             if self.currentColumn >= (reservationNumberOfColumns - 1) {
                 self.currentColumn = 0

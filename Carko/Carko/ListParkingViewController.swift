@@ -15,7 +15,7 @@ class ListParkingViewController: UIViewController {
     var isEditingAvailability = false
     var selectedRowIndex = 0
 
-    @IBOutlet var addButton: RoundedCornerButton!
+    @IBOutlet var addButton: UIBarButtonItem!
     @IBOutlet var tableView: UITableView!
 
     @IBAction func cancelPressed(_ sender: Any) {
@@ -65,13 +65,13 @@ class ListParkingViewController: UIViewController {
     }
 
     func removeFirstParkingView() {
-        self.addButton.isHidden = false
+        self.navigationItem.rightBarButtonItem = self.addButton
         tableView.backgroundView = nil
         self.tableView.isScrollEnabled = true
     }
 
     func setupFirstParkingView() {
-        self.addButton.isHidden = true
+        self.navigationItem.rightBarButtonItem = nil
         let firstParkingView = NewParkingView.init()
         firstParkingView.mainActionButton.addTarget(self, action: #selector(self.newParkingTapped), for: UIControlEvents.touchUpInside)
 
