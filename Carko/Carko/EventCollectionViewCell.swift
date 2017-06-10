@@ -9,7 +9,6 @@
 import UIKit
 
 class EventCollectionViewCell: UICollectionViewCell {
-
     @IBOutlet var image: UIImageView!
     @IBOutlet var imageViewHeightLayoutConstraint: NSLayoutConstraint!
     @IBOutlet var label: UILabel!

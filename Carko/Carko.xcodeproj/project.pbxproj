@@ -77,6 +77,7 @@
 		45BC294F1DA18249000C54BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45BC294D1DA18249000C54BC /* LaunchScreen.storyboard */; };
 		45BC29651DA18249000C54BC /* CarkoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC29641DA18249000C54BC /* CarkoUITests.swift */; };
 		45C1DBED1DD7870A00B2C96F /* ParkingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C1DBEC1DD7870A00B2C96F /* ParkingTest.swift */; };
+		45CD61C81EEC786A00068957 /* ParkingPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CD61C71EEC786A00068957 /* ParkingPhotoCollectionViewCell.swift */; };
 		45D073311EA84924000604D3 /* EventsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D073301EA84924000604D3 /* EventsCollectionViewController.swift */; };
 		45D073331EA84A75000604D3 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D073321EA84A75000604D3 /* Event.swift */; };
 		45D5D6101E1B2EDE006BE596 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45D5D60F1E1B2EDE006BE596 /* Assets.xcassets */; };
@@ -250,6 +251,7 @@
 		45BC29641DA18249000C54BC /* CarkoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarkoUITests.swift; sourceTree = "<group>"; };
 		45BC29661DA18249000C54BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45C1DBEC1DD7870A00B2C96F /* ParkingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingTest.swift; sourceTree = "<group>"; };
+		45CD61C71EEC786A00068957 /* ParkingPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		45D073301EA84924000604D3 /* EventsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsCollectionViewController.swift; sourceTree = "<group>"; };
 		45D073321EA84A75000604D3 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		45D5D60F1E1B2EDE006BE596 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -452,15 +454,15 @@
 		45B215911ED88E3C007CDD2E /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				45BC294D1DA18249000C54BC /* LaunchScreen.storyboard */,
-				4550D6711E19D78B0080758D /* Main.storyboard */,
-				4520D5D11ED122F50036AF07 /* Profile.storyboard */,
-				4550D6681E19D7780080758D /* Add.storyboard */,
 				4550D6651E19D7720080758D /* Find.storyboard */,
+				4550D6681E19D7780080758D /* Add.storyboard */,
 				4550D66B1E19D7810080758D /* Login.storyboard */,
+				4520D5D11ED122F50036AF07 /* Profile.storyboard */,
 				45EA59B91EBD1ECE002B50BD /* Payout.storyboard */,
 				45EA59BB1EBD1ED9002B50BD /* History.storyboard */,
 				45EA59B71EBD1EC4002B50BD /* Vehicule.storyboard */,
+				4550D6711E19D78B0080758D /* Main.storyboard */,
+				45BC294D1DA18249000C54BC /* LaunchScreen.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -555,9 +557,10 @@
 		45DC42FD1EA97D5B009F8E8D /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				45DC42FB1EA97D53009F8E8D /* EventCollectionViewCell.swift */,
 				45113DF71EAB9D4F0083C959 /* ApyaLayout.swift */,
+				45DC42FB1EA97D53009F8E8D /* EventCollectionViewCell.swift */,
 				451071DC1EE6447D0080D0DF /* ReservationCollectionViewCell.swift */,
+				45CD61C71EEC786A00068957 /* ParkingPhotoCollectionViewCell.swift */,
 			);
 			name = CollectionView;
 			sourceTree = "<group>";
@@ -1109,6 +1112,7 @@
 				450CB59F1E11834000FD2095 /* UIColor.swift in Sources */,
 				C5075F991EBBA95100602B8C /* NavigationTableViewController.swift in Sources */,
 				4544AA811E2C0D9E008A760F /* ParkingAnnotationView.swift in Sources */,
+				45CD61C81EEC786A00068957 /* ParkingPhotoCollectionViewCell.swift in Sources */,
 				451071DD1EE6447D0080D0DF /* ReservationCollectionViewCell.swift in Sources */,
 				459AD2571DA49B6C0018B7B9 /* Parking.swift in Sources */,
 				4591D5FB1DFCA54600366691 /* ReservationClient.swift in Sources */,

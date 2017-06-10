@@ -22,13 +22,15 @@ protocol MapSheetDelegate {
 
 class BookParkingViewController: UIViewController {
     @IBOutlet var confirmButton: SmallRoundedCornerButton!
-    @IBOutlet var parkingImageView: UIImageView!
     @IBOutlet var addressLabel: UILabel!
     @IBOutlet var timeLabel: UILabel!
     @IBOutlet var costLabel: UILabel!
     @IBOutlet var parkingLabel: UILabel!
     @IBOutlet var eventLabel: UILabel!
     @IBOutlet var paymentPopup: PaymentPopup!
+    @IBOutlet var photoCollectionView: UICollectionView!
+
+    let photoCellIdentifier = "PhotoCell"
 
     var paymentContext: STPPaymentContext!
     var parking: Parking!
@@ -75,6 +77,8 @@ class BookParkingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.paymentPopup.isHidden = true
+        self.photoCollectionView.delegate = self
+        self.photoCollectionView.backgroundColor = UIColor.clear
 
         let gesture = UIPanGestureRecognizer.init(target: self, action: #selector(BookParkingViewController.panGesture))
         let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(BookParkingViewController.tapGesture))
@@ -94,14 +98,10 @@ class BookParkingViewController: UIViewController {
         timeLabel.text = self.event.endTime.formattedDays
         costLabel.text = self.event.price.asLocaleCurrency
         parkingLabel.text = self.parking.pDescription
+
         // sizeToFit() to make sure the label is vertically aligned at the top of the view instead of in the center
         parkingLabel.sizeToFit()
         eventLabel.text = self.event.label
-
-        if let url = parking.photoURL {
-            let imageReference = AppState.shared.storageReference.storage.reference(forURL: url.absoluteString)
-            parkingImageView.sd_setImage(with: imageReference)
-        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -117,13 +117,7 @@ class BookParkingViewController: UIViewController {
         animateToPartial()
     }
 
-    func animateToPartial () {
-        UIView.animate(withDuration: 0.5, delay: 0.0, options: [.allowUserInteraction], animations: {
-            self.sheetDisappeared()
-        }, completion: nil)
-    }
-
-    func prepareBackgroundView(){
+    fileprivate func prepareBackgroundView(){
         let blurEffect = UIBlurEffect.init(style: .dark)
         let vibrancyEffect = UIVibrancyEffect.init(blurEffect: UIBlurEffect.init(style: .light))
         let visualEffect = UIVisualEffectView.init(effect: vibrancyEffect)
@@ -131,7 +125,7 @@ class BookParkingViewController: UIViewController {
         bluredView.contentView.addSubview(visualEffect)
         visualEffect.frame = UIScreen.main.bounds
         bluredView.frame = UIScreen.main.bounds
-        self.view.backgroundColor = UIColor.init(netHex: 0x181720)
+        self.view.backgroundColor = UIColor.backgroundBlack
         view.insertSubview(bluredView, at: 0)
     }
 
@@ -185,25 +179,31 @@ class BookParkingViewController: UIViewController {
         }
     }
 
-    func sheetAppeared() {
+    fileprivate func sheetAppeared() {
         self.view.frame = CGRect(x: 0, y: self.fullView, width: UIScreen.main.bounds.width, height: self.view.frame.height)
         self.sheetDelegate.didAppear()
     }
 
-    func sheetDisappeared() {
+    fileprivate func sheetDisappeared() {
         self.sheetPartialView()
         self.sheetDelegate.didDisappear()
+    }
+
+    fileprivate func animateToPartial () {
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: [.allowUserInteraction], animations: {
+            self.sheetDisappeared()
+        }, completion: nil)
     }
 
     fileprivate func sheetPartialView() {
         self.view.frame = CGRect(x: 0, y: self.partialView, width: UIScreen.main.bounds.width, height: self.view.frame.height)
     }
 
-    func sheetMinimalView() {
+    fileprivate func sheetMinimalView() {
         self.view.frame = CGRect(x: 0, y: self.minimalView, width: UIScreen.main.bounds.width, height: self.view.frame.height)
     }
 
-    func roundViews() {
+    fileprivate func roundViews() {
         view.layer.cornerRadius = 10
         view.clipsToBounds = true
     }
@@ -312,5 +312,46 @@ extension BookParkingViewController: STPPaymentContextDelegate {
 
     func paymentContext(_ paymentContext: STPPaymentContext, didFinishWith status: STPPaymentStatus, error: Error?) {
         return
+    }
+}
+
+extension BookParkingViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 2
+    }
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: photoCellIdentifier, for: indexPath) as! ParkingPhotoCollectionViewCell
+        if indexPath.section == 0 {
+            if let url = parking.photoURL {
+                let imageReference = AppState.shared.storageReference.storage.reference(forURL: url.absoluteString)
+                cell.parkingImageView.sd_setImage(with: imageReference)
+            }
+        } else {
+            if let url = event.photoURL {
+                let imageReference = AppState.shared.storageReference.storage.reference(forURL: url.absoluteString)
+                cell.parkingImageView.sd_setImage(with: imageReference)
+            }
+        }
+        return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        var width: CGFloat!
+        if indexPath.section == 0 {
+            width = 0.66 * self.photoCollectionView.frame.width
+        } else {
+            width = 0.32 * self.photoCollectionView.frame.width
+        }
+        let height = self.photoCollectionView.frame.height
+        return CGSize.init(width: width, height: height)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets.init(top: 0, left: 6.0, bottom: 0, right: 6.0)
     }
 }

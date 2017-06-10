@@ -31,6 +31,10 @@ extension UIColor {
         return UIColor.init(netHex: 0x252627)
     }
 
+    class var backgroundBlack: UIColor {
+        return UIColor.init(netHex: 0x181720)
+    }
+
     class var primaryWhiteTextColor: UIColor {
         return UIColor.init(netHex: 0xE8E8E8)
     }

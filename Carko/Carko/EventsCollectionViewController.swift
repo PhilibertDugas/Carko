@@ -146,7 +146,7 @@ extension EventsCollectionViewController {
     fileprivate func setupEventCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! EventCollectionViewCell
         cell.event = self.events[indexPath.row]
-        cell.layer.cornerRadius = 3
+        cell.layer.cornerRadius = 5
         cell.layer.borderWidth = 0.5
 
         // Placeholder cells which don't have a photoURL shouldn't be touched / interacted with

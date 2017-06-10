@@ -29,11 +29,6 @@ class ProfileHeaderView: UIView {
         guard let content = view else { return }
         content.frame = self.bounds
         content.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-
-        //headerView.layer.cornerRadius = 7
-        //headerView.layer.masksToBounds = true
-        //headerView.layer.borderColor = (#colorLiteral(red: 0.8200154901, green: 0.1567437351, blue: 0.2629780173, alpha: 1)).cgColor
-        //headerView.layer.borderWidth = 2.0
         self.addSubview(content)
     }
 }
