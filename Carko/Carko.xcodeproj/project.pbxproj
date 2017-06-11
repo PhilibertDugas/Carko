@@ -252,6 +252,7 @@
 		45BC29661DA18249000C54BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45C1DBEC1DD7870A00B2C96F /* ParkingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingTest.swift; sourceTree = "<group>"; };
 		45CD61C71EEC786A00068957 /* ParkingPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		45CD61C91EEC8FA600068957 /* Carko - Production.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Carko - Production.entitlements"; sourceTree = SOURCE_ROOT; };
 		45D073301EA84924000604D3 /* EventsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsCollectionViewController.swift; sourceTree = "<group>"; };
 		45D073321EA84A75000604D3 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		45D5D60F1E1B2EDE006BE596 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -506,6 +507,7 @@
 		45BC29431DA18249000C54BC /* Carko */ = {
 			isa = PBXGroup;
 			children = (
+				45CD61C91EEC8FA600068957 /* Carko - Production.entitlements */,
 				45782C241E2E9A1E002E9DFD /* Carko.entitlements */,
 				C5271B111EBBDDC4001B5094 /* Carko-Bridging-Header.h */,
 				45637CFE1DEB184500DD42C0 /* AppState.swift */,
@@ -810,6 +812,11 @@
 					45ECDA5D1E243A6900E999D8 = {
 						DevelopmentTeam = NS2A2ZLLX3;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -1391,7 +1398,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Carko/Carko.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = NS2A2ZLLX3;
 				INFOPLIST_FILE = Carko/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1413,7 +1420,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Carko/Carko.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = NS2A2ZLLX3;
 				INFOPLIST_FILE = Carko/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1492,8 +1499,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Carko - Production.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = NS2A2ZLLX3;
 				INFOPLIST_FILE = "$(SRCROOT)/Carko/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1512,8 +1520,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Carko - Production.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = NS2A2ZLLX3;
 				INFOPLIST_FILE = "$(SRCROOT)/Carko/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

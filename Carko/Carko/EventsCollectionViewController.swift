@@ -25,6 +25,8 @@ class EventsCollectionViewController: UICollectionViewController {
     fileprivate var revealViewController: SWRevealViewController!
     fileprivate var loadedOnce = false
 
+    fileprivate var bluredView: UIVisualEffectView!
+
 
     @IBAction func navigationMenuPressed(_ sender: Any) {
         revealViewController.revealToggle(sender)
@@ -41,6 +43,7 @@ class EventsCollectionViewController: UICollectionViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
+        self.prepareBackgroundView()
         if !self.loadedOnce {
             Loader.addLoaderTo(self.collectionView!)
         }
@@ -54,6 +57,12 @@ class EventsCollectionViewController: UICollectionViewController {
         if segue.identifier == "showEvent" {
             let vc = segue.destination as! FindParkingViewController
             vc.event = self.selectedEvent
+        }
+    }
+
+    override func viewDidLayoutSubviews() {
+        if let bluredView = self.bluredView, let collectionView = self.collectionView {
+            bluredView.frame = collectionView.bounds
         }
     }
 
@@ -98,6 +107,21 @@ class EventsCollectionViewController: UICollectionViewController {
             self.fetchReservations()
         }
     }
+
+    fileprivate func prepareBackgroundView() {
+        if self.bluredView != nil {
+            self.bluredView.removeFromSuperview()
+        }
+
+        let blurEffect = UIBlurEffect.init(style: .dark)
+        let vibrancyEffect = UIVibrancyEffect.init(blurEffect: UIBlurEffect.init(style: .light))
+        let visualEffect = UIVisualEffectView.init(effect: vibrancyEffect)
+        self.bluredView = UIVisualEffectView.init(effect: blurEffect)
+        self.bluredView.contentView.addSubview(visualEffect)
+        visualEffect.frame = UIScreen.main.bounds
+        self.bluredView.frame = UIScreen.main.bounds
+        self.collectionView?.insertSubview(bluredView, at: 0)
+    }
 }
 
 extension EventsCollectionViewController: SWRevealViewControllerDelegate {
@@ -135,7 +159,7 @@ extension EventsCollectionViewController {
         if indexPath.section == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reservationIdentifier, for: indexPath) as! ReservationCollectionViewCell
             cell.reservation = self.reservations[indexPath.row]
-            cell.layer.cornerRadius = 3
+            cell.layer.cornerRadius = 10
             cell.layer.borderWidth = 0.5
             return cell
         } else {
@@ -146,7 +170,7 @@ extension EventsCollectionViewController {
     fileprivate func setupEventCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! EventCollectionViewCell
         cell.event = self.events[indexPath.row]
-        cell.layer.cornerRadius = 5
+        cell.layer.cornerRadius = 10
         cell.layer.borderWidth = 0.5
 
         // Placeholder cells which don't have a photoURL shouldn't be touched / interacted with

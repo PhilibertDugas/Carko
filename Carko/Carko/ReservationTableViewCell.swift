@@ -17,7 +17,7 @@ class ReservationTableViewCell: UITableViewCell {
     var reservation: Reservation? {
         didSet {
             if let reservation = reservation {
-                self.reservationLabel.text = reservation.label
+                self.reservationLabel.text = reservation.event.label
                 self.reservationPrice.text = reservation.totalCost.asLocaleCurrency
                 self.reservationTime.text = reservation.startTime.formattedDays
             }

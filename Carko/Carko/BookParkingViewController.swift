@@ -90,7 +90,7 @@ class BookParkingViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        prepareBackgroundView()
+        self.prepareBackgroundView()
 
         self.paymentPopup.indicator.isHidden = true
 
@@ -125,7 +125,6 @@ class BookParkingViewController: UIViewController {
         bluredView.contentView.addSubview(visualEffect)
         visualEffect.frame = UIScreen.main.bounds
         bluredView.frame = UIScreen.main.bounds
-        self.view.backgroundColor = UIColor.backgroundBlack
         view.insertSubview(bluredView, at: 0)
     }
 
@@ -278,9 +277,9 @@ extension BookParkingViewController: STPPaymentContextDelegate {
         )
 
         let reservation = NewReservation.init(
-            label: self.event.label,
             parkingId: parking.id!,
-            customerId: AppState.shared.customer.id,
+            customerId: AuthenticationHelper.getCustomer().id,
+            eventId: event.id,
             isActive: true,
             startTime: self.event.startTime,
             stopTime: self.event.stopTime,
