@@ -183,8 +183,10 @@ extension EventsCollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.selectedEvent = self.events[indexPath.row]
-        self.performSegue(withIdentifier: "showEvent", sender: nil)
+        if indexPath.section == 1 {
+            self.selectedEvent = self.events[indexPath.row]
+            self.performSegue(withIdentifier: "showEvent", sender: nil)
+        }
     }
 }
 

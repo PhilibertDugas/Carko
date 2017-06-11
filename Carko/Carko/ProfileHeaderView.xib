@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -20,36 +20,24 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZe-Bu-7wb">
-                    <rect key="frame" x="104" y="32.5" width="255" height="85"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qZe-Bu-7wb">
+                    <rect key="frame" x="16" y="32.5" width="343" height="85"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="85" id="6MJ-DV-52L"/>
                     </constraints>
-                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                     <color key="textColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3244" translatesAutoresizingMaskIntoConstraints="NO" id="76l-v0-Cnf">
-                    <rect key="frame" x="16" y="35" width="80" height="80"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="80" id="2g8-w9-fl1"/>
-                        <constraint firstAttribute="width" constant="80" id="pLs-iO-pwh"/>
-                    </constraints>
-                </imageView>
             </subviews>
             <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
             <constraints>
-                <constraint firstItem="76l-v0-Cnf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="4LI-rH-oXk"/>
-                <constraint firstItem="76l-v0-Cnf" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="7By-2D-Rz4"/>
                 <constraint firstAttribute="trailing" secondItem="qZe-Bu-7wb" secondAttribute="trailing" constant="16" id="HH4-Ec-R0X"/>
-                <constraint firstItem="qZe-Bu-7wb" firstAttribute="leading" secondItem="76l-v0-Cnf" secondAttribute="trailing" constant="8" id="sEg-Xp-A0a"/>
+                <constraint firstItem="qZe-Bu-7wb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="T0K-xM-Qa6"/>
                 <constraint firstItem="qZe-Bu-7wb" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="wTv-Ej-LrL"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="47.5" y="-163"/>
         </view>
     </objects>
-    <resources>
-        <image name="3244" width="565" height="565"/>
-    </resources>
 </document>

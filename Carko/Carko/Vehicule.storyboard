@@ -14,7 +14,7 @@
         <scene sceneID="5K2-S8-OQ2">
             <objects>
                 <navigationController id="4bA-J5-NF3" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="xcB-Ng-RmN">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="xcB-Ng-RmN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -169,7 +169,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Vehicule" id="S0J-pa-iRk">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="Xzc-Oh-SH9">
+                        <barButtonItem key="leftBarButtonItem" image="cancel_icon" id="Xzc-Oh-SH9">
                             <color key="tintColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="cancelTapped:" destination="bGQ-vL-hvT" id="uMd-xE-6kw"/>
@@ -191,4 +191,7 @@
             <point key="canvasLocation" x="1070" y="309"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cancel_icon" width="17" height="17"/>
+    </resources>
 </document>

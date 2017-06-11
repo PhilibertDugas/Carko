@@ -14,7 +14,7 @@
         <scene sceneID="P1N-5R-PAT">
             <objects>
                 <navigationController id="Zcy-Hj-txo" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="qXp-J8-gYs">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="qXp-J8-gYs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -125,7 +125,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Profile" id="Jpv-2g-g3J">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="0fY-3q-OCg">
+                        <barButtonItem key="leftBarButtonItem" image="cancel_icon" id="0fY-3q-OCg">
                             <color key="tintColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="cancelTapped:" destination="7ex-GH-xvd" id="4Fh-ny-Mnx"/>
@@ -145,5 +145,6 @@
     </scenes>
     <resources>
         <image name="3244" width="565" height="565"/>
+        <image name="cancel_icon" width="17" height="17"/>
     </resources>
 </document>

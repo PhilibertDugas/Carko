@@ -342,7 +342,6 @@
 			isa = PBXGroup;
 			children = (
 				450B5D571E2AA4B100AEEA29 /* NewParkingView.swift */,
-				450B5D591E2AA4CA00AEEA29 /* NewParkingView.xib */,
 				45137EB11E341DA300AFCD49 /* NewParkingPin.swift */,
 			);
 			name = Subviews;
@@ -396,12 +395,37 @@
 		4564F6DD1DB981BA001B709C /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
+				4546A5461EE5BC17000CBD53 /* PaymentPopup.swift */,
 				45EA513C1DDE74AC00BD076C /* ParkingAnnotation.swift */,
 				4544AA801E2C0D9E008A760F /* ParkingAnnotationView.swift */,
-				4546A5461EE5BC17000CBD53 /* PaymentPopup.swift */,
-				4546A5481EE5BC23000CBD53 /* PaymentPopup.xib */,
 			);
 			name = Subviews;
+			sourceTree = "<group>";
+		};
+		457740381EED7CBB002F8419 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				4550D6651E19D7720080758D /* Find.storyboard */,
+				4550D6681E19D7780080758D /* Add.storyboard */,
+				4550D66B1E19D7810080758D /* Login.storyboard */,
+				4520D5D11ED122F50036AF07 /* Profile.storyboard */,
+				45EA59B91EBD1ECE002B50BD /* Payout.storyboard */,
+				45EA59BB1EBD1ED9002B50BD /* History.storyboard */,
+				45EA59B71EBD1EC4002B50BD /* Vehicule.storyboard */,
+				4550D6711E19D78B0080758D /* Main.storyboard */,
+				45BC294D1DA18249000C54BC /* LaunchScreen.storyboard */,
+			);
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		457740391EED7CC3002F8419 /* Xib */ = {
+			isa = PBXGroup;
+			children = (
+				450B5D591E2AA4CA00AEEA29 /* NewParkingView.xib */,
+				4546D3E01EBC25C400F17BAB /* ProfileHeaderView.xib */,
+				4546A5481EE5BC23000CBD53 /* PaymentPopup.xib */,
+			);
+			name = Xib;
 			sourceTree = "<group>";
 		};
 		457BF1F31ECFE2F6007ABB28 /* Loader */ = {
@@ -452,20 +476,13 @@
 			name = plist;
 			sourceTree = "<group>";
 		};
-		45B215911ED88E3C007CDD2E /* Storyboards */ = {
+		45B215911ED88E3C007CDD2E /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				4550D6651E19D7720080758D /* Find.storyboard */,
-				4550D6681E19D7780080758D /* Add.storyboard */,
-				4550D66B1E19D7810080758D /* Login.storyboard */,
-				4520D5D11ED122F50036AF07 /* Profile.storyboard */,
-				45EA59B91EBD1ECE002B50BD /* Payout.storyboard */,
-				45EA59BB1EBD1ED9002B50BD /* History.storyboard */,
-				45EA59B71EBD1EC4002B50BD /* Vehicule.storyboard */,
-				4550D6711E19D78B0080758D /* Main.storyboard */,
-				45BC294D1DA18249000C54BC /* LaunchScreen.storyboard */,
+				457740391EED7CC3002F8419 /* Xib */,
+				457740381EED7CBB002F8419 /* Storyboard */,
 			);
-			name = Storyboards;
+			name = UI;
 			sourceTree = "<group>";
 		};
 		45BB39631DBBEFEC0019C2A3 /* Views */ = {
@@ -519,7 +536,7 @@
 				451853781DA476CB005CC5E6 /* Rent your space */,
 				45D5A5071DB2BE640025C45A /* Profile */,
 				C5075F8E1EBA4B0B00602B8C /* Side Menu */,
-				45B215911ED88E3C007CDD2E /* Storyboards */,
+				45B215911ED88E3C007CDD2E /* UI */,
 				45D5D60F1E1B2EDE006BE596 /* Assets.xcassets */,
 				4550D6801E19DD790080758D /* Localizable.strings */,
 			);
@@ -643,7 +660,6 @@
 		C5075F8E1EBA4B0B00602B8C /* Side Menu */ = {
 			isa = PBXGroup;
 			children = (
-				4546D3E01EBC25C400F17BAB /* ProfileHeaderView.xib */,
 				C5075F9B1EBBAA9100602B8C /* ProfileHeaderView.swift */,
 				C5075F961EBBA84000602B8C /* NavigationViewController.swift */,
 				C5075F981EBBA95100602B8C /* NavigationTableViewController.swift */,

@@ -79,7 +79,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="History" id="J1d-qV-GiY">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="4rl-ur-vAr">
+                        <barButtonItem key="leftBarButtonItem" image="cancel_icon" id="4rl-ur-vAr">
                             <color key="tintColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="OnClosePressed:" destination="68N-vn-MdZ" id="oql-iY-lkX"/>
@@ -95,7 +95,7 @@
         <scene sceneID="dEg-Ak-OJR">
             <objects>
                 <navigationController id="6Li-a6-xZd" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="2hk-XP-hfj">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="2hk-XP-hfj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -114,4 +114,7 @@
             <point key="canvasLocation" x="-623" y="-833"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cancel_icon" width="17" height="17"/>
+    </resources>
 </document>

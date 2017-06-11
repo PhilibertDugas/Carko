@@ -24,6 +24,7 @@ class ListParkingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.clipsToBounds = true
         NotificationCenter.default.addObserver(self, selector: #selector(self.parkingAdded), name: Notification.Name.init(rawValue: "NewParking"), object: nil)
 
         fetchParkings()

@@ -152,7 +152,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Payout" id="ki7-7U-kWL">
                         <barButtonItem key="backBarButtonItem" title=" " id="hTq-Sc-1eA"/>
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="iHH-S0-61G">
+                        <barButtonItem key="leftBarButtonItem" image="cancel_icon" id="iHH-S0-61G">
                             <color key="tintColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="cancelTapped:" destination="2ha-zQ-wU2" id="dcf-7O-4Yi"/>
@@ -177,7 +177,7 @@
         <scene sceneID="K2Z-TV-sfW">
             <objects>
                 <navigationController id="YZG-4P-F85" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="IUv-aG-w1v">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="IUv-aG-w1v">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -315,6 +315,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="cancel_icon" width="17" height="17"/>
         <image name="check_example.jpg" width="16" height="16"/>
     </resources>
 </document>

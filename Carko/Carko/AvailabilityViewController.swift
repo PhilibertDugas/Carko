@@ -6,7 +6,7 @@ protocol ParkingAvailabilityDelegate {
 }
 
 class AvailabilityViewController: UIViewController {
-    @IBOutlet var mondayButton: UIButton!
+    @IBOutlet var mondayButton: UISwitch!
     @IBOutlet var mainButton: RoundedCornerButton!
 
     var delegate: ParkingAvailabilityDelegate?
@@ -18,6 +18,7 @@ class AvailabilityViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.clipsToBounds = true
 
         if !newParking {
             mainButton.setTitle("SAVE", for: UIControlState.normal)
@@ -49,7 +50,7 @@ class AvailabilityViewController: UIViewController {
         }
     }
 
-    @IBAction func dayToggle(_ sender: UIButton) {
+    @IBAction func dayToggle(_ sender: UISwitch) {
         let dayId = sender.tag
         let newAvailability = !availability.daysAvailable[dayId]
         availability.daysAvailable[dayId] = newAvailability
@@ -76,17 +77,17 @@ class AvailabilityViewController: UIViewController {
         }
     }
 
-    func updateButton(isOn: Bool, button: UIButton!) {
+    func updateButton(isOn: Bool, button: UISwitch!) {
         if isOn {
-            button.backgroundColor = UIColor.accentColor
+            button.isOn = true
         }
         else {
-            button.backgroundColor = UIColor.clear
+            button.isOn = false
         }
     }
 
-    private func findDayButton(tag: Int) -> UIButton {
-        return self.view.viewWithTag(tag) as! UIButton
+    private func findDayButton(tag: Int) -> UISwitch {
+        return self.view.viewWithTag(tag) as! UISwitch
     }
 
     fileprivate func enableMainButton() {

@@ -14,7 +14,8 @@ import SCLAlertView
 
 class FindParkingViewController: UIViewController {
     @IBOutlet var mapView: MKMapView!
-    @IBOutlet var navigationImageView: UIImageView!
+    @IBOutlet var navBar: UINavigationBar!
+    @IBOutlet var navItem: UINavigationItem!
 
     let locationManager = CLLocationManager()
     var event: Event!
@@ -28,8 +29,7 @@ class FindParkingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.titleView = UIImageView.init(image: UIImage.init(named: "white_logo"))
-        self.navigationImageView.frame = (self.navigationItem.titleView?.bounds)!
+        self.navItem.titleView = UIImageView.init(image: UIImage.init(named: "white_logo"))
         self.initializeMap()
     }
 

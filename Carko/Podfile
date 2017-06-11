@@ -1,10 +1,11 @@
 project 'Carko.xcodeproj'
+
 use_frameworks!
 inhibit_all_warnings!
 
 platform :ios, '10.0'
 
-target 'Carko' do
+abstract_target 'default' do
   pod 'Firebase'
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
@@ -14,6 +15,9 @@ target 'Carko' do
   pod 'Alamofire'
   pod 'IQKeyboardManagerSwift'
   pod 'SCLAlertView'
+
+  target 'Carko'
+  target 'Carko - Production'
 
   target 'CarkoTests' do
     pod 'Firebase'

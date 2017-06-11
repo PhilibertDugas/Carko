@@ -56,21 +56,24 @@ class BookParkingViewController: UIViewController {
                 } else if granted {
                     UIApplication.shared.registerForRemoteNotifications()
                 }
-            }
-
-            if !self.parking.isAvailable {
-                super.displayErrorMessage(NSLocalizedString("The parking is currently busy", comment: ""))
-            } else if self.parking.customerId == AppState.shared.customer.id {
-                super.displayErrorMessage(NSLocalizedString("The parking is your own. You can't rent your own parking", comment: ""))
-            } else if AppState.shared.customer.vehicule == nil {
-                super.displayErrorMessage("Please set your vehicule information in the profile section")
-            } else if self.paymentContext.selectedPaymentMethod == nil {
-                super.displayErrorMessage("Please select a payment method")
-            } else {
-                self.promptCompletion()
+                self.handleConfirmTapped()
             }
         } else {
             self.performSegue(withIdentifier: "showLoginScreen", sender: nil)
+        }
+    }
+
+    private func handleConfirmTapped() {
+        if !self.parking.isAvailable {
+            super.displayErrorMessage(NSLocalizedString("The parking is currently busy", comment: ""))
+        } else if self.parking.customerId == AppState.shared.customer.id {
+            super.displayErrorMessage(NSLocalizedString("The parking is your own. You can't rent your own parking", comment: ""))
+        } else if AppState.shared.customer.vehicule == nil {
+            super.displayErrorMessage("Please set your vehicule information in the profile section")
+        } else if self.paymentContext.selectedPaymentMethod == nil {
+            super.displayErrorMessage("Please select a payment method")
+        } else {
+            self.promptCompletion()
         }
     }
 
