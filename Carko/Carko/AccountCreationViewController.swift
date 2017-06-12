@@ -71,8 +71,16 @@ class AccountCreationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.clipsToBounds = true
         self.hideKeyboardWhenTappedAround()
         self.setupProvincePicker()
+        // FIXME: Translate
+        self.addressTextField.attributedPlaceholder = NSAttributedString.init(string: "Address", attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
+        self.cityTextField.attributedPlaceholder = NSAttributedString.init(string: "City", attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
+        self.stateTextField.attributedPlaceholder = NSAttributedString.init(string: "Province", attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
+        self.postalCodeTextField.attributedPlaceholder = NSAttributedString.init(string: "Postal Code", attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
+        self.countryTextField.attributedPlaceholder = NSAttributedString.init(string: "Country", attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
+        self.dobTextField.attributedPlaceholder = NSAttributedString.init(string: "Date of birth", attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

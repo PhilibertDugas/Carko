@@ -43,9 +43,9 @@ extension NavigationTableViewController {
         switch cell.tag {
         case 4:
             self.contactUsMail()
-            break;
+            break
         default:
-            break;
+            break
         }
     }
 

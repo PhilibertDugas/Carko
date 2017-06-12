@@ -160,7 +160,6 @@ extension EventsCollectionViewController {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reservationIdentifier, for: indexPath) as! ReservationCollectionViewCell
             cell.reservation = self.reservations[indexPath.row]
             cell.layer.cornerRadius = 10
-            cell.layer.borderWidth = 0.5
             return cell
         } else {
             return setupEventCell(collectionView, cellForItemAt: indexPath)
@@ -171,7 +170,6 @@ extension EventsCollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! EventCollectionViewCell
         cell.event = self.events[indexPath.row]
         cell.layer.cornerRadius = 10
-        cell.layer.borderWidth = 0.5
 
         // Placeholder cells which don't have a photoURL shouldn't be touched / interacted with
         if cell.event?.photoURL == nil {

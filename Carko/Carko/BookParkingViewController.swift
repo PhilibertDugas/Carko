@@ -56,8 +56,8 @@ class BookParkingViewController: UIViewController {
                 } else if granted {
                     UIApplication.shared.registerForRemoteNotifications()
                 }
-                self.handleConfirmTapped()
             }
+            self.handleConfirmTapped()
         } else {
             self.performSegue(withIdentifier: "showLoginScreen", sender: nil)
         }

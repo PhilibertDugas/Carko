@@ -37,16 +37,26 @@ class VehiculeInformationViewController: UIViewController {
                 }
             })
         } else {
+            // FIXME: This sucks
             super.displayErrorMessage("PLEASE MAKE SURE TO ENTER ALL FIELDS")
         }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.clipsToBounds = true
         self.hideKeyboardWhenTappedAround()
         setupYears()
         setupFields()
         setupPickers()
+        // FIXME: Translate
+        self.licensePlateTextField.attributedPlaceholder = NSAttributedString.init(string: "License Plate", attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
+        self.makeTextField.attributedPlaceholder = NSAttributedString.init(string: "Make", attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
+        self.modelTextField.attributedPlaceholder = NSAttributedString.init(string: "Model", attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
+        self.yearTextField.attributedPlaceholder = NSAttributedString.init(string: "Year", attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
+        self.colorTextField.attributedPlaceholder = NSAttributedString.init(string: "Color", attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
+        self.provinceTextField.attributedPlaceholder = NSAttributedString.init(string: "Province", attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
+
     }
 }
 

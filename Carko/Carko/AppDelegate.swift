@@ -29,7 +29,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     fileprivate func setupStripe() {
         STPPaymentConfiguration.shared().publishableKey = "pk_test_1LYkk7fCrA1bWDbXRUx1zWBx"
-        STPTheme.default().accentColor = UIColor.accentColor
+        STPTheme.default().accentColor = UIColor.primaryWhiteTextColor
+        STPTheme.default().primaryForegroundColor = UIColor.primaryWhiteTextColor
+
+        STPTheme.default().primaryBackgroundColor = UIColor.secondaryViewsBlack
+        STPTheme.default().secondaryBackgroundColor = UIColor.secondaryViewsBlack
+
+        STPTheme.default().emphasisFont = UIFont.systemFont(ofSize: 18, weight: UIFontWeightHeavy)
         STPTheme.default()
     }
 

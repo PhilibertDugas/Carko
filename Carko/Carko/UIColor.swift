@@ -27,12 +27,20 @@ extension UIColor {
         return UIColor.init(netHex: 0xF5515F)
     }
 
+    class var primaryGray: UIColor {
+        return UIColor.init(netHex: 0xBFBFBF)
+    }
+
     class var primaryBlack: UIColor {
         return UIColor.init(netHex: 0x252627)
     }
 
     class var backgroundBlack: UIColor {
         return UIColor.init(netHex: 0x181720)
+    }
+
+    class var secondaryViewsBlack: UIColor {
+        return UIColor.init(netHex: 0x101415)
     }
 
     class var primaryWhiteTextColor: UIColor {

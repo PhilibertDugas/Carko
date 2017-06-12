@@ -128,7 +128,7 @@ extension LocationViewController: UITextFieldDelegate {
     }
 
     func blurMap() {
-        let effect = UIBlurEffect(style: UIBlurEffectStyle.light)
+        let effect = UIBlurEffect(style: .dark)
         self.blurView = UIVisualEffectView.init(effect: effect)
         self.blurView.frame = CGRect.init(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
         self.mapView.addSubview(blurView)

@@ -14,6 +14,9 @@ abstract_target 'default' do
   pod 'Stripe'
   pod 'Alamofire'
   pod 'IQKeyboardManagerSwift'
+  pod 'NohanaImagePicker'
+
+  # We need to remove this
   pod 'SCLAlertView'
 
   target 'Carko'

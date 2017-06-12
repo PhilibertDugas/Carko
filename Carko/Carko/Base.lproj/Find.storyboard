@@ -42,7 +42,7 @@
                                 </constraints>
                                 <items>
                                     <navigationItem id="o4t-4o-0If">
-                                        <barButtonItem key="leftBarButtonItem" image="back_icon" style="plain" id="0Pg-3a-v13">
+                                        <barButtonItem key="leftBarButtonItem" image="back_icon" id="0Pg-3a-v13">
                                             <color key="tintColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <connections>
                                                 <action selector="backTapped:" destination="415-jb-YhG" id="ZEs-wz-fWd"/>
@@ -109,7 +109,7 @@
         <scene sceneID="oc0-ja-GMb">
             <objects>
                 <collectionViewController id="MPQ-ic-TB4" customClass="EventsCollectionViewController" customModule="Carko" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="ZxP-jl-dXw">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="ZxP-jl-dXw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -462,7 +462,7 @@
                                     <constraint firstAttribute="bottom" secondItem="eNc-qq-HT7" secondAttribute="bottom" id="xc7-BS-xLe"/>
                                 </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aRO-mY-t91">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aRO-mY-t91">
                                 <rect key="frame" x="16" y="120" width="343" height="118"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="118" id="C5I-OQ-usf"/>

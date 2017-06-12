@@ -20,6 +20,7 @@ class ProfileViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.clipsToBounds = true
     }
 
     override func viewWillAppear(_ animated: Bool) {

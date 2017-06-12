@@ -10,6 +10,7 @@
 		06F0F158B753B53815387EDC /* Pods_Carko_CarkoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30759D0CD7ED81144FFA1563 /* Pods_Carko_CarkoTests.framework */; };
 		3081C8E38A69D2E93352EB95 /* Pods_Carko.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 538BFE4EA50CCE486CF330C6 /* Pods_Carko.framework */; };
 		321DDAA535DBF3EF8D95BB2B /* Pods_CarkoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B113161E65ADDC326CA4C14 /* Pods_CarkoUITests.framework */; };
+		44CA82D539A1F2FB5B954B8B /* Pods_default_CarkoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB83FE886608AC7586EDA39F /* Pods_default_CarkoTests.framework */; };
 		4508FD951E182692004458F0 /* FindParkingViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4508FD941E182692004458F0 /* FindParkingViewControllerTest.swift */; };
 		45099A871DAF261200392FF1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45099A861DAF261200392FF1 /* LoginViewController.swift */; };
 		450B5D581E2AA4B100AEEA29 /* NewParkingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450B5D571E2AA4B100AEEA29 /* NewParkingView.swift */; };
@@ -34,6 +35,7 @@
 		453314341E03672700BF0B65 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453314331E03672700BF0B65 /* Account.swift */; };
 		4533143A1E036CF300BF0B65 /* BankCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453314391E036CF300BF0B65 /* BankCreationViewController.swift */; };
 		4533143C1E036DDA00BF0B65 /* AccountClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4533143B1E036DDA00BF0B65 /* AccountClient.swift */; };
+		4540C1FD1EEE469F00A2ECB3 /* PhotoCreationLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4540C1FC1EEE469F00A2ECB3 /* PhotoCreationLayout.swift */; };
 		45418F2E1E1719E00050DDF5 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45418F2D1E1719E00050DDF5 /* ForgotPasswordViewController.swift */; };
 		4544AA7F1E2BFA8E008A760F /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4544AA7E1E2BFA8E008A760F /* DateHelper.swift */; };
 		4544AA811E2C0D9E008A760F /* ParkingAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4544AA801E2C0D9E008A760F /* ParkingAnnotationView.swift */; };
@@ -141,6 +143,7 @@
 		45ECDAA01E243A6900E999D8 /* Find.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4550D6651E19D7720080758D /* Find.storyboard */; };
 		45ECDAA91E243B2F00E999D8 /* carko-development-firebase-reporting.json in Resources */ = {isa = PBXBuildFile; fileRef = 45ECDAA81E243B2F00E999D8 /* carko-development-firebase-reporting.json */; };
 		45FDF49C1EC5555200A9904A /* HistoryEmpty.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FDF49B1EC5555200A9904A /* HistoryEmpty.xib */; };
+		62F9E6C6DAF44BD767E11ABE /* Pods_default_Carko.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F171DB484A623A88362C05 /* Pods_default_Carko.framework */; };
 		C5075F971EBBA84000602B8C /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5075F961EBBA84000602B8C /* NavigationViewController.swift */; };
 		C5075F991EBBA95100602B8C /* NavigationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5075F981EBBA95100602B8C /* NavigationTableViewController.swift */; };
 		C5075F9C1EBBAA9100602B8C /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5075F9B1EBBAA9100602B8C /* ProfileHeaderView.swift */; };
@@ -148,6 +151,7 @@
 		C51150591DAF397E004E2A7D /* ParkingInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51150581DAF397E004E2A7D /* ParkingInfoViewController.swift */; };
 		C56ADABB1DAC00870033516C /* ParkingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56ADABA1DAC00870033516C /* ParkingTableViewCell.swift */; };
 		C5B310601DB023610051C90B /* FloatExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B3105F1DB023610051C90B /* FloatExtension.swift */; };
+		FD884AF6CB316E7B2FB63FF8 /* Pods_default_Carko___Production.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 520A5204DA55AC9C1CA7D53C /* Pods_default_Carko___Production.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -169,6 +173,7 @@
 
 /* Begin PBXFileReference section */
 		30759D0CD7ED81144FFA1563 /* Pods_Carko_CarkoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Carko_CarkoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		34C46BAE7686065D1C2B956F /* Pods-default-CarkoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-default-CarkoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-default-CarkoTests/Pods-default-CarkoTests.release.xcconfig"; sourceTree = "<group>"; };
 		388EE17981D2264091796560 /* Pods-CarkoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarkoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CarkoTests/Pods-CarkoTests.release.xcconfig"; sourceTree = "<group>"; };
 		4508FD941E182692004458F0 /* FindParkingViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindParkingViewControllerTest.swift; sourceTree = "<group>"; };
 		45099A861DAF261200392FF1 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -194,6 +199,7 @@
 		453314331E03672700BF0B65 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		453314391E036CF300BF0B65 /* BankCreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankCreationViewController.swift; sourceTree = "<group>"; };
 		4533143B1E036DDA00BF0B65 /* AccountClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountClient.swift; sourceTree = "<group>"; };
+		4540C1FC1EEE469F00A2ECB3 /* PhotoCreationLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCreationLayout.swift; sourceTree = "<group>"; };
 		45418F2D1E1719E00050DDF5 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		4544AA7E1E2BFA8E008A760F /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		4544AA801E2C0D9E008A760F /* ParkingAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingAnnotationView.swift; sourceTree = "<group>"; };
@@ -272,12 +278,18 @@
 		45ECDAA61E243A6900E999D8 /* Carko - Production.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Carko - Production.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		45ECDAA81E243B2F00E999D8 /* carko-development-firebase-reporting.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "carko-development-firebase-reporting.json"; sourceTree = "<group>"; };
 		45FDF49B1EC5555200A9904A /* HistoryEmpty.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryEmpty.xib; sourceTree = "<group>"; };
+		4939FF1E04053D013112A6DA /* Pods-default-Carko.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-default-Carko.release.xcconfig"; path = "Pods/Target Support Files/Pods-default-Carko/Pods-default-Carko.release.xcconfig"; sourceTree = "<group>"; };
+		50B0FD4980BD91324C57D5C5 /* Pods-default-CarkoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-default-CarkoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-default-CarkoTests/Pods-default-CarkoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		51BE0236C2E899D05DB12FEF /* Pods-CarkoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarkoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CarkoUITests/Pods-CarkoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		520A5204DA55AC9C1CA7D53C /* Pods_default_Carko___Production.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_default_Carko___Production.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		538BFE4EA50CCE486CF330C6 /* Pods_Carko.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Carko.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B75E7E9A81373F8C2777563 /* Pods-CarkoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarkoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CarkoUITests/Pods-CarkoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		628F6177185C2A68B36C75D7 /* Pods-default-Carko - Production.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-default-Carko - Production.release.xcconfig"; path = "Pods/Target Support Files/Pods-default-Carko - Production/Pods-default-Carko - Production.release.xcconfig"; sourceTree = "<group>"; };
 		7A5C604335A78729BBDD02CF /* Pods-CarkoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarkoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CarkoTests/Pods-CarkoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8434CF39E1312BC65B8DF4B2 /* Pods-Carko-CarkoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carko-CarkoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Carko-CarkoTests/Pods-Carko-CarkoTests.release.xcconfig"; sourceTree = "<group>"; };
+		88F171DB484A623A88362C05 /* Pods_default_Carko.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_default_Carko.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B113161E65ADDC326CA4C14 /* Pods_CarkoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarkoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB83FE886608AC7586EDA39F /* Pods_default_CarkoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_default_CarkoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5075F961EBBA84000602B8C /* NavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		C5075F981EBBA95100602B8C /* NavigationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationTableViewController.swift; sourceTree = "<group>"; };
 		C5075F9B1EBBAA9100602B8C /* ProfileHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
@@ -288,7 +300,9 @@
 		C5B3105F1DB023610051C90B /* FloatExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatExtension.swift; sourceTree = "<group>"; };
 		D0E89F5CBCCDBDCAFD9AF986 /* Pods-Carko.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carko.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Carko/Pods-Carko.debug.xcconfig"; sourceTree = "<group>"; };
 		DF3DC78B5F06CA9F23866878 /* Pods-Carko-CarkoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carko-CarkoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Carko-CarkoTests/Pods-Carko-CarkoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E81C701E21C40E7EE76CB8DF /* Pods-default-Carko - Production.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-default-Carko - Production.debug.xcconfig"; path = "Pods/Target Support Files/Pods-default-Carko - Production/Pods-default-Carko - Production.debug.xcconfig"; sourceTree = "<group>"; };
 		F9FE12AEF604DC6A236BBD68 /* Pods-Carko.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carko.release.xcconfig"; path = "Pods/Target Support Files/Pods-Carko/Pods-Carko.release.xcconfig"; sourceTree = "<group>"; };
+		FC9709D7671A11C53C68F19A /* Pods-default-Carko.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-default-Carko.debug.xcconfig"; path = "Pods/Target Support Files/Pods-default-Carko/Pods-default-Carko.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -297,6 +311,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3081C8E38A69D2E93352EB95 /* Pods_Carko.framework in Frameworks */,
+				62F9E6C6DAF44BD767E11ABE /* Pods_default_Carko.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				06F0F158B753B53815387EDC /* Pods_Carko_CarkoTests.framework in Frameworks */,
+				44CA82D539A1F2FB5B954B8B /* Pods_default_CarkoTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +336,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD884AF6CB316E7B2FB63FF8 /* Pods_default_Carko___Production.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,6 +438,7 @@
 		457740391EED7CC3002F8419 /* Xib */ = {
 			isa = PBXGroup;
 			children = (
+				45AA40E41EC696A4000D306E /* PayoutSetupCompleted.xib */,
 				450B5D591E2AA4CA00AEEA29 /* NewParkingView.xib */,
 				4546D3E01EBC25C400F17BAB /* ProfileHeaderView.xib */,
 				4546A5481EE5BC23000CBD53 /* PaymentPopup.xib */,
@@ -591,6 +609,7 @@
 				45E9D1011E1DD218000EDEE8 /* AvailabilityViewController.swift */,
 				4554A0951E21708D007FB04C /* NewParkingViewController.swift */,
 				4554A0971E217358007FB04C /* NewPhotoViewController.swift */,
+				4540C1FC1EEE469F00A2ECB3 /* PhotoCreationLayout.swift */,
 			);
 			name = "Parking Creation";
 			sourceTree = "<group>";
@@ -618,7 +637,6 @@
 			children = (
 				453314391E036CF300BF0B65 /* BankCreationViewController.swift */,
 				453314311E03669000BF0B65 /* AccountCreationViewController.swift */,
-				45AA40E41EC696A4000D306E /* PayoutSetupCompleted.xib */,
 				45AA40E61EC699BB000D306E /* PaymentSetupCompleted.swift */,
 			);
 			name = Payout;
@@ -635,6 +653,12 @@
 				388EE17981D2264091796560 /* Pods-CarkoTests.release.xcconfig */,
 				D0E89F5CBCCDBDCAFD9AF986 /* Pods-Carko.debug.xcconfig */,
 				F9FE12AEF604DC6A236BBD68 /* Pods-Carko.release.xcconfig */,
+				FC9709D7671A11C53C68F19A /* Pods-default-Carko.debug.xcconfig */,
+				4939FF1E04053D013112A6DA /* Pods-default-Carko.release.xcconfig */,
+				E81C701E21C40E7EE76CB8DF /* Pods-default-Carko - Production.debug.xcconfig */,
+				628F6177185C2A68B36C75D7 /* Pods-default-Carko - Production.release.xcconfig */,
+				50B0FD4980BD91324C57D5C5 /* Pods-default-CarkoTests.debug.xcconfig */,
+				34C46BAE7686065D1C2B956F /* Pods-default-CarkoTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -702,6 +726,9 @@
 				538BFE4EA50CCE486CF330C6 /* Pods_Carko.framework */,
 				30759D0CD7ED81144FFA1563 /* Pods_Carko_CarkoTests.framework */,
 				9B113161E65ADDC326CA4C14 /* Pods_CarkoUITests.framework */,
+				88F171DB484A623A88362C05 /* Pods_default_Carko.framework */,
+				520A5204DA55AC9C1CA7D53C /* Pods_default_Carko___Production.framework */,
+				BB83FE886608AC7586EDA39F /* Pods_default_CarkoTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -776,10 +803,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 45ECDAA31E243A6900E999D8 /* Build configuration list for PBXNativeTarget "Carko - Production" */;
 			buildPhases = (
+				D4405A0ED66F53F7D419620A /* [CP] Check Pods Manifest.lock */,
 				45ECDA5F1E243A6900E999D8 /* Sources */,
 				45ECDA931E243A6900E999D8 /* Frameworks */,
 				45ECDA951E243A6900E999D8 /* Resources */,
 				451C68911E243CF8009B01CE /* Firebase crash reporting */,
+				994C804F37DD88DAAA44AAFC /* [CP] Embed Pods Frameworks */,
+				81EB1A0880B2F5E0994A94A2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -929,7 +959,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Carko/Pods-Carko-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-default-Carko/Pods-default-Carko-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		1FA1CC3B5D08DEE2B8D9C01A /* [CP] Check Pods Manifest.lock */ = {
@@ -959,7 +989,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Carko-CarkoTests/Pods-Carko-CarkoTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-default-CarkoTests/Pods-default-CarkoTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		2132B991BB94F905E78F100C /* [CP] Copy Pods Resources */ = {
@@ -1035,6 +1065,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CarkoUITests/Pods-CarkoUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		81EB1A0880B2F5E0994A94A2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-default-Carko - Production/Pods-default-Carko - Production-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		856AA78C78A9FD6741B8F243 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1047,7 +1092,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Carko-CarkoTests/Pods-Carko-CarkoTests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-default-CarkoTests/Pods-default-CarkoTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8F959FA90852367573015C53 /* [CP] Embed Pods Frameworks */ = {
@@ -1062,10 +1107,40 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Carko/Pods-Carko-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-default-Carko/Pods-default-Carko-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		994C804F37DD88DAAA44AAFC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-default-Carko - Production/Pods-default-Carko - Production-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CC5D72EBC60F8ECE86FF64DC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D4405A0ED66F53F7D419620A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1130,6 +1205,7 @@
 				4571700B1DEA5DEE00A0FDF5 /* Reservation.swift in Sources */,
 				450E124A1DAF2B000027EFBC /* EntryViewController.swift in Sources */,
 				45877E751E158709006A7709 /* SimpleCellTableViewCell.swift in Sources */,
+				4540C1FD1EEE469F00A2ECB3 /* PhotoCreationLayout.swift in Sources */,
 				C5075F9C1EBBAA9100602B8C /* ProfileHeaderView.swift in Sources */,
 				450B5D581E2AA4B100AEEA29 /* NewParkingView.swift in Sources */,
 				450CB59F1E11834000FD2095 /* UIColor.swift in Sources */,
@@ -1409,7 +1485,7 @@
 		};
 		45BC296A1DA18249000C54BC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D0E89F5CBCCDBDCAFD9AF986 /* Pods-Carko.debug.xcconfig */;
+			baseConfigurationReference = FC9709D7671A11C53C68F19A /* Pods-default-Carko.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Carko/Carko.entitlements;
@@ -1431,7 +1507,7 @@
 		};
 		45BC296B1DA18249000C54BC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F9FE12AEF604DC6A236BBD68 /* Pods-Carko.release.xcconfig */;
+			baseConfigurationReference = 4939FF1E04053D013112A6DA /* Pods-default-Carko.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Carko/Carko.entitlements;
@@ -1453,7 +1529,7 @@
 		};
 		45BC296D1DA18249000C54BC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DF3DC78B5F06CA9F23866878 /* Pods-Carko-CarkoTests.debug.xcconfig */;
+			baseConfigurationReference = 50B0FD4980BD91324C57D5C5 /* Pods-default-CarkoTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = GYH3TK45ZC;
@@ -1468,7 +1544,7 @@
 		};
 		45BC296E1DA18249000C54BC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8434CF39E1312BC65B8DF4B2 /* Pods-Carko-CarkoTests.release.xcconfig */;
+			baseConfigurationReference = 34C46BAE7686065D1C2B956F /* Pods-default-CarkoTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = GYH3TK45ZC;
@@ -1513,6 +1589,7 @@
 		};
 		45ECDAA41E243A6900E999D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E81C701E21C40E7EE76CB8DF /* Pods-default-Carko - Production.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Carko - Production.entitlements";
@@ -1534,6 +1611,7 @@
 		};
 		45ECDAA51E243A6900E999D8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 628F6177185C2A68B36C75D7 /* Pods-default-Carko - Production.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Carko - Production.entitlements";

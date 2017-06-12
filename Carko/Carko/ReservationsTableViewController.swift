@@ -17,6 +17,7 @@ class ReservationsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.clipsToBounds = true
         self.tableView.tableFooterView = UIView.init()
         self.fetchReservations()
     }

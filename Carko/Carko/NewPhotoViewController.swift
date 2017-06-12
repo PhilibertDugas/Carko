@@ -9,23 +9,19 @@
 import UIKit
 import FirebaseStorage
 import SCLAlertView
+import NohanaImagePicker
+import Photos
 
 class NewPhotoViewController: UIViewController {
-    @IBOutlet var parkingImageView: UIImageView!
-    @IBOutlet var helperImageView: UIImageView!
-    @IBOutlet var helperImageLabel: UILabel!
-    @IBOutlet var uploadIndicator: UIActivityIndicatorView!
-    @IBOutlet var descriptionText: UILabel!
     @IBOutlet var mainButton: RoundedCornerButton!
+    @IBOutlet var addPhotoLabel: UILabel!
+    @IBOutlet var photoCollectionView: UICollectionView!
+    @IBOutlet var bigPlusView: UIView!
 
     var parking: Parking!
-    let imagePicker = UIImagePickerController.init()
-
-    @IBAction func tappedPhoto(_ sender: Any) {
-        imagePicker.allowsEditing = true
-        imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
-        self.present(imagePicker, animated: true, completion: nil)
-    }
+    var parkingImages: [(UIImage)] = []
+    let imagePicker = NohanaImagePickerController.init()
+    let photoCellIdentifier = "ParkingPhotoCell"
 
     @IBAction func tappedSave(_ sender: Any) {
         if AppState.shared.customer.accountId != nil {
@@ -50,8 +46,10 @@ class NewPhotoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        imagePicker.delegate = self
-        self.descriptionText.text = NSLocalizedString("Enter a description...", comment: "")
+        self.photoCollectionView.isHidden = true
+        self.photoCollectionView.delegate = self
+        self.imagePicker.delegate = self
+        self.navigationController?.navigationBar.clipsToBounds = true
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -61,21 +59,133 @@ class NewPhotoViewController: UIViewController {
             destinationVC.delegate = self
         }
     }
+
+    @IBAction func tappedPhoto(_ sender: Any) {
+        imagePicker.maximumNumberOfSelection = 6
+        imagePicker.numberOfColumnsInPortrait = 3
+        self.present(imagePicker, animated: true, completion: nil)
+    }
 }
 
 extension NewPhotoViewController: ParkingDescriptionDelegate {
     func userDidChangeDescription(value: String) {
-        self.descriptionText.text = value
         parking.pDescription = value
     }
 }
 
-extension NewPhotoViewController: UIImagePickerControllerDelegate {
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+extension NewPhotoViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        switch self.parkingImages.count {
+        case 1:
+            return 1
+        case 2...3:
+            return 2
+        case 4...6:
+            return 3
+        default:
+            return 0
+        }
+    }
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        switch section {
+        case 0:
+            return 1
+        case 1:
+            if self.parkingImages.count > 2 {
+                return 2
+            } else {
+                return 1
+            }
+        case 2:
+            return self.parkingImages.count - 3
+        default:
+            return 1
+        }
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: photoCellIdentifier, for: indexPath) as! ParkingPhotoCollectionViewCell
+        switch indexPath.section {
+        case 0:
+            cell.parkingImageView.image = self.parkingImages[indexPath.row]
+            break
+        case 1:
+            cell.parkingImageView.image = self.parkingImages[1 + indexPath.row]
+            break
+        case 2:
+            cell.parkingImageView.image = self.parkingImages[3 + indexPath.row]
+            break
+        default:
+            break
+        }
+        cell.parkingImageView.layer.cornerRadius = 10
+        return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        var width: CGFloat!
+        switch indexPath.section {
+        case 0:
+            if self.parkingImages.count > 1 {
+                width = 0.65 * self.photoCollectionView.frame.width
+            } else {
+                width = self.photoCollectionView.frame.width
+                let height = self.photoCollectionView.frame.height
+                return CGSize.init(width: width, height: height)
+            }
+            break
+        case 1:
+            width = 0.30 * self.photoCollectionView.frame.width
+            break
+        case 2:
+            width = 0.13 * self.photoCollectionView.frame.width
+            break
+        default:
+            width = self.photoCollectionView.frame.width
+        }
+
+        let height = width
+        return CGSize.init(width: width, height: height!)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        switch section {
+        case 0:
+            return UIEdgeInsets.init(top: 0, left: 6.0, bottom: 0, right: 6.0)
+        default:
+            return UIEdgeInsets.init(top: 6.0, left: 6.0, bottom: 6.0, right: 6.0)
+
+        }
+    }
+}
+
+extension NewPhotoViewController: NohanaImagePickerControllerDelegate {
+    func nohanaImagePickerDidCancel(_ picker: NohanaImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
 
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    func nohanaImagePicker(_ picker: NohanaImagePickerController, didFinishPickingPhotoKitAssets pickedAssts: [PHAsset]) {
+        self.parkingImages.removeAll()
+        let manager = PHImageManager.default()
+        let option = PHImageRequestOptions()
+        option.isSynchronous = true
+
+        for asset in pickedAssts {
+            manager.requestImage(for: asset, targetSize: PHImageManagerMaximumSize, contentMode: .aspectFill, options: option, resultHandler: { (result, info) in
+                self.parkingImages.append(result!)
+            })
+        }
+
+        dismiss(animated: true) {
+            self.addPhotoLabel.isHidden = true
+            self.bigPlusView.isHidden = true
+            self.photoCollectionView.isHidden = false
+            self.photoCollectionView.reloadData()
+        }
+    }
+
+    /*func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
             parkingImageView.image = image
             displayImage(alpha: 0.4)
@@ -115,7 +225,5 @@ extension NewPhotoViewController: UIImagePickerControllerDelegate {
         self.parkingImageView.alpha = CGFloat(alpha)
         self.helperImageView.isHidden = true
         self.helperImageLabel.isHidden = true
-    }
+    }*/
 }
-
-extension NewPhotoViewController: UINavigationControllerDelegate {}
