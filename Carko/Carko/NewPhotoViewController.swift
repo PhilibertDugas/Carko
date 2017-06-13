@@ -17,37 +17,18 @@ class NewPhotoViewController: UIViewController {
     @IBOutlet var addPhotoLabel: UILabel!
     @IBOutlet var photoCollectionView: UICollectionView!
     @IBOutlet var bigPlusView: UIView!
+    @IBOutlet var descriptionView: UIView!
+    @IBOutlet var descriptionLabel: UILabel!
 
     var parking: Parking!
     var parkingImages: [(UIImage)] = []
     let imagePicker = NohanaImagePickerController.init()
     let photoCellIdentifier = "ParkingPhotoCell"
 
-    @IBAction func tappedSave(_ sender: Any) {
-        if AppState.shared.customer.accountId != nil {
-            parking.isComplete = true
-        }
-        parking.persist { (error) in
-            if let error = error {
-                super.displayErrorMessage(error.localizedDescription)
-            } else {
-                NotificationCenter.default.post(name: Notification.Name.init("NewParking"), object: nil, userInfo: nil)
-                self.displaySuccessMessage()
-            }
-        }
-    }
-
-    func displaySuccessMessage() {
-        let responder = SCLAlertView.init().showSuccess(NSLocalizedString("Congratulations", comment: ""), subTitle: NSLocalizedString("You just listed a parking", comment: ""))
-        responder.setDismissBlock {
-            let _ = self.navigationController?.popToRootViewController(animated: true)
-        }
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.photoCollectionView.isHidden = true
-        self.photoCollectionView.delegate = self
+        self.descriptionView.isHidden = true
         self.imagePicker.delegate = self
         self.navigationController?.navigationBar.clipsToBounds = true
     }
@@ -60,16 +41,32 @@ class NewPhotoViewController: UIViewController {
         }
     }
 
+    @IBAction func tappedDescription(_ sender: Any) {
+        self.performSegue(withIdentifier: "showDescription", sender: nil)
+    }
+
     @IBAction func tappedPhoto(_ sender: Any) {
         imagePicker.maximumNumberOfSelection = 6
         imagePicker.numberOfColumnsInPortrait = 3
         self.present(imagePicker, animated: true, completion: nil)
     }
+
+    @IBAction func tappedSave(_ sender: Any) {
+        if AppState.shared.customer.accountId != nil {
+            parking.isComplete = true
+        }
+        self.uploadImages()
+    }
 }
 
 extension NewPhotoViewController: ParkingDescriptionDelegate {
     func userDidChangeDescription(value: String) {
-        parking.pDescription = value
+        self.parking.pDescription = value
+        self.descriptionLabel.text = value
+        self.descriptionLabel.textColor = UIColor.primaryWhiteTextColor
+        self.descriptionLabel.sizeToFit()
+        self.mainButton.isEnabled = true
+        self.mainButton.isHidden = false
     }
 }
 
@@ -92,13 +89,15 @@ extension NewPhotoViewController: UICollectionViewDataSource, UICollectionViewDe
         case 0:
             return 1
         case 1:
-            if self.parkingImages.count > 2 {
+            if self.parkingImages.count == 2 {
+                return 1
+            } else if self.parkingImages.count == 3 {
                 return 2
             } else {
                 return 1
             }
         case 2:
-            return self.parkingImages.count - 3
+            return self.parkingImages.count - 2
         default:
             return 1
         }
@@ -114,49 +113,13 @@ extension NewPhotoViewController: UICollectionViewDataSource, UICollectionViewDe
             cell.parkingImageView.image = self.parkingImages[1 + indexPath.row]
             break
         case 2:
-            cell.parkingImageView.image = self.parkingImages[3 + indexPath.row]
+            cell.parkingImageView.image = self.parkingImages[2 + indexPath.row]
             break
         default:
             break
         }
-        cell.parkingImageView.layer.cornerRadius = 10
+        cell.layer.cornerRadius = 10
         return cell
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        var width: CGFloat!
-        switch indexPath.section {
-        case 0:
-            if self.parkingImages.count > 1 {
-                width = 0.65 * self.photoCollectionView.frame.width
-            } else {
-                width = self.photoCollectionView.frame.width
-                let height = self.photoCollectionView.frame.height
-                return CGSize.init(width: width, height: height)
-            }
-            break
-        case 1:
-            width = 0.30 * self.photoCollectionView.frame.width
-            break
-        case 2:
-            width = 0.13 * self.photoCollectionView.frame.width
-            break
-        default:
-            width = self.photoCollectionView.frame.width
-        }
-
-        let height = width
-        return CGSize.init(width: width, height: height!)
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        switch section {
-        case 0:
-            return UIEdgeInsets.init(top: 0, left: 6.0, bottom: 0, right: 6.0)
-        default:
-            return UIEdgeInsets.init(top: 6.0, left: 6.0, bottom: 6.0, right: 6.0)
-
-        }
     }
 }
 
@@ -182,48 +145,53 @@ extension NewPhotoViewController: NohanaImagePickerControllerDelegate {
             self.bigPlusView.isHidden = true
             self.photoCollectionView.isHidden = false
             self.photoCollectionView.reloadData()
+
+            self.descriptionView.isHidden = false
+            self.descriptionLabel.sizeToFit()
         }
     }
 
-    /*func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
-            parkingImageView.image = image
-            displayImage(alpha: 0.4)
-            uploadImage()
-            dismiss(animated: true, completion: nil)
-        }
-    }
-
-    func uploadImage() {
-        self.uploadIndicator.startAnimating()
-        let path = "user_\(AppState.shared.customer.id)_\(Date.init())"
-        let data = UIImageJPEGRepresentation(parkingImageView.image!, 0.8)!
+    func uploadImages() {
+        //self.uploadIndicator.startAnimating()
+        let date = Date.init()
         let metadata = FIRStorageMetadata()
         metadata.contentType = "image/jpeg"
-        AppState.shared.storageReference.child(path).put(data, metadata: metadata).observe(FIRStorageTaskStatus.success) { (snapshot) in
-            if let metadata = snapshot.metadata {
-                if let url = metadata.downloadURL() {
-                    self.parking.photoURL = url
-                    self.uploadIndicator.stopAnimating()
-                    self.displayImage(alpha: 1.0)
-                    self.mainButton.isEnabled = true
-                    self.mainButton.alpha = 1.0
+
+        for (index, image) in self.parkingImages.enumerated() {
+            let path = "user_\(AuthenticationHelper.getCustomer().id)_\(date)_\(index)"
+            let data = UIImageJPEGRepresentation(image, 0.8)!
+            AppState.shared.storageReference.child(path).put(data, metadata: metadata).observe(FIRStorageTaskStatus.success) { (snapshot) in
+                if let metadata = snapshot.metadata {
+                    if let url = metadata.downloadURL() {
+                        if self.parking.photoURL == nil {
+                            self.parking.photoURL = url
+                        }
+
+                        self.parking.multiplePhotoUrls.append(url)
+                        if self.parking.multiplePhotoUrls.count == self.parkingImages.count {
+                            self.saveParking()
+                        }
+                    }
                 }
             }
         }
     }
 
-    func loadParkingPicture() {
-        if let url = self.parking.photoURL {
-            let imageReference = AppState.shared.storageReference.storage.reference(forURL: url.absoluteString)
-            parkingImageView.sd_setImage(with: imageReference)
-            displayImage(alpha: 1.0)
+    private func saveParking() {
+        self.parking.persist { (error) in
+            if let error = error {
+                super.displayErrorMessage(error.localizedDescription)
+            } else {
+                NotificationCenter.default.post(name: Notification.Name.init("NewParking"), object: nil, userInfo: nil)
+                self.displaySuccessMessage()
+            }
         }
     }
 
-    func displayImage(alpha: Float) {
-        self.parkingImageView.alpha = CGFloat(alpha)
-        self.helperImageView.isHidden = true
-        self.helperImageLabel.isHidden = true
-    }*/
+    private func displaySuccessMessage() {
+        let responder = SCLAlertView.init().showSuccess(NSLocalizedString("Congratulations", comment: ""), subTitle: NSLocalizedString("You just listed a parking", comment: ""))
+        responder.setDismissBlock {
+            let _ = self.navigationController?.popToRootViewController(animated: true)
+        }
+    }
 }

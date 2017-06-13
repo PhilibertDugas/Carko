@@ -19,10 +19,11 @@ class Parking {
     var isAvailable: Bool
     var isComplete: Bool
     var customerId: Int
+    var multiplePhotoUrls: [(URL)]
 
     var availabilityInfo: AvailabilityInfo
 
-    init(latitude: CLLocationDegrees, longitude: CLLocationDegrees, photoURL: URL?, address: String, price: Float, pDescription: String, isAvailable: Bool, isComplete: Bool, availabilityInfo: AvailabilityInfo, customerId: Int) {
+    init(latitude: CLLocationDegrees, longitude: CLLocationDegrees, photoURL: URL?, address: String, price: Float, pDescription: String, isAvailable: Bool, isComplete: Bool, availabilityInfo: AvailabilityInfo, customerId: Int, multiplePhotoUrls: [(URL)]) {
         self.latitude = latitude
         self.longitude = longitude
         self.photoURL = photoURL
@@ -33,20 +34,11 @@ class Parking {
         self.availabilityInfo = availabilityInfo
         self.customerId = customerId
         self.isComplete = isComplete
+        self.multiplePhotoUrls = multiplePhotoUrls
     }
 
     convenience init() {
-        self.init(latitude: CLLocationDegrees.init(75),
-                     longitude: CLLocationDegrees.init(-135),
-                     photoURL: URL.init(string: ""),
-                     address: "Select a location",
-                     price: 1.0,
-                     pDescription: "",
-                     isAvailable: true,
-                     isComplete: false,
-                     availabilityInfo: AvailabilityInfo.init(),
-                     customerId: AppState.shared.customer.id)
-
+        self.init(latitude: CLLocationDegrees.init(75), longitude: CLLocationDegrees.init(-135), photoURL: URL.init(string: ""),address: "Select a location", price: 1.0, pDescription: "", isAvailable: true, isComplete: false, availabilityInfo: AvailabilityInfo.init(), customerId: AuthenticationHelper.getCustomer().id, multiplePhotoUrls: [])
     }
 
     convenience init(parking: [String : Any]) {
@@ -61,8 +53,13 @@ class Parking {
         let isComplete = parking["is_complete"] as! Bool
 
         let availabilityInfo = AvailabilityInfo.init(availabilityInfo: parking["availability_info"] as! [String : Any])
+        let multiplePhotoString = parking["multiple_photo_urls"] as! [(String)]
+        var multipleUrls: [(URL)] = []
+        for element in multiplePhotoString {
+            multipleUrls.append(URL.init(string: element.trimmingCharacters(in: .whitespacesAndNewlines))!)
+        }
         
-        self.init(latitude: latitude, longitude: longitude, photoURL: photoURL, address: address, price: price, pDescription: pDescription, isAvailable: isAvailable, isComplete: isComplete, availabilityInfo: availabilityInfo, customerId: customerId)
+        self.init(latitude: latitude, longitude: longitude, photoURL: photoURL, address: address, price: price, pDescription: pDescription, isAvailable: isAvailable, isComplete: isComplete, availabilityInfo: availabilityInfo, customerId: customerId, multiplePhotoUrls: multipleUrls)
 
         if let identifier = parking["id"] as? Int {
             self.id = identifier
@@ -122,7 +119,8 @@ extension Parking {
             "description": pDescription,
             "is_available": isAvailable,
             "is_complete": isComplete,
-            "availability_info": availabilityInfo.toDictionary()
+            "availability_info": availabilityInfo.toDictionary(),
+            "multiple_photo_urls": "\(multiplePhotoUrls)"
         ]
     }
 }

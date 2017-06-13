@@ -339,6 +339,7 @@ extension BookParkingViewController: UICollectionViewDelegate, UICollectionViewD
                 cell.parkingImageView.sd_setImage(with: imageReference)
             }
         }
+        cell.layer.cornerRadius = 10
         return cell
     }
 

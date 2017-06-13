@@ -17,7 +17,7 @@ class EventsCollectionViewController: UICollectionViewController {
 
     fileprivate let reservationIdentifier = "ReservationCell"
     fileprivate let reuseIdentifier = "EventCell"
-    fileprivate var events: [(Event)] = [Event.init(), Event.init(), Event.init(), Event.init()]
+    fileprivate var events = [Event](repeating: Event.init(), count: 5)
     fileprivate var reservations: [(Reservation)] = []
 
     fileprivate var selectedEvent: Event!
@@ -50,6 +50,7 @@ class EventsCollectionViewController: UICollectionViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.refreshTriggered()
     }
 
