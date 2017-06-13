@@ -82,6 +82,8 @@
 		45ABAF131ED5EB4700D2C151 /* ImageViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ABAF121ED5EB4700D2C151 /* ImageViews.swift */; };
 		45B2624F1E1A8644002C2A9D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4550D6801E19DD790080758D /* Localizable.strings */; };
 		45BB39651DBBF0010019C2A3 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BB39641DBBF0010019C2A3 /* Buttons.swift */; };
+		45BBC33F1EF0730C00CBC509 /* PhotoParkingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BBC33E1EF0730C00CBC509 /* PhotoParkingTableViewCell.swift */; };
+		45BBC3411EF074CB00CBC509 /* LabelParkingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BBC3401EF074CB00CBC509 /* LabelParkingTableViewCell.swift */; };
 		45BC29451DA18249000C54BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC29441DA18249000C54BC /* AppDelegate.swift */; };
 		45BC294F1DA18249000C54BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45BC294D1DA18249000C54BC /* LaunchScreen.storyboard */; };
 		45BC29651DA18249000C54BC /* CarkoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC29641DA18249000C54BC /* CarkoUITests.swift */; };
@@ -259,6 +261,8 @@
 		45AA40E61EC699BB000D306E /* PaymentSetupCompleted.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentSetupCompleted.swift; sourceTree = "<group>"; };
 		45ABAF121ED5EB4700D2C151 /* ImageViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViews.swift; sourceTree = "<group>"; };
 		45BB39641DBBF0010019C2A3 /* Buttons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
+		45BBC33E1EF0730C00CBC509 /* PhotoParkingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoParkingTableViewCell.swift; sourceTree = "<group>"; };
+		45BBC3401EF074CB00CBC509 /* LabelParkingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelParkingTableViewCell.swift; sourceTree = "<group>"; };
 		45BC29411DA18249000C54BC /* Carko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Carko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45BC29441DA18249000C54BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45BC294E1DA18249000C54BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -707,6 +711,8 @@
 			children = (
 				C56ADABA1DAC00870033516C /* ParkingTableViewCell.swift */,
 				45877E741E158709006A7709 /* SimpleCellTableViewCell.swift */,
+				45BBC33E1EF0730C00CBC509 /* PhotoParkingTableViewCell.swift */,
+				45BBC3401EF074CB00CBC509 /* LabelParkingTableViewCell.swift */,
 			);
 			name = "Custom Cell";
 			sourceTree = "<group>";
@@ -1228,10 +1234,12 @@
 				457BF1F51ECFE303007ABB28 /* Loader.swift in Sources */,
 				450E124C1DAF2B3C0027EFBC /* PageContentViewController.swift in Sources */,
 				4591D5F71DFCA4DE00366691 /* CustomerClient.swift in Sources */,
+				45BBC33F1EF0730C00CBC509 /* PhotoParkingTableViewCell.swift in Sources */,
 				457CF5D41EBC0D9800A1397F /* SWRevealViewController.m in Sources */,
 				C56ADABB1DAC00870033516C /* ParkingTableViewCell.swift in Sources */,
 				45DC42FC1EA97D53009F8E8D /* EventCollectionViewCell.swift in Sources */,
 				451FC46D1E072B3C0083C0CB /* Vehicule.swift in Sources */,
+				45BBC3411EF074CB00CBC509 /* LabelParkingTableViewCell.swift in Sources */,
 				C51150591DAF397E004E2A7D /* ParkingInfoViewController.swift in Sources */,
 				4520D5D91ED122F50036AF07 /* ProfileViewController.swift in Sources */,
 				4554A0981E217358007FB04C /* NewPhotoViewController.swift in Sources */,

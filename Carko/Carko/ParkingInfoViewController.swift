@@ -7,26 +7,17 @@ protocol ParkingDeleteDelegate {
     func parkingDeleted()
 }
 
-class ParkingInfoViewController: UIViewController {
-    @IBOutlet var photoCollectionView: UICollectionView!
-
-    @IBOutlet var streetAddressLabel: UILabel!
-    @IBOutlet var parkingDescriptionLabel: UILabel!
-    @IBOutlet var daysAvailableLabel: UILabel!
-
+class ParkingInfoViewController: UITableViewController {
     var parking: Parking!
     var deleteDelegate: ParkingDeleteDelegate!
     let photoCellIdentifier = "ParkingPhotoCell"
+    let tablePhotoCellIdentifier = "TablePhotoCell"
+    let labelCellIdentifier = "TableLabelCell"
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.photoCollectionView.delegate = self
-        initializeParking()
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        self.parkingDescriptionLabel.sizeToFit()
+        self.tableView.rowHeight = UITableViewAutomaticDimension
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -63,26 +54,6 @@ class ParkingInfoViewController: UIViewController {
 
     }
 
-    private func initializeParking() {
-        for field in ["address", "availability", "description"] {
-            updateLabels(field: field)
-        }
-    }
-
-    fileprivate func updateLabels(field: String) {
-        switch field {
-        case "address":
-            streetAddressLabel.text = self.parking.address
-        case "availability":
-            daysAvailableLabel.text = self.parking.availabilityInfo.daysEnumerationText()
-        case "description":
-            parkingDescriptionLabel.text = self.parking.pDescription
-            parkingDescriptionLabel.sizeToFit()
-        default:
-            print("Error, shouldn't have happened")
-        }
-    }
-
     private func completeParkingDelete(error: Error?) {
         if let error = error {
             super.displayErrorMessage(error.localizedDescription)
@@ -93,17 +64,90 @@ class ParkingInfoViewController: UIViewController {
     }
 }
 
+extension ParkingInfoViewController {
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 4
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.section {
+        case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: tablePhotoCellIdentifier, for: indexPath) as! PhotoParkingTableViewCell
+            cell.photoCollectionView.delegate = self
+            cell.photoCollectionView.dataSource = self
+            return cell
+        case 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: labelCellIdentifier, for: indexPath) as! LabelParkingTableViewCell
+            // FIXME Translate
+            cell.cellTitleLabel.text = "Address"
+            cell.cellContentLabel.text = parking.address
+            return cell
+        case 2:
+            let cell = tableView.dequeueReusableCell(withIdentifier: labelCellIdentifier, for: indexPath) as! LabelParkingTableViewCell
+            // FIXME Translate
+            cell.cellTitleLabel.text = "Schedule"
+            cell.cellContentLabel.text = parking.availabilityInfo.daysEnumerationText()
+            return cell
+        case 3:
+            let cell = tableView.dequeueReusableCell(withIdentifier: labelCellIdentifier, for: indexPath) as! LabelParkingTableViewCell
+            // FIXME Translate
+            cell.cellTitleLabel.text = "Description"
+            cell.cellContentLabel.text = parking.pDescription
+            cell.cellContentLabel.sizeToFit()
+            return cell
+        default:
+            return UITableViewCell.init()
+        }
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case 1:
+            self.performSegue(withIdentifier: "ChangeLocation", sender: nil)
+            break
+        case 2:
+            self.performSegue(withIdentifier: "ChangeAvailability", sender: nil)
+            break
+        case 3:
+            self.performSegue(withIdentifier: "ChangeDescription", sender: nil)
+            break
+        default:
+            break
+        }
+    }
+
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 30.0
+    }
+
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return tableView.frame.height * 0.34
+        } else {
+            return tableView.frame.height * 0.1
+        }
+    }
+
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footerView = UIView.init()
+        footerView.backgroundColor = UIColor.clear
+        return footerView
+    }
+}
+
 extension ParkingInfoViewController: ParkingDescriptionDelegate, ParkingAvailabilityDelegate, ParkingLocationDelegate {
     func userDidChangeDescription(value: String) {
         parking.pDescription = value
         updateParking()
-        updateLabels(field: "description")
     }
 
     func userDidChangeAvailability(value: AvailabilityInfo) {
         parking.availabilityInfo = value
         updateParking()
-        updateLabels(field: "availability")
     }
 
     func userDidChooseLocation(address: String, latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
@@ -111,10 +155,10 @@ extension ParkingInfoViewController: ParkingDescriptionDelegate, ParkingAvailabi
         parking.latitude = latitude
         parking.longitude = longitude
         updateParking()
-        updateLabels(field: "address")
     }
 
     private func updateParking() {
+        self.tableView.reloadData()
         // FIXME : Hmm
         //if parking.isAvailable {
             if AppState.shared.customer.accountId != nil {
