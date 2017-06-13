@@ -5,7 +5,7 @@ inhibit_all_warnings!
 
 platform :ios, '10.0'
 
-abstract_target 'default' do
+target 'Carko' do
   pod 'Firebase'
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
@@ -19,9 +19,6 @@ abstract_target 'default' do
   # We need to remove this
   pod 'SCLAlertView'
 
-  target 'Carko'
-  target 'Carko - Production'
-
   target 'CarkoTests' do
     pod 'Firebase'
     pod 'Firebase/Auth'
@@ -33,6 +30,10 @@ abstract_target 'default' do
   end
 
   target 'CarkoUITests' do
+    inherit! :search_paths
+  end
+
+  target 'Carko - Production' do
     inherit! :search_paths
   end
 end

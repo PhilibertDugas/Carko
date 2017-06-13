@@ -1,6 +1,0 @@
-framework module Pods_default_Carko___Production {
-  umbrella header "Pods-default-Carko - Production-umbrella.h"
-
-  export *
-  module * { export * }
-}
