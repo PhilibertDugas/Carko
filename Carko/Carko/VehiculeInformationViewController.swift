@@ -104,6 +104,7 @@ extension VehiculeInformationViewController {
     }
 
     func displaySuccessMessage() {
+        // FIXME
         let responder = SCLAlertView.init().showSuccess(NSLocalizedString("Congratulations", comment: ""), subTitle: NSLocalizedString("You just added your vehicule", comment: ""))
         responder.setDismissBlock {
             let _ = self.navigationController?.popToRootViewController(animated: true)

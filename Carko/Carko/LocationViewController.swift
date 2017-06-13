@@ -77,7 +77,6 @@ class LocationViewController: UIViewController {
         parking.address = address
         parking.latitude = latitude
         parking.longitude = longitude
-        parking.price = 0.0
     }
 }
 

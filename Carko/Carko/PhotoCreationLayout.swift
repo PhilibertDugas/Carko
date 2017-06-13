@@ -154,8 +154,23 @@ class PhotoCreationLayout: UICollectionViewLayout {
             let attributes = UICollectionViewLayoutAttributes.init(forCellWith: indexPath)
             attributes.frame = insetFrame
             self.cache.append(attributes)
-            self.currentRow = self.currentColumn == 1 ? 1 : 2
-            self.currentColumn = self.currentRow == 2 ? 1 : 2
+            let photoRowColumn = (self.currentRow, self.currentColumn)
+            switch photoRowColumn {
+            case (1, 1):
+                self.currentColumn = 2
+                break
+            case (1, 2):
+                self.currentColumn = 1
+                self.currentRow = 2
+                break
+            case (2, 1):
+                self.currentColumn = 2
+                break
+            case (2, 2):
+                break
+            default:
+                print("Impossible")
+            }
         }
     }
 }

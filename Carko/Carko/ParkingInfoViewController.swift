@@ -125,7 +125,7 @@ extension ParkingInfoViewController: ParkingDescriptionDelegate, ParkingAvailabi
                     super.displayErrorMessage(error.localizedDescription)
                 } else {
                     NotificationCenter.default.post(name: Notification.Name.init("NewParking"), object: nil, userInfo: nil)
-                    let _ = self.navigationController?.popViewController(animated: true)
+                    //let _ = self.navigationController?.popViewController(animated: true)
                 }
             })
         //} else {

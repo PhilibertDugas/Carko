@@ -14,7 +14,6 @@ class Parking {
     var longitude: CLLocationDegrees
     var photoURL: URL?
     var address: String
-    var price: Float
     var pDescription: String
     var isAvailable: Bool
     var isComplete: Bool
@@ -23,12 +22,11 @@ class Parking {
 
     var availabilityInfo: AvailabilityInfo
 
-    init(latitude: CLLocationDegrees, longitude: CLLocationDegrees, photoURL: URL?, address: String, price: Float, pDescription: String, isAvailable: Bool, isComplete: Bool, availabilityInfo: AvailabilityInfo, customerId: Int, multiplePhotoUrls: [(URL)]) {
+    init(latitude: CLLocationDegrees, longitude: CLLocationDegrees, photoURL: URL?, address: String, pDescription: String, isAvailable: Bool, isComplete: Bool, availabilityInfo: AvailabilityInfo, customerId: Int, multiplePhotoUrls: [(URL)]) {
         self.latitude = latitude
         self.longitude = longitude
         self.photoURL = photoURL
         self.address = address
-        self.price = price
         self.pDescription = pDescription
         self.isAvailable = isAvailable
         self.availabilityInfo = availabilityInfo
@@ -38,7 +36,7 @@ class Parking {
     }
 
     convenience init() {
-        self.init(latitude: CLLocationDegrees.init(75), longitude: CLLocationDegrees.init(-135), photoURL: URL.init(string: ""),address: "Select a location", price: 1.0, pDescription: "", isAvailable: true, isComplete: false, availabilityInfo: AvailabilityInfo.init(), customerId: AuthenticationHelper.getCustomer().id, multiplePhotoUrls: [])
+        self.init(latitude: CLLocationDegrees.init(75), longitude: CLLocationDegrees.init(-135), photoURL: URL.init(string: ""),address: "Select a location", pDescription: "", isAvailable: true, isComplete: false, availabilityInfo: AvailabilityInfo.init(), customerId: AuthenticationHelper.getCustomer().id, multiplePhotoUrls: [])
     }
 
     convenience init(parking: [String : Any]) {
@@ -46,7 +44,6 @@ class Parking {
         let longitude = parking["longitude"] as! CLLocationDegrees
         let photoURL = URL.init(string: parking["photo_url"] as! String)
         let address = parking["address"] as! String
-        let price = Float(parking["price"] as! String)!
         let pDescription = parking["description"] as! String
         let isAvailable = parking["is_available"] as! Bool
         let customerId = parking["customer_id"] as! Int
@@ -59,7 +56,7 @@ class Parking {
             multipleUrls.append(URL.init(string: element.trimmingCharacters(in: .whitespacesAndNewlines))!)
         }
         
-        self.init(latitude: latitude, longitude: longitude, photoURL: photoURL, address: address, price: price, pDescription: pDescription, isAvailable: isAvailable, isComplete: isComplete, availabilityInfo: availabilityInfo, customerId: customerId, multiplePhotoUrls: multipleUrls)
+        self.init(latitude: latitude, longitude: longitude, photoURL: photoURL, address: address, pDescription: pDescription, isAvailable: isAvailable, isComplete: isComplete, availabilityInfo: availabilityInfo, customerId: customerId, multiplePhotoUrls: multipleUrls)
 
         if let identifier = parking["id"] as? Int {
             self.id = identifier
@@ -115,12 +112,11 @@ extension Parking {
             "longitude": longitude,
             "photo_url": "\(photoURL!)",
             "address": address,
-            "price": String.init(format: "%.2f", price),
             "description": pDescription,
             "is_available": isAvailable,
             "is_complete": isComplete,
             "availability_info": availabilityInfo.toDictionary(),
-            "multiple_photo_urls": "\(multiplePhotoUrls)"
+            "multiple_photo_urls": multiplePhotoUrls.map { $0.absoluteString }
         ]
     }
 }

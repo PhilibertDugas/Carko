@@ -12,7 +12,7 @@ import Alamofire
 extension APIClient {
     func createParking(parking: Parking, complete: @escaping (Error?, Parking?) -> Void ) {
         let parameters: Parameters = ["parking": parking.toDictionary()]
-        let postUrl = baseUrl.appendingPathComponent("/customers/\(AppState.shared.customer.id)/parkings")
+        let postUrl = baseUrl.appendingPathComponent("/customers/\(AuthenticationHelper.getCustomer().id)/parkings")
         request(postUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: authHeaders()).responseJSON { (dataResponse) in
             if let error = dataResponse.result.error {
                 complete(error, nil)

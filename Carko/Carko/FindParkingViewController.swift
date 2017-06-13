@@ -10,7 +10,6 @@ import UIKit
 import MapKit
 import FirebaseStorageUI
 import FirebaseAuth
-import SCLAlertView
 
 class FindParkingViewController: UIViewController {
     @IBOutlet var mapView: MKMapView!

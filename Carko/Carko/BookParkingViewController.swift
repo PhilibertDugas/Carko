@@ -329,14 +329,12 @@ extension BookParkingViewController: UICollectionViewDelegate, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: photoCellIdentifier, for: indexPath) as! ParkingPhotoCollectionViewCell
         if indexPath.section == 0 {
-            if let url = parking.photoURL {
-                let imageReference = AppState.shared.storageReference.storage.reference(forURL: url.absoluteString)
-                cell.parkingImageView.sd_setImage(with: imageReference)
-            }
+            self.setCellImage(parking.multiplePhotoUrls[0], cell: cell)
         } else {
-            if let url = event.photoURL {
-                let imageReference = AppState.shared.storageReference.storage.reference(forURL: url.absoluteString)
-                cell.parkingImageView.sd_setImage(with: imageReference)
+            if parking.multiplePhotoUrls.count > 1 {
+                self.setCellImage(parking.multiplePhotoUrls[1], cell: cell)
+            } else if let url = event.photoURL {
+                self.setCellImage(url, cell: cell)
             }
         }
         cell.layer.cornerRadius = 10
@@ -346,7 +344,7 @@ extension BookParkingViewController: UICollectionViewDelegate, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         var width: CGFloat!
         if indexPath.section == 0 {
-            width = 0.66 * self.photoCollectionView.frame.width
+            width = 0.64 * self.photoCollectionView.frame.width
         } else {
             width = 0.32 * self.photoCollectionView.frame.width
         }
@@ -355,6 +353,11 @@ extension BookParkingViewController: UICollectionViewDelegate, UICollectionViewD
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets.init(top: 0, left: 6.0, bottom: 0, right: 6.0)
+        return UIEdgeInsets.init(top: 0, left: 4.0, bottom: 0, right: 4.0)
+    }
+
+    private func setCellImage(_ url: URL, cell: ParkingPhotoCollectionViewCell) {
+        let imageReference = AppState.shared.storageReference.storage.reference(forURL: url.absoluteString)
+        cell.parkingImageView.sd_setImage(with: imageReference)
     }
 }
