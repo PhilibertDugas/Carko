@@ -14,7 +14,6 @@ class ParkingInfoViewController: UITableViewController {
     let tablePhotoCellIdentifier = "TablePhotoCell"
     let labelCellIdentifier = "TableLabelCell"
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.rowHeight = UITableViewAutomaticDimension
@@ -40,6 +39,11 @@ class ParkingInfoViewController: UITableViewController {
             destinationVC.parking = self.parking
             destinationVC.newParking = false
             destinationVC.delegate = self
+        } else if segue.identifier == "ChangePhotos" {
+            let destinationVC = segue.destination as! PhotoEditCollectionViewController
+            destinationVC.parking = self.parking
+            destinationVC.delegate = self
+            destinationVC.usingImages = false
         }
     }
 
@@ -79,6 +83,7 @@ extension ParkingInfoViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: tablePhotoCellIdentifier, for: indexPath) as! PhotoParkingTableViewCell
             cell.photoCollectionView.delegate = self
             cell.photoCollectionView.dataSource = self
+            cell.photoCollectionView.reloadData()
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: labelCellIdentifier, for: indexPath) as! LabelParkingTableViewCell
@@ -106,6 +111,9 @@ extension ParkingInfoViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
+        case 0:
+            self.performSegue(withIdentifier: "ChangePhotos", sender: nil)
+            break
         case 1:
             self.performSegue(withIdentifier: "ChangeLocation", sender: nil)
             break
@@ -126,7 +134,10 @@ extension ParkingInfoViewController {
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            return tableView.frame.height * 0.34
+            // 15 distance between collection view and "Edit Photos" label + 11 height for "Edit Photos"
+            return (tableView.frame.height * 0.34) + 26
+        } else if indexPath.section == 3 {
+            return tableView.frame.height
         } else {
             return tableView.frame.height * 0.1
         }
@@ -139,7 +150,7 @@ extension ParkingInfoViewController {
     }
 }
 
-extension ParkingInfoViewController: ParkingDescriptionDelegate, ParkingAvailabilityDelegate, ParkingLocationDelegate {
+extension ParkingInfoViewController: ParkingDescriptionDelegate, ParkingAvailabilityDelegate, ParkingLocationDelegate, PhotoEditDelegate {
     func userDidChangeDescription(value: String) {
         parking.pDescription = value
         updateParking()
@@ -154,6 +165,11 @@ extension ParkingInfoViewController: ParkingDescriptionDelegate, ParkingAvailabi
         parking.address = address
         parking.latitude = latitude
         parking.longitude = longitude
+        updateParking()
+    }
+
+    func photosWereEdited(photoUrls: [(URL)], images: [(UIImage)]) {
+        parking.multiplePhotoUrls = photoUrls
         updateParking()
     }
 
@@ -215,13 +231,13 @@ extension ParkingInfoViewController: UICollectionViewDataSource, UICollectionVie
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: photoCellIdentifier, for: indexPath) as! ParkingPhotoCollectionViewCell
         switch indexPath.section {
         case 0:
-            loadPicture(self.parking.multiplePhotoUrls[indexPath.row], cell: cell)
+            ImageLoaderHelper.loadImageFromUrl(cell.parkingImageView, url: self.parking.multiplePhotoUrls[indexPath.row])
             break
         case 1:
-            loadPicture(self.parking.multiplePhotoUrls[1 + indexPath.row], cell: cell)
+            ImageLoaderHelper.loadImageFromUrl(cell.parkingImageView, url: self.parking.multiplePhotoUrls[1 + indexPath.row])
             break
         case 2:
-            loadPicture(self.parking.multiplePhotoUrls[2 + indexPath.row], cell: cell)
+            ImageLoaderHelper.loadImageFromUrl(cell.parkingImageView, url: self.parking.multiplePhotoUrls[2 + indexPath.row])
             break
         default:
             break
@@ -230,8 +246,9 @@ extension ParkingInfoViewController: UICollectionViewDataSource, UICollectionVie
         return cell
     }
 
-    private func loadPicture(_ url: URL, cell: ParkingPhotoCollectionViewCell) {
-        let imageReference = AppState.shared.storageReference.storage.reference(forURL: url.absoluteString)
-        cell.parkingImageView.sd_setImage(with: imageReference, placeholderImage: UIImage.init(named: "placeholder-1"))
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let index = IndexPath.init(row: 0, section: 0)
+        self.tableView.selectRow(at: index, animated: true, scrollPosition: .middle)
+        self.tableView(self.tableView, didSelectRowAt: index)
     }
 }

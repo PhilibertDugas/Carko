@@ -9,6 +9,5 @@
 import UIKit
 
 class PhotoParkingTableViewCell: UITableViewCell {
-
     @IBOutlet var photoCollectionView: UICollectionView!
 }

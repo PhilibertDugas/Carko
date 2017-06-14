@@ -16,9 +16,9 @@ class NewPhotoViewController: UIViewController {
     @IBOutlet var mainButton: RoundedCornerButton!
     @IBOutlet var addPhotoLabel: UILabel!
     @IBOutlet var photoCollectionView: UICollectionView!
-    @IBOutlet var bigPlusView: UIView!
     @IBOutlet var descriptionView: UIView!
     @IBOutlet var descriptionLabel: UILabel!
+    @IBOutlet var bigPlusButton: UIButton!
 
     var parking: Parking!
     var parkingImages: [(UIImage)] = []
@@ -38,6 +38,12 @@ class NewPhotoViewController: UIViewController {
             let destinationVC = segue.destination as! ParkingDescriptionViewController
             destinationVC.parkingDescription = parking.pDescription
             destinationVC.delegate = self
+        } else if segue.identifier == "ChangePhotos" {
+            let destinationVC = segue.destination as! PhotoEditCollectionViewController
+            destinationVC.parking = parking
+            destinationVC.delegate = self
+            destinationVC.usingImages = true
+            destinationVC.parkingImages = self.parkingImages
         }
     }
 
@@ -55,7 +61,12 @@ class NewPhotoViewController: UIViewController {
         if AppState.shared.customer.accountId != nil {
             parking.isComplete = true
         }
-        self.uploadImages()
+        if self.parkingImages.count != self.parking.multiplePhotoUrls.count {
+            self.uploadImages()
+        } else {
+            self.parking.photoURL = self.parking.multiplePhotoUrls.first 
+            self.saveParking()
+        }
     }
 }
 
@@ -142,7 +153,7 @@ extension NewPhotoViewController: NohanaImagePickerControllerDelegate {
 
         dismiss(animated: true) {
             self.addPhotoLabel.isHidden = true
-            self.bigPlusView.isHidden = true
+            self.bigPlusButton.isHidden = true
             self.photoCollectionView.isHidden = false
             self.photoCollectionView.reloadData()
 
@@ -151,6 +162,7 @@ extension NewPhotoViewController: NohanaImagePickerControllerDelegate {
         }
     }
 
+    // FIXME: Add loading
     func uploadImages() {
         //self.uploadIndicator.startAnimating()
         let date = Date.init()
@@ -177,7 +189,7 @@ extension NewPhotoViewController: NohanaImagePickerControllerDelegate {
         }
     }
 
-    private func saveParking() {
+    func saveParking() {
         self.parking.persist { (error) in
             if let error = error {
                 super.displayErrorMessage(error.localizedDescription)
@@ -194,5 +206,13 @@ extension NewPhotoViewController: NohanaImagePickerControllerDelegate {
         responder.setDismissBlock {
             let _ = self.navigationController?.popToRootViewController(animated: true)
         }
+    }
+}
+
+extension NewPhotoViewController: PhotoEditDelegate {
+    func photosWereEdited(photoUrls: [(URL)], images: [(UIImage)]) {
+        self.parking.multiplePhotoUrls = photoUrls
+        self.parkingImages = images
+        self.photoCollectionView.reloadData()
     }
 }

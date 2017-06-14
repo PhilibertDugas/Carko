@@ -13,6 +13,7 @@ struct Account {
     var lastName: String
     let type = "individual"
     // FIXME: Handle this server side
+    // https://stackoverflow.com/questions/35497495/what-identification-document-does-the-field-legal-entity-personal-id-number-desi
     let personalIdNumber = "123456789"
 
     var address: AccountAddress

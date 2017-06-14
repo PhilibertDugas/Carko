@@ -54,7 +54,6 @@
 		4550D6661E19D7780080758D /* Add.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4550D6681E19D7780080758D /* Add.storyboard */; };
 		4550D6691E19D7810080758D /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4550D66B1E19D7810080758D /* Login.storyboard */; };
 		4550D66F1E19D78B0080758D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4550D6711E19D78B0080758D /* Main.storyboard */; };
-		4554A0961E21708D007FB04C /* NewParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4554A0951E21708D007FB04C /* NewParkingViewController.swift */; };
 		4554A0981E217358007FB04C /* NewPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4554A0971E217358007FB04C /* NewPhotoViewController.swift */; };
 		4554EBCE1DB5A36F0066E452 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4554EBCD1DB5A36F0066E452 /* APIClient.swift */; };
 		45637CFF1DEB184500DD42C0 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45637CFE1DEB184500DD42C0 /* AppState.swift */; };
@@ -65,7 +64,6 @@
 		4575365A1EAD87AA00E70F7F /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457536591EAD87AA00E70F7F /* StringExtension.swift */; };
 		457BF1F51ECFE303007ABB28 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457BF1F41ECFE303007ABB28 /* Loader.swift */; };
 		457CF5D41EBC0D9800A1397F /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 457CF5D31EBC0D9800A1397F /* SWRevealViewController.m */; settings = {COMPILER_FLAGS = "-w"; }; };
-		45877E751E158709006A7709 /* SimpleCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45877E741E158709006A7709 /* SimpleCellTableViewCell.swift */; };
 		458859431EA91C58008DDED8 /* EventClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458859421EA91C58008DDED8 /* EventClient.swift */; };
 		458A98301DBCFD44007F53EE /* UnderlineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458A982F1DBCFD44007F53EE /* UnderlineTextField.swift */; };
 		458AF6691EEB064B00E3C402 /* AuthenticationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458AF6681EEB064B00E3C402 /* AuthenticationHelper.swift */; };
@@ -84,10 +82,15 @@
 		45BB39651DBBF0010019C2A3 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BB39641DBBF0010019C2A3 /* Buttons.swift */; };
 		45BBC33F1EF0730C00CBC509 /* PhotoParkingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BBC33E1EF0730C00CBC509 /* PhotoParkingTableViewCell.swift */; };
 		45BBC3411EF074CB00CBC509 /* LabelParkingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BBC3401EF074CB00CBC509 /* LabelParkingTableViewCell.swift */; };
+		45BBC3431EF0A4A900CBC509 /* PhotoEditLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BBC3421EF0A4A900CBC509 /* PhotoEditLayout.swift */; };
+		45BBC3461EF0A8A400CBC509 /* PhotoEditCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BBC3451EF0A8A400CBC509 /* PhotoEditCollectionViewController.swift */; };
+		45BBC3481EF0A9E100CBC509 /* ImageLoaderHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BBC3471EF0A9E100CBC509 /* ImageLoaderHelper.swift */; };
+		45BBC34A1EF0AB0500CBC509 /* SimpleCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BBC3491EF0AB0500CBC509 /* SimpleCellTableViewCell.swift */; };
 		45BC29451DA18249000C54BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC29441DA18249000C54BC /* AppDelegate.swift */; };
 		45BC294F1DA18249000C54BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45BC294D1DA18249000C54BC /* LaunchScreen.storyboard */; };
 		45BC29651DA18249000C54BC /* CarkoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC29641DA18249000C54BC /* CarkoUITests.swift */; };
 		45C1DBED1DD7870A00B2C96F /* ParkingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C1DBEC1DD7870A00B2C96F /* ParkingTest.swift */; };
+		45CA60771EF0E4B20026E58A /* PhotoAddCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CA60761EF0E4B20026E58A /* PhotoAddCollectionViewCell.swift */; };
 		45CD61C81EEC786A00068957 /* ParkingPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CD61C71EEC786A00068957 /* ParkingPhotoCollectionViewCell.swift */; };
 		45D073311EA84924000604D3 /* EventsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D073301EA84924000604D3 /* EventsCollectionViewController.swift */; };
 		45D073331EA84A75000604D3 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D073321EA84A75000604D3 /* Event.swift */; };
@@ -119,13 +122,11 @@
 		45ECDA791E243A6900E999D8 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451E424A1DB071EC00747370 /* Customer.swift */; };
 		45ECDA7A1E243A6900E999D8 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452738E61DF7AEB700D74F0D /* View.swift */; };
 		45ECDA7B1E243A6900E999D8 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450E123F1DAF27330027EFBC /* RegisterViewController.swift */; };
-		45ECDA7C1E243A6900E999D8 /* NewParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4554A0951E21708D007FB04C /* NewParkingViewController.swift */; };
 		45ECDA7D1E243A6900E999D8 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451E424C1DB078E000747370 /* UIViewController.swift */; };
 		45ECDA7F1E243A6900E999D8 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45418F2D1E1719E00050DDF5 /* ForgotPasswordViewController.swift */; };
 		45ECDA801E243A6900E999D8 /* StripeClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4591D5F81DFCA51D00366691 /* StripeClient.swift */; };
 		45ECDA811E243A6900E999D8 /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4571700A1DEA5DEE00A0FDF5 /* Reservation.swift */; };
 		45ECDA821E243A6900E999D8 /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450E12491DAF2B000027EFBC /* EntryViewController.swift */; };
-		45ECDA831E243A6900E999D8 /* SimpleCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45877E741E158709006A7709 /* SimpleCellTableViewCell.swift */; };
 		45ECDA851E243A6900E999D8 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450CB59E1E11834000FD2095 /* UIColor.swift */; };
 		45ECDA861E243A6900E999D8 /* Parking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459AD2561DA49B6C0018B7B9 /* Parking.swift */; };
 		45ECDA871E243A6900E999D8 /* ReservationClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4591D5FA1DFCA54600366691 /* ReservationClient.swift */; };
@@ -232,7 +233,6 @@
 		4550D6791E19D7C40080758D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		4550D67F1E19DD790080758D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4550D6811E19DD7A0080758D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		4554A0951E21708D007FB04C /* NewParkingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewParkingViewController.swift; sourceTree = "<group>"; };
 		4554A0971E217358007FB04C /* NewPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPhotoViewController.swift; sourceTree = "<group>"; };
 		4554EBCD1DB5A36F0066E452 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		45637CFE1DEB184500DD42C0 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
@@ -245,7 +245,6 @@
 		457BF1F41ECFE303007ABB28 /* Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		457CF5D31EBC0D9800A1397F /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		457CF5D51EBC0DA700A1397F /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
-		45877E741E158709006A7709 /* SimpleCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleCellTableViewCell.swift; sourceTree = "<group>"; };
 		458859421EA91C58008DDED8 /* EventClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventClient.swift; sourceTree = "<group>"; };
 		458A982F1DBCFD44007F53EE /* UnderlineTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnderlineTextField.swift; sourceTree = "<group>"; };
 		458AF6681EEB064B00E3C402 /* AuthenticationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationHelper.swift; sourceTree = "<group>"; };
@@ -263,6 +262,10 @@
 		45BB39641DBBF0010019C2A3 /* Buttons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		45BBC33E1EF0730C00CBC509 /* PhotoParkingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoParkingTableViewCell.swift; sourceTree = "<group>"; };
 		45BBC3401EF074CB00CBC509 /* LabelParkingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelParkingTableViewCell.swift; sourceTree = "<group>"; };
+		45BBC3421EF0A4A900CBC509 /* PhotoEditLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoEditLayout.swift; sourceTree = "<group>"; };
+		45BBC3451EF0A8A400CBC509 /* PhotoEditCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoEditCollectionViewController.swift; sourceTree = "<group>"; };
+		45BBC3471EF0A9E100CBC509 /* ImageLoaderHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoaderHelper.swift; sourceTree = "<group>"; };
+		45BBC3491EF0AB0500CBC509 /* SimpleCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleCellTableViewCell.swift; sourceTree = "<group>"; };
 		45BC29411DA18249000C54BC /* Carko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Carko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45BC29441DA18249000C54BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45BC294E1DA18249000C54BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -273,6 +276,7 @@
 		45BC29641DA18249000C54BC /* CarkoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarkoUITests.swift; sourceTree = "<group>"; };
 		45BC29661DA18249000C54BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45C1DBEC1DD7870A00B2C96F /* ParkingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingTest.swift; sourceTree = "<group>"; };
+		45CA60761EF0E4B20026E58A /* PhotoAddCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoAddCollectionViewCell.swift; sourceTree = "<group>"; };
 		45CD61C71EEC786A00068957 /* ParkingPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		45CD61C91EEC8FA600068957 /* Carko - Production.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Carko - Production.entitlements"; sourceTree = SOURCE_ROOT; };
 		45D073301EA84924000604D3 /* EventsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsCollectionViewController.swift; sourceTree = "<group>"; };
@@ -385,11 +389,10 @@
 		451853781DA476CB005CC5E6 /* Rent your space */ = {
 			isa = PBXGroup;
 			children = (
+				45BBC3441EF0A4AF00CBC509 /* Layout */,
 				450B5D561E2AA48D00AEEA29 /* Subviews */,
-				C511504F1DAF386B004E2A7D /* Parking Edit */,
-				45E9D0FC1E1DCE42000EDEE8 /* Parking Creation */,
+				C511504F1DAF386B004E2A7D /* Controller */,
 				C56ADAB91DAC00320033516C /* Custom Cell */,
-				451853791DA476F1005CC5E6 /* ListParkingViewController.swift */,
 			);
 			name = "Rent your space";
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 			children = (
 				4544AA7E1E2BFA8E008A760F /* DateHelper.swift */,
 				458AF6681EEB064B00E3C402 /* AuthenticationHelper.swift */,
+				45BBC3471EF0A9E100CBC509 /* ImageLoaderHelper.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -521,6 +525,15 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		45BBC3441EF0A4AF00CBC509 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				4540C1FC1EEE469F00A2ECB3 /* PhotoCreationLayout.swift */,
+				45BBC3421EF0A4A900CBC509 /* PhotoEditLayout.swift */,
+			);
+			name = Layout;
+			sourceTree = "<group>";
+		};
 		45BC29381DA18249000C54BC = {
 			isa = PBXGroup;
 			children = (
@@ -603,21 +616,8 @@
 				45113DF71EAB9D4F0083C959 /* ApyaLayout.swift */,
 				45DC42FB1EA97D53009F8E8D /* EventCollectionViewCell.swift */,
 				451071DC1EE6447D0080D0DF /* ReservationCollectionViewCell.swift */,
-				45CD61C71EEC786A00068957 /* ParkingPhotoCollectionViewCell.swift */,
 			);
 			name = CollectionView;
-			sourceTree = "<group>";
-		};
-		45E9D0FC1E1DCE42000EDEE8 /* Parking Creation */ = {
-			isa = PBXGroup;
-			children = (
-				45E9D0FD1E1DCE7C000EDEE8 /* LocationViewController.swift */,
-				45E9D1011E1DD218000EDEE8 /* AvailabilityViewController.swift */,
-				4554A0951E21708D007FB04C /* NewParkingViewController.swift */,
-				4554A0971E217358007FB04C /* NewPhotoViewController.swift */,
-				4540C1FC1EEE469F00A2ECB3 /* PhotoCreationLayout.swift */,
-			);
-			name = "Parking Creation";
 			sourceTree = "<group>";
 		};
 		45EA59BF1EBD27BF002B50BD /* History */ = {
@@ -697,22 +697,29 @@
 			name = "Side Menu";
 			sourceTree = "<group>";
 		};
-		C511504F1DAF386B004E2A7D /* Parking Edit */ = {
+		C511504F1DAF386B004E2A7D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				451853791DA476F1005CC5E6 /* ListParkingViewController.swift */,
 				C51150581DAF397E004E2A7D /* ParkingInfoViewController.swift */,
+				45E9D0FD1E1DCE7C000EDEE8 /* LocationViewController.swift */,
+				45E9D1011E1DD218000EDEE8 /* AvailabilityViewController.swift */,
 				C51150521DAF38D5004E2A7D /* ParkingDescriptionViewController.swift */,
+				4554A0971E217358007FB04C /* NewPhotoViewController.swift */,
+				45BBC3451EF0A8A400CBC509 /* PhotoEditCollectionViewController.swift */,
 			);
-			name = "Parking Edit";
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		C56ADAB91DAC00320033516C /* Custom Cell */ = {
 			isa = PBXGroup;
 			children = (
+				45BBC3491EF0AB0500CBC509 /* SimpleCellTableViewCell.swift */,
+				45CD61C71EEC786A00068957 /* ParkingPhotoCollectionViewCell.swift */,
 				C56ADABA1DAC00870033516C /* ParkingTableViewCell.swift */,
-				45877E741E158709006A7709 /* SimpleCellTableViewCell.swift */,
 				45BBC33E1EF0730C00CBC509 /* PhotoParkingTableViewCell.swift */,
 				45BBC3401EF074CB00CBC509 /* LabelParkingTableViewCell.swift */,
+				45CA60761EF0E4B20026E58A /* PhotoAddCollectionViewCell.swift */,
 			);
 			name = "Custom Cell";
 			sourceTree = "<group>";
@@ -1177,7 +1184,9 @@
 			files = (
 				45E9D0FE1E1DCE7C000EDEE8 /* LocationViewController.swift in Sources */,
 				45113DF81EAB9D4F0083C959 /* ApyaLayout.swift in Sources */,
+				45BBC34A1EF0AB0500CBC509 /* SimpleCellTableViewCell.swift in Sources */,
 				4554EBCE1DB5A36F0066E452 /* APIClient.swift in Sources */,
+				45BBC3461EF0A8A400CBC509 /* PhotoEditCollectionViewController.swift in Sources */,
 				4544AA7F1E2BFA8E008A760F /* DateHelper.swift in Sources */,
 				45E9D1021E1DD218000EDEE8 /* AvailabilityViewController.swift in Sources */,
 				458859431EA91C58008DDED8 /* EventClient.swift in Sources */,
@@ -1188,6 +1197,7 @@
 				451FC46F1E072BC70083C0CB /* VehiculeClient.swift in Sources */,
 				45637CFF1DEB184500DD42C0 /* AppState.swift in Sources */,
 				458A98301DBCFD44007F53EE /* UnderlineTextField.swift in Sources */,
+				45BBC3481EF0A9E100CBC509 /* ImageLoaderHelper.swift in Sources */,
 				457536581EAD798300E70F7F /* ReservationTableViewCell.swift in Sources */,
 				45AA40E71EC699BB000D306E /* PaymentSetupCompleted.swift in Sources */,
 				45D073331EA84A75000604D3 /* Event.swift in Sources */,
@@ -1210,14 +1220,13 @@
 				45D073311EA84924000604D3 /* EventsCollectionViewController.swift in Sources */,
 				C5075F971EBBA84000602B8C /* NavigationViewController.swift in Sources */,
 				450E12401DAF27330027EFBC /* RegisterViewController.swift in Sources */,
-				4554A0961E21708D007FB04C /* NewParkingViewController.swift in Sources */,
 				451E424D1DB078E000747370 /* UIViewController.swift in Sources */,
 				45418F2E1E1719E00050DDF5 /* ForgotPasswordViewController.swift in Sources */,
 				4575365A1EAD87AA00E70F7F /* StringExtension.swift in Sources */,
 				4591D5F91DFCA51D00366691 /* StripeClient.swift in Sources */,
 				4571700B1DEA5DEE00A0FDF5 /* Reservation.swift in Sources */,
 				450E124A1DAF2B000027EFBC /* EntryViewController.swift in Sources */,
-				45877E751E158709006A7709 /* SimpleCellTableViewCell.swift in Sources */,
+				45BBC3431EF0A4A900CBC509 /* PhotoEditLayout.swift in Sources */,
 				4540C1FD1EEE469F00A2ECB3 /* PhotoCreationLayout.swift in Sources */,
 				C5075F9C1EBBAA9100602B8C /* ProfileHeaderView.swift in Sources */,
 				450B5D581E2AA4B100AEEA29 /* NewParkingView.swift in Sources */,
@@ -1231,6 +1240,7 @@
 				45EA513D1DDE74AC00BD076C /* ParkingAnnotation.swift in Sources */,
 				451FC46B1E072A830083C0CB /* VehiculeInformationViewController.swift in Sources */,
 				C5B310601DB023610051C90B /* FloatExtension.swift in Sources */,
+				45CA60771EF0E4B20026E58A /* PhotoAddCollectionViewCell.swift in Sources */,
 				457BF1F51ECFE303007ABB28 /* Loader.swift in Sources */,
 				450E124C1DAF2B3C0027EFBC /* PageContentViewController.swift in Sources */,
 				4591D5F71DFCA4DE00366691 /* CustomerClient.swift in Sources */,
@@ -1290,13 +1300,11 @@
 				45ECDA791E243A6900E999D8 /* Customer.swift in Sources */,
 				45ECDA7A1E243A6900E999D8 /* View.swift in Sources */,
 				45ECDA7B1E243A6900E999D8 /* RegisterViewController.swift in Sources */,
-				45ECDA7C1E243A6900E999D8 /* NewParkingViewController.swift in Sources */,
 				45ECDA7D1E243A6900E999D8 /* UIViewController.swift in Sources */,
 				45ECDA7F1E243A6900E999D8 /* ForgotPasswordViewController.swift in Sources */,
 				45ECDA801E243A6900E999D8 /* StripeClient.swift in Sources */,
 				45ECDA811E243A6900E999D8 /* Reservation.swift in Sources */,
 				45ECDA821E243A6900E999D8 /* EntryViewController.swift in Sources */,
-				45ECDA831E243A6900E999D8 /* SimpleCellTableViewCell.swift in Sources */,
 				45ECDA851E243A6900E999D8 /* UIColor.swift in Sources */,
 				45ECDA861E243A6900E999D8 /* Parking.swift in Sources */,
 				45ECDA871E243A6900E999D8 /* ReservationClient.swift in Sources */,

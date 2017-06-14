@@ -34,6 +34,8 @@ class PhotoCreationLayout: UICollectionViewLayout {
 
     override func prepare() {
         self.cache.removeAll()
+        self.currentColumn = 0
+        self.currentRow = 0
         self.firstSectionPadding = 0.02 * self.contentWidth
         self.secondSectionPadding = 0.6 * self.firstSectionPadding
         self.thirdSectionPadding = 0.4 * self.firstSectionPadding
@@ -174,40 +176,3 @@ class PhotoCreationLayout: UICollectionViewLayout {
         }
     }
 }
-
-/*
- func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
- var width: CGFloat!
- switch indexPath.section {
- case 0:
- if self.parkingImages.count > 1 {
- width = 0.65 * self.photoCollectionView.frame.width
- } else {
- width = self.photoCollectionView.frame.width
- let height = self.photoCollectionView.frame.height
- return CGSize.init(width: width, height: height)
- }
- break
- case 1:
- width = 0.30 * self.photoCollectionView.frame.width
- break
- case 2:
- width = 0.13 * self.photoCollectionView.frame.width
- break
- default:
- width = self.photoCollectionView.frame.width
- }
-
- let height = width
- return CGSize.init(width: width, height: height!)
- }
-
- func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
- switch section {
- case 0:
- return UIEdgeInsets.init(top: 0, left: 6.0, bottom: 0, right: 6.0)
- default:
- return UIEdgeInsets.init(top: 6.0, left: 6.0, bottom: 6.0, right: 6.0)
-
- }
- }*/
