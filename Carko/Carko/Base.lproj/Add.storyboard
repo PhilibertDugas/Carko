@@ -118,7 +118,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="122" height="91"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wHn-Lt-JnV">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wHn-Lt-JnV">
                                                                 <rect key="frame" x="0.0" y="0.0" width="122" height="91"/>
                                                             </imageView>
                                                         </subviews>
@@ -259,7 +259,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="142" height="156"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0x1-qc-tgU">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="252" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0x1-qc-tgU">
                                             <rect key="frame" x="11" y="11" width="131" height="145"/>
                                         </imageView>
                                     </subviews>
@@ -1002,37 +1002,58 @@
                                     <outletCollection property="gestureRecognizers" destination="DiR-U9-PA6" appends="YES" id="tac-pA-4Hx"/>
                                 </connections>
                             </view>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ofp-w2-QVc" customClass="SmallRoundedCornerButton" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="116" y="515" width="142.5" height="60.5"/>
-                                <color key="backgroundColor" red="0.76862745099999996" green="0.066666666669999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
-                                <color key="tintColor" red="0.76862745099999996" green="0.066666666669999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Save">
-                                    <color key="titleColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="tappedSave:" destination="aVk-he-ODw" eventType="touchUpInside" id="hCv-BI-wuL"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q1O-TR-Osq">
+                                <rect key="frame" x="116.5" y="515.5" width="142.5" height="60.5"/>
+                                <subviews>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ofp-w2-QVc" customClass="SmallRoundedCornerButton" customModule="Carko" customModuleProvider="target">
+                                        <rect key="frame" x="-0.5" y="-0.5" width="142.5" height="60.5"/>
+                                        <color key="backgroundColor" red="0.76862745099999996" green="0.066666666669999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                                        <color key="tintColor" red="0.76862745099999996" green="0.066666666669999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Save">
+                                            <color key="titleColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="tappedSave:" destination="aVk-he-ODw" eventType="touchUpInside" id="hCv-BI-wuL"/>
+                                        </connections>
+                                    </button>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="aiq-KV-KPO">
+                                        <rect key="frame" x="114" y="20.5" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="NPu-F6-cXq"/>
+                                            <constraint firstAttribute="height" constant="20" id="f4z-vi-CMb"/>
+                                        </constraints>
+                                        <color key="color" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Ofp-w2-QVc" secondAttribute="bottom" id="25L-4L-1Lc"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ofp-w2-QVc" secondAttribute="trailing" id="Rd9-Jk-bDF"/>
+                                    <constraint firstItem="Ofp-w2-QVc" firstAttribute="leading" secondItem="Q1O-TR-Osq" secondAttribute="leading" id="bbF-Wr-uEx"/>
+                                    <constraint firstAttribute="trailing" secondItem="aiq-KV-KPO" secondAttribute="trailing" constant="8.5" id="nVE-aR-O8U"/>
+                                    <constraint firstItem="Ofp-w2-QVc" firstAttribute="top" secondItem="Q1O-TR-Osq" secondAttribute="top" id="sOf-c5-7ZI"/>
+                                    <constraint firstItem="aiq-KV-KPO" firstAttribute="centerY" secondItem="Q1O-TR-Osq" secondAttribute="centerY" id="zwq-BB-qAT"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.062745098040000002" green="0.078431372550000003" blue="0.08235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="dqF-Va-WFQ" secondAttribute="trailing" constant="2" id="1e3-YE-ORN"/>
-                            <constraint firstItem="pbB-uD-7w0" firstAttribute="top" secondItem="Ofp-w2-QVc" secondAttribute="bottom" constant="27" id="3oJ-kd-ayk"/>
-                            <constraint firstItem="Ofp-w2-QVc" firstAttribute="width" secondItem="NJX-Fd-H90" secondAttribute="width" multiplier="0.38" id="6G0-I2-htQ"/>
                             <constraint firstItem="nID-Qw-kTP" firstAttribute="top" secondItem="vUR-Qj-2VA" secondAttribute="bottom" id="6e7-8g-HHI"/>
-                            <constraint firstItem="Ofp-w2-QVc" firstAttribute="centerX" secondItem="NJX-Fd-H90" secondAttribute="centerX" id="8Fq-cR-9nm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="nID-Qw-kTP" secondAttribute="trailing" id="9eJ-zL-bJm"/>
                             <constraint firstItem="3sa-cU-gUH" firstAttribute="width" secondItem="NJX-Fd-H90" secondAttribute="width" multiplier="0.82" id="Sjy-8x-NVw"/>
                             <constraint firstItem="3sa-cU-gUH" firstAttribute="centerX" secondItem="NJX-Fd-H90" secondAttribute="centerX" id="Tvj-3a-0e5"/>
+                            <constraint firstItem="Q1O-TR-Osq" firstAttribute="centerX" secondItem="NJX-Fd-H90" secondAttribute="centerX" id="U9b-bc-kZM"/>
                             <constraint firstItem="3sa-cU-gUH" firstAttribute="height" secondItem="NJX-Fd-H90" secondAttribute="height" multiplier="0.34" id="V7m-fH-gZO"/>
                             <constraint firstItem="nID-Qw-kTP" firstAttribute="leading" secondItem="NJX-Fd-H90" secondAttribute="leadingMargin" id="YBY-3v-PCY"/>
-                            <constraint firstItem="Ofp-w2-QVc" firstAttribute="height" secondItem="NJX-Fd-H90" secondAttribute="height" multiplier="0.1" id="Zud-Xk-26s"/>
                             <constraint firstItem="MmM-Vs-NYV" firstAttribute="top" secondItem="vUR-Qj-2VA" secondAttribute="bottom" constant="25" id="c96-33-hh0"/>
+                            <constraint firstItem="pbB-uD-7w0" firstAttribute="top" secondItem="Q1O-TR-Osq" secondAttribute="bottom" constant="27" id="d4N-H4-1IY"/>
                             <constraint firstItem="MmM-Vs-NYV" firstAttribute="centerX" secondItem="NJX-Fd-H90" secondAttribute="centerX" id="dDS-zk-eUJ"/>
                             <constraint firstItem="3sa-cU-gUH" firstAttribute="top" secondItem="NJX-Fd-H90" secondAttribute="topMargin" constant="9" id="gRY-Oy-Yfw"/>
                             <constraint firstItem="dqF-Va-WFQ" firstAttribute="leading" secondItem="NJX-Fd-H90" secondAttribute="leadingMargin" constant="2" id="i9W-I4-nYv"/>
+                            <constraint firstItem="Q1O-TR-Osq" firstAttribute="height" secondItem="NJX-Fd-H90" secondAttribute="height" multiplier="0.1" id="kSb-5N-PDk"/>
                             <constraint firstItem="dqF-Va-WFQ" firstAttribute="height" secondItem="NJX-Fd-H90" secondAttribute="height" multiplier="0.25" id="oer-PK-EvR"/>
+                            <constraint firstItem="Q1O-TR-Osq" firstAttribute="width" secondItem="NJX-Fd-H90" secondAttribute="width" multiplier="0.38" id="yzU-Cc-F5s"/>
                             <constraint firstItem="dqF-Va-WFQ" firstAttribute="top" secondItem="3sa-cU-gUH" secondAttribute="bottom" constant="48" id="zBS-q9-7EZ"/>
                         </constraints>
                     </view>
@@ -1042,6 +1063,8 @@
                     <connections>
                         <outlet property="addPhotoLabel" destination="nID-Qw-kTP" id="nFf-Rb-rWD"/>
                         <outlet property="bigPlusButton" destination="MmM-Vs-NYV" id="5hm-qb-LtI"/>
+                        <outlet property="buttonIndicator" destination="aiq-KV-KPO" id="gR3-by-9rY"/>
+                        <outlet property="buttonView" destination="Q1O-TR-Osq" id="SNE-39-6fJ"/>
                         <outlet property="descriptionLabel" destination="1Ha-2Z-4gN" id="in8-VR-vBy"/>
                         <outlet property="descriptionView" destination="dqF-Va-WFQ" id="S6a-RP-g6N"/>
                         <outlet property="mainButton" destination="Ofp-w2-QVc" id="35u-90-EeB"/>
@@ -1077,7 +1100,7 @@
                                 <rect key="frame" x="0.0" y="43" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MLI-Zh-uQO" id="lgl-Rv-gYa">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eEH-F0-kVK">
@@ -1128,9 +1151,9 @@
         <image name="small_plus" width="144" height="144"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Y1y-ch-YBc"/>
         <segue reference="8rN-8p-AUL"/>
         <segue reference="rQy-xe-Y67"/>
+        <segue reference="Y1y-ch-YBc"/>
         <segue reference="ZVv-jp-5sL"/>
     </inferredMetricsTieBreakers>
 </document>

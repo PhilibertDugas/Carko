@@ -13,6 +13,8 @@ import NohanaImagePicker
 import Photos
 
 class NewPhotoViewController: UIViewController {
+    @IBOutlet var buttonView: UIView!
+    @IBOutlet var buttonIndicator: UIActivityIndicatorView!
     @IBOutlet var mainButton: RoundedCornerButton!
     @IBOutlet var addPhotoLabel: UILabel!
     @IBOutlet var photoCollectionView: UICollectionView!
@@ -27,6 +29,8 @@ class NewPhotoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.buttonView.isHidden = true
+        self.buttonIndicator.isHidden = true
         self.photoCollectionView.isHidden = true
         self.descriptionView.isHidden = true
         self.imagePicker.delegate = self
@@ -78,6 +82,7 @@ extension NewPhotoViewController: ParkingDescriptionDelegate {
         self.descriptionLabel.sizeToFit()
         self.mainButton.isEnabled = true
         self.mainButton.isHidden = false
+        self.buttonView.isHidden = false
     }
 }
 
@@ -162,13 +167,13 @@ extension NewPhotoViewController: NohanaImagePickerControllerDelegate {
         }
     }
 
-    // FIXME: Add loading
     func uploadImages() {
-        //self.uploadIndicator.startAnimating()
         let date = Date.init()
         let metadata = FIRStorageMetadata()
         metadata.contentType = "image/jpeg"
 
+        self.buttonIndicator.isHidden = false
+        self.buttonIndicator.startAnimating()
         for (index, image) in self.parkingImages.enumerated() {
             let path = "user_\(AuthenticationHelper.getCustomer().id)_\(date)_\(index)"
             let data = UIImageJPEGRepresentation(image, 0.8)!
@@ -194,6 +199,8 @@ extension NewPhotoViewController: NohanaImagePickerControllerDelegate {
             if let error = error {
                 super.displayErrorMessage(error.localizedDescription)
             } else {
+                self.buttonIndicator.stopAnimating()
+                self.buttonIndicator.isHidden = true
                 NotificationCenter.default.post(name: Notification.Name.init("NewParking"), object: nil, userInfo: nil)
                 self.displaySuccessMessage()
             }
