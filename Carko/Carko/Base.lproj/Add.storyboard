@@ -246,11 +246,16 @@
         <scene sceneID="qgY-3v-rtg">
             <objects>
                 <collectionViewController id="gDO-uT-0HA" customClass="PhotoEditCollectionViewController" customModule="Carko" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="H4n-EU-RgY">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="H4n-EU-RgY">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.062745098040000002" green="0.078431372550000003" blue="0.08235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <collectionViewLayout key="collectionViewLayout" id="sGB-2F-Cl7" customClass="PhotoEditLayout" customModule="Carko" customModuleProvider="target"/>
+                        <activityIndicatorView key="backgroundView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" id="YHO-q6-c3u">
+                            <rect key="frame" x="169" y="283" width="37" height="37"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="color" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </activityIndicatorView>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoEditCell" id="iQm-Z2-Fo6" customClass="ParkingPhotoCollectionViewCell" customModule="Carko" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="142" height="156"/>
@@ -314,6 +319,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="YHO-q6-c3u" id="wSJ-Un-n3d"/>
                         <outlet property="editButton" destination="pTW-9q-jBG" id="AwF-GF-3GJ"/>
                     </connections>
                 </collectionViewController>
@@ -949,6 +955,16 @@
                                     <outlet property="prefetchDataSource" destination="aVk-he-ODw" id="nOx-M6-Bng"/>
                                 </connections>
                             </collectionView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Photos" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2lm-7R-cbV">
+                                <rect key="frame" x="33.5" y="240" width="307.5" height="11"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="11" id="VSj-UN-uQh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="9"/>
+                                <color key="textColor" red="0.76862745099999996" green="0.066666666669999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dqF-Va-WFQ">
                                 <rect key="frame" x="18" y="262" width="339" height="151"/>
                                 <subviews>
@@ -1041,15 +1057,18 @@
                             <constraint firstAttribute="trailingMargin" secondItem="dqF-Va-WFQ" secondAttribute="trailing" constant="2" id="1e3-YE-ORN"/>
                             <constraint firstItem="nID-Qw-kTP" firstAttribute="top" secondItem="vUR-Qj-2VA" secondAttribute="bottom" id="6e7-8g-HHI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="nID-Qw-kTP" secondAttribute="trailing" id="9eJ-zL-bJm"/>
+                            <constraint firstItem="2lm-7R-cbV" firstAttribute="top" secondItem="3sa-cU-gUH" secondAttribute="bottom" constant="26" id="Q2L-xz-mfc"/>
                             <constraint firstItem="3sa-cU-gUH" firstAttribute="width" secondItem="NJX-Fd-H90" secondAttribute="width" multiplier="0.82" id="Sjy-8x-NVw"/>
                             <constraint firstItem="3sa-cU-gUH" firstAttribute="centerX" secondItem="NJX-Fd-H90" secondAttribute="centerX" id="Tvj-3a-0e5"/>
                             <constraint firstItem="Q1O-TR-Osq" firstAttribute="centerX" secondItem="NJX-Fd-H90" secondAttribute="centerX" id="U9b-bc-kZM"/>
                             <constraint firstItem="3sa-cU-gUH" firstAttribute="height" secondItem="NJX-Fd-H90" secondAttribute="height" multiplier="0.34" id="V7m-fH-gZO"/>
                             <constraint firstItem="nID-Qw-kTP" firstAttribute="leading" secondItem="NJX-Fd-H90" secondAttribute="leadingMargin" id="YBY-3v-PCY"/>
+                            <constraint firstItem="2lm-7R-cbV" firstAttribute="centerX" secondItem="NJX-Fd-H90" secondAttribute="centerX" id="aUz-G1-lEm"/>
                             <constraint firstItem="MmM-Vs-NYV" firstAttribute="top" secondItem="vUR-Qj-2VA" secondAttribute="bottom" constant="25" id="c96-33-hh0"/>
                             <constraint firstItem="pbB-uD-7w0" firstAttribute="top" secondItem="Q1O-TR-Osq" secondAttribute="bottom" constant="27" id="d4N-H4-1IY"/>
                             <constraint firstItem="MmM-Vs-NYV" firstAttribute="centerX" secondItem="NJX-Fd-H90" secondAttribute="centerX" id="dDS-zk-eUJ"/>
                             <constraint firstItem="3sa-cU-gUH" firstAttribute="top" secondItem="NJX-Fd-H90" secondAttribute="topMargin" constant="9" id="gRY-Oy-Yfw"/>
+                            <constraint firstItem="2lm-7R-cbV" firstAttribute="width" secondItem="3sa-cU-gUH" secondAttribute="width" id="gm2-K4-SoH"/>
                             <constraint firstItem="dqF-Va-WFQ" firstAttribute="leading" secondItem="NJX-Fd-H90" secondAttribute="leadingMargin" constant="2" id="i9W-I4-nYv"/>
                             <constraint firstItem="Q1O-TR-Osq" firstAttribute="height" secondItem="NJX-Fd-H90" secondAttribute="height" multiplier="0.1" id="kSb-5N-PDk"/>
                             <constraint firstItem="dqF-Va-WFQ" firstAttribute="height" secondItem="NJX-Fd-H90" secondAttribute="height" multiplier="0.25" id="oer-PK-EvR"/>
@@ -1067,6 +1086,7 @@
                         <outlet property="buttonView" destination="Q1O-TR-Osq" id="SNE-39-6fJ"/>
                         <outlet property="descriptionLabel" destination="1Ha-2Z-4gN" id="in8-VR-vBy"/>
                         <outlet property="descriptionView" destination="dqF-Va-WFQ" id="S6a-RP-g6N"/>
+                        <outlet property="editPhotosLabel" destination="2lm-7R-cbV" id="RhK-So-yaR"/>
                         <outlet property="mainButton" destination="Ofp-w2-QVc" id="35u-90-EeB"/>
                         <outlet property="photoCollectionView" destination="3sa-cU-gUH" id="GIu-A6-qKB"/>
                         <segue destination="6yu-zW-V47" kind="show" identifier="showDescription" id="Y1y-ch-YBc"/>
@@ -1151,9 +1171,9 @@
         <image name="small_plus" width="144" height="144"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Y1y-ch-YBc"/>
         <segue reference="8rN-8p-AUL"/>
         <segue reference="rQy-xe-Y67"/>
-        <segue reference="Y1y-ch-YBc"/>
         <segue reference="ZVv-jp-5sL"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -20,6 +20,7 @@ protocol PhotoEditDelegate {
 
 class PhotoEditCollectionViewController: UICollectionViewController {
     @IBOutlet var editButton: UIBarButtonItem!
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
 
     var parking: Parking!
     var delegate: PhotoEditDelegate!
@@ -32,6 +33,7 @@ class PhotoEditCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         self.imagePicker.delegate = self
         self.imagePicker.numberOfColumnsInPortrait = 3
+        self.activityIndicator.isHidden = true
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -173,7 +175,8 @@ extension PhotoEditCollectionViewController: NohanaImagePickerControllerDelegate
 
     // FIXME: Add indicator of loading
     func uploadImages(_ images: [(UIImage)]) {
-        //self.uploadIndicator.startAnimating()
+        self.activityIndicator.isHidden = false
+        self.activityIndicator.startAnimating()
         let totalImageCount = images.count + self.parking.multiplePhotoUrls.count
         let date = Date.init()
         let metadata = FIRStorageMetadata()
@@ -187,6 +190,8 @@ extension PhotoEditCollectionViewController: NohanaImagePickerControllerDelegate
                     if let url = metadata.downloadURL() {
                         self.parking.multiplePhotoUrls.append(url)
                         if self.parking.multiplePhotoUrls.count == totalImageCount {
+                            self.activityIndicator.isHidden = true
+                            self.activityIndicator.stopAnimating()
                             self.collectionView!.reloadData()
                         }
                     }

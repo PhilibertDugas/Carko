@@ -37,7 +37,7 @@ class PhotoCreationLayout: UICollectionViewLayout {
         self.currentColumn = 0
         self.currentRow = 0
         self.firstSectionPadding = 0.02 * self.contentWidth
-        self.secondSectionPadding = 0.6 * self.firstSectionPadding
+        self.secondSectionPadding = 0.55 * self.firstSectionPadding
         self.thirdSectionPadding = 0.4 * self.firstSectionPadding
 
         self.numberOfRow = collectionView!.numberOfSections

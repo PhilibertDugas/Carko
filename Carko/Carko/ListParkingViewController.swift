@@ -8,7 +8,6 @@
 
 import UIKit
 import FirebaseStorageUI
-import CoreLocation
 
 class ListParkingViewController: UIViewController {
     var parkingList = [Parking]()

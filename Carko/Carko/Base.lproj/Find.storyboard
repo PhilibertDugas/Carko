@@ -109,7 +109,7 @@
         <scene sceneID="oc0-ja-GMb">
             <objects>
                 <collectionViewController id="MPQ-ic-TB4" customClass="EventsCollectionViewController" customModule="Carko" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="ZxP-jl-dXw">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="ZxP-jl-dXw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -261,6 +261,7 @@
                                 </constraints>
                                 <size key="customSize" width="345" height="345"/>
                                 <connections>
+                                    <outlet property="calendarView" destination="kdS-0f-jSi" id="Tg2-0T-abv"/>
                                     <outlet property="dayLabel" destination="B9L-EJ-3jq" id="ieK-tN-5az"/>
                                     <outlet property="dayOfWeekLabel" destination="LrO-xU-Qnv" id="d3l-Fo-407"/>
                                     <outlet property="eventImageView" destination="lZy-Xp-um5" id="GFv-lP-2uA"/>

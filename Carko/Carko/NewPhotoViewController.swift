@@ -21,6 +21,7 @@ class NewPhotoViewController: UIViewController {
     @IBOutlet var descriptionView: UIView!
     @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var bigPlusButton: UIButton!
+    @IBOutlet var editPhotosLabel: UILabel!
 
     var parking: Parking!
     var parkingImages: [(UIImage)] = []
@@ -160,6 +161,7 @@ extension NewPhotoViewController: NohanaImagePickerControllerDelegate {
             self.addPhotoLabel.isHidden = true
             self.bigPlusButton.isHidden = true
             self.photoCollectionView.isHidden = false
+            self.editPhotosLabel.isHidden = false
             self.photoCollectionView.reloadData()
 
             self.descriptionView.isHidden = false

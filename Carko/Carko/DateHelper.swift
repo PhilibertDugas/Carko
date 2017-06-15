@@ -20,6 +20,12 @@ struct DateHelper {
         return formatter
     }
 
+    static func getDateObject(_ date: String) -> Date {
+        let formattedDate = formatString(date)
+        let formatter = timestampFormatter()
+        return formatter.date(from: formattedDate)!
+    }
+
     static func getDayOfWeek(_ date: String) -> String {
         let formattedDate = formatString(date)
         let formatter = timestampFormatter()

@@ -17,6 +17,7 @@ class ReservationCollectionViewCell: UICollectionViewCell, MKMapViewDelegate {
     @IBOutlet var dayOfWeekLabel: UILabel!
     @IBOutlet var eventImageView: UIImageView!
     @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var calendarView: RoundedCornerView!
 
     var gradient: CAGradientLayer!
 
@@ -54,9 +55,11 @@ class ReservationCollectionViewCell: UICollectionViewCell, MKMapViewDelegate {
                 monthLabel.text = DateHelper.getMonth(reservation.startTime)
                 dayLabel.text = String(DateHelper.getDay(reservation.startTime))
                 dayOfWeekLabel.text = DateHelper.getDayOfWeek(reservation.startTime)
+                // FIXME : Not working
+                //let tapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(self.tappedCalendar))
+                //calendarView.addGestureRecognizer(tapGestureRecognizer)
 
                 self.setEventImage(event)
-                self.setReservationTime(reservation)
                 self.setMapRegion(reservation)
                 self.setMapPin(reservation)
             }
@@ -70,10 +73,6 @@ class ReservationCollectionViewCell: UICollectionViewCell, MKMapViewDelegate {
         }
     }
 
-    fileprivate func setReservationTime(_ reservation: Reservation) {
-        //let day = reservation.startTime.formattedDays
-    }
-
     fileprivate func setMapRegion(_ reservation: Reservation) {
         let center = reservation.parking.coordinate()
         let range = CLLocationDistance.init(reservation.event.range)
@@ -82,7 +81,27 @@ class ReservationCollectionViewCell: UICollectionViewCell, MKMapViewDelegate {
         self.mapView.regionThatFits(region)
         self.mapView.layer.cornerRadius = 10
         self.mapView.delegate = self
+        let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(self.tappedMap))
+        self.mapView.addGestureRecognizer(tapGesture)
+    }
 
+    func tappedCalendar() {
+        let date = DateHelper.getDateObject(self.reservation!.startTime)
+        let interval = date.timeIntervalSinceReferenceDate
+        let url = URL.init(string: "calshow:\(interval)")!
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
+
+    func tappedMap() {
+        let region = MKCoordinateRegionMakeWithDistance(self.reservation!.parking.coordinate(), 500, 500)
+        let options = [
+            MKLaunchOptionsMapCenterKey: NSValue.init(mkCoordinate: region.center),
+            MKLaunchOptionsMapSpanKey: NSValue.init(mkCoordinateSpan: region.span)
+        ]
+        let placemark = MKPlacemark.init(coordinate: self.reservation!.parking.coordinate())
+        let mapItem = MKMapItem.init(placemark: placemark)
+        mapItem.name = self.reservation!.parking.address
+        mapItem.openInMaps(launchOptions: options)
     }
 
     fileprivate func setMapPin(_ reservation: Reservation) {

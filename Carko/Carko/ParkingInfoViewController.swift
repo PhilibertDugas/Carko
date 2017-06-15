@@ -129,7 +129,7 @@ extension ParkingInfoViewController {
     }
 
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 30.0
+        return 15.0
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -139,7 +139,7 @@ extension ParkingInfoViewController {
         } else if indexPath.section == 3 {
             return tableView.frame.height
         } else {
-            return tableView.frame.height * 0.1
+            return tableView.frame.height * 0.15
         }
     }
 
