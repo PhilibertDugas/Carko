@@ -40,11 +40,15 @@ class FindParkingViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        let reveal = self.revealViewController
+        reveal().panGestureRecognizer().isEnabled = false
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         self.fetchParkings()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
+        let reveal = self.revealViewController
+        reveal().panGestureRecognizer().isEnabled = true
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
 

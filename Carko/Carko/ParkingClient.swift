@@ -88,13 +88,9 @@ extension APIClient {
     }
 
     func deleteParking(parking: Parking, complete: @escaping (Error?) -> Void) {
-        let deleteUrl = baseUrl.appendingPathComponent("/customers/\(AppState.shared.customer.id)/parkings/\(parking.id!)")
-        request(deleteUrl, method: .delete, headers: authHeaders()).response { (response) in
-            if let error = response.error {
-                complete(error)
-            } else {
-                complete(nil)
-            }
+        parking.isDeleted = true
+        self.updateParking(parking: parking) { (error, _) in
+            complete(error)
         }
     }
 }

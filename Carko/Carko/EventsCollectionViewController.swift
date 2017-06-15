@@ -136,7 +136,7 @@ extension EventsCollectionViewController: SWRevealViewControllerDelegate {
         revealViewController?.toggleAnimationType = .spring
         revealViewController?.rearViewRevealDisplacement = 44
         revealViewController?.rearViewRevealOverdraw = 10
-        revealViewController?.rearViewRevealWidth = 300
+        revealViewController?.rearViewRevealWidth = 0.8 * UIScreen.main.bounds.width
 
         let _ = revealViewController?.panGestureRecognizer()
         let _ = revealViewController?.tapGestureRecognizer()

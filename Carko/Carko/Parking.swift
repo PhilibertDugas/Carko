@@ -21,6 +21,7 @@ class Parking {
     var multiplePhotoUrls: [(URL)]
 
     var availabilityInfo: AvailabilityInfo
+    var isDeleted: Bool
 
     init(latitude: CLLocationDegrees, longitude: CLLocationDegrees, photoURL: URL?, address: String, pDescription: String, isAvailable: Bool, isComplete: Bool, availabilityInfo: AvailabilityInfo, customerId: Int, multiplePhotoUrls: [(URL)]) {
         self.latitude = latitude
@@ -33,6 +34,7 @@ class Parking {
         self.customerId = customerId
         self.isComplete = isComplete
         self.multiplePhotoUrls = multiplePhotoUrls
+        self.isDeleted = false
     }
 
     convenience init() {
@@ -115,6 +117,7 @@ extension Parking {
             "description": pDescription,
             "is_available": isAvailable,
             "is_complete": isComplete,
+            "is_deleted": isDeleted,
             "availability_info": availabilityInfo.toDictionary(),
             "multiple_photo_urls": multiplePhotoUrls.map { $0.absoluteString }
         ]

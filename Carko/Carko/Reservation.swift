@@ -36,11 +36,11 @@ struct Reservation {
         let stopTime = reservation["stop_time"] as! String
         let totalCost = reservation["total_cost"] as! Float
         let charge = reservation["charge"] as! String
-
-        let parking = reservation["parking"] as! [String: Any]
         let event = reservation["event"] as! [String: Any]
 
-        self.init(parking: Parking.init(parking: parking), event: Event.init(event: event), customerId: customerId, isActive: isActive, startTime: startTime, stopTime: stopTime, totalCost: totalCost, charge: charge)
+        let parkingDict = reservation["parking"] as? [String: Any]
+
+        self.init(parking: Parking.init(parking: parkingDict!), event: Event.init(event: event), customerId: customerId, isActive: isActive, startTime: startTime, stopTime: stopTime, totalCost: totalCost, charge: charge)
     }
 
     func toDictionnary() -> [String : Any] {

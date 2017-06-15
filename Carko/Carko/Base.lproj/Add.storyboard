@@ -252,7 +252,7 @@
                         <color key="backgroundColor" red="0.062745098040000002" green="0.078431372550000003" blue="0.08235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <collectionViewLayout key="collectionViewLayout" id="sGB-2F-Cl7" customClass="PhotoEditLayout" customModule="Carko" customModuleProvider="target"/>
                         <activityIndicatorView key="backgroundView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" id="YHO-q6-c3u">
-                            <rect key="frame" x="169" y="283" width="37" height="37"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="color" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </activityIndicatorView>
