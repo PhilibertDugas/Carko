@@ -63,4 +63,8 @@ extension ReservationsTableViewController {
         cell.reservation = reservations[indexPath.row]
         return cell
     }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.tableView.deselectRow(at: indexPath, animated: false)
+    }
 }

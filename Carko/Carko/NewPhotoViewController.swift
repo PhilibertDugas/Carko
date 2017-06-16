@@ -59,6 +59,7 @@ class NewPhotoViewController: UIViewController {
     @IBAction func tappedPhoto(_ sender: Any) {
         imagePicker.maximumNumberOfSelection = 6
         imagePicker.numberOfColumnsInPortrait = 3
+        ColorConfig.backgroundColor = UIColor.secondaryViewsBlack
         self.present(imagePicker, animated: true, completion: nil)
     }
 

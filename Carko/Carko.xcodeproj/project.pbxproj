@@ -448,6 +448,7 @@
 		457740391EED7CC3002F8419 /* Xib */ = {
 			isa = PBXGroup;
 			children = (
+				45FDF49B1EC5555200A9904A /* HistoryEmpty.xib */,
 				45AA40E41EC696A4000D306E /* PayoutSetupCompleted.xib */,
 				450B5D591E2AA4CA00AEEA29 /* NewParkingView.xib */,
 				4546D3E01EBC25C400F17BAB /* ProfileHeaderView.xib */,
@@ -625,7 +626,6 @@
 			children = (
 				457536571EAD798300E70F7F /* ReservationTableViewCell.swift */,
 				457536551EAD752500E70F7F /* ReservationsTableViewController.swift */,
-				45FDF49B1EC5555200A9904A /* HistoryEmpty.xib */,
 			);
 			name = History;
 			sourceTree = "<group>";

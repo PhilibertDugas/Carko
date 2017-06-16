@@ -33,6 +33,7 @@ class PhotoEditCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         self.imagePicker.delegate = self
         self.imagePicker.numberOfColumnsInPortrait = 3
+        ColorConfig.backgroundColor = UIColor.secondaryViewsBlack
         self.activityIndicator.isHidden = true
     }
 

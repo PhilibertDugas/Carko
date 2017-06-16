@@ -42,6 +42,7 @@ extension NavigationTableViewController {
         let cell = tableView.cellForRow(at: indexPath)!
         switch cell.tag {
         case 4:
+            self.tableView.deselectRow(at: indexPath, animated: true)
             self.contactUsMail()
             break
         default:
