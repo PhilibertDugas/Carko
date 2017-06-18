@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_Carko_CarkoTestsVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_Carko_CarkoTestsVersionString[];
+FOUNDATION_EXPORT double Pods_CarkoTestsVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_CarkoTestsVersionString[];
 

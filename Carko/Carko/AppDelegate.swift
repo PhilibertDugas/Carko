@@ -48,27 +48,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     fileprivate func setupServers() {
-        if let buildFor = ProcessInfo.processInfo.environment["BUILD_FOR"] {
-            var firebaseFile: String
-            var apiUrl: String
-            if buildFor == "PROD" {
-                Fabric.with([Crashlytics.self])
-                firebaseFile = "GoogleService-Info-Production"
-                apiUrl = "https://apya.herokuapp.com"
-                STPPaymentConfiguration.shared().publishableKey = ProcessInfo.processInfo.environment["STRIPE_PUBLISHABLE_KEY"]!
-            } else {
-                firebaseFile = "GoogleService-Info"
-                apiUrl = "https://integration-apya.herokuapp.com"
-                STPPaymentConfiguration.shared().publishableKey = "pk_test_1LYkk7fCrA1bWDbXRUx1zWBx"
-            }
-            let firebaseOptions = FIROptions(contentsOfFile: Bundle.main.path(forResource: firebaseFile, ofType: "plist"))
-            FIRApp.configure(with: firebaseOptions!)
+        #if DEVELOPMENT
+            let firebaseFile = "GoogleService-Info"
+            let apiUrl = "https://integration-apya.herokuapp.com"
+            STPPaymentConfiguration.shared().publishableKey = "pk_test_1LYkk7fCrA1bWDbXRUx1zWBx"
+        #else
+            let apiUrl = "https://apya.herokuapp.com"
+            let firebaseFile = "GoogleService-Info-Production"
+            STPPaymentConfiguration.shared().publishableKey = "pk_live_fo9Elk0ctw9i6vCBlSElK1EG"
+            Fabric.with([Crashlytics.self])
+        #endif
 
-            APIClient.shared.baseUrl = URL.init(string: apiUrl)!
-        } else {
-            FIRApp.configure()
-            APIClient.shared.baseUrl = URL.init(string: "https://integration-apya.herokuapp.com")!
-        }
+        let firebaseOptions = FIROptions(contentsOfFile: Bundle.main.path(forResource: firebaseFile, ofType: "plist"))
+        FIRApp.configure(with: firebaseOptions!)
+        APIClient.shared.baseUrl = URL.init(string: apiUrl)!
     }
 
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {

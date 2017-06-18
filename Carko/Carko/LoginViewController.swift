@@ -51,7 +51,7 @@ class LoginViewController: UIViewController {
             if let error = error {
                 super.displayErrorMessage(error.localizedDescription)
             } else if let customer = customer {
-                AppState.shared.cacheCustomer(customer)
+                AuthenticationHelper.customerLoggedIn(customer)
                 self.dismiss(animated: true)
             }
         }

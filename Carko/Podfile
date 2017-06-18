@@ -9,7 +9,6 @@ def shared_pods
   pod 'Firebase'
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
-  pod 'Firebase/Crash'
   pod 'FirebaseUI/Storage', '~> 1.0'
   pod 'Stripe'
   pod 'Alamofire'
@@ -22,21 +21,20 @@ def shared_pods
 end
 
 target 'Carko' do
+  pod 'Firebase/Crash'
   shared_pods
-  target 'CarkoTests' do
-    pod 'Firebase'
-    pod 'Firebase/Auth'
-    pod 'Stripe'
-    pod 'Alamofire'
-
-    pod 'OHHTTPStubs' # Default subspecs, including support for NSURLSession & JSON etc
-    pod 'OHHTTPStubs/Swift' # Adds the Swiftier API wrapper too
-  end
-  target 'CarkoUITests' do
-    inherit! :search_paths
-  end
 end
 
 target 'CarkoProduction' do
   shared_pods
+end
+
+target 'CarkoTests' do
+    pod 'OHHTTPStubs' # Default subspecs, including support for NSURLSession & JSON etc
+    pod 'OHHTTPStubs/Swift' # Adds the Swiftier API wrapper too
+    shared_pods
+end
+
+target 'CarkoUITests' do
+    shared_pods
 end

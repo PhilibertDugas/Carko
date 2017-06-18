@@ -11,10 +11,7 @@ import FirebaseStorageUI
 import FirebaseAuth
 import AVFoundation
 
-
 class EventsCollectionViewController: UICollectionViewController {
-    private var isHamburgerMenuOpen = false
-
     fileprivate let reservationIdentifier = "ReservationCell"
     fileprivate let reuseIdentifier = "EventCell"
     fileprivate var events = [Event](repeating: Event.init(), count: 5)
@@ -34,6 +31,7 @@ class EventsCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         self.navigationItem.titleView = UIImageView.init(image: UIImage.init(named: "white_logo"))
         if let layout = collectionView?.collectionViewLayout as? ApyaLayout {
             layout.delegate = self

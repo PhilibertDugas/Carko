@@ -8,6 +8,7 @@
 
 import Foundation
 import FirebaseAuth
+import Crashlytics
 
 struct AuthenticationHelper {
     static func updateAuthToken(_ complete: @escaping (Error?) -> Void) {
@@ -20,6 +21,12 @@ struct AuthenticationHelper {
                 complete(nil)
             }
         })
+    }
+
+    static func customerLoggedIn(_ customer: Customer) {
+        AppState.shared.cacheCustomer(customer)
+        Crashlytics.sharedInstance().setUserEmail(customer.email)
+        Crashlytics.sharedInstance().setUserIdentifier(String(customer.id))
     }
 
     static func customerAvailable() -> Bool {
