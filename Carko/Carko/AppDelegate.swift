@@ -11,6 +11,8 @@ import Firebase
 import Stripe
 import IQKeyboardManagerSwift
 import UserNotifications
+import Fabric
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -28,7 +30,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     fileprivate func setupStripe() {
-        STPPaymentConfiguration.shared().publishableKey = "pk_test_1LYkk7fCrA1bWDbXRUx1zWBx"
         STPTheme.default().accentColor = UIColor.primaryWhiteTextColor
         STPTheme.default().primaryForegroundColor = UIColor.primaryWhiteTextColor
 
@@ -51,11 +52,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             var firebaseFile: String
             var apiUrl: String
             if buildFor == "PROD" {
+                Fabric.with([Crashlytics.self])
                 firebaseFile = "GoogleService-Info-Production"
                 apiUrl = "https://apya.herokuapp.com"
+                STPPaymentConfiguration.shared().publishableKey = ProcessInfo.processInfo.environment["STRIPE_PUBLISHABLE_KEY"]!
             } else {
                 firebaseFile = "GoogleService-Info"
                 apiUrl = "https://integration-apya.herokuapp.com"
+                STPPaymentConfiguration.shared().publishableKey = "pk_test_1LYkk7fCrA1bWDbXRUx1zWBx"
             }
             let firebaseOptions = FIROptions(contentsOfFile: Bundle.main.path(forResource: firebaseFile, ofType: "plist"))
             FIRApp.configure(with: firebaseOptions!)

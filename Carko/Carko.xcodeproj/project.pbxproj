@@ -33,11 +33,8 @@
 		452533201EF05299002E916E /* Vehicule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 452533221EF05299002E916E /* Vehicule.storyboard */; };
 		452533291EF052B9002E916E /* Payout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4525332B1EF052B9002E916E /* Payout.storyboard */; };
 		452533321EF052C7002E916E /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 452533341EF052C7002E916E /* History.storyboard */; };
-		452533411EF052EB002E916E /* Vehicule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 452533221EF05299002E916E /* Vehicule.storyboard */; };
-		452533421EF052EE002E916E /* Payout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4525332B1EF052B9002E916E /* Payout.storyboard */; };
-		452533431EF052F0002E916E /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 452533341EF052C7002E916E /* History.storyboard */; };
-		452533441EF052F3002E916E /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4520D5D11ED122F50036AF07 /* Profile.storyboard */; };
 		452738E71DF7AEB700D74F0D /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452738E61DF7AEB700D74F0D /* View.swift */; };
+		452F02E61EF5F90300B3A090 /* GoogleService-Info-Production.plist in Resources */ = {isa = PBXBuildFile; fileRef = 452F02E51EF5F90300B3A090 /* GoogleService-Info-Production.plist */; };
 		453314321E03669000BF0B65 /* AccountCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453314311E03669000BF0B65 /* AccountCreationViewController.swift */; };
 		453314341E03672700BF0B65 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453314331E03672700BF0B65 /* Account.swift */; };
 		4533143A1E036CF300BF0B65 /* BankCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453314391E036CF300BF0B65 /* BankCreationViewController.swift */; };
@@ -73,7 +70,6 @@
 		4591D5F71DFCA4DE00366691 /* CustomerClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4591D5F61DFCA4DE00366691 /* CustomerClient.swift */; };
 		4591D5F91DFCA51D00366691 /* StripeClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4591D5F81DFCA51D00366691 /* StripeClient.swift */; };
 		4591D5FB1DFCA54600366691 /* ReservationClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4591D5FA1DFCA54600366691 /* ReservationClient.swift */; };
-		4599E6E51E1755C9005494E4 /* GoogleService-Info-Production.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4599E6E41E1755C9005494E4 /* GoogleService-Info-Production.plist */; };
 		459AD2571DA49B6C0018B7B9 /* Parking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459AD2561DA49B6C0018B7B9 /* Parking.swift */; };
 		45AA40E51EC696A4000D306E /* PayoutSetupCompleted.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45AA40E41EC696A4000D306E /* PayoutSetupCompleted.xib */; };
 		45AA40E71EC699BB000D306E /* PaymentSetupCompleted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AA40E61EC699BB000D306E /* PaymentSetupCompleted.swift */; };
@@ -100,57 +96,8 @@
 		45E9D1021E1DD218000EDEE8 /* AvailabilityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E9D1011E1DD218000EDEE8 /* AvailabilityViewController.swift */; };
 		45EA513B1DDE6F2300BD076C /* FindParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EA513A1DDE6F2300BD076C /* FindParkingViewController.swift */; };
 		45EA513D1DDE74AC00BD076C /* ParkingAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EA513C1DDE74AC00BD076C /* ParkingAnnotation.swift */; };
-		45ECDA611E243A6900E999D8 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E9D0FD1E1DCE7C000EDEE8 /* LocationViewController.swift */; };
-		45ECDA621E243A6900E999D8 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4554EBCD1DB5A36F0066E452 /* APIClient.swift */; };
-		45ECDA641E243A6900E999D8 /* AvailabilityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E9D1011E1DD218000EDEE8 /* AvailabilityViewController.swift */; };
-		45ECDA651E243A6900E999D8 /* ParkingDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51150521DAF38D5004E2A7D /* ParkingDescriptionViewController.swift */; };
-		45ECDA661E243A6900E999D8 /* BookParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4564F6E01DB98509001B709C /* BookParkingViewController.swift */; };
-		45ECDA671E243A6900E999D8 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BB39641DBBF0010019C2A3 /* Buttons.swift */; };
-		45ECDA681E243A6900E999D8 /* VehiculeClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451FC46E1E072BC70083C0CB /* VehiculeClient.swift */; };
-		45ECDA6A1E243A6900E999D8 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45637CFE1DEB184500DD42C0 /* AppState.swift */; };
-		45ECDA6C1E243A6900E999D8 /* UnderlineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458A982F1DBCFD44007F53EE /* UnderlineTextField.swift */; };
-		45ECDA6D1E243A6900E999D8 /* LocationSearchTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458BC7691DE218DC0028AC5B /* LocationSearchTableTableViewController.swift */; };
-		45ECDA6E1E243A6900E999D8 /* Charge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4591D5F11DFC9D4700366691 /* Charge.swift */; };
-		45ECDA6F1E243A6900E999D8 /* FindParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EA513A1DDE6F2300BD076C /* FindParkingViewController.swift */; };
-		45ECDA711E243A6900E999D8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45099A861DAF261200392FF1 /* LoginViewController.swift */; };
-		45ECDA721E243A6900E999D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC29441DA18249000C54BC /* AppDelegate.swift */; };
-		45ECDA731E243A6900E999D8 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453314331E03672700BF0B65 /* Account.swift */; };
-		45ECDA741E243A6900E999D8 /* BankCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453314391E036CF300BF0B65 /* BankCreationViewController.swift */; };
-		45ECDA761E243A6900E999D8 /* ListParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451853791DA476F1005CC5E6 /* ListParkingViewController.swift */; };
-		45ECDA771E243A6900E999D8 /* AccountCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453314311E03669000BF0B65 /* AccountCreationViewController.swift */; };
-		45ECDA781E243A6900E999D8 /* AccountClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4533143B1E036DDA00BF0B65 /* AccountClient.swift */; };
-		45ECDA791E243A6900E999D8 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451E424A1DB071EC00747370 /* Customer.swift */; };
-		45ECDA7A1E243A6900E999D8 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452738E61DF7AEB700D74F0D /* View.swift */; };
-		45ECDA7B1E243A6900E999D8 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450E123F1DAF27330027EFBC /* RegisterViewController.swift */; };
-		45ECDA7D1E243A6900E999D8 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451E424C1DB078E000747370 /* UIViewController.swift */; };
-		45ECDA7F1E243A6900E999D8 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45418F2D1E1719E00050DDF5 /* ForgotPasswordViewController.swift */; };
-		45ECDA801E243A6900E999D8 /* StripeClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4591D5F81DFCA51D00366691 /* StripeClient.swift */; };
-		45ECDA811E243A6900E999D8 /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4571700A1DEA5DEE00A0FDF5 /* Reservation.swift */; };
-		45ECDA821E243A6900E999D8 /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450E12491DAF2B000027EFBC /* EntryViewController.swift */; };
-		45ECDA851E243A6900E999D8 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450CB59E1E11834000FD2095 /* UIColor.swift */; };
-		45ECDA861E243A6900E999D8 /* Parking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459AD2561DA49B6C0018B7B9 /* Parking.swift */; };
-		45ECDA871E243A6900E999D8 /* ReservationClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4591D5FA1DFCA54600366691 /* ReservationClient.swift */; };
-		45ECDA881E243A6900E999D8 /* ParkingAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EA513C1DDE74AC00BD076C /* ParkingAnnotation.swift */; };
-		45ECDA891E243A6900E999D8 /* VehiculeInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451FC46A1E072A830083C0CB /* VehiculeInformationViewController.swift */; };
-		45ECDA8A1E243A6900E999D8 /* FloatExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B3105F1DB023610051C90B /* FloatExtension.swift */; };
-		45ECDA8B1E243A6900E999D8 /* PageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450E124B1DAF2B3C0027EFBC /* PageContentViewController.swift */; };
-		45ECDA8C1E243A6900E999D8 /* CustomerClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4591D5F61DFCA4DE00366691 /* CustomerClient.swift */; };
-		45ECDA8D1E243A6900E999D8 /* ParkingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56ADABA1DAC00870033516C /* ParkingTableViewCell.swift */; };
-		45ECDA8E1E243A6900E999D8 /* Vehicule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451FC46C1E072B3C0083C0CB /* Vehicule.swift */; };
-		45ECDA8F1E243A6900E999D8 /* ParkingInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51150581DAF397E004E2A7D /* ParkingInfoViewController.swift */; };
-		45ECDA901E243A6900E999D8 /* NewPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4554A0971E217358007FB04C /* NewPhotoViewController.swift */; };
-		45ECDA921E243A6900E999D8 /* ParkingClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4591D5F41DFCA4C400366691 /* ParkingClient.swift */; };
-		45ECDA961E243A6900E999D8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4550D6801E19DD790080758D /* Localizable.strings */; };
-		45ECDA971E243A6900E999D8 /* Add.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4550D6681E19D7780080758D /* Add.storyboard */; };
-		45ECDA981E243A6900E999D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45D5D60F1E1B2EDE006BE596 /* Assets.xcassets */; };
-		45ECDA9B1E243A6900E999D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4550D6711E19D78B0080758D /* Main.storyboard */; };
-		45ECDA9C1E243A6900E999D8 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4550D66B1E19D7810080758D /* Login.storyboard */; };
-		45ECDA9D1E243A6900E999D8 /* GoogleService-Info-Production.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4599E6E41E1755C9005494E4 /* GoogleService-Info-Production.plist */; };
-		45ECDA9F1E243A6900E999D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45BC294D1DA18249000C54BC /* LaunchScreen.storyboard */; };
-		45ECDAA01E243A6900E999D8 /* Find.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4550D6651E19D7720080758D /* Find.storyboard */; };
 		45ECDAA91E243B2F00E999D8 /* carko-development-firebase-reporting.json in Resources */ = {isa = PBXBuildFile; fileRef = 45ECDAA81E243B2F00E999D8 /* carko-development-firebase-reporting.json */; };
 		45FDF49C1EC5555200A9904A /* HistoryEmpty.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FDF49B1EC5555200A9904A /* HistoryEmpty.xib */; };
-		A3E3ADF5C263658A2F219DF6 /* Pods_Carko___Production.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D4B2BEBADD4B8FAA839F33 /* Pods_Carko___Production.framework */; };
 		C5075F971EBBA84000602B8C /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5075F961EBBA84000602B8C /* NavigationViewController.swift */; };
 		C5075F991EBBA95100602B8C /* NavigationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5075F981EBBA95100602B8C /* NavigationTableViewController.swift */; };
 		C5075F9C1EBBAA9100602B8C /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5075F9B1EBBAA9100602B8C /* ProfileHeaderView.swift */; };
@@ -179,10 +126,8 @@
 
 /* Begin PBXFileReference section */
 		10D4B2BEBADD4B8FAA839F33 /* Pods_Carko___Production.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Carko___Production.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A24841CBF4275CEAFD41771 /* Pods-CarkoProduction.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarkoProduction.release.xcconfig"; path = "Pods/Target Support Files/Pods-CarkoProduction/Pods-CarkoProduction.release.xcconfig"; sourceTree = "<group>"; };
 		30759D0CD7ED81144FFA1563 /* Pods_Carko_CarkoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Carko_CarkoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		34C46BAE7686065D1C2B956F /* Pods-default-CarkoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-default-CarkoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-default-CarkoTests/Pods-default-CarkoTests.release.xcconfig"; sourceTree = "<group>"; };
-		361FE15058671F40318B3AB8 /* Pods-Carko - Production.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carko - Production.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Carko - Production/Pods-Carko - Production.debug.xcconfig"; sourceTree = "<group>"; };
-		388EE17981D2264091796560 /* Pods-CarkoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarkoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CarkoTests/Pods-CarkoTests.release.xcconfig"; sourceTree = "<group>"; };
 		4508FD941E182692004458F0 /* FindParkingViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindParkingViewControllerTest.swift; sourceTree = "<group>"; };
 		45099A861DAF261200392FF1 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		450B5D571E2AA4B100AEEA29 /* NewParkingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewParkingView.swift; sourceTree = "<group>"; };
@@ -214,6 +159,7 @@
 		452533401EF052DE002E916E /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = fr; path = fr.lproj/Profile.storyboard; sourceTree = "<group>"; };
 		452533461EF05303002E916E /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = fr; path = fr.lproj/Main.storyboard; sourceTree = "<group>"; };
 		452738E61DF7AEB700D74F0D /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		452F02E51EF5F90300B3A090 /* GoogleService-Info-Production.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Production.plist"; sourceTree = "<group>"; };
 		453314311E03669000BF0B65 /* AccountCreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCreationViewController.swift; sourceTree = "<group>"; };
 		453314331E03672700BF0B65 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		453314391E036CF300BF0B65 /* BankCreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankCreationViewController.swift; sourceTree = "<group>"; };
@@ -254,7 +200,6 @@
 		4591D5F61DFCA4DE00366691 /* CustomerClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerClient.swift; sourceTree = "<group>"; };
 		4591D5F81DFCA51D00366691 /* StripeClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StripeClient.swift; sourceTree = "<group>"; };
 		4591D5FA1DFCA54600366691 /* ReservationClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationClient.swift; sourceTree = "<group>"; };
-		4599E6E41E1755C9005494E4 /* GoogleService-Info-Production.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Production.plist"; sourceTree = "<group>"; };
 		459AD2561DA49B6C0018B7B9 /* Parking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parking.swift; sourceTree = "<group>"; };
 		45AA40E41EC696A4000D306E /* PayoutSetupCompleted.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayoutSetupCompleted.xib; sourceTree = "<group>"; };
 		45AA40E61EC699BB000D306E /* PaymentSetupCompleted.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentSetupCompleted.swift; sourceTree = "<group>"; };
@@ -287,19 +232,18 @@
 		45E9D1011E1DD218000EDEE8 /* AvailabilityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvailabilityViewController.swift; sourceTree = "<group>"; };
 		45EA513A1DDE6F2300BD076C /* FindParkingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindParkingViewController.swift; sourceTree = "<group>"; };
 		45EA513C1DDE74AC00BD076C /* ParkingAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingAnnotation.swift; sourceTree = "<group>"; };
-		45ECDAA61E243A6900E999D8 /* Carko - Production.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Carko - Production.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		45ECDAA81E243B2F00E999D8 /* carko-development-firebase-reporting.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "carko-development-firebase-reporting.json"; sourceTree = "<group>"; };
 		45FDF49B1EC5555200A9904A /* HistoryEmpty.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryEmpty.xib; sourceTree = "<group>"; };
-		4939FF1E04053D013112A6DA /* Pods-default-Carko.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-default-Carko.release.xcconfig"; path = "Pods/Target Support Files/Pods-default-Carko/Pods-default-Carko.release.xcconfig"; sourceTree = "<group>"; };
-		50B0FD4980BD91324C57D5C5 /* Pods-default-CarkoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-default-CarkoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-default-CarkoTests/Pods-default-CarkoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		51BE0236C2E899D05DB12FEF /* Pods-CarkoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarkoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CarkoUITests/Pods-CarkoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		520A5204DA55AC9C1CA7D53C /* Pods_default_Carko___Production.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_default_Carko___Production.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		538BFE4EA50CCE486CF330C6 /* Pods_Carko.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Carko.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B75E7E9A81373F8C2777563 /* Pods-CarkoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarkoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CarkoUITests/Pods-CarkoUITests.release.xcconfig"; sourceTree = "<group>"; };
-		7A5C604335A78729BBDD02CF /* Pods-CarkoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarkoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CarkoTests/Pods-CarkoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		760B7936DC356F2009317E20 /* Pods-CarkoProduction.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarkoProduction.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CarkoProduction/Pods-CarkoProduction.debug.xcconfig"; sourceTree = "<group>"; };
 		8434CF39E1312BC65B8DF4B2 /* Pods-Carko-CarkoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carko-CarkoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Carko-CarkoTests/Pods-Carko-CarkoTests.release.xcconfig"; sourceTree = "<group>"; };
 		88F171DB484A623A88362C05 /* Pods_default_Carko.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_default_Carko.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B113161E65ADDC326CA4C14 /* Pods_CarkoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarkoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A21800497E7CE34B39B89E8C /* Pods_CarkoProduction.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarkoProduction.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B26498734F2DF7E153B6A03A /* Pods_Carko_Production.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Carko_Production.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB83FE886608AC7586EDA39F /* Pods_default_CarkoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_default_CarkoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5075F961EBBA84000602B8C /* NavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		C5075F981EBBA95100602B8C /* NavigationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationTableViewController.swift; sourceTree = "<group>"; };
@@ -310,10 +254,8 @@
 		C56ADABA1DAC00870033516C /* ParkingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingTableViewCell.swift; sourceTree = "<group>"; };
 		C5B3105F1DB023610051C90B /* FloatExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatExtension.swift; sourceTree = "<group>"; };
 		D0E89F5CBCCDBDCAFD9AF986 /* Pods-Carko.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carko.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Carko/Pods-Carko.debug.xcconfig"; sourceTree = "<group>"; };
-		D8B0C5B5A5701C70D1BA5A39 /* Pods-Carko - Production.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carko - Production.release.xcconfig"; path = "Pods/Target Support Files/Pods-Carko - Production/Pods-Carko - Production.release.xcconfig"; sourceTree = "<group>"; };
 		DF3DC78B5F06CA9F23866878 /* Pods-Carko-CarkoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carko-CarkoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Carko-CarkoTests/Pods-Carko-CarkoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F9FE12AEF604DC6A236BBD68 /* Pods-Carko.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carko.release.xcconfig"; path = "Pods/Target Support Files/Pods-Carko/Pods-Carko.release.xcconfig"; sourceTree = "<group>"; };
-		FC9709D7671A11C53C68F19A /* Pods-default-Carko.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-default-Carko.debug.xcconfig"; path = "Pods/Target Support Files/Pods-default-Carko/Pods-default-Carko.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -339,14 +281,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				321DDAA535DBF3EF8D95BB2B /* Pods_CarkoUITests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		45ECDA931E243A6900E999D8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A3E3ADF5C263658A2F219DF6 /* Pods_Carko___Production.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,7 +434,7 @@
 				45ECDAA81E243B2F00E999D8 /* carko-development-firebase-reporting.json */,
 				45BC29501DA18249000C54BC /* Info.plist */,
 				454C55181E2C73E4000912BA /* GoogleService-Info.plist */,
-				4599E6E41E1755C9005494E4 /* GoogleService-Info-Production.plist */,
+				452F02E51EF5F90300B3A090 /* GoogleService-Info-Production.plist */,
 			);
 			name = plist;
 			sourceTree = "<group>";
@@ -554,7 +488,6 @@
 				45BC29411DA18249000C54BC /* Carko.app */,
 				45BC29551DA18249000C54BC /* CarkoTests.xctest */,
 				45BC29601DA18249000C54BC /* CarkoUITests.xctest */,
-				45ECDAA61E243A6900E999D8 /* Carko - Production.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -655,16 +588,10 @@
 				5B75E7E9A81373F8C2777563 /* Pods-CarkoUITests.release.xcconfig */,
 				DF3DC78B5F06CA9F23866878 /* Pods-Carko-CarkoTests.debug.xcconfig */,
 				8434CF39E1312BC65B8DF4B2 /* Pods-Carko-CarkoTests.release.xcconfig */,
-				7A5C604335A78729BBDD02CF /* Pods-CarkoTests.debug.xcconfig */,
-				388EE17981D2264091796560 /* Pods-CarkoTests.release.xcconfig */,
 				D0E89F5CBCCDBDCAFD9AF986 /* Pods-Carko.debug.xcconfig */,
 				F9FE12AEF604DC6A236BBD68 /* Pods-Carko.release.xcconfig */,
-				FC9709D7671A11C53C68F19A /* Pods-default-Carko.debug.xcconfig */,
-				4939FF1E04053D013112A6DA /* Pods-default-Carko.release.xcconfig */,
-				50B0FD4980BD91324C57D5C5 /* Pods-default-CarkoTests.debug.xcconfig */,
-				34C46BAE7686065D1C2B956F /* Pods-default-CarkoTests.release.xcconfig */,
-				361FE15058671F40318B3AB8 /* Pods-Carko - Production.debug.xcconfig */,
-				D8B0C5B5A5701C70D1BA5A39 /* Pods-Carko - Production.release.xcconfig */,
+				760B7936DC356F2009317E20 /* Pods-CarkoProduction.debug.xcconfig */,
+				1A24841CBF4275CEAFD41771 /* Pods-CarkoProduction.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -745,6 +672,8 @@
 				520A5204DA55AC9C1CA7D53C /* Pods_default_Carko___Production.framework */,
 				BB83FE886608AC7586EDA39F /* Pods_default_CarkoTests.framework */,
 				10D4B2BEBADD4B8FAA839F33 /* Pods_Carko___Production.framework */,
+				B26498734F2DF7E153B6A03A /* Pods_Carko_Production.framework */,
+				A21800497E7CE34B39B89E8C /* Pods_CarkoProduction.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -815,27 +744,6 @@
 			productReference = 45BC29601DA18249000C54BC /* CarkoUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		45ECDA5D1E243A6900E999D8 /* Carko - Production */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 45ECDAA31E243A6900E999D8 /* Build configuration list for PBXNativeTarget "Carko - Production" */;
-			buildPhases = (
-				37389AD0203B17757DC5D8A6 /* [CP] Check Pods Manifest.lock */,
-				45ECDA5F1E243A6900E999D8 /* Sources */,
-				45ECDA931E243A6900E999D8 /* Frameworks */,
-				45ECDA951E243A6900E999D8 /* Resources */,
-				451C68911E243CF8009B01CE /* Firebase crash reporting */,
-				270FC4D79319016CCFAFA888 /* [CP] Embed Pods Frameworks */,
-				68DD2BD59EA7E81FB851F043 /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Carko - Production";
-			productName = Carko;
-			productReference = 45ECDAA61E243A6900E999D8 /* Carko - Production.app */;
-			productType = "com.apple.product-type.application";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -852,6 +760,9 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
+								enabled = 0;
+							};
+							com.apple.Maps.iOS = {
 								enabled = 0;
 							};
 							com.apple.Push = {
@@ -871,15 +782,6 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = 45BC29401DA18249000C54BC;
 					};
-					45ECDA5D1E243A6900E999D8 = {
-						DevelopmentTeam = NS2A2ZLLX3;
-						ProvisioningStyle = Automatic;
-						SystemCapabilities = {
-							com.apple.Push = {
-								enabled = 1;
-							};
-						};
-					};
 				};
 			};
 			buildConfigurationList = 45BC293C1DA18249000C54BC /* Build configuration list for PBXProject "Carko" */;
@@ -897,7 +799,6 @@
 			projectRoot = "";
 			targets = (
 				45BC29401DA18249000C54BC /* Carko */,
-				45ECDA5D1E243A6900E999D8 /* Carko - Production */,
 				45BC29541DA18249000C54BC /* CarkoTests */,
 				45BC295F1DA18249000C54BC /* CarkoUITests */,
 			);
@@ -914,6 +815,7 @@
 				45B2624F1E1A8644002C2A9D /* Localizable.strings in Resources */,
 				4546A5491EE5BC23000CBD53 /* PaymentPopup.xib in Resources */,
 				4550D6661E19D7780080758D /* Add.storyboard in Resources */,
+				452F02E61EF5F90300B3A090 /* GoogleService-Info-Production.plist in Resources */,
 				45ECDAA91E243B2F00E999D8 /* carko-development-firebase-reporting.json in Resources */,
 				45D5D6101E1B2EDE006BE596 /* Assets.xcassets in Resources */,
 				4546D3E11EBC25C400F17BAB /* ProfileHeaderView.xib in Resources */,
@@ -922,7 +824,6 @@
 				4550D66F1E19D78B0080758D /* Main.storyboard in Resources */,
 				452533291EF052B9002E916E /* Payout.storyboard in Resources */,
 				4550D6691E19D7810080758D /* Login.storyboard in Resources */,
-				4599E6E51E1755C9005494E4 /* GoogleService-Info-Production.plist in Resources */,
 				450B5D5A1E2AA4CA00AEEA29 /* NewParkingView.xib in Resources */,
 				452533201EF05299002E916E /* Vehicule.storyboard in Resources */,
 				45BC294F1DA18249000C54BC /* LaunchScreen.storyboard in Resources */,
@@ -942,25 +843,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		45ECDA951E243A6900E999D8 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				452533411EF052EB002E916E /* Vehicule.storyboard in Resources */,
-				45ECDA961E243A6900E999D8 /* Localizable.strings in Resources */,
-				452533421EF052EE002E916E /* Payout.storyboard in Resources */,
-				452533431EF052F0002E916E /* History.storyboard in Resources */,
-				45ECDA971E243A6900E999D8 /* Add.storyboard in Resources */,
-				45ECDA981E243A6900E999D8 /* Assets.xcassets in Resources */,
-				452533441EF052F3002E916E /* Profile.storyboard in Resources */,
-				45ECDA9B1E243A6900E999D8 /* Main.storyboard in Resources */,
-				45ECDA9C1E243A6900E999D8 /* Login.storyboard in Resources */,
-				45ECDA9D1E243A6900E999D8 /* GoogleService-Info-Production.plist in Resources */,
-				45ECDA9F1E243A6900E999D8 /* LaunchScreen.storyboard in Resources */,
-				45ECDAA01E243A6900E999D8 /* Find.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1027,50 +909,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CarkoUITests/Pods-CarkoUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		270FC4D79319016CCFAFA888 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Carko - Production/Pods-Carko - Production-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		37389AD0203B17757DC5D8A6 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		451C68911E243CF8009B01CE /* Firebase crash reporting */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Firebase crash reporting";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Replace this with the GOOGLE_APP_ID from your GoogleService-Info.plist file\nGOOGLE_APP_ID=1:643842340334:ios:db09f8c569e88862\n\n# Replace the /Path/To/ServiceAccount.json with the path to the key you just downloaded\n\"${PODS_ROOT}\"/FirebaseCrash/upload-sym \"/Users/philibertdugas/Desktop/apya-27e74-firebase-crashreporting-nvocd-13c4315127.json\"";
-		};
 		45ECDAAA1E243B5300E999D8 /* Firebase crash reporting */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1098,21 +936,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		68DD2BD59EA7E81FB851F043 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Carko - Production/Pods-Carko - Production-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		76A5BEB778AC4750535E40EE /* [CP] Embed Pods Frameworks */ = {
@@ -1271,53 +1094,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				45BC29651DA18249000C54BC /* CarkoUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		45ECDA5F1E243A6900E999D8 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				45ECDA611E243A6900E999D8 /* LocationViewController.swift in Sources */,
-				45ECDA621E243A6900E999D8 /* APIClient.swift in Sources */,
-				45ECDA641E243A6900E999D8 /* AvailabilityViewController.swift in Sources */,
-				45ECDA651E243A6900E999D8 /* ParkingDescriptionViewController.swift in Sources */,
-				45ECDA661E243A6900E999D8 /* BookParkingViewController.swift in Sources */,
-				45ECDA671E243A6900E999D8 /* Buttons.swift in Sources */,
-				45ECDA681E243A6900E999D8 /* VehiculeClient.swift in Sources */,
-				45ECDA6A1E243A6900E999D8 /* AppState.swift in Sources */,
-				45ECDA6C1E243A6900E999D8 /* UnderlineTextField.swift in Sources */,
-				45ECDA6D1E243A6900E999D8 /* LocationSearchTableTableViewController.swift in Sources */,
-				45ECDA6E1E243A6900E999D8 /* Charge.swift in Sources */,
-				45ECDA6F1E243A6900E999D8 /* FindParkingViewController.swift in Sources */,
-				45ECDA711E243A6900E999D8 /* LoginViewController.swift in Sources */,
-				45ECDA721E243A6900E999D8 /* AppDelegate.swift in Sources */,
-				45ECDA731E243A6900E999D8 /* Account.swift in Sources */,
-				45ECDA741E243A6900E999D8 /* BankCreationViewController.swift in Sources */,
-				45ECDA761E243A6900E999D8 /* ListParkingViewController.swift in Sources */,
-				45ECDA771E243A6900E999D8 /* AccountCreationViewController.swift in Sources */,
-				45ECDA781E243A6900E999D8 /* AccountClient.swift in Sources */,
-				45ECDA791E243A6900E999D8 /* Customer.swift in Sources */,
-				45ECDA7A1E243A6900E999D8 /* View.swift in Sources */,
-				45ECDA7B1E243A6900E999D8 /* RegisterViewController.swift in Sources */,
-				45ECDA7D1E243A6900E999D8 /* UIViewController.swift in Sources */,
-				45ECDA7F1E243A6900E999D8 /* ForgotPasswordViewController.swift in Sources */,
-				45ECDA801E243A6900E999D8 /* StripeClient.swift in Sources */,
-				45ECDA811E243A6900E999D8 /* Reservation.swift in Sources */,
-				45ECDA821E243A6900E999D8 /* EntryViewController.swift in Sources */,
-				45ECDA851E243A6900E999D8 /* UIColor.swift in Sources */,
-				45ECDA861E243A6900E999D8 /* Parking.swift in Sources */,
-				45ECDA871E243A6900E999D8 /* ReservationClient.swift in Sources */,
-				45ECDA881E243A6900E999D8 /* ParkingAnnotation.swift in Sources */,
-				45ECDA891E243A6900E999D8 /* VehiculeInformationViewController.swift in Sources */,
-				45ECDA8A1E243A6900E999D8 /* FloatExtension.swift in Sources */,
-				45ECDA8B1E243A6900E999D8 /* PageContentViewController.swift in Sources */,
-				45ECDA8C1E243A6900E999D8 /* CustomerClient.swift in Sources */,
-				45ECDA8D1E243A6900E999D8 /* ParkingTableViewCell.swift in Sources */,
-				45ECDA8E1E243A6900E999D8 /* Vehicule.swift in Sources */,
-				45ECDA8F1E243A6900E999D8 /* ParkingInfoViewController.swift in Sources */,
-				45ECDA901E243A6900E999D8 /* NewPhotoViewController.swift in Sources */,
-				45ECDA921E243A6900E999D8 /* ParkingClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1633,50 +1409,6 @@
 			};
 			name = Release;
 		};
-		45ECDAA41E243A6900E999D8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 361FE15058671F40318B3AB8 /* Pods-Carko - Production.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Carko - Production.entitlements";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = NS2A2ZLLX3;
-				INFOPLIST_FILE = "$(SRCROOT)/Carko/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.qh4l.Apya;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "Carko-Bridging-Header.h";
-				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "Carko-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Debug;
-		};
-		45ECDAA51E243A6900E999D8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D8B0C5B5A5701C70D1BA5A39 /* Pods-Carko - Production.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Carko - Production.entitlements";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = NS2A2ZLLX3;
-				INFOPLIST_FILE = "$(SRCROOT)/Carko/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.qh4l.Apya;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "Carko-Bridging-Header.h";
-				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "Carko-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1712,15 +1444,6 @@
 			buildConfigurations = (
 				45BC29701DA18249000C54BC /* Debug */,
 				45BC29711DA18249000C54BC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		45ECDAA31E243A6900E999D8 /* Build configuration list for PBXNativeTarget "Carko - Production" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				45ECDAA41E243A6900E999D8 /* Debug */,
-				45ECDAA51E243A6900E999D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

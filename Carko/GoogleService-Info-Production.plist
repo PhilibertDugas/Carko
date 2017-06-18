@@ -7,9 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>643842340334-hiu4c8hpv8u6gi130tbq05brfdqclgdc.apps.googleusercontent.com</string>
+	<string>643842340334-nra2o48arden00i21kpkql8glrhapcbl.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.643842340334-hiu4c8hpv8u6gi130tbq05brfdqclgdc</string>
+	<string>com.googleusercontent.apps.643842340334-nra2o48arden00i21kpkql8glrhapcbl</string>
 	<key>API_KEY</key>
 	<string>AIzaSyCv_Osyx94S9iribah13Syc477TnjHWOF4</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,7 +17,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.qh4l.Carko</string>
+	<string>com.qh4l.Apya</string>
 	<key>PROJECT_ID</key>
 	<string>apya-27e74</string>
 	<key>STORAGE_BUCKET</key>
@@ -33,7 +33,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:643842340334:ios:db09f8c569e88862</string>
+	<string>1:643842340334:ios:84e3bc42977ba067</string>
 	<key>DATABASE_URL</key>
 	<string>https://apya-27e74.firebaseio.com</string>
 </dict>

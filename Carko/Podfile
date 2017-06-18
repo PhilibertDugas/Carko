@@ -5,7 +5,7 @@ inhibit_all_warnings!
 
 platform :ios, '10.0'
 
-target 'Carko' do
+def shared_pods
   pod 'Firebase'
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
@@ -15,10 +15,14 @@ target 'Carko' do
   pod 'Alamofire'
   pod 'IQKeyboardManagerSwift'
   pod 'NohanaImagePicker'
-
   # We need to remove this
   pod 'SCLAlertView'
+  pod 'Fabric'
+  pod 'Crashlytics'
+end
 
+target 'Carko' do
+  shared_pods
   target 'CarkoTests' do
     pod 'Firebase'
     pod 'Firebase/Auth'
@@ -28,12 +32,11 @@ target 'Carko' do
     pod 'OHHTTPStubs' # Default subspecs, including support for NSURLSession & JSON etc
     pod 'OHHTTPStubs/Swift' # Adds the Swiftier API wrapper too
   end
-
   target 'CarkoUITests' do
     inherit! :search_paths
   end
+end
 
-  target 'Carko - Production' do
-    inherit! :search_paths
-  end
+target 'CarkoProduction' do
+  shared_pods
 end
