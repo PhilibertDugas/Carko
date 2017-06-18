@@ -146,7 +146,6 @@
 		45AABADD1EF607C3006C268E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4520D5D61ED122F50036AF07 /* ProfileViewController.swift */; };
 		45AABADE1EF607C3006C268E /* NewPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4554A0971E217358007FB04C /* NewPhotoViewController.swift */; };
 		45AABADF1EF607C3006C268E /* ParkingClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4591D5F41DFCA4C400366691 /* ParkingClient.swift */; };
-		45AABAE11EF607C3006C268E /* Pods_Carko.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 538BFE4EA50CCE486CF330C6 /* Pods_Carko.framework */; };
 		45AABAE31EF607C3006C268E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 454C55181E2C73E4000912BA /* GoogleService-Info.plist */; };
 		45AABAE41EF607C3006C268E /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4520D5D11ED122F50036AF07 /* Profile.storyboard */; };
 		45AABAE51EF607C3006C268E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4550D6801E19DD790080758D /* Localizable.strings */; };
@@ -362,7 +361,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45AABAE11EF607C3006C268E /* Pods_Carko.framework in Frameworks */,
 				2FBD11BC372190CE0CCAC4F3 /* Pods_CarkoProduction.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1522,7 +1520,7 @@
 					"COCOAPODS=1",
 					"DEVELOPMENT=0",
 				);
-				INFOPLIST_FILE = "Carko copy-Info.plist";
+				INFOPLIST_FILE = Carko/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qh4l.Apya;
@@ -1549,7 +1547,7 @@
 					"COCOAPODS=1",
 					"DEVELOPMENT=0",
 				);
-				INFOPLIST_FILE = "Carko copy-Info.plist";
+				INFOPLIST_FILE = Carko/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qh4l.Apya;
