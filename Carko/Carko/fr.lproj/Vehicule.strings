@@ -1,0 +1,30 @@
+
+/* Class = "UITextField"; placeholder = "Make"; ObjectID = "7vu-JN-M1S"; */
+"7vu-JN-M1S.placeholder" = "Make";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "BEv-50-H6D"; */
+"BEv-50-H6D.normalTitle" = "Save";
+
+/* Class = "UITextField"; placeholder = "Year"; ObjectID = "G9W-fV-Sf3"; */
+"G9W-fV-Sf3.placeholder" = "Year";
+
+/* Class = "UINavigationItem"; title = "Vehicule"; ObjectID = "S0J-pa-iRk"; */
+"S0J-pa-iRk.title" = "Vehicule";
+
+/* Class = "UITextField"; placeholder = "License Plate"; ObjectID = "ULZ-dT-Wt8"; */
+"ULZ-dT-Wt8.placeholder" = "License Plate";
+
+/* Class = "UIViewController"; title = "Vehicule Information"; ObjectID = "bGQ-vL-hvT"; */
+"bGQ-vL-hvT.title" = "Vehicule Information";
+
+/* Class = "UITextField"; placeholder = "Color"; ObjectID = "fog-yp-9Ra"; */
+"fog-yp-9Ra.placeholder" = "Color";
+
+/* Class = "UITextField"; placeholder = "Province"; ObjectID = "qrv-IL-Lcz"; */
+"qrv-IL-Lcz.placeholder" = "Province";
+
+/* Class = "UITextField"; placeholder = "Model"; ObjectID = "tIU-9q-Fwc"; */
+"tIU-9q-Fwc.placeholder" = "Model";
+
+/* Class = "UILabel"; text = "Enter the details of your vehicule to ensure your parking places"; ObjectID = "vbv-2G-mkl"; */
+"vbv-2G-mkl.text" = "Enter the details of your vehicule to ensure your parking places";

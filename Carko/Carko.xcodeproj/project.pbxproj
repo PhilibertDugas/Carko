@@ -229,16 +229,9 @@
 		451FC46E1E072BC70083C0CB /* VehiculeClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehiculeClient.swift; sourceTree = "<group>"; };
 		4520D5D21ED122F50036AF07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
 		4520D5D61ED122F50036AF07 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		452533101EF0511B002E916E /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = fr; path = fr.lproj/Add.storyboard; sourceTree = "<group>"; };
-		452533131EF0515F002E916E /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = fr; path = fr.lproj/Find.storyboard; sourceTree = "<group>"; };
 		452533211EF05299002E916E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Vehicule.storyboard; sourceTree = "<group>"; };
-		452533281EF052AE002E916E /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = fr; path = fr.lproj/Vehicule.storyboard; sourceTree = "<group>"; };
 		4525332A1EF052B9002E916E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Payout.storyboard; sourceTree = "<group>"; };
-		452533311EF052C3002E916E /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = fr; path = fr.lproj/Payout.storyboard; sourceTree = "<group>"; };
 		452533331EF052C7002E916E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/History.storyboard; sourceTree = "<group>"; };
-		4525333A1EF052D2002E916E /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = fr; path = fr.lproj/History.storyboard; sourceTree = "<group>"; };
-		452533401EF052DE002E916E /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = fr; path = fr.lproj/Profile.storyboard; sourceTree = "<group>"; };
-		452533461EF05303002E916E /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = fr; path = fr.lproj/Main.storyboard; sourceTree = "<group>"; };
 		452738E61DF7AEB700D74F0D /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		452A7CEF1EF838FC00D1D109 /* InfoProduction.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = InfoProduction.plist; path = Carko/InfoProduction.plist; sourceTree = "<group>"; };
 		452F02E51EF5F90300B3A090 /* GoogleService-Info-Production.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Production.plist"; sourceTree = "<group>"; };
@@ -275,6 +268,13 @@
 		458A982F1DBCFD44007F53EE /* UnderlineTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnderlineTextField.swift; sourceTree = "<group>"; };
 		458AF6681EEB064B00E3C402 /* AuthenticationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationHelper.swift; sourceTree = "<group>"; };
 		458BC7691DE218DC0028AC5B /* LocationSearchTableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchTableTableViewController.swift; sourceTree = "<group>"; };
+		458F26331EF83CC900A1963E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		458F26341EF83CD000A1963E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Profile.strings; sourceTree = "<group>"; };
+		458F26351EF83CD500A1963E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/History.strings; sourceTree = "<group>"; };
+		458F26361EF83CDA00A1963E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Payout.strings; sourceTree = "<group>"; };
+		458F26371EF83CDF00A1963E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Vehicule.strings; sourceTree = "<group>"; };
+		458F26381EF83CEC00A1963E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Add.strings; sourceTree = "<group>"; };
+		458F26391EF83CF200A1963E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Find.strings; sourceTree = "<group>"; };
 		4591D5F11DFC9D4700366691 /* Charge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Charge.swift; sourceTree = "<group>"; };
 		4591D5F41DFCA4C400366691 /* ParkingClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingClient.swift; sourceTree = "<group>"; };
 		4591D5F61DFCA4DE00366691 /* CustomerClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerClient.swift; sourceTree = "<group>"; };
@@ -1396,7 +1396,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				4520D5D21ED122F50036AF07 /* Base */,
-				452533401EF052DE002E916E /* fr */,
+				458F26341EF83CD000A1963E /* fr */,
 			);
 			name = Profile.storyboard;
 			sourceTree = "<group>";
@@ -1405,7 +1405,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				452533211EF05299002E916E /* Base */,
-				452533281EF052AE002E916E /* fr */,
+				458F26371EF83CDF00A1963E /* fr */,
 			);
 			name = Vehicule.storyboard;
 			sourceTree = "<group>";
@@ -1414,7 +1414,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				4525332A1EF052B9002E916E /* Base */,
-				452533311EF052C3002E916E /* fr */,
+				458F26361EF83CDA00A1963E /* fr */,
 			);
 			name = Payout.storyboard;
 			sourceTree = "<group>";
@@ -1423,7 +1423,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				452533331EF052C7002E916E /* Base */,
-				4525333A1EF052D2002E916E /* fr */,
+				458F26351EF83CD500A1963E /* fr */,
 			);
 			name = History.storyboard;
 			sourceTree = "<group>";
@@ -1432,7 +1432,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				4550D6641E19D7720080758D /* Base */,
-				452533131EF0515F002E916E /* fr */,
+				458F26391EF83CF200A1963E /* fr */,
 			);
 			name = Find.storyboard;
 			sourceTree = "<group>";
@@ -1441,7 +1441,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				4550D6671E19D7780080758D /* Base */,
-				452533101EF0511B002E916E /* fr */,
+				458F26381EF83CEC00A1963E /* fr */,
 			);
 			name = Add.storyboard;
 			sourceTree = "<group>";
@@ -1450,7 +1450,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				4550D6701E19D78B0080758D /* Base */,
-				452533461EF05303002E916E /* fr */,
+				458F26331EF83CC900A1963E /* fr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

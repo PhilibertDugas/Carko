@@ -1,0 +1,54 @@
+
+/* Class = "UITextField"; placeholder = "Country"; ObjectID = "0oc-Cm-mJZ"; */
+"0oc-Cm-mJZ.placeholder" = "Country";
+
+/* Class = "UITextField"; text = "Canada"; ObjectID = "0oc-Cm-mJZ"; */
+"0oc-Cm-mJZ.text" = "Canada";
+
+/* Class = "UIViewController"; title = "Account information"; ObjectID = "2ha-zQ-wU2"; */
+"2ha-zQ-wU2.title" = "Account information";
+
+/* Class = "UITextField"; placeholder = "Province"; ObjectID = "4XR-kt-i2D"; */
+"4XR-kt-i2D.placeholder" = "Province";
+
+/* Class = "UITextField"; placeholder = "City"; ObjectID = "8Og-X4-Aqh"; */
+"8Og-X4-Aqh.placeholder" = "City";
+
+/* Class = "UITextField"; placeholder = "Postal Code"; ObjectID = "BJZ-de-RLm"; */
+"BJZ-de-RLm.placeholder" = "Postal Code";
+
+/* Class = "UIButton"; normalTitle = "Continue"; ObjectID = "LVN-Gy-oAe"; */
+"LVN-Gy-oAe.normalTitle" = "Continue";
+
+/* Class = "UILabel"; text = "Apya does not store or share any banking information. All banking information is communicated through Stripe."; ObjectID = "Nzk-OB-Or2"; */
+"Nzk-OB-Or2.text" = "Apya does not store or share any banking information. All banking information is communicated through Stripe.";
+
+/* Class = "UITextField"; placeholder = "Date of birth"; ObjectID = "Pj7-y9-U1k"; */
+"Pj7-y9-U1k.placeholder" = "Date of birth";
+
+/* Class = "UIViewController"; title = "Bank information"; ObjectID = "T8m-nI-Sm5"; */
+"T8m-nI-Sm5.title" = "Bank information";
+
+/* Class = "UITextField"; placeholder = "Address"; ObjectID = "c4O-0g-exg"; */
+"c4O-0g-exg.placeholder" = "Address";
+
+/* Class = "UILabel"; text = "To receive payment, please enter the following information."; ObjectID = "gWI-Dk-b1r"; */
+"gWI-Dk-b1r.text" = "To receive payment, please enter the following information.";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "hTq-Sc-1eA"; */
+"hTq-Sc-1eA.title" = " ";
+
+/* Class = "UITextField"; placeholder = "Routing Number"; ObjectID = "i5j-Ey-ITF"; */
+"i5j-Ey-ITF.placeholder" = "Routing Number";
+
+/* Class = "UINavigationItem"; title = "Payout"; ObjectID = "ki7-7U-kWL"; */
+"ki7-7U-kWL.title" = "Payout";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "qcV-Xl-Fow"; */
+"qcV-Xl-Fow.normalTitle" = "Save";
+
+/* Class = "UINavigationItem"; title = "Bank Information"; ObjectID = "uNC-ux-6MH"; */
+"uNC-ux-6MH.title" = "Bank Information";
+
+/* Class = "UITextField"; placeholder = "Account Number"; ObjectID = "vRy-rY-gfS"; */
+"vRy-rY-gfS.placeholder" = "Account Number";

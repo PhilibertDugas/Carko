@@ -1,0 +1,30 @@
+
+/* Class = "UILabel"; text = "Help"; ObjectID = "3Kg-Uc-bDr"; */
+"3Kg-Uc-bDr.text" = "Help";
+
+/* Class = "UILabel"; text = "Payout"; ObjectID = "4Kh-If-AGZ"; */
+"4Kh-If-AGZ.text" = "Payout";
+
+/* Class = "UILabel"; text = "Rent your Space"; ObjectID = "9Eq-bL-gvq"; */
+"9Eq-bL-gvq.text" = "Rent your Space";
+
+/* Class = "UITableViewSection"; headerTitle = " "; ObjectID = "CGG-wn-lgo"; */
+"CGG-wn-lgo.headerTitle" = " ";
+
+/* Class = "UILabel"; text = "History"; ObjectID = "Mg4-mq-60X"; */
+"Mg4-mq-60X.text" = "History";
+
+/* Class = "UITabBarItem"; title = "Add"; ObjectID = "Nmf-Gd-126"; */
+"Nmf-Gd-126.title" = "Add";
+
+/* Class = "UILabel"; text = "Vehicule"; ObjectID = "Y3i-Ov-QC6"; */
+"Y3i-Ov-QC6.text" = "Vehicule";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "gwO-0D-yHd"; */
+"gwO-0D-yHd.text" = "Name";
+
+/* Class = "UILabel"; text = "Payment"; ObjectID = "pHi-s6-HwS"; */
+"pHi-s6-HwS.text" = "Payment";
+
+/* Class = "UITabBarItem"; title = "Find"; ObjectID = "y8X-XN-2Dp"; */
+"y8X-XN-2Dp.title" = "Find";
