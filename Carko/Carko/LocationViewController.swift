@@ -32,10 +32,6 @@ class LocationViewController: UIViewController {
 
         self.searchStackTopConstraint.constant = (self.view.frame.height / 2) - 40
 
-        if !newParking {
-            addButton.setTitle(NSLocalizedString("Save", comment: ""), for: UIControlState.normal)
-        }
-
         addButton.isHidden = true
         mapView.mapType = MKMapType.satellite
 
@@ -52,14 +48,17 @@ class LocationViewController: UIViewController {
         }
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if !self.newParking {
+            updateParking()
+            delegate?.userDidChooseLocation(address: parking.address, latitude: parking.latitude, longitude: parking.longitude)
+        }
+    }
+
     @IBAction func mainButtonTapped(_ sender: Any) {
         updateParking()
-        if newParking {
-            self.performSegue(withIdentifier: "pushAvailability", sender: nil)
-        } else {
-            delegate?.userDidChooseLocation(address: parking.address, latitude: parking.latitude, longitude: parking.longitude)
-            let _ = self.navigationController?.popViewController(animated: true)
-        }
+        self.performSegue(withIdentifier: "pushAvailability", sender: nil)
     }
 
     func setupLocationManager() {
@@ -180,7 +179,7 @@ extension LocationViewController: HandleMapSearch {
 
         let region = MKCoordinateRegionMakeWithDistance(placemark.coordinate, CLLocationDistance.init(15), CLLocationDistance.init(15))
         mapView.setRegion(region, animated: true)
-        addButton.isHidden = false
+        if self.newParking { addButton.isHidden = false }
         self.searchField.endEditing(true)
     }
 }

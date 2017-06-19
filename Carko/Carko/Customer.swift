@@ -108,16 +108,15 @@ struct Customer {
 
 class NewCustomer {
     var email: String
-    var password: String
     var firstName: String
     var lastName: String
-    var firebaseId: String!
+    var firebaseId: String
 
-    init(email: String, password: String, firstName: String, lastName: String) {
+    init(email: String, firstName: String, lastName: String, firebaseId: String) {
         self.email = email
-        self.password = password
         self.firstName = firstName
         self.lastName = lastName
+        self.firebaseId = firebaseId
     }
 
     func toDictionary() -> [String : Any] {
@@ -130,26 +129,6 @@ class NewCustomer {
     }
 
     func register(complete: @escaping (Error?) -> Void) {
-        FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (customer, error) in
-            if let error = error {
-                complete(error)
-            } else if let customer = customer {
-                self.firebaseId = customer.uid
-                APIClient.shared.postCustomer(customer: self, complete: { (error) in
-                    if let error = error {
-                        try! FIRAuth.auth()!.signOut()
-                        complete(error)
-                    } else {
-                        AuthenticationHelper.updateAuthToken({ (error) in
-                            if let error = error {
-                                complete(error)
-                            } else {
-                                complete(nil)
-                            }
-                        })
-                    }
-                })
-            }
-        })
+        APIClient.shared.postCustomer(customer: self, complete: complete)
     }
 }

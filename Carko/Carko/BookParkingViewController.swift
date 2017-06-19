@@ -9,6 +9,10 @@
 import UIKit
 import Stripe
 import FirebaseStorageUI
+import FirebaseAuthUI
+import FirebaseAuth
+import FirebaseFacebookAuthUI
+import FBSDKCoreKit
 import UserNotifications
 
 protocol ReservationDelegate {
@@ -59,7 +63,8 @@ class BookParkingViewController: UIViewController {
             }
             self.handleConfirmTapped()
         } else {
-            self.performSegue(withIdentifier: "showLoginScreen", sender: nil)
+            let authController = AuthenticationHelper.shared.getAuthController()
+            self.present(authController, animated: true, completion: nil)
         }
     }
 

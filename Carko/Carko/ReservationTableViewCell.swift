@@ -10,6 +10,7 @@ import UIKit
 
 class ReservationTableViewCell: UITableViewCell {
 
+    @IBOutlet var eventImage: UIImageView!
     @IBOutlet var reservationLabel: UILabel!
     @IBOutlet var reservationTime: UILabel!
     @IBOutlet var reservationPrice: UILabel!
@@ -20,16 +21,14 @@ class ReservationTableViewCell: UITableViewCell {
                 self.reservationLabel.text = reservation.event.label
                 self.reservationPrice.text = reservation.totalCost.asLocaleCurrency
                 self.reservationTime.text = reservation.startTime.formattedDays
+                if let url = reservation.event.photoURL {
+                    let imageReference = AppState.shared.storageReference.storage.reference(forURL: url.absoluteString)
+                    eventImage.sd_setImage(with: imageReference)
+                    eventImage.layer.cornerRadius = 10
+                    eventImage.clipsToBounds = true
+                }
+
             }
         }
     }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-
 }

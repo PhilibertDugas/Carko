@@ -1,8 +1,18 @@
 PODS:
   - Alamofire (4.0.1)
+  - Bolts (1.8.4):
+    - Bolts/AppLinks (= 1.8.4)
+    - Bolts/Tasks (= 1.8.4)
+  - Bolts/AppLinks (1.8.4):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.8.4)
   - Crashlytics (3.8.4):
     - Fabric (~> 1.6.3)
   - Fabric (1.6.11)
+  - FBSDKCoreKit (4.20.0):
+    - Bolts (~> 1.7)
+  - FBSDKLoginKit (4.20.0):
+    - FBSDKCoreKit
   - Firebase (3.7.1):
     - Firebase/Core (= 3.7.1)
   - Firebase/Auth (3.7.1):
@@ -39,6 +49,11 @@ PODS:
   - FirebaseStorage (1.0.3):
     - FirebaseAnalytics (~> 3.3)
     - GoogleNetworkingUtilities (~> 1.2)
+  - FirebaseUI/Auth (1.0.0):
+    - Firebase/Auth
+  - FirebaseUI/Facebook (1.0.0):
+    - FBSDKLoginKit (~> 4.0)
+    - FirebaseUI/Auth
   - FirebaseUI/Storage (1.0.0):
     - Firebase/Storage
     - SDWebImage
@@ -80,6 +95,8 @@ DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Crash
   - Firebase/Storage
+  - FirebaseUI/Auth
+  - FirebaseUI/Facebook
   - FirebaseUI/Storage (~> 1.0)
   - IQKeyboardManagerSwift
   - NohanaImagePicker
@@ -90,8 +107,11 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   Crashlytics: 79e236942ca1e7fc641df1feb9a275360a78ab6a
   Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
+  FBSDKCoreKit: 2d16979b28fe28c2b95af0d275ad5f9703c6c8de
+  FBSDKLoginKit: a9d9391506c687e2304a590bf9312837fce7f375
   Firebase: be473484f0d515e72ffd04acf22f981773c23e58
   FirebaseAnalytics: 0533a00b681e08fd0b2cd0444b7ddf0ef9fd7a1a
   FirebaseAuth: 75a062bbf2d3c97d1e6e55bbc110e13a6853e25d
@@ -111,6 +131,6 @@ SPEC CHECKSUMS:
   SDWebImage: '098e97e6176540799c27e804c96653ee0833d13c'
   Stripe: 935c6deb5e96cbd29d247074bf3aa98a8438e22c
 
-PODFILE CHECKSUM: ce84460b426d4d76b6047276e7672769118398b3
+PODFILE CHECKSUM: ced87388b21d21c58f2010efcff1a0f630250583
 
 COCOAPODS: 1.2.0.beta.3

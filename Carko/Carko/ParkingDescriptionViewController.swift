@@ -11,11 +11,6 @@ class ParkingDescriptionViewController: UIViewController {
     
     var delegate: ParkingDescriptionDelegate!
     var parkingDescription: String!
-    
-    @IBAction func saveChange(_ sender: AnyObject) {
-        let _ = self.navigationController?.popViewController(animated: true)
-        delegate.userDidChangeDescription(value: descriptionText.text)
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,5 +25,6 @@ class ParkingDescriptionViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         IQKeyboardManager.sharedManager().enable = true
+        delegate.userDidChangeDescription(value: descriptionText.text)
     }
 }

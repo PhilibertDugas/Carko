@@ -14,18 +14,55 @@ class BankCreationViewController: UIViewController {
     @IBOutlet var routingNumberTextField: UnderlineTextField!
     @IBOutlet var accountNumberTextField: UnderlineTextField!
 
+    @IBOutlet var saveButton: SmallRoundedCornerButton!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     var account: Account!
 
     @IBAction func saveTapped(_ sender: Any) {
-        if let routingNumber = routingNumberTextField.text, !routingNumber.isEmpty, let accountNumber = accountNumberTextField.text, !accountNumber.isEmpty {
-            self.activityIndicator.isHidden = false
-            self.activityIndicator.startAnimating()
-            createAccounts(routingNumber: routingNumber, accountNumber: accountNumber)
+        self.activityIndicator.isHidden = false
+        self.activityIndicator.startAnimating()
+        createAccounts(routingNumber: self.routingNumberTextField.text!, accountNumber: self.accountNumberTextField.text!)
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
+        self.activityIndicator.isHidden = true
+        self.setupFields()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        saveButton.isEnabled = false
+    }
+}
+
+extension BankCreationViewController {
+    fileprivate func setupFields() {
+        // FIXME : Translate
+        self.routingNumberTextField.attributedPlaceholder = NSAttributedString.init(string: "Routing Number", attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
+        self.accountNumberTextField.attributedPlaceholder = NSAttributedString.init(string: "Account Number", attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
+        self.routingNumberTextField.addTarget(self, action: #selector(self.textChanged), for: UIControlEvents.editingChanged)
+        self.accountNumberTextField.addTarget(self, action: #selector(self.textChanged), for: UIControlEvents.editingChanged)
+    }
+
+    func textChanged() {
+        if allFieldsFilled() {
+            self.saveButton.isEnabled = true
+            self.saveButton.alpha = 1.0
+        } else {
+            self.saveButton.isEnabled = false
+            self.saveButton.alpha = 0.6
         }
     }
 
-    func createAccounts(routingNumber: String, accountNumber: String) {
+    func allFieldsFilled() -> Bool {
+        return routingNumberTextField.text != "" && accountNumberTextField.text != ""
+    }
+}
+
+extension BankCreationViewController {
+    fileprivate func createAccounts(routingNumber: String, accountNumber: String) {
         self.account.persist { (error) in
             if let error = error {
                 self.activityIndicator.stopAnimating()
@@ -33,7 +70,7 @@ class BankCreationViewController: UIViewController {
                 super.displayErrorMessage(error.localizedDescription)
             } else {
                 let params = STPBankAccountParams.init()
-                params.accountHolderName = "\(AppState.shared.customer.firstName) \(AppState.shared.customer.lastName)"
+                params.accountHolderName = "\(AuthenticationHelper.getCustomer().firstName) \(AuthenticationHelper.getCustomer().lastName)"
                 params.accountHolderType = STPBankAccountHolderType.individual
                 params.accountNumber = accountNumber
                 params.routingNumber = routingNumber
@@ -63,22 +100,12 @@ class BankCreationViewController: UIViewController {
         }
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.hideKeyboardWhenTappedAround()
-        self.activityIndicator.isHidden = true
-        // FIXME : Translate
-        self.routingNumberTextField.attributedPlaceholder = NSAttributedString.init(string: "Routing Number", attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
-        self.accountNumberTextField.attributedPlaceholder = NSAttributedString.init(string: "Account Number", attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
-
-
-    }
-
-    func displaySuccessMessage() {
+    private func displaySuccessMessage() {
         // FIXME
         let responder = SCLAlertView.init().showSuccess(NSLocalizedString("Congratulations", comment: ""), subTitle: NSLocalizedString("You just added your payout information", comment: ""))
         responder.setDismissBlock {
             let _ = self.navigationController?.popToRootViewController(animated: true)
         }
     }
+
 }

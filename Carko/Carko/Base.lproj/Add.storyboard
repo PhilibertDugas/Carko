@@ -47,33 +47,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="SyP-yK-IPs">
-                                <rect key="frame" x="16" y="8" width="343" height="499.5"/>
+                                <rect key="frame" x="16" y="8" width="343" height="587"/>
                                 <color key="tintColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cyf-6U-NOa" customClass="SmallRoundedCornerButton" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="116.5" y="515.5" width="142.5" height="60.5"/>
-                                <color key="backgroundColor" red="0.76862745099999996" green="0.066666666669999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
-                                <color key="tintColor" red="0.76862745099999996" green="0.066666666669999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Save">
-                                    <color key="titleColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="saveChange:" destination="6yu-zW-V47" eventType="touchUpInside" id="oCc-vd-DAV"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.062745098040000002" green="0.078431372550000003" blue="0.08235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="SyP-yK-IPs" firstAttribute="top" secondItem="gRY-Sn-Zm1" secondAttribute="bottom" constant="8" id="7h2-YL-639"/>
-                            <constraint firstItem="cyf-6U-NOa" firstAttribute="width" secondItem="0pP-5N-YdB" secondAttribute="width" multiplier="0.38" id="HXO-S9-qYh"/>
-                            <constraint firstItem="cyf-6U-NOa" firstAttribute="top" secondItem="SyP-yK-IPs" secondAttribute="bottom" constant="8" id="lJd-Rc-UC0"/>
-                            <constraint firstItem="cyf-6U-NOa" firstAttribute="height" secondItem="0pP-5N-YdB" secondAttribute="height" multiplier="0.1" id="lwF-n0-j87"/>
-                            <constraint firstItem="cyf-6U-NOa" firstAttribute="centerX" secondItem="0pP-5N-YdB" secondAttribute="centerX" id="oKs-jD-M2m"/>
-                            <constraint firstItem="mT5-r8-q3G" firstAttribute="top" secondItem="cyf-6U-NOa" secondAttribute="bottom" constant="27" id="qwu-y8-a3e"/>
+                            <constraint firstItem="mT5-r8-q3G" firstAttribute="top" secondItem="SyP-yK-IPs" secondAttribute="bottom" constant="8" id="OJy-Si-OCM"/>
                             <constraint firstItem="SyP-yK-IPs" firstAttribute="leading" secondItem="0pP-5N-YdB" secondAttribute="leadingMargin" id="vif-Z6-oVA"/>
                             <constraint firstItem="SyP-yK-IPs" firstAttribute="trailing" secondItem="0pP-5N-YdB" secondAttribute="trailingMargin" id="z6b-NV-vF3"/>
                         </constraints>
@@ -1120,7 +1104,7 @@
                                 <rect key="frame" x="0.0" y="43" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MLI-Zh-uQO" id="lgl-Rv-gYa">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eEH-F0-kVK">
@@ -1171,9 +1155,9 @@
         <image name="small_plus" width="144" height="144"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Y1y-ch-YBc"/>
+        <segue reference="bn7-tO-E4s"/>
         <segue reference="8rN-8p-AUL"/>
-        <segue reference="rQy-xe-Y67"/>
+        <segue reference="Y1y-ch-YBc"/>
         <segue reference="ZVv-jp-5sL"/>
     </inferredMetricsTieBreakers>
 </document>

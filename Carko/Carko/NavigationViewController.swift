@@ -24,13 +24,13 @@ class NavigationViewController: UIViewController {
         }
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier != "showLoginScreen" {
-            let revealViewController = self.revealViewController()
-            revealViewController?.revealToggle(sender)
-            if !AuthenticationHelper.customerAvailable() {
-                self.performSegue(withIdentifier: "showLoginScreen", sender: nil)
-            }
+    @IBAction func profileTapped(_ sender: Any) {
+        let revealViewController = self.revealViewController()
+        revealViewController?.revealToggle(sender)
+        if AuthenticationHelper.customerAvailable() {
+            self.performSegue(withIdentifier: "presentProfile", sender: nil)
+        } else {
+            self.present(AuthenticationHelper.shared.getAuthController(), animated: true, completion: nil)
         }
     }
 }

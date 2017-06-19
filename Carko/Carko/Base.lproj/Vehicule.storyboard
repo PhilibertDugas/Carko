@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,7 +15,7 @@
         <scene sceneID="5K2-S8-OQ2">
             <objects>
                 <navigationController id="4bA-J5-NF3" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="xcB-Ng-RmN">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="xcB-Ng-RmN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -65,73 +66,57 @@
                                     <constraint firstAttribute="height" constant="90" id="i9z-Mh-RTR"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="License Plate" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ULZ-dT-Wt8" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="16" y="106" width="343" height="50"/>
-                                <color key="tintColor" red="0.74901960779999999" green="0.74901960779999999" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="r71-LK-FUD"/>
-                                </constraints>
-                                <color key="textColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Make" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="7vu-JN-M1S" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="16" y="164" width="343" height="50"/>
-                                <color key="tintColor" red="0.74901960779999999" green="0.74901960779999999" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="MXu-AF-nxS"/>
-                                </constraints>
-                                <color key="textColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Model" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="tIU-9q-Fwc" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="16" y="222" width="343" height="50"/>
-                                <color key="tintColor" red="0.74901960779999999" green="0.74901960779999999" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="CKG-Q7-pOA"/>
-                                </constraints>
-                                <color key="textColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Year" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="G9W-fV-Sf3" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="16" y="280" width="343" height="50"/>
-                                <color key="tintColor" red="0.74901960779999999" green="0.74901960779999999" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="CKp-Pq-lup"/>
-                                </constraints>
-                                <color key="textColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Color" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="fog-yp-9Ra" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="16" y="338" width="343" height="50"/>
-                                <color key="tintColor" red="0.74901960779999999" green="0.74901960779999999" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="mPS-3P-b5B"/>
-                                </constraints>
-                                <color key="textColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Province" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="qrv-IL-Lcz" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="16" y="396" width="343" height="50"/>
-                                <color key="tintColor" red="0.74901960779999999" green="0.74901960779999999" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="a2j-WP-yRz"/>
-                                </constraints>
-                                <color key="textColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" alpha="0.60000002384185791" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BEv-50-H6D" customClass="SmallRoundedCornerButton" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="16" y="550" width="343" height="45"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="2VZ-3P-tnT">
+                                <rect key="frame" x="16" y="106" width="343" height="402"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="License Plate" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ULZ-dT-Wt8" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="67"/>
+                                        <color key="tintColor" red="0.74901960779999999" green="0.74901960779999999" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Make" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="7vu-JN-M1S" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="67" width="343" height="67"/>
+                                        <color key="tintColor" red="0.74901960779999999" green="0.74901960779999999" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Model" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="tIU-9q-Fwc" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="134" width="343" height="67"/>
+                                        <color key="tintColor" red="0.74901960779999999" green="0.74901960779999999" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Year" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="G9W-fV-Sf3" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="201" width="343" height="67"/>
+                                        <color key="tintColor" red="0.74901960779999999" green="0.74901960779999999" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Color" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="fog-yp-9Ra" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="268" width="343" height="67"/>
+                                        <color key="tintColor" red="0.74901960779999999" green="0.74901960779999999" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Province" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="qrv-IL-Lcz" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="335" width="343" height="67"/>
+                                        <color key="tintColor" red="0.74901960779999999" green="0.74901960779999999" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BEv-50-H6D" customClass="SmallRoundedCornerButton" customModule="Carko" customModuleProvider="target">
+                                <rect key="frame" x="116.5" y="515.5" width="142.5" height="60.5"/>
                                 <color key="backgroundColor" red="0.76862745099999996" green="0.066666666669999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="1WQ-uG-JWO"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
                                 <color key="tintColor" red="0.76862745099999996" green="0.066666666669999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Save">
                                     <color key="titleColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -143,30 +128,17 @@
                         </subviews>
                         <color key="backgroundColor" red="0.01176470588" green="0.01176470588" blue="0.01176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="ULZ-dT-Wt8" firstAttribute="trailing" secondItem="lRH-09-mbs" secondAttribute="trailingMargin" id="0n3-rB-lIY"/>
-                            <constraint firstItem="tIU-9q-Fwc" firstAttribute="leading" secondItem="lRH-09-mbs" secondAttribute="leadingMargin" id="0ov-t2-Rqv"/>
                             <constraint firstItem="l80-4s-lxN" firstAttribute="top" secondItem="vGo-Ls-WdY" secondAttribute="bottom" constant="8" id="3ls-qW-yb2"/>
-                            <constraint firstItem="G9W-fV-Sf3" firstAttribute="leading" secondItem="lRH-09-mbs" secondAttribute="leadingMargin" id="5wX-Lh-Ac2"/>
-                            <constraint firstItem="qrv-IL-Lcz" firstAttribute="leading" secondItem="lRH-09-mbs" secondAttribute="leadingMargin" id="67J-ou-mco"/>
-                            <constraint firstItem="fog-yp-9Ra" firstAttribute="top" secondItem="G9W-fV-Sf3" secondAttribute="bottom" constant="8" id="8Dc-kI-gIN"/>
                             <constraint firstItem="l80-4s-lxN" firstAttribute="trailing" secondItem="lRH-09-mbs" secondAttribute="trailingMargin" id="AWC-df-wTk"/>
-                            <constraint firstItem="fog-yp-9Ra" firstAttribute="leading" secondItem="lRH-09-mbs" secondAttribute="leadingMargin" id="BJl-eb-amK"/>
-                            <constraint firstItem="7vu-JN-M1S" firstAttribute="leading" secondItem="lRH-09-mbs" secondAttribute="leadingMargin" id="Bfb-Fj-rBh"/>
-                            <constraint firstItem="ULZ-dT-Wt8" firstAttribute="top" secondItem="l80-4s-lxN" secondAttribute="bottom" constant="8" id="DOX-EE-mrc"/>
-                            <constraint firstItem="fog-yp-9Ra" firstAttribute="trailing" secondItem="lRH-09-mbs" secondAttribute="trailingMargin" id="HIA-hw-gr0"/>
-                            <constraint firstItem="TBr-Yy-gSu" firstAttribute="top" secondItem="BEv-50-H6D" secondAttribute="bottom" constant="8" id="Jte-hv-z4L"/>
-                            <constraint firstItem="G9W-fV-Sf3" firstAttribute="trailing" secondItem="lRH-09-mbs" secondAttribute="trailingMargin" id="LMc-QN-Pnh"/>
-                            <constraint firstItem="qrv-IL-Lcz" firstAttribute="top" secondItem="fog-yp-9Ra" secondAttribute="bottom" constant="8" id="N9F-90-gZg"/>
-                            <constraint firstItem="tIU-9q-Fwc" firstAttribute="trailing" secondItem="lRH-09-mbs" secondAttribute="trailingMargin" id="T1P-Ui-VwV"/>
-                            <constraint firstItem="G9W-fV-Sf3" firstAttribute="top" secondItem="tIU-9q-Fwc" secondAttribute="bottom" constant="8" id="UMF-Kb-eEP"/>
-                            <constraint firstItem="BEv-50-H6D" firstAttribute="trailing" secondItem="lRH-09-mbs" secondAttribute="trailingMargin" id="Ud4-02-cWA"/>
-                            <constraint firstItem="BEv-50-H6D" firstAttribute="leading" secondItem="lRH-09-mbs" secondAttribute="leadingMargin" id="XRc-pN-VF1"/>
+                            <constraint firstItem="2VZ-3P-tnT" firstAttribute="leading" secondItem="lRH-09-mbs" secondAttribute="leadingMargin" id="Jdl-3R-itf"/>
+                            <constraint firstItem="TBr-Yy-gSu" firstAttribute="top" secondItem="BEv-50-H6D" secondAttribute="bottom" constant="27" id="Jte-hv-z4L"/>
+                            <constraint firstItem="BEv-50-H6D" firstAttribute="height" secondItem="lRH-09-mbs" secondAttribute="height" multiplier="0.1" id="MDm-Se-X0m"/>
+                            <constraint firstItem="BEv-50-H6D" firstAttribute="top" secondItem="2VZ-3P-tnT" secondAttribute="bottom" constant="8" id="NCP-rv-hfx"/>
+                            <constraint firstItem="BEv-50-H6D" firstAttribute="centerX" secondItem="lRH-09-mbs" secondAttribute="centerX" id="NFY-XA-zhP"/>
                             <constraint firstItem="l80-4s-lxN" firstAttribute="leading" secondItem="lRH-09-mbs" secondAttribute="leadingMargin" id="bTT-vd-RLa"/>
-                            <constraint firstItem="qrv-IL-Lcz" firstAttribute="trailing" secondItem="lRH-09-mbs" secondAttribute="trailingMargin" id="cdv-Ij-ZXZ"/>
-                            <constraint firstItem="tIU-9q-Fwc" firstAttribute="top" secondItem="7vu-JN-M1S" secondAttribute="bottom" constant="8" id="iuq-oJ-3Oj"/>
-                            <constraint firstItem="7vu-JN-M1S" firstAttribute="top" secondItem="ULZ-dT-Wt8" secondAttribute="bottom" constant="8" id="jHx-9w-0ON"/>
-                            <constraint firstItem="7vu-JN-M1S" firstAttribute="trailing" secondItem="lRH-09-mbs" secondAttribute="trailingMargin" id="qDE-1g-mh0"/>
-                            <constraint firstItem="ULZ-dT-Wt8" firstAttribute="leading" secondItem="lRH-09-mbs" secondAttribute="leadingMargin" id="zpV-Ed-8l7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2VZ-3P-tnT" secondAttribute="trailing" id="kKt-nV-VWq"/>
+                            <constraint firstItem="BEv-50-H6D" firstAttribute="width" secondItem="lRH-09-mbs" secondAttribute="width" multiplier="0.38" id="uYl-GY-aPy"/>
+                            <constraint firstItem="2VZ-3P-tnT" firstAttribute="top" secondItem="l80-4s-lxN" secondAttribute="bottom" constant="8" id="wTR-0U-QgP"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Vehicule" id="S0J-pa-iRk">
@@ -189,7 +161,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aJZ-Yu-HWQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1070" y="309"/>
+            <point key="canvasLocation" x="1069.5999999999999" y="308.9955022488756"/>
         </scene>
     </scenes>
     <resources>

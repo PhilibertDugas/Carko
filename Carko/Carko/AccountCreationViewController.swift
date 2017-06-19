@@ -16,6 +16,7 @@ class AccountCreationViewController: UIViewController {
     @IBOutlet var postalCodeTextField: UnderlineTextField!
     @IBOutlet var countryTextField: UnderlineTextField!
     @IBOutlet var dobTextField: UnderlineTextField!
+    @IBOutlet var continueButton: SmallRoundedCornerButton!
 
     var address: AccountAddress?
     var dob: AccountDateOfBirth?
@@ -49,20 +50,7 @@ class AccountCreationViewController: UIViewController {
     }
 
     @IBAction func continueTapped(_ sender: Any) {
-        if let city = cityTextField.text,
-            let line1 = addressTextField.text,
-            let postalCode = postalCodeTextField.text,
-            let stateText = stateTextField.text,
-            !city.isEmpty,
-            !line1.isEmpty,
-            !postalCode.isEmpty,
-            !stateText.isEmpty {
-            self.address = AccountAddress.init(city: city, line1: line1, postalCode: postalCode, state: stateText)
-        } else {
-            // FIXME : translate
-            super.displayErrorMessage("PLEASE ENTER ALL FIELDS")
-        }
-
+        self.address = AccountAddress.init(city: cityTextField.text!, line1: addressTextField.text!, postalCode: postalCodeTextField.text!, state: stateTextField.text!)
         if let address = self.address, let dob = self.dob {
             self.account = Account.init(firstName: AppState.shared.customer.firstName, lastName: AppState.shared.customer.lastName, address: address, dob: dob)
             self.performSegue(withIdentifier: "showBankInformation", sender: nil)
@@ -74,6 +62,8 @@ class AccountCreationViewController: UIViewController {
         self.navigationController?.navigationBar.clipsToBounds = true
         self.hideKeyboardWhenTappedAround()
         self.setupProvincePicker()
+        self.setupFields()
+
         // FIXME: Translate
         self.addressTextField.attributedPlaceholder = NSAttributedString.init(string: "Address", attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
         self.cityTextField.attributedPlaceholder = NSAttributedString.init(string: "City", attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
@@ -88,6 +78,11 @@ class AccountCreationViewController: UIViewController {
             let destination = segue.destination as! BankCreationViewController
             destination.account = self.account!
         }
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.continueButton.isEnabled = false
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -120,11 +115,33 @@ class AccountCreationViewController: UIViewController {
 }
 
 extension AccountCreationViewController {
+    fileprivate func setupFields() {
+        addressTextField.addTarget(self, action: #selector(self.textChanged), for: UIControlEvents.editingChanged)
+        cityTextField.addTarget(self, action: #selector(self.textChanged), for: UIControlEvents.editingChanged)
+        postalCodeTextField.addTarget(self, action: #selector(self.textChanged), for: UIControlEvents.editingChanged)
+        dobTextField.addTarget(self, action: #selector(self.textChanged), for: UIControlEvents.editingDidEnd)
+        stateTextField.addTarget(self, action: #selector(self.textChanged), for: UIControlEvents.editingDidEnd)
+    }
+
     func setupProvincePicker() {
         let pickerView = UIPickerView.init()
         pickerView.dataSource = self
         pickerView.delegate = self
         stateTextField.inputView = pickerView
+    }
+
+    func textChanged() {
+        if allFieldsFilled() {
+            self.continueButton.isEnabled = true
+            self.continueButton.alpha = 1.0
+        } else {
+            self.continueButton.isEnabled = false
+            self.continueButton.alpha = 0.6
+        }
+    }
+
+    func allFieldsFilled() -> Bool {
+        return addressTextField.text != "" && cityTextField.text != "" && stateTextField.text != "" && postalCodeTextField.text != "" && countryTextField.text != "" && dobTextField.text != ""
     }
 }
 

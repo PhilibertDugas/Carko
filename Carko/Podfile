@@ -18,6 +18,8 @@ def shared_pods
   pod 'SCLAlertView'
   pod 'Fabric'
   pod 'Crashlytics'
+  pod 'FirebaseUI/Auth'
+  pod 'FirebaseUI/Facebook'
 end
 
 target 'Carko' do

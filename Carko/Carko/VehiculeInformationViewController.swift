@@ -26,20 +26,15 @@ class VehiculeInformationViewController: UIViewController {
     }
 
     @IBAction func saveTapped(_ sender: Any) {
-        if allFieldsFilled() {
-            let vehicule = Vehicule.init(license: licensePlateTextField.text!, make: makeTextField.text!, model: modelTextField.text!, year: yearTextField.text!, color: colorTextField.text!, province: provinceTextField.text!)
-            vehicule.persist(completion: { (error) in
-                if let error = error {
-                    super.displayErrorMessage(error.localizedDescription)
-                } else {
-                    AppState.shared.cacheVehicule(vehicule)
-                    self.displaySuccessMessage()
-                }
-            })
-        } else {
-            // FIXME: This sucks
-            super.displayErrorMessage("PLEASE MAKE SURE TO ENTER ALL FIELDS")
-        }
+        let vehicule = Vehicule.init(license: licensePlateTextField.text!, make: makeTextField.text!, model: modelTextField.text!, year: yearTextField.text!, color: colorTextField.text!, province: provinceTextField.text!)
+        vehicule.persist(completion: { (error) in
+            if let error = error {
+                super.displayErrorMessage(error.localizedDescription)
+            } else {
+                AppState.shared.cacheVehicule(vehicule)
+                self.displaySuccessMessage()
+            }
+        })
     }
 
     override func viewDidLoad() {
@@ -65,6 +60,9 @@ extension VehiculeInformationViewController {
         if allFieldsFilled() {
             saveButton.isEnabled = true
             saveButton.alpha = 1.0
+        } else {
+            saveButton.alpha = 0.6
+            saveButton.isEnabled = false
         }
     }
 
@@ -104,10 +102,10 @@ extension VehiculeInformationViewController {
     }
 
     func displaySuccessMessage() {
-        // FIXME
+        // FIXME : Remove SCLs
         let responder = SCLAlertView.init().showSuccess(NSLocalizedString("Congratulations", comment: ""), subTitle: NSLocalizedString("You just added your vehicule", comment: ""))
         responder.setDismissBlock {
-            let _ = self.navigationController?.popToRootViewController(animated: true)
+            self.dismiss(animated: true, completion: nil)
         }
     }
 }

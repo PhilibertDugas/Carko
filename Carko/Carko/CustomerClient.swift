@@ -12,15 +12,22 @@ import Alamofire
 extension APIClient {
     func getCustomer(complete: @escaping(Customer?, Error?) -> Void) {
         let url = baseUrl.appendingPathComponent("/customers/\(self.customerId())")
-        request(url).responseJSON { (response) in
-            if let error = response.result.error {
+        request(url).responseJSON { (dataResponse) in
+            if let error = dataResponse.result.error {
                 complete(nil, error)
-            } else if let result = response.result.value {
-                if let customerDict = result as? [String: Any] {
-                    let customer = Customer.init(customer: customerDict)
-                    complete(customer, nil)
+            } else if let response = dataResponse.response, let value = dataResponse.result.value {
+                if response.statusCode == 200 {
+                    if let customerDict = value as? [String: Any] {
+                        let customer = Customer.init(customer: customerDict)
+                        complete(customer, nil)
+                    } else {
+                        // In this case, the backend returned `null` because the customer does not exists
+                        complete(nil, nil)
+                    }
                 } else {
-                    complete(nil, NSError.init(domain: "Error with server", code: 1, userInfo: nil))
+                    let error = value as! NSDictionary
+                    let errorMessage = error.object(forKey: "error") as! String
+                    complete(nil, NSError.init(domain: errorMessage, code: response.statusCode, userInfo: nil))
                 }
             }
         }

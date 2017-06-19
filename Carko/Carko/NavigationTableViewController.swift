@@ -21,20 +21,9 @@ class NavigationTableViewController: UITableViewController {
             self.paymentContext.hostViewController = self
             self.paymentContext.presentPaymentMethodsViewController()
         } else {
-            self.performSegue(withIdentifier: "showLoginScreen", sender: nil)
+            self.present(AuthenticationHelper.shared.getAuthController(), animated: true, completion: nil)
         }
     }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier != "showLoginScreen" {
-            let revealViewController = self.revealViewController()
-            revealViewController?.revealToggle(sender)
-            if !AuthenticationHelper.customerAvailable() {
-                self.performSegue(withIdentifier: "showLoginScreen", sender: nil)
-            }
-        }
-    }
-
 }
 
 extension NavigationTableViewController {
@@ -46,6 +35,11 @@ extension NavigationTableViewController {
             self.contactUsMail()
             break
         default:
+            if !AuthenticationHelper.customerAvailable() {
+                let revealViewController = self.revealViewController()
+                revealViewController?.revealToggle(nil)
+                self.present(AuthenticationHelper.shared.getAuthController(), animated: true, completion: nil)
+            }
             break
         }
     }

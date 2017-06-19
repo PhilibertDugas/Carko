@@ -94,7 +94,7 @@
                                     </textField>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LVN-Gy-oAe" customClass="SmallRoundedCornerButton" customModule="Carko" customModuleProvider="target">
+                            <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LVN-Gy-oAe" customClass="SmallRoundedCornerButton" customModule="Carko" customModuleProvider="target">
                                 <rect key="frame" x="116.5" y="515.5" width="142.5" height="60.5"/>
                                 <color key="backgroundColor" red="0.76862745099999996" green="0.066666666669999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
@@ -134,6 +134,7 @@
                     <connections>
                         <outlet property="addressTextField" destination="c4O-0g-exg" id="QzY-Dz-zrR"/>
                         <outlet property="cityTextField" destination="8Og-X4-Aqh" id="bdf-Hc-aoZ"/>
+                        <outlet property="continueButton" destination="LVN-Gy-oAe" id="rNW-3c-BEV"/>
                         <outlet property="countryTextField" destination="0oc-Cm-mJZ" id="Q6v-jj-xdz"/>
                         <outlet property="dobTextField" destination="Pj7-y9-U1k" id="A9M-qQ-0f9"/>
                         <outlet property="postalCodeTextField" destination="BJZ-de-RLm" id="P3R-on-yDe"/>
@@ -228,7 +229,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U0S-F7-C2R">
                                 <rect key="frame" x="116.5" y="515.5" width="142.5" height="60.5"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qcV-Xl-Fow" customClass="SmallRoundedCornerButton" customModule="Carko" customModuleProvider="target">
+                                    <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qcV-Xl-Fow" customClass="SmallRoundedCornerButton" customModule="Carko" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="142.5" height="60.5"/>
                                         <color key="backgroundColor" red="0.76862745099999996" green="0.066666666669999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
@@ -280,6 +281,7 @@
                         <outlet property="accountNumberTextField" destination="vRy-rY-gfS" id="hVb-b3-Hjk"/>
                         <outlet property="activityIndicator" destination="uUu-ZS-Hf8" id="7Na-0j-fdC"/>
                         <outlet property="routingNumberTextField" destination="i5j-Ey-ITF" id="vKO-CF-7hw"/>
+                        <outlet property="saveButton" destination="qcV-Xl-Fow" id="uW6-ye-Ebl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gkG-Qx-xsR" userLabel="First Responder" sceneMemberID="firstResponder"/>

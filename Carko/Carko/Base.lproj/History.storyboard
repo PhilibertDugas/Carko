@@ -14,42 +14,52 @@
         <scene sceneID="9sP-Sa-Re2">
             <objects>
                 <tableViewController id="68N-vn-MdZ" customClass="ReservationsTableViewController" customModule="Carko" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="95" sectionHeaderHeight="28" sectionFooterHeight="28" id="DlN-md-SpT">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="130" sectionHeaderHeight="28" sectionFooterHeight="28" id="DlN-md-SpT">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.01176470588" green="0.01176470588" blue="0.01176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <inset key="scrollIndicatorInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
+                        <color key="separatorColor" red="0.74901960779999999" green="0.74901960779999999" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <inset key="separatorInset" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReservationCell" rowHeight="95" id="MRD-e3-AfT" customClass="ReservationTableViewCell" customModule="Carko" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="95"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReservationCell" rowHeight="130" id="MRD-e3-AfT" customClass="ReservationTableViewCell" customModule="Carko" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="130"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MRD-e3-AfT" id="OXR-mo-Fc1">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="94.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uDf-Z5-97K">
-                                            <rect key="frame" x="8" y="8" width="359" height="31"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cco-Md-IXn">
+                                            <rect key="frame" x="24" y="17.5" width="95" height="95"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="95" id="FmH-Oh-yNC"/>
+                                                <constraint firstAttribute="width" constant="95" id="KY3-Mw-kWA"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Name" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uDf-Z5-97K">
+                                            <rect key="frame" x="127" y="24" width="240" height="31"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="31" id="q7k-Na-e08"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
                                             <color key="textColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OQv-eG-rxd">
-                                            <rect key="frame" x="8" y="47" width="359" height="15"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OQv-eG-rxd">
+                                            <rect key="frame" x="127" y="63" width="240" height="15"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="15" id="PpB-eu-NCh"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                             <color key="textColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKA-bv-7YS">
-                                            <rect key="frame" x="8" y="70" width="359" height="15"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hKA-bv-7YS">
+                                            <rect key="frame" x="127" y="86" width="240" height="15"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="15" id="fGh-Qe-lMW"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                             <color key="textColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -57,17 +67,21 @@
                                     <color key="backgroundColor" red="0.01176470588" green="0.01176470588" blue="0.01176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstItem="hKA-bv-7YS" firstAttribute="trailing" secondItem="OXR-mo-Fc1" secondAttribute="trailingMargin" id="1Q0-Lo-XX4"/>
-                                        <constraint firstItem="uDf-Z5-97K" firstAttribute="top" secondItem="OXR-mo-Fc1" secondAttribute="topMargin" id="5Ow-tk-hxY"/>
-                                        <constraint firstItem="hKA-bv-7YS" firstAttribute="leading" secondItem="OXR-mo-Fc1" secondAttribute="leadingMargin" id="67A-dL-Sd1"/>
-                                        <constraint firstItem="OQv-eG-rxd" firstAttribute="leading" secondItem="OXR-mo-Fc1" secondAttribute="leadingMargin" id="IR4-p6-wFb"/>
+                                        <constraint firstItem="uDf-Z5-97K" firstAttribute="top" secondItem="OXR-mo-Fc1" secondAttribute="topMargin" constant="16" id="5Ow-tk-hxY"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="hKA-bv-7YS" secondAttribute="bottom" constant="21" id="AbM-V2-03X"/>
+                                        <constraint firstItem="cco-Md-IXn" firstAttribute="centerY" secondItem="OXR-mo-Fc1" secondAttribute="centerY" id="Dhu-Zr-4ND"/>
+                                        <constraint firstItem="uDf-Z5-97K" firstAttribute="leading" secondItem="cco-Md-IXn" secondAttribute="trailing" constant="8" id="Jdq-dH-Qev"/>
                                         <constraint firstItem="hKA-bv-7YS" firstAttribute="top" secondItem="OQv-eG-rxd" secondAttribute="bottom" constant="8" id="N3G-90-MVz"/>
-                                        <constraint firstItem="uDf-Z5-97K" firstAttribute="leading" secondItem="OXR-mo-Fc1" secondAttribute="leadingMargin" id="U0w-5h-smA"/>
+                                        <constraint firstItem="hKA-bv-7YS" firstAttribute="leading" secondItem="cco-Md-IXn" secondAttribute="trailing" constant="8" id="VTH-Ef-JCd"/>
                                         <constraint firstItem="OQv-eG-rxd" firstAttribute="trailing" secondItem="OXR-mo-Fc1" secondAttribute="trailingMargin" id="bdb-bR-RM8"/>
+                                        <constraint firstItem="OQv-eG-rxd" firstAttribute="leading" secondItem="cco-Md-IXn" secondAttribute="trailing" constant="8" id="hqB-Bz-2Hl"/>
                                         <constraint firstItem="OQv-eG-rxd" firstAttribute="top" secondItem="uDf-Z5-97K" secondAttribute="bottom" constant="8" id="q0q-Rg-hEA"/>
                                         <constraint firstItem="uDf-Z5-97K" firstAttribute="trailing" secondItem="OXR-mo-Fc1" secondAttribute="trailingMargin" id="qQc-h1-l46"/>
+                                        <constraint firstItem="cco-Md-IXn" firstAttribute="leading" secondItem="OXR-mo-Fc1" secondAttribute="leadingMargin" constant="16" id="vNB-1d-V0j"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="eventImage" destination="cco-Md-IXn" id="PdN-lJ-Enx"/>
                                     <outlet property="reservationLabel" destination="uDf-Z5-97K" id="sYM-Or-AKT"/>
                                     <outlet property="reservationPrice" destination="hKA-bv-7YS" id="wFl-eR-QJC"/>
                                     <outlet property="reservationTime" destination="OQv-eG-rxd" id="RMm-6U-oKd"/>

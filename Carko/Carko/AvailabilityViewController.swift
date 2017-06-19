@@ -19,17 +19,24 @@ class AvailabilityViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.clipsToBounds = true
-
-        if !newParking {
-            mainButton.setTitle("SAVE", for: UIControlState.normal)
-        }
-
-        availability = parking.availabilityInfo
+        self.availability = parking.availabilityInfo
+        self.availability.startTime = "00:00"
+        self.availability.stopTime = "23:59"
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if self.newParking {
+            self.mainButton.isHidden = false
+        } else {
+            self.mainButton.isHidden = true
+        }
         updateAvailability()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        delegate?.userDidChangeAvailability(value: availability)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -40,14 +47,7 @@ class AvailabilityViewController: UIViewController {
     }
 
     @IBAction func mainButtonTapped(_ sender: Any) {
-        self.availability.startTime = "00:00"
-        self.availability.stopTime = "23:59"
-        if newParking {
-            self.performSegue(withIdentifier: "pushPhoto", sender: nil)
-        } else {
-            delegate?.userDidChangeAvailability(value: availability)
-            let _ = self.navigationController?.popViewController(animated: true)
-        }
+        self.performSegue(withIdentifier: "pushPhoto", sender: nil)
     }
 
     @IBAction func dayToggle(_ sender: UISwitch) {

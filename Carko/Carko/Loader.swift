@@ -224,7 +224,7 @@ extension UIView
         cutout.boundInside(self)
 
         for view in self.subviews {
-            if view != cutout {
+            if view != cutout && !(view is UIVisualEffectView) {
                 view.alpha = 0
             }
         }
