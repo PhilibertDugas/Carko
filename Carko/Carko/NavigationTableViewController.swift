@@ -24,6 +24,10 @@ class NavigationTableViewController: UITableViewController {
             self.present(AuthenticationHelper.shared.getAuthController(), animated: true, completion: nil)
         }
     }
+
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        return AuthenticationHelper.customerAvailable()
+    }
 }
 
 extension NavigationTableViewController {
@@ -35,9 +39,9 @@ extension NavigationTableViewController {
             self.contactUsMail()
             break
         default:
+            let revealViewController = self.revealViewController()
+            revealViewController?.revealToggle(nil)
             if !AuthenticationHelper.customerAvailable() {
-                let revealViewController = self.revealViewController()
-                revealViewController?.revealToggle(nil)
                 self.present(AuthenticationHelper.shared.getAuthController(), animated: true, completion: nil)
             }
             break

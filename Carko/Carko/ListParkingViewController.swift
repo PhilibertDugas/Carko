@@ -25,8 +25,6 @@ class ListParkingViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.navigationBar.clipsToBounds = true
         NotificationCenter.default.addObserver(self, selector: #selector(self.parkingAdded), name: Notification.Name.init(rawValue: "NewParking"), object: nil)
-
-        fetchParkings()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -34,7 +32,7 @@ class ListParkingViewController: UIViewController {
         if AppState.shared.cachedCustomerParkings().count > 0 {
             updateTable(AppState.shared.cachedCustomerParkings())
         } else {
-            self.setupFirstParkingView()
+            self.fetchParkings()
         }
     }
 
@@ -110,6 +108,12 @@ extension ListParkingViewController: UITableViewDelegate, UITableViewDataSource 
         let cell = tableView.dequeueReusableCell(withIdentifier: "parkingCell", for: indexPath) as! ParkingTableViewCell
         let parking = parkingList[indexPath.row]
         cell.label.text = parking.address
+
+        if parking.totalRevenue > 0.0 {
+            cell.revenueLabel.text = parking.totalRevenue.asLocaleCurrency
+        } else {
+            cell.revenueLabel.text = ""
+        }
         
         if let url = parking.photoURL {
             let imageReference = AppState.shared.storageReference.storage.reference(forURL: url.absoluteString)

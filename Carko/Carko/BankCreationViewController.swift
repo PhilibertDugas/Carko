@@ -70,7 +70,7 @@ extension BankCreationViewController {
                 super.displayErrorMessage(error.localizedDescription)
             } else {
                 let params = STPBankAccountParams.init()
-                params.accountHolderName = "\(AuthenticationHelper.getCustomer().firstName) \(AuthenticationHelper.getCustomer().lastName)"
+                params.accountHolderName = AuthenticationHelper.getCustomer().displayName
                 params.accountHolderType = STPBankAccountHolderType.individual
                 params.accountNumber = accountNumber
                 params.routingNumber = routingNumber

@@ -52,7 +52,7 @@ class AccountCreationViewController: UIViewController {
     @IBAction func continueTapped(_ sender: Any) {
         self.address = AccountAddress.init(city: cityTextField.text!, line1: addressTextField.text!, postalCode: postalCodeTextField.text!, state: stateTextField.text!)
         if let address = self.address, let dob = self.dob {
-            self.account = Account.init(firstName: AppState.shared.customer.firstName, lastName: AppState.shared.customer.lastName, address: address, dob: dob)
+            self.account = Account.init(firstName: AuthenticationHelper.getCustomer().firstName, lastName: AuthenticationHelper.getCustomer().lastName, address: address, dob: dob)
             self.performSegue(withIdentifier: "showBankInformation", sender: nil)
         }
     }

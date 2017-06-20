@@ -66,7 +66,7 @@ extension APIClient {
     }
 
     func getCustomerParkings(complete: @escaping([(Parking)], Error?) -> Void) {
-        let getUrl = baseUrl.appendingPathComponent("/customers/\(AppState.shared.customer.id)/parkings")
+        let getUrl = baseUrl.appendingPathComponent("/customers/\(AuthenticationHelper.getCustomer().id)/parkings")
         request(getUrl, headers: authHeaders()).responseJSON { (returned) in
             if let error = returned.result.error {
                 complete([], error)
@@ -79,9 +79,10 @@ extension APIClient {
                         parkings.append(Parking.init(parking: dict))
                     }
                     complete(parkings, nil)
-
                 } else {
-                    complete([], NSError.init(domain: "HTTP Error", code: response.statusCode, userInfo: nil))
+                    let error = value as! NSDictionary
+                    let errorMessage = error.object(forKey: "error") as! String
+                    complete([], NSError.init(domain: errorMessage, code: response.statusCode, userInfo: nil))
                 }
             }
         }

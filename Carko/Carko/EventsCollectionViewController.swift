@@ -38,6 +38,7 @@ class EventsCollectionViewController: UICollectionViewController {
         }
         self.setupPullToRefresh()
         self.setupSidebar()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.refreshTriggered), name: Notification.Name.init(rawValue: "LoggedOut"), object: nil)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -104,6 +105,8 @@ class EventsCollectionViewController: UICollectionViewController {
         self.fetchEvents()
         if AuthenticationHelper.customerAvailable() {
             self.fetchReservations()
+        } else {
+            self.reservations = []
         }
     }
 

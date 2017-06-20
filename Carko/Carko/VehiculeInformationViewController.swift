@@ -83,7 +83,7 @@ extension VehiculeInformationViewController {
     }
 
     func setupFields() {
-        if let vehicule = AppState.shared.customer.vehicule {
+        if let vehicule = AuthenticationHelper.getCustomer().vehicule {
             licensePlateTextField.text = vehicule.license
             makeTextField.text = vehicule.make
             modelTextField.text = vehicule.model

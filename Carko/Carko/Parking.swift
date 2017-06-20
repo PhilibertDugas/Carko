@@ -22,6 +22,7 @@ class Parking {
 
     var availabilityInfo: AvailabilityInfo
     var isDeleted: Bool
+    var totalRevenue: Float
 
     init(latitude: CLLocationDegrees, longitude: CLLocationDegrees, photoURL: URL?, address: String, pDescription: String, isAvailable: Bool, isComplete: Bool, availabilityInfo: AvailabilityInfo, customerId: Int, multiplePhotoUrls: [(URL)]) {
         self.latitude = latitude
@@ -35,6 +36,7 @@ class Parking {
         self.isComplete = isComplete
         self.multiplePhotoUrls = multiplePhotoUrls
         self.isDeleted = false
+        self.totalRevenue = 0.0
     }
 
     convenience init() {
@@ -62,6 +64,9 @@ class Parking {
 
         if let identifier = parking["id"] as? Int {
             self.id = identifier
+        }
+        if let totalRevenue = parking["total_revenue"] as? Float {
+            self.totalRevenue = totalRevenue
         }
     }
 

@@ -177,7 +177,7 @@ extension ParkingInfoViewController: ParkingDescriptionDelegate, ParkingAvailabi
         self.tableView.reloadData()
         // FIXME : Hmm
         //if parking.isAvailable {
-            if AppState.shared.customer.accountId != nil {
+            if AuthenticationHelper.getCustomer().accountId != nil {
                 parking.isComplete = true
             }
             parking.update(complete: { (error) in

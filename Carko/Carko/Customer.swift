@@ -12,8 +12,7 @@ import FirebaseAuth
 struct Customer {
     var email: String
     var id: Int
-    var firstName: String
-    var lastName: String
+    var displayName: String
     var firebaseId: String
     var stripeId: String
 
@@ -22,10 +21,17 @@ struct Customer {
     var externalLast4Digits: String?
     var externalBankName: String?
 
-    init(email: String, firstName: String, lastName: String, id: Int, firebaseId: String, stripeId: String) {
+    var firstName: String {
+        return displayName.components(separatedBy: " ").first!
+    }
+
+    var lastName: String {
+        return displayName.components(separatedBy: " ").last!
+    }
+
+    init(email: String, displayName: String, id: Int, firebaseId: String, stripeId: String) {
         self.email = email
-        self.firstName = firstName
-        self.lastName = lastName
+        self.displayName = displayName
         self.id = id
         self.firebaseId = firebaseId
         self.stripeId = stripeId
@@ -33,13 +39,12 @@ struct Customer {
 
     init(customer: [String: Any]) {
         let email = customer["email"] as! String
-        let firstName = customer["first_name"] as! String
-        let lastName = customer["last_name"] as! String
+        let displayName = customer["display_name"] as! String
         let id = customer["id"] as! Int
         let firebaseId = customer["firebase_id"] as! String
         let stripeId = customer["stripe_id"] as! String
 
-        self.init(email: email, firstName: firstName, lastName: lastName, id: id, firebaseId: firebaseId, stripeId: stripeId)
+        self.init(email: email, displayName: displayName, id: id, firebaseId: firebaseId, stripeId: stripeId)
 
         if let account = customer["account_id"] as? String {
             self.accountId = account
@@ -58,8 +63,7 @@ struct Customer {
     func toDictionnary() -> [String : Any] {
         var dict: [String: Any] = [
             "email": email,
-            "first_name": firstName,
-            "last_name": lastName,
+            "display_name": displayName,
             "firebase_id": firebaseId,
             "id": id,
             "stripe_id": stripeId
@@ -80,22 +84,6 @@ struct Customer {
 
         return dict
     }
-    
-    static func logIn(email: String, password: String, complete: @escaping (Error?) -> Void) {
-        FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (customer, error) in
-            if let error = error {
-                complete(error)
-            } else {
-                AuthenticationHelper.updateAuthToken({ (error) in
-                    if let error = error {
-                        complete(error)
-                    } else {
-                        complete(nil)
-                    }
-                })
-            }
-        })
-    }
 
     static func updateCustomerToken(_ token: String, complete: @escaping (Error?) -> Void) {
         APIClient.shared.updateCustomerDeviceToken(token: token, complete: complete)
@@ -108,22 +96,19 @@ struct Customer {
 
 class NewCustomer {
     var email: String
-    var firstName: String
-    var lastName: String
+    var displayName: String
     var firebaseId: String
 
-    init(email: String, firstName: String, lastName: String, firebaseId: String) {
+    init(email: String, displayName: String, firebaseId: String) {
         self.email = email
-        self.firstName = firstName
-        self.lastName = lastName
+        self.displayName = displayName
         self.firebaseId = firebaseId
     }
 
     func toDictionary() -> [String : Any] {
         return [
             "email": email,
-            "first_name": firstName,
-            "last_name": lastName,
+            "display_name": displayName,
             "firebase_id": firebaseId
         ]
     }

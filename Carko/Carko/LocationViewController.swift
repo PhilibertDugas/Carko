@@ -50,7 +50,7 @@ class LocationViewController: UIViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        if !self.newParking {
+        if !self.newParking && self.selectedPin != nil {
             updateParking()
             delegate?.userDidChooseLocation(address: parking.address, latitude: parking.latitude, longitude: parking.longitude)
         }

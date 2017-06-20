@@ -18,7 +18,7 @@ class NavigationViewController: UIViewController {
         super.viewWillAppear(animated)
         if AuthenticationHelper.customerAvailable() {
             let customer = AuthenticationHelper.getCustomer()
-            self.headerView.nameLabel.text = "\(customer.firstName) \(customer.lastName)"
+            self.headerView.nameLabel.text = customer.displayName
         } else {
             self.headerView.nameLabel.text = ""
         }

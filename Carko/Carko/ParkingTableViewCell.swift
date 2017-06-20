@@ -11,4 +11,5 @@ import UIKit
 class ParkingTableViewCell: UITableViewCell {
     @IBOutlet var label: UILabel!
     @IBOutlet var parkingImage: UIImageView!
+    @IBOutlet var revenueLabel: UILabel!
 }

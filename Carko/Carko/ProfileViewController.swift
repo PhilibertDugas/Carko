@@ -25,8 +25,8 @@ class ProfileViewController: UITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        displayNameLabel.text = "\(AppState.shared.customer.firstName) \(AppState.shared.customer.lastName)"
-        emailLabel.text = "\(AppState.shared.customer.email)"
+        displayNameLabel.text = AuthenticationHelper.getCustomer().displayName
+        emailLabel.text = AuthenticationHelper.getCustomer().email
     }
 }
 
@@ -45,6 +45,7 @@ extension ProfileViewController {
 
     func logoutTapped() {
         AuthenticationHelper.resetCustomer()
+        NotificationCenter.default.post(name: Notification.Name.init("LoggedOut"), object: nil, userInfo: nil)
         self.dismiss(animated: true, completion: nil)
     }
 }

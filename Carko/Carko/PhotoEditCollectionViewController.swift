@@ -174,7 +174,6 @@ extension PhotoEditCollectionViewController: NohanaImagePickerControllerDelegate
         }
     }
 
-    // FIXME: Add indicator of loading
     func uploadImages(_ images: [(UIImage)]) {
         self.activityIndicator.isHidden = false
         self.activityIndicator.startAnimating()

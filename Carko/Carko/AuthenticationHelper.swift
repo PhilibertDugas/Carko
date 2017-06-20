@@ -53,8 +53,7 @@ class AuthenticationHelper: NSObject {
     class func customerLoggedIn(_ customer: Customer) {
         updateAuthToken({ (error) in
             if let error = error {
-                // FIXME
-                print(error.localizedDescription)
+                Crashlytics.sharedInstance().recordError(error)
             }
         })
         AppState.shared.cacheCustomer(customer)
@@ -116,7 +115,7 @@ extension AuthenticationHelper: FUIAuthDelegate {
                 AuthenticationHelper.customerLoggedIn(customer)
             } else {
                 // New customer flow
-                let newCustomer = NewCustomer.init(email: user.email!, firstName: user.displayName!, lastName: user.displayName!, firebaseId: user.uid)
+                let newCustomer = NewCustomer.init(email: user.email!, displayName: user.displayName!, firebaseId: user.uid)
                 newCustomer.register(complete: { (error) in
                     if error != nil {
                         try! FIRAuth.auth()!.signOut()

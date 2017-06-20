@@ -120,12 +120,7 @@ extension FindParkingViewController: MKMapViewDelegate {
         UIView.animate(withDuration: 0.5, animations: {
             view.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
             self.bookParkingVC.view.frame = CGRect.init(x: 0, y: self.view.frame.height, width: self.view.frame.width, height: self.view.frame.height)
-        }) { (finished) in
-            if finished {
-                self.bookParkingVC.view.removeFromSuperview()
-                self.bookParkingVC.removeFromParentViewController()
-            }
-        }
+        })
     }
 
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {

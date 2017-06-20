@@ -395,6 +395,7 @@
                                         <connections>
                                             <outlet property="label" destination="yPZ-Az-FEJ" id="m4i-B7-OSI"/>
                                             <outlet property="parkingImage" destination="AZL-7o-PXm" id="RF8-8Z-ymE"/>
+                                            <outlet property="revenueLabel" destination="oft-sv-loS" id="cs2-QU-ic8"/>
                                             <segue destination="pJt-TR-Y0r" kind="show" identifier="showParkingInfo" id="pqy-0k-93b"/>
                                         </connections>
                                     </tableViewCell>
@@ -1104,7 +1105,7 @@
                                 <rect key="frame" x="0.0" y="43" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MLI-Zh-uQO" id="lgl-Rv-gYa">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eEH-F0-kVK">
