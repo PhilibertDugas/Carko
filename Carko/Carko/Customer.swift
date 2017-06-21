@@ -70,7 +70,7 @@ struct Customer {
         ]
 
         if let vehicule = self.vehicule {
-            dict["vehicule"] = vehicule.toDictionary()
+            dict["vehicule_id"] = vehicule.id!
         }
 
         if let accountId = self.accountId {
@@ -83,6 +83,10 @@ struct Customer {
         }
 
         return dict
+    }
+
+    func updateCustomer(_ complete: @escaping (Error?) -> Void) {
+        APIClient.shared.updateCustomer(customer: self, complete: complete)
     }
 
     static func updateCustomerToken(_ token: String, complete: @escaping (Error?) -> Void) {

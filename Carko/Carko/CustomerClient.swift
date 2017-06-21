@@ -48,4 +48,12 @@ extension APIClient {
             complete(reponse.error)
         }
     }
+
+    func updateCustomer(customer: Customer, complete: @escaping (Error?) -> Void) {
+        let parameters: Parameters = ["customer": customer.toDictionnary()]
+        let patchUrl = baseUrl.appendingPathComponent("/customers/\(AuthenticationHelper.getCustomer().id)")
+        request(patchUrl, method: .patch, parameters: parameters, encoding: JSONEncoding.default, headers: authHeaders()).response { (reponse) in
+            complete(reponse.error)
+        }
+    }
 }

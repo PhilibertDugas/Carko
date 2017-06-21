@@ -20,6 +20,11 @@ extension UIViewController {
 }
 
 extension UIViewController {
+    func getDefaultAlertController(_ message: String) -> UIAlertController {
+        let alert = UIAlertController.init(title: NSLocalizedString("Error", comment: ""), message: message, preferredStyle: UIAlertControllerStyle.alert)
+        return alert
+    }
+
     func getAlertController(_ message: String) -> UIAlertController {
         let alert = UIAlertController.init(title: NSLocalizedString("Error", comment: ""), message: message, preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction.init(title: NSLocalizedString("Ok", comment: ""), style: UIAlertActionStyle.default, handler: nil))

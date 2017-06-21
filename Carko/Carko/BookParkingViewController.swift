@@ -71,22 +71,28 @@ class BookParkingViewController: UIViewController {
     private func handleConfirmTapped() {
          if self.parking.customerId == AuthenticationHelper.getCustomer().id {
             super.displayErrorMessage(NSLocalizedString("The parking is your own. You can't rent your own parking", comment: ""))
-        } else if AppState.shared.customer.vehicule == nil {
-            // FIXME Translate
-            super.displayErrorMessage("Please set your vehicule information in the profile section")
         } else if self.paymentContext.selectedPaymentMethod == nil {
             // FIXME Translate
-            let controller = super.getAlertController("Please select a payment method")
-            self.present(controller, animated: true, completion: { 
+            let controller = UIAlertController.init(title: "Missing payment method", message: "Please select a payment method", preferredStyle: .alert)
+            controller.addAction(UIAlertAction.init(title: NSLocalizedString("Ok", comment: ""), style: .default, handler: { (_) in
                 self.paymentContext.presentPaymentMethodsViewController()
-            })
-        } else {
+            }))
+            self.present(controller, animated: true, completion: nil)
+         } else if AppState.shared.customer.vehicule == nil {
+            // FIXME Translate
+            let controller = UIAlertController.init(title: "Missing vehicule", message: "Please set your vehicule information in the profile section", preferredStyle: .alert)
+            controller.addAction(UIAlertAction.init(title: NSLocalizedString("Ok", comment: ""), style: .default, handler: { (_) in
+                self.performSegue(withIdentifier: "showVehicule", sender: nil)
+            }))
+            self.present(controller, animated: true, completion: nil)
+         } else {
             self.promptCompletion()
         }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.definesPresentationContext = true
         self.paymentPopup.isHidden = true
         self.photoCollectionView.delegate = self
         self.photoCollectionView.backgroundColor = UIColor.clear

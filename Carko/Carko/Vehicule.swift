@@ -15,6 +15,7 @@ struct Vehicule {
     var year: String
     var color: String
     var province: String
+    var id: Int?
 
     init(license: String, make: String, model: String, year: String, color: String, province: String) {
         self.license = license
@@ -33,6 +34,10 @@ struct Vehicule {
         let color = vehicule["color"] as! String
         let province = vehicule["province"] as! String
         self.init(license: license, make: make, model: model, year: year, color: color, province: province)
+
+        if let id = vehicule["id"] as? Int {
+            self.id = id
+        }
     }
 
     func toDictionary() -> [String: Any] {
@@ -46,7 +51,7 @@ struct Vehicule {
         ]
     }
 
-    func persist(completion: @escaping (Error?) -> Void) {
+    func persist(completion: @escaping (Error?, Vehicule?) -> Void) {
         APIClient.shared.postVehicule(vehicule: self, complete: completion)
     }
 }

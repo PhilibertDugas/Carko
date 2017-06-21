@@ -27,12 +27,20 @@ class VehiculeInformationViewController: UIViewController {
 
     @IBAction func saveTapped(_ sender: Any) {
         let vehicule = Vehicule.init(license: licensePlateTextField.text!, make: makeTextField.text!, model: modelTextField.text!, year: yearTextField.text!, color: colorTextField.text!, province: provinceTextField.text!)
-        vehicule.persist(completion: { (error) in
+        vehicule.persist(completion: { (error, vehicule) in
             if let error = error {
                 super.displayErrorMessage(error.localizedDescription)
-            } else {
-                AppState.shared.cacheVehicule(vehicule)
-                self.displaySuccessMessage()
+            } else if let vehicule = vehicule {
+                var customer = AuthenticationHelper.getCustomer()
+                customer.vehicule = vehicule
+                customer.updateCustomer({ (error) in
+                    if let error = error {
+                        self.displayErrorMessage(error.localizedDescription)
+                    } else {
+                        AppState.shared.cacheVehicule(vehicule)
+                        self.displaySuccessMessage()
+                    }
+                })
             }
         })
     }
