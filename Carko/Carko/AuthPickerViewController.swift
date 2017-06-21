@@ -21,7 +21,6 @@ class AuthPickerViewController: FUIAuthPickerViewController {
         self.view.backgroundColor = UIColor.secondaryViewsBlack
         self.hideTableViewRows()
         self.setupCityGif()
-        self.addLogo()
         self.addCancel()
     }
 
@@ -50,14 +49,6 @@ class AuthPickerViewController: FUIAuthPickerViewController {
         webView.load(gif! as Data, mimeType: "image/gif", textEncodingName: String.init(), baseURL: NSURL.init() as URL)
         webView.isUserInteractionEnabled = false
         self.view.insertSubview(webView, at: 0)
-    }
-
-    private func addLogo() {
-        let image = UIImageView.init(frame: CGRect.init(x: self.view.frame.width / 2 - 64, y: self.view.frame.height / 2 - 128, width: 128, height: 128))
-        image.layer.cornerRadius = 10
-        image.clipsToBounds = true
-        image.image = UIImage.init(named: "launchscreen_logo")
-        self.view.insertSubview(image, aboveSubview: webView)
     }
 
     private func addCancel() {

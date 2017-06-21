@@ -9,6 +9,12 @@
 import UIKit
 
 class UnderlineTextField: UITextField {
+    override var tintColor: UIColor! {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+
     override func draw(_ rect: CGRect) {
         let startingPoint = CGPoint.init(x: rect.minX, y: rect.maxY)
         let endingPoint = CGPoint.init(x: rect.maxX, y: rect.maxY)
@@ -17,7 +23,6 @@ class UnderlineTextField: UITextField {
         path.move(to: startingPoint)
         path.addLine(to: endingPoint)
         path.lineWidth = 1.2
-
         tintColor.setStroke()
         path.stroke()
     }

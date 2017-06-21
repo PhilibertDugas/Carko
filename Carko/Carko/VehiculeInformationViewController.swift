@@ -75,7 +75,12 @@ extension VehiculeInformationViewController {
     }
 
     func allFieldsFilled() -> Bool {
-        return licensePlateTextField.text != nil && makeTextField.text != nil && modelTextField.text != nil && yearTextField.text != nil && colorTextField.text != nil && provinceTextField.text != nil
+        for field in [licensePlateTextField, makeTextField, modelTextField, yearTextField, colorTextField, provinceTextField] {
+            if field?.text == nil || (field?.text?.isEmpty)! {
+                return false
+            }
+        }
+        return true
     }
 
     func setupYears() {
@@ -90,7 +95,7 @@ extension VehiculeInformationViewController {
         return Int(formatter.string(from: Date.init()))!
     }
 
-    func setupFields() {
+    fileprivate func setupFields() {
         if let vehicule = AuthenticationHelper.getCustomer().vehicule {
             licensePlateTextField.text = vehicule.license
             makeTextField.text = vehicule.make
@@ -100,13 +105,27 @@ extension VehiculeInformationViewController {
             provinceTextField.text = vehicule.province
         }
 
-        licensePlateTextField.addTarget(self, action: #selector(self.textChanged), for: UIControlEvents.editingChanged)
+        licensePlateTextField.addTarget(self, action: #selector(self.licensePlateCheck), for: UIControlEvents.editingDidEnd)
         licensePlateTextField.delegate = self
-        makeTextField.addTarget(self, action: #selector(self.textChanged), for: UIControlEvents.editingChanged)
-        modelTextField.addTarget(self, action: #selector(self.textChanged), for: UIControlEvents.editingChanged)
-        yearTextField.addTarget(self, action: #selector(self.textChanged), for: UIControlEvents.editingDidBegin)
-        colorTextField.addTarget(self, action: #selector(self.textChanged), for: UIControlEvents.editingChanged)
-        provinceTextField.addTarget(self, action: #selector(self.textChanged), for: UIControlEvents.editingDidBegin)
+        makeTextField.addTarget(self, action: #selector(self.makeFieldReset), for: UIControlEvents.editingDidEnd)
+        modelTextField.addTarget(self, action: #selector(self.textChanged), for: UIControlEvents.editingDidEnd)
+        yearTextField.addTarget(self, action: #selector(self.textChanged), for: UIControlEvents.editingDidEnd)
+        colorTextField.addTarget(self, action: #selector(self.textChanged), for: UIControlEvents.editingDidEnd)
+        provinceTextField.addTarget(self, action: #selector(self.textChanged), for: UIControlEvents.editingDidEnd)
+    }
+
+    func licensePlateCheck() {
+        if VehiculeHelper.isValidPlate(licensePlateTextField.text!) {
+            licensePlateTextField.tintColor = UIColor.primaryWhiteTextColor
+            self.textChanged()
+        } else {
+            self.licensePlateTextField.tintColor = UIColor.accentColor
+        }
+    }
+
+    func makeFieldReset() {
+        modelTextField.text = nil
+        self.textChanged()
     }
 
     func displaySuccessMessage() {
@@ -122,6 +141,9 @@ extension VehiculeInformationViewController {
     func setupPickers() {
         setupYearPicker()
         setupProvincePicker()
+        setupMakePicker()
+        setupModelPicker()
+        setupColorPicker()
     }
 
     func setupYearPicker() {
@@ -150,10 +172,51 @@ extension VehiculeInformationViewController {
         pickerView.dataSource = self
         pickerView.delegate = self
         provinceTextField.inputView = pickerView
-        var selectedRow: Int
         if let province = self.provinceTextField.text {
             if province != "" {
-                selectedRow = AppState.provinces.index(of: province)!
+                let selectedRow = AppState.provinces.index(of: province)!
+                pickerView.selectRow(selectedRow, inComponent: 0, animated: false)
+            }
+        }
+    }
+
+    func setupMakePicker() {
+        let pickerView = UIPickerView.init()
+        pickerView.tag = 12
+        pickerView.dataSource = self
+        pickerView.delegate = self
+        makeTextField.inputView = pickerView
+        if let make = self.makeTextField.text {
+            if !make.isEmpty {
+                let selectedRow = VehiculeHelper.shared.carMakes().index(of: make)!
+                pickerView.selectRow(selectedRow, inComponent: 0, animated: false)
+            }
+        }
+    }
+
+    func setupModelPicker() {
+        let pickerView = UIPickerView.init()
+        pickerView.tag = 13
+        pickerView.dataSource = self
+        pickerView.delegate = self
+        modelTextField.inputView = pickerView
+        if let model = self.modelTextField.text, let make = self.makeTextField.text {
+            if !model.isEmpty {
+                let selectedRow = VehiculeHelper.shared.carModels(make).index(of: model)!
+                pickerView.selectRow(selectedRow, inComponent: 0, animated: false)
+            }
+        }
+    }
+
+    func setupColorPicker() {
+        let pickerView = UIPickerView.init()
+        pickerView.tag = 14
+        pickerView.dataSource = self
+        pickerView.delegate = self
+        colorTextField.inputView = pickerView
+        if let color = self.colorTextField.text {
+            if !color.isEmpty {
+                let selectedRow = VehiculeHelper.vehiculeColors.index(of: color)!
                 pickerView.selectRow(selectedRow, inComponent: 0, animated: false)
             }
         }
@@ -179,6 +242,12 @@ extension VehiculeInformationViewController: UIPickerViewDelegate, UIPickerViewD
             return self.years.count
         case 11:
             return AppState.provinces.count
+        case 12:
+            return VehiculeHelper.shared.carMakes().count
+        case 13:
+            return VehiculeHelper.shared.carModels(makeTextField.text!).count
+        case 14:
+            return VehiculeHelper.vehiculeColors.count
         default:
             break
         }
@@ -191,6 +260,12 @@ extension VehiculeInformationViewController: UIPickerViewDelegate, UIPickerViewD
             return self.years[row]
         case 11:
             return AppState.provinces[row]
+        case 12:
+            return VehiculeHelper.shared.carMakes()[row]
+        case 13:
+            return VehiculeHelper.shared.carModels(makeTextField.text!)[row]
+        case 14:
+            return VehiculeHelper.vehiculeColors[row]
         default:
             break
         }
@@ -205,6 +280,12 @@ extension VehiculeInformationViewController: UIPickerViewDelegate, UIPickerViewD
         case 11:
             self.provinceTextField.text = AppState.provinces[row]
             break
+        case 12:
+            self.makeTextField.text = VehiculeHelper.shared.carMakes()[row]
+        case 13:
+            self.modelTextField.text = VehiculeHelper.shared.carModels(makeTextField.text!)[row]
+        case 14:
+            self.colorTextField.text = VehiculeHelper.vehiculeColors[row]
         default:
             break
         }

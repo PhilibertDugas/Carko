@@ -37,6 +37,9 @@
 		453314341E03672700BF0B65 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453314331E03672700BF0B65 /* Account.swift */; };
 		4533143A1E036CF300BF0B65 /* BankCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453314391E036CF300BF0B65 /* BankCreationViewController.swift */; };
 		4533143C1E036DDA00BF0B65 /* AccountClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4533143B1E036DDA00BF0B65 /* AccountClient.swift */; };
+		453FEF341EFAED6B00FADE48 /* VehiculeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453FEF331EFAED6B00FADE48 /* VehiculeHelper.swift */; };
+		453FEF371EFAFA6200FADE48 /* cars.json in Resources */ = {isa = PBXBuildFile; fileRef = 453FEF361EFAFA6200FADE48 /* cars.json */; };
+		453FEF381EFAFA6200FADE48 /* cars.json in Resources */ = {isa = PBXBuildFile; fileRef = 453FEF361EFAFA6200FADE48 /* cars.json */; };
 		4540C1FD1EEE469F00A2ECB3 /* PhotoCreationLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4540C1FC1EEE469F00A2ECB3 /* PhotoCreationLayout.swift */; };
 		4544AA7F1E2BFA8E008A760F /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4544AA7E1E2BFA8E008A760F /* DateHelper.swift */; };
 		4544AA811E2C0D9E008A760F /* ParkingAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4544AA801E2C0D9E008A760F /* ParkingAnnotationView.swift */; };
@@ -239,6 +242,8 @@
 		453314331E03672700BF0B65 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		453314391E036CF300BF0B65 /* BankCreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankCreationViewController.swift; sourceTree = "<group>"; };
 		4533143B1E036DDA00BF0B65 /* AccountClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountClient.swift; sourceTree = "<group>"; };
+		453FEF331EFAED6B00FADE48 /* VehiculeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehiculeHelper.swift; sourceTree = "<group>"; };
+		453FEF361EFAFA6200FADE48 /* cars.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cars.json; sourceTree = "<group>"; };
 		4540C1FC1EEE469F00A2ECB3 /* PhotoCreationLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCreationLayout.swift; sourceTree = "<group>"; };
 		4544AA7E1E2BFA8E008A760F /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		4544AA801E2C0D9E008A760F /* ParkingAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingAnnotationView.swift; sourceTree = "<group>"; };
@@ -423,12 +428,21 @@
 			name = "Rent your space";
 			sourceTree = "<group>";
 		};
+		453FEF351EFAFA4F00FADE48 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				453FEF361EFAFA6200FADE48 /* cars.json */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
 		4544AA7D1E2BFA78008A760F /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				4544AA7E1E2BFA8E008A760F /* DateHelper.swift */,
 				458AF6681EEB064B00E3C402 /* AuthenticationHelper.swift */,
 				45BBC3471EF0A9E100CBC509 /* ImageLoaderHelper.swift */,
+				453FEF331EFAED6B00FADE48 /* VehiculeHelper.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -436,6 +450,7 @@
 		4546A5451EE5BBC2000CBD53 /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				453FEF351EFAFA4F00FADE48 /* Data */,
 				4544AA7D1E2BFA78008A760F /* Helpers */,
 				4591D5F31DFCA49C00366691 /* API */,
 				459AD2551DA49AE20018B7B9 /* Models */,
@@ -935,6 +950,7 @@
 			files = (
 				45AABAE31EF607C3006C268E /* GoogleService-Info.plist in Resources */,
 				45AABAE41EF607C3006C268E /* Profile.storyboard in Resources */,
+				453FEF381EFAFA6200FADE48 /* cars.json in Resources */,
 				45AABAE51EF607C3006C268E /* Localizable.strings in Resources */,
 				45AABAE61EF607C3006C268E /* PaymentPopup.xib in Resources */,
 				45AABAE71EF607C3006C268E /* Add.storyboard in Resources */,
@@ -965,6 +981,7 @@
 				4546A5491EE5BC23000CBD53 /* PaymentPopup.xib in Resources */,
 				45A4FAC21EF77EF100C73131 /* city.gif in Resources */,
 				4550D6661E19D7780080758D /* Add.storyboard in Resources */,
+				453FEF371EFAFA6200FADE48 /* cars.json in Resources */,
 				452F02E61EF5F90300B3A090 /* GoogleService-Info-Production.plist in Resources */,
 				45ECDAA91E243B2F00E999D8 /* carko-development-firebase-reporting.json in Resources */,
 				45D5D6101E1B2EDE006BE596 /* Assets.xcassets in Resources */,
@@ -1314,6 +1331,7 @@
 				457536561EAD752500E70F7F /* ReservationsTableViewController.swift in Sources */,
 				453314341E03672700BF0B65 /* Account.swift in Sources */,
 				4533143A1E036CF300BF0B65 /* BankCreationViewController.swift in Sources */,
+				453FEF341EFAED6B00FADE48 /* VehiculeHelper.swift in Sources */,
 				4518537A1DA476F1005CC5E6 /* ListParkingViewController.swift in Sources */,
 				453314321E03669000BF0B65 /* AccountCreationViewController.swift in Sources */,
 				4533143C1E036DDA00BF0B65 /* AccountClient.swift in Sources */,

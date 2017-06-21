@@ -45,7 +45,7 @@ class EventsCollectionViewController: UICollectionViewController {
     override func viewDidAppear(_ animated: Bool) {
         self.prepareBackgroundView()
         if !self.loadedOnce {
-            Loader.addLoaderTo(self.collectionView!)
+            //Loader.addLoaderTo(self.collectionView!)
         }
     }
 
@@ -76,7 +76,7 @@ class EventsCollectionViewController: UICollectionViewController {
                 self.events = events
                 if !self.loadedOnce {
                     self.loadedOnce = true
-                    Loader.removeLoaderFrom(self.collectionView!)
+                    //Loader.removeLoaderFrom(self.collectionView!)
                 }
                 self.collectionView!.reloadData()
             }
