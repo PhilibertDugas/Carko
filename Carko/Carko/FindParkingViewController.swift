@@ -76,10 +76,10 @@ extension FindParkingViewController: MKMapViewDelegate {
         self.mapView.removeAnnotations(mapView.annotations)
         self.setupEventPin()
         for parking in parkings {
-            // FIXME
-            //if parking.isComplete && parking.scheduleAvailable(now) {
-            let annotation = ParkingAnnotation.init(parking: parking, event: self.event)
-            self.mapView.addAnnotation(annotation)
+            if parking.isComplete {
+                let annotation = ParkingAnnotation.init(parking: parking, event: self.event)
+                self.mapView.addAnnotation(annotation)
+            }
         }
     }
 

@@ -84,4 +84,9 @@ class NoBorderButton: UIButton {
         super.init(coder: aDecoder)
         layer.borderWidth = 0
     }
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        layer.borderWidth = 0
+    }
 }

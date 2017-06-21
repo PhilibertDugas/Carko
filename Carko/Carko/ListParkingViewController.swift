@@ -107,19 +107,7 @@ extension ListParkingViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "parkingCell", for: indexPath) as! ParkingTableViewCell
         let parking = parkingList[indexPath.row]
-        cell.label.text = parking.address
-
-        if parking.totalRevenue > 0.0 {
-            cell.revenueLabel.text = parking.totalRevenue.asLocaleCurrency
-        } else {
-            cell.revenueLabel.text = ""
-        }
-        
-        if let url = parking.photoURL {
-            let imageReference = AppState.shared.storageReference.storage.reference(forURL: url.absoluteString)
-            cell.parkingImage.sd_setImage(with: imageReference)
-        }
-
+        cell.parking = parking
         return cell
     }
 }

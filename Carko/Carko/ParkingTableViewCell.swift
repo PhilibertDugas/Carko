@@ -12,4 +12,31 @@ class ParkingTableViewCell: UITableViewCell {
     @IBOutlet var label: UILabel!
     @IBOutlet var parkingImage: UIImageView!
     @IBOutlet var revenueLabel: UILabel!
+    @IBOutlet var notListedLabel: UILabel!
+    @IBOutlet var totalEarnedLabel: UILabel!
+
+    var parking: Parking? {
+        didSet {
+            if let parking = parking {
+                label.text = parking.address
+                if parking.totalRevenue > 0.0 {
+                    revenueLabel.text = parking.totalRevenue.asLocaleCurrency
+                } else {
+                    revenueLabel.text = ""
+                }
+
+                if parking.isComplete {
+                    notListedLabel.isHidden = true
+                    totalEarnedLabel.isHidden = true
+                } else {
+                    notListedLabel.isHidden = false
+                    totalEarnedLabel.isHidden = false
+                }
+
+                if let url = parking.photoURL {
+                    ImageLoaderHelper.loadImageFromUrl(parkingImage, url: url)
+                }
+            }
+        }
+    }
 }

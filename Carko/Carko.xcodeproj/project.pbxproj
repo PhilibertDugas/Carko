@@ -412,7 +412,6 @@
 				4564F6DD1DB981BA001B709C /* Subviews */,
 				4564F6E01DB98509001B709C /* BookParkingViewController.swift */,
 				45EA513A1DDE6F2300BD076C /* FindParkingViewController.swift */,
-				45D073301EA84924000604D3 /* EventsCollectionViewController.swift */,
 			);
 			name = Events;
 			sourceTree = "<group>";
@@ -463,6 +462,7 @@
 		4564F6DD1DB981BA001B709C /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
+				45D073301EA84924000604D3 /* EventsCollectionViewController.swift */,
 				4546A5461EE5BC17000CBD53 /* PaymentPopup.swift */,
 				45EA513C1DDE74AC00BD076C /* ParkingAnnotation.swift */,
 				4544AA801E2C0D9E008A760F /* ParkingAnnotationView.swift */,

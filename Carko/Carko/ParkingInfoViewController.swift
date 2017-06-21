@@ -24,6 +24,11 @@ class ParkingInfoViewController: UITableViewController {
         NotificationCenter.default.removeObserver(self)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.reloadData()
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ChangeDescription" {
             let destinationVC = segue.destination as! ParkingDescriptionViewController
@@ -130,6 +135,31 @@ extension ParkingInfoViewController {
 
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 15.0
+    }
+
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 && AuthenticationHelper.getCustomer().accountId == nil {
+            return 20.0
+        }
+        return 0.0
+    }
+
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section == 0 && AuthenticationHelper.getCustomer().accountId == nil {
+            //FIXME translate
+            let button = NoBorderButton.init(frame: CGRect.init(x: self.tableView.frame.width / 2, y: 0, width: self.tableView.frame.width, height: 15.0))
+            button.setTitle("To list this parking, please setup your payout information", for: .normal)
+            button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 10.0)
+            button.setTitleColor(UIColor.accentColor, for: .normal)
+            button.backgroundColor = UIColor.clear
+            button.addTarget(self, action: #selector(self.addAccountTapped), for: .touchUpInside)
+            return button
+        }
+        return nil
+    }
+
+    func addAccountTapped() {
+        self.performSegue(withIdentifier: "showPayout", sender: nil)
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

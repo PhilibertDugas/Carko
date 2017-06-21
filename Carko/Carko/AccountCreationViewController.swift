@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Crashlytics
 
 
 class AccountCreationViewController: UIViewController {
@@ -25,7 +26,18 @@ class AccountCreationViewController: UIViewController {
     var completedView: PaymentSetupCompleted?
 
     @IBAction func cancelTapped(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true) {
+            for parking in AppState.shared.cachedCustomerParkings() {
+                if AuthenticationHelper.getCustomer().accountId != nil && !parking.isComplete {
+                    parking.isComplete = true
+                    parking.update(complete: { (error) in
+                        if let error = error {
+                            Crashlytics.sharedInstance().recordError(error)
+                        }
+                    })
+                }
+            }
+        }
     }
 
     @IBAction func timeEditBegin(_ sender: UITextField) {
