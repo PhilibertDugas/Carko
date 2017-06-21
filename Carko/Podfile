@@ -6,10 +6,13 @@ inhibit_all_warnings!
 platform :ios, '10.0'
 
 def shared_pods
-  pod 'Firebase'
+  pod 'Firebase', '>= 2.5.1'
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
-  pod 'FirebaseUI/Storage', '~> 1.0'
+  pod 'Firebase/Performance'
+  pod 'FirebaseUI/Storage', '>= 2.0.1'
+  pod 'FirebaseUI/Auth'
+  pod 'FirebaseUI/Facebook'
   pod 'Stripe'
   pod 'Alamofire'
   pod 'IQKeyboardManagerSwift'
@@ -18,8 +21,6 @@ def shared_pods
   pod 'SCLAlertView'
   pod 'Fabric'
   pod 'Crashlytics'
-  pod 'FirebaseUI/Auth'
-  pod 'FirebaseUI/Facebook'
 end
 
 target 'Carko' do

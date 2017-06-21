@@ -211,7 +211,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		10D4B2BEBADD4B8FAA839F33 /* Pods_Carko___Production.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Carko___Production.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		10D4B2BEBADD4B8FAA839F33 /* Pods_Carko___Production.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Carko___Production.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A24841CBF4275CEAFD41771 /* Pods-CarkoProduction.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarkoProduction.release.xcconfig"; path = "Pods/Target Support Files/Pods-CarkoProduction/Pods-CarkoProduction.release.xcconfig"; sourceTree = "<group>"; };
 		30759D0CD7ED81144FFA1563 /* Pods_Carko_CarkoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Carko_CarkoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4508FD941E182692004458F0 /* FindParkingViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindParkingViewControllerTest.swift; sourceTree = "<group>"; };
@@ -307,7 +307,7 @@
 		45C1DBEC1DD7870A00B2C96F /* ParkingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingTest.swift; sourceTree = "<group>"; };
 		45CA60761EF0E4B20026E58A /* PhotoAddCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoAddCollectionViewCell.swift; sourceTree = "<group>"; };
 		45CD61C71EEC786A00068957 /* ParkingPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
-		45CD61C91EEC8FA600068957 /* Carko - Production.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Carko - Production.entitlements"; sourceTree = SOURCE_ROOT; };
+		45CD61C91EEC8FA600068957 /* CarkoProduction.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CarkoProduction.entitlements; sourceTree = SOURCE_ROOT; };
 		45D073301EA84924000604D3 /* EventsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsCollectionViewController.swift; sourceTree = "<group>"; };
 		45D073321EA84A75000604D3 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		45D5D60F1E1B2EDE006BE596 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -320,7 +320,7 @@
 		45FDF49B1EC5555200A9904A /* HistoryEmpty.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryEmpty.xib; sourceTree = "<group>"; };
 		47673BA8A0312AD2EF5B8C56 /* Pods-CarkoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarkoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CarkoTests/Pods-CarkoTests.release.xcconfig"; sourceTree = "<group>"; };
 		51BE0236C2E899D05DB12FEF /* Pods-CarkoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarkoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CarkoUITests/Pods-CarkoUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		520A5204DA55AC9C1CA7D53C /* Pods_default_Carko___Production.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_default_Carko___Production.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		520A5204DA55AC9C1CA7D53C /* Pods_default_Carko___Production.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_default_Carko___Production.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		538BFE4EA50CCE486CF330C6 /* Pods_Carko.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Carko.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B75E7E9A81373F8C2777563 /* Pods-CarkoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarkoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CarkoUITests/Pods-CarkoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6FFDB9C09B8B7F86AD4E1C22 /* Pods-CarkoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarkoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CarkoTests/Pods-CarkoTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -618,7 +618,7 @@
 		45BC29431DA18249000C54BC /* Carko */ = {
 			isa = PBXGroup;
 			children = (
-				45CD61C91EEC8FA600068957 /* Carko - Production.entitlements */,
+				45CD61C91EEC8FA600068957 /* CarkoProduction.entitlements */,
 				45782C241E2E9A1E002E9DFD /* Carko.entitlements */,
 				C5271B111EBBDDC4001B5094 /* Carko-Bridging-Header.h */,
 				45637CFE1DEB184500DD42C0 /* AppState.swift */,
@@ -882,7 +882,7 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
-								enabled = 0;
+								enabled = 1;
 							};
 							com.apple.Maps.iOS = {
 								enabled = 0;
@@ -1027,7 +1027,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		201BB63EDC80E7737BCCD6EC /* [CP] Copy Pods Resources */ = {
@@ -1072,7 +1072,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		45AABAF61EF607C3006C268E /* [CP] Embed Pods Frameworks */ = {
@@ -1144,7 +1144,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		76A5BEB778AC4750535E40EE /* [CP] Embed Pods Frameworks */ = {
@@ -1204,7 +1204,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1637,7 +1637,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Carko/Carko.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = NS2A2ZLLX3;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -1666,7 +1666,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Carko/Carko.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = NS2A2ZLLX3;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",

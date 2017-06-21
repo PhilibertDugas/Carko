@@ -10,6 +10,8 @@ import UIKit
 import FirebaseAuthUI
 
 class AuthPickerViewController: FUIAuthPickerViewController {
+    var webView: UIWebView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -19,6 +21,8 @@ class AuthPickerViewController: FUIAuthPickerViewController {
         self.view.backgroundColor = UIColor.secondaryViewsBlack
         self.hideTableViewRows()
         self.setupCityGif()
+        self.addLogo()
+        self.addCancel()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -42,9 +46,34 @@ class AuthPickerViewController: FUIAuthPickerViewController {
     private func setupCityGif() {
         let filePath = Bundle.main.path(forResource: "city", ofType: "gif")
         let gif = NSData.init(contentsOfFile: filePath!)
-        let webView = UIWebView.init(frame: self.view.frame)
+        webView = UIWebView.init(frame: self.view.frame)
         webView.load(gif! as Data, mimeType: "image/gif", textEncodingName: String.init(), baseURL: NSURL.init() as URL)
         webView.isUserInteractionEnabled = false
         self.view.insertSubview(webView, at: 0)
+    }
+
+    private func addLogo() {
+        let image = UIImageView.init(frame: CGRect.init(x: self.view.frame.width / 2 - 64, y: self.view.frame.height / 2 - 128, width: 128, height: 128))
+        image.layer.cornerRadius = 10
+        image.clipsToBounds = true
+        image.image = UIImage.init(named: "launchscreen_logo")
+        self.view.insertSubview(image, aboveSubview: webView)
+    }
+
+    private func addCancel() {
+        let backgroundView = CircularView.init(frame: CGRect.init(x: 16, y: 36, width: 34, height: 34))
+        backgroundView.backgroundColor = UIColor.secondaryViewsBlack
+
+        let button = CircularButton.init(frame: CGRect.init(x: backgroundView.bounds.origin.x , y: backgroundView.bounds.origin.y, width: 17, height: 17))
+        button.center = CGPoint.init(x: backgroundView.bounds.size.width / 2, y: backgroundView.bounds.size.height / 2)
+        button.setBackgroundImage(UIImage.init(named: "cancel_icon"), for: UIControlState.normal)
+        button.addTarget(self, action: #selector(self.buttonPressed), for: .touchUpInside)
+
+        backgroundView.addSubview(button)
+        self.view.insertSubview(backgroundView, aboveSubview: webView)
+    }
+
+    func buttonPressed() {
+        self.dismiss(animated: true, completion: nil)
     }
 }

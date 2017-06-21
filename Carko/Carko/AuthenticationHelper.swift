@@ -39,7 +39,7 @@ class AuthenticationHelper: NSObject {
     }
 
     class func updateAuthToken(_ complete: @escaping (Error?) -> Void) {
-        let currentUser = FIRAuth.auth()?.currentUser
+        let currentUser = Auth.auth().currentUser
         currentUser?.getTokenForcingRefresh(true, completion: { (idToken, error) in
             if let error = error {
                 complete(error)
@@ -64,7 +64,7 @@ class AuthenticationHelper: NSObject {
     class func customerAvailable() -> Bool {
         let customer = AppState.shared.cachedCustomer()
         let authToken = AppState.shared.cachedToken()
-        if FIRAuth.auth()?.currentUser == nil || customer == nil || authToken == nil {
+        if Auth.auth().currentUser == nil || customer == nil || authToken == nil {
             return false
         } else {
             return true
@@ -82,16 +82,17 @@ class AuthenticationHelper: NSObject {
     }
 
     class func resetCustomer() {
-        try! FIRAuth.auth()!.signOut()
+        try! Auth.auth().signOut()
+        FBSDKAccessToken.setCurrent(nil)
         AppState.shared.resetCustomer()
     }
 }
 
 extension AuthenticationHelper: FUIAuthDelegate {
-    func authUI(_ authUI: FUIAuth, didSignInWith user: FIRUser?, error: Error?) {
+    func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
         if let current = FBSDKAccessToken.current() {
-            let credential = FIRFacebookAuthProvider.credential(withAccessToken: current.tokenString)
-            FIRAuth.auth()?.signIn(with: credential, completion: { (user, error) in
+            let credential = FacebookAuthProvider.credential(withAccessToken: current.tokenString)
+            Auth.auth().signIn(with: credential, completion: { (user, error) in
                 if let error = error {
                     Crashlytics.sharedInstance().recordError(error)
                 } else if let user = user {
@@ -107,7 +108,7 @@ extension AuthenticationHelper: FUIAuthDelegate {
         return AuthPickerViewController(nibName: "AuthPickerViewController", bundle: Bundle.main, authUI: authUI)
     }
 
-    private func ensureCustomerInBackend(_ user: FIRUser) {
+    private func ensureCustomerInBackend(_ user: User) {
         Customer.getCustomer { (customer, error) in
             if let error = error {
                 Crashlytics.sharedInstance().recordError(error)
@@ -118,7 +119,7 @@ extension AuthenticationHelper: FUIAuthDelegate {
                 let newCustomer = NewCustomer.init(email: user.email!, displayName: user.displayName!, firebaseId: user.uid)
                 newCustomer.register(complete: { (error) in
                     if error != nil {
-                        try! FIRAuth.auth()!.signOut()
+                        try! Auth.auth().signOut()
                     } else {
                         self.initCustomer()
                     }

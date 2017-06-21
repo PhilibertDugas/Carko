@@ -69,7 +69,12 @@ class CircularButton: UIButton {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         layer.cornerRadius = 0.5 * bounds.size.width
-        layer.borderWidth = 0.5
+        clipsToBounds = true
+    }
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        layer.cornerRadius = 0.5 * bounds.size.width
         clipsToBounds = true
     }
 }

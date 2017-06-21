@@ -69,14 +69,17 @@ class BookParkingViewController: UIViewController {
     }
 
     private func handleConfirmTapped() {
-        if !self.parking.isAvailable {
-            super.displayErrorMessage(NSLocalizedString("The parking is currently busy", comment: ""))
-        } else if self.parking.customerId == AppState.shared.customer.id {
+         if self.parking.customerId == AuthenticationHelper.getCustomer().id {
             super.displayErrorMessage(NSLocalizedString("The parking is your own. You can't rent your own parking", comment: ""))
         } else if AppState.shared.customer.vehicule == nil {
+            // FIXME Translate
             super.displayErrorMessage("Please set your vehicule information in the profile section")
         } else if self.paymentContext.selectedPaymentMethod == nil {
-            super.displayErrorMessage("Please select a payment method")
+            // FIXME Translate
+            let controller = super.getAlertController("Please select a payment method")
+            self.present(controller, animated: true, completion: { 
+                self.paymentContext.presentPaymentMethodsViewController()
+            })
         } else {
             self.promptCompletion()
         }
@@ -123,6 +126,17 @@ class BookParkingViewController: UIViewController {
             self.paymentContext.hostViewController = self
         }
         animateToPartial()
+        setButtonState()
+    }
+
+    private func setButtonState() {
+        if self.parking.isAvailable {
+            self.confirmButton.alpha = 1.0
+            self.confirmButton.isEnabled = true
+        } else {
+            self.confirmButton.alpha = 0.6
+            self.confirmButton.isEnabled = false
+        }
     }
 
     fileprivate func prepareBackgroundView(){

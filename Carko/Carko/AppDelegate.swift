@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseAuthUI
+import FBSDKCoreKit
 import Stripe
 import IQKeyboardManagerSwift
 import UserNotifications
@@ -25,6 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         setupStripe()
         setupServers()
+
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
 
         return true
     }
@@ -52,8 +55,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             Fabric.with([Crashlytics.self])
         #endif
 
-        let firebaseOptions = FIROptions(contentsOfFile: Bundle.main.path(forResource: firebaseFile, ofType: "plist"))
-        FIRApp.configure(with: firebaseOptions!)
+        let firebaseOptions = FirebaseOptions(contentsOfFile: Bundle.main.path(forResource: firebaseFile, ofType: "plist")!)
+        FirebaseApp.configure(options: firebaseOptions!)
         APIClient.shared.baseUrl = URL.init(string: apiUrl)!
     }
 
@@ -66,14 +69,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        return FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
+    }
+
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         let sourceApplication = options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String?
+        let annotations = options[UIApplicationOpenURLOptionsKey.annotation]
         if FUIAuth.defaultAuthUI()?.handleOpen(url, sourceApplication: sourceApplication) ?? false {
             return true
         }
-        // other URL handling goes here.
-        return false
-
+        return FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: sourceApplication, annotation: annotations)
     }
 }
 

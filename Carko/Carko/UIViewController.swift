@@ -20,10 +20,14 @@ extension UIViewController {
 }
 
 extension UIViewController {
-    func displayErrorMessage(_ message: String) {
+    func getAlertController(_ message: String) -> UIAlertController {
         let alert = UIAlertController.init(title: NSLocalizedString("Error", comment: ""), message: message, preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction.init(title: NSLocalizedString("Ok", comment: ""), style: UIAlertActionStyle.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+        return alert
+    }
+
+    func displayErrorMessage(_ message: String) {
+        self.present(getAlertController(message), animated: true, completion: nil)
     }
 
     func displayMessage(_ message: String, title: String) {

@@ -10,6 +10,7 @@ import UIKit
 import FirebaseStorageUI
 import FirebaseAuth
 import AVFoundation
+import Crashlytics
 
 class EventsCollectionViewController: UICollectionViewController {
     fileprivate let reservationIdentifier = "ReservationCell"
@@ -86,6 +87,7 @@ class EventsCollectionViewController: UICollectionViewController {
     fileprivate func fetchReservations() {
         Reservation.getCustomerActiveReservations { (reservations, error) in
             if let error = error {
+                Crashlytics.sharedInstance().recordError(error)
                 self.displayErrorMessage(error.localizedDescription)
             } else {
                 self.reservations = reservations

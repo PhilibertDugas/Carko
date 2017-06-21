@@ -25,7 +25,7 @@ extension APIClient: STPBackendAPIAdapter {
         }
     }
 
-    func selectDefaultCustomerSource(_ source: STPSource, completion: @escaping STPErrorBlock) {
+    func selectDefaultCustomerSource(_ source: STPSourceProtocol, completion: @escaping STPErrorBlock) {
         let postUrl = baseUrl.appendingPathComponent("/customers/\(AppState.shared.customer.id)/default_source")
         let parameters: Parameters = ["customer": ["default_source": source.stripeID]]
 
@@ -38,7 +38,7 @@ extension APIClient: STPBackendAPIAdapter {
         }
     }
 
-    func attachSource(toCustomer source: STPSource, completion: @escaping STPErrorBlock) {
+    func attachSource(toCustomer source: STPSourceProtocol, completion: @escaping STPErrorBlock) {
         let postUrl = baseUrl.appendingPathComponent("/customers/\(AppState.shared.customer.id)/sources")
         let parameters: Parameters = ["customer": ["source": source.stripeID]]
 

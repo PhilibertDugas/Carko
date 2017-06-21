@@ -179,13 +179,13 @@ extension PhotoEditCollectionViewController: NohanaImagePickerControllerDelegate
         self.activityIndicator.startAnimating()
         let totalImageCount = images.count + self.parking.multiplePhotoUrls.count
         let date = Date.init()
-        let metadata = FIRStorageMetadata()
+        let metadata = StorageMetadata()
         metadata.contentType = "image/jpeg"
 
         for (index, image) in images.enumerated() {
             let path = "user_\(AuthenticationHelper.getCustomer().id)_\(date)_\(index)"
             let data = UIImageJPEGRepresentation(image, 0.8)!
-            AppState.shared.storageReference.child(path).put(data, metadata: metadata).observe(FIRStorageTaskStatus.success) { (snapshot) in
+            AppState.shared.storageReference.child(path).putData(data, metadata: metadata).observe(StorageTaskStatus.success) { (snapshot) in
                 if let metadata = snapshot.metadata {
                     if let url = metadata.downloadURL() {
                         self.parking.multiplePhotoUrls.append(url)

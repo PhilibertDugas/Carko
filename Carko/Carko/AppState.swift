@@ -19,7 +19,7 @@ class AppState: NSObject {
     var customer: Customer!
     var authToken: String!
     var customerParkings = [Int: Parking]()
-    let storageReference = FIRStorage.storage().reference()
+    let storageReference = Storage.storage().reference()
 
     func cacheVehicule(_ vehicule: Vehicule) {
         self.customer.vehicule = vehicule

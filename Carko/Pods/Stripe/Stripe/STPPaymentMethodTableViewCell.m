@@ -7,11 +7,11 @@
 //
 
 #import "STPPaymentMethodTableViewCell.h"
+
+#import "STPApplePayPaymentMethod.h"
 #import "STPCard.h"
 #import "STPImageLibrary+Private.h"
 #import "STPLocalizationUtils.h"
-#import "STPApplePayPaymentMethod.h"
-#import "NSString+Stripe_CardBrands.h"
 
 @interface STPPaymentMethodTableViewCell ()
 @property(nonatomic) id<STPPaymentMethod> paymentMethod;
@@ -66,7 +66,9 @@
     [self setNeedsLayout];
 }
 
-- (void)configureWithPaymentMethod:(id<STPPaymentMethod>)paymentMethod theme:(STPTheme *)theme {
+- (void)configureWithPaymentMethod:(id<STPPaymentMethod>)paymentMethod
+                          selected:(BOOL)selected
+                             theme:(STPTheme *)theme {
     _paymentMethod = paymentMethod;
     _theme = theme;
     self.backgroundColor = [UIColor clearColor];
@@ -75,15 +77,9 @@
     self.titleLabel.font = self.theme.font;
     self.checkmarkIcon.tintColor = self.theme.accentColor;
     self.selected = NO;
-}
-
-- (void)setSelected:(BOOL)selected {
-    [super setSelected:selected];
-    if (self.paymentMethod != nil) {
-        self.checkmarkIcon.hidden = !self.selected;
-        self.leftIcon.tintColor = [self primaryColorForPaymentMethodWithSelectedState:self.selected];
-        self.titleLabel.attributedText = [self buildAttributedStringForPaymentMethod:self.paymentMethod selected:self.selected];
-    }
+    self.checkmarkIcon.hidden = !selected;
+    self.leftIcon.tintColor = [self primaryColorForPaymentMethodWithSelectedState:selected];
+    self.titleLabel.attributedText = [self buildAttributedStringForPaymentMethod:self.paymentMethod selected:selected];
 }
 
 - (UIColor *)primaryColorForPaymentMethodWithSelectedState:(BOOL)isSelected {
@@ -96,7 +92,7 @@
         return [self buildAttributedStringForCard:(STPCard *)paymentMethod selected:selected];
     } else if ([paymentMethod isKindOfClass:[STPApplePayPaymentMethod class]]) {
         NSString *label = STPLocalizedString(@"Apple Pay", 
-                                             @"Apple Pay payment method");
+                                             @"Text for Apple Pay payment method");
         UIColor *primaryColor = [self primaryColorForPaymentMethodWithSelectedState:selected];
         return [[NSAttributedString alloc] initWithString:label attributes:@{NSForegroundColorAttributeName: primaryColor}];
     }
@@ -105,7 +101,7 @@
 
 - (NSAttributedString *)buildAttributedStringForCard:(STPCard *)card selected:(BOOL)selected {
     NSString *template = STPLocalizedString(@"%@ Ending In %@", @"{card brand} ending in {last4}");
-    NSString *brandString = [NSString stp_stringWithCardBrand:card.brand];
+    NSString *brandString = [STPCard stringFromBrand:card.brand];
     NSString *label = [NSString stringWithFormat:template, brandString, card.last4];
     UIColor *primaryColor = selected ? self.theme.accentColor : self.theme.primaryForegroundColor;
     UIColor *secondaryColor = [primaryColor colorWithAlphaComponent:0.6f];

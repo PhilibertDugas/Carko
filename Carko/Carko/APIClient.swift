@@ -16,7 +16,7 @@ class APIClient: NSObject {
     var baseUrl: URL!
 
     func customerId() -> String {
-        return (FIRAuth.auth()?.currentUser?.uid)!
+        return (Auth.auth().currentUser?.uid)!
     }
 
     func authHeaders() -> HTTPHeaders! {
