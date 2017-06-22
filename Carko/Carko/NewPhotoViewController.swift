@@ -8,7 +8,6 @@
 
 import UIKit
 import FirebaseStorage
-import SCLAlertView
 import NohanaImagePicker
 import Photos
 
@@ -211,7 +210,7 @@ extension NewPhotoViewController: NohanaImagePickerControllerDelegate {
         }
     }
 
-    private func displaySuccessMessage() {
+    func displaySuccessMessage() {
         // fixme translate
         manager = PopupManager.init(parentView: self.view, title: NSLocalizedString("Congratulations", comment: ""), description: "You just added a parking")
         manager.successPopup.confirmButton.addTarget(self, action: #selector(self.dismissPopup), for: .touchUpInside)

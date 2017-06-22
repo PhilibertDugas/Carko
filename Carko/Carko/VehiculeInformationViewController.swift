@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SCLAlertView
 
 class VehiculeInformationViewController: UIViewController {
     @IBOutlet var licensePlateTextField: UnderlineTextField!
@@ -129,7 +128,7 @@ extension VehiculeInformationViewController {
         self.textChanged()
     }
 
-    private func displaySuccessMessage() {
+    fileprivate func displaySuccessMessage() {
         // fixme translate
         manager = PopupManager.init(parentView: self.view, title: NSLocalizedString("Congratulations", comment: ""), description: NSLocalizedString("You just added your vehicule", comment: ""))
         manager.successPopup.confirmButton.addTarget(self, action: #selector(self.dismissPopup), for: .touchUpInside)

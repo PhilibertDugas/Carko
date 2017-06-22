@@ -8,7 +8,6 @@
 
 import UIKit
 import Stripe
-import SCLAlertView
 
 class BankCreationViewController: UIViewController {
     @IBOutlet var routingNumberTextField: UnderlineTextField!

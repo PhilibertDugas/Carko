@@ -241,8 +241,8 @@
                                             <action selector="saveTapped:" destination="T8m-nI-Sm5" eventType="touchUpInside" id="RfU-gC-xmJ"/>
                                         </connections>
                                     </button>
-                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="uUu-ZS-Hf8">
-                                        <rect key="frame" x="97.5" y="4" width="37" height="52.5"/>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="uUu-ZS-Hf8">
+                                        <rect key="frame" x="114.5" y="4" width="20" height="52.5"/>
                                     </activityIndicatorView>
                                 </subviews>
                                 <constraints>
