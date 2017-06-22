@@ -143,17 +143,13 @@ extension AccountCreationViewController {
     }
 
     func textChanged() {
-        if allFieldsFilled() {
+        if TextFieldsValidator.fieldsAreFilled([addressTextField, cityTextField, stateTextField, postalCodeTextField, countryTextField, dobTextField]) {
             self.continueButton.isEnabled = true
             self.continueButton.alpha = 1.0
         } else {
             self.continueButton.isEnabled = false
             self.continueButton.alpha = 0.6
         }
-    }
-
-    func allFieldsFilled() -> Bool {
-        return addressTextField.text != "" && cityTextField.text != "" && stateTextField.text != "" && postalCodeTextField.text != "" && countryTextField.text != "" && dobTextField.text != ""
     }
 }
 

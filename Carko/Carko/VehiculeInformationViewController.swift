@@ -65,22 +65,13 @@ class VehiculeInformationViewController: UIViewController {
 
 extension VehiculeInformationViewController {
     func textChanged() {
-        if allFieldsFilled() {
+        if TextFieldsValidator.fieldsAreFilled([licensePlateTextField, makeTextField, modelTextField, yearTextField, colorTextField, provinceTextField]) {
             saveButton.isEnabled = true
             saveButton.alpha = 1.0
         } else {
             saveButton.alpha = 0.6
             saveButton.isEnabled = false
         }
-    }
-
-    func allFieldsFilled() -> Bool {
-        for field in [licensePlateTextField, makeTextField, modelTextField, yearTextField, colorTextField, provinceTextField] {
-            if field?.text == nil || (field?.text?.isEmpty)! {
-                return false
-            }
-        }
-        return true
     }
 
     func setupYears() {

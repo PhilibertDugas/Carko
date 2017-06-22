@@ -47,17 +47,13 @@ extension BankCreationViewController {
     }
 
     func textChanged() {
-        if allFieldsFilled() {
+        if TextFieldsValidator.fieldsAreFilled([routingNumberTextField, accountNumberTextField]) {
             self.saveButton.isEnabled = true
             self.saveButton.alpha = 1.0
         } else {
             self.saveButton.isEnabled = false
             self.saveButton.alpha = 0.6
         }
-    }
-
-    func allFieldsFilled() -> Bool {
-        return routingNumberTextField.text != "" && accountNumberTextField.text != ""
     }
 }
 

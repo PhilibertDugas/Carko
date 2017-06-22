@@ -98,7 +98,6 @@ PODS:
   - OHHTTPStubs/Swift (6.0.0):
     - OHHTTPStubs/Default
   - Protobuf (3.3.0)
-  - SCLAlertView (0.7.0)
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
@@ -120,7 +119,6 @@ DEPENDENCIES:
   - NohanaImagePicker
   - OHHTTPStubs
   - OHHTTPStubs/Swift
-  - SCLAlertView
   - Stripe
 
 SPEC CHECKSUMS:
@@ -145,10 +143,9 @@ SPEC CHECKSUMS:
   NohanaImagePicker: ae909c23150c30e29ab2c5d48766c39eef21d790
   OHHTTPStubs: 752f9b11fd810a15162d50f11c06ff94f8e012eb
   Protobuf: d582fecf68201eac3d79ed61369ef45734394b9c
-  SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   Stripe: 5c5a49d750952b1801e4c1f5c4264a08e427c67d
 
-PODFILE CHECKSUM: cd68bb1c20f470e4ed47b9a16b0902ba16f81c40
+PODFILE CHECKSUM: 628c46a7547ac5d22500ed5332f65556976aa42a
 
 COCOAPODS: 1.2.1
