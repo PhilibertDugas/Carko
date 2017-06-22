@@ -1,0 +1,15 @@
+
+/* Class = "UIButton"; normalTitle = "Confirm"; ObjectID = "Tp4-sU-ELS"; */
+"Tp4-sU-ELS.normalTitle" = "Confirmer";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "scG-Ye-pl1"; */
+"scG-Ye-pl1.normalTitle" = "Annuler";
+
+/* Class = "UILabel"; text = "Payment"; ObjectID = "tZL-Ol-e4K"; */
+"tZL-Ol-e4K.text" = "Paiement";
+
+/* Class = "UILabel"; text = "Price"; ObjectID = "xEY-LQ-iKG"; */
+"xEY-LQ-iKG.text" = "Prix";
+
+/* Class = "UILabel"; text = "Credit card info"; ObjectID = "zvr-Wq-BOG"; */
+"zvr-Wq-BOG.text" = "Information de la carte de crédit";

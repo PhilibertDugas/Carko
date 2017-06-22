@@ -21,11 +21,6 @@ class AppState: NSObject {
     var customerParkings = [Int: Parking]()
     let storageReference = Storage.storage().reference()
 
-    func cacheVehicule(_ vehicule: Vehicule) {
-        self.customer.vehicule = vehicule
-        updateCache()
-    }
-
     func cacheCustomer(_ customer: Customer) {
         self.customer = customer
         updateCache()

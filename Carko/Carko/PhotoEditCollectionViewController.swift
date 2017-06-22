@@ -45,12 +45,10 @@ class PhotoEditCollectionViewController: UICollectionViewController {
     @IBAction func pressedEdit(_ sender: Any) {
         if self.isEditing {
             self.setEditing(false, animated: true)
-            // FIXME: Translate
-            editButton.title = "Edit"
+            editButton.title = Translations.t("Edit")
         } else {
             self.setEditing(true, animated: true)
-            // FIXME: Translate
-            editButton.title = "Done"
+            editButton.title = Translations.t("Done")
         }
         self.collectionView!.reloadData()
     }

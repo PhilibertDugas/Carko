@@ -1,18 +1,21 @@
 
 /* Class = "UILabel"; text = "Add a short description of your parking and details to help people use your parking."; ObjectID = "1Ha-2Z-4gN"; */
-"1Ha-2Z-4gN.text" = "Add a short description of your parking and details to help people use your parking.";
+"1Ha-2Z-4gN.text" = "Ajoutez une courte description de votre stationnement avec des détails pour aider les personnes à utiliser celui-ci.";
 
-/* Class = "UILabel"; text = "Label"; ObjectID = "4C9-A4-OuG"; */
-"4C9-A4-OuG.text" = "Label";
+/* Class = "UILabel"; text = "Not listed yet"; ObjectID = "2NF-i2-Wc3"; */
+"2NF-i2-Wc3.text" = "Non affiché";
+
+/* Class = "UILabel"; text = "Edit Photos"; ObjectID = "2lm-7R-cbV"; */
+"2lm-7R-cbV.text" = "Modifier les photos";
+
+/* Class = "UINavigationItem"; title = "Description"; ObjectID = "4K6-r8-pbm"; */
+"4K6-r8-pbm.title" = "Description";
 
 /* Class = "UIBarButtonItem"; title = " "; ObjectID = "8iW-N7-YXx"; */
 "8iW-N7-YXx.title" = " ";
 
 /* Class = "UILabel"; text = "Thursday"; ObjectID = "8o4-3X-Bon"; */
-"8o4-3X-Bon.text" = "Thursday";
-
-/* Class = "UILabel"; text = "Description"; ObjectID = "97Z-er-EN3"; */
-"97Z-er-EN3.text" = "Description";
+"8o4-3X-Bon.text" = "Jeudi";
 
 /* Class = "UILabel"; text = "Description"; ObjectID = "DxT-Mu-Cqu"; */
 "DxT-Mu-Cqu.text" = "Description";
@@ -21,64 +24,61 @@
 "IlI-uu-l32.title" = "Description";
 
 /* Class = "UINavigationItem"; title = "Rent your space"; ObjectID = "Izw-FH-bjk"; */
-"Izw-FH-bjk.title" = "Rent your space";
+"Izw-FH-bjk.title" = "Louez votre espace";
 
 /* Class = "UILabel"; text = "Subtitle"; ObjectID = "JQz-mh-afv"; */
 "JQz-mh-afv.text" = "Subtitle";
 
-/* Class = "UINavigationItem"; title = "Edit"; ObjectID = "KpL-vS-Qbr"; */
-"KpL-vS-Qbr.title" = "Edit";
-
 /* Class = "UITextField"; placeholder = "What is your address?"; ObjectID = "LQa-et-Zpa"; */
-"LQa-et-Zpa.placeholder" = "What is your address?";
+"LQa-et-Zpa.placeholder" = "Quelle est votre adresse??";
 
 /* Class = "UIButton"; normalTitle = "Save"; ObjectID = "Ofp-w2-QVc"; */
-"Ofp-w2-QVc.normalTitle" = "Save";
+"Ofp-w2-QVc.normalTitle" = "Sauvegarder";
 
 /* Class = "UILabel"; text = "Saturday"; ObjectID = "Pea-Vo-ovj"; */
-"Pea-Vo-ovj.text" = "Saturday";
+"Pea-Vo-ovj.text" = "Samedi";
 
 /* Class = "UILabel"; text = "Tuesday"; ObjectID = "SsE-2Y-6MY"; */
-"SsE-2Y-6MY.text" = "Tuesday";
+"SsE-2Y-6MY.text" = "Mardi";
+
+/* Class = "UILabel"; text = "Address"; ObjectID = "Trp-eZ-Fpy"; */
+"Trp-eZ-Fpy.text" = "Addresses";
 
 /* Class = "UIButton"; normalTitle = "Next"; ObjectID = "VBX-HI-Y7F"; */
-"VBX-HI-Y7F.normalTitle" = "Next";
+"VBX-HI-Y7F.normalTitle" = "Suivant";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "VKn-zw-SwI"; */
+"VKn-zw-SwI.text" = "Label";
 
 /* Class = "UIBarButtonItem"; title = " "; ObjectID = "VQM-oK-umi"; */
 "VQM-oK-umi.title" = " ";
 
 /* Class = "UINavigationItem"; title = "Schedule"; ObjectID = "VeK-yO-zWS"; */
-"VeK-yO-zWS.title" = "Schedule";
+"VeK-yO-zWS.title" = "Disponibilité";
 
 /* Class = "UINavigationItem"; title = "Location"; ObjectID = "Vyv-vW-VrG"; */
 "Vyv-vW-VrG.title" = "Location";
 
 /* Class = "UILabel"; text = "Friday"; ObjectID = "WCG-PO-JXo"; */
-"WCG-PO-JXo.text" = "Friday";
+"WCG-PO-JXo.text" = "Vendredi";
 
 /* Class = "UILabel"; text = "Wednesday"; ObjectID = "XCg-gG-alv"; */
-"XCg-gG-alv.text" = "Wednesday";
+"XCg-gG-alv.text" = "Mercredi";
+
+/* Class = "UILabel"; text = "Edit Photos"; ObjectID = "XJJ-NP-97g"; */
+"XJJ-NP-97g.text" = "Modifier les Photos";
+
+/* Class = "UIBarButtonItem"; title = "Delete"; ObjectID = "XQt-yc-MoP"; */
+"XQt-yc-MoP.title" = "Supprimer";
 
 /* Class = "UILabel"; text = "On what day(s) is your space available?"; ObjectID = "Xsw-bO-Dcn"; */
-"Xsw-bO-Dcn.text" = "On what day(s) is your space available?";
+"Xsw-bO-Dcn.text" = "Votre espace est disponible quels jours?";
 
 /* Class = "UINavigationItem"; title = "Description"; ObjectID = "acG-0B-zpB"; */
 "acG-0B-zpB.title" = "Description";
 
-/* Class = "UILabel"; text = "Address"; ObjectID = "cBU-XP-QGK"; */
-"cBU-XP-QGK.text" = "Address";
-
-/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "cyf-6U-NOa"; */
-"cyf-6U-NOa.normalTitle" = "Save";
-
-/* Class = "UIBarButtonItem"; title = "Delete"; ObjectID = "d5m-Eh-DJK"; */
-"d5m-Eh-DJK.title" = "Delete";
-
-/* Class = "UILabel"; text = "Schedule"; ObjectID = "dRq-TF-rqn"; */
-"dRq-TF-rqn.text" = "Schedule";
-
 /* Class = "UILabel"; text = "Monday"; ObjectID = "e23-E9-cZL"; */
-"e23-E9-cZL.text" = "Monday";
+"e23-E9-cZL.text" = "Lundi";
 
 /* Class = "UILabel"; text = "Title"; ObjectID = "eEH-F0-kVK"; */
 "eEH-F0-kVK.text" = "Title";
@@ -87,28 +87,28 @@
 "fTF-V0-4rP.title" = " ";
 
 /* Class = "UILabel"; text = "Total Earned:"; ObjectID = "gV7-XP-iCT"; */
-"gV7-XP-iCT.text" = "Total Earned:";
+"gV7-XP-iCT.text" = "Montant accumulé:";
 
 /* Class = "UIButton"; normalTitle = "Next"; ObjectID = "hpS-Hl-AhN"; */
-"hpS-Hl-AhN.normalTitle" = "Next";
-
-/* Class = "UILabel"; text = "Label"; ObjectID = "iFm-vk-rOy"; */
-"iFm-vk-rOy.text" = "Label";
+"hpS-Hl-AhN.normalTitle" = "Suivant";
 
 /* Class = "UIBarButtonItem"; title = " "; ObjectID = "iYv-1Y-0jK"; */
 "iYv-1Y-0jK.title" = " ";
 
+/* Class = "UINavigationItem"; title = "Description"; ObjectID = "kE6-cj-b41"; */
+"kE6-cj-b41.title" = "Description";
+
 /* Class = "UILabel"; text = "Add photos showing your parking"; ObjectID = "nID-Qw-kTP"; */
-"nID-Qw-kTP.text" = "Add photos showing your parking";
+"nID-Qw-kTP.text" = "Ajouter des photos de votre stationnement";
 
 /* Class = "UILabel"; text = "$$"; ObjectID = "oft-sv-loS"; */
 "oft-sv-loS.text" = "$$";
 
-/* Class = "UILabel"; text = "Label"; ObjectID = "prI-0w-URs"; */
-"prI-0w-URs.text" = "Label";
+/* Class = "UIBarButtonItem"; title = "Edit"; ObjectID = "pTW-9q-jBG"; */
+"pTW-9q-jBG.title" = "Modifier";
 
 /* Class = "UIBarButtonItem"; title = " "; ObjectID = "uV0-mL-Bka"; */
 "uV0-mL-Bka.title" = " ";
 
 /* Class = "UILabel"; text = "Sunday"; ObjectID = "vcM-eF-EkU"; */
-"vcM-eF-EkU.text" = "Sunday";
+"vcM-eF-EkU.text" = "Dimanche";

@@ -21,9 +21,7 @@
         <!--Add-->
         <scene sceneID="6bg-5v-8Ia">
             <objects>
-                <viewControllerPlaceholder storyboardName="Add" id="VL7-ff-8nA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Add" id="Nmf-Gd-126"/>
-                </viewControllerPlaceholder>
+                <viewControllerPlaceholder storyboardName="Add" id="VL7-ff-8nA" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QqV-gm-mbt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2660" y="954"/>
@@ -133,7 +131,6 @@
         <scene sceneID="cYh-6o-Ekx">
             <objects>
                 <viewControllerPlaceholder storyboardName="Find" id="W64-o7-yGy" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Find" id="y8X-XN-2Dp"/>
                     <navigationItem key="navigationItem" id="7aK-Y1-Gg1"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JrX-Vc-WLP" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -92,20 +92,17 @@ extension ParkingInfoViewController {
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: labelCellIdentifier, for: indexPath) as! LabelParkingTableViewCell
-            // FIXME Translate
-            cell.cellTitleLabel.text = "Address"
+            cell.cellTitleLabel.text = Translations.t("Address")
             cell.cellContentLabel.text = parking.address
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: labelCellIdentifier, for: indexPath) as! LabelParkingTableViewCell
-            // FIXME Translate
-            cell.cellTitleLabel.text = "Schedule"
+            cell.cellTitleLabel.text = Translations.t("Schedule")
             cell.cellContentLabel.text = parking.availabilityInfo.daysEnumerationText()
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: labelCellIdentifier, for: indexPath) as! LabelParkingTableViewCell
-            // FIXME Translate
-            cell.cellTitleLabel.text = "Description"
+            cell.cellTitleLabel.text = Translations.t("Description")
             cell.cellContentLabel.text = parking.pDescription
             cell.cellContentLabel.sizeToFit()
             return cell
@@ -146,9 +143,8 @@ extension ParkingInfoViewController {
 
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0 && AuthenticationHelper.getCustomer().accountId == nil {
-            //FIXME translate
             let button = NoBorderButton.init(frame: CGRect.init(x: self.tableView.frame.width / 2, y: 0, width: self.tableView.frame.width, height: 15.0))
-            button.setTitle("To list this parking, please setup your payout information", for: .normal)
+            button.setTitle(Translations.t("To list this parking, complete the 'Payout' section"), for: .normal)
             button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 10.0)
             button.setTitleColor(UIColor.accentColor, for: .normal)
             button.backgroundColor = UIColor.clear

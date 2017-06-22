@@ -76,13 +76,12 @@ class AccountCreationViewController: UIViewController {
         self.setupProvincePicker()
         self.setupFields()
 
-        // FIXME: Translate
-        self.addressTextField.attributedPlaceholder = NSAttributedString.init(string: "Address", attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
-        self.cityTextField.attributedPlaceholder = NSAttributedString.init(string: "City", attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
-        self.stateTextField.attributedPlaceholder = NSAttributedString.init(string: "Province", attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
-        self.postalCodeTextField.attributedPlaceholder = NSAttributedString.init(string: "Postal Code", attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
-        self.countryTextField.attributedPlaceholder = NSAttributedString.init(string: "Country", attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
-        self.dobTextField.attributedPlaceholder = NSAttributedString.init(string: "Date of birth", attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
+        self.addressTextField.attributedPlaceholder = NSAttributedString.init(string: Translations.t("Address"), attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
+        self.cityTextField.attributedPlaceholder = NSAttributedString.init(string: Translations.t("City"), attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
+        self.stateTextField.attributedPlaceholder = NSAttributedString.init(string: Translations.t("Province"), attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
+        self.postalCodeTextField.attributedPlaceholder = NSAttributedString.init(string: Translations.t("Postal Code"), attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
+        self.countryTextField.attributedPlaceholder = NSAttributedString.init(string: Translations.t("Country"), attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
+        self.dobTextField.attributedPlaceholder = NSAttributedString.init(string: Translations.t("Date of birth"), attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -11,8 +11,9 @@ import Foundation
 struct VehiculeHelper {
     static let shared = VehiculeHelper.init()
 
-    // FIXME: Translate
-    static let vehiculeColors = ["Red", "Blue", "Green", "Yellow", "White", "Black", "Orange", "Pink", "Purple", "Silver", "Grey", "Gold", "Beige", "Other"]
+    static var vehiculeColors: [String] {
+        return ["Red", "Blue", "Green", "Yellow", "White", "Black", "Orange", "Pink", "Purple", "Silver", "Grey", "Gold", "Beige", "Other"].map {Translations.t($0)}.sorted()
+    }
     
     static func isValidPlate(_ licensePlate: String) -> Bool {
         let plateRegex = try! NSRegularExpression.init(pattern: "[A-Z0-9]{6}", options: .caseInsensitive)

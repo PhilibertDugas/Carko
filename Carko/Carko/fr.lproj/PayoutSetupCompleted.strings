@@ -1,0 +1,6 @@
+
+/* Class = "UILabel"; text = "Congrats, you're all setup"; ObjectID = "FnD-nE-byK"; */
+"FnD-nE-byK.text" = "Félicitation, vous avez complétez vos informations";
+
+/* Class = "UIButton"; normalTitle = "Change info"; ObjectID = "WFx-qK-1gp"; */
+"WFx-qK-1gp.normalTitle" = "Modifier les informations";

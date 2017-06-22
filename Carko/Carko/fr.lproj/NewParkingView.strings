@@ -1,0 +1,6 @@
+
+/* Class = "UILabel"; text = "Listing your parking is simple and takes around 10 minutes"; ObjectID = "O3s-F9-IjH"; */
+"O3s-F9-IjH.text" = "Afficher votre stationnement prend environ 10 minutes";
+
+/* Class = "UIButton"; normalTitle = "Get started"; ObjectID = "T2f-jH-OKc"; */
+"T2f-jH-OKc.normalTitle" = "Débutez";

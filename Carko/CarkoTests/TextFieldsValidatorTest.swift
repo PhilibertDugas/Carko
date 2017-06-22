@@ -30,7 +30,7 @@ class TextFieldsValidatorTest: XCTestCase {
     
     func testfieldsAreFilledReturnsFalseForNilValues() {
         textFields.first!.text = nil
-        XCTAssertFalse(TextFieldsValidator.fieldsAreFilled(textFields))
+        XCTAssertTrue(TextFieldsValidator.fieldsAreFilled(textFields))
     }
 
     func testfieldsAreFilledReturnsFalseForEmptyString() {

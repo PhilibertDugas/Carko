@@ -1,30 +1,30 @@
 
 /* Class = "UITextField"; placeholder = "Make"; ObjectID = "7vu-JN-M1S"; */
-"7vu-JN-M1S.placeholder" = "Make";
+"7vu-JN-M1S.placeholder" = "Marque";
 
 /* Class = "UIButton"; normalTitle = "Save"; ObjectID = "BEv-50-H6D"; */
-"BEv-50-H6D.normalTitle" = "Save";
+"BEv-50-H6D.normalTitle" = "Sauvegarder";
 
 /* Class = "UITextField"; placeholder = "Year"; ObjectID = "G9W-fV-Sf3"; */
-"G9W-fV-Sf3.placeholder" = "Year";
+"G9W-fV-Sf3.placeholder" = "Année";
 
 /* Class = "UINavigationItem"; title = "Vehicule"; ObjectID = "S0J-pa-iRk"; */
-"S0J-pa-iRk.title" = "Vehicule";
+"S0J-pa-iRk.title" = "Véhicule";
 
 /* Class = "UITextField"; placeholder = "License Plate"; ObjectID = "ULZ-dT-Wt8"; */
-"ULZ-dT-Wt8.placeholder" = "License Plate";
+"ULZ-dT-Wt8.placeholder" = "Plaque d'immatriculation";
 
 /* Class = "UIViewController"; title = "Vehicule Information"; ObjectID = "bGQ-vL-hvT"; */
-"bGQ-vL-hvT.title" = "Vehicule Information";
+"bGQ-vL-hvT.title" = "Information du véhicule";
 
 /* Class = "UITextField"; placeholder = "Color"; ObjectID = "fog-yp-9Ra"; */
-"fog-yp-9Ra.placeholder" = "Color";
+"fog-yp-9Ra.placeholder" = "Couleur";
 
 /* Class = "UITextField"; placeholder = "Province"; ObjectID = "qrv-IL-Lcz"; */
 "qrv-IL-Lcz.placeholder" = "Province";
 
 /* Class = "UITextField"; placeholder = "Model"; ObjectID = "tIU-9q-Fwc"; */
-"tIU-9q-Fwc.placeholder" = "Model";
+"tIU-9q-Fwc.placeholder" = "Modèle";
 
 /* Class = "UILabel"; text = "Enter the details of your vehicule to ensure your parking places"; ObjectID = "vbv-2G-mkl"; */
-"vbv-2G-mkl.text" = "Enter the details of your vehicule to ensure your parking places";
+"vbv-2G-mkl.text" = "Entrez les détails de votre véhicule pour assurer vos locations de stationnement";

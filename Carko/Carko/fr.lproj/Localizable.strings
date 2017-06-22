@@ -6,26 +6,60 @@
   Copyright © 2017 QH4L. All rights reserved.
 */
 
-"Until" = "Jusqu'à";
-"Cost:" = "Coût:";
-"Available until" = "Disponible jusqu'à";
-"The parking is currently busy" = "Le stationnement est occupé";
-"The parking is your own. You can't rent your own parking" = "Ce stationnement est le votre. Vous ne pouvez pas louer votre propre stationnement";
-"Enter your address" = "Entrez votre addresse";
-"Save" = "Sauvegardez";
-"Enter a description..." = "Entrez une description...";
-"Drag the marker to the exact location" = "Choisissez l'emplacement exacte";
-"Confirm payment of %@ to get a parking on %@" = "Confirmez le paiement de %# pour un stationnement le %@";
-"Confirm payment" = "Confirmez le paiement";
-"Error" = "Erreur";
-"Cancel" = "Annuler";
+// General
 "Ok" = "Ok";
-"Start" = "Début";
-"End" = "Fin";
-"Search for a location" = "Recherchez une location";
+"Error" = "Erreur";
 "Congratulations" = "Félicitation";
-"You just listed a parking" = "Vous avez affiché votre stationnement";
-"How it works" = "Comment ça marche";
-"Find any parking spot on the map to see their availability and book them!" = "Trouvez des stationnements sur la carte pour voir leur disponibilités et réserver votre place!";
+"Cancel" = "Annuler";
+"Address" = "Addresse";
+"Schedule" = "Disponibilité";
+"Description" = "Description";
+"Edit" = "Modifier";
+"Done" = "Compléter";
+"Province" = "Province";
+"Year" = "Année";
+"Color" = "Couleur";
+"Red" = "Rouge";
+"Blue" = "Bleu";
+"Green" = "Vert";
+"Yellow" = "Jaune";
+"White" = "Blanc";
+"Black" = "Noir";
+"Orange" = "Orange";
+"Pink" = "Rose";
+"Purple" = "Mauve";
+"Silver" = "Argent";
+"Grey" = "Gris";
+"Gold" = "Or";
+"Beige" = "Beige";
+"Other" = "Autre";
 
 
+// Vehicule
+"You just added your vehicule" = "Vous avez ajouté votre véhicule";
+"License Plate" = "Plaque d'immatriculation";
+"Make" = "Marque";
+"Model" = "Modèle";
+
+// Payout
+"You just added your payout information" = "Vous avez ajouté vos informations de transfert";
+"City" = "Ville";
+"Postal Code" = "Code Postal";
+"Country" = "Pays";
+"Date of birth" = "Date de naissance";
+"Routing Number" = "Numéro d'acheminement";
+"Account Number" = "Numéro de compte";
+
+
+// Find & Book Parking
+"The parking is your own. You can't rent your own parking" = "Ce stationnement est le votre. Vous ne pouvez pas louer votre propre stationnement";
+"Missing payment method" = "Aucune méthode de paiement";
+"Please select a payment method" = "Choisissez une méthode de paiement s.v.p";
+"Missing vehicule" = "Aucun véhicule";
+"Please set your vehicule information in the profile section" = "Complétez la section véhicule du profile s.v.p";
+
+
+// Rent your space
+"You just added a parking" = "Vous avez ajouté votre stationnement";
+"To list this parking, complete the 'Payout' section" = "Pour afficher ce stationnement, complétez la section 'Transfert'";
+"You just listed a parking" = "Vous avez affichez votre stationnement";

@@ -211,14 +211,12 @@ extension NewPhotoViewController: NohanaImagePickerControllerDelegate {
     }
 
     func displaySuccessMessage() {
-        // fixme translate
-        manager = PopupManager.init(parentView: self.view, title: NSLocalizedString("Congratulations", comment: ""), description: "You just added a parking")
+        manager = PopupManager.init(parentView: self.view, title: Translations.t("Congratulations"), description: Translations.t("You just added a parking"))
         manager.successPopup.confirmButton.addTarget(self, action: #selector(self.dismissPopup), for: .touchUpInside)
         if AuthenticationHelper.getCustomer().accountId == nil {
-            // fixme translate
-            manager.successPopup.warningMessage.text = "To list this parking, complete the 'Payout' section"
+            manager.successPopup.warningMessage.text = Translations.t("To list this parking, complete the 'Payout' section")
         } else {
-            manager.successPopup.descriptionLabel.text = "You just listed a parking"
+            manager.successPopup.descriptionLabel.text = Translations.t("You just listed a parking")
             manager.successPopup.warningMessage.text = ""
         }
         manager.displayPopup()

@@ -39,9 +39,8 @@ class BankCreationViewController: UIViewController {
 
 extension BankCreationViewController {
     fileprivate func setupFields() {
-        // FIXME : Translate
-        self.routingNumberTextField.attributedPlaceholder = NSAttributedString.init(string: "Routing Number", attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
-        self.accountNumberTextField.attributedPlaceholder = NSAttributedString.init(string: "Account Number", attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
+        self.routingNumberTextField.attributedPlaceholder = NSAttributedString.init(string: Translations.t("Routing Number"), attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
+        self.accountNumberTextField.attributedPlaceholder = NSAttributedString.init(string: Translations.t("Account Number"), attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
         self.routingNumberTextField.addTarget(self, action: #selector(self.textChanged), for: UIControlEvents.editingChanged)
         self.accountNumberTextField.addTarget(self, action: #selector(self.textChanged), for: UIControlEvents.editingChanged)
     }
@@ -97,8 +96,7 @@ extension BankCreationViewController {
     }
 
     private func displaySuccessMessage() {
-        // fixme translate
-        manager = PopupManager.init(parentView: self.view, title: NSLocalizedString("Congratulations", comment: ""), description: NSLocalizedString("You just added your payout information", comment: ""))
+        manager = PopupManager.init(parentView: self.view, title: Translations.t("Congratulations"), description: Translations.t("You just added your payout information"))
         manager.successPopup.confirmButton.addTarget(self, action: #selector(self.dismissPopup), for: .touchUpInside)
         manager.displayPopup()
     }

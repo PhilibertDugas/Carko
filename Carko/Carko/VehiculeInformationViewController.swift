@@ -27,6 +27,7 @@ class VehiculeInformationViewController: UIViewController {
 
     @IBAction func saveTapped(_ sender: Any) {
         let vehicule = Vehicule.init(license: licensePlateTextField.text!, make: makeTextField.text!, model: modelTextField.text!, year: yearTextField.text!, color: colorTextField.text!, province: provinceTextField.text!)
+
         vehicule.persist(completion: { (error, vehicule) in
             if let error = error {
                 super.displayErrorMessage(error.localizedDescription)
@@ -37,7 +38,7 @@ class VehiculeInformationViewController: UIViewController {
                     if let error = error {
                         self.displayErrorMessage(error.localizedDescription)
                     } else {
-                        AppState.shared.cacheVehicule(vehicule)
+                        AuthenticationHelper.updateCustomer(customer)
                         self.displaySuccessMessage()
                     }
                 })
@@ -52,14 +53,18 @@ class VehiculeInformationViewController: UIViewController {
         setupYears()
         setupFields()
         setupPickers()
-        // FIXME: Translate
-        self.licensePlateTextField.attributedPlaceholder = NSAttributedString.init(string: "License Plate", attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
-        self.makeTextField.attributedPlaceholder = NSAttributedString.init(string: "Make", attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
-        self.modelTextField.attributedPlaceholder = NSAttributedString.init(string: "Model", attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
-        self.yearTextField.attributedPlaceholder = NSAttributedString.init(string: "Year", attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
-        self.colorTextField.attributedPlaceholder = NSAttributedString.init(string: "Color", attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
-        self.provinceTextField.attributedPlaceholder = NSAttributedString.init(string: "Province", attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
+        self.licensePlateTextField.attributedPlaceholder = NSAttributedString.init(string: Translations.t("License Plate"), attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
+        self.makeTextField.attributedPlaceholder = NSAttributedString.init(string: Translations.t("Make"), attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
+        self.modelTextField.attributedPlaceholder = NSAttributedString.init(string: Translations.t("Model"), attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
+        self.yearTextField.attributedPlaceholder = NSAttributedString.init(string: Translations.t("Year"), attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
+        self.colorTextField.attributedPlaceholder = NSAttributedString.init(string: Translations.t("Color"), attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
+        self.provinceTextField.attributedPlaceholder = NSAttributedString.init(string: Translations.t("Province"), attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
 
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        prefillFields()
     }
 }
 
@@ -86,7 +91,7 @@ extension VehiculeInformationViewController {
         return Int(formatter.string(from: Date.init()))!
     }
 
-    fileprivate func setupFields() {
+    fileprivate func prefillFields() {
         if let vehicule = AuthenticationHelper.getCustomer().vehicule {
             licensePlateTextField.text = vehicule.license
             makeTextField.text = vehicule.make
@@ -95,7 +100,9 @@ extension VehiculeInformationViewController {
             colorTextField.text = vehicule.color
             provinceTextField.text = vehicule.province
         }
+    }
 
+    fileprivate func setupFields() {
         licensePlateTextField.addTarget(self, action: #selector(self.licensePlateCheck), for: UIControlEvents.editingDidEnd)
         licensePlateTextField.delegate = self
         makeTextField.addTarget(self, action: #selector(self.makeFieldReset), for: UIControlEvents.editingDidEnd)
@@ -120,8 +127,7 @@ extension VehiculeInformationViewController {
     }
 
     fileprivate func displaySuccessMessage() {
-        // fixme translate
-        manager = PopupManager.init(parentView: self.view, title: NSLocalizedString("Congratulations", comment: ""), description: NSLocalizedString("You just added your vehicule", comment: ""))
+        manager = PopupManager.init(parentView: self.view, title: Translations.t("Congratulations"), description: Translations.t("You just added your vehicule"))
         manager.successPopup.confirmButton.addTarget(self, action: #selector(self.dismissPopup), for: .touchUpInside)
         manager.displayPopup()
     }

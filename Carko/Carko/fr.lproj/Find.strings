@@ -9,7 +9,7 @@
 "B9L-EJ-3jq.text" = "Label";
 
 /* Class = "UILabel"; text = "More Photos"; ObjectID = "CcF-CF-Mqi"; */
-"CcF-CF-Mqi.text" = "More Photos";
+"CcF-CF-Mqi.text" = "Photos additionnels";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "LrO-xU-Qnv"; */
 "LrO-xU-Qnv.text" = "Label";
@@ -18,25 +18,25 @@
 "O59-l8-x0E.title" = " ";
 
 /* Class = "UILabel"; text = "Your Next Reservation"; ObjectID = "Y22-7k-Yqd"; */
-"Y22-7k-Yqd.text" = "Your Next Reservation";
+"Y22-7k-Yqd.text" = "Votre Prochaine Réservation";
 
 /* Class = "UILabel"; text = "EVENT NAME"; ObjectID = "ZTp-s4-lmA"; */
 "ZTp-s4-lmA.text" = "EVENT NAME";
 
 /* Class = "UILabel"; text = "Reserve Now"; ObjectID = "aWm-Gn-fPM"; */
-"aWm-Gn-fPM.text" = "Reserve Now";
+"aWm-Gn-fPM.text" = "Réserver";
 
 /* Class = "UIBarButtonItem"; title = " Back"; ObjectID = "nJ9-eT-kzi"; */
-"nJ9-eT-kzi.title" = " Back";
+"nJ9-eT-kzi.title" = " Retour";
 
 /* Class = "UILabel"; text = "Description"; ObjectID = "s9T-iM-D43"; */
 "s9T-iM-D43.text" = "Description";
 
 /* Class = "UILabel"; text = "Availability"; ObjectID = "tTc-a7-jDP"; */
-"tTc-a7-jDP.text" = "Availability";
+"tTc-a7-jDP.text" = "Disponibilité";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "xvw-eI-5fz"; */
 "xvw-eI-5fz.text" = "Label";
 
 /* Class = "UILabel"; text = "Until:"; ObjectID = "zIH-wD-L3a"; */
-"zIH-wD-L3a.text" = "Until:";
+"zIH-wD-L3a.text" = "Jusqu'à:";

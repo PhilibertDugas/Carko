@@ -70,18 +70,16 @@ class BookParkingViewController: UIViewController {
 
     private func handleConfirmTapped() {
          if self.parking.customerId == AuthenticationHelper.getCustomer().id {
-            super.displayErrorMessage(NSLocalizedString("The parking is your own. You can't rent your own parking", comment: ""))
+            super.displayErrorMessage(Translations.t("The parking is your own. You can't rent your own parking"))
         } else if self.paymentContext.selectedPaymentMethod == nil {
-            // FIXME Translate
-            let controller = UIAlertController.init(title: "Missing payment method", message: "Please select a payment method", preferredStyle: .alert)
-            controller.addAction(UIAlertAction.init(title: NSLocalizedString("Ok", comment: ""), style: .default, handler: { (_) in
+            let controller = UIAlertController.init(title: Translations.t("Missing payment method"), message: Translations.t("Please select a payment method"), preferredStyle: .alert)
+            controller.addAction(UIAlertAction.init(title: Translations.t("Ok"), style: .default, handler: { (_) in
                 self.paymentContext.presentPaymentMethodsViewController()
             }))
             self.present(controller, animated: true, completion: nil)
          } else if AppState.shared.customer.vehicule == nil {
-            // FIXME Translate
-            let controller = UIAlertController.init(title: "Missing vehicule", message: "Please set your vehicule information in the profile section", preferredStyle: .alert)
-            controller.addAction(UIAlertAction.init(title: NSLocalizedString("Ok", comment: ""), style: .default, handler: { (_) in
+            let controller = UIAlertController.init(title: Translations.t("Missing vehicule"), message: Translations.t("Please set your vehicule information in the profile section"), preferredStyle: .alert)
+            controller.addAction(UIAlertAction.init(title: Translations.t("Ok"), style: .default, handler: { (_) in
                 self.performSegue(withIdentifier: "showVehicule", sender: nil)
             }))
             self.present(controller, animated: true, completion: nil)

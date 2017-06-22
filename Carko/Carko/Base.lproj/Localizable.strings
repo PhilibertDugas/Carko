@@ -1,0 +1,66 @@
+/* 
+  Localizable.strings
+  Carko
+
+  Created by Philibert Dugas on 2017-01-01.
+  Copyright © 2017 QH4L. All rights reserved.
+*/
+
+// General
+"Ok" = "Ok";
+"Error" = "Error";
+"Congratulations" = "Congratulations";
+"Cancel" = "Cancel";
+"Address" = "Address";
+"Schedule" = "Schedule";
+"Description" = "Description";
+"Edit" = "Edit";
+"Done" = "Done";
+"Province" = "Province";
+"Year" = "Year";
+"Color" = "Color";
+"Red" = "Red";
+"Blue" = "Blue";
+"Green" = "Green";
+"Yellow" = "Yellow";
+"White" = "White";
+"Black" = "Black";
+"Orange" = "Orange";
+"Pink" = "Pink";
+"Purple" = "Purple";
+"Silver" = "Silver";
+"Grey" = "Grey";
+"Gold" = "Gold";
+"Beige" = "Beige";
+"Other" = "Other";
+
+
+// Vehicule
+"You just added your vehicule" = "You just added your vehicule";
+"License Plate" = "License Plate";
+"Make" = "Make";
+"Model" = "Model";
+
+
+// Payout
+"You just added your payout information" = "You just added your payout information";
+"City" = "City";
+"Postal Code" = "Postal Code";
+"Country" = "Country";
+"Date of birth" = "Date of birth";
+"Routing Number" = "Routing Number";
+"Account Number" = "Account Number";
+
+
+// Find & Book Parking
+"The parking is your own. You can't rent your own parking" = "The parking is your own. You can't rent your own parking";
+"Missing payment method" = "Missing payment method";
+"Please select a payment method" = "Please select a payment method";
+"Missing vehicule" = "Missing vehicule";
+"Please set your vehicule information in the profile section" = "Please set your vehicule information in the profile section";
+
+
+// Rent your space
+"You just added a parking" = "You just added a parking";
+"To list this parking, complete the 'Payout' section" = "To list this parking, complete the 'Payout' section";
+"You just listed a parking" = "You just listed a parking";

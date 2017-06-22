@@ -15,40 +15,7 @@ import Crashlytics
 
 class AuthenticationHelper: NSObject {
     static let shared = AuthenticationHelper.init()
-
     var authUi: FUIAuth!
-
-    func getAuthUI() -> FUIAuth {
-        if authUi != nil {
-            return authUi
-        }
-        authUi = FUIAuth.defaultAuthUI()
-        authUi.providers = [FUIFacebookAuth.init()]
-        authUi.tosurl = URL.init(string: AppState.companyEmail)
-        authUi.delegate = self
-        return authUi
-    }
-
-    func getAuthController() -> UIViewController {
-        let controller = getAuthUI().authViewController() as UINavigationController
-        controller.navigationBar.barTintColor = UIColor.secondaryViewsBlack
-        controller.navigationBar.isTranslucent = true
-        controller.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
-        controller.navigationBar.tintColor = UIColor.white
-        return controller
-    }
-
-    class func updateAuthToken(_ complete: @escaping (Error?) -> Void) {
-        let currentUser = Auth.auth().currentUser
-        currentUser?.getTokenForcingRefresh(true, completion: { (idToken, error) in
-            if let error = error {
-                complete(error)
-            } else if let token = idToken {
-                AppState.shared.cacheAuthToken(token)
-                complete(nil)
-            }
-        })
-    }
 
     class func customerLoggedIn(_ customer: Customer) {
         updateAuthToken({ (error) in
@@ -76,6 +43,10 @@ class AuthenticationHelper: NSObject {
         return AppState.shared.cachedCustomer()!
     }
 
+    class func updateCustomer(_ customer: Customer) {
+        AppState.shared.cacheCustomer(customer)
+    }
+
     // This should only be called is customerAvailable() returns true
     class func getAuthToken() -> String {
         return AppState.shared.cachedToken()!
@@ -86,9 +57,41 @@ class AuthenticationHelper: NSObject {
         FBSDKAccessToken.setCurrent(nil)
         AppState.shared.resetCustomer()
     }
+
+    private class func updateAuthToken(_ complete: @escaping (Error?) -> Void) {
+        let currentUser = Auth.auth().currentUser
+        currentUser?.getIDTokenForcingRefresh(true, completion: { (idToken, error) in
+            if let error = error {
+                complete(error)
+            } else if let token = idToken {
+                AppState.shared.cacheAuthToken(token)
+                complete(nil)
+            }
+        })
+    }
 }
 
 extension AuthenticationHelper: FUIAuthDelegate {
+    func getAuthUI() -> FUIAuth {
+        if authUi != nil {
+            return authUi
+        }
+        authUi = FUIAuth.defaultAuthUI()
+        authUi.providers = [FUIFacebookAuth.init()]
+        authUi.tosurl = URL.init(string: AppState.companyEmail)
+        authUi.delegate = self
+        return authUi
+    }
+
+    func getAuthController() -> UIViewController {
+        let controller = getAuthUI().authViewController() as UINavigationController
+        controller.navigationBar.barTintColor = UIColor.secondaryViewsBlack
+        controller.navigationBar.isTranslucent = true
+        controller.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        controller.navigationBar.tintColor = UIColor.white
+        return controller
+    }
+
     func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
         if let current = FBSDKAccessToken.current() {
             let credential = FacebookAuthProvider.credential(withAccessToken: current.tokenString)
