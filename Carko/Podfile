@@ -17,8 +17,6 @@ def shared_pods
   pod 'Alamofire'
   pod 'IQKeyboardManagerSwift'
   pod 'NohanaImagePicker'
-  # We need to remove this
-  pod 'SCLAlertView'
   pod 'Fabric'
   pod 'Crashlytics'
 end

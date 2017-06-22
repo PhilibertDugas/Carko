@@ -17,6 +17,7 @@ class BankCreationViewController: UIViewController {
     @IBOutlet var saveButton: SmallRoundedCornerButton!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     var account: Account!
+    var manager: PopupManager!
 
     @IBAction func saveTapped(_ sender: Any) {
         self.activityIndicator.isHidden = false
@@ -101,11 +102,14 @@ extension BankCreationViewController {
     }
 
     private func displaySuccessMessage() {
-        // FIXME
-        let responder = SCLAlertView.init().showSuccess(NSLocalizedString("Congratulations", comment: ""), subTitle: NSLocalizedString("You just added your payout information", comment: ""))
-        responder.setDismissBlock {
-            let _ = self.navigationController?.popToRootViewController(animated: true)
-        }
+        // fixme translate
+        manager = PopupManager.init(parentView: self.view, title: NSLocalizedString("Congratulations", comment: ""), description: NSLocalizedString("You just added your payout information", comment: ""))
+        manager.successPopup.confirmButton.addTarget(self, action: #selector(self.dismissPopup), for: .touchUpInside)
+        manager.displayPopup()
     }
 
+    func dismissPopup(_ sender: UIButton) {
+        manager.removePopup()
+        let _ = self.navigationController?.popToRootViewController(animated: true)
+    }
 }

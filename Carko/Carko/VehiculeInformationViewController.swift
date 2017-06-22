@@ -20,6 +20,7 @@ class VehiculeInformationViewController: UIViewController {
 
     var years: [(String)] = []
     let licensePlateLength = 6
+    var manager: PopupManager!
 
     @IBAction func cancelTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -128,12 +129,16 @@ extension VehiculeInformationViewController {
         self.textChanged()
     }
 
-    func displaySuccessMessage() {
-        // FIXME : Remove SCLs
-        let responder = SCLAlertView.init().showSuccess(NSLocalizedString("Congratulations", comment: ""), subTitle: NSLocalizedString("You just added your vehicule", comment: ""))
-        responder.setDismissBlock {
-            self.dismiss(animated: true, completion: nil)
-        }
+    private func displaySuccessMessage() {
+        // fixme translate
+        manager = PopupManager.init(parentView: self.view, title: NSLocalizedString("Congratulations", comment: ""), description: NSLocalizedString("You just added your vehicule", comment: ""))
+        manager.successPopup.confirmButton.addTarget(self, action: #selector(self.dismissPopup), for: .touchUpInside)
+        manager.displayPopup()
+    }
+
+    func dismissPopup(_ sender: UIButton) {
+        manager.removePopup()
+        self.dismiss(animated: true, completion: nil)
     }
 }
 

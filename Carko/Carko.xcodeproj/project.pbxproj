@@ -42,6 +42,7 @@
 		453FEF381EFAFA6200FADE48 /* cars.json in Resources */ = {isa = PBXBuildFile; fileRef = 453FEF361EFAFA6200FADE48 /* cars.json */; };
 		4540422A1EFB592600667C4C /* SuccessPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 454042291EFB592600667C4C /* SuccessPopup.xib */; };
 		4540422C1EFB594200667C4C /* SuccessPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4540422B1EFB594200667C4C /* SuccessPopup.swift */; };
+		4540422E1EFB655A00667C4C /* PopupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4540422D1EFB655A00667C4C /* PopupManager.swift */; };
 		4540C1FD1EEE469F00A2ECB3 /* PhotoCreationLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4540C1FC1EEE469F00A2ECB3 /* PhotoCreationLayout.swift */; };
 		4544AA7F1E2BFA8E008A760F /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4544AA7E1E2BFA8E008A760F /* DateHelper.swift */; };
 		4544AA811E2C0D9E008A760F /* ParkingAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4544AA801E2C0D9E008A760F /* ParkingAnnotationView.swift */; };
@@ -248,6 +249,7 @@
 		453FEF361EFAFA6200FADE48 /* cars.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cars.json; sourceTree = "<group>"; };
 		454042291EFB592600667C4C /* SuccessPopup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SuccessPopup.xib; sourceTree = "<group>"; };
 		4540422B1EFB594200667C4C /* SuccessPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessPopup.swift; sourceTree = "<group>"; };
+		4540422D1EFB655A00667C4C /* PopupManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupManager.swift; sourceTree = "<group>"; };
 		4540C1FC1EEE469F00A2ECB3 /* PhotoCreationLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCreationLayout.swift; sourceTree = "<group>"; };
 		4544AA7E1E2BFA8E008A760F /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		4544AA801E2C0D9E008A760F /* ParkingAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingAnnotationView.swift; sourceTree = "<group>"; };
@@ -447,6 +449,7 @@
 				458AF6681EEB064B00E3C402 /* AuthenticationHelper.swift */,
 				45BBC3471EF0A9E100CBC509 /* ImageLoaderHelper.swift */,
 				453FEF331EFAED6B00FADE48 /* VehiculeHelper.swift */,
+				4540422D1EFB655A00667C4C /* PopupManager.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -1350,6 +1353,7 @@
 				4546A5471EE5BC17000CBD53 /* PaymentPopup.swift in Sources */,
 				45D073311EA84924000604D3 /* EventsCollectionViewController.swift in Sources */,
 				C5075F971EBBA84000602B8C /* NavigationViewController.swift in Sources */,
+				4540422E1EFB655A00667C4C /* PopupManager.swift in Sources */,
 				451E424D1DB078E000747370 /* UIViewController.swift in Sources */,
 				4575365A1EAD87AA00E70F7F /* StringExtension.swift in Sources */,
 				4591D5F91DFCA51D00366691 /* StripeClient.swift in Sources */,

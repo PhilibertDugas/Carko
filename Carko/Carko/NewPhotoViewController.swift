@@ -25,7 +25,7 @@ class NewPhotoViewController: UIViewController {
 
     var parking: Parking!
     var parkingImages: [(UIImage)] = []
-    var bluredView: UIVisualEffectView!
+    var manager: PopupManager!
     let imagePicker = NohanaImagePickerController.init()
     let photoCellIdentifier = "ParkingPhotoCell"
 
@@ -212,54 +212,21 @@ extension NewPhotoViewController: NohanaImagePickerControllerDelegate {
     }
 
     private func displaySuccessMessage() {
-        blurBackground()
-        let successPopup = SuccessPopup.init(frame: CGRect.init(x: 0, y: 0, width: 0.66 * self.view.frame.width, height: 0.5 * self.view.frame.height))
-        successPopup.view.backgroundColor = UIColor.secondaryViewsBlack
-        successPopup.titleLabel.text = NSLocalizedString("Congratulations", comment: "")
         // fixme translate
-        successPopup.descriptionLabel.text = "You just added a parking"
-        successPopup.confirmButton.addTarget(self, action: #selector(self.dismissViewController), for: .touchUpInside)
-
+        manager = PopupManager.init(parentView: self.view, title: NSLocalizedString("Congratulations", comment: ""), description: "You just added a parking")
+        manager.successPopup.confirmButton.addTarget(self, action: #selector(self.dismissPopup), for: .touchUpInside)
         if AuthenticationHelper.getCustomer().accountId == nil {
             // fixme translate
-            successPopup.warningMessage.text = "To list this parking, complete the 'Payout' section"
+            manager.successPopup.warningMessage.text = "To list this parking, complete the 'Payout' section"
         } else {
-            successPopup.warningMessage.text = ""
+            manager.successPopup.descriptionLabel.text = "You just listed a parking"
+            manager.successPopup.warningMessage.text = ""
         }
-
-        self.bluredView.addSubview(successPopup)
-        successPopup.center = CGPoint.init(x: self.view.center.x, y: self.view.center.y - (self.navigationController?.navigationBar.frame.height)!)
-        successPopup.isHidden = false
-        successPopup.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-        successPopup.view.alpha = 0.0
-
-        UIView.animate(withDuration: 0.25, animations: {
-            successPopup.view.alpha = 1.0
-            successPopup.view.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-        })
+        manager.displayPopup()
     }
 
-    private func blurBackground() {
-        let blurEffect = UIBlurEffect.init(style: .dark)
-        let visualEffect = UIVisualEffectView.init(effect: blurEffect)
-        bluredView = UIVisualEffectView.init(effect: blurEffect)
-        bluredView.contentView.addSubview(visualEffect)
-        visualEffect.frame = UIScreen.main.bounds
-        bluredView.frame = UIScreen.main.bounds
-        self.view.superview?.insertSubview(self.bluredView, aboveSubview: self.view)
-    }
-
-    func dismissViewController(_ sender: UIButton) {
-        bluredView.removeFromSuperview()
-        let successPopup = sender.superview!
-        UIView.animate(withDuration: 0.25, animations: {
-            successPopup.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-            successPopup.alpha = 0.0
-        }) { (finished) in
-            if finished {
-                successPopup.isHidden = true
-            }
-        }
+    func dismissPopup(_ sender: UIButton) {
+        manager.removePopup()
         let _ = self.navigationController?.popToRootViewController(animated: true)
     }
 }
