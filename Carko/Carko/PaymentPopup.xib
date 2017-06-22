@@ -26,13 +26,6 @@
             <rect key="frame" x="0.0" y="0.0" width="253" height="340"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nW9-Nf-QI8">
-                    <rect key="frame" x="0.0" y="54" width="253" height="1"/>
-                    <color key="backgroundColor" red="0.011764705882352941" green="0.011764705882352941" blue="0.047058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="1" id="fg6-oC-Nzw"/>
-                    </constraints>
-                </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tZL-Ol-e4K">
                     <rect key="frame" x="16" y="18" width="221" height="28"/>
                     <constraints>
@@ -42,6 +35,13 @@
                     <color key="textColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nW9-Nf-QI8">
+                    <rect key="frame" x="0.0" y="54" width="253" height="1"/>
+                    <color key="backgroundColor" red="0.011764705882352941" green="0.011764705882352941" blue="0.047058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="fg6-oC-Nzw"/>
+                    </constraints>
+                </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xEY-LQ-iKG">
                     <rect key="frame" x="16" y="103" width="221" height="43"/>
                     <constraints>

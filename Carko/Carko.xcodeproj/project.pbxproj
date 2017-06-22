@@ -40,6 +40,8 @@
 		453FEF341EFAED6B00FADE48 /* VehiculeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453FEF331EFAED6B00FADE48 /* VehiculeHelper.swift */; };
 		453FEF371EFAFA6200FADE48 /* cars.json in Resources */ = {isa = PBXBuildFile; fileRef = 453FEF361EFAFA6200FADE48 /* cars.json */; };
 		453FEF381EFAFA6200FADE48 /* cars.json in Resources */ = {isa = PBXBuildFile; fileRef = 453FEF361EFAFA6200FADE48 /* cars.json */; };
+		4540422A1EFB592600667C4C /* SuccessPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 454042291EFB592600667C4C /* SuccessPopup.xib */; };
+		4540422C1EFB594200667C4C /* SuccessPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4540422B1EFB594200667C4C /* SuccessPopup.swift */; };
 		4540C1FD1EEE469F00A2ECB3 /* PhotoCreationLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4540C1FC1EEE469F00A2ECB3 /* PhotoCreationLayout.swift */; };
 		4544AA7F1E2BFA8E008A760F /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4544AA7E1E2BFA8E008A760F /* DateHelper.swift */; };
 		4544AA811E2C0D9E008A760F /* ParkingAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4544AA801E2C0D9E008A760F /* ParkingAnnotationView.swift */; };
@@ -244,6 +246,8 @@
 		4533143B1E036DDA00BF0B65 /* AccountClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountClient.swift; sourceTree = "<group>"; };
 		453FEF331EFAED6B00FADE48 /* VehiculeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehiculeHelper.swift; sourceTree = "<group>"; };
 		453FEF361EFAFA6200FADE48 /* cars.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cars.json; sourceTree = "<group>"; };
+		454042291EFB592600667C4C /* SuccessPopup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SuccessPopup.xib; sourceTree = "<group>"; };
+		4540422B1EFB594200667C4C /* SuccessPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessPopup.swift; sourceTree = "<group>"; };
 		4540C1FC1EEE469F00A2ECB3 /* PhotoCreationLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCreationLayout.swift; sourceTree = "<group>"; };
 		4544AA7E1E2BFA8E008A760F /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		4544AA801E2C0D9E008A760F /* ParkingAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingAnnotationView.swift; sourceTree = "<group>"; };
@@ -401,6 +405,7 @@
 			children = (
 				450B5D571E2AA4B100AEEA29 /* NewParkingView.swift */,
 				45137EB11E341DA300AFCD49 /* NewParkingPin.swift */,
+				4540422B1EFB594200667C4C /* SuccessPopup.swift */,
 			);
 			name = Subviews;
 			sourceTree = "<group>";
@@ -492,8 +497,9 @@
 				45AA40E41EC696A4000D306E /* PayoutSetupCompleted.xib */,
 				450B5D591E2AA4CA00AEEA29 /* NewParkingView.xib */,
 				4546D3E01EBC25C400F17BAB /* ProfileHeaderView.xib */,
-				4546A5481EE5BC23000CBD53 /* PaymentPopup.xib */,
 				45A4FAB71EF7145C00C73131 /* AuthPickerViewController.xib */,
+				4546A5481EE5BC23000CBD53 /* PaymentPopup.xib */,
+				454042291EFB592600667C4C /* SuccessPopup.xib */,
 			);
 			name = Xib;
 			sourceTree = "<group>";
@@ -988,6 +994,7 @@
 				4546D3E11EBC25C400F17BAB /* ProfileHeaderView.xib in Resources */,
 				45FDF49C1EC5555200A9904A /* HistoryEmpty.xib in Resources */,
 				45AA40E51EC696A4000D306E /* PayoutSetupCompleted.xib in Resources */,
+				4540422A1EFB592600667C4C /* SuccessPopup.xib in Resources */,
 				4550D66F1E19D78B0080758D /* Main.storyboard in Resources */,
 				45A4FAB81EF7145C00C73131 /* AuthPickerViewController.xib in Resources */,
 				452533291EF052B9002E916E /* Payout.storyboard in Resources */,
@@ -1309,6 +1316,7 @@
 				45113DF81EAB9D4F0083C959 /* ApyaLayout.swift in Sources */,
 				45BBC34A1EF0AB0500CBC509 /* SimpleCellTableViewCell.swift in Sources */,
 				4554EBCE1DB5A36F0066E452 /* APIClient.swift in Sources */,
+				4540422C1EFB594200667C4C /* SuccessPopup.swift in Sources */,
 				45BBC3461EF0A8A400CBC509 /* PhotoEditCollectionViewController.swift in Sources */,
 				4544AA7F1E2BFA8E008A760F /* DateHelper.swift in Sources */,
 				45E9D1021E1DD218000EDEE8 /* AvailabilityViewController.swift in Sources */,

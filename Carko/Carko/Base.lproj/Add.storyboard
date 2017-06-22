@@ -580,7 +580,7 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="On what day(s) is your space available?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xsw-bO-Dcn">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="On what day(s) is your space available?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xsw-bO-Dcn">
                                 <rect key="frame" x="16" y="1" width="343" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="tMz-EA-oKC"/>
@@ -1178,8 +1178,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="bn7-tO-E4s"/>
-        <segue reference="lXY-Hi-Jzb"/>
         <segue reference="8rN-8p-AUL"/>
-        <segue reference="J66-jr-V6G"/>
+        <segue reference="Y1y-ch-YBc"/>
+        <segue reference="ZVv-jp-5sL"/>
     </inferredMetricsTieBreakers>
 </document>

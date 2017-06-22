@@ -21,16 +21,16 @@ class ParkingTableViewCell: UITableViewCell {
                 label.text = parking.address
                 if parking.totalRevenue > 0.0 {
                     revenueLabel.text = parking.totalRevenue.asLocaleCurrency
+                    totalEarnedLabel.isHidden = false
                 } else {
-                    revenueLabel.text = ""
+                    revenueLabel.isHidden = true
+                    totalEarnedLabel.isHidden = true
                 }
 
                 if parking.isComplete {
                     notListedLabel.isHidden = true
-                    totalEarnedLabel.isHidden = true
                 } else {
                     notListedLabel.isHidden = false
-                    totalEarnedLabel.isHidden = false
                 }
 
                 if let url = parking.photoURL {

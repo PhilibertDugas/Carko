@@ -1,21 +1,19 @@
 //
-//  PaymentPopup.swift
+//  SuccessPopup.swift
 //  Carko
 //
-//  Created by Philibert Dugas on 2017-06-05.
+//  Created by Philibert Dugas on 2017-06-21.
 //  Copyright © 2017 QH4L. All rights reserved.
 //
 
 import UIKit
 
-class PaymentPopup: UIView {
+class SuccessPopup: UIView {
     @IBOutlet var view: UIView!
-    @IBOutlet var priceLabel: UILabel!
-    @IBOutlet var creditCardImage: UIImageView!
-    @IBOutlet var creditCardLabel: UILabel!
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var confirmButton: SmallRoundedCornerButton!
-    @IBOutlet var indicator: UIActivityIndicatorView!
-    @IBOutlet var cancelButton: SecondarySmallRoundedCornerButton!
+    @IBOutlet var warningMessage: UILabel!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,7 +26,7 @@ class PaymentPopup: UIView {
     }
 
     private func commonInit() {
-        Bundle.main.loadNibNamed("PaymentPopup", owner: self, options: nil)
+        Bundle.main.loadNibNamed("SuccessPopup", owner: self, options: nil)
         guard let content = view else { return }
         content.layer.cornerRadius = 10
         content.frame = self.bounds
