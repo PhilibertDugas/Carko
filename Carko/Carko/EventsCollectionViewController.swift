@@ -24,7 +24,7 @@ class EventsCollectionViewController: UICollectionViewController {
     fileprivate var revealViewController: SWRevealViewController!
     fileprivate var loadedOnce = false
 
-    fileprivate var bluredView: UIVisualEffectView!
+    fileprivate var bluredView: UIView!
     fileprivate var mapView: MKMapView!
 
 
@@ -122,12 +122,9 @@ class EventsCollectionViewController: UICollectionViewController {
             self.mapView.removeFromSuperview()
         }
 
-        let blurEffect = UIBlurEffect.init(style: .dark)
-        let vibrancyEffect = UIVibrancyEffect.init(blurEffect: UIBlurEffect.init(style: .light))
-        let visualEffect = UIVisualEffectView.init(effect: vibrancyEffect)
-        self.bluredView = UIVisualEffectView.init(effect: blurEffect)
-        self.bluredView.contentView.addSubview(visualEffect)
-        visualEffect.frame = UIScreen.main.bounds
+        self.bluredView = UIView.init()
+        self.bluredView.backgroundColor = UIColor.black
+        self.bluredView.alpha = 0.8
         self.bluredView.frame = UIScreen.main.bounds
         self.mapView = MKMapView.init(frame: self.bluredView.frame)
         self.collectionView?.insertSubview(mapView, at: 0)
