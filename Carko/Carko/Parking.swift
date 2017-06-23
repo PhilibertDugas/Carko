@@ -40,7 +40,7 @@ class Parking {
     }
 
     convenience init() {
-        self.init(latitude: CLLocationDegrees.init(75), longitude: CLLocationDegrees.init(-135), photoURL: URL.init(string: ""),address: "Select a location", pDescription: "", isAvailable: true, isComplete: false, availabilityInfo: AvailabilityInfo.init(), customerId: AuthenticationHelper.getCustomer().id, multiplePhotoUrls: [])
+        self.init(latitude: CLLocationDegrees.init(75), longitude: CLLocationDegrees.init(-135), photoURL: URL.init(string: "https://google.com"),address: "Select a location", pDescription: "", isAvailable: true, isComplete: false, availabilityInfo: AvailabilityInfo.init(), customerId: AuthenticationHelper.getCustomer().id, multiplePhotoUrls: [])
     }
 
     convenience init(parking: [String : Any]) {
@@ -123,6 +123,7 @@ extension Parking {
             "is_available": isAvailable,
             "is_complete": isComplete,
             "is_deleted": isDeleted,
+            "customer_id": customerId,
             "availability_info": availabilityInfo.toDictionary(),
             "multiple_photo_urls": multiplePhotoUrls.map { $0.absoluteString }
         ]

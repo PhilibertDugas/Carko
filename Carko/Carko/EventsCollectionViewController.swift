@@ -11,12 +11,13 @@ import FirebaseStorageUI
 import FirebaseAuth
 import AVFoundation
 import Crashlytics
+import MapKit
 
 class EventsCollectionViewController: UICollectionViewController {
     fileprivate let reservationIdentifier = "ReservationCell"
     fileprivate let reuseIdentifier = "EventCell"
     fileprivate var events = [Event](repeating: Event.init(), count: 5)
-    fileprivate var reservations: [(Reservation)] = []
+    fileprivate var reservations: [(Reservation?)] = []
 
     fileprivate var selectedEvent: Event!
     fileprivate var refresher: UIRefreshControl!
@@ -24,6 +25,7 @@ class EventsCollectionViewController: UICollectionViewController {
     fileprivate var loadedOnce = false
 
     fileprivate var bluredView: UIVisualEffectView!
+    fileprivate var mapView: MKMapView!
 
 
     @IBAction func navigationMenuPressed(_ sender: Any) {
@@ -64,6 +66,7 @@ class EventsCollectionViewController: UICollectionViewController {
     override func viewDidLayoutSubviews() {
         if let bluredView = self.bluredView, let collectionView = self.collectionView {
             bluredView.frame = collectionView.bounds
+            mapView.frame = collectionView.bounds
         }
     }
 
@@ -91,6 +94,7 @@ class EventsCollectionViewController: UICollectionViewController {
                 self.displayErrorMessage(error.localizedDescription)
             } else {
                 self.reservations = reservations
+                ReservationManager.shared.cacheReservations(reservations: reservations)
                 self.collectionView?.reloadData()
             }
         }
@@ -115,6 +119,7 @@ class EventsCollectionViewController: UICollectionViewController {
     fileprivate func prepareBackgroundView() {
         if self.bluredView != nil {
             self.bluredView.removeFromSuperview()
+            self.mapView.removeFromSuperview()
         }
 
         let blurEffect = UIBlurEffect.init(style: .dark)
@@ -124,7 +129,9 @@ class EventsCollectionViewController: UICollectionViewController {
         self.bluredView.contentView.addSubview(visualEffect)
         visualEffect.frame = UIScreen.main.bounds
         self.bluredView.frame = UIScreen.main.bounds
-        self.collectionView?.insertSubview(bluredView, at: 0)
+        self.mapView = MKMapView.init(frame: self.bluredView.frame)
+        self.collectionView?.insertSubview(mapView, at: 0)
+        self.collectionView?.insertSubview(bluredView, aboveSubview: mapView)
     }
 }
 
@@ -174,13 +181,6 @@ extension EventsCollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! EventCollectionViewCell
         cell.event = self.events[indexPath.row]
         cell.layer.cornerRadius = 10
-
-        // Placeholder cells which don't have a photoURL shouldn't be touched / interacted with
-        if cell.event?.photoURL == nil {
-            cell.isUserInteractionEnabled = false
-        } else {
-            cell.isUserInteractionEnabled = true
-        }
         return cell
     }
 

@@ -9,7 +9,7 @@
 import UIKit
 
 class ReservationsTableViewController: UITableViewController {
-    fileprivate var reservations: [(Reservation)] = []
+    fileprivate var reservations: [(Reservation?)] = []
 
     @IBAction func OnClosePressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -62,9 +62,5 @@ extension ReservationsTableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReservationCell", for: indexPath) as! ReservationTableViewCell
         cell.reservation = reservations[indexPath.row]
         return cell
-    }
-
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.tableView.deselectRow(at: indexPath, animated: false)
     }
 }

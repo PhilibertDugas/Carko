@@ -69,28 +69,39 @@ class BookParkingViewController: UIViewController {
     }
 
     private func handleConfirmTapped() {
-         if self.parking.customerId == AuthenticationHelper.getCustomer().id {
-            super.displayErrorMessage(Translations.t("The parking is your own. You can't rent your own parking"))
-        } else if self.paymentContext.selectedPaymentMethod == nil {
-            let controller = UIAlertController.init(title: Translations.t("Missing payment method"), message: Translations.t("Please select a payment method"), preferredStyle: .alert)
-            controller.addAction(UIAlertAction.init(title: Translations.t("Ok"), style: .default, handler: { (_) in
-                self.paymentContext.presentPaymentMethodsViewController()
-            }))
-            self.present(controller, animated: true, completion: nil)
-         } else if AppState.shared.customer.vehicule == nil {
-            let controller = UIAlertController.init(title: Translations.t("Missing vehicule"), message: Translations.t("Please set your vehicule information in the profile section"), preferredStyle: .alert)
-            controller.addAction(UIAlertAction.init(title: Translations.t("Ok"), style: .default, handler: { (_) in
-                self.performSegue(withIdentifier: "showVehicule", sender: nil)
-            }))
-            self.present(controller, animated: true, completion: nil)
-         } else {
+        let bookingManager = BookingManager.init(parking: self.parking, paymentContext: self.paymentContext, event: self.event)
+        if let error = bookingManager.bookingHasAnyErrors() {
+            switch error {
+            case .ownParking:
+                super.displayErrorMessage(Translations.t("The parking is your own. You can't rent your own parking"))
+                break
+            case .noPaymentMethod:
+                let controller = bookingManager.getAlertController(title: Translations.t("Missing payment method"), message: Translations.t("Please select a payment method"), okHandler: { (_) in
+                    self.paymentContext.presentPaymentMethodsViewController()
+                })
+                self.present(controller, animated: true, completion: nil)
+                break
+            case .noVehicule:
+                let controller = bookingManager.getAlertController(title: Translations.t("Missing vehicule"), message: Translations.t("Please set your vehicule information in the profile section"), okHandler: { (_) in
+                    self.performSegue(withIdentifier: "showVehicule", sender: nil)
+                })
+                self.present(controller, animated: true, completion: nil)
+                break
+            case .reservationConflict:
+                let controller = bookingManager.getAlertController(title: Translations.t("Reservation conflict"), message: Translations.t("There is already a reservation scheduled on this date, do you wish to continue?"), okHandler: { (_) in
+                    self.promptCompletion()
+                })
+                controller.addAction(UIAlertAction.init(title: Translations.t("Cancel"), style: .cancel , handler: nil))
+                self.present(controller, animated: true, completion: nil)
+                break
+            }
+        } else {
             self.promptCompletion()
         }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.definesPresentationContext = true
         self.paymentPopup.isHidden = true
         self.photoCollectionView.delegate = self
         self.photoCollectionView.backgroundColor = UIColor.clear
@@ -110,7 +121,7 @@ class BookParkingViewController: UIViewController {
         self.paymentPopup.indicator.isHidden = true
 
         addressLabel.text = parking.address
-        timeLabel.text = self.event.endTime.formattedDays
+        timeLabel.text = Translations.t("Midnight") + ", \(DateHelper.getDay(self.event.startTime)) \(DateHelper.getMonth(self.event.startTime))"
         costLabel.text = self.event.price.asLocaleCurrency
         parkingLabel.text = self.parking.pDescription
 

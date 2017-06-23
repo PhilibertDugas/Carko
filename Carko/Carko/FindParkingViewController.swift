@@ -92,12 +92,11 @@ extension FindParkingViewController: MKMapViewDelegate {
     }
 
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        // Make the pin bigger when we select it to indicate a selection
-        UIView.animate(withDuration: 0.5) { 
-            view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-        }
-
         if let annotation = view.annotation as? ParkingAnnotation {
+            // Make the pin bigger when we select it to indicate a selection
+            UIView.animate(withDuration: 0.5) {
+                view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+            }
             self.bookParkingVC = storyboard?.instantiateViewController(withIdentifier: "bookParkingViewController") as? BookParkingViewController
             self.bookParkingVC.sheetDelegate = self
             self.bookParkingVC.delegate = self
@@ -117,10 +116,12 @@ extension FindParkingViewController: MKMapViewDelegate {
     }
 
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-        UIView.animate(withDuration: 0.5, animations: {
-            view.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-            self.bookParkingVC.view.frame = CGRect.init(x: 0, y: self.view.frame.height, width: self.view.frame.width, height: self.view.frame.height)
-        })
+        if view.annotation is ParkingAnnotation {
+            UIView.animate(withDuration: 0.5, animations: {
+                view.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+                self.bookParkingVC.view.frame = CGRect.init(x: 0, y: self.view.frame.height, width: self.view.frame.width, height: self.view.frame.height)
+            })
+        }
     }
 
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {

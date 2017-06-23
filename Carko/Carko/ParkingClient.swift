@@ -31,7 +31,7 @@ extension APIClient {
 
     func updateParking(parking: Parking, complete: @escaping (Error?, Parking?) -> Void ) {
         let parameters: Parameters = ["parking": parking.toDictionary()]
-        let patchUrl = baseUrl.appendingPathComponent("/customers/\(AppState.shared.customer.id)/parkings/\(parking.id!)")
+        let patchUrl = baseUrl.appendingPathComponent("/customers/\(AuthenticationHelper.getCustomer().id)/parkings/\(parking.id!)")
         request(patchUrl, method: .patch, parameters: parameters, encoding: JSONEncoding.default, headers: authHeaders()).responseJSON { (dataResponse) in
             if let error = dataResponse.result.error {
                 complete(error, nil)

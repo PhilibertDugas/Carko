@@ -47,14 +47,17 @@ struct Event {
         let id = event["id"] as! Int
         let latitude = event["latitude"] as! CLLocationDegrees
         let longitude = event["longitude"] as! CLLocationDegrees
-        let photoURL = URL.init(string: event["photo_url"] as! String)
+        var potentialPhotoUrl: URL? = nil
+        if let url = event["photo_url"] as? String {
+            potentialPhotoUrl = URL.init(string: url)
+        }
         let range = event["range"] as! Int
-        let price = Float.init(event["price"] as! String)!
+        let price = event["price"] as! Float
         let label = event["label"] as! String
         let targetAudience = event["target_audience"] as! Int
         let startTime = event["start_time"] as! String
         let endTime = event["end_time"] as! String
-        self.init(id: id, latitude: latitude, longitude: longitude, photoURL: photoURL, range: range, price: price, label: label, targetAudience: targetAudience, startTime: startTime, endTime: endTime)
+        self.init(id: id, latitude: latitude, longitude: longitude, photoURL: potentialPhotoUrl, range: range, price: price, label: label, targetAudience: targetAudience, startTime: startTime, endTime: endTime)
     }
 
     func heightForLabel(font: UIFont, width: CGFloat) -> CGFloat {
@@ -77,11 +80,10 @@ extension Event {
     }
 
     func toDictionary() -> [String : Any] {
-        return [
+        var dict: [String: Any] = [
             "id": self.id,
             "latitude": self.latitude,
             "longitude": self.longitude,
-            "photo_url": (self.photoURL?.absoluteString)!,
             "range": self.range,
             "price": self.price,
             "label": self.label,
@@ -89,5 +91,9 @@ extension Event {
             "start_time": self.startTime,
             "end_time": self.endTime
         ]
+        if let url = self.photoURL {
+            dict["photo_url"] = url.absoluteString
+        }
+        return dict
     }
 }

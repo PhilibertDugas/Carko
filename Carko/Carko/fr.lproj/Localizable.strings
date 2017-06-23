@@ -33,6 +33,7 @@
 "Gold" = "Or";
 "Beige" = "Beige";
 "Other" = "Autre";
+"Midnight" = "Minuit";
 
 
 // Vehicule
@@ -53,10 +54,12 @@
 
 // Find & Book Parking
 "The parking is your own. You can't rent your own parking" = "Ce stationnement est le votre. Vous ne pouvez pas louer votre propre stationnement";
-"Missing payment method" = "Aucune méthode de paiement";
-"Please select a payment method" = "Choisissez une méthode de paiement s.v.p";
+"Missing payment method" = "Aucun moyen de paiement";
+"Please select a payment method" = "Choisissez un moyen de paiement s.v.p";
 "Missing vehicule" = "Aucun véhicule";
 "Please set your vehicule information in the profile section" = "Complétez la section véhicule du profile s.v.p";
+"Reservation conflict" = "Conflit de réservation";
+"There is already a reservation scheduled on this date, do you wish to continue?" = "Il y a déjà une réservation planifié cette journée, désirez vous tout de même continuer?";
 
 
 // Rent your space

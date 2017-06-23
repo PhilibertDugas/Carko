@@ -29,18 +29,13 @@ struct Reservation {
         self.charge = charge
     }
 
-    init(reservation: [String : Any]) {
-        let customerId = reservation["customer_id"] as! Int
-        let isActive = reservation["is_active"] as! Bool
-        let startTime = reservation["start_time"] as! String
-        let stopTime = reservation["stop_time"] as! String
-        let totalCost = reservation["total_cost"] as! Float
-        let charge = reservation["charge"] as! String
-        let event = reservation["event"] as! [String: Any]
+    init?(reservation: [String : Any]) {
+        guard let customerId = reservation["customer_id"] as? Int, let isActive = reservation["is_active"] as? Bool, let startTime = reservation["start_time"] as? String, let stopTime = reservation["stop_time"] as? String, let totalCost = reservation["total_cost"] as? Float, let charge = reservation["charge"] as? String, let event = reservation["event"] as? [String: Any], let parkingDict = reservation["parking"] as? [String: Any]
+            else {
+                return nil
+        }
 
-        let parkingDict = reservation["parking"] as? [String: Any]
-
-        self.init(parking: Parking.init(parking: parkingDict!), event: Event.init(event: event), customerId: customerId, isActive: isActive, startTime: startTime, stopTime: stopTime, totalCost: totalCost, charge: charge)
+        self.init(parking: Parking.init(parking: parkingDict), event: Event.init(event: event), customerId: customerId, isActive: isActive, startTime: startTime, stopTime: stopTime, totalCost: totalCost, charge: charge)
     }
 
     func toDictionnary() -> [String : Any] {
@@ -55,11 +50,11 @@ struct Reservation {
         ]
     }
 
-    static func getCustomerReservations(_ completion: @escaping ([(Reservation)], Error?) -> Void) {
+    static func getCustomerReservations(_ completion: @escaping ([(Reservation?)], Error?) -> Void) {
         APIClient.shared.getCustomerReservations(complete: completion)
     }
 
-    static func getCustomerActiveReservations(_ completion: @escaping ([(Reservation)], Error?) -> Void) {
+    static func getCustomerActiveReservations(_ completion: @escaping ([(Reservation?)], Error?) -> Void) {
         APIClient.shared.getCustomerActiveReservations(complete: completion)
     }}
 

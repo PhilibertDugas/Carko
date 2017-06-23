@@ -29,17 +29,17 @@ extension APIClient {
         }
     }
 
-    func getCustomerReservations(complete: @escaping ([(Reservation)], Error?) -> Void) {
+    func getCustomerReservations(complete: @escaping ([(Reservation?)], Error?) -> Void) {
         let url = baseUrl.appendingPathComponent("/customers/\(AppState.shared.customer.id)/reservations")
         request(url, method: .get, encoding: JSONEncoding.default, headers: authHeaders()).responseJSON { (returned) in
             if let error = returned.result.error {
                 complete([], error)
             } else if let response = returned.response, let value = returned.result.value {
                 if response.statusCode == 200 {
-                    let reservationArray = value as! NSArray
-                    var reservations = [(Reservation)]()
+                    guard let reservationArray = value as? NSArray else { return }
+                    var reservations = [(Reservation?)]()
                     for reservation in reservationArray {
-                        let dict = reservation as! [String : Any]
+                        guard let dict = reservation as? [String : Any] else { continue }
                         reservations.append(Reservation.init(reservation: dict))
                     }
                     complete(reservations, nil)
@@ -52,17 +52,17 @@ extension APIClient {
         }
     }
 
-    func getCustomerActiveReservations(complete: @escaping ([(Reservation)], Error?) -> Void) {
-        let url = baseUrl.appendingPathComponent("/customers/\(AppState.shared.customer.id)/active_reservations")
+    func getCustomerActiveReservations(complete: @escaping ([(Reservation?)], Error?) -> Void) {
+        let url = baseUrl.appendingPathComponent("/customers/\(AuthenticationHelper.getCustomer().id)/active_reservations")
         request(url, method: .get, encoding: JSONEncoding.default, headers: authHeaders()).responseJSON { (returned) in
             if let error = returned.result.error {
                 complete([], error)
             } else if let response = returned.response, let value = returned.result.value {
                 if response.statusCode == 200 {
-                    let reservationArray = value as! NSArray
-                    var reservations = [(Reservation)]()
+                    guard let reservationArray = value as? NSArray else { return }
+                    var reservations: [(Reservation?)] = []
                     for reservation in reservationArray {
-                        let dict = reservation as! [String : Any]
+                        guard let dict = reservation as? [String : Any] else { continue }
                         reservations.append(Reservation.init(reservation: dict))
                     }
                     complete(reservations, nil)

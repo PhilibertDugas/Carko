@@ -12,7 +12,6 @@ import XCTest
 
 
 class TextFieldsValidatorTest: XCTestCase {
-
     var textFields: [(UITextField)] = []
     override func setUp() {
         super.setUp()
@@ -30,7 +29,7 @@ class TextFieldsValidatorTest: XCTestCase {
     
     func testfieldsAreFilledReturnsFalseForNilValues() {
         textFields.first!.text = nil
-        XCTAssertTrue(TextFieldsValidator.fieldsAreFilled(textFields))
+        XCTAssertFalse(TextFieldsValidator.fieldsAreFilled(textFields))
     }
 
     func testfieldsAreFilledReturnsFalseForEmptyString() {

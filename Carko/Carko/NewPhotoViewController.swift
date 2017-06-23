@@ -30,6 +30,8 @@ class NewPhotoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // on iPhone SE in french, the save label is too big
+        self.mainButton.titleLabel?.adjustsFontSizeToFitWidth = true
         self.buttonView.isHidden = true
         self.buttonIndicator.isHidden = true
         self.photoCollectionView.isHidden = true
@@ -177,6 +179,7 @@ extension NewPhotoViewController: NohanaImagePickerControllerDelegate {
 
         self.buttonIndicator.isHidden = false
         self.buttonIndicator.startAnimating()
+        self.parking.multiplePhotoUrls = []
         for (index, image) in self.parkingImages.enumerated() {
             let path = "user_\(AuthenticationHelper.getCustomer().id)_\(date)_\(index)"
             let data = UIImageJPEGRepresentation(image, 0.8)!

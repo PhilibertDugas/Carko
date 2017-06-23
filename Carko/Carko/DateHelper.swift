@@ -46,8 +46,23 @@ struct DateHelper {
         let formattedDate = formatString(date)
         let formatter = timestampFormatter()
         let todayDate = formatter.date(from: formattedDate)
-        let weekday = commonCalendar().component(.day, from: todayDate!)
-        return weekday
+        let day = commonCalendar().component(.day, from: todayDate!)
+        return day
+    }
+
+    static func isSameDay(first: String?, second: String?) -> Bool {
+        guard let first = first, let second = second else { return false }
+        let formatter = timestampFormatter()
+
+        let firstString = formatString(first)
+        let firstDate = formatter.date(from: firstString)
+        let firstDay = commonCalendar().component(.day, from: firstDate!)
+
+        let secondString = formatString(second)
+        let secondDate = formatter.date(from: secondString)
+        let secondDay = commonCalendar().component(.day, from: secondDate!)
+
+        return firstDay == secondDay
     }
 
     fileprivate static func formatString(_ date: String) -> String{

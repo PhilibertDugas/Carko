@@ -26,6 +26,7 @@ class PhotoEditCollectionViewController: UICollectionViewController {
     var delegate: PhotoEditDelegate!
     var usingImages = false
     var parkingImages: [(UIImage)] = []
+    var parkingUrls: [(URL)] = []
 
     let imagePicker = NohanaImagePickerController.init()
 
@@ -39,7 +40,14 @@ class PhotoEditCollectionViewController: UICollectionViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.delegate.photosWereEdited(photoUrls: self.parking.multiplePhotoUrls, images: self.parkingImages)
+        self.delegate.photosWereEdited(photoUrls: parkingUrls, images: self.parkingImages)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        parkingUrls = []
+        for url in self.parking.multiplePhotoUrls {
+            parkingUrls.append(url)
+        }
     }
 
     @IBAction func pressedEdit(_ sender: Any) {
@@ -64,7 +72,7 @@ extension PhotoEditCollectionViewController {
         if self.usingImages {
             imageCount = self.parkingImages.count
         } else {
-            imageCount = self.parking.multiplePhotoUrls.count
+            imageCount = parkingUrls.count
         }
         if imageCount < 6 && self.isEditing {
             return imageCount + 1
@@ -78,7 +86,7 @@ extension PhotoEditCollectionViewController {
         if self.usingImages {
             imageCount = self.parkingImages.count
         } else {
-            imageCount = self.parking.multiplePhotoUrls.count
+            imageCount = parkingUrls.count
         }
 
         if indexPath.row > imageCount - 1 && self.isEditing {
@@ -95,7 +103,7 @@ extension PhotoEditCollectionViewController {
             if self.usingImages {
                 cell.parkingImageView.image = self.parkingImages[indexPath.row]
             } else {
-                ImageLoaderHelper.loadImageFromUrl(cell.parkingImageView, url: self.parking.multiplePhotoUrls[indexPath.row])
+                ImageLoaderHelper.loadImageFromUrl(cell.parkingImageView, url: parkingUrls[indexPath.row])
             }
             cell.layer.cornerRadius = 10
             cell.parkingImageView.layer.cornerRadius = 10
@@ -118,7 +126,7 @@ extension PhotoEditCollectionViewController {
         if self.usingImages {
             self.parkingImages.remove(at: sender.tag)
         } else {
-            self.parking.multiplePhotoUrls.remove(at: sender.tag)
+            parkingUrls.remove(at: sender.tag)
         }
         self.collectionView?.reloadData()
     }
@@ -175,7 +183,7 @@ extension PhotoEditCollectionViewController: NohanaImagePickerControllerDelegate
     func uploadImages(_ images: [(UIImage)]) {
         self.activityIndicator.isHidden = false
         self.activityIndicator.startAnimating()
-        let totalImageCount = images.count + self.parking.multiplePhotoUrls.count
+        let totalImageCount = images.count + parkingUrls.count
         let date = Date.init()
         let metadata = StorageMetadata()
         metadata.contentType = "image/jpeg"
@@ -186,8 +194,8 @@ extension PhotoEditCollectionViewController: NohanaImagePickerControllerDelegate
             AppState.shared.storageReference.child(path).putData(data, metadata: metadata).observe(StorageTaskStatus.success) { (snapshot) in
                 if let metadata = snapshot.metadata {
                     if let url = metadata.downloadURL() {
-                        self.parking.multiplePhotoUrls.append(url)
-                        if self.parking.multiplePhotoUrls.count == totalImageCount {
+                        self.parkingUrls.append(url)
+                        if self.parkingUrls.count == totalImageCount {
                             self.activityIndicator.isHidden = true
                             self.activityIndicator.stopAnimating()
                             self.collectionView!.reloadData()

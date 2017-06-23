@@ -18,8 +18,11 @@ class EventCollectionViewCell: UICollectionViewCell {
         didSet {
             if let event = event {
                 if let url = event.photoURL {
-                    let imageReference = AppState.shared.storageReference.storage.reference(forURL: url.absoluteString)
-                    image.sd_setImage(with: imageReference, placeholderImage: UIImage.init(named: "placeholder-1"))
+                    isUserInteractionEnabled = true
+                    ImageLoaderHelper.loadImageFromUrl(image, url: url)
+                } else {
+                    // Placeholder cells which don't have a photoURL shouldn't be touched / interacted with
+                    isUserInteractionEnabled = false
                 }
                 label.text = "\(DateHelper.getDay(event.startTime)) \(DateHelper.getMonth(event.startTime))"
                 priceLabel.text = event.price.asLocaleCurrency

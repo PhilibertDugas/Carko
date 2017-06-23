@@ -39,8 +39,8 @@ class BankCreationViewController: UIViewController {
 
 extension BankCreationViewController {
     fileprivate func setupFields() {
-        self.routingNumberTextField.attributedPlaceholder = NSAttributedString.init(string: Translations.t("Routing Number"), attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
-        self.accountNumberTextField.attributedPlaceholder = NSAttributedString.init(string: Translations.t("Account Number"), attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
+        self.routingNumberTextField.attributedPlaceholder = NSAttributedString.init(string: Translations.t("Routing Number"), attributes: [NSForegroundColorAttributeName: UIColor.placeholderColor])
+        self.accountNumberTextField.attributedPlaceholder = NSAttributedString.init(string: Translations.t("Account Number"), attributes: [NSForegroundColorAttributeName: UIColor.placeholderColor])
         self.routingNumberTextField.addTarget(self, action: #selector(self.textChanged), for: UIControlEvents.editingChanged)
         self.accountNumberTextField.addTarget(self, action: #selector(self.textChanged), for: UIControlEvents.editingChanged)
     }

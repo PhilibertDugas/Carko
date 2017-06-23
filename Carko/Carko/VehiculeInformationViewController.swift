@@ -50,15 +50,17 @@ class VehiculeInformationViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.navigationBar.clipsToBounds = true
         self.hideKeyboardWhenTappedAround()
+        // on iPhone SE in french, the save label is too big
+        self.saveButton.titleLabel?.adjustsFontSizeToFitWidth = true
         setupYears()
         setupFields()
         setupPickers()
-        self.licensePlateTextField.attributedPlaceholder = NSAttributedString.init(string: Translations.t("License Plate"), attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
-        self.makeTextField.attributedPlaceholder = NSAttributedString.init(string: Translations.t("Make"), attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
-        self.modelTextField.attributedPlaceholder = NSAttributedString.init(string: Translations.t("Model"), attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
-        self.yearTextField.attributedPlaceholder = NSAttributedString.init(string: Translations.t("Year"), attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
-        self.colorTextField.attributedPlaceholder = NSAttributedString.init(string: Translations.t("Color"), attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
-        self.provinceTextField.attributedPlaceholder = NSAttributedString.init(string: Translations.t("Province"), attributes: [NSForegroundColorAttributeName: UIColor.primaryGray])
+        self.licensePlateTextField.attributedPlaceholder = NSAttributedString.init(string: Translations.t("License Plate"), attributes: [NSForegroundColorAttributeName: UIColor.placeholderColor])
+        self.makeTextField.attributedPlaceholder = NSAttributedString.init(string: Translations.t("Make"), attributes: [NSForegroundColorAttributeName: UIColor.placeholderColor])
+        self.modelTextField.attributedPlaceholder = NSAttributedString.init(string: Translations.t("Model"), attributes: [NSForegroundColorAttributeName: UIColor.placeholderColor])
+        self.yearTextField.attributedPlaceholder = NSAttributedString.init(string: Translations.t("Year"), attributes: [NSForegroundColorAttributeName: UIColor.placeholderColor])
+        self.colorTextField.attributedPlaceholder = NSAttributedString.init(string: Translations.t("Color"), attributes: [NSForegroundColorAttributeName: UIColor.placeholderColor])
+        self.provinceTextField.attributedPlaceholder = NSAttributedString.init(string: Translations.t("Province"), attributes: [NSForegroundColorAttributeName: UIColor.placeholderColor])
 
     }
 

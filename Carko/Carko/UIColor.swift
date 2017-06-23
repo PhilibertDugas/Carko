@@ -43,6 +43,10 @@ extension UIColor {
         return UIColor.init(netHex: 0x101415)
     }
 
+    class var placeholderColor: UIColor {
+        return UIColor.init(netHex: 0x505050)
+    }
+
     class var primaryWhiteTextColor: UIColor {
         return UIColor.init(netHex: 0xE8E8E8)
     }

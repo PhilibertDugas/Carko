@@ -30,7 +30,7 @@
 "JQz-mh-afv.text" = "Subtitle";
 
 /* Class = "UITextField"; placeholder = "What is your address?"; ObjectID = "LQa-et-Zpa"; */
-"LQa-et-Zpa.placeholder" = "Quelle est votre adresse??";
+"LQa-et-Zpa.placeholder" = "Quelle est votre adresse?";
 
 /* Class = "UIButton"; normalTitle = "Save"; ObjectID = "Ofp-w2-QVc"; */
 "Ofp-w2-QVc.normalTitle" = "Sauvegarder";

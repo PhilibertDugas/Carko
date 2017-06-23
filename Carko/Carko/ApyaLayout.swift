@@ -154,7 +154,7 @@ class ApyaLayoutAttributes: UICollectionViewLayoutAttributes {
 
     override func isEqual(_ object: Any?) -> Bool {
         if let attributes = object as? ApyaLayoutAttributes {
-            if( attributes.photoHeight == photoHeight  ) {
+            if(attributes.photoHeight == photoHeight) {
                 return super.isEqual(object)
             }
         }

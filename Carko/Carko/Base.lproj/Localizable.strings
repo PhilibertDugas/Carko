@@ -33,6 +33,7 @@
 "Gold" = "Gold";
 "Beige" = "Beige";
 "Other" = "Other";
+"Midnight" = "Midnight";
 
 
 // Vehicule
@@ -58,6 +59,8 @@
 "Please select a payment method" = "Please select a payment method";
 "Missing vehicule" = "Missing vehicule";
 "Please set your vehicule information in the profile section" = "Please set your vehicule information in the profile section";
+"Reservation conflict" = "Reservation conflict";
+"There is already a reservation scheduled on this date, do you wish to continue?" = "There is already a reservation scheduled on this date, do you wish to continue?";
 
 
 // Rent your space
