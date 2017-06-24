@@ -18,12 +18,11 @@ class ReservationTableViewCell: UITableViewCell {
     var reservation: Reservation? {
         didSet {
             if let reservation = reservation {
-                self.reservationLabel.text = reservation.event.label
+                self.reservationLabel.text = reservation.event?.label ?? Translations.t("Event")
                 self.reservationPrice.text = reservation.totalCost.asLocaleCurrency
                 self.reservationTime.text = reservation.startTime.formattedDays
-                if let url = reservation.event.photoURL {
-                    let imageReference = AppState.shared.storageReference.storage.reference(forURL: url.absoluteString)
-                    eventImage.sd_setImage(with: imageReference)
+                if let url = reservation.event?.photoURL {
+                    ImageLoaderHelper.loadImageFromUrl(eventImage, url: url)
                     eventImage.layer.cornerRadius = 10
                     eventImage.clipsToBounds = true
                 }

@@ -43,20 +43,14 @@ struct Event {
         self.endTime = endTime
     }
 
-    init(event: [String: Any]) {
-        let id = event["id"] as! Int
-        let latitude = event["latitude"] as! CLLocationDegrees
-        let longitude = event["longitude"] as! CLLocationDegrees
+    init?(event: [String: Any]) {
+        guard let id = event["id"] as? Int, let latitude = event["latitude"] as? CLLocationDegrees, let longitude = event["longitude"] as? CLLocationDegrees, let range = event["range"] as? Int, let price = event["price"] as? Float, let label = event["label"] as? String, let targetAudience = event["target_audience"] as? Int, let startTime = event["start_time"] as? String, let endTime = event["end_time"] as? String else { return nil }
+
         var potentialPhotoUrl: URL? = nil
         if let url = event["photo_url"] as? String {
             potentialPhotoUrl = URL.init(string: url)
         }
-        let range = event["range"] as! Int
-        let price = event["price"] as! Float
-        let label = event["label"] as! String
-        let targetAudience = event["target_audience"] as! Int
-        let startTime = event["start_time"] as! String
-        let endTime = event["end_time"] as! String
+
         self.init(id: id, latitude: latitude, longitude: longitude, photoURL: potentialPhotoUrl, range: range, price: price, label: label, targetAudience: targetAudience, startTime: startTime, endTime: endTime)
     }
 
@@ -71,7 +65,7 @@ struct Event {
 }
 
 extension Event {
-    static func getAllEvents(_ complete: @escaping([(Event)], Error?) -> Void) {
+    static func getAllEvents(_ complete: @escaping([(Event?)], Error?) -> Void) {
         APIClient.shared.getAllEvents(complete: complete)
     }
 

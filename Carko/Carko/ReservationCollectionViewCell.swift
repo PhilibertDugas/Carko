@@ -51,7 +51,7 @@ class ReservationCollectionViewCell: UICollectionViewCell, MKMapViewDelegate {
         didSet {
             if let reservation = reservation {
                 let event = reservation.event
-                label.text = event.label
+                label.text = event?.label ?? Translations.t("Event")
                 monthLabel.text = DateHelper.getMonth(reservation.startTime)
                 dayLabel.text = String(DateHelper.getDay(reservation.startTime))
                 dayOfWeekLabel.text = DateHelper.getDayOfWeek(reservation.startTime)
@@ -66,8 +66,8 @@ class ReservationCollectionViewCell: UICollectionViewCell, MKMapViewDelegate {
         }
     }
 
-    fileprivate func setEventImage(_ event: Event) {
-        if let url = event.photoURL {
+    fileprivate func setEventImage(_ event: Event?) {
+        if let url = event?.photoURL {
             let imageReference = AppState.shared.storageReference.storage.reference(forURL: url.absoluteString)
             self.eventImageView.sd_setImage(with: imageReference)
         }
@@ -75,7 +75,7 @@ class ReservationCollectionViewCell: UICollectionViewCell, MKMapViewDelegate {
 
     fileprivate func setMapRegion(_ reservation: Reservation) {
         let center = reservation.parking.coordinate()
-        let range = CLLocationDistance.init(reservation.event.range)
+        let range = CLLocationDistance.init(reservation.event?.range ?? 500)
         let region = MKCoordinateRegionMakeWithDistance(center, range, range)
         self.mapView.setRegion(region, animated: true)
         self.mapView.regionThatFits(region)

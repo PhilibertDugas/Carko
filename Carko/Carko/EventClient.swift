@@ -8,19 +8,23 @@
 
 import Foundation
 import Alamofire
+import Crashlytics
 
 extension APIClient {
-    func getAllEvents(complete: @escaping([(Event)], Error?) -> Void) {
+    func getAllEvents(complete: @escaping([(Event?)], Error?) -> Void) {
         // #warning fix error handling 
         let getUrl = baseUrl.appendingPathComponent("/events")
         request(getUrl).responseJSON { (response) in
             if let error = response.result.error {
                 complete([], error)
             } else if let result = response.result.value {
-                let eventArray = result as! NSArray
-                var events = [(Event)]()
+                guard let eventArray = result as? NSArray else { return }
+                var events = [(Event?)]()
                 for event in eventArray {
-                    let dict = event as! [String : Any]
+                    guard let dict = event as? [String : Any] else {
+                        Crashlytics.sharedInstance().recordError(NSError.init(domain: "Received bad getAllEvents data", code: 0, userInfo: nil))
+                        continue
+                    }
                     events.append(Event.init(event: dict))
                 }
                 complete(events, nil)
