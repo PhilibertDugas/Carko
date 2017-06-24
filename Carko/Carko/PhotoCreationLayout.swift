@@ -38,7 +38,7 @@ class PhotoCreationLayout: UICollectionViewLayout {
         self.currentRow = 0
         self.firstSectionPadding = 0.02 * self.contentWidth
         self.secondSectionPadding = 0.55 * self.firstSectionPadding
-        self.thirdSectionPadding = 0.4 * self.firstSectionPadding
+        self.thirdSectionPadding = 0.3 * self.firstSectionPadding
 
         self.numberOfRow = collectionView!.numberOfSections
         self.numberOfColumns = collectionView!.numberOfSections
@@ -79,7 +79,7 @@ class PhotoCreationLayout: UICollectionViewLayout {
         let firstSectionColumnHeight = contentHeight
 
         // Images in the second column are square dimensions
-        let secondSectionColumnWidth = 0.35 * contentWidth
+        let secondSectionColumnWidth = 0.33 * contentWidth
         let secondSectionRowHeight = secondSectionColumnWidth
 
         self.xOffset[0] = 0
@@ -114,7 +114,7 @@ class PhotoCreationLayout: UICollectionViewLayout {
         let firstSectionColumnHeight = contentHeight
 
         // Images in the second column are square dimensions
-        let secondSectionColumnWidth = 0.35 * contentWidth
+        let secondSectionColumnWidth = 0.33 * contentWidth
         let secondSectionRowHeight = secondSectionColumnWidth
 
         let thirdSectionColumnWidth = 0.16 * contentWidth

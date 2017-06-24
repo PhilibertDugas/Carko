@@ -35,6 +35,7 @@
 "Other" = "Other";
 "Midnight" = "Midnight";
 "Event" = "Event";
+"Sign in" = "Sign in";
 
 
 // Vehicule
@@ -67,4 +68,4 @@
 // Rent your space
 "You just added a parking" = "You just added a parking";
 "To list this parking, complete the 'Payout' section" = "To list this parking, complete the 'Payout' section";
-"You just listed a parking" = "You just listed a parking";
+"Your parking space is now available for rent" = "Your parking space is now available for rent";

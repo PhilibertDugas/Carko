@@ -20,7 +20,7 @@ class NavigationViewController: UIViewController {
             let customer = AuthenticationHelper.getCustomer()
             self.headerView.nameLabel.text = customer.displayName
         } else {
-            self.headerView.nameLabel.text = ""
+            self.headerView.nameLabel.text = Translations.t("Sign in")
         }
     }
 

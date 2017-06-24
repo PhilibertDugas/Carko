@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Crashlytics
 
 struct Reservation {
     var parking: Parking
@@ -31,8 +32,9 @@ struct Reservation {
 
     init?(reservation: [String : Any]) {
         guard let customerId = reservation["customer_id"] as? Int, let isActive = reservation["is_active"] as? Bool, let startTime = reservation["start_time"] as? String, let stopTime = reservation["stop_time"] as? String, let totalCost = reservation["total_cost"] as? Float, let charge = reservation["charge"] as? String, let event = reservation["event"] as? [String: Any], let parkingDict = reservation["parking"] as? [String: Any]
-            else {
-                return nil
+        else {
+            Crashlytics.sharedInstance().recordError(NSError.init(domain: "Invalid data in Reservation init", code: 0, userInfo: nil), withAdditionalUserInfo: reservation)
+            return nil
         }
 
         self.init(parking: Parking.init(parking: parkingDict), event: Event.init(event: event), customerId: customerId, isActive: isActive, startTime: startTime, stopTime: stopTime, totalCost: totalCost, charge: charge)

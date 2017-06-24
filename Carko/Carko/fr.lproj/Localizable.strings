@@ -35,6 +35,7 @@
 "Other" = "Autre";
 "Midnight" = "Minuit";
 "Event" = "Événement";
+"Sign in" = "Connection";
 
 
 // Vehicule
@@ -66,4 +67,4 @@
 // Rent your space
 "You just added a parking" = "Vous avez ajouté votre stationnement";
 "To list this parking, complete the 'Payout' section" = "Pour afficher ce stationnement, complétez la section 'Transfert'";
-"You just listed a parking" = "Vous avez affichez votre stationnement";
+"Your parking space is now available for rent" = "Votre stationnement est maintenant disponible pour une location";

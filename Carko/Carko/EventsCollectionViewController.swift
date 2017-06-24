@@ -127,6 +127,10 @@ class EventsCollectionViewController: UICollectionViewController {
         self.bluredView.alpha = 0.8
         self.bluredView.frame = UIScreen.main.bounds
         self.mapView = MKMapView.init(frame: self.bluredView.frame)
+        let center = CLLocationCoordinate2D.init(latitude: 45.502, longitude: -73.572)
+        let region = MKCoordinateRegionMakeWithDistance(center, CLLocationDistance(700), CLLocationDistance(700))
+        self.mapView.setRegion(region, animated: true)
+        self.mapView.regionThatFits(region)
         self.collectionView?.insertSubview(mapView, at: 0)
         self.collectionView?.insertSubview(bluredView, aboveSubview: mapView)
     }

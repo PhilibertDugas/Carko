@@ -8,6 +8,7 @@
 
 import CoreLocation
 import UIKit
+import Crashlytics
 
 struct Event {
     var id: Int
@@ -44,7 +45,11 @@ struct Event {
     }
 
     init?(event: [String: Any]) {
-        guard let id = event["id"] as? Int, let latitude = event["latitude"] as? CLLocationDegrees, let longitude = event["longitude"] as? CLLocationDegrees, let range = event["range"] as? Int, let price = event["price"] as? Float, let label = event["label"] as? String, let targetAudience = event["target_audience"] as? Int, let startTime = event["start_time"] as? String, let endTime = event["end_time"] as? String else { return nil }
+        guard let id = event["id"] as? Int, let latitude = event["latitude"] as? CLLocationDegrees, let longitude = event["longitude"] as? CLLocationDegrees, let range = event["range"] as? Int, let price = event["price"] as? Float, let label = event["label"] as? String, let targetAudience = event["target_audience"] as? Int, let startTime = event["start_time"] as? String, let endTime = event["end_time"] as? String
+        else {
+            Crashlytics.sharedInstance().recordError(NSError.init(domain: "Invalid data in Event init", code: 0, userInfo: nil), withAdditionalUserInfo: event)
+            return nil
+        }
 
         var potentialPhotoUrl: URL? = nil
         if let url = event["photo_url"] as? String {

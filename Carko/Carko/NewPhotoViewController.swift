@@ -219,7 +219,7 @@ extension NewPhotoViewController: NohanaImagePickerControllerDelegate {
         if AuthenticationHelper.getCustomer().accountId == nil {
             manager.successPopup.warningMessage.text = Translations.t("To list this parking, complete the 'Payout' section")
         } else {
-            manager.successPopup.descriptionLabel.text = Translations.t("You just listed a parking")
+            manager.successPopup.descriptionLabel.text = Translations.t("Your parking space is now available for rent")
             manager.successPopup.warningMessage.text = ""
         }
         manager.displayPopup()
