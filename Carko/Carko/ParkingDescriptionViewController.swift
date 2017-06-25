@@ -11,10 +11,15 @@ class ParkingDescriptionViewController: UIViewController {
     
     var delegate: ParkingDescriptionDelegate!
     var parkingDescription: String!
+    var placeholderTextPresent = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        descriptionText.text = parkingDescription
+        if !parkingDescription.isEmpty {
+            descriptionText.text = parkingDescription
+            descriptionText.textColor = UIColor.primaryWhiteTextColor
+        }
+        descriptionText.delegate = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -26,5 +31,15 @@ class ParkingDescriptionViewController: UIViewController {
         super.viewWillDisappear(animated)
         IQKeyboardManager.sharedManager().enable = true
         delegate.userDidChangeDescription(value: descriptionText.text)
+    }
+}
+
+extension ParkingDescriptionViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        descriptionText.textColor = UIColor.primaryWhiteTextColor
+        if placeholderTextPresent {
+            descriptionText.text = ""
+            placeholderTextPresent = false
+        }
     }
 }

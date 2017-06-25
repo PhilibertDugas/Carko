@@ -1,6 +1,6 @@
 
-/* Class = "UILabel"; text = "Add a short description of your parking and details to help people use your parking."; ObjectID = "1Ha-2Z-4gN"; */
-"1Ha-2Z-4gN.text" = "Ajoutez une courte description de votre stationnement avec des détails pour aider les personnes à utiliser celui-ci.";
+/* Class = "UITextView"; text = "Add a short description of your parking and details to help people use your parking."; ObjectID = "SyP-yK-IPs"; */
+"SyP-yK-IPs.text" = "Ajoutez une courte description de votre stationnement avec des détails pour aider les personnes à utiliser celui-ci.";
 
 /* Class = "UILabel"; text = "Not listed yet"; ObjectID = "2NF-i2-Wc3"; */
 "2NF-i2-Wc3.text" = "Non affiché";
@@ -112,3 +112,6 @@
 
 /* Class = "UILabel"; text = "Sunday"; ObjectID = "vcM-eF-EkU"; */
 "vcM-eF-EkU.text" = "Dimanche";
+
+/* Class= "UIButton"; text = "Add Description"; ObjectID= "IFx-dx-vg9"; */
+"IFx-dx-vg9.normalTitle" = "Ajouter description";

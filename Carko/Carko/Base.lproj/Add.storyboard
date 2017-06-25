@@ -43,13 +43,13 @@
                         <viewControllerLayoutGuide type="bottom" id="mT5-r8-q3G"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="0pP-5N-YdB">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="SyP-yK-IPs">
-                                <rect key="frame" x="16" y="8" width="343" height="587"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" text="Add a short description of your parking and details to help people use your parking." translatesAutoresizingMaskIntoConstraints="NO" id="SyP-yK-IPs">
+                                <rect key="frame" x="16" y="28" width="343" height="631"/>
                                 <color key="tintColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="textColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.76862745099999996" green="0.066666666669999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -971,6 +971,18 @@
                                 <color key="textColor" red="0.76862745099999996" green="0.066666666669999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IFx-dx-vg9" customClass="SmallRoundedCornerButton" customModule="Carko" customModuleProvider="target">
+                                <rect key="frame" x="116" y="254" width="142.5" height="60.5"/>
+                                <color key="backgroundColor" red="0.76862745099999996" green="0.066666666669999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
+                                <color key="tintColor" red="0.76862745099999996" green="0.066666666669999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Add Description">
+                                    <color key="titleColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="6yu-zW-V47" kind="show" identifier="showDescription" id="oMe-gE-eVa"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dqF-Va-WFQ">
                                 <rect key="frame" x="18" y="262" width="339" height="151"/>
                                 <subviews>
@@ -997,10 +1009,10 @@
                                             <constraint firstAttribute="height" constant="1" id="lfi-RE-CMJ"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a short description of your parking and details to help people use your parking." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Ha-2Z-4gN">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Ha-2Z-4gN">
                                         <rect key="frame" x="9" y="41" width="321" height="110"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                        <color key="textColor" red="0.78039215689999997" green="0.035294117649999998" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -1021,7 +1033,7 @@
                                     <constraint firstItem="7Rn-6C-kuu" firstAttribute="leading" secondItem="dqF-Va-WFQ" secondAttribute="leading" id="y5U-lz-K9F"/>
                                 </constraints>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="DiR-U9-PA6" appends="YES" id="tac-pA-4Hx"/>
+                                    <outletCollection property="gestureRecognizers" destination="O5p-5m-nvo" appends="YES" id="k3d-ZE-eeI"/>
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q1O-TR-Osq">
@@ -1062,7 +1074,10 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="dqF-Va-WFQ" secondAttribute="trailing" constant="2" id="1e3-YE-ORN"/>
                             <constraint firstItem="nID-Qw-kTP" firstAttribute="top" secondItem="vUR-Qj-2VA" secondAttribute="bottom" id="6e7-8g-HHI"/>
+                            <constraint firstItem="IFx-dx-vg9" firstAttribute="centerX" secondItem="NJX-Fd-H90" secondAttribute="centerX" id="9bc-RQ-TK2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="nID-Qw-kTP" secondAttribute="trailing" id="9eJ-zL-bJm"/>
+                            <constraint firstItem="Q1O-TR-Osq" firstAttribute="height" secondItem="IFx-dx-vg9" secondAttribute="height" id="HTU-DD-lFr"/>
+                            <constraint firstItem="IFx-dx-vg9" firstAttribute="top" secondItem="3sa-cU-gUH" secondAttribute="bottom" constant="40" id="Oxc-7e-Jsa"/>
                             <constraint firstItem="2lm-7R-cbV" firstAttribute="top" secondItem="3sa-cU-gUH" secondAttribute="bottom" constant="26" id="Q2L-xz-mfc"/>
                             <constraint firstItem="3sa-cU-gUH" firstAttribute="width" secondItem="NJX-Fd-H90" secondAttribute="width" multiplier="0.82" id="Sjy-8x-NVw"/>
                             <constraint firstItem="3sa-cU-gUH" firstAttribute="centerX" secondItem="NJX-Fd-H90" secondAttribute="centerX" id="Tvj-3a-0e5"/>
@@ -1071,6 +1086,7 @@
                             <constraint firstItem="nID-Qw-kTP" firstAttribute="leading" secondItem="NJX-Fd-H90" secondAttribute="leadingMargin" id="YBY-3v-PCY"/>
                             <constraint firstItem="2lm-7R-cbV" firstAttribute="centerX" secondItem="NJX-Fd-H90" secondAttribute="centerX" id="aUz-G1-lEm"/>
                             <constraint firstItem="MmM-Vs-NYV" firstAttribute="top" secondItem="vUR-Qj-2VA" secondAttribute="bottom" constant="25" id="c96-33-hh0"/>
+                            <constraint firstItem="Q1O-TR-Osq" firstAttribute="width" secondItem="IFx-dx-vg9" secondAttribute="width" id="cxZ-Dv-PyI"/>
                             <constraint firstItem="pbB-uD-7w0" firstAttribute="top" secondItem="Q1O-TR-Osq" secondAttribute="bottom" constant="27" id="d4N-H4-1IY"/>
                             <constraint firstItem="MmM-Vs-NYV" firstAttribute="centerX" secondItem="NJX-Fd-H90" secondAttribute="centerX" id="dDS-zk-eUJ"/>
                             <constraint firstItem="3sa-cU-gUH" firstAttribute="top" secondItem="NJX-Fd-H90" secondAttribute="topMargin" constant="9" id="gRY-Oy-Yfw"/>
@@ -1086,6 +1102,7 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="uV0-mL-Bka"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="addDescriptionButton" destination="IFx-dx-vg9" id="fw6-BF-hYO"/>
                         <outlet property="addPhotoLabel" destination="nID-Qw-kTP" id="nFf-Rb-rWD"/>
                         <outlet property="bigPlusButton" destination="MmM-Vs-NYV" id="5hm-qb-LtI"/>
                         <outlet property="buttonIndicator" destination="aiq-KV-KPO" id="gR3-by-9rY"/>
@@ -1095,13 +1112,12 @@
                         <outlet property="editPhotosLabel" destination="2lm-7R-cbV" id="RhK-So-yaR"/>
                         <outlet property="mainButton" destination="Ofp-w2-QVc" id="35u-90-EeB"/>
                         <outlet property="photoCollectionView" destination="3sa-cU-gUH" id="GIu-A6-qKB"/>
-                        <segue destination="6yu-zW-V47" kind="show" identifier="showDescription" id="Y1y-ch-YBc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HSa-hp-y28" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="DiR-U9-PA6">
+                <tapGestureRecognizer id="O5p-5m-nvo">
                     <connections>
-                        <action selector="tappedDescription:" destination="aVk-he-ODw" id="sg9-ut-184"/>
+                        <segue destination="6yu-zW-V47" kind="show" identifier="showDescription" id="M2W-kZ-Ni9"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -1178,8 +1194,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="rQy-xe-Y67"/>
-        <segue reference="J66-jr-V6G"/>
-        <segue reference="lXY-Hi-Jzb"/>
         <segue reference="8rN-8p-AUL"/>
+        <segue reference="ZVv-jp-5sL"/>
+        <segue reference="M2W-kZ-Ni9"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -21,6 +21,7 @@ class NewPhotoViewController: UIViewController {
     @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var bigPlusButton: UIButton!
     @IBOutlet var editPhotosLabel: UILabel!
+    @IBOutlet var addDescriptionButton: SmallRoundedCornerButton!
 
     var parking: Parking!
     var parkingImages: [(UIImage)] = []
@@ -30,8 +31,10 @@ class NewPhotoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // on iPhone SE in french, the save label is too big
+        // on iPhone SE in french, the buttons label are too big
         self.mainButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        self.addDescriptionButton.titleLabel?.adjustsFontSizeToFitWidth = true
+
         self.buttonView.isHidden = true
         self.buttonIndicator.isHidden = true
         self.photoCollectionView.isHidden = true
@@ -81,9 +84,12 @@ class NewPhotoViewController: UIViewController {
 extension NewPhotoViewController: ParkingDescriptionDelegate {
     func userDidChangeDescription(value: String) {
         self.parking.pDescription = value
+
+        self.addDescriptionButton.isHidden = true
+        self.descriptionView.isHidden = false
         self.descriptionLabel.text = value
-        self.descriptionLabel.textColor = UIColor.primaryWhiteTextColor
         self.descriptionLabel.sizeToFit()
+
         self.mainButton.isEnabled = true
         self.mainButton.isHidden = false
         self.buttonView.isHidden = false
@@ -166,9 +172,7 @@ extension NewPhotoViewController: NohanaImagePickerControllerDelegate {
             self.photoCollectionView.isHidden = false
             self.editPhotosLabel.isHidden = false
             self.photoCollectionView.reloadData()
-
-            self.descriptionView.isHidden = false
-            self.descriptionLabel.sizeToFit()
+            self.addDescriptionButton.isHidden = false
         }
     }
 
