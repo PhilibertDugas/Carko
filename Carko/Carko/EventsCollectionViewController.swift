@@ -26,7 +26,7 @@ class EventsCollectionViewController: UICollectionViewController {
 
     fileprivate var bluredView: UIView!
     fileprivate var mapView: MKMapView!
-
+    fileprivate var mainScreenShadow: UIView!
 
     @IBAction func navigationMenuPressed(_ sender: Any) {
         revealViewController.revealToggle(sender)
@@ -34,6 +34,11 @@ class EventsCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.mainScreenShadow = UIView.init(frame: self.view.frame)
+        self.mainScreenShadow.backgroundColor = UIColor.black
+        self.mainScreenShadow.isHidden = true
+        self.view.superview?.insertSubview(mainScreenShadow, aboveSubview: self.view)
 
         self.navigationItem.titleView = UIImageView.init(image: UIImage.init(named: "white_logo"))
         if let layout = collectionView?.collectionViewLayout as? ApyaLayout {
@@ -53,7 +58,13 @@ class EventsCollectionViewController: UICollectionViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        UIApplication.shared.statusBarView?.backgroundColor = UIColor.clear
         self.refreshTriggered()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        UIApplication.shared.statusBarView?.backgroundColor = UIColor.secondaryViewsBlack
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -66,7 +77,7 @@ class EventsCollectionViewController: UICollectionViewController {
     override func viewDidLayoutSubviews() {
         if let bluredView = self.bluredView, let collectionView = self.collectionView {
             bluredView.frame = collectionView.bounds
-            mapView.frame = collectionView.bounds
+            self.mapView.frame = collectionView.bounds
         }
     }
 
@@ -151,6 +162,31 @@ extension EventsCollectionViewController: SWRevealViewControllerDelegate {
 
         let _ = revealViewController?.panGestureRecognizer()
         let _ = revealViewController?.tapGestureRecognizer()
+    }
+
+    //FIXME : Finish
+
+    func revealController(_ revealController: SWRevealViewController!, animateTo position: FrontViewPosition) {
+        if position == .left {
+            self.mainScreenShadow.isHidden = true
+            self.mainScreenShadow.alpha = 0
+        } else if position == .right {
+            self.mainScreenShadow.isHidden = false
+            self.mainScreenShadow.alpha = 0.9
+        }
+    }
+
+    func revealController(_ revealController: SWRevealViewController!, panGestureMovedToLocation location: CGFloat, progress: CGFloat) {
+        if progress > 1 {
+            self.mainScreenShadow.isHidden = false
+            self.mainScreenShadow.alpha = 0.9
+        } else if progress == 0 {
+            self.mainScreenShadow.isHidden = true
+            self.mainScreenShadow.alpha = 0
+        } else {
+            self.mainScreenShadow.isHidden = false
+            self.mainScreenShadow.alpha = 0.9 - (0.85 * progress)
+        }
     }
 }
 

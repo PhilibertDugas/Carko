@@ -40,6 +40,8 @@ class FindParkingViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        UIApplication.shared.statusBarView?.backgroundColor = UIColor.clear
+
         let reveal = self.revealViewController
         reveal().panGestureRecognizer().isEnabled = false
         self.navigationController?.setNavigationBarHidden(true, animated: false)
@@ -48,6 +50,8 @@ class FindParkingViewController: UIViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         let reveal = self.revealViewController
+        UIApplication.shared.statusBarView?.backgroundColor = UIColor.secondaryViewsBlack
+
         reveal().panGestureRecognizer().isEnabled = true
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }

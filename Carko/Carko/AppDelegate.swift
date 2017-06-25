@@ -23,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         IQKeyboardManager.sharedManager().enable = true
 
+        UIApplication.shared.statusBarView?.backgroundColor = UIColor.secondaryViewsBlack
+
         setupStripe()
         setupServers()
 
@@ -31,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    fileprivate func setupStripe() {
+    private func setupStripe() {
         STPTheme.default().accentColor = UIColor.primaryWhiteTextColor
         STPTheme.default().primaryForegroundColor = UIColor.primaryWhiteTextColor
 
@@ -42,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         STPTheme.default()
     }
 
-    fileprivate func setupServers() {
+    private func setupServers() {
         #if DEVELOPMENT
             let firebaseFile = "GoogleService-Info"
             let apiUrl = "https://integration-apya.herokuapp.com"
@@ -63,7 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
         Customer.updateCustomerToken(deviceTokenString) { (error) in
             if let error = error {
-                print(error.localizedDescription)
+                Crashlytics.sharedInstance().recordError(error)
             }
         }
     }
