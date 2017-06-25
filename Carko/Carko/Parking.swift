@@ -46,7 +46,6 @@ class Parking {
     convenience init(parking: [String : Any]) {
         let latitude = parking["latitude"] as! CLLocationDegrees
         let longitude = parking["longitude"] as! CLLocationDegrees
-        let photoURL = URL.init(string: parking["photo_url"] as! String)
         let address = parking["address"] as! String
         let pDescription = parking["description"] as! String
         let isAvailable = parking["is_available"] as! Bool
@@ -54,6 +53,11 @@ class Parking {
         let isComplete = parking["is_complete"] as! Bool
 
         let availabilityInfo = AvailabilityInfo.init(availabilityInfo: parking["availability_info"] as! [String : Any])
+
+        var photoURL: URL? = nil
+        if let urlString = parking["photo_url"] as? String {
+            photoURL = URL.init(string: urlString)
+        }
         let multiplePhotoString = parking["multiple_photo_urls"] as! [(String)]
         var multipleUrls: [(URL)] = []
         for element in multiplePhotoString {
@@ -114,10 +118,9 @@ extension Parking {
     }
 
     func toDictionary() -> [String : Any] {
-        return [
+        var dict: [String: Any] = [
             "latitude": latitude,
             "longitude": longitude,
-            "photo_url": "\(photoURL!)",
             "address": address,
             "description": pDescription,
             "is_available": isAvailable,
@@ -127,6 +130,10 @@ extension Parking {
             "availability_info": availabilityInfo.toDictionary(),
             "multiple_photo_urls": multiplePhotoUrls.map { $0.absoluteString }
         ]
+        if let url = photoURL {
+            dict["photo_url"] = "\(url)"
+        }
+        return dict
     }
 }
 

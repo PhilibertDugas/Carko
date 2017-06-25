@@ -37,12 +37,11 @@ struct Customer {
         self.stripeId = stripeId
     }
 
-    init(customer: [String: Any]) {
-        let email = customer["email"] as! String
-        let displayName = customer["display_name"] as! String
-        let id = customer["id"] as! Int
-        let firebaseId = customer["firebase_id"] as! String
-        let stripeId = customer["stripe_id"] as! String
+    init?(customer: [String: Any]) {
+        guard let email = customer["email"] as? String, let displayName = customer["display_name"] as? String, let id = customer["id"] as? Int, let firebaseId = customer["firebase_id"] as? String, let stripeId = customer["stripe_id"] as? String
+            else {
+                return nil
+        }
 
         self.init(email: email, displayName: displayName, id: id, firebaseId: firebaseId, stripeId: stripeId)
 
