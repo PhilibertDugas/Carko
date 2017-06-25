@@ -35,11 +35,6 @@ class EventsCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.mainScreenShadow = UIView.init(frame: self.view.frame)
-        self.mainScreenShadow.backgroundColor = UIColor.black
-        self.mainScreenShadow.isHidden = true
-        self.view.superview?.insertSubview(mainScreenShadow, aboveSubview: self.view)
-
         self.navigationItem.titleView = UIImageView.init(image: UIImage.init(named: "white_logo"))
         if let layout = collectionView?.collectionViewLayout as? ApyaLayout {
             layout.delegate = self
@@ -51,6 +46,12 @@ class EventsCollectionViewController: UICollectionViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         self.prepareBackgroundView()
+
+        self.mainScreenShadow = UIView.init(frame: self.view.frame)
+        self.mainScreenShadow.backgroundColor = UIColor.black
+        self.mainScreenShadow.isHidden = true
+        self.view.superview?.insertSubview(mainScreenShadow, aboveSubview: self.view)
+
         if !self.loadedOnce {
             Loader.addLoaderTo(self.collectionView!)
         }
@@ -164,28 +165,26 @@ extension EventsCollectionViewController: SWRevealViewControllerDelegate {
         let _ = revealViewController?.tapGestureRecognizer()
     }
 
-    //FIXME : Finish
-
     func revealController(_ revealController: SWRevealViewController!, animateTo position: FrontViewPosition) {
         if position == .left {
             self.mainScreenShadow.isHidden = true
             self.mainScreenShadow.alpha = 0
         } else if position == .right {
             self.mainScreenShadow.isHidden = false
-            self.mainScreenShadow.alpha = 0.9
+            self.mainScreenShadow.alpha = 0.8
         }
     }
 
     func revealController(_ revealController: SWRevealViewController!, panGestureMovedToLocation location: CGFloat, progress: CGFloat) {
         if progress > 1 {
             self.mainScreenShadow.isHidden = false
-            self.mainScreenShadow.alpha = 0.9
+            self.mainScreenShadow.alpha = 0.8
         } else if progress == 0 {
             self.mainScreenShadow.isHidden = true
             self.mainScreenShadow.alpha = 0
         } else {
             self.mainScreenShadow.isHidden = false
-            self.mainScreenShadow.alpha = 0.9 - (0.85 * progress)
+            self.mainScreenShadow.alpha = 0.8 * progress
         }
     }
 }
