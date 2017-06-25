@@ -18,6 +18,7 @@ class VehiculeInformationViewController: UIViewController {
     @IBOutlet var saveButton: RoundedCornerButton!
 
     var years: [(String)] = []
+    var vehicule: Vehicule?
     let licensePlateLength = 6
     var manager: PopupManager!
 
@@ -26,24 +27,54 @@ class VehiculeInformationViewController: UIViewController {
     }
 
     @IBAction func saveTapped(_ sender: Any) {
+        if var vehicule = self.vehicule {
+            vehicule.license = licensePlateTextField.text!
+            vehicule.make = makeTextField.text!
+            vehicule.model = modelTextField.text!
+            vehicule.year = yearTextField.text!
+            vehicule.color = colorTextField.text!
+            vehicule.province = provinceTextField.text!
+            updateVehicule(vehicule)
+        } else {
+            saveNewVehicule()
+        }
+    }
+
+    private func updateVehicule(_ vehicule: Vehicule) {
+        vehicule.update { (error) in
+            if let error = error {
+                super.displayErrorMessage(error.localizedDescription)
+            } else {
+                self.updateCustomerVehicule(vehicule)
+            }
+        }
+
+    }
+
+    private func saveNewVehicule() {
         let vehicule = Vehicule.init(license: licensePlateTextField.text!, make: makeTextField.text!, model: modelTextField.text!, year: yearTextField.text!, color: colorTextField.text!, province: provinceTextField.text!)
 
         vehicule.persist(completion: { (error, vehicule) in
             if let error = error {
                 super.displayErrorMessage(error.localizedDescription)
             } else if let vehicule = vehicule {
-                var customer = AuthenticationHelper.getCustomer()
-                customer.vehicule = vehicule
-                customer.updateCustomer({ (error) in
-                    if let error = error {
-                        self.displayErrorMessage(error.localizedDescription)
-                    } else {
-                        AuthenticationHelper.updateCustomer(customer)
-                        self.displaySuccessMessage()
-                    }
-                })
+                self.updateCustomerVehicule(vehicule)
             }
         })
+    }
+
+    private func updateCustomerVehicule(_ vehicule: Vehicule) {
+        var customer = AuthenticationHelper.getCustomer()
+        customer.vehicule = vehicule
+        customer.updateCustomer({ (error) in
+            if let error = error {
+                self.displayErrorMessage(error.localizedDescription)
+            } else {
+                AuthenticationHelper.updateCustomer(customer)
+                self.displaySuccessMessage()
+            }
+        })
+
     }
 
     override func viewDidLoad() {
@@ -66,6 +97,7 @@ class VehiculeInformationViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.vehicule = AuthenticationHelper.getCustomer().vehicule
         prefillFields()
     }
 }
@@ -94,7 +126,7 @@ extension VehiculeInformationViewController {
     }
 
     fileprivate func prefillFields() {
-        if let vehicule = AuthenticationHelper.getCustomer().vehicule {
+        if let vehicule = self.vehicule {
             licensePlateTextField.text = vehicule.license
             makeTextField.text = vehicule.make
             modelTextField.text = vehicule.model

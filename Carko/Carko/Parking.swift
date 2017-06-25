@@ -101,7 +101,7 @@ extension Parking {
     func delete(complete: @escaping (Error?) -> Void) {
         APIClient.shared.deleteParking(parking: self) { (error) in
             if error == nil {
-                AppState.shared.customerParkings.removeValue(forKey: self.id!)
+                AppState.shared.removeParkingFromCache(self)
             }
             complete(error)
         }

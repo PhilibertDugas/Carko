@@ -70,6 +70,7 @@ struct Customer {
 
         if let vehicule = self.vehicule {
             dict["vehicule_id"] = vehicule.id!
+            dict["vehicule"] = vehicule.toDictionary()
         }
 
         if let accountId = self.accountId {

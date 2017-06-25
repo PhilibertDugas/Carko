@@ -146,6 +146,7 @@ extension ParkingInfoViewController {
             let button = NoBorderButton.init(frame: CGRect.init(x: self.tableView.frame.width / 2, y: 0, width: self.tableView.frame.width, height: 15.0))
             button.setTitle(Translations.t("To list this parking, complete the 'Payout' section"), for: .normal)
             button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 10.0)
+            button.titleLabel?.adjustsFontSizeToFitWidth = true
             button.setTitleColor(UIColor.accentColor, for: .normal)
             button.backgroundColor = UIColor.clear
             button.addTarget(self, action: #selector(self.addAccountTapped), for: .touchUpInside)

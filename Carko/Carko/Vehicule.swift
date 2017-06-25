@@ -41,7 +41,7 @@ struct Vehicule {
     }
 
     func toDictionary() -> [String: Any] {
-        return [
+        var dict: [String: Any] = [
             "license_plate": license,
             "make": make,
             "model": model,
@@ -49,10 +49,18 @@ struct Vehicule {
             "color": color,
             "province": province
         ]
+        if let id = self.id {
+            dict["id"] = id
+        }
+        return dict
     }
 
     func persist(completion: @escaping (Error?, Vehicule?) -> Void) {
         APIClient.shared.postVehicule(vehicule: self, complete: completion)
+    }
+
+    func update(completion: @escaping (Error?) -> Void) {
+        APIClient.shared.updateVehicule(vehicule: self, complete: completion)
     }
 }
 
