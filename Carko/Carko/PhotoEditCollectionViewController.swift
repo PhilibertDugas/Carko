@@ -119,7 +119,16 @@ extension PhotoEditCollectionViewController {
 
     func addTapped() {
         self.imagePicker.maximumNumberOfSelection = 6 - self.parking.multiplePhotoUrls.count
-        self.present(self.imagePicker, animated: true, completion: nil)
+        let authStatus = PHPhotoLibrary.authorizationStatus()
+        if authStatus == .notDetermined {
+            PHPhotoLibrary.requestAuthorization({ (status) in
+                if status == .authorized {
+                    self.present(self.imagePicker, animated: true, completion: nil)
+                }
+            })
+        } else if authStatus == .authorized {
+            self.present(self.imagePicker, animated: true, completion: nil)
+        }
     }
 
     func deletePhoto(_ sender: UIButton) {

@@ -57,6 +57,14 @@ class NewPhotoViewController: UIViewController {
         }
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if PHPhotoLibrary.authorizationStatus() == .denied {
+            addPhotoLabel.text = Translations.t("Please enable access to the photo library in order to continue")
+            addPhotoLabel.textColor = UIColor.accentColor
+        }
+    }
+
     @IBAction func tappedDescription(_ sender: Any) {
         self.performSegue(withIdentifier: "showDescription", sender: nil)
     }
@@ -65,7 +73,16 @@ class NewPhotoViewController: UIViewController {
         imagePicker.maximumNumberOfSelection = 6
         imagePicker.numberOfColumnsInPortrait = 3
         ColorConfig.backgroundColor = UIColor.secondaryViewsBlack
-        self.present(imagePicker, animated: true, completion: nil)
+        let authStatus = PHPhotoLibrary.authorizationStatus()
+        if authStatus == .notDetermined {
+            PHPhotoLibrary.requestAuthorization({ (status) in
+                if status == .authorized {
+                    self.present(self.imagePicker, animated: true, completion: nil)
+                }
+            })
+        } else if authStatus == .authorized {
+            self.present(self.imagePicker, animated: true, completion: nil)
+        }
     }
 
     @IBAction func tappedSave(_ sender: Any) {

@@ -421,6 +421,7 @@
 			isa = PBXGroup;
 			children = (
 				4517E1581F015687003F9C62 /* LocalParkingManager.swift */,
+				457847121EFCB3720068745E /* ReservationManager.swift */,
 			);
 			name = Cache;
 			sourceTree = "<group>";
@@ -485,7 +486,6 @@
 				4583138C1EFC39D500F3BCB2 /* TextFieldsValidator.swift */,
 				45AC56341EFC4E040041CCE8 /* TranslationManager.swift */,
 				4578470E1EFC91760068745E /* BookingManager.swift */,
-				457847121EFCB3720068745E /* ReservationManager.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
