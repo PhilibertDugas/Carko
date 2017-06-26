@@ -13,7 +13,7 @@ class NewParkingView: UIView {
     @IBOutlet weak var view: UIView!
     @IBOutlet var mainImage: UIImageView!
     @IBOutlet var mainLabel: UILabel!
-    @IBOutlet var mainActionButton: RoundedCornerButton!
+    @IBOutlet var mainActionButton: SmallRoundedCornerButton!
 
     override init(frame: CGRect) {
         super.init(frame: frame)

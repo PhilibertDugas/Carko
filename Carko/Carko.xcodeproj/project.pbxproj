@@ -51,6 +51,7 @@
 		4554EBCE1DB5A36F0066E452 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4554EBCD1DB5A36F0066E452 /* APIClient.swift */; };
 		45597A151F0049A700CE1979 /* CustomerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45597A141F0049A700CE1979 /* CustomerTest.swift */; };
 		45597A171F00568600CE1979 /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45597A161F00568600CE1979 /* UIApplicationExtension.swift */; };
+		45597A191F00969B00CE1979 /* DateHelperTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45597A181F00969B00CE1979 /* DateHelperTest.swift */; };
 		455E29A61EFDE38700CCCD43 /* EventTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455E29A51EFDE38700CCCD43 /* EventTest.swift */; };
 		45637CFF1DEB184500DD42C0 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45637CFE1DEB184500DD42C0 /* AppState.swift */; };
 		4564F6E11DB98509001B709C /* BookParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4564F6E01DB98509001B709C /* BookParkingViewController.swift */; };
@@ -267,6 +268,7 @@
 		4554EBCD1DB5A36F0066E452 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		45597A141F0049A700CE1979 /* CustomerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerTest.swift; sourceTree = "<group>"; };
 		45597A161F00568600CE1979 /* UIApplicationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
+		45597A181F00969B00CE1979 /* DateHelperTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelperTest.swift; sourceTree = "<group>"; };
 		455E29A51EFDE38700CCCD43 /* EventTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTest.swift; sourceTree = "<group>"; };
 		45637CFE1DEB184500DD42C0 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		4564F6E01DB98509001B709C /* BookParkingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookParkingViewController.swift; sourceTree = "<group>"; };
@@ -670,6 +672,7 @@
 				4579163B1EFDA60600E0BAA8 /* ReservationTest.swift */,
 				455E29A51EFDE38700CCCD43 /* EventTest.swift */,
 				45597A141F0049A700CE1979 /* CustomerTest.swift */,
+				45597A181F00969B00CE1979 /* DateHelperTest.swift */,
 			);
 			path = CarkoTests;
 			sourceTree = "<group>";
@@ -1363,6 +1366,7 @@
 			files = (
 				455E29A61EFDE38700CCCD43 /* EventTest.swift in Sources */,
 				4579163C1EFDA60600E0BAA8 /* ReservationTest.swift in Sources */,
+				45597A191F00969B00CE1979 /* DateHelperTest.swift in Sources */,
 				4583138F1EFC3AED00F3BCB2 /* TextFieldsValidatorTest.swift in Sources */,
 				45597A151F0049A700CE1979 /* CustomerTest.swift in Sources */,
 			);

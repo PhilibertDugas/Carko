@@ -15,7 +15,7 @@ class VehiculeInformationViewController: UIViewController {
     @IBOutlet var yearTextField: UnderlineTextField!
     @IBOutlet var colorTextField: UnderlineTextField!
     @IBOutlet var provinceTextField: UnderlineTextField!
-    @IBOutlet var saveButton: RoundedCornerButton!
+    @IBOutlet var saveButton: SmallRoundedCornerButton!
 
     var years: [(String)] = []
     var vehicule: Vehicule?

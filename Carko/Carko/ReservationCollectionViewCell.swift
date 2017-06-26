@@ -55,9 +55,6 @@ class ReservationCollectionViewCell: UICollectionViewCell, MKMapViewDelegate {
                 monthLabel.text = DateHelper.getMonth(reservation.startTime)
                 dayLabel.text = String(DateHelper.getDay(reservation.startTime))
                 dayOfWeekLabel.text = DateHelper.getDayOfWeek(reservation.startTime)
-                // FIXME : Not working
-                //let tapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(self.tappedCalendar))
-                //calendarView.addGestureRecognizer(tapGestureRecognizer)
 
                 self.setEventImage(event)
                 self.setMapRegion(reservation)
@@ -68,8 +65,7 @@ class ReservationCollectionViewCell: UICollectionViewCell, MKMapViewDelegate {
 
     fileprivate func setEventImage(_ event: Event?) {
         if let url = event?.photoURL {
-            let imageReference = AppState.shared.storageReference.storage.reference(forURL: url.absoluteString)
-            self.eventImageView.sd_setImage(with: imageReference)
+            ImageLoaderHelper.loadImageFromUrl(eventImageView, url: url)
         }
     }
 
@@ -83,13 +79,6 @@ class ReservationCollectionViewCell: UICollectionViewCell, MKMapViewDelegate {
         self.mapView.delegate = self
         let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(self.tappedMap))
         self.mapView.addGestureRecognizer(tapGesture)
-    }
-
-    func tappedCalendar() {
-        let date = DateHelper.getDateObject(self.reservation!.startTime)
-        let interval = date.timeIntervalSinceReferenceDate
-        let url = URL.init(string: "calshow:\(interval)")!
-        UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
 
     func tappedMap() {

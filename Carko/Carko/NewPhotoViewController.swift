@@ -14,7 +14,7 @@ import Photos
 class NewPhotoViewController: UIViewController {
     @IBOutlet var buttonView: UIView!
     @IBOutlet var buttonIndicator: UIActivityIndicatorView!
-    @IBOutlet var mainButton: RoundedCornerButton!
+    @IBOutlet var mainButton: SmallRoundedCornerButton!
     @IBOutlet var addPhotoLabel: UILabel!
     @IBOutlet var photoCollectionView: UICollectionView!
     @IBOutlet var descriptionView: UIView!

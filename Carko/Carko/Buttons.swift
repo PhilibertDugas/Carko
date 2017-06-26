@@ -8,20 +8,6 @@
 
 import UIKit
 
-class RoundedCornerButton: UIButton {
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        layer.cornerRadius = 3
-        layer.borderWidth = 0.5
-    }
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        layer.cornerRadius = 3
-        layer.borderWidth = 0.5
-    }
-}
-
 class SmallRoundedCornerButton: UIButton {
     var gradient: CAGradientLayer!
 

@@ -7,7 +7,7 @@ protocol ParkingAvailabilityDelegate {
 
 class AvailabilityViewController: UIViewController {
     @IBOutlet var mondayButton: UISwitch!
-    @IBOutlet var mainButton: RoundedCornerButton!
+    @IBOutlet var mainButton: SmallRoundedCornerButton!
 
     var delegate: ParkingAvailabilityDelegate?
 
