@@ -69,3 +69,5 @@
 "You just added a parking" = "You just added a parking";
 "To list this parking, complete the 'Payout' section" = "To list this parking, complete the 'Payout' section";
 "Your parking space is now available for rent" = "Your parking space is now available for rent";
+"Your parking is currently in use, are you sure you want to remove it?" = "Your parking is currently in use, are you sure you want to remove it?";
+"Parking in use" = "Parking in use";

@@ -56,7 +56,7 @@ class ParkingInfoViewController: UITableViewController {
         if self.parking.isAvailable {
             self.parking.delete(complete: completeParkingDelete)
         } else {
-            super.displayDestructiveMessage("YOUR PARKING IS CURRENTLY IN USE, ARE YOU SURE YOU WANT TO REMOVE IT?", title: "PARKING IN USE", handle: { (action) in
+            super.displayDestructiveMessage(Translations.t("Your parking is currently in use, are you sure you want to remove it?"), title: Translations.t("Parking in use"), handle: { (action) in
                 self.parking.delete(complete: self.completeParkingDelete)
             })
         }
