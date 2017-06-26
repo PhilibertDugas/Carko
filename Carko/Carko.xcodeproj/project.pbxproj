@@ -14,6 +14,8 @@
 		451071DD1EE6447D0080D0DF /* ReservationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451071DC1EE6447D0080D0DF /* ReservationCollectionViewCell.swift */; };
 		45113DF81EAB9D4F0083C959 /* ApyaLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45113DF71EAB9D4F0083C959 /* ApyaLayout.swift */; };
 		45137EB21E341DA300AFCD49 /* NewParkingPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45137EB11E341DA300AFCD49 /* NewParkingPin.swift */; };
+		4517E1591F015687003F9C62 /* LocalParkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4517E1581F015687003F9C62 /* LocalParkingManager.swift */; };
+		4517E15B1F01591F003F9C62 /* LocalParkingManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4517E15A1F01591F003F9C62 /* LocalParkingManagerTest.swift */; };
 		4518537A1DA476F1005CC5E6 /* ListParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451853791DA476F1005CC5E6 /* ListParkingViewController.swift */; };
 		451E424B1DB071EC00747370 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451E424A1DB071EC00747370 /* Customer.swift */; };
 		451E424D1DB078E000747370 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451E424C1DB078E000747370 /* UIViewController.swift */; };
@@ -230,6 +232,8 @@
 		451071DC1EE6447D0080D0DF /* ReservationCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationCollectionViewCell.swift; sourceTree = "<group>"; };
 		45113DF71EAB9D4F0083C959 /* ApyaLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApyaLayout.swift; sourceTree = "<group>"; };
 		45137EB11E341DA300AFCD49 /* NewParkingPin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewParkingPin.swift; sourceTree = "<group>"; };
+		4517E1581F015687003F9C62 /* LocalParkingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalParkingManager.swift; sourceTree = "<group>"; };
+		4517E15A1F01591F003F9C62 /* LocalParkingManagerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalParkingManagerTest.swift; sourceTree = "<group>"; };
 		451853791DA476F1005CC5E6 /* ListParkingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListParkingViewController.swift; sourceTree = "<group>"; };
 		451E424A1DB071EC00747370 /* Customer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		451E424C1DB078E000747370 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
@@ -474,6 +478,7 @@
 				45AC56341EFC4E040041CCE8 /* TranslationManager.swift */,
 				4578470E1EFC91760068745E /* BookingManager.swift */,
 				457847121EFCB3720068745E /* ReservationManager.swift */,
+				4517E1581F015687003F9C62 /* LocalParkingManager.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -673,6 +678,7 @@
 				455E29A51EFDE38700CCCD43 /* EventTest.swift */,
 				45597A141F0049A700CE1979 /* CustomerTest.swift */,
 				45597A181F00969B00CE1979 /* DateHelperTest.swift */,
+				4517E15A1F01591F003F9C62 /* LocalParkingManagerTest.swift */,
 			);
 			path = CarkoTests;
 			sourceTree = "<group>";
@@ -1344,6 +1350,7 @@
 				45CA60771EF0E4B20026E58A /* PhotoAddCollectionViewCell.swift in Sources */,
 				45A4FAB41EF70A1500C73131 /* AuthPickerViewController.swift in Sources */,
 				457BF1F51ECFE303007ABB28 /* Loader.swift in Sources */,
+				4517E1591F015687003F9C62 /* LocalParkingManager.swift in Sources */,
 				45AC56351EFC4E040041CCE8 /* TranslationManager.swift in Sources */,
 				4591D5F71DFCA4DE00366691 /* CustomerClient.swift in Sources */,
 				45BBC33F1EF0730C00CBC509 /* PhotoParkingTableViewCell.swift in Sources */,
@@ -1366,6 +1373,7 @@
 			files = (
 				455E29A61EFDE38700CCCD43 /* EventTest.swift in Sources */,
 				4579163C1EFDA60600E0BAA8 /* ReservationTest.swift in Sources */,
+				4517E15B1F01591F003F9C62 /* LocalParkingManagerTest.swift in Sources */,
 				45597A191F00969B00CE1979 /* DateHelperTest.swift in Sources */,
 				4583138F1EFC3AED00F3BCB2 /* TextFieldsValidatorTest.swift in Sources */,
 				45597A151F0049A700CE1979 /* CustomerTest.swift in Sources */,

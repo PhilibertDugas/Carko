@@ -7,6 +7,7 @@
 //
 
 import CoreLocation
+import Crashlytics
 
 class Parking {
     var id: Int?
@@ -83,7 +84,7 @@ extension Parking {
     func persist(complete: @escaping (Error?) -> Void) {
         APIClient.shared.createParking(parking: self) { (error, parking) in
             if let parking = parking {
-                AppState.shared.customerParkings[parking.id!] = parking
+                LocalParkingManager.shared.insertParking(parking)
             }
             complete(error)
         }
@@ -92,7 +93,7 @@ extension Parking {
     func update(complete: @escaping (Error?) -> Void) {
         APIClient.shared.updateParking(parking: self) { (error, parking) in
             if let parking = parking {
-                AppState.shared.customerParkings[parking.id!] = parking
+                LocalParkingManager.shared.updateParking(parking)
             }
             complete(error)
         }
@@ -101,7 +102,7 @@ extension Parking {
     func delete(complete: @escaping (Error?) -> Void) {
         APIClient.shared.deleteParking(parking: self) { (error) in
             if error == nil {
-                AppState.shared.removeParkingFromCache(self)
+                LocalParkingManager.shared.removeParking(self)
             }
             complete(error)
         }
@@ -112,8 +113,35 @@ extension Parking {
     }
 
     class func getCustomerParkings(_ complete: @escaping([(Parking)], Error?) -> Void) {
-        APIClient.shared.getCustomerParkings { (parkings, error) in
-            complete(parkings, error)
+        if !LocalParkingManager.shared.getParkings().isEmpty {
+            complete(LocalParkingManager.shared.getParkings(), nil)
+        } else {
+            APIClient.shared.getCustomerParkings { (parkings, error) in
+                if error == nil {
+                    LocalParkingManager.shared.setParkings(parkings)
+                }
+                complete(parkings, error)
+            }
+        }
+    }
+
+    class func completeCustomerParkings() {
+        getCustomerParkings { (parkings, error) in
+            if let error = error {
+                Crashlytics.sharedInstance().recordError(error)
+            } else {
+                let completedParkings = parkings.map({ (parking: Parking) -> Parking in
+                    parking.isComplete = true
+                    return parking
+                })
+                completedParkings.forEach { parking in
+                    parking.update(complete: { (error) in
+                        if let error = error {
+                            Crashlytics.sharedInstance().recordError(error)
+                        }
+                    })
+                }
+            }
         }
     }
 
@@ -134,6 +162,25 @@ extension Parking {
             dict["photo_url"] = "\(url)"
         }
         return dict
+    }
+}
+
+extension Parking: Equatable {
+    public static func ==(lhs: Parking, rhs: Parking) -> Bool {
+        let basicAssertion = lhs.latitude == rhs.latitude &&
+        lhs.longitude == rhs.longitude &&
+        lhs.address == rhs.address &&
+        lhs.pDescription == rhs.pDescription &&
+        lhs.isAvailable == rhs.isAvailable &&
+        lhs.isComplete == rhs.isComplete &&
+        lhs.isDeleted == rhs.isDeleted &&
+        lhs.customerId == rhs.customerId &&
+        lhs.multiplePhotoUrls == rhs.multiplePhotoUrls
+        if let leftId = lhs.id, let rightId = rhs.id {
+            return basicAssertion && leftId == rightId
+        } else {
+            return basicAssertion
+        }
     }
 }
 

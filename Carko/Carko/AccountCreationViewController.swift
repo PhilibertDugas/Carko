@@ -9,7 +9,6 @@
 import UIKit
 import Crashlytics
 
-
 class AccountCreationViewController: UIViewController {
     @IBOutlet var addressTextField: UnderlineTextField!
     @IBOutlet var cityTextField: UnderlineTextField!
@@ -26,18 +25,7 @@ class AccountCreationViewController: UIViewController {
     var completedView: PaymentSetupCompleted?
 
     @IBAction func cancelTapped(_ sender: Any) {
-        self.dismiss(animated: true) {
-            for parking in AppState.shared.cachedCustomerParkings() {
-                if AuthenticationHelper.getCustomer().accountId != nil && !parking.isComplete {
-                    parking.isComplete = true
-                    parking.update(complete: { (error) in
-                        if let error = error {
-                            Crashlytics.sharedInstance().recordError(error)
-                        }
-                    })
-                }
-            }
-        }
+        self.dismiss(animated: true, completion: nil)
     }
 
     @IBAction func timeEditBegin(_ sender: UITextField) {

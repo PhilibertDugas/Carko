@@ -29,11 +29,7 @@ class ListParkingViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if AppState.shared.cachedCustomerParkings().count > 0 {
-            updateTable(AppState.shared.cachedCustomerParkings())
-        } else {
-            self.fetchParkings()
-        }
+        self.fetchParkings()
     }
 
     func parkingAdded() {
@@ -46,7 +42,6 @@ class ListParkingViewController: UIViewController {
             if let error = error {
                 super.displayErrorMessage(error.localizedDescription)
             } else if parkings.count > 0 {
-                AppState.shared.cacheCustomerParkings(parkings)
                 self.updateTable(parkings)
             } else {
                 self.parkingList.removeAll()

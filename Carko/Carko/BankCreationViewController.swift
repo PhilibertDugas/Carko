@@ -86,6 +86,7 @@ extension BankCreationViewController {
                                 self.activityIndicator.stopAnimating()
                                 self.activityIndicator.isHidden = true
                                 AppState.shared.cacheBankToken(token)
+                                Parking.completeCustomerParkings()
                                 self.displaySuccessMessage()
                             }
                         })

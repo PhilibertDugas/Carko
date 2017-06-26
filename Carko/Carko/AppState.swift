@@ -18,7 +18,6 @@ class AppState: NSObject {
 
     var customer: Customer!
     var authToken: String!
-    var customerParkings: [(Parking)] = []
     let storageReference = Storage.storage().reference()
 
     func cacheCustomer(_ customer: Customer) {
@@ -36,26 +35,6 @@ class AppState: NSObject {
         self.customer.externalLast4Digits = token.bankAccount?.last4()
         self.customer.externalBankName = token.bankAccount?.bankName!
         updateCache()
-    }
-
-    func cacheCustomerParkings(_ parkings: [(Parking)]) {
-        self.customerParkings = parkings
-    }
-
-    func cachedCustomerParkings() -> [(Parking)] {
-        return self.customerParkings
-    }
-
-    func removeParkingFromCache(_ parking: Parking) {
-        var deletionIndex: Int? = nil
-        for (index, p) in self.customerParkings.enumerated() {
-            guard let id = p.id, let deletedId = parking.id else { continue }
-            if id == deletedId {
-                deletionIndex = index
-            }
-        }
-        guard let index = deletionIndex else { return }
-        self.customerParkings.remove(at: index)
     }
 
     func cachedCustomer() -> Customer? {
