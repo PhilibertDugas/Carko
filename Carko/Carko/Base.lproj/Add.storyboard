@@ -15,7 +15,7 @@
         <scene sceneID="jb1-fA-WdS">
             <objects>
                 <navigationController id="vi7-JE-Kbh" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="1Rf-Ak-g2M">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" backIndicatorImage="back_icon" id="1Rf-Ak-g2M">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1193,6 +1193,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="back_icon" width="12" height="21"/>
         <image name="big_plus" width="199" height="199"/>
         <image name="cancel_icon" width="17" height="17"/>
         <image name="right_icon" width="9" height="16"/>
@@ -1200,9 +1201,9 @@
         <image name="small_plus" width="144" height="144"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rQy-xe-Y67"/>
+        <segue reference="bn7-tO-E4s"/>
+        <segue reference="8rN-8p-AUL"/>
         <segue reference="J66-jr-V6G"/>
         <segue reference="lXY-Hi-Jzb"/>
-        <segue reference="8rN-8p-AUL"/>
     </inferredMetricsTieBreakers>
 </document>

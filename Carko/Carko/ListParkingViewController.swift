@@ -10,8 +10,7 @@ import UIKit
 import FirebaseStorageUI
 
 class ListParkingViewController: UIViewController {
-    var parkingList = [Parking]()
-    var isEditingAvailability = false
+    var parkingList: [(Parking?)] = []
     var selectedRowIndex = 0
 
     @IBOutlet var addButton: UIBarButtonItem!
@@ -51,7 +50,7 @@ class ListParkingViewController: UIViewController {
         }
     }
 
-    func updateTable(_ parkings: [(Parking)]) {
+    func updateTable(_ parkings: [(Parking?)]) {
         self.removeFirstParkingView()
         self.parkingList = parkings
         self.tableView.reloadData()

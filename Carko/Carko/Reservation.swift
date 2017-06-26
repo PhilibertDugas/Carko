@@ -10,7 +10,7 @@ import Foundation
 import Crashlytics
 
 struct Reservation {
-    var parking: Parking
+    var parking: Parking?
     var event: Event?
     var customerId: Int
     var isActive: Bool
@@ -19,7 +19,7 @@ struct Reservation {
     var totalCost: Float
     var charge: String
 
-    init(parking: Parking, event: Event?, customerId: Int, isActive: Bool, startTime: String, stopTime: String, totalCost: Float, charge: String) {
+    init(parking: Parking?, event: Event?, customerId: Int, isActive: Bool, startTime: String, stopTime: String, totalCost: Float, charge: String) {
         self.parking = parking
         self.event = event
         self.customerId = customerId
@@ -41,8 +41,7 @@ struct Reservation {
     }
 
     func toDictionnary() -> [String : Any] {
-        return [
-            "parking": self.parking.toDictionary(),
+        var dict: [String: Any] = [
             "customer_id": self.customerId,
             "is_active": self.isActive,
             "start_time": self.startTime,
@@ -50,6 +49,10 @@ struct Reservation {
             "total_cost": self.totalCost,
             "charge": self.charge
         ]
+        if let parking = self.parking {
+            dict["parking"] = parking.toDictionary()
+        }
+        return dict
     }
 
     static func getCustomerReservations(_ completion: @escaping ([(Reservation?)], Error?) -> Void) {

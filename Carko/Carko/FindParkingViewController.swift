@@ -76,10 +76,11 @@ extension FindParkingViewController: MKMapViewDelegate {
         self.mapView.regionThatFits(region)
     }
 
-    func parkingFetched(_ parkings: [(Parking)]) {
+    func parkingFetched(_ parkings: [(Parking?)]) {
         self.mapView.removeAnnotations(mapView.annotations)
         self.setupEventPin()
         for parking in parkings {
+            guard let parking = parking else { continue }
             if parking.isComplete {
                 let annotation = ParkingAnnotation.init(parking: parking, event: self.event)
                 self.mapView.addAnnotation(annotation)

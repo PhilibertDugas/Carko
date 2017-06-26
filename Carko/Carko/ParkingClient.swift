@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import Crashlytics
 
 extension APIClient {
     func createParking(parking: Parking, complete: @escaping (Error?, Parking?) -> Void ) {
@@ -48,37 +49,14 @@ extension APIClient {
         }
     }
 
-    func getAllParkings(complete: @escaping([(Parking)], Error?) -> Void) {
-        let getUrl = baseUrl.appendingPathComponent("/parkings")
-        request(getUrl, headers: authHeaders()).responseJSON { (response) in
-            if let error = response.result.error {
-                complete([], error)
-            } else if let result = response.result.value {
-                let parkingArray = result as! NSArray
-                var parkings = [(Parking)]()
-                for parking in parkingArray {
-                    let dict = parking as! [String : Any]
-                    parkings.append(Parking.init(parking: dict))
-                }
-                complete(parkings, nil)
-            }
-        }
-    }
-
-    func getCustomerParkings(complete: @escaping([(Parking)], Error?) -> Void) {
+    func getCustomerParkings(complete: @escaping([(Parking?)], Error?) -> Void) {
         let getUrl = baseUrl.appendingPathComponent("/customers/\(AuthenticationHelper.getCustomer().id)/parkings")
         request(getUrl, headers: authHeaders()).responseJSON { (returned) in
             if let error = returned.result.error {
                 complete([], error)
             } else if let response = returned.response, let value = returned.result.value {
                 if response.statusCode == 200 {
-                    let parkingArray = value as! NSArray
-                    var parkings = [(Parking)]()
-                    for parking in parkingArray {
-                        let dict = parking as! [String : Any]
-                        parkings.append(Parking.init(parking: dict))
-                    }
-                    complete(parkings, nil)
+                    complete(self.returnParkings(value: value), nil)
                 } else {
                     let error = value as! NSDictionary
                     let errorMessage = error.object(forKey: "error") as! String
@@ -93,5 +71,18 @@ extension APIClient {
         self.updateParking(parking: parking) { (error, _) in
             complete(error)
         }
+    }
+
+    private func returnParkings(value: Any?) -> [(Parking?)] {
+        guard let parkingArray = value as? NSArray else { return [] }
+        var parkings: [(Parking?)] = []
+        for parking in parkingArray {
+            guard let dict = parking as? [String : Any] else {
+                Crashlytics.sharedInstance().recordError(NSError.init(domain: "Received bad parking data data", code: 0, userInfo: nil))
+                continue
+            }
+            parkings.append(Parking.init(parking: dict))
+        }
+        return parkings
     }
 }

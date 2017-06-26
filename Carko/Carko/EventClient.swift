@@ -32,16 +32,19 @@ extension APIClient {
         }
     }
 
-    func getEventParkings(_ event: Event, complete: @escaping([(Parking)], Error?) -> Void) {
+    func getEventParkings(_ event: Event, complete: @escaping([(Parking?)], Error?) -> Void) {
         let getUrl = baseUrl.appendingPathComponent("/events/\(event.id)/parkings")
         request(getUrl).responseJSON { (response) in
             if let error = response.result.error {
                 complete([], error)
             } else if let result = response.result.value {
-                let parkingArray = result as! NSArray
-                var parkings = [(Parking)]()
+                guard let parkingArray = result as? NSArray else { return }
+                var parkings: [(Parking?)] = []
                 for parking in parkingArray {
-                    let dict = parking as! [String : Any]
+                    guard let dict = parking as? [String : Any] else {
+                        Crashlytics.sharedInstance().recordError(NSError.init(domain: "Received bad getEventParkings data", code: 0, userInfo: nil))
+                        continue
+                    }
                     parkings.append(Parking.init(parking: dict))
                 }
                 complete(parkings, nil)

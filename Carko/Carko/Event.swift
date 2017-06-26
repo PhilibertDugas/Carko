@@ -74,7 +74,7 @@ extension Event {
         APIClient.shared.getAllEvents(complete: complete)
     }
 
-    func getParkings(_ complete: @escaping([(Parking)], Error?) -> Void) {
+    func getParkings(_ complete: @escaping([(Parking?)], Error?) -> Void) {
         APIClient.shared.getEventParkings(self, complete: complete)
     }
 

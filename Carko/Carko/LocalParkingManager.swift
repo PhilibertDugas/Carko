@@ -11,13 +11,13 @@ import Crashlytics
 
 class LocalParkingManager: NSObject {
     static let shared = LocalParkingManager.init()
-    private var customerParkings: [(Parking)] = []
+    private var customerParkings: [(Parking?)] = []
 
-    func setParkings(_ parkings: [(Parking)]) {
+    func setParkings(_ parkings: [(Parking?)]) {
         self.customerParkings = parkings
     }
 
-    func getParkings() -> [(Parking)] {
+    func getParkings() -> [(Parking?)] {
         return self.customerParkings
     }
 
@@ -29,7 +29,7 @@ class LocalParkingManager: NSObject {
         guard let updatedId = parking.id else { return }
         var updateIndex: Int? = nil
         for (index, p) in self.customerParkings.enumerated() {
-            guard let id = p.id else { continue }
+            guard let id = p?.id else { continue }
             if id == updatedId {
                 updateIndex = index
             }
@@ -42,7 +42,7 @@ class LocalParkingManager: NSObject {
         guard let deletedId = parking.id else { return }
         var deletionIndex: Int? = nil
         for (index, p) in self.customerParkings.enumerated() {
-            guard let id = p.id else { continue }
+            guard let id = p?.id else { continue }
             if id == deletedId {
                 deletionIndex = index
             }

@@ -150,7 +150,7 @@
         <scene sceneID="K2Z-TV-sfW">
             <objects>
                 <navigationController id="YZG-4P-F85" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="IUv-aG-w1v">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" backIndicatorImage="back_icon" id="IUv-aG-w1v">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -290,6 +290,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="back_icon" width="12" height="21"/>
         <image name="cancel_icon" width="17" height="17"/>
         <image name="check_example.jpg" width="16" height="16"/>
     </resources>

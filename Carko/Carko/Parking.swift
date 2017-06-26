@@ -44,17 +44,13 @@ class Parking {
         self.init(latitude: CLLocationDegrees.init(75), longitude: CLLocationDegrees.init(-135), photoURL: nil, address: "Select a location", pDescription: "", isAvailable: true, isComplete: false, availabilityInfo: AvailabilityInfo.init(), customerId: AuthenticationHelper.getCustomer().id, multiplePhotoUrls: [])
     }
 
-    convenience init(parking: [String : Any]) {
-        let latitude = parking["latitude"] as! CLLocationDegrees
-        let longitude = parking["longitude"] as! CLLocationDegrees
-        let address = parking["address"] as! String
-        let pDescription = parking["description"] as! String
-        let isAvailable = parking["is_available"] as! Bool
-        let customerId = parking["customer_id"] as! Int
-        let isComplete = parking["is_complete"] as! Bool
+    convenience init?(parking: [String : Any]) {
+        guard let latitude = parking["latitude"] as? CLLocationDegrees, let longitude = parking["longitude"] as? CLLocationDegrees, let address = parking["address"] as? String, let pDescription = parking["description"] as? String, let isAvailable = parking["is_available"] as? Bool, let customerId = parking["customer_id"] as? Int, let isComplete = parking["is_complete"] as? Bool else { return nil }
 
-        let availabilityInfo = AvailabilityInfo.init(availabilityInfo: parking["availability_info"] as! [String : Any])
+        guard let info = parking["availability_info"] as? [String : Any] else { return nil }
 
+        let availabilityInfo = AvailabilityInfo.init(availabilityInfo: info)
+        
         var photoURL: URL? = nil
         if let urlString = parking["photo_url"] as? String {
             photoURL = URL.init(string: urlString)
@@ -108,11 +104,7 @@ extension Parking {
         }
     }
 
-    class func getAllParkings(_ complete: @escaping([(Parking)], Error?) -> Void) {
-        APIClient.shared.getAllParkings(complete: complete)
-    }
-
-    class func getCustomerParkings(_ complete: @escaping([(Parking)], Error?) -> Void) {
+    class func getCustomerParkings(_ complete: @escaping([(Parking?)], Error?) -> Void) {
         if !LocalParkingManager.shared.getParkings().isEmpty {
             complete(LocalParkingManager.shared.getParkings(), nil)
         } else {
@@ -130,12 +122,12 @@ extension Parking {
             if let error = error {
                 Crashlytics.sharedInstance().recordError(error)
             } else {
-                let completedParkings = parkings.map({ (parking: Parking) -> Parking in
-                    parking.isComplete = true
+                let completedParkings = parkings.map({ (parking: Parking?) -> Parking? in
+                    parking?.isComplete = true
                     return parking
                 })
                 completedParkings.forEach { parking in
-                    parking.update(complete: { (error) in
+                    parking?.update(complete: { (error) in
                         if let error = error {
                             Crashlytics.sharedInstance().recordError(error)
                         }

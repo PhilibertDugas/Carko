@@ -70,35 +70,37 @@ class ReservationCollectionViewCell: UICollectionViewCell, MKMapViewDelegate {
     }
 
     fileprivate func setMapRegion(_ reservation: Reservation) {
-        let center = reservation.parking.coordinate()
+        self.mapView.layer.cornerRadius = 10
+        guard let center = reservation.parking?.coordinate() else { return }
         let range = CLLocationDistance.init(reservation.event?.range ?? 500)
         let region = MKCoordinateRegionMakeWithDistance(center, range, range)
         self.mapView.setRegion(region, animated: true)
         self.mapView.regionThatFits(region)
-        self.mapView.layer.cornerRadius = 10
         self.mapView.delegate = self
         let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(self.tappedMap))
         self.mapView.addGestureRecognizer(tapGesture)
     }
 
     func tappedMap() {
-        let region = MKCoordinateRegionMakeWithDistance(self.reservation!.parking.coordinate(), 500, 500)
+        guard let parking = self.reservation?.parking else { return }
+        let region = MKCoordinateRegionMakeWithDistance(parking.coordinate(), 500, 500)
         let options = [
             MKLaunchOptionsMapCenterKey: NSValue.init(mkCoordinate: region.center),
             MKLaunchOptionsMapSpanKey: NSValue.init(mkCoordinateSpan: region.span)
         ]
-        let placemark = MKPlacemark.init(coordinate: self.reservation!.parking.coordinate())
+        let placemark = MKPlacemark.init(coordinate: parking.coordinate())
         let mapItem = MKMapItem.init(placemark: placemark)
-        mapItem.name = self.reservation!.parking.address
+        mapItem.name = parking.address
         mapItem.openInMaps(launchOptions: options)
     }
 
     fileprivate func setMapPin(_ reservation: Reservation) {
+        guard let parking = reservation.parking else { return }
         let centerAnnotation = MKPointAnnotation.init()
-        centerAnnotation.coordinate = reservation.parking.coordinate()
+        centerAnnotation.coordinate = parking.coordinate()
         self.mapView.addAnnotation(centerAnnotation)
 
-        let annotation = ParkingAnnotation.init(parking: reservation.parking, event: reservation.event)
+        let annotation = ParkingAnnotation.init(parking: parking, event: reservation.event)
         self.mapView.addAnnotation(annotation)
     }
 
