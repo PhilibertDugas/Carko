@@ -19,9 +19,8 @@ class LocalParkingManagerTest: XCTestCase {
     }
 
     func testSetParkingsInitializeTheParkings() {
-        let newParkingArray = [Parking.init(), Parking.init()]
-        parkingManager.setParkings(newParkingArray)
-        XCTAssertEqual(newParkingArray, parkingManager.getParkings())
+        parkingManager.setParkings([Parking.init(), Parking.init()])
+        XCTAssertEqual(2, parkingManager.getParkings().count)
     }
 
     func testInsertParkingAppendsParkings() {
@@ -38,7 +37,7 @@ class LocalParkingManagerTest: XCTestCase {
         parking.address = "Salut Salut"
         parkingManager.updateParking(parking)
 
-        XCTAssertEqual("Salut Salut", parkingManager.getParkings().first?.address)
+        XCTAssertEqual("Salut Salut", parkingManager.getParkings().first??.address)
     }
 
     func testUpdateParkingWithoutIdDoesNothing() {
@@ -49,7 +48,7 @@ class LocalParkingManagerTest: XCTestCase {
         parking.address = "Salut Salut"
         parkingManager.updateParking(parking)
 
-        XCTAssertEqual("Select a location", parkingManager.getParkings().first?.address)
+        XCTAssertEqual("Select a location", parkingManager.getParkings().first??.address)
     }
 
     func testUpdateParkingWithNilIdDoesNothing() {
@@ -60,7 +59,7 @@ class LocalParkingManagerTest: XCTestCase {
         parking.address = "Salut Salut"
         parkingManager.updateParking(parking)
 
-        XCTAssertEqual("Select a location", parkingManager.getParkings().first?.address)
+        XCTAssertEqual("Select a location", parkingManager.getParkings().first??.address)
     }
 
     func testRemoveParkingRemovesTheParking() {

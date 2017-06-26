@@ -45,17 +45,18 @@ class Parking {
     }
 
     convenience init?(parking: [String : Any]) {
-        guard let latitude = parking["latitude"] as? CLLocationDegrees, let longitude = parking["longitude"] as? CLLocationDegrees, let address = parking["address"] as? String, let pDescription = parking["description"] as? String, let isAvailable = parking["is_available"] as? Bool, let customerId = parking["customer_id"] as? Int, let isComplete = parking["is_complete"] as? Bool else { return nil }
+        guard let latitude = parking["latitude"] as? CLLocationDegrees, let longitude = parking["longitude"] as? CLLocationDegrees, let address = parking["address"] as? String, let pDescription = parking["description"] as? String, let isAvailable = parking["is_available"] as? Bool, let customerId = parking["customer_id"] as? Int, let isComplete = parking["is_complete"] as? Bool, let multiplePhotoString = parking["multiple_photo_urls"] as? [(String)] else { return nil }
 
         guard let info = parking["availability_info"] as? [String : Any] else { return nil }
 
         let availabilityInfo = AvailabilityInfo.init(availabilityInfo: info)
-        
+
         var photoURL: URL? = nil
         if let urlString = parking["photo_url"] as? String {
             photoURL = URL.init(string: urlString)
         }
-        let multiplePhotoString = parking["multiple_photo_urls"] as! [(String)]
+
+        // FIXME: Aggressive unwrapping
         var multipleUrls: [(URL)] = []
         for element in multiplePhotoString {
             multipleUrls.append(URL.init(string: element.trimmingCharacters(in: .whitespacesAndNewlines))!)
