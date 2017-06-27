@@ -22,45 +22,64 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T2f-jH-OKc" customClass="SmallRoundedCornerButton" customModule="Carko" customModuleProvider="target">
-                    <rect key="frame" x="116.5" y="573.5" width="142.5" height="66.5"/>
-                    <color key="backgroundColor" red="0.76862745099999996" green="0.066666666669999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
-                    <state key="normal" title="Get started">
-                        <color key="titleColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="car_background" translatesAutoresizingMaskIntoConstraints="NO" id="n9j-p5-70m">
+                    <rect key="frame" x="-0.5" y="-0.5" width="375" height="667"/>
+                </imageView>
+                <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MgR-H8-eTh">
+                    <rect key="frame" x="-0.5" y="-0.5" width="375" height="667"/>
+                    <color key="backgroundColor" red="0.062745098040000002" green="0.078431372550000003" blue="0.08235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0QZ-Yp-guc" customClass="RoundedCornerView" customModule="Carko" customModuleProvider="target">
-                    <rect key="frame" x="35.5" y="70" width="304" height="92"/>
+                    <rect key="frame" x="16" y="50" width="343" height="90"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Listing your parking is simple and takes around 10 minutes" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O3s-F9-IjH">
-                            <rect key="frame" x="0.0" y="9.5" width="304" height="74"/>
-                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                            <rect key="frame" x="0.0" y="0.0" width="343" height="90"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                             <color key="textColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="highlightedColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </label>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="O3s-F9-IjH" secondAttribute="trailing" id="3X4-Nu-jdH"/>
+                        <constraint firstItem="O3s-F9-IjH" firstAttribute="centerX" secondItem="0QZ-Yp-guc" secondAttribute="centerX" id="2aB-8t-YMI"/>
+                        <constraint firstAttribute="height" constant="90" id="5W1-ex-a6i"/>
+                        <constraint firstItem="O3s-F9-IjH" firstAttribute="width" secondItem="0QZ-Yp-guc" secondAttribute="width" id="CE7-YG-Lg6"/>
+                        <constraint firstItem="O3s-F9-IjH" firstAttribute="height" secondItem="0QZ-Yp-guc" secondAttribute="height" id="aiv-Qt-a6h"/>
                         <constraint firstItem="O3s-F9-IjH" firstAttribute="centerY" secondItem="0QZ-Yp-guc" secondAttribute="centerY" id="cgX-fK-6Zw"/>
-                        <constraint firstItem="O3s-F9-IjH" firstAttribute="leading" secondItem="0QZ-Yp-guc" secondAttribute="leading" id="nal-ty-SMM"/>
-                        <constraint firstItem="O3s-F9-IjH" firstAttribute="height" secondItem="0QZ-Yp-guc" secondAttribute="height" multiplier="0.8" id="yYg-JO-MK8"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="90" id="nm8-T4-PHq"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T2f-jH-OKc" customClass="SmallRoundedCornerButton" customModule="Carko" customModuleProvider="target">
+                    <rect key="frame" x="116" y="573.5" width="142.5" height="66.5"/>
+                    <color key="backgroundColor" red="0.76862745099999996" green="0.066666666669999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                    <state key="normal" title="Get started">
+                        <color key="titleColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.062745098039215685" green="0.078431372549019607" blue="0.082352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="0QZ-Yp-guc" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.138" id="11P-gf-vsp"/>
-                <constraint firstItem="0QZ-Yp-guc" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Iig-uI-F39"/>
-                <constraint firstAttribute="bottom" secondItem="T2f-jH-OKc" secondAttribute="bottom" constant="27" id="J0o-A0-LdJ"/>
-                <constraint firstItem="0QZ-Yp-guc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="70" id="JUY-OC-KJJ"/>
-                <constraint firstItem="T2f-jH-OKc" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="UnD-hw-Usp"/>
-                <constraint firstItem="T2f-jH-OKc" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.38" id="VbK-lN-gBc"/>
-                <constraint firstItem="0QZ-Yp-guc" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.81" id="fEs-bY-5bp"/>
-                <constraint firstItem="T2f-jH-OKc" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.1" id="pUB-qs-8YZ"/>
+                <constraint firstAttribute="bottom" secondItem="T2f-jH-OKc" secondAttribute="bottom" constant="27" id="4as-4W-L7X"/>
+                <constraint firstItem="n9j-p5-70m" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="F02-m3-rvI"/>
+                <constraint firstItem="T2f-jH-OKc" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.1" id="GZv-tl-X6w"/>
+                <constraint firstItem="0QZ-Yp-guc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="50" id="ITR-Ak-bxs"/>
+                <constraint firstItem="n9j-p5-70m" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="KbU-ET-qzh"/>
+                <constraint firstAttribute="trailing" secondItem="0QZ-Yp-guc" secondAttribute="trailing" constant="16" id="bl0-dU-c9f"/>
+                <constraint firstItem="MgR-H8-eTh" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="cUd-z0-Kke"/>
+                <constraint firstItem="MgR-H8-eTh" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="dER-QE-R4d"/>
+                <constraint firstItem="n9j-p5-70m" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="eHq-zv-AOH"/>
+                <constraint firstItem="T2f-jH-OKc" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.38" id="iuI-UY-u1c"/>
+                <constraint firstItem="MgR-H8-eTh" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="jj6-uW-fOw"/>
+                <constraint firstItem="n9j-p5-70m" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="onM-jb-qMR"/>
+                <constraint firstItem="T2f-jH-OKc" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="uUP-0l-lW1"/>
+                <constraint firstItem="0QZ-Yp-guc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="xTK-js-e4z"/>
+                <constraint firstItem="MgR-H8-eTh" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="zux-VS-mrM"/>
             </constraints>
             <point key="canvasLocation" x="117.5" y="53.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="car_background" width="2365" height="3547"/>
+    </resources>
 </document>
