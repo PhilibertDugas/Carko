@@ -71,10 +71,13 @@ class ReservationCollectionViewCell: UICollectionViewCell, MKMapViewDelegate {
 
     fileprivate func setMapRegion(_ reservation: Reservation) {
         self.mapView.layer.cornerRadius = 10
+        self.mapView.removeAnnotations(self.mapView.annotations)
         guard let center = reservation.parking?.coordinate() else { return }
+
+
         let range = CLLocationDistance.init(reservation.event?.range ?? 500)
         let region = MKCoordinateRegionMakeWithDistance(center, range, range)
-        self.mapView.setRegion(region, animated: true)
+        self.mapView.setRegion(region, animated: false)
         self.mapView.regionThatFits(region)
         self.mapView.delegate = self
         let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(self.tappedMap))

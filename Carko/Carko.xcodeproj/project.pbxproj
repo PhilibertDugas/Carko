@@ -617,9 +617,9 @@
 		45BB39631DBBEFEC0019C2A3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				45A4FAC11EF77EF100C73131 /* city.gif */,
 				C5075F9B1EBBAA9100602B8C /* ProfileHeaderView.swift */,
 				45AA40E61EC699BB000D306E /* PaymentSetupCompleted.swift */,
-				45A4FAC11EF77EF100C73131 /* city.gif */,
 				450B5D571E2AA4B100AEEA29 /* NewParkingView.swift */,
 				45137EB11E341DA300AFCD49 /* NewParkingPin.swift */,
 				4540422B1EFB594200667C4C /* SuccessPopup.swift */,

@@ -15,6 +15,7 @@ class ReservationTest: XCTestCase {
     override func setUp() {
         super.setUp()
         reservationDict = [
+            "id": 1,
             "parking": Parking.init().toDictionary(),
             "customer_id": 1,
             "is_active": false,

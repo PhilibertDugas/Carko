@@ -33,7 +33,6 @@ extension UIViewController {
     }
 
     func displayErrorMessage(_ message: String) {
-        Crashlytics.sharedInstance().recordError(NSError.init(domain: message, code: 0, userInfo: nil))
         self.present(getAlertController(message), animated: true, completion: nil)
     }
 

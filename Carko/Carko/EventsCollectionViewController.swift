@@ -93,7 +93,7 @@ class EventsCollectionViewController: UICollectionViewController {
                     self.loadedOnce = true
                     Loader.removeLoaderFrom(self.collectionView!)
                 }
-                self.collectionView!.reloadData()
+                self.collectionView?.reloadData()
             }
             self.refresher.endRefreshing()
         }
@@ -102,20 +102,18 @@ class EventsCollectionViewController: UICollectionViewController {
     fileprivate func fetchReservations() {
         Reservation.getCustomerActiveReservations { (reservations, error) in
             if let error = error {
-                Crashlytics.sharedInstance().recordError(error)
                 self.displayErrorMessage(error.localizedDescription)
             } else {
                 self.reservations = reservations
-                ReservationManager.shared.cacheReservations(reservations: reservations)
                 self.collectionView?.reloadData()
             }
         }
     }
 
     fileprivate func setupPullToRefresh() {
-        self.collectionView!.alwaysBounceVertical = true
+        self.collectionView?.alwaysBounceVertical = true
         self.refresher = UIRefreshControl.init()
-        refresher.addTarget(self, action: #selector(EventsCollectionViewController.refreshTriggered), for: .valueChanged)
+        refresher.addTarget(self, action: #selector(self.refreshTriggered), for: .valueChanged)
         self.collectionView?.addSubview(self.refresher)
     }
 

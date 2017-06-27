@@ -10,6 +10,7 @@ import Foundation
 import Crashlytics
 
 struct Reservation {
+    var id: Int
     var parking: Parking?
     var event: Event?
     var customerId: Int
@@ -19,7 +20,8 @@ struct Reservation {
     var totalCost: Float
     var charge: String
 
-    init(parking: Parking?, event: Event?, customerId: Int, isActive: Bool, startTime: String, stopTime: String, totalCost: Float, charge: String) {
+    init(id: Int, parking: Parking?, event: Event?, customerId: Int, isActive: Bool, startTime: String, stopTime: String, totalCost: Float, charge: String) {
+        self.id = id
         self.parking = parking
         self.event = event
         self.customerId = customerId
@@ -31,17 +33,18 @@ struct Reservation {
     }
 
     init?(reservation: [String : Any]) {
-        guard let customerId = reservation["customer_id"] as? Int, let isActive = reservation["is_active"] as? Bool, let startTime = reservation["start_time"] as? String, let stopTime = reservation["stop_time"] as? String, let totalCost = reservation["total_cost"] as? Float, let charge = reservation["charge"] as? String, let event = reservation["event"] as? [String: Any], let parkingDict = reservation["parking"] as? [String: Any]
+        guard let id = reservation["id"] as? Int, let customerId = reservation["customer_id"] as? Int, let isActive = reservation["is_active"] as? Bool, let startTime = reservation["start_time"] as? String, let stopTime = reservation["stop_time"] as? String, let totalCost = reservation["total_cost"] as? Float, let charge = reservation["charge"] as? String, let event = reservation["event"] as? [String: Any], let parkingDict = reservation["parking"] as? [String: Any]
         else {
             Crashlytics.sharedInstance().recordError(NSError.init(domain: "Invalid data in Reservation init", code: 0, userInfo: nil), withAdditionalUserInfo: reservation)
             return nil
         }
 
-        self.init(parking: Parking.init(parking: parkingDict), event: Event.init(event: event), customerId: customerId, isActive: isActive, startTime: startTime, stopTime: stopTime, totalCost: totalCost, charge: charge)
+        self.init(id: id, parking: Parking.init(parking: parkingDict), event: Event.init(event: event), customerId: customerId, isActive: isActive, startTime: startTime, stopTime: stopTime, totalCost: totalCost, charge: charge)
     }
 
     func toDictionnary() -> [String : Any] {
         var dict: [String: Any] = [
+            "id": self.id,
             "customer_id": self.customerId,
             "is_active": self.isActive,
             "start_time": self.startTime,
@@ -60,7 +63,14 @@ struct Reservation {
     }
 
     static func getCustomerActiveReservations(_ completion: @escaping ([(Reservation?)], Error?) -> Void) {
-        APIClient.shared.getCustomerActiveReservations(complete: completion)
+        APIClient.shared.getCustomerActiveReservations { (reservations, error) in
+            if let error = error {
+                Crashlytics.sharedInstance().recordError(error)
+            } else {
+                ReservationManager.shared.cacheReservations(reservations: reservations)
+            }
+            completion(reservations, error)
+        }
     }}
 
 struct NewReservation {

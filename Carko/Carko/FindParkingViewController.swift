@@ -132,6 +132,8 @@ extension FindParkingViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if let annotation = annotation as? ParkingAnnotation {
             let annotationView = ParkingAnnotationView.init(annotation: annotation, reuseIdentifier: nil)
+            // the bottom of the pin is the anchor, it shouldnt move when scaling
+            annotationView.layer.anchorPoint = CGPoint.init(x: 0.5, y: 1.0)
             return annotationView
         }
         return nil
