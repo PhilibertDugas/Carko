@@ -528,10 +528,30 @@
                                     <action selector="mainButtonTapped:" destination="mCi-Ob-f74" eventType="touchUpInside" id="eeE-gx-Uxw"/>
                                 </connections>
                             </button>
+                            <view hidden="YES" alpha="0.85000002384185791" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n8w-HZ-ljB" customClass="RoundedCornerView" customModule="Carko" customModuleProvider="target">
+                                <rect key="frame" x="16" y="20" width="343" height="60"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Move the map to set your spot's location" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A26-ca-9kt">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="60"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                        <color key="textColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1450980392" green="0.14901960780000001" blue="0.1529411765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="A26-ca-9kt" firstAttribute="height" secondItem="n8w-HZ-ljB" secondAttribute="height" id="9Ne-CI-fJE"/>
+                                    <constraint firstItem="A26-ca-9kt" firstAttribute="width" secondItem="n8w-HZ-ljB" secondAttribute="width" id="NiI-Bn-g6D"/>
+                                    <constraint firstItem="A26-ca-9kt" firstAttribute="centerX" secondItem="n8w-HZ-ljB" secondAttribute="centerX" id="VYg-qP-q9w"/>
+                                    <constraint firstAttribute="height" constant="60" id="flF-Os-qxr"/>
+                                    <constraint firstItem="A26-ca-9kt" firstAttribute="centerY" secondItem="n8w-HZ-ljB" secondAttribute="centerY" id="y1Y-Gw-XjX"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="EE5-xo-9TY" firstAttribute="top" secondItem="7oe-E2-Air" secondAttribute="top" id="1Oa-iD-zev"/>
+                            <constraint firstItem="n8w-HZ-ljB" firstAttribute="top" secondItem="quh-Qo-V8h" secondAttribute="bottom" constant="20" id="3BH-2Y-VCL"/>
                             <constraint firstItem="DcX-Av-G4W" firstAttribute="leading" secondItem="7oe-E2-Air" secondAttribute="leadingMargin" constant="8" id="4gP-2K-8LS"/>
                             <constraint firstItem="cmD-zf-w5F" firstAttribute="top" secondItem="quh-Qo-V8h" secondAttribute="bottom" constant="326" id="80k-JA-n5I"/>
                             <constraint firstItem="hpS-Hl-AhN" firstAttribute="height" secondItem="7oe-E2-Air" secondAttribute="height" multiplier="0.1" id="8Ta-mn-UyR"/>
@@ -540,6 +560,7 @@
                             <constraint firstItem="hpS-Hl-AhN" firstAttribute="centerX" secondItem="7oe-E2-Air" secondAttribute="centerX" id="ITu-gi-pLo"/>
                             <constraint firstItem="hpS-Hl-AhN" firstAttribute="top" secondItem="DcX-Av-G4W" secondAttribute="bottom" constant="8" id="Jgq-jF-UHB"/>
                             <constraint firstItem="EE5-xo-9TY" firstAttribute="width" secondItem="7oe-E2-Air" secondAttribute="width" id="SO0-8S-KaN"/>
+                            <constraint firstItem="n8w-HZ-ljB" firstAttribute="leading" secondItem="7oe-E2-Air" secondAttribute="leadingMargin" id="ZQJ-c9-baj"/>
                             <constraint firstAttribute="bottom" secondItem="EE5-xo-9TY" secondAttribute="bottom" id="a4z-nR-zC4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cmD-zf-w5F" secondAttribute="trailing" constant="8" id="caQ-sK-E9O"/>
                             <constraint firstAttribute="trailing" secondItem="EE5-xo-9TY" secondAttribute="trailing" id="ddu-sQ-7Nm"/>
@@ -547,6 +568,7 @@
                             <constraint firstItem="vJB-uS-o8D" firstAttribute="top" secondItem="hpS-Hl-AhN" secondAttribute="bottom" constant="27" id="jho-dG-Fia"/>
                             <constraint firstItem="cmD-zf-w5F" firstAttribute="leading" secondItem="7oe-E2-Air" secondAttribute="leadingMargin" constant="8" id="mFL-e0-4AM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="DcX-Av-G4W" secondAttribute="trailing" constant="8" id="rlG-hU-Gvo"/>
+                            <constraint firstItem="n8w-HZ-ljB" firstAttribute="trailing" secondItem="7oe-E2-Air" secondAttribute="trailingMargin" id="wGz-05-OAQ"/>
                             <constraint firstItem="EE5-xo-9TY" firstAttribute="height" secondItem="7oe-E2-Air" secondAttribute="height" id="zuG-ng-mDY"/>
                         </constraints>
                     </view>
@@ -555,6 +577,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addButton" destination="hpS-Hl-AhN" id="MQO-sR-jhX"/>
+                        <outlet property="helperText" destination="n8w-HZ-ljB" id="Pvs-gq-czA"/>
                         <outlet property="mapView" destination="EE5-xo-9TY" id="zVO-EL-bnv"/>
                         <outlet property="resultView" destination="DcX-Av-G4W" id="r7B-ba-diX"/>
                         <outlet property="searchField" destination="LQa-et-Zpa" id="KVr-Uf-1oe"/>
@@ -1202,8 +1225,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="bn7-tO-E4s"/>
-        <segue reference="8rN-8p-AUL"/>
         <segue reference="J66-jr-V6G"/>
         <segue reference="lXY-Hi-Jzb"/>
+        <segue reference="FSc-LC-W9E"/>
     </inferredMetricsTieBreakers>
 </document>

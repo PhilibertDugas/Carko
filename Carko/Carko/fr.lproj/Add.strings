@@ -113,5 +113,8 @@
 /* Class = "UILabel"; text = "Sunday"; ObjectID = "vcM-eF-EkU"; */
 "vcM-eF-EkU.text" = "Dimanche";
 
-/* Class= "UIButton"; text = "Add Description"; ObjectID= "IFx-dx-vg9"; */
+/* Class= "UIButton"; text = "Add Description"; ObjectID = "IFx-dx-vg9"; */
 "IFx-dx-vg9.normalTitle" = "Ajouter description";
+
+/* Class = "UILabel"; text = "Move the map to set your spot's location"; ObjectID = "A26-ca-9kt"; */
+"A26-ca-9kt.text" = "Déplacer la carte pour choisir la location de votre stationnement";

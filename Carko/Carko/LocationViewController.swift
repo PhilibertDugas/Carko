@@ -12,12 +12,12 @@ class LocationViewController: UIViewController {
     @IBOutlet var searchField: UITextField!
     @IBOutlet var resultView: UIView!
     @IBOutlet var searchStackTopConstraint: NSLayoutConstraint!
+    @IBOutlet var helperText: RoundedCornerView!
 
     var delegate: ParkingLocationDelegate?
 
     let locationManager = CLLocationManager()
 
-    var blurView: UIVisualEffectView!
     var searchResultView: UIView!
     var locationSearchTable: LocationSearchTableViewController!
     var firstSearch = true
@@ -30,7 +30,7 @@ class LocationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.searchStackTopConstraint.constant = (self.view.frame.height / 2) - 40
+        self.searchStackTopConstraint.constant = (self.view.frame.height / 2) - (self.searchStack.frame.height / 2)
 
         addButton.isHidden = true
         mapView.mapType = MKMapType.satellite
@@ -120,15 +120,21 @@ extension LocationViewController: UITextFieldDelegate {
 
     func textFieldDidEndEditing(_ textField: UITextField) {
         if selectedPin != nil {
-            self.blurView.removeFromSuperview()
+            self.mapView.subviews.forEach({ (view) in
+                if let visualEffect = view as? UIVisualEffectView {
+                    visualEffect.removeFromSuperview()
+                }
+            })
         }
         self.searchResultView.removeFromSuperview()
+        self.helperText.isHidden = false
+        self.searchStack.isHidden = true
     }
 
     func blurMap() {
         let effect = UIBlurEffect(style: .dark)
-        self.blurView = UIVisualEffectView.init(effect: effect)
-        self.blurView.frame = CGRect.init(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
+        let blurView = UIVisualEffectView.init(effect: effect)
+        blurView.frame = CGRect.init(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
         self.mapView.addSubview(blurView)
     }
 
