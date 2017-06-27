@@ -30,7 +30,9 @@ class ParkingDescriptionViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         IQKeyboardManager.sharedManager().enable = true
-        delegate.userDidChangeDescription(value: descriptionText.text)
+        if !placeholderTextPresent {
+            delegate.userDidChangeDescription(value: descriptionText.text)
+        }
     }
 }
 

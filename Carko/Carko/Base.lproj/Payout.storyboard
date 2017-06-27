@@ -28,7 +28,7 @@
                                 <rect key="frame" x="16" y="8" width="343" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To receive payment, please enter the following information." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gWI-Dk-b1r">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="60"/>
+                                        <rect key="frame" x="2" y="0.0" width="339" height="60"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                         <color key="textColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -36,10 +36,11 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.1450980392" green="0.14901960780000001" blue="0.1529411765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="gWI-Dk-b1r" firstAttribute="leading" secondItem="RVE-7b-Frs" secondAttribute="leading" constant="2" id="3dn-rM-yHC"/>
                                     <constraint firstItem="gWI-Dk-b1r" firstAttribute="centerY" secondItem="RVE-7b-Frs" secondAttribute="centerY" id="4Eq-ns-50h"/>
+                                    <constraint firstAttribute="trailing" secondItem="gWI-Dk-b1r" secondAttribute="trailing" constant="2" id="8da-Nu-s2z"/>
                                     <constraint firstItem="gWI-Dk-b1r" firstAttribute="centerX" secondItem="RVE-7b-Frs" secondAttribute="centerX" id="KvP-RB-Fsd"/>
                                     <constraint firstAttribute="height" constant="60" id="RlJ-Gj-tLP"/>
-                                    <constraint firstItem="gWI-Dk-b1r" firstAttribute="width" secondItem="RVE-7b-Frs" secondAttribute="width" id="ruy-ED-IAh"/>
                                     <constraint firstItem="gWI-Dk-b1r" firstAttribute="height" secondItem="RVE-7b-Frs" secondAttribute="height" id="yJN-BG-HkL"/>
                                 </constraints>
                             </view>
@@ -150,7 +151,7 @@
         <scene sceneID="K2Z-TV-sfW">
             <objects>
                 <navigationController id="YZG-4P-F85" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" backIndicatorImage="back_icon" backIndicatorTransitionMaskImage="back_icon" id="IUv-aG-w1v">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" backIndicatorImage="back_icon" backIndicatorTransitionMaskImage="back_icon" id="IUv-aG-w1v">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -185,7 +186,7 @@
                                 <rect key="frame" x="16" y="8" width="343" height="90"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apya does not store or share any banking information. All banking information is communicated through Stripe." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nzk-OB-Or2">
-                                        <rect key="frame" x="0.0" y="0.5" width="343" height="90"/>
+                                        <rect key="frame" x="2" y="0.5" width="339" height="90"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                         <color key="textColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -195,9 +196,10 @@
                                 <constraints>
                                     <constraint firstItem="Nzk-OB-Or2" firstAttribute="centerY" secondItem="GjE-3g-KhT" secondAttribute="centerY" id="1jN-8m-OVY"/>
                                     <constraint firstAttribute="height" constant="90" id="3f7-UY-rbH"/>
-                                    <constraint firstItem="Nzk-OB-Or2" firstAttribute="width" secondItem="GjE-3g-KhT" secondAttribute="width" id="EPd-FQ-aTo"/>
+                                    <constraint firstItem="Nzk-OB-Or2" firstAttribute="leading" secondItem="GjE-3g-KhT" secondAttribute="leading" constant="2" id="Qyv-Mv-M8M"/>
                                     <constraint firstItem="Nzk-OB-Or2" firstAttribute="centerX" secondItem="GjE-3g-KhT" secondAttribute="centerX" id="TSl-4j-3de"/>
                                     <constraint firstItem="Nzk-OB-Or2" firstAttribute="height" secondItem="GjE-3g-KhT" secondAttribute="height" id="VwQ-IH-TQx"/>
+                                    <constraint firstAttribute="trailing" secondItem="Nzk-OB-Or2" secondAttribute="trailing" constant="2" id="WSi-S1-QR0"/>
                                 </constraints>
                             </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Routing Number" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="i5j-Ey-ITF" customClass="UnderlineTextField" customModule="Carko" customModuleProvider="target">
