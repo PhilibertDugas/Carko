@@ -238,7 +238,7 @@ extension NewPhotoViewController: NohanaImagePickerControllerDelegate {
         manager = PopupManager.init(parentView: self.view, title: Translations.t("Congratulations"), description: Translations.t("You just added a parking"))
         manager.successPopup.confirmButton.addTarget(self, action: #selector(self.dismissPopup), for: .touchUpInside)
         if AuthenticationHelper.getCustomer().accountId == nil {
-            manager.successPopup.warningMessage.text = Translations.t("To list this parking, complete the 'Payout' section")
+            manager.successPopup.warningMessage.text = Translations.t("To list this parking, complete the 'Transaction Information' section")
         } else {
             manager.successPopup.descriptionLabel.text = Translations.t("Your parking space is now available for rent")
             manager.successPopup.warningMessage.text = ""

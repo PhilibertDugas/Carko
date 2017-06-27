@@ -46,7 +46,7 @@
 
 
 // Payout
-"You just added your payout information" = "You just added your payout information";
+"You just added your transaction information" = "You just added your transaction information";
 "City" = "City";
 "Postal Code" = "Postal Code";
 "Country" = "Country";
@@ -67,7 +67,7 @@
 
 // Rent your space
 "You just added a parking" = "You just added a parking";
-"To list this parking, complete the 'Payout' section" = "To list this parking, complete the 'Payout' section";
+"To list this parking, complete the 'Transaction Information' section" = "To list this parking, complete the 'Transaction Information' section";
 "Your parking space is now available for rent" = "Your parking space is now available for rent";
 "Your parking is currently in use, are you sure you want to remove it?" = "Your parking is currently in use, are you sure you want to remove it?";
 "Parking in use" = "Parking in use";

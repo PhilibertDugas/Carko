@@ -45,7 +45,7 @@
 "Model" = "Modèle";
 
 // Payout
-"You just added your payout information" = "Vous avez ajouté vos informations de transfert";
+"You just added your transaction information" = "Vous avez ajouté vos informations transactionnelles";
 "City" = "Ville";
 "Postal Code" = "Code Postal";
 "Country" = "Pays";
@@ -66,7 +66,7 @@
 
 // Rent your space
 "You just added a parking" = "Vous avez ajouté votre stationnement";
-"To list this parking, complete the 'Payout' section" = "Pour afficher ce stationnement, complétez la section 'Transfert'";
+"To list this parking, complete the 'Transaction Information' section" = "Pour afficher ce stationnement, complétez la section 'Information Transactionnelle'";
 "Your parking space is now available for rent" = "Votre stationnement est maintenant disponible pour une location";
 "Your parking is currently in use, are you sure you want to remove it?" = "Votre stationnement est en cours de location, êtes-vous certain(e) de vouloir le supprimer?";
 "Parking in use" = "Stationnement en cours de location";

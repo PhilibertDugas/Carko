@@ -2,8 +2,8 @@
 /* Class = "UILabel"; text = "Help"; ObjectID = "3Kg-Uc-bDr"; */
 "3Kg-Uc-bDr.text" = "Aide";
 
-/* Class = "UILabel"; text = "Payout"; ObjectID = "4Kh-If-AGZ"; */
-"4Kh-If-AGZ.text" = "Transfert";
+/* Class = "UILabel"; text = "Transaction Information"; ObjectID = "4Kh-If-AGZ"; */
+"4Kh-If-AGZ.text" = "Information Transactionnelle";
 
 /* Class = "UILabel"; text = "Rent your Space"; ObjectID = "9Eq-bL-gvq"; */
 "9Eq-bL-gvq.text" = "Louez votre espace";

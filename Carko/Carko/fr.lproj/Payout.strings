@@ -41,8 +41,8 @@
 /* Class = "UITextField"; placeholder = "Routing Number"; ObjectID = "i5j-Ey-ITF"; */
 "i5j-Ey-ITF.placeholder" = "Numéro d'acheminement";
 
-/* Class = "UINavigationItem"; title = "Payout"; ObjectID = "ki7-7U-kWL"; */
-"ki7-7U-kWL.title" = "Transfert";
+/* Class = "UINavigationItem"; title = "Transaction Information"; ObjectID = "ki7-7U-kWL"; */
+"ki7-7U-kWL.title" = "Information Transactionnelle";
 
 /* Class = "UIButton"; normalTitle = "Save"; ObjectID = "qcV-Xl-Fow"; */
 "qcV-Xl-Fow.normalTitle" = "Sauvegarder";

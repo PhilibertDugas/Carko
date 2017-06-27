@@ -144,7 +144,7 @@ extension ParkingInfoViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0 && AuthenticationHelper.getCustomer().accountId == nil {
             let button = NoBorderButton.init(frame: CGRect.init(x: self.tableView.frame.width / 2, y: 0, width: self.tableView.frame.width, height: 15.0))
-            button.setTitle(Translations.t("To list this parking, complete the 'Payout' section"), for: .normal)
+            button.setTitle(Translations.t("To list this parking, complete the 'Transaction Information' section"), for: .normal)
             button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 10.0)
             button.titleLabel?.adjustsFontSizeToFitWidth = true
             button.setTitleColor(UIColor.accentColor, for: .normal)

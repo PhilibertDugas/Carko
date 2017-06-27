@@ -26,6 +26,7 @@ class BankCreationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.saveButton.titleLabel?.adjustsFontSizeToFitWidth = true
         self.hideKeyboardWhenTappedAround()
         self.activityIndicator.isHidden = true
         self.setupFields()
@@ -97,7 +98,7 @@ extension BankCreationViewController {
     }
 
     private func displaySuccessMessage() {
-        manager = PopupManager.init(parentView: self.view, title: Translations.t("Congratulations"), description: Translations.t("You just added your payout information"))
+        manager = PopupManager.init(parentView: self.view, title: Translations.t("Congratulations"), description: Translations.t("You just added your transaction information"))
         manager.successPopup.confirmButton.addTarget(self, action: #selector(self.dismissPopup), for: .touchUpInside)
         manager.displayPopup()
     }
