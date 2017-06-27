@@ -101,7 +101,7 @@
         <scene sceneID="oc0-ja-GMb">
             <objects>
                 <collectionViewController id="MPQ-ic-TB4" customClass="EventsCollectionViewController" customModule="Carko" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="ZxP-jl-dXw">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="ZxP-jl-dXw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewLayout key="collectionViewLayout" id="c87-KU-3Ek" customClass="ApyaLayout" customModule="Carko" customModuleProvider="target"/>
@@ -590,6 +590,7 @@
                             <constraint firstItem="jez-mh-OSW" firstAttribute="leading" secondItem="G85-aq-sx3" secondAttribute="leadingMargin" id="Fsg-nh-ZgT"/>
                             <constraint firstItem="pDk-S5-c1a" firstAttribute="leading" secondItem="G85-aq-sx3" secondAttribute="leadingMargin" constant="2" id="Izl-Um-H1C"/>
                             <constraint firstItem="aRO-mY-t91" firstAttribute="top" secondItem="fW3-1d-qRD" secondAttribute="bottom" constant="23" id="JGa-mf-fos"/>
+                            <constraint firstItem="s41-rb-2sO" firstAttribute="width" secondItem="G85-aq-sx3" secondAttribute="width" multiplier="0.38" id="JMs-Lx-fap"/>
                             <constraint firstItem="jez-mh-OSW" firstAttribute="top" secondItem="s9T-iM-D43" secondAttribute="bottom" constant="8" id="JTN-my-1eb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="s9T-iM-D43" secondAttribute="trailing" constant="2" id="KKp-zv-LmH"/>
                             <constraint firstItem="jez-mh-OSW" firstAttribute="trailing" secondItem="G85-aq-sx3" secondAttribute="trailingMargin" id="KZE-bh-N6D"/>
@@ -603,7 +604,6 @@
                             <constraint firstItem="CcF-CF-Mqi" firstAttribute="leading" secondItem="G85-aq-sx3" secondAttribute="leadingMargin" constant="2" id="Uy2-Zg-lSp"/>
                             <constraint firstItem="vak-tN-vlc" firstAttribute="centerX" secondItem="G85-aq-sx3" secondAttribute="centerX" id="VWK-jp-xaR"/>
                             <constraint firstItem="zIH-wD-L3a" firstAttribute="leading" secondItem="G85-aq-sx3" secondAttribute="leadingMargin" constant="2" id="X9m-i8-QSY"/>
-                            <constraint firstItem="s41-rb-2sO" firstAttribute="width" secondItem="fW3-1d-qRD" secondAttribute="width" id="aFI-GM-GkY"/>
                             <constraint firstItem="774-Di-o2x" firstAttribute="leading" secondItem="G85-aq-sx3" secondAttribute="leadingMargin" id="aRe-Vl-zn3"/>
                             <constraint firstItem="774-Di-o2x" firstAttribute="trailing" secondItem="G85-aq-sx3" secondAttribute="trailingMargin" id="bKR-6P-O8o"/>
                             <constraint firstItem="fW3-1d-qRD" firstAttribute="trailing" secondItem="G85-aq-sx3" secondAttribute="trailingMargin" id="btx-VV-pOF"/>
@@ -624,6 +624,9 @@
                         <outlet property="confirmButton" destination="eNc-qq-HT7" id="11n-3g-3cE"/>
                         <outlet property="costLabel" destination="nLw-V2-mPK" id="BPC-r6-Jcv"/>
                         <outlet property="eventLabel" destination="ZTp-s4-lmA" id="JFo-rn-k8M"/>
+                        <outlet property="mainButtonLabel" destination="aWm-Gn-fPM" id="y6L-HI-m9n"/>
+                        <outlet property="mainButtonWidth" destination="PNh-D2-wmf" id="rmT-h4-rmO"/>
+                        <outlet property="parkingInfoView" destination="GBm-K2-WIC" id="frb-jI-IpF"/>
                         <outlet property="parkingLabel" destination="pDk-S5-c1a" id="ETX-88-v0C"/>
                         <outlet property="paymentPopup" destination="seN-Nl-jZA" id="dJt-gY-L9R"/>
                         <outlet property="photoCollectionView" destination="aRO-mY-t91" id="EMT-7r-301"/>
@@ -637,7 +640,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="back_icon" width="56" height="22"/>
+        <image name="back_icon" width="12" height="21"/>
         <image name="menu" width="20" height="12"/>
     </resources>
 </document>

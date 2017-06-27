@@ -17,6 +17,7 @@
 		4517E1591F015687003F9C62 /* LocalParkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4517E1581F015687003F9C62 /* LocalParkingManager.swift */; };
 		4517E15B1F01591F003F9C62 /* LocalParkingManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4517E15A1F01591F003F9C62 /* LocalParkingManagerTest.swift */; };
 		4517E15E1F01CA35003F9C62 /* ParkingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4517E15D1F01CA35003F9C62 /* ParkingTest.swift */; };
+		4517E1601F0203C8003F9C62 /* NSLayoutConstraintExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4517E15F1F0203C8003F9C62 /* NSLayoutConstraintExtension.swift */; };
 		4518537A1DA476F1005CC5E6 /* ListParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451853791DA476F1005CC5E6 /* ListParkingViewController.swift */; };
 		451E424B1DB071EC00747370 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451E424A1DB071EC00747370 /* Customer.swift */; };
 		451E424D1DB078E000747370 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451E424C1DB078E000747370 /* UIViewController.swift */; };
@@ -236,6 +237,7 @@
 		4517E1581F015687003F9C62 /* LocalParkingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalParkingManager.swift; sourceTree = "<group>"; };
 		4517E15A1F01591F003F9C62 /* LocalParkingManagerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalParkingManagerTest.swift; sourceTree = "<group>"; };
 		4517E15D1F01CA35003F9C62 /* ParkingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingTest.swift; sourceTree = "<group>"; };
+		4517E15F1F0203C8003F9C62 /* NSLayoutConstraintExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraintExtension.swift; sourceTree = "<group>"; };
 		451853791DA476F1005CC5E6 /* ListParkingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListParkingViewController.swift; sourceTree = "<group>"; };
 		451E424A1DB071EC00747370 /* Customer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		451E424C1DB078E000747370 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
@@ -767,6 +769,7 @@
 				450CB59E1E11834000FD2095 /* UIColor.swift */,
 				457536591EAD87AA00E70F7F /* StringExtension.swift */,
 				45597A161F00568600CE1979 /* UIApplicationExtension.swift */,
+				4517E15F1F0203C8003F9C62 /* NSLayoutConstraintExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -1317,6 +1320,7 @@
 				45BBC3481EF0A9E100CBC509 /* ImageLoaderHelper.swift in Sources */,
 				457536581EAD798300E70F7F /* ReservationTableViewCell.swift in Sources */,
 				45AA40E71EC699BB000D306E /* PaymentSetupCompleted.swift in Sources */,
+				4517E1601F0203C8003F9C62 /* NSLayoutConstraintExtension.swift in Sources */,
 				45D073331EA84A75000604D3 /* Event.swift in Sources */,
 				458BC76A1DE218DC0028AC5B /* LocationSearchTableTableViewController.swift in Sources */,
 				4591D5F21DFC9D4700366691 /* Charge.swift in Sources */,

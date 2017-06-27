@@ -15,7 +15,7 @@
         <scene sceneID="jb1-fA-WdS">
             <objects>
                 <navigationController id="vi7-JE-Kbh" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" backIndicatorImage="back_icon" id="1Rf-Ak-g2M">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" backIndicatorImage="back_icon" backIndicatorTransitionMaskImage="back_icon" id="1Rf-Ak-g2M">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

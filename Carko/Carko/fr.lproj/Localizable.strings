@@ -62,6 +62,8 @@
 "Please set your vehicule information in the profile section" = "Complétez la section véhicule du profile s.v.p";
 "Reservation conflict" = "Conflit de réservation";
 "There is already a reservation scheduled on this date, do you wish to continue?" = "Il y a déjà une réservation planifié cette journée, désirez vous tout de même continuer?";
+"Reserve Now" = "Réserver";
+"This parking is currently busy" = "Ce stationnement est occupé";
 
 
 // Rent your space

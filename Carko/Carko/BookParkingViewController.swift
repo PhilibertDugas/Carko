@@ -33,6 +33,9 @@ class BookParkingViewController: UIViewController {
     @IBOutlet var eventLabel: UILabel!
     @IBOutlet var paymentPopup: PaymentPopup!
     @IBOutlet var photoCollectionView: UICollectionView!
+    @IBOutlet var parkingInfoView: UIView!
+    @IBOutlet var mainButtonWidth: NSLayoutConstraint!
+    @IBOutlet var mainButtonLabel: UILabel!
 
     let photoCellIdentifier = "PhotoCell"
 
@@ -148,10 +151,23 @@ class BookParkingViewController: UIViewController {
         if self.parking.isAvailable {
             self.confirmButton.alpha = 1.0
             self.confirmButton.isEnabled = true
+            self.parkingInfoView.isHidden = false
+            updateConstraint(multiplier: 0.38)
+            self.mainButtonLabel.text = Translations.t("Reserve Now")
         } else {
             self.confirmButton.alpha = 0.6
             self.confirmButton.isEnabled = false
+            self.parkingInfoView.isHidden = true
+            updateConstraint(multiplier: 0.9)
+            self.mainButtonLabel.text = Translations.t("This parking is currently busy")
         }
+    }
+
+    private func updateConstraint(multiplier: CGFloat) {
+        let newConstraint = self.mainButtonWidth.constraintWithMultiplier(multiplier)
+        self.view.removeConstraint(self.mainButtonWidth)
+        self.view.addConstraint(newConstraint)
+        self.view.layoutIfNeeded()
     }
 
     fileprivate func prepareBackgroundView(){
