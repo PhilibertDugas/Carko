@@ -30,6 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
 
+        validateCachedInfo()
+
         return true
     }
 
@@ -59,6 +61,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let firebaseOptions = FirebaseOptions(contentsOfFile: Bundle.main.path(forResource: firebaseFile, ofType: "plist")!)
         FirebaseApp.configure(options: firebaseOptions!)
         APIClient.shared.baseUrl = URL.init(string: apiUrl)!
+    }
+
+    private func validateCachedInfo() {
+        let cachedVersion = UserDefaults.standard.string(forKey: "environment")
+        if let version = cachedVersion {
+            #if DEVELOPMENT
+                if version != "dev" {
+                    UserDefaults.standard.setValue("dev", forKey: "environment")
+                    AuthenticationHelper.resetCustomer()
+                }
+            #else
+                if version != "prod" {
+                    UserDefaults.standard.setValue("prod", forKey: "environment")
+                    AuthenticationHelper.resetCustomer()
+                }
+            #endif
+        } else {
+            #if DEVELOPMENT
+                UserDefaults.standard.setValue("dev", forKey: "environment")
+            #else
+                UserDefaults.standard.setValue("prod", forKey: "environment")
+            #endif
+        }
     }
 
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {

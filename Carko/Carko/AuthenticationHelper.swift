@@ -53,7 +53,7 @@ class AuthenticationHelper: NSObject {
     }
 
     class func resetCustomer() {
-        try! Auth.auth().signOut()
+        try? Auth.auth().signOut()
         FBSDKAccessToken.setCurrent(nil)
         AppState.shared.resetCustomer()
     }

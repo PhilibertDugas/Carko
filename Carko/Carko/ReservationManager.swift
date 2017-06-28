@@ -10,21 +10,13 @@ import Foundation
 
 class ReservationManager: NSObject {
     static let shared = ReservationManager.init()
-    private var reservations: [(Reservation?)]? = nil
+    private var reservations: [(Reservation?)] = []
 
     func cacheReservations(reservations: [(Reservation?)]) {
         self.reservations = reservations
-        UserDefaults.standard.set(reservations.map { $0?.toDictionnary() }, forKey: "reservations")
     }
 
     func getReservations() -> [(Reservation?)] {
-        if self.reservations == nil {
-            self.reservations = []
-            let array = UserDefaults.standard.array(forKey: "reservations")!
-            for dict in array {
-                self.reservations?.append(Reservation.init(reservation: dict as! [String : Any]))
-            }
-        }
-        return self.reservations!
+        return self.reservations
     }
 }
