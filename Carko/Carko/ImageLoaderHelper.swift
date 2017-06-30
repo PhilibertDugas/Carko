@@ -14,4 +14,8 @@ struct ImageLoaderHelper {
         let imageReference = AppState.shared.storageReference.storage.reference(forURL: url.absoluteString)
         view.sd_setImage(with: imageReference, placeholderImage: UIImage.init(named: "placeholder-1"))
     }
+
+    static func loadPublicImageIntoView(_ view: UIImageView, url: URL?) {
+        view.sd_setImage(with: url, placeholderImage: UIImage.init(named: "placeholder-1"))
+    }
 }

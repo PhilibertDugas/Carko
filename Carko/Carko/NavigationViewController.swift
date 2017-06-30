@@ -7,8 +7,7 @@
 //
 
 import UIKit
-import CoreGraphics
-import QuartzCore
+import FBSDKCoreKit
 
 class NavigationViewController: UIViewController {
 
@@ -19,7 +18,13 @@ class NavigationViewController: UIViewController {
         if AuthenticationHelper.customerAvailable() {
             let customer = AuthenticationHelper.getCustomer()
             self.headerView.nameLabel.text = customer.displayName
+            if let current = FBSDKAccessToken.current() {
+                if let id = current.userID {
+                    ImageLoaderHelper.loadPublicImageIntoView(self.headerView.profileImage, url: URL.init(string: "https://graph.facebook.com/\(id)/picture?type=large"))
+                }
+            }
         } else {
+            self.headerView.profileImage.image = nil
             self.headerView.nameLabel.text = Translations.t("Sign in")
         }
     }
@@ -32,5 +37,10 @@ class NavigationViewController: UIViewController {
         } else {
             self.present(AuthenticationHelper.shared.getAuthController(), animated: true, completion: nil)
         }
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.headerView.profileImage.layer.cornerRadius = self.headerView.profileImage.frame.size.width / 2
     }
 }

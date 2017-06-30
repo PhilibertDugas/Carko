@@ -13,6 +13,7 @@ class ProfileHeaderView: UIView {
 
     @IBOutlet var view: UIView!
     @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var profileImage: CircleImageView!
 
     override init(frame: CGRect) {
         super.init(frame: frame)

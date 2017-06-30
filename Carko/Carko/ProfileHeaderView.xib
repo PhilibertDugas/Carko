@@ -6,12 +6,15 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileHeaderView" customModule="Carko" customModuleProvider="target">
             <connections>
                 <outlet property="nameLabel" destination="qZe-Bu-7wb" id="OSR-si-YnO"/>
+                <outlet property="profileImage" destination="isB-sX-O1w" id="an6-Gh-2p1"/>
                 <outlet property="view" destination="iN0-l3-epB" id="WHR-AV-hoW"/>
             </connections>
         </placeholder>
@@ -20,8 +23,8 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qZe-Bu-7wb">
-                    <rect key="frame" x="16" y="32.5" width="343" height="85"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qZe-Bu-7wb">
+                    <rect key="frame" x="94" y="33" width="281" height="85"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="85" id="6MJ-DV-52L"/>
                     </constraints>
@@ -29,11 +32,21 @@
                     <color key="textColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="isB-sX-O1w" customClass="CircleImageView" customModule="Carko" customModuleProvider="target">
+                    <rect key="frame" x="16" y="40" width="70" height="70"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="isB-sX-O1w" secondAttribute="height" multiplier="1:1" id="TUE-jv-xBc"/>
+                        <constraint firstAttribute="width" constant="70" id="lOZ-ya-4zf"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="qZe-Bu-7wb" secondAttribute="trailing" constant="16" id="HH4-Ec-R0X"/>
-                <constraint firstItem="qZe-Bu-7wb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="T0K-xM-Qa6"/>
+                <constraint firstItem="isB-sX-O1w" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="0R0-KP-lgq"/>
+                <constraint firstItem="qZe-Bu-7wb" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.75" id="8zt-ti-Xnj"/>
+                <constraint firstItem="qZe-Bu-7wb" firstAttribute="leading" secondItem="isB-sX-O1w" secondAttribute="trailing" constant="8" id="A1q-wJ-jsG"/>
+                <constraint firstItem="isB-sX-O1w" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="EPb-UQ-so7"/>
+                <constraint firstAttribute="trailing" secondItem="qZe-Bu-7wb" secondAttribute="trailing" id="HH4-Ec-R0X"/>
                 <constraint firstItem="qZe-Bu-7wb" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="wTv-Ej-LrL"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

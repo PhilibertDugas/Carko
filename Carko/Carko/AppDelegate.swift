@@ -81,6 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             #if DEVELOPMENT
                 UserDefaults.standard.setValue("dev", forKey: "environment")
             #else
+                AuthenticationHelper.resetCustomer()
                 UserDefaults.standard.setValue("prod", forKey: "environment")
             #endif
         }

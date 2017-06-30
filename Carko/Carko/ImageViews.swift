@@ -21,3 +21,18 @@ class RoundedCornerImageView: UIImageView {
         layer.borderWidth = 0.5
     }
 }
+
+class CircleImageView: UIImageView {
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        layer.cornerRadius = 0.5 * frame.size.width
+        clipsToBounds = true
+    }
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        layer.cornerRadius = 0.5 * frame.size.width
+        clipsToBounds = true
+    }
+
+}
