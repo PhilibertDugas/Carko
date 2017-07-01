@@ -44,6 +44,7 @@ class ApyaLayout: UICollectionViewLayout {
     override func prepare() {
         cache.removeAll()
 
+        contentHeight = 0.0
         self.yOffset = [CGFloat](repeating: 0, count: eventNumberOfColumns)
 
         self.currentColumn = 0
