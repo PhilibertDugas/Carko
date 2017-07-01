@@ -119,18 +119,18 @@ class EventsCollectionViewController: UICollectionViewController {
 
     // TODO: Extract out of the ViewController
     private func removeDuplicatedEvents(_ reservations: [(Reservation?)]) {
-        var indexesToRemove: [Int] = []
+        var indexesToRemove: [Int: Int] = [:]
         for reservation in reservations {
             guard let event = reservation?.event else { continue }
             for (index, e) in self.events.enumerated() {
                 if event.id == e?.id {
-                    indexesToRemove.append(index)
+                    indexesToRemove[event.id] = index
                 }
             }
         }
 
-        indexesToRemove.forEach { (index) in
-            self.events.remove(at: index)
+        indexesToRemove.forEach { (_, value) in
+            self.events.remove(at: value)
         }
     }
 

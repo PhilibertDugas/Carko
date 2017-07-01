@@ -52,6 +52,7 @@
 "Date of birth" = "Date de naissance";
 "Routing Number" = "Numéro d'acheminement";
 "Account Number" = "Numéro de compte";
+"check_example" = "exemple_cheque";
 
 
 // Find & Book Parking

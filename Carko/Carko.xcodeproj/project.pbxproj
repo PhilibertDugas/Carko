@@ -137,7 +137,6 @@
 		456D72F71F0341F70026E85D /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 457CF5D31EBC0D9800A1397F /* SWRevealViewController.m */; };
 		456D72F81F03425B0026E85D /* SuccessPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 454042291EFB592600667C4C /* SuccessPopup.xib */; };
 		456D72F91F0342600026E85D /* AuthPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45A4FAB71EF7145C00C73131 /* AuthPickerViewController.xib */; };
-		456D72FA1F0342980026E85D /* InfoProduction.plist in Resources */ = {isa = PBXBuildFile; fileRef = 452A7CEF1EF838FC00D1D109 /* InfoProduction.plist */; };
 		4571700B1DEA5DEE00A0FDF5 /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4571700A1DEA5DEE00A0FDF5 /* Reservation.swift */; };
 		457536561EAD752500E70F7F /* ReservationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457536551EAD752500E70F7F /* ReservationsTableViewController.swift */; };
 		457536581EAD798300E70F7F /* ReservationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457536571EAD798300E70F7F /* ReservationTableViewCell.swift */; };
@@ -161,6 +160,8 @@
 		459AD2571DA49B6C0018B7B9 /* Parking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459AD2561DA49B6C0018B7B9 /* Parking.swift */; };
 		45A033241F074D060071F3CD /* EventsLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A033231F074D060071F3CD /* EventsLayout.swift */; };
 		45A033251F07E7970071F3CD /* EventsLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A033231F074D060071F3CD /* EventsLayout.swift */; };
+		45A033281F07EB520071F3CD /* Segues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A033271F07EB520071F3CD /* Segues.swift */; };
+		45A033291F07EB520071F3CD /* Segues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A033271F07EB520071F3CD /* Segues.swift */; };
 		45A4FAB41EF70A1500C73131 /* AuthPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A4FAB31EF70A1500C73131 /* AuthPickerViewController.swift */; };
 		45A4FAB81EF7145C00C73131 /* AuthPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45A4FAB71EF7145C00C73131 /* AuthPickerViewController.xib */; };
 		45A4FAC21EF77EF100C73131 /* city.gif in Resources */ = {isa = PBXBuildFile; fileRef = 45A4FAC11EF77EF100C73131 /* city.gif */; };
@@ -316,6 +317,7 @@
 		4591D5FA1DFCA54600366691 /* ReservationClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationClient.swift; sourceTree = "<group>"; };
 		459AD2561DA49B6C0018B7B9 /* Parking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parking.swift; sourceTree = "<group>"; };
 		45A033231F074D060071F3CD /* EventsLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsLayout.swift; sourceTree = "<group>"; };
+		45A033271F07EB520071F3CD /* Segues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Segues.swift; sourceTree = "<group>"; };
 		45A4FAB31EF70A1500C73131 /* AuthPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthPickerViewController.swift; sourceTree = "<group>"; };
 		45A4FAB71EF7145C00C73131 /* AuthPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthPickerViewController.xib; sourceTree = "<group>"; };
 		45A4FAC11EF77EF100C73131 /* city.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = city.gif; sourceTree = "<group>"; };
@@ -605,6 +607,14 @@
 			name = API;
 			sourceTree = "<group>";
 		};
+		45A033261F07EB420071F3CD /* Segues */ = {
+			isa = PBXGroup;
+			children = (
+				45A033271F07EB520071F3CD /* Segues.swift */,
+			);
+			name = Segues;
+			sourceTree = "<group>";
+		};
 		45ACDDA01E0CAA2C007464F8 /* plist */ = {
 			isa = PBXGroup;
 			children = (
@@ -620,6 +630,7 @@
 		45B215911ED88E3C007CDD2E /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				45A033261F07EB420071F3CD /* Segues */,
 				4578470B1EFC89040068745E /* Table View */,
 				45DC42FD1EA97D5B009F8E8D /* Collection View */,
 				45BB39631DBBEFEC0019C2A3 /* Views */,
@@ -955,7 +966,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				456D72FA1F0342980026E85D /* InfoProduction.plist in Resources */,
 				456D72F91F0342600026E85D /* AuthPickerViewController.xib in Resources */,
 				456D72F81F03425B0026E85D /* SuccessPopup.xib in Resources */,
 				45AABAE31EF607C3006C268E /* GoogleService-Info.plist in Resources */,
@@ -1288,6 +1298,7 @@
 				456D72D41F0341E90026E85D /* PhotoEditLayout.swift in Sources */,
 				456D72D51F0341E90026E85D /* EventCollectionViewCell.swift in Sources */,
 				456D72D61F0341E90026E85D /* ReservationCollectionViewCell.swift in Sources */,
+				45A033291F07EB520071F3CD /* Segues.swift in Sources */,
 				456D72D71F0341E90026E85D /* ParkingPhotoCollectionViewCell.swift in Sources */,
 				456D72D81F0341E90026E85D /* PhotoAddCollectionViewCell.swift in Sources */,
 				456D72D91F0341E90026E85D /* ProfileHeaderView.swift in Sources */,
@@ -1373,6 +1384,7 @@
 				4575365A1EAD87AA00E70F7F /* StringExtension.swift in Sources */,
 				4591D5F91DFCA51D00366691 /* StripeClient.swift in Sources */,
 				4571700B1DEA5DEE00A0FDF5 /* Reservation.swift in Sources */,
+				45A033281F07EB520071F3CD /* Segues.swift in Sources */,
 				45BBC3431EF0A4A900CBC509 /* PhotoEditLayout.swift in Sources */,
 				4540C1FD1EEE469F00A2ECB3 /* PhotoCreationLayout.swift in Sources */,
 				C5075F9C1EBBAA9100602B8C /* ProfileHeaderView.swift in Sources */,

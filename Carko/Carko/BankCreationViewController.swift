@@ -13,6 +13,7 @@ class BankCreationViewController: UIViewController {
     @IBOutlet var routingNumberTextField: UnderlineTextField!
     @IBOutlet var accountNumberTextField: UnderlineTextField!
 
+    @IBOutlet var checkImage: UIImageView!
     @IBOutlet var saveButton: SmallRoundedCornerButton!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     var account: Account!
@@ -30,6 +31,7 @@ class BankCreationViewController: UIViewController {
         self.hideKeyboardWhenTappedAround()
         self.activityIndicator.isHidden = true
         self.setupFields()
+        self.checkImage.image = UIImage.init(named: Translations.t("check_example"))
     }
 
     override func viewDidAppear(_ animated: Bool) {

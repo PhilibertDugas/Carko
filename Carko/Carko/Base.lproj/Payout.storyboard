@@ -222,8 +222,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check_example.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="VTL-LE-Z4g">
-                                <rect key="frame" x="16" y="274" width="343" height="180.5"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check_example" translatesAutoresizingMaskIntoConstraints="NO" id="VTL-LE-Z4g">
+                                <rect key="frame" x="16" y="259" width="343" height="180.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="VTL-LE-Z4g" secondAttribute="height" multiplier="1.9:1" id="Ews-Ct-xbD"/>
                                 </constraints>
@@ -260,7 +260,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.062745098040000002" green="0.078431372550000003" blue="0.08235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="VTL-LE-Z4g" firstAttribute="top" secondItem="vRy-rY-gfS" secondAttribute="bottom" constant="60" id="6H1-z9-1SP"/>
+                            <constraint firstItem="VTL-LE-Z4g" firstAttribute="top" secondItem="vRy-rY-gfS" secondAttribute="bottom" constant="45" id="6H1-z9-1SP"/>
                             <constraint firstItem="VTL-LE-Z4g" firstAttribute="trailing" secondItem="vd8-SJ-D9C" secondAttribute="trailingMargin" id="7La-ww-SEc"/>
                             <constraint firstItem="U0S-F7-C2R" firstAttribute="centerX" secondItem="vd8-SJ-D9C" secondAttribute="centerX" id="A7n-JS-TQR"/>
                             <constraint firstItem="U0S-F7-C2R" firstAttribute="width" secondItem="vd8-SJ-D9C" secondAttribute="width" multiplier="0.38" id="C4L-DU-YxJ"/>
@@ -282,6 +282,7 @@
                     <connections>
                         <outlet property="accountNumberTextField" destination="vRy-rY-gfS" id="hVb-b3-Hjk"/>
                         <outlet property="activityIndicator" destination="uUu-ZS-Hf8" id="7Na-0j-fdC"/>
+                        <outlet property="checkImage" destination="VTL-LE-Z4g" id="95g-JB-d0S"/>
                         <outlet property="routingNumberTextField" destination="i5j-Ey-ITF" id="vKO-CF-7hw"/>
                         <outlet property="saveButton" destination="qcV-Xl-Fow" id="uW6-ye-Ebl"/>
                     </connections>
@@ -294,6 +295,6 @@
     <resources>
         <image name="back_icon" width="12" height="21"/>
         <image name="cancel_icon" width="17" height="17"/>
-        <image name="check_example.jpg" width="16" height="16"/>
+        <image name="check_example" width="343" height="180"/>
     </resources>
 </document>

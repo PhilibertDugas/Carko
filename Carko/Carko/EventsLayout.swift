@@ -25,11 +25,18 @@ class EventsLayout: UICollectionViewLayout {
     private var contentWidth: CGFloat {
         return collectionView!.bounds.width
     }
+    private var contentHeight: CGFloat = 0.0
 
     private var cellPadding: CGFloat = 0.0
 
+
+    override var collectionViewContentSize: CGSize {
+        return CGSize.init(width: contentWidth, height: contentHeight)
+    }
     override func prepare() {
         self.cache.removeAll()
+        contentHeight = 0
+
         self.currentColumn = 0
         self.cellPadding = 0.03 * self.contentWidth
         let columnWidth = (contentWidth / CGFloat(self.numberOfColumns))
@@ -56,6 +63,7 @@ class EventsLayout: UICollectionViewLayout {
             let height = reservationRowHeight + ( 2 * cellPadding)
             let frame = CGRect.init(x: 0, y: self.yOffset[0], width: contentWidth, height: height)
             let insetFrame = frame.insetBy(dx: cellPadding, dy: cellPadding)
+            contentHeight = insetFrame.maxY
             let attributes = UICollectionViewLayoutAttributes.init(forCellWith: indexPath)
             attributes.frame = insetFrame
             self.cache.append(attributes)
@@ -71,6 +79,8 @@ class EventsLayout: UICollectionViewLayout {
             let height = firstSectionRowHeight + (2 * cellPadding)
             let frame = CGRect.init(x: 0, y: self.yOffset[0], width: contentWidth, height: height)
             let insetFrame = frame.insetBy(dx: cellPadding, dy: cellPadding)
+            contentHeight = insetFrame.maxY
+
             let attributes = UICollectionViewLayoutAttributes.init(forCellWith: indexPath)
             attributes.frame = insetFrame
             self.cache.append(attributes)
@@ -98,6 +108,8 @@ class EventsLayout: UICollectionViewLayout {
             let frame = CGRect(x: xOffset[self.currentColumn], y: self.yOffset[self.currentColumn], width: columnWidth, height: height)
 
             let insetFrame = frame.insetBy(dx: cellPadding, dy: cellPadding)
+            contentHeight = insetFrame.maxY
+
             let attributes = UICollectionViewLayoutAttributes.init(forCellWith: indexPath)
             attributes.frame = insetFrame
             cache.append(attributes)
