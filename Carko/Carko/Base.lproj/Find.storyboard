@@ -101,10 +101,10 @@
         <scene sceneID="oc0-ja-GMb">
             <objects>
                 <collectionViewController id="MPQ-ic-TB4" customClass="EventsCollectionViewController" customModule="Carko" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="ZxP-jl-dXw">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="ZxP-jl-dXw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <collectionViewLayout key="collectionViewLayout" id="c87-KU-3Ek" customClass="ApyaLayout" customModule="Carko" customModuleProvider="target"/>
+                        <collectionViewLayout key="collectionViewLayout" id="c87-KU-3Ek" customClass="EventsLayout" customModule="Carko" customModuleProvider="target"/>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ReservationCell" id="6DP-6O-eL9" customClass="ReservationCollectionViewCell" customModule="Carko" customModuleProvider="target">
                                 <rect key="frame" x="15" y="0.0" width="345" height="345"/>
@@ -176,7 +176,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pKi-XW-Kf5" customClass="RoundedCornerView" customModule="Carko" customModuleProvider="target">
                                             <rect key="frame" x="161" y="188" width="169" height="150"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lZy-Xp-um5">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lZy-Xp-um5">
                                                     <rect key="frame" x="0.0" y="0.0" width="169" height="150"/>
                                                 </imageView>
                                                 <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VYE-JY-vaR">
@@ -269,11 +269,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="185" height="255"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CVJ-1U-FKb">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CVJ-1U-FKb">
                                             <rect key="frame" x="0.0" y="0.0" width="185" height="255"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="255" id="8fg-sx-DWi"/>
-                                            </constraints>
                                         </imageView>
                                         <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mZq-a9-zVw">
                                             <rect key="frame" x="0.0" y="235" width="185" height="20"/>
@@ -317,24 +314,24 @@
                                     </subviews>
                                 </view>
                                 <constraints>
+                                    <constraint firstItem="CVJ-1U-FKb" firstAttribute="width" secondItem="y1f-W2-xj4" secondAttribute="width" id="0EF-rq-80k"/>
                                     <constraint firstAttribute="trailing" secondItem="XHm-QD-shn" secondAttribute="trailing" constant="4" id="1iF-EX-zMP"/>
                                     <constraint firstItem="4N2-5N-Exv" firstAttribute="width" secondItem="y1f-W2-xj4" secondAttribute="width" multiplier="0.45" id="3to-b6-HXu"/>
                                     <constraint firstAttribute="bottom" secondItem="XHm-QD-shn" secondAttribute="bottom" id="A0j-jR-Ba8"/>
                                     <constraint firstItem="4N2-5N-Exv" firstAttribute="leading" secondItem="y1f-W2-xj4" secondAttribute="leading" constant="4" id="Emr-oe-3u6"/>
+                                    <constraint firstItem="CVJ-1U-FKb" firstAttribute="centerY" secondItem="y1f-W2-xj4" secondAttribute="centerY" id="OBx-Rz-csu"/>
                                     <constraint firstItem="XHm-QD-shn" firstAttribute="width" secondItem="4N2-5N-Exv" secondAttribute="width" id="OeT-Jw-yUu"/>
-                                    <constraint firstAttribute="trailing" secondItem="CVJ-1U-FKb" secondAttribute="trailing" id="PUv-8i-6fc"/>
                                     <constraint firstItem="XHm-QD-shn" firstAttribute="height" secondItem="4N2-5N-Exv" secondAttribute="height" id="QAN-Mq-UmW"/>
                                     <constraint firstAttribute="bottom" secondItem="mZq-a9-zVw" secondAttribute="bottom" id="aAw-3g-wgb"/>
-                                    <constraint firstItem="CVJ-1U-FKb" firstAttribute="leading" secondItem="y1f-W2-xj4" secondAttribute="leading" id="cgQ-wY-i5e"/>
                                     <constraint firstItem="mZq-a9-zVw" firstAttribute="leading" secondItem="y1f-W2-xj4" secondAttribute="leading" id="gUy-Hp-aOd"/>
                                     <constraint firstAttribute="bottom" secondItem="4N2-5N-Exv" secondAttribute="bottom" id="h98-Jn-Ghq"/>
-                                    <constraint firstItem="CVJ-1U-FKb" firstAttribute="top" secondItem="y1f-W2-xj4" secondAttribute="top" id="hN1-7M-CKZ"/>
                                     <constraint firstAttribute="trailing" secondItem="mZq-a9-zVw" secondAttribute="trailing" id="lsp-u1-3Av"/>
+                                    <constraint firstItem="CVJ-1U-FKb" firstAttribute="centerX" secondItem="y1f-W2-xj4" secondAttribute="centerX" id="qly-Wy-cy7"/>
+                                    <constraint firstItem="CVJ-1U-FKb" firstAttribute="height" secondItem="y1f-W2-xj4" secondAttribute="height" id="viB-lU-AR7"/>
                                 </constraints>
                                 <size key="customSize" width="185" height="255"/>
                                 <connections>
                                     <outlet property="image" destination="CVJ-1U-FKb" id="fig-yq-jHE"/>
-                                    <outlet property="imageViewHeightLayoutConstraint" destination="8fg-sx-DWi" id="0k5-mb-1vq"/>
                                     <outlet property="label" destination="4N2-5N-Exv" id="Usr-zl-J45"/>
                                     <outlet property="priceLabel" destination="XHm-QD-shn" id="R5E-ff-WiB"/>
                                 </connections>

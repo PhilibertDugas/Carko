@@ -12,7 +12,6 @@
 		450B5D581E2AA4B100AEEA29 /* NewParkingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450B5D571E2AA4B100AEEA29 /* NewParkingView.swift */; };
 		450CB59F1E11834000FD2095 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450CB59E1E11834000FD2095 /* UIColor.swift */; };
 		451071DD1EE6447D0080D0DF /* ReservationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451071DC1EE6447D0080D0DF /* ReservationCollectionViewCell.swift */; };
-		45113DF81EAB9D4F0083C959 /* ApyaLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45113DF71EAB9D4F0083C959 /* ApyaLayout.swift */; };
 		45137EB21E341DA300AFCD49 /* NewParkingPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45137EB11E341DA300AFCD49 /* NewParkingPin.swift */; };
 		4517E1591F015687003F9C62 /* LocalParkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4517E1581F015687003F9C62 /* LocalParkingManager.swift */; };
 		4517E15B1F01591F003F9C62 /* LocalParkingManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4517E15A1F01591F003F9C62 /* LocalParkingManagerTest.swift */; };
@@ -99,7 +98,6 @@
 		456D72CF1F0341E90026E85D /* ParkingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56ADABA1DAC00870033516C /* ParkingTableViewCell.swift */; };
 		456D72D01F0341E90026E85D /* PhotoParkingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BBC33E1EF0730C00CBC509 /* PhotoParkingTableViewCell.swift */; };
 		456D72D11F0341E90026E85D /* LabelParkingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BBC3401EF074CB00CBC509 /* LabelParkingTableViewCell.swift */; };
-		456D72D21F0341E90026E85D /* ApyaLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45113DF71EAB9D4F0083C959 /* ApyaLayout.swift */; };
 		456D72D31F0341E90026E85D /* PhotoCreationLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4540C1FC1EEE469F00A2ECB3 /* PhotoCreationLayout.swift */; };
 		456D72D41F0341E90026E85D /* PhotoEditLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BBC3421EF0A4A900CBC509 /* PhotoEditLayout.swift */; };
 		456D72D51F0341E90026E85D /* EventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DC42FB1EA97D53009F8E8D /* EventCollectionViewCell.swift */; };
@@ -162,6 +160,7 @@
 		4591D5FB1DFCA54600366691 /* ReservationClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4591D5FA1DFCA54600366691 /* ReservationClient.swift */; };
 		459AD2571DA49B6C0018B7B9 /* Parking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459AD2561DA49B6C0018B7B9 /* Parking.swift */; };
 		45A033241F074D060071F3CD /* EventsLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A033231F074D060071F3CD /* EventsLayout.swift */; };
+		45A033251F07E7970071F3CD /* EventsLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A033231F074D060071F3CD /* EventsLayout.swift */; };
 		45A4FAB41EF70A1500C73131 /* AuthPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A4FAB31EF70A1500C73131 /* AuthPickerViewController.swift */; };
 		45A4FAB81EF7145C00C73131 /* AuthPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45A4FAB71EF7145C00C73131 /* AuthPickerViewController.xib */; };
 		45A4FAC21EF77EF100C73131 /* city.gif in Resources */ = {isa = PBXBuildFile; fileRef = 45A4FAC11EF77EF100C73131 /* city.gif */; };
@@ -246,7 +245,6 @@
 		450B5D571E2AA4B100AEEA29 /* NewParkingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewParkingView.swift; sourceTree = "<group>"; };
 		450CB59E1E11834000FD2095 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		451071DC1EE6447D0080D0DF /* ReservationCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationCollectionViewCell.swift; sourceTree = "<group>"; };
-		45113DF71EAB9D4F0083C959 /* ApyaLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApyaLayout.swift; sourceTree = "<group>"; };
 		45137EB11E341DA300AFCD49 /* NewParkingPin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewParkingPin.swift; sourceTree = "<group>"; };
 		4517E1581F015687003F9C62 /* LocalParkingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalParkingManager.swift; sourceTree = "<group>"; };
 		4517E15A1F01591F003F9C62 /* LocalParkingManagerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalParkingManagerTest.swift; sourceTree = "<group>"; };
@@ -565,7 +563,6 @@
 		4578470C1EFC891D0068745E /* Layout */ = {
 			isa = PBXGroup;
 			children = (
-				45113DF71EAB9D4F0083C959 /* ApyaLayout.swift */,
 				4540C1FC1EEE469F00A2ECB3 /* PhotoCreationLayout.swift */,
 				45BBC3421EF0A4A900CBC509 /* PhotoEditLayout.swift */,
 				45A033231F074D060071F3CD /* EventsLayout.swift */,
@@ -1245,6 +1242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45A033251F07E7970071F3CD /* EventsLayout.swift in Sources */,
 				456D72F71F0341F70026E85D /* SWRevealViewController.m in Sources */,
 				456D72AA1F0341E90026E85D /* EventsCollectionViewController.swift in Sources */,
 				456D72AB1F0341E90026E85D /* BookParkingViewController.swift in Sources */,
@@ -1286,7 +1284,6 @@
 				456D72CF1F0341E90026E85D /* ParkingTableViewCell.swift in Sources */,
 				456D72D01F0341E90026E85D /* PhotoParkingTableViewCell.swift in Sources */,
 				456D72D11F0341E90026E85D /* LabelParkingTableViewCell.swift in Sources */,
-				456D72D21F0341E90026E85D /* ApyaLayout.swift in Sources */,
 				456D72D31F0341E90026E85D /* PhotoCreationLayout.swift in Sources */,
 				456D72D41F0341E90026E85D /* PhotoEditLayout.swift in Sources */,
 				456D72D51F0341E90026E85D /* EventCollectionViewCell.swift in Sources */,
@@ -1331,7 +1328,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				45E9D0FE1E1DCE7C000EDEE8 /* LocationViewController.swift in Sources */,
-				45113DF81EAB9D4F0083C959 /* ApyaLayout.swift in Sources */,
 				45BBC34A1EF0AB0500CBC509 /* SimpleCellTableViewCell.swift in Sources */,
 				4554EBCE1DB5A36F0066E452 /* APIClient.swift in Sources */,
 				4540422C1EFB594200667C4C /* SuccessPopup.swift in Sources */,

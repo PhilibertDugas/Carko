@@ -10,7 +10,6 @@ import UIKit
 
 class EventCollectionViewCell: UICollectionViewCell {
     @IBOutlet var image: UIImageView!
-    @IBOutlet var imageViewHeightLayoutConstraint: NSLayoutConstraint!
     @IBOutlet var label: UILabel!
     @IBOutlet var priceLabel: UILabel!
 
@@ -27,13 +26,6 @@ class EventCollectionViewCell: UICollectionViewCell {
                 label.text = "\(DateHelper.getDay(event.startTime)) \(DateHelper.getMonth(event.startTime))"
                 priceLabel.text = event.price.asLocaleCurrency
             }
-        }
-    }
-
-    override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
-        super.apply(layoutAttributes)
-        if let attributes = layoutAttributes as? ApyaLayoutAttributes {
-            imageViewHeightLayoutConstraint.constant = attributes.photoHeight
         }
     }
 }

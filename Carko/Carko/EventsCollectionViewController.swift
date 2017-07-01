@@ -36,12 +36,11 @@ class EventsCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
 
         self.navigationItem.titleView = UIImageView.init(image: UIImage.init(named: "white_logo"))
-        if let layout = collectionView?.collectionViewLayout as? ApyaLayout {
-            layout.delegate = self
-        }
         self.setupPullToRefresh()
         self.setupSidebar()
         NotificationCenter.default.addObserver(self, selector: #selector(self.refreshTriggered), name: Notification.Name.init(rawValue: "LoggedOut"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.refreshTriggered), name: Notification.Name.init(rawValue: "LoggedIn"), object: nil)
+
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -93,20 +92,45 @@ class EventsCollectionViewController: UICollectionViewController {
                     self.loadedOnce = true
                     Loader.removeLoaderFrom(self.collectionView!)
                 }
-                self.collectionView?.reloadData()
+
+                if AuthenticationHelper.customerAvailable() {
+                    self.fetchReservations()
+                } else {
+                    self.reservations = []
+                    self.refresher.endRefreshing()
+                    self.collectionView?.reloadData()
+                }
             }
-            self.refresher.endRefreshing()
         }
     }
 
-    fileprivate func fetchReservations() {
+    private func fetchReservations() {
         Reservation.getCustomerActiveReservations { (reservations, error) in
             if let error = error {
                 self.displayErrorMessage(error.localizedDescription)
             } else {
+                self.removeDuplicatedEvents(reservations)
                 self.reservations = reservations
-                self.collectionView?.reloadData()
             }
+            self.refresher.endRefreshing()
+            self.collectionView?.reloadData()
+        }
+    }
+
+    // TODO: Extract out of the ViewController
+    private func removeDuplicatedEvents(_ reservations: [(Reservation?)]) {
+        var indexesToRemove: [Int] = []
+        for reservation in reservations {
+            guard let event = reservation?.event else { continue }
+            for (index, e) in self.events.enumerated() {
+                if event.id == e?.id {
+                    indexesToRemove.append(index)
+                }
+            }
+        }
+
+        indexesToRemove.forEach { (index) in
+            self.events.remove(at: index)
         }
     }
 
@@ -119,11 +143,6 @@ class EventsCollectionViewController: UICollectionViewController {
 
     func refreshTriggered() {
         self.fetchEvents()
-        if AuthenticationHelper.customerAvailable() {
-            self.fetchReservations()
-        } else {
-            self.reservations = []
-        }
     }
 
     fileprivate func prepareBackgroundView() {
@@ -146,6 +165,64 @@ class EventsCollectionViewController: UICollectionViewController {
         self.mapView.regionThatFits(region)
         self.collectionView?.insertSubview(mapView, at: 0)
         self.collectionView?.insertSubview(bluredView, aboveSubview: mapView)
+    }
+}
+
+extension EventsCollectionViewController {
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 3
+    }
+
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if section == 0 {
+            return self.reservations.count
+        } else if section == 1 {
+            if self.reservations.count == 0 {
+                return 1
+            } else {
+                return 0
+            }
+        }
+        else {
+            if self.reservations.count == 0 {
+                return self.events.count - 1
+            } else {
+                return self.events.count
+            }
+        }
+    }
+
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if indexPath.section == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reservationIdentifier, for: indexPath) as! ReservationCollectionViewCell
+            cell.reservation = self.reservations[indexPath.row]
+            cell.layer.cornerRadius = 10
+            return cell
+        } else {
+            return setupEventCell(collectionView, cellForItemAt: indexPath)
+        }
+    }
+
+    fileprivate func setupEventCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! EventCollectionViewCell
+        if indexPath.section == 1 {
+            cell.event = self.events[0]
+        } else {
+            if self.reservations.count == 0 {
+                cell.event = self.events[indexPath.row + 1]
+            } else {
+                cell.event = self.events[indexPath.row]
+            }
+        }
+        cell.layer.cornerRadius = 10
+        return cell
+    }
+
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.section == 1 || indexPath.section == 2 {
+            self.selectedEvent = self.events[indexPath.row]
+            self.performSegue(withIdentifier: "showEvent", sender: nil)
+        }
     }
 }
 
@@ -186,66 +263,6 @@ extension EventsCollectionViewController: SWRevealViewControllerDelegate {
         } else {
             self.mainScreenShadow.isHidden = false
             self.mainScreenShadow.alpha = 0.8 * progress
-        }
-    }
-}
-
-extension EventsCollectionViewController {
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == 0 {
-            return self.reservations.count
-        } else {
-            return self.events.count
-        }
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.section == 0 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reservationIdentifier, for: indexPath) as! ReservationCollectionViewCell
-            cell.reservation = self.reservations[indexPath.row]
-            cell.layer.cornerRadius = 10
-            return cell
-        } else {
-            return setupEventCell(collectionView, cellForItemAt: indexPath)
-        }
-    }
-
-    fileprivate func setupEventCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! EventCollectionViewCell
-        cell.event = self.events[indexPath.row]
-        cell.layer.cornerRadius = 10
-        return cell
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.section == 1 {
-            self.selectedEvent = self.events[indexPath.row]
-            self.performSegue(withIdentifier: "showEvent", sender: nil)
-        }
-    }
-}
-
-extension EventsCollectionViewController: ApyaLayoutDelegate {
-    func collectionView(collectionView:UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath, withWidth width: CGFloat) -> CGFloat {
-        let event = self.events[indexPath.item]
-        let boundingRect = CGRect(x: 0, y: 0, width: width, height: CGFloat(MAXFLOAT))
-        if let url = event?.photoURL {
-            let imageReference = AppState.shared.storageReference.storage.reference(forURL: url.absoluteString)
-            let imageView = UIImageView.init()
-            imageView.sd_setImage(with: imageReference, placeholderImage: UIImage.init(named: "placeholder-1"), completion: { (image, error, cache, reference) in
-                UIView.animate(withDuration: 0.3, animations: { 
-                    self.collectionView?.collectionViewLayout.invalidateLayout()
-                })
-            })
-            let rect = AVMakeRect(aspectRatio: imageView.image!.size, insideRect: boundingRect)
-            return rect.size.height
-        } else {
-            let image = UIImage.init(named: "placeholder-1")
-            return (image?.size.height)!
         }
     }
 }

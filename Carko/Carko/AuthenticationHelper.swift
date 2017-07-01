@@ -26,6 +26,7 @@ class AuthenticationHelper: NSObject {
         AppState.shared.cacheCustomer(customer)
         Crashlytics.sharedInstance().setUserEmail(customer.email)
         Crashlytics.sharedInstance().setUserIdentifier(String(customer.id))
+        NotificationCenter.default.post(name: Notification.Name.init("LoggedIn"), object: nil, userInfo: nil)
     }
 
     class func customerAvailable() -> Bool {
