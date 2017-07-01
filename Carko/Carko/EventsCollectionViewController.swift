@@ -219,10 +219,16 @@ extension EventsCollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.section == 1 || indexPath.section == 2 {
+        if indexPath.section == 1 {
             self.selectedEvent = self.events[indexPath.row]
-            self.performSegue(withIdentifier: "showEvent", sender: nil)
+        } else if indexPath.section == 2 {
+            if self.reservations.count == 0 {
+                self.selectedEvent = self.events[indexPath.row + 1]
+            } else {
+                self.selectedEvent = self.events[indexPath.row]
+            }
         }
+        self.performSegue(withIdentifier: "showEvent", sender: nil)
     }
 }
 

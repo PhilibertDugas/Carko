@@ -18,6 +18,8 @@ class ParkingDescriptionViewController: UIViewController {
         if !parkingDescription.isEmpty {
             descriptionText.text = parkingDescription
             descriptionText.textColor = UIColor.primaryWhiteTextColor
+        } else {
+            descriptionText.text = Translations.t("Add a short description of your parking and details to help people use your parking.")
         }
         descriptionText.delegate = self
     }
