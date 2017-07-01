@@ -21,20 +21,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_screen_background" translatesAutoresizingMaskIntoConstraints="NO" id="vVz-UR-Aau">
+                                <rect key="frame" x="-0.5" y="-0.5" width="375" height="667"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchscreen_logo" translatesAutoresizingMaskIntoConstraints="NO" id="ez2-qn-Rwy">
-                                <rect key="frame" x="97" y="243" width="180" height="180"/>
-                                <color key="backgroundColor" red="0.76862745099999996" green="0.066666666669999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="114.5" y="260.5" width="145" height="145"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="180" id="byW-NY-gtj"/>
-                                    <constraint firstAttribute="height" constant="180" id="sH4-jo-QIm"/>
+                                    <constraint firstAttribute="width" constant="145" id="byW-NY-gtj"/>
+                                    <constraint firstAttribute="height" constant="145" id="sH4-jo-QIm"/>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.76939719915390015" green="0.11130876094102859" blue="0.20405390858650208" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="vVz-UR-Aau" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="1FF-0n-CgJ"/>
+                            <constraint firstItem="vVz-UR-Aau" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" id="Auk-pb-6xa"/>
+                            <constraint firstItem="vVz-UR-Aau" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" id="cdq-aY-3gb"/>
                             <constraint firstItem="ez2-qn-Rwy" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="tya-Qn-V9C"/>
                             <constraint firstItem="ez2-qn-Rwy" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="x6F-ux-tec"/>
+                            <constraint firstItem="vVz-UR-Aau" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="ypp-nV-yuc"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -44,7 +49,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="launchscreen_logo" width="180" height="180"/>
+        <image name="launch_screen_background" width="375" height="667"/>
+        <image name="launchscreen_logo" width="145" height="145"/>
     </resources>
     <color key="tintColor" red="0.76862745099999996" green="0.066666666669999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

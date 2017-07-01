@@ -59,6 +59,29 @@ class CircularView: UIView {
     }
 }
 
+class BlackGradientView: UIView {
+    var gradient: CAGradientLayer!
+
+    override func draw(_ rect: CGRect) {
+        applyGradient()
+        super.draw(rect)
+    }
+    fileprivate func applyGradient() {
+        gradient = CAGradientLayer()
+        gradient.frame = self.bounds
+        let gradientColor = UIColor.init(netHex: 0x273336)
+        gradient.colors = [gradientColor, UIColor.secondaryViewsBlack.cgColor]
+        gradient.locations = [0.0, 1.0]
+        gradient.cornerRadius = 10
+        self.layer.insertSublayer(gradient, at: 0)
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        gradient.frame = self.bounds
+    }
+}
+
 class SearchWrapperView: UIView {
     override func draw(_ rect: CGRect) {
         let lowerLeft = CGPoint.init(x: rect.minX, y: rect.maxY)

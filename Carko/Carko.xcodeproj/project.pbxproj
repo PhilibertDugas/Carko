@@ -161,6 +161,7 @@
 		4591D5F91DFCA51D00366691 /* StripeClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4591D5F81DFCA51D00366691 /* StripeClient.swift */; };
 		4591D5FB1DFCA54600366691 /* ReservationClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4591D5FA1DFCA54600366691 /* ReservationClient.swift */; };
 		459AD2571DA49B6C0018B7B9 /* Parking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459AD2561DA49B6C0018B7B9 /* Parking.swift */; };
+		45A033241F074D060071F3CD /* EventsLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A033231F074D060071F3CD /* EventsLayout.swift */; };
 		45A4FAB41EF70A1500C73131 /* AuthPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A4FAB31EF70A1500C73131 /* AuthPickerViewController.swift */; };
 		45A4FAB81EF7145C00C73131 /* AuthPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45A4FAB71EF7145C00C73131 /* AuthPickerViewController.xib */; };
 		45A4FAC21EF77EF100C73131 /* city.gif in Resources */ = {isa = PBXBuildFile; fileRef = 45A4FAC11EF77EF100C73131 /* city.gif */; };
@@ -316,6 +317,7 @@
 		4591D5F81DFCA51D00366691 /* StripeClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StripeClient.swift; sourceTree = "<group>"; };
 		4591D5FA1DFCA54600366691 /* ReservationClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationClient.swift; sourceTree = "<group>"; };
 		459AD2561DA49B6C0018B7B9 /* Parking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parking.swift; sourceTree = "<group>"; };
+		45A033231F074D060071F3CD /* EventsLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsLayout.swift; sourceTree = "<group>"; };
 		45A4FAB31EF70A1500C73131 /* AuthPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthPickerViewController.swift; sourceTree = "<group>"; };
 		45A4FAB71EF7145C00C73131 /* AuthPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthPickerViewController.xib; sourceTree = "<group>"; };
 		45A4FAC11EF77EF100C73131 /* city.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = city.gif; sourceTree = "<group>"; };
@@ -566,6 +568,7 @@
 				45113DF71EAB9D4F0083C959 /* ApyaLayout.swift */,
 				4540C1FC1EEE469F00A2ECB3 /* PhotoCreationLayout.swift */,
 				45BBC3421EF0A4A900CBC509 /* PhotoEditLayout.swift */,
+				45A033231F074D060071F3CD /* EventsLayout.swift */,
 			);
 			name = Layout;
 			sourceTree = "<group>";
@@ -1357,6 +1360,7 @@
 				4533143A1E036CF300BF0B65 /* BankCreationViewController.swift in Sources */,
 				453FEF341EFAED6B00FADE48 /* VehiculeHelper.swift in Sources */,
 				4518537A1DA476F1005CC5E6 /* ListParkingViewController.swift in Sources */,
+				45A033241F074D060071F3CD /* EventsLayout.swift in Sources */,
 				453314321E03669000BF0B65 /* AccountCreationViewController.swift in Sources */,
 				4533143C1E036DDA00BF0B65 /* AccountClient.swift in Sources */,
 				451E424B1DB071EC00747370 /* Customer.swift in Sources */,
