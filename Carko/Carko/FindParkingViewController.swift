@@ -158,10 +158,12 @@ extension FindParkingViewController: MKMapViewDelegate {
 
     func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
         // Amener la sheet plus basse quand on se deplace sur la map
-        if let bottomSheet = self.bookParkingVC {
+        guard let bottomSheet = self.bookParkingVC else { return }
+        if bottomSheet.view.frame.origin.y < self.view.frame.height {
             UIView.animate(withDuration: 0.5) {
                 bottomSheet.view.frame = CGRect.init(x: 0, y: bottomSheet.minimalView, width: self.view.frame.width, height: self.view.frame.height)
             }
+
         }
     }
 }

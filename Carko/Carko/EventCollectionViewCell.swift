@@ -18,10 +18,14 @@ class EventCollectionViewCell: UICollectionViewCell {
             if let event = event {
                 if let url = event.photoURL {
                     isUserInteractionEnabled = true
+                    priceLabel.isHidden = false
+                    label.isHidden = false
                     ImageLoaderHelper.loadImageFromUrl(image, url: url)
                 } else {
                     // Placeholder cells which don't have a photoURL shouldn't be touched / interacted with
                     isUserInteractionEnabled = false
+                    priceLabel.isHidden = true
+                    label.isHidden = true
                 }
                 label.text = "\(DateHelper.getDay(event.startTime)) \(DateHelper.getMonth(event.startTime))"
                 priceLabel.text = event.price.asLocaleCurrency
