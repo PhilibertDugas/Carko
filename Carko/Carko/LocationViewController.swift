@@ -120,6 +120,9 @@ extension LocationViewController: UITextFieldDelegate {
 
     func textFieldDidEndEditing(_ textField: UITextField) {
         if selectedPin != nil {
+            self.helperText.isHidden = false
+            self.searchStack.isHidden = true
+
             self.mapView.subviews.forEach({ (view) in
                 if let visualEffect = view as? UIVisualEffectView {
                     visualEffect.removeFromSuperview()
@@ -127,8 +130,6 @@ extension LocationViewController: UITextFieldDelegate {
             })
         }
         self.searchResultView.removeFromSuperview()
-        self.helperText.isHidden = false
-        self.searchStack.isHidden = true
     }
 
     func blurMap() {
