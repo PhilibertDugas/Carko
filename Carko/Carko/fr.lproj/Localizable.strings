@@ -65,7 +65,8 @@
 "There is already a reservation scheduled on this date, do you wish to continue?" = "Il y a déjà une réservation planifié cette journée, désirez vous tout de même continuer?";
 "Reserve Now" = "Réserver";
 "This parking is currently busy" = "Ce stationnement est occupé";
-"Which event do you need parking for?" = "Quel événement aurez-vous besoin d'un stationnement?";
+"Which event do you need parking for?" = "Quel événement allez-vous stationner votre voiture?";
+"Parking: " = "Parking: ";
 
 
 // Rent your space

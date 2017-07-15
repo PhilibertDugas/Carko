@@ -28,7 +28,7 @@ class EventCollectionViewCell: UICollectionViewCell {
                     label.isHidden = true
                 }
                 label.text = "\(DateHelper.getDay(event.startTime)) \(DateHelper.getMonth(event.startTime))"
-                priceLabel.text = event.price.asLocaleCurrency
+                priceLabel.text = Translations.t("Parking: ") + event.price.asLocaleCurrency
             }
         }
     }
