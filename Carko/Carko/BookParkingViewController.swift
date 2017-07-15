@@ -241,10 +241,17 @@ class BookParkingViewController: UIViewController {
         self.sheetDelegate.didDisappear()
     }
 
-    fileprivate func animateToPartial () {
+    fileprivate func animateToPartial() {
         UIView.animate(withDuration: 0.5, delay: 0.0, options: [.allowUserInteraction], animations: {
             self.sheetDisappeared()
         }, completion: nil)
+    }
+
+    func animateToMinimal() {
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: [.allowUserInteraction], animations: {
+            self.sheetMinimalView()
+        }, completion: nil)
+
     }
 
     fileprivate func sheetPartialView() {

@@ -67,6 +67,11 @@ PODS:
   - FirebaseUI/Storage (4.1.1):
     - Firebase/Storage
     - SDWebImage (~> 4.0)
+  - GoogleMaps (2.3.1):
+    - GoogleMaps/Maps (= 2.3.1)
+  - GoogleMaps/Base (2.3.1)
+  - GoogleMaps/Maps (2.3.1):
+    - GoogleMaps/Base
   - GoogleToolboxForMac/DebugUtils (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
   - GoogleToolboxForMac/Defines (2.1.1)
@@ -115,6 +120,7 @@ DEPENDENCIES:
   - FirebaseUI/Auth
   - FirebaseUI/Facebook
   - FirebaseUI/Storage (>= 2.0.1)
+  - GoogleMaps
   - IQKeyboardManagerSwift
   - NohanaImagePicker
   - OHHTTPStubs
@@ -137,6 +143,7 @@ SPEC CHECKSUMS:
   FirebasePerformance: 51a400fba288e43258b94128f2a649faeec5d909
   FirebaseStorage: 8110a1ed2034c8fbfd83890d2acc9cdbbd99afec
   FirebaseUI: 5ebebe2c096c71f20abd1d43d0388958373bdaa0
+  GoogleMaps: c66a71058b9b1294bcdd5463a68e357fa50c079f
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 30d874b96d0d76028f61fbd122801e3f030d47db
   IQKeyboardManagerSwift: 75ba21a23794a1e6b6fe6d9a267ea17f80e06771
@@ -146,6 +153,6 @@ SPEC CHECKSUMS:
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   Stripe: 5c5a49d750952b1801e4c1f5c4264a08e427c67d
 
-PODFILE CHECKSUM: 628c46a7547ac5d22500ed5332f65556976aa42a
+PODFILE CHECKSUM: e8c0a4f2d68a25a7d6565ecfd35d93c088e2197f
 
 COCOAPODS: 1.2.1

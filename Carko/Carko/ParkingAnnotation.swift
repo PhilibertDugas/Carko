@@ -8,6 +8,7 @@
 
 import Foundation
 import MapKit
+import GoogleMaps
 
 class ParkingAnnotation: NSObject, MKAnnotation {
     var parking: Parking
@@ -19,5 +20,24 @@ class ParkingAnnotation: NSObject, MKAnnotation {
         self.event = event
         self.coordinate = CLLocationCoordinate2D.init(latitude: parking.latitude, longitude: parking.longitude)
         super.init()
+    }
+}
+
+class ParkingMarker: GMSMarker {
+    var parking: Parking
+    var event: Event?
+
+    init(parking: Parking, event: Event?) {
+        self.parking = parking
+        self.event = event
+
+        super.init()
+
+        if parking.isAvailable {
+            self.iconView = UIImageView.init(image: UIImage.init(named: "pin-available"))
+
+        } else {
+            self.iconView = UIImageView.init(image: UIImage.init(named: "pin-unavailable"))
+        }
     }
 }

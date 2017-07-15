@@ -23,10 +23,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" showsBuildings="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F3O-Ph-Xpo">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <gestureRecognizers/>
-                            </mapView>
                             <navigationBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="IAk-hU-Ex4">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                                 <constraints>
@@ -47,13 +43,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.76862745099999996" green="0.066666666669999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="F3O-Ph-Xpo" secondAttribute="trailing" id="BiT-Qm-d85"/>
                             <constraint firstAttribute="trailing" secondItem="IAk-hU-Ex4" secondAttribute="trailing" id="KEY-cA-XFX"/>
-                            <constraint firstItem="F3O-Ph-Xpo" firstAttribute="leading" secondItem="Njl-x4-YWd" secondAttribute="leading" id="SLa-dl-rhi"/>
                             <constraint firstItem="IAk-hU-Ex4" firstAttribute="top" secondItem="Njl-x4-YWd" secondAttribute="top" id="aua-s4-u1i"/>
                             <constraint firstItem="IAk-hU-Ex4" firstAttribute="leading" secondItem="Njl-x4-YWd" secondAttribute="leading" id="guc-rf-EMu"/>
-                            <constraint firstAttribute="bottom" secondItem="F3O-Ph-Xpo" secondAttribute="bottom" id="kdF-dJ-ff0"/>
-                            <constraint firstItem="F3O-Ph-Xpo" firstAttribute="top" secondItem="Njl-x4-YWd" secondAttribute="top" id="nfV-2C-x0V"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="R9l-Ne-DWL">
@@ -61,7 +53,6 @@
                     </navigationItem>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="mapView" destination="F3O-Ph-Xpo" id="XCQ-di-Sbv"/>
                         <outlet property="navBar" destination="IAk-hU-Ex4" id="Q2m-ph-EaY"/>
                         <outlet property="navItem" destination="o4t-4o-0If" id="wbc-rI-VYa"/>
                     </connections>
