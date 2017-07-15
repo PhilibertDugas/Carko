@@ -11,7 +11,7 @@ class LocationSearchTableViewController: UITableViewController {
     var lightText = false
 
     let quebecCoordinate = CLLocationCoordinate2D.init(latitude: 52.9399, longitude: -73.5491)
-    var searchRegion: MKCoordinateRegion!
+    var searchRegion: MKCoordinateRegion?
 
     override func viewDidLoad() {
         self.searchRegion = MKCoordinateRegion.init(center: quebecCoordinate, span: MKCoordinateSpan.init(latitudeDelta: 1.0, longitudeDelta: 0.5))
@@ -21,25 +21,15 @@ class LocationSearchTableViewController: UITableViewController {
 
 extension LocationSearchTableViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        guard let searchBarText = searchController.searchBar.text else { return }
-        let request = MKLocalSearchRequest()
-        request.naturalLanguageQuery = searchBarText
-        request.region = self.searchRegion
-        let search = MKLocalSearch(request: request)
-        search.start { response, _ in
-            guard let response = response else {
-                return
-            }
-            self.matchingItems = response.mapItems
-            self.tableView.reloadData()
-        }
+        //
     }
 
     func updateSearchs(for queryString: String?) {
         guard let searchBarText = queryString else { return }
+        guard let region = self.searchRegion else { return }
         let request = MKLocalSearchRequest()
         request.naturalLanguageQuery = searchBarText
-        request.region = self.searchRegion
+        request.region = region
         let search = MKLocalSearch(request: request)
         search.start { response, _ in
             guard let response = response else {

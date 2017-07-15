@@ -16,6 +16,8 @@ import MapKit
 class EventsCollectionViewController: UICollectionViewController {
     fileprivate let reservationIdentifier = "ReservationCell"
     fileprivate let reuseIdentifier = "EventCell"
+    fileprivate let headerIdentifier = "EventHeader"
+
     fileprivate var events = [Event?](repeating: Event.init(), count: 5)
     fileprivate var reservations: [(Reservation?)] = []
 
@@ -34,6 +36,8 @@ class EventsCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.collectionView?.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerIdentifier)
 
         self.navigationItem.titleView = UIImageView.init(image: UIImage.init(named: "white_logo"))
         self.setupPullToRefresh()
@@ -229,6 +233,20 @@ extension EventsCollectionViewController {
             }
         }
         self.performSegue(withIdentifier: "showEvent", sender: nil)
+    }
+
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let supplementaryView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerIdentifier, for: indexPath) as UICollectionReusableView
+
+        supplementaryView.subviews.forEach { (view) in
+            view.removeFromSuperview()
+        }
+
+        let view = HelperTextView.init(frame: CGRect.init(x: 0, y: 0, width: supplementaryView.frame.width, height: supplementaryView.frame.height))
+        view.label.text = Translations.t("Which event do you need parking for?")
+
+        supplementaryView.addSubview(view)
+        return supplementaryView
     }
 }
 

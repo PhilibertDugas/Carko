@@ -33,6 +33,7 @@ class EventsLayout: UICollectionViewLayout {
     override var collectionViewContentSize: CGSize {
         return CGSize.init(width: contentWidth, height: contentHeight)
     }
+
     override func prepare() {
         self.cache.removeAll()
         contentHeight = 0
@@ -57,6 +58,15 @@ class EventsLayout: UICollectionViewLayout {
         return self.cache
     }
 
+    override func layoutAttributesForSupplementaryView(ofKind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+        let attributes = UICollectionViewLayoutAttributes.init(forSupplementaryViewOfKind: elementKind, with: indexPath)
+        let frame = CGRect(x: self.xOffset[0], y: self.yOffset[0], width: contentWidth, height: UIScreen.main.bounds.height * 0.1)
+        let insetFrame = frame.insetBy(dx: cellPadding, dy: cellPadding)
+        attributes.frame = insetFrame
+
+        return attributes
+    }
+
     private func setupFirstSection() {
         for item in 0 ..< collectionView!.numberOfItems(inSection: 0) {
             let indexPath = IndexPath.init(row: item, section: 0)
@@ -74,6 +84,10 @@ class EventsLayout: UICollectionViewLayout {
     }
 
     private func setupSecondSection() {
+        if collectionView?.numberOfItems(inSection: 0) == 0 {
+            addHeader()
+        }
+
         for item in 0 ..< collectionView!.numberOfItems(inSection: 1) {
             let indexPath = IndexPath.init(row: item, section: 1)
             let height = firstSectionRowHeight + (2 * cellPadding)
@@ -88,6 +102,16 @@ class EventsLayout: UICollectionViewLayout {
             self.yOffset[0] += height
             self.yOffset[1] += height
         }
+    }
+
+    private func addHeader() {
+        let attribute = layoutAttributesForSupplementaryView(ofKind: UICollectionElementKindSectionHeader, at: IndexPath.init(row: 0, section: 1))
+
+        guard let attr = attribute else { return }
+
+        self.cache.append(attr)
+        self.yOffset[0] += attr.frame.maxY
+        self.yOffset[1] += attr.frame.maxY
     }
 
     private func setupThirdSection() {
