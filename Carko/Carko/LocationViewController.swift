@@ -1,12 +1,13 @@
 import UIKit
 import MapKit
+import GoogleMaps
+import GooglePlaces
 
 protocol ParkingLocationDelegate {
     func userDidChooseLocation(address: String, latitude: CLLocationDegrees, longitude: CLLocationDegrees)
 }
 
 class LocationViewController: UIViewController {
-    @IBOutlet var mapView: MKMapView!
     @IBOutlet var addButton: UIButton!
     @IBOutlet var searchStack: UIView!
     @IBOutlet var searchField: UITextField!
@@ -16,26 +17,27 @@ class LocationViewController: UIViewController {
 
     var delegate: ParkingLocationDelegate?
 
-    let locationManager = CLLocationManager()
-
+    var gmsMapView: GMSMapView!
     var searchResultView: UIView!
     var locationSearchTable: LocationSearchTableViewController!
     var firstSearch = true
 
     var newParking: Bool = false
     var parking: Parking!
-    var selectedPin: MKPlacemark!
+    var selectedPin: GMSPlace!
     var pinImage: UIImageView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.searchStackTopConstraint.constant = (self.view.frame.height / 2) - (self.searchStack.frame.height / 2)
+        self.searchStackTopConstraint.constant = (self.view.frame.height / 2) - (self.searchStack.frame.height / 2) - 35
 
         addButton.isHidden = true
-        mapView.mapType = MKMapType.satellite
 
-        self.setupLocationManager()
+        self.gmsMapView = GMSMapView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
+        gmsMapView.mapType = .hybrid
+        self.view.insertSubview(gmsMapView, at: 1)
+
         self.setupSearchBar()
         self.blurMap()
     }
@@ -61,18 +63,13 @@ class LocationViewController: UIViewController {
         self.performSegue(withIdentifier: "pushAvailability", sender: nil)
     }
 
-    func setupLocationManager() {
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
-    }
-
     func updateParking() {
-        let currentMapCoordinate = mapView.centerCoordinate
+        guard let address = self.selectedPin.formattedAddress else { return }
+
+        let currentMapCoordinate = gmsMapView.camera.target
         let latitude = currentMapCoordinate.latitude
         let longitude = currentMapCoordinate.longitude
-        let address = LocationSearchTableViewController.parseAddress(selectedItem: selectedPin!)
+
         parking.address = address
         parking.latitude = latitude
         parking.longitude = longitude
@@ -115,7 +112,7 @@ extension LocationViewController: UITextFieldDelegate {
         self.searchResultView = UIView.init(frame: self.resultView.frame)
         self.locationSearchTable.view.frame = self.searchResultView.bounds
         self.searchResultView.addSubview(self.locationSearchTable.view)
-        self.view.insertSubview(self.searchResultView, aboveSubview: self.mapView)
+        self.view.insertSubview(self.searchResultView, aboveSubview: self.gmsMapView)
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -123,7 +120,7 @@ extension LocationViewController: UITextFieldDelegate {
             self.helperText.isHidden = false
             self.searchStack.isHidden = true
 
-            self.mapView.subviews.forEach({ (view) in
+            self.gmsMapView.subviews.forEach({ (view) in
                 if let visualEffect = view as? UIVisualEffectView {
                     visualEffect.removeFromSuperview()
                 }
@@ -136,56 +133,32 @@ extension LocationViewController: UITextFieldDelegate {
         let effect = UIBlurEffect(style: .dark)
         let blurView = UIVisualEffectView.init(effect: effect)
         blurView.frame = CGRect.init(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
-        self.mapView.addSubview(blurView)
+        gmsMapView.addSubview(blurView)
     }
 
     func blurSearchBar() {
         let effect = UIBlurEffect(style: UIBlurEffectStyle.light)
         let searchBarBlur = UIVisualEffectView.init(effect: effect)
         searchBarBlur.frame = searchStack.frame
-        mapView.addSubview(searchBarBlur)
-    }
-}
-
-extension LocationViewController: UIGestureRecognizerDelegate {
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
-    }
-}
-
-extension LocationViewController : CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if status == .authorizedWhenInUse {
-            locationManager.requestLocation()
-        }
-    }
-
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = manager.location else { return }
-        let region = MKCoordinateRegionMakeWithDistance(location.coordinate, 800, 800)
-        mapView.setRegion(region, animated: true)
-        locationManager.stopUpdatingLocation()
-    }
-
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        super.displayErrorMessage(error.localizedDescription)
+        gmsMapView.addSubview(searchBarBlur)
     }
 }
 
 extension LocationViewController: HandleMapSearch {
-    func selectedPlacemark(placemark: MKPlacemark) {
-        self.selectedPin = placemark
+    func selectedPlace(place: GMSPlace) {
+        self.selectedPin = place
 
         if let imageView = self.pinImage {
             imageView.removeFromSuperview()
         }
         let image = UIImage.init(named: "pin-available")
         self.pinImage = UIImageView.init(image: image)
-        self.pinImage!.center = self.mapView.center
-        self.mapView.addSubview(self.pinImage!)
+        self.pinImage!.center = self.gmsMapView.center
+        self.gmsMapView.addSubview(self.pinImage!)
 
-        let region = MKCoordinateRegionMakeWithDistance(placemark.coordinate, CLLocationDistance.init(15), CLLocationDistance.init(15))
-        mapView.setRegion(region, animated: true)
+        let camera = GMSCameraPosition.camera(withTarget: place.coordinate, zoom: 20.0)
+        gmsMapView.camera = camera
+
         if self.newParking { addButton.isHidden = false }
         self.searchField.endEditing(true)
     }

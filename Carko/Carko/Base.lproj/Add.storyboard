@@ -15,7 +15,7 @@
         <scene sceneID="jb1-fA-WdS">
             <objects>
                 <navigationController id="vi7-JE-Kbh" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" backIndicatorImage="back_icon" backIndicatorTransitionMaskImage="back_icon" id="1Rf-Ak-g2M">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" backIndicatorImage="back_icon" backIndicatorTransitionMaskImage="back_icon" id="1Rf-Ak-g2M">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -239,7 +239,7 @@
         <scene sceneID="qgY-3v-rtg">
             <objects>
                 <collectionViewController id="gDO-uT-0HA" customClass="PhotoEditCollectionViewController" customModule="Carko" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="H4n-EU-RgY">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="H4n-EU-RgY">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.062745098040000002" green="0.078431372550000003" blue="0.08235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -482,9 +482,6 @@
                                 <rect key="frame" x="24" y="60" width="327" height="447.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsCompass="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EE5-xo-9TY">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
-                            </mapView>
                             <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cmD-zf-w5F" customClass="SearchWrapperView" customModule="Carko" customModuleProvider="target">
                                 <rect key="frame" x="24" y="326" width="327" height="44"/>
                                 <subviews>
@@ -550,26 +547,20 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="EE5-xo-9TY" firstAttribute="top" secondItem="7oe-E2-Air" secondAttribute="top" id="1Oa-iD-zev"/>
                             <constraint firstItem="n8w-HZ-ljB" firstAttribute="top" secondItem="quh-Qo-V8h" secondAttribute="bottom" constant="20" id="3BH-2Y-VCL"/>
                             <constraint firstItem="DcX-Av-G4W" firstAttribute="leading" secondItem="7oe-E2-Air" secondAttribute="leadingMargin" constant="8" id="4gP-2K-8LS"/>
                             <constraint firstItem="cmD-zf-w5F" firstAttribute="top" secondItem="quh-Qo-V8h" secondAttribute="bottom" constant="326" id="80k-JA-n5I"/>
                             <constraint firstItem="hpS-Hl-AhN" firstAttribute="height" secondItem="7oe-E2-Air" secondAttribute="height" multiplier="0.1" id="8Ta-mn-UyR"/>
-                            <constraint firstItem="EE5-xo-9TY" firstAttribute="leading" secondItem="7oe-E2-Air" secondAttribute="leading" id="94m-hI-LvE"/>
                             <constraint firstItem="DcX-Av-G4W" firstAttribute="top" secondItem="quh-Qo-V8h" secondAttribute="bottom" constant="60" id="DeR-ZN-vPX"/>
                             <constraint firstItem="hpS-Hl-AhN" firstAttribute="centerX" secondItem="7oe-E2-Air" secondAttribute="centerX" id="ITu-gi-pLo"/>
                             <constraint firstItem="hpS-Hl-AhN" firstAttribute="top" secondItem="DcX-Av-G4W" secondAttribute="bottom" constant="8" id="Jgq-jF-UHB"/>
-                            <constraint firstItem="EE5-xo-9TY" firstAttribute="width" secondItem="7oe-E2-Air" secondAttribute="width" id="SO0-8S-KaN"/>
                             <constraint firstItem="n8w-HZ-ljB" firstAttribute="leading" secondItem="7oe-E2-Air" secondAttribute="leadingMargin" id="ZQJ-c9-baj"/>
-                            <constraint firstAttribute="bottom" secondItem="EE5-xo-9TY" secondAttribute="bottom" id="a4z-nR-zC4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cmD-zf-w5F" secondAttribute="trailing" constant="8" id="caQ-sK-E9O"/>
-                            <constraint firstAttribute="trailing" secondItem="EE5-xo-9TY" secondAttribute="trailing" id="ddu-sQ-7Nm"/>
                             <constraint firstItem="hpS-Hl-AhN" firstAttribute="width" secondItem="7oe-E2-Air" secondAttribute="width" multiplier="0.38" id="jTl-zV-KeZ"/>
                             <constraint firstItem="vJB-uS-o8D" firstAttribute="top" secondItem="hpS-Hl-AhN" secondAttribute="bottom" constant="27" id="jho-dG-Fia"/>
                             <constraint firstItem="cmD-zf-w5F" firstAttribute="leading" secondItem="7oe-E2-Air" secondAttribute="leadingMargin" constant="8" id="mFL-e0-4AM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="DcX-Av-G4W" secondAttribute="trailing" constant="8" id="rlG-hU-Gvo"/>
                             <constraint firstItem="n8w-HZ-ljB" firstAttribute="trailing" secondItem="7oe-E2-Air" secondAttribute="trailingMargin" id="wGz-05-OAQ"/>
-                            <constraint firstItem="EE5-xo-9TY" firstAttribute="height" secondItem="7oe-E2-Air" secondAttribute="height" id="zuG-ng-mDY"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Location" id="Vyv-vW-VrG">
@@ -578,7 +569,6 @@
                     <connections>
                         <outlet property="addButton" destination="hpS-Hl-AhN" id="MQO-sR-jhX"/>
                         <outlet property="helperText" destination="n8w-HZ-ljB" id="Pvs-gq-czA"/>
-                        <outlet property="mapView" destination="EE5-xo-9TY" id="zVO-EL-bnv"/>
                         <outlet property="resultView" destination="DcX-Av-G4W" id="r7B-ba-diX"/>
                         <outlet property="searchField" destination="LQa-et-Zpa" id="KVr-Uf-1oe"/>
                         <outlet property="searchStack" destination="cmD-zf-w5F" id="e5t-gu-uGX"/>

@@ -1,20 +1,17 @@
 import UIKit
-import MapKit
+import GooglePlaces
+import Crashlytics
 
 protocol HandleMapSearch: class {
-    func selectedPlacemark(placemark:MKPlacemark)
+    func selectedPlace(place: GMSPlace)
 }
 
 class LocationSearchTableViewController: UITableViewController {
-    var matchingItems:[MKMapItem] = []
+    var searchResult: [GMSAutocompletePrediction] = []
     var handleMapSearchDelegate: HandleMapSearch?
     var lightText = false
 
-    let quebecCoordinate = CLLocationCoordinate2D.init(latitude: 52.9399, longitude: -73.5491)
-    var searchRegion: MKCoordinateRegion?
-
     override func viewDidLoad() {
-        self.searchRegion = MKCoordinateRegion.init(center: quebecCoordinate, span: MKCoordinateSpan.init(latitudeDelta: 1.0, longitudeDelta: 0.5))
         tableView.backgroundColor = UIColor.clear
     }
 }
@@ -26,24 +23,23 @@ extension LocationSearchTableViewController: UISearchResultsUpdating {
 
     func updateSearchs(for queryString: String?) {
         guard let searchBarText = queryString else { return }
-        guard let region = self.searchRegion else { return }
-        let request = MKLocalSearchRequest()
-        request.naturalLanguageQuery = searchBarText
-        request.region = region
-        let search = MKLocalSearch(request: request)
-        search.start { response, _ in
-            guard let response = response else {
-                return
+        let filter = GMSAutocompleteFilter.init()
+        filter.country = "CA"
+        filter.type = .address
+        GMSPlacesClient.shared().autocompleteQuery(searchBarText, bounds: nil, filter: filter) { (results, error) in
+            if let error = error {
+                Crashlytics.sharedInstance().recordError(error)
+            } else if let results = results {
+                self.searchResult = results
+                self.tableView.reloadData()
             }
-            self.matchingItems = response.mapItems
-            self.tableView.reloadData()
         }
     }
 }
 
 extension LocationSearchTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return matchingItems.count
+        return self.searchResult.count
     }
 
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -57,9 +53,9 @@ extension LocationSearchTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! SimpleCellTableViewCell
         cell.backgroundColor = UIColor.clear
-        let selectedItem = matchingItems[indexPath.row].placemark
-        cell.titleLabel.text = selectedItem.name
-        cell.subtitleLabel.text = LocationSearchTableViewController.parseAddress(selectedItem: selectedItem)
+        let selectedItem = searchResult[indexPath.row]
+        cell.titleLabel.text = selectedItem.attributedPrimaryText.string
+        cell.subtitleLabel.text = selectedItem.attributedSecondaryText?.string
         if self.lightText {
             cell.titleLabel.textColor = UIColor.white
             cell.subtitleLabel.textColor = UIColor.white
@@ -68,32 +64,16 @@ extension LocationSearchTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedItem = matchingItems[indexPath.row].placemark
-        handleMapSearchDelegate?.selectedPlacemark(placemark: selectedItem)
-        dismiss(animated: true, completion: nil)
-    }
-
-    class func parseAddress(selectedItem:MKPlacemark) -> String {
-        // put a space between "4" and "Melrose Place"
-        let firstSpace = (selectedItem.subThoroughfare != nil && selectedItem.thoroughfare != nil) ? " " : ""
-        // put a comma between street and city/state
-        let comma = (selectedItem.subThoroughfare != nil || selectedItem.thoroughfare != nil) && (selectedItem.subAdministrativeArea != nil || selectedItem.administrativeArea != nil) ? ", " : ""
-        // put a space between "Washington" and "DC"
-        let secondSpace = (selectedItem.subAdministrativeArea != nil && selectedItem.administrativeArea != nil) ? " " : ""
-        let addressLine = String(
-            format:"%@%@%@%@%@%@%@",
-            // street number
-            selectedItem.subThoroughfare ?? "",
-            firstSpace,
-            // street name
-            selectedItem.thoroughfare ?? "",
-            comma,
-            // city
-            selectedItem.locality ?? "",
-            secondSpace,
-            // state
-            selectedItem.administrativeArea ?? ""
-        )
-        return addressLine
+        let selectedItem = searchResult[indexPath.row]
+        guard let placeId = selectedItem.placeID else { return }
+        GMSPlacesClient.shared().lookUpPlaceID(placeId) { (place, error) in
+            if let error = error {
+                super.displayErrorMessage(error.localizedDescription)
+                Crashlytics.sharedInstance().recordError(error)
+            } else if let place = place {
+                self.handleMapSearchDelegate?.selectedPlace(place: place)
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
     }
 }

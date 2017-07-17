@@ -16,6 +16,7 @@ import UserNotifications
 import Fabric
 import Crashlytics
 import GoogleMaps
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -49,15 +50,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private func setupServers() {
         #if DEVELOPMENT
-            let firebaseFile = "GoogleService-Info"
             let apiUrl = "https://integration-apya.herokuapp.com"
+            let firebaseFile = "GoogleService-Info"
             STPPaymentConfiguration.shared().publishableKey = "pk_test_1LYkk7fCrA1bWDbXRUx1zWBx"
             GMSServices.provideAPIKey("AIzaSyDxqMJFAynsWULks32Bj1826DEqcQkRe9g")
+            GMSPlacesClient.provideAPIKey("AIzaSyDxqMJFAynsWULks32Bj1826DEqcQkRe9g")
         #else
             let apiUrl = "https://apya.herokuapp.com"
             let firebaseFile = "GoogleService-Info-Production"
             STPPaymentConfiguration.shared().publishableKey = "pk_live_fo9Elk0ctw9i6vCBlSElK1EG"
             GMSServices.provideAPIKey("AIzaSyA-9Er9BVKR1LTft9kLsyIzdv3uHlKRvZ8")
+            GMSPlacesClient.provideAPIKey("AIzaSyA-9Er9BVKR1LTft9kLsyIzdv3uHlKRvZ8")
             Fabric.with([Crashlytics.self])
         #endif
 

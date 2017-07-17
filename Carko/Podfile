@@ -20,6 +20,7 @@ def shared_pods
   pod 'Fabric'
   pod 'Crashlytics'
   pod 'GoogleMaps'
+  pod 'GooglePlaces'
 end
 
 target 'Carko' do

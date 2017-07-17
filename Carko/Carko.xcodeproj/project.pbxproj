@@ -32,6 +32,8 @@
 		452533321EF052C7002E916E /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 452533341EF052C7002E916E /* History.storyboard */; };
 		452738E71DF7AEB700D74F0D /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452738E61DF7AEB700D74F0D /* View.swift */; };
 		452A7CF01EF838FC00D1D109 /* InfoProduction.plist in Resources */ = {isa = PBXBuildFile; fileRef = 452A7CEF1EF838FC00D1D109 /* InfoProduction.plist */; };
+		452BFE7E1F1C302A00AD653B /* ParkingLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452BFE7D1F1C302A00AD653B /* ParkingLocationViewController.swift */; };
+		452BFE7F1F1C302A00AD653B /* ParkingLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452BFE7D1F1C302A00AD653B /* ParkingLocationViewController.swift */; };
 		452F02E61EF5F90300B3A090 /* GoogleService-Info-Production.plist in Resources */ = {isa = PBXBuildFile; fileRef = 452F02E51EF5F90300B3A090 /* GoogleService-Info-Production.plist */; };
 		453314321E03669000BF0B65 /* AccountCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453314311E03669000BF0B65 /* AccountCreationViewController.swift */; };
 		453314341E03672700BF0B65 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453314331E03672700BF0B65 /* Account.swift */; };
@@ -268,6 +270,7 @@
 		452533331EF052C7002E916E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/History.storyboard; sourceTree = "<group>"; };
 		452738E61DF7AEB700D74F0D /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		452A7CEF1EF838FC00D1D109 /* InfoProduction.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = InfoProduction.plist; path = Carko/InfoProduction.plist; sourceTree = "<group>"; };
+		452BFE7D1F1C302A00AD653B /* ParkingLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingLocationViewController.swift; sourceTree = "<group>"; };
 		452F02E51EF5F90300B3A090 /* GoogleService-Info-Production.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Production.plist"; sourceTree = "<group>"; };
 		453314311E03669000BF0B65 /* AccountCreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCreationViewController.swift; sourceTree = "<group>"; };
 		453314331E03672700BF0B65 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
@@ -551,6 +554,7 @@
 				C51150521DAF38D5004E2A7D /* ParkingDescriptionViewController.swift */,
 				4554A0971E217358007FB04C /* NewPhotoViewController.swift */,
 				45BBC3451EF0A8A400CBC509 /* PhotoEditCollectionViewController.swift */,
+				452BFE7D1F1C302A00AD653B /* ParkingLocationViewController.swift */,
 			);
 			name = "Rent your space";
 			sourceTree = "<group>";
@@ -1277,6 +1281,7 @@
 				456D72B71F0341E90026E85D /* BankCreationViewController.swift in Sources */,
 				456D72B81F0341E90026E85D /* ReservationsTableViewController.swift in Sources */,
 				456D72B91F0341E90026E85D /* NavigationViewController.swift in Sources */,
+				452BFE7F1F1C302A00AD653B /* ParkingLocationViewController.swift in Sources */,
 				456D72BA1F0341E90026E85D /* NavigationTableViewController.swift in Sources */,
 				456D72BB1F0341E90026E85D /* AuthPickerViewController.swift in Sources */,
 				456D72BC1F0341E90026E85D /* LocalParkingManager.swift in Sources */,
@@ -1422,6 +1427,7 @@
 				451FC46D1E072B3C0083C0CB /* Vehicule.swift in Sources */,
 				45BBC3411EF074CB00CBC509 /* LabelParkingTableViewCell.swift in Sources */,
 				C51150591DAF397E004E2A7D /* ParkingInfoViewController.swift in Sources */,
+				452BFE7E1F1C302A00AD653B /* ParkingLocationViewController.swift in Sources */,
 				4520D5D91ED122F50036AF07 /* ProfileViewController.swift in Sources */,
 				4554A0981E217358007FB04C /* NewPhotoViewController.swift in Sources */,
 				4591D5F51DFCA4C400366691 /* ParkingClient.swift in Sources */,
