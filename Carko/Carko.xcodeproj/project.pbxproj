@@ -31,7 +31,6 @@
 		452533291EF052B9002E916E /* Payout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4525332B1EF052B9002E916E /* Payout.storyboard */; };
 		452533321EF052C7002E916E /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 452533341EF052C7002E916E /* History.storyboard */; };
 		452738E71DF7AEB700D74F0D /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452738E61DF7AEB700D74F0D /* View.swift */; };
-		452A7CF01EF838FC00D1D109 /* InfoProduction.plist in Resources */ = {isa = PBXBuildFile; fileRef = 452A7CEF1EF838FC00D1D109 /* InfoProduction.plist */; };
 		452BFE7E1F1C302A00AD653B /* ParkingLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452BFE7D1F1C302A00AD653B /* ParkingLocationViewController.swift */; };
 		452BFE7F1F1C302A00AD653B /* ParkingLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452BFE7D1F1C302A00AD653B /* ParkingLocationViewController.swift */; };
 		452F02E61EF5F90300B3A090 /* GoogleService-Info-Production.plist in Resources */ = {isa = PBXBuildFile; fileRef = 452F02E51EF5F90300B3A090 /* GoogleService-Info-Production.plist */; };
@@ -61,6 +60,8 @@
 		45597A191F00969B00CE1979 /* DateHelperTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45597A181F00969B00CE1979 /* DateHelperTest.swift */; };
 		455E29A61EFDE38700CCCD43 /* EventTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455E29A51EFDE38700CCCD43 /* EventTest.swift */; };
 		45637CFF1DEB184500DD42C0 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45637CFE1DEB184500DD42C0 /* AppState.swift */; };
+		4563D72D1F1C5CE7005DF71F /* HelperTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4519688F1F1870D3006CD5DF /* HelperTextView.swift */; };
+		4563D72E1F1C5CEE005DF71F /* HelperText.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4519688D1F187062006CD5DF /* HelperText.xib */; };
 		4564F6E11DB98509001B709C /* BookParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4564F6E01DB98509001B709C /* BookParkingViewController.swift */; };
 		456D72AA1F0341E90026E85D /* EventsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D073301EA84924000604D3 /* EventsCollectionViewController.swift */; };
 		456D72AB1F0341E90026E85D /* BookParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4564F6E01DB98509001B709C /* BookParkingViewController.swift */; };
@@ -976,6 +977,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4563D72E1F1C5CEE005DF71F /* HelperText.xib in Resources */,
 				456D72F91F0342600026E85D /* AuthPickerViewController.xib in Resources */,
 				456D72F81F03425B0026E85D /* SuccessPopup.xib in Resources */,
 				45AABAE31EF607C3006C268E /* GoogleService-Info.plist in Resources */,
@@ -1022,7 +1024,6 @@
 				4550D66F1E19D78B0080758D /* Main.storyboard in Resources */,
 				45A4FAB81EF7145C00C73131 /* AuthPickerViewController.xib in Resources */,
 				452533291EF052B9002E916E /* Payout.storyboard in Resources */,
-				452A7CF01EF838FC00D1D109 /* InfoProduction.plist in Resources */,
 				45AC56181EFC47D80041CCE8 /* NewParkingView.xib in Resources */,
 				452533201EF05299002E916E /* Vehicule.storyboard in Resources */,
 				4519688E1F187062006CD5DF /* HelperText.xib in Resources */,
@@ -1263,6 +1264,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4563D72D1F1C5CE7005DF71F /* HelperTextView.swift in Sources */,
 				45A033251F07E7970071F3CD /* EventsLayout.swift in Sources */,
 				456D72F71F0341F70026E85D /* SWRevealViewController.m in Sources */,
 				456D72AA1F0341E90026E85D /* EventsCollectionViewController.swift in Sources */,
