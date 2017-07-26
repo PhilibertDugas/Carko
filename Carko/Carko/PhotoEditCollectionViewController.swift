@@ -28,11 +28,11 @@ class PhotoEditCollectionViewController: UICollectionViewController {
     var parkingImages: [(UIImage)] = []
     var parkingUrls: [(URL)] = []
 
-    let imagePicker = ImagePickerController.init()
+    var imagePicker: ImagePickerController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.imagePicker.delegate = self
+
         self.activityIndicator.isHidden = true
     }
 
@@ -116,6 +116,9 @@ extension PhotoEditCollectionViewController {
     }
 
     func addTapped() {
+        self.imagePicker = ImagePickerController.init()
+        self.imagePicker.delegate = self
+
         self.imagePicker.imageLimit = 6 - self.parking.multiplePhotoUrls.count
         let authStatus = PHPhotoLibrary.authorizationStatus()
         if authStatus == .notDetermined {
@@ -168,17 +171,21 @@ extension PhotoEditCollectionViewController {
 
 extension PhotoEditCollectionViewController: ImagePickerDelegate {
     func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
-        self.parkingImages.append(contentsOf: images)
-        imagePicker.dismiss(animated: true) {
-            self.uploadImages(self.parkingImages)
+        if self.usingImages {
+            self.parkingImages.append(contentsOf: images)
         }
+
+        self.uploadImages(images)
+        imagePicker.dismiss(animated: true, completion: nil)
     }
 
     func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
-        self.parkingImages.append(contentsOf: images)
-        imagePicker.dismiss(animated: true) {
-            self.uploadImages(self.parkingImages)
+        if self.usingImages {
+            self.parkingImages.append(contentsOf: images)
         }
+
+        self.uploadImages(images)
+        imagePicker.dismiss(animated: true, completion: nil)
     }
 
     func cancelButtonDidPress(_ imagePicker: ImagePickerController) {

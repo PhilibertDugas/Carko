@@ -197,6 +197,7 @@ extension ParkingInfoViewController: ParkingDescriptionDelegate, ParkingAvailabi
 
     func photosWereEdited(photoUrls: [(URL)], images: [(UIImage)]) {
         parking.multiplePhotoUrls = photoUrls
+        parking.photoURL = photoUrls.first
         updateParking()
     }
 
