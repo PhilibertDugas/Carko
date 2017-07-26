@@ -16,7 +16,9 @@ def shared_pods
   pod 'Stripe'
   pod 'Alamofire'
   pod 'IQKeyboardManagerSwift'
-  pod 'NohanaImagePicker'
+
+  pod 'ImagePicker'
+
   pod 'Fabric'
   pod 'Crashlytics'
   pod 'GoogleMaps'

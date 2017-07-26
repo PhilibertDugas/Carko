@@ -8,8 +8,7 @@
 
 import UIKit
 import FirebaseStorage
-import NohanaImagePicker
-import Photos
+import ImagePicker
 
 class NewPhotoViewController: UIViewController {
     @IBOutlet var buttonView: UIView!
@@ -26,7 +25,7 @@ class NewPhotoViewController: UIViewController {
     var parking: Parking!
     var parkingImages: [(UIImage)] = []
     var manager: PopupManager!
-    let imagePicker = NohanaImagePickerController.init()
+    let imagePicker = ImagePickerController()
     let photoCellIdentifier = "ParkingPhotoCell"
 
     override func viewDidLoad() {
@@ -70,9 +69,7 @@ class NewPhotoViewController: UIViewController {
     }
 
     @IBAction func tappedPhoto(_ sender: Any) {
-        imagePicker.maximumNumberOfSelection = 6
-        imagePicker.numberOfColumnsInPortrait = 3
-        ColorConfig.backgroundColor = UIColor.secondaryViewsBlack
+        imagePicker.imageLimit = 6
         let authStatus = PHPhotoLibrary.authorizationStatus()
         if authStatus == .notDetermined {
             PHPhotoLibrary.requestAuthorization({ (status) in
@@ -166,24 +163,10 @@ extension NewPhotoViewController: UICollectionViewDataSource, UICollectionViewDe
     }
 }
 
-extension NewPhotoViewController: NohanaImagePickerControllerDelegate {
-    func nohanaImagePickerDidCancel(_ picker: NohanaImagePickerController) {
-        dismiss(animated: true, completion: nil)
-    }
-
-    func nohanaImagePicker(_ picker: NohanaImagePickerController, didFinishPickingPhotoKitAssets pickedAssts: [PHAsset]) {
-        self.parkingImages.removeAll()
-        let manager = PHImageManager.default()
-        let option = PHImageRequestOptions()
-        option.isSynchronous = true
-
-        for asset in pickedAssts {
-            manager.requestImage(for: asset, targetSize: PHImageManagerMaximumSize, contentMode: .aspectFill, options: option, resultHandler: { (result, info) in
-                self.parkingImages.append(result!)
-            })
-        }
-
-        dismiss(animated: true) {
+extension NewPhotoViewController: ImagePickerDelegate {
+    func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+        self.parkingImages = images
+        imagePicker.dismiss(animated: true) {
             self.addPhotoLabel.isHidden = true
             self.bigPlusButton.isHidden = true
             self.photoCollectionView.isHidden = false
@@ -191,6 +174,22 @@ extension NewPhotoViewController: NohanaImagePickerControllerDelegate {
             self.photoCollectionView.reloadData()
             self.addDescriptionButton.isHidden = false
         }
+    }
+
+    func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+        self.parkingImages = images
+        imagePicker.dismiss(animated: true) {
+            self.addPhotoLabel.isHidden = true
+            self.bigPlusButton.isHidden = true
+            self.photoCollectionView.isHidden = false
+            self.editPhotosLabel.isHidden = false
+            self.photoCollectionView.reloadData()
+            self.addDescriptionButton.isHidden = false
+        }
+    }
+
+    func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
+        imagePicker.dismiss(animated: true, completion: nil)
     }
 
     func uploadImages() {

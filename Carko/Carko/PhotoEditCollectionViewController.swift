@@ -7,8 +7,7 @@
 //
 
 import UIKit
-import NohanaImagePicker
-import Photos
+import ImagePicker
 import FirebaseStorage
 
 private let reuseIdentifier = "PhotoEditCell"
@@ -28,13 +27,11 @@ class PhotoEditCollectionViewController: UICollectionViewController {
     var parkingImages: [(UIImage)] = []
     var parkingUrls: [(URL)] = []
 
-    let imagePicker = NohanaImagePickerController.init()
+    let imagePicker = ImagePickerController.init()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.imagePicker.delegate = self
-        self.imagePicker.numberOfColumnsInPortrait = 3
-        ColorConfig.backgroundColor = UIColor.secondaryViewsBlack
         self.activityIndicator.isHidden = true
     }
 
@@ -118,7 +115,7 @@ extension PhotoEditCollectionViewController {
     }
 
     func addTapped() {
-        self.imagePicker.maximumNumberOfSelection = 6 - self.parking.multiplePhotoUrls.count
+        self.imagePicker.imageLimit = 6 - self.parking.multiplePhotoUrls.count
         let authStatus = PHPhotoLibrary.authorizationStatus()
         if authStatus == .notDetermined {
             PHPhotoLibrary.requestAuthorization({ (status) in
@@ -168,25 +165,23 @@ extension PhotoEditCollectionViewController {
     }
 }
 
-extension PhotoEditCollectionViewController: NohanaImagePickerControllerDelegate {
-    func nohanaImagePickerDidCancel(_ picker: NohanaImagePickerController) {
-        dismiss(animated: true, completion: nil)
-    }
-
-    func nohanaImagePicker(_ picker: NohanaImagePickerController, didFinishPickingPhotoKitAssets pickedAssts: [PHAsset]) {
-        let manager = PHImageManager.default()
-        let option = PHImageRequestOptions()
-        option.isSynchronous = true
-
-        for asset in pickedAssts {
-            manager.requestImage(for: asset, targetSize: PHImageManagerMaximumSize, contentMode: .aspectFill, options: option, resultHandler: { (result, info) in
-                self.parkingImages.append(result!)
-            })
-        }
-
-        self.dismiss(animated: true) { 
+extension PhotoEditCollectionViewController: ImagePickerDelegate {
+    func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+        self.parkingImages.append(contentsOf: images)
+        imagePicker.dismiss(animated: true) {
             self.uploadImages(self.parkingImages)
         }
+    }
+
+    func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+        self.parkingImages.append(contentsOf: images)
+        imagePicker.dismiss(animated: true) {
+            self.uploadImages(self.parkingImages)
+        }
+    }
+
+    func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
+        imagePicker.dismiss(animated: true, completion: nil)
     }
 
     func uploadImages(_ images: [(UIImage)]) {

@@ -87,8 +87,8 @@ PODS:
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
   - GTMSessionFetcher/Core (1.1.10)
+  - ImagePicker (2.1.1)
   - IQKeyboardManagerSwift (4.0.10)
-  - NohanaImagePicker (0.7.1)
   - OHHTTPStubs (6.0.0):
     - OHHTTPStubs/Default (= 6.0.0)
   - OHHTTPStubs/Core (6.0.0)
@@ -124,8 +124,8 @@ DEPENDENCIES:
   - FirebaseUI/Storage (>= 2.0.1)
   - GoogleMaps
   - GooglePlaces
+  - ImagePicker
   - IQKeyboardManagerSwift
-  - NohanaImagePicker
   - OHHTTPStubs
   - OHHTTPStubs/Swift
   - Stripe
@@ -150,13 +150,13 @@ SPEC CHECKSUMS:
   GooglePlaces: 4a7b22debfa1af65017b82943431822607e45201
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 30d874b96d0d76028f61fbd122801e3f030d47db
+  ImagePicker: fe4c699abb56ff03994fa98d8b02e3883ee118be
   IQKeyboardManagerSwift: 75ba21a23794a1e6b6fe6d9a267ea17f80e06771
-  NohanaImagePicker: ae909c23150c30e29ab2c5d48766c39eef21d790
   OHHTTPStubs: 752f9b11fd810a15162d50f11c06ff94f8e012eb
   Protobuf: d582fecf68201eac3d79ed61369ef45734394b9c
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   Stripe: 5c5a49d750952b1801e4c1f5c4264a08e427c67d
 
-PODFILE CHECKSUM: abf66a02c413ba11f5f332df80eb79bbfae2a5a8
+PODFILE CHECKSUM: 724a3782bdb2f00e8719bc3e4824fbb5c3a0ef01
 
 COCOAPODS: 1.2.1
