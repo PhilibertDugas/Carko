@@ -8,6 +8,7 @@
 
 import UIKit
 import ImagePicker
+import Photos
 import FirebaseStorage
 
 private let reuseIdentifier = "PhotoEditCell"

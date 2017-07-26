@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseStorage
 import ImagePicker
+import Photos
 
 class NewPhotoViewController: UIViewController {
     @IBOutlet var buttonView: UIView!
@@ -46,6 +47,7 @@ class NewPhotoViewController: UIViewController {
         if segue.identifier == "showDescription" {
             let destinationVC = segue.destination as! ParkingDescriptionViewController
             destinationVC.parkingDescription = parking.pDescription
+            destinationVC.doneButtonPresent = true
             destinationVC.delegate = self
         } else if segue.identifier == "ChangePhotos" {
             let destinationVC = segue.destination as! PhotoEditCollectionViewController
