@@ -20,12 +20,14 @@ class Parking {
     var isComplete: Bool
     var customerId: Int
     var multiplePhotoUrls: [(URL)]
+    var price: Float
 
     var availabilityInfo: AvailabilityInfo
+    var parkingAvailabilityInfo: [ParkingAvailabilityInfo?]
     var isDeleted: Bool
     var totalRevenue: Float
 
-    init(latitude: CLLocationDegrees, longitude: CLLocationDegrees, photoURL: URL?, address: String, pDescription: String, isAvailable: Bool, isComplete: Bool, availabilityInfo: AvailabilityInfo, customerId: Int, multiplePhotoUrls: [(URL)]) {
+    init(latitude: CLLocationDegrees, longitude: CLLocationDegrees, photoURL: URL?, address: String, pDescription: String, isAvailable: Bool, isComplete: Bool, availabilityInfo: AvailabilityInfo, customerId: Int, multiplePhotoUrls: [(URL)], price: Float, parkingAvailabilityInfo: [ParkingAvailabilityInfo?]) {
         self.latitude = latitude
         self.longitude = longitude
         self.photoURL = photoURL
@@ -36,20 +38,25 @@ class Parking {
         self.customerId = customerId
         self.isComplete = isComplete
         self.multiplePhotoUrls = multiplePhotoUrls
+        self.price = price
         self.isDeleted = false
         self.totalRevenue = 0.0
+        self.parkingAvailabilityInfo = parkingAvailabilityInfo
     }
 
     convenience init() {
-        self.init(latitude: CLLocationDegrees.init(75), longitude: CLLocationDegrees.init(-135), photoURL: nil, address: "Select a location", pDescription: "", isAvailable: true, isComplete: false, availabilityInfo: AvailabilityInfo.init(), customerId: AuthenticationHelper.getCustomer().id, multiplePhotoUrls: [])
+        self.init(latitude: CLLocationDegrees.init(75), longitude: CLLocationDegrees.init(-135), photoURL: nil, address: "Select a location", pDescription: "", isAvailable: true, isComplete: false, availabilityInfo: AvailabilityInfo.init(), customerId: AuthenticationHelper.getCustomer().id, multiplePhotoUrls: [], price: 0.50, parkingAvailabilityInfo: [ParkingAvailabilityInfo.init()])
     }
 
     convenience init?(parking: [String : Any]) {
-        guard let latitude = parking["latitude"] as? CLLocationDegrees, let longitude = parking["longitude"] as? CLLocationDegrees, let address = parking["address"] as? String, let pDescription = parking["description"] as? String, let isAvailable = parking["is_available"] as? Bool, let customerId = parking["customer_id"] as? Int, let isComplete = parking["is_complete"] as? Bool, let multiplePhotoString = parking["multiple_photo_urls"] as? [(String)] else { return nil }
+        guard let price = parking["price"] as? Float, let latitude = parking["latitude"] as? CLLocationDegrees, let longitude = parking["longitude"] as? CLLocationDegrees, let address = parking["address"] as? String, let pDescription = parking["description"] as? String, let isAvailable = parking["is_available"] as? Bool, let customerId = parking["customer_id"] as? Int, let isComplete = parking["is_complete"] as? Bool, let multiplePhotoString = parking["multiple_photo_urls"] as? [(String)] else { return nil }
 
+        // TODO: Deprecated - Delete once new implementation works
         guard let info = parking["availability_info"] as? [String : Any] else { return nil }
-
         let availabilityInfo = AvailabilityInfo.init(availabilityInfo: info)
+
+        guard let parkingAvailabilityArray = parking["parking_availability_info"] as? [[String : Any]] else { return nil }
+        let parkingAvailabilityInfo = parkingAvailabilityArray.map { ParkingAvailabilityInfo.init(info: $0) }
 
         var photoURL: URL? = nil
         if let urlString = parking["photo_url"] as? String {
@@ -62,7 +69,7 @@ class Parking {
             multipleUrls.append(URL.init(string: element.trimmingCharacters(in: .whitespacesAndNewlines))!)
         }
         
-        self.init(latitude: latitude, longitude: longitude, photoURL: photoURL, address: address, pDescription: pDescription, isAvailable: isAvailable, isComplete: isComplete, availabilityInfo: availabilityInfo, customerId: customerId, multiplePhotoUrls: multipleUrls)
+        self.init(latitude: latitude, longitude: longitude, photoURL: photoURL, address: address, pDescription: pDescription, isAvailable: isAvailable, isComplete: isComplete, availabilityInfo: availabilityInfo, customerId: customerId, multiplePhotoUrls: multipleUrls, price: price, parkingAvailabilityInfo: parkingAvailabilityInfo)
 
         if let identifier = parking["id"] as? Int {
             self.id = identifier
@@ -149,7 +156,9 @@ extension Parking {
             "is_deleted": isDeleted,
             "customer_id": customerId,
             "availability_info": availabilityInfo.toDictionary(),
-            "multiple_photo_urls": multiplePhotoUrls.map { $0.absoluteString }
+            "multiple_photo_urls": multiplePhotoUrls.map { $0.absoluteString },
+            "parking_availability_info": parkingAvailabilityInfo.map { $0?.toDictionary() },
+            "price": price
         ]
         if let url = photoURL {
             dict["photo_url"] = "\(url)"
@@ -174,6 +183,72 @@ extension Parking: Equatable {
         } else {
             return basicAssertion
         }
+    }
+}
+
+class ParkingAvailabilityInfo: NSObject {
+    var startHour: String
+    var stopHour: String
+
+    var sundayAvailable: Bool
+    var mondayAvailable: Bool
+    var tuesdayAvailable: Bool
+    var wednesdayAvailable: Bool
+    var thursdayAvailable: Bool
+    var fridayAvailable: Bool
+    var saturdayAvailable: Bool
+
+    var price: Float
+
+    init(startHour: String, stopHour: String, sundayAvailable: Bool, mondayAvailable: Bool, tuesdayAvailable: Bool, wednesdayAvailable: Bool, thursdayAvailable: Bool, fridayAvailable: Bool, saturdayAvailable: Bool, price: Float) {
+        self.startHour = startHour
+        self.stopHour = stopHour
+
+        self.sundayAvailable = sundayAvailable
+        self.mondayAvailable = mondayAvailable
+        self.tuesdayAvailable = tuesdayAvailable
+        self.wednesdayAvailable = wednesdayAvailable
+        self.thursdayAvailable = thursdayAvailable
+        self.fridayAvailable = fridayAvailable
+        self.saturdayAvailable = saturdayAvailable
+        self.price = price
+    }
+
+    convenience override init() {
+        let startHour = "09:00"
+        let stopHour = "17:00"
+
+        self.init(startHour: startHour, stopHour: stopHour, sundayAvailable: false, mondayAvailable: false, tuesdayAvailable: false, wednesdayAvailable: false, thursdayAvailable: false, fridayAvailable: false, saturdayAvailable: false, price: 2.00)
+    }
+
+    convenience init?(info: [String : Any]) {
+        guard let startHour = info["start_hour"] as? String,
+            let stopHour = info["stop_hour"] as? String,
+            let sundayAvailable = info["sunday_available"] as? Bool,
+            let mondayAvailable = info["monday_available"] as? Bool,
+            let tuesdayAvailable = info["tuesday_available"] as? Bool,
+            let wednesdayAvailable = info["wednesday_available"] as? Bool,
+            let thursdayAvailable = info["thursday_available"] as? Bool,
+            let fridayAvailable = info["friday_available"] as? Bool,
+            let saturdayAvailable = info["saturday_available"] as? Bool,
+            let price = info["price"] as? Float else { return nil }
+
+        self.init(startHour: startHour, stopHour: stopHour, sundayAvailable: sundayAvailable, mondayAvailable: mondayAvailable, tuesdayAvailable: tuesdayAvailable, wednesdayAvailable: wednesdayAvailable, thursdayAvailable: thursdayAvailable, fridayAvailable: fridayAvailable, saturdayAvailable: saturdayAvailable, price: price)
+    }
+
+    func toDictionary() -> [String : Any] {
+        return [
+            "start_hour": startHour,
+            "stop_hour": stopHour,
+            "sunday_available": sundayAvailable,
+            "monday_available": mondayAvailable,
+            "tuesday_available": tuesdayAvailable,
+            "wednesday_available": wednesdayAvailable,
+            "thursday_available": thursdayAvailable,
+            "friday_available": fridayAvailable,
+            "saturday_available": saturdayAvailable,
+            "price": price
+        ]
     }
 }
 

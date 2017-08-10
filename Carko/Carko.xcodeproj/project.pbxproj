@@ -146,6 +146,9 @@
 		457536561EAD752500E70F7F /* ReservationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457536551EAD752500E70F7F /* ReservationsTableViewController.swift */; };
 		457536581EAD798300E70F7F /* ReservationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457536571EAD798300E70F7F /* ReservationTableViewCell.swift */; };
 		4575365A1EAD87AA00E70F7F /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457536591EAD87AA00E70F7F /* StringExtension.swift */; };
+		45776A4D1F3BF0F30003952D /* AvailabilityInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45776A4C1F3BF0F30003952D /* AvailabilityInfoTableViewCell.swift */; };
+		45776A4F1F3BF2D20003952D /* AvailabilityInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45776A4E1F3BF2D20003952D /* AvailabilityInfoTableViewController.swift */; };
+		45776A501F3BF2D20003952D /* AvailabilityInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45776A4E1F3BF2D20003952D /* AvailabilityInfoTableViewController.swift */; };
 		4578470F1EFC91760068745E /* BookingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4578470E1EFC91760068745E /* BookingManager.swift */; };
 		457847131EFCB3720068745E /* ReservationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457847121EFCB3720068745E /* ReservationManager.swift */; };
 		4579163C1EFDA60600E0BAA8 /* ReservationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4579163B1EFDA60600E0BAA8 /* ReservationTest.swift */; };
@@ -305,6 +308,8 @@
 		457536551EAD752500E70F7F /* ReservationsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationsTableViewController.swift; sourceTree = "<group>"; };
 		457536571EAD798300E70F7F /* ReservationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationTableViewCell.swift; sourceTree = "<group>"; };
 		457536591EAD87AA00E70F7F /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		45776A4C1F3BF0F30003952D /* AvailabilityInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvailabilityInfoTableViewCell.swift; sourceTree = "<group>"; };
+		45776A4E1F3BF2D20003952D /* AvailabilityInfoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvailabilityInfoTableViewController.swift; sourceTree = "<group>"; };
 		45782C241E2E9A1E002E9DFD /* Carko.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Carko.entitlements; sourceTree = "<group>"; };
 		4578470E1EFC91760068745E /* BookingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingManager.swift; sourceTree = "<group>"; };
 		457847121EFCB3720068745E /* ReservationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationManager.swift; sourceTree = "<group>"; };
@@ -495,7 +500,7 @@
 			isa = PBXGroup;
 			children = (
 				457847091EFC887F0068745E /* Events */,
-				4578470A1EFC88E60068745E /* Rent your space */,
+				4578470A1EFC88E60068745E /* Add */,
 				4578470D1EFC89360068745E /* Profile */,
 				C5075F8E1EBA4B0B00602B8C /* Side Menu */,
 				45099A851DAF25EA00392FF1 /* Login */,
@@ -545,7 +550,7 @@
 			name = Events;
 			sourceTree = "<group>";
 		};
-		4578470A1EFC88E60068745E /* Rent your space */ = {
+		4578470A1EFC88E60068745E /* Add */ = {
 			isa = PBXGroup;
 			children = (
 				451853791DA476F1005CC5E6 /* ListParkingViewController.swift */,
@@ -556,8 +561,9 @@
 				4554A0971E217358007FB04C /* NewPhotoViewController.swift */,
 				45BBC3451EF0A8A400CBC509 /* PhotoEditCollectionViewController.swift */,
 				452BFE7D1F1C302A00AD653B /* ParkingLocationViewController.swift */,
+				45776A4E1F3BF2D20003952D /* AvailabilityInfoTableViewController.swift */,
 			);
-			name = "Rent your space";
+			name = Add;
 			sourceTree = "<group>";
 		};
 		4578470B1EFC89040068745E /* Table View */ = {
@@ -568,6 +574,7 @@
 				C56ADABA1DAC00870033516C /* ParkingTableViewCell.swift */,
 				45BBC33E1EF0730C00CBC509 /* PhotoParkingTableViewCell.swift */,
 				45BBC3401EF074CB00CBC509 /* LabelParkingTableViewCell.swift */,
+				45776A4C1F3BF0F30003952D /* AvailabilityInfoTableViewCell.swift */,
 			);
 			name = "Table View";
 			sourceTree = "<group>";
@@ -1330,6 +1337,7 @@
 				456D72E51F0341E90026E85D /* ImageViews.swift in Sources */,
 				456D72E61F0341E90026E85D /* DateHelper.swift in Sources */,
 				456D72E71F0341E90026E85D /* AuthenticationHelper.swift in Sources */,
+				45776A501F3BF2D20003952D /* AvailabilityInfoTableViewController.swift in Sources */,
 				456D72E81F0341E90026E85D /* ImageLoaderHelper.swift in Sources */,
 				456D72E91F0341E90026E85D /* VehiculeHelper.swift in Sources */,
 				456D72EA1F0341E90026E85D /* PopupManager.swift in Sources */,
@@ -1352,6 +1360,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45776A4D1F3BF0F30003952D /* AvailabilityInfoTableViewCell.swift in Sources */,
 				45E9D0FE1E1DCE7C000EDEE8 /* LocationViewController.swift in Sources */,
 				45BBC34A1EF0AB0500CBC509 /* SimpleCellTableViewCell.swift in Sources */,
 				4554EBCE1DB5A36F0066E452 /* APIClient.swift in Sources */,
@@ -1366,6 +1375,7 @@
 				458AF6691EEB064B00E3C402 /* AuthenticationHelper.swift in Sources */,
 				451FC46F1E072BC70083C0CB /* VehiculeClient.swift in Sources */,
 				45637CFF1DEB184500DD42C0 /* AppState.swift in Sources */,
+				45776A4F1F3BF2D20003952D /* AvailabilityInfoTableViewController.swift in Sources */,
 				458A98301DBCFD44007F53EE /* UnderlineTextField.swift in Sources */,
 				451968901F1870D3006CD5DF /* HelperTextView.swift in Sources */,
 				45BBC3481EF0A9E100CBC509 /* ImageLoaderHelper.swift in Sources */,
