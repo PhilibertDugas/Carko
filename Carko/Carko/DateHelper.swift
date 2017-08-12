@@ -9,6 +9,12 @@
 import Foundation
 
 struct DateHelper {
+    static func getHourString(_ date: Date) -> String {
+        let formatter = DateFormatter.init()
+        formatter.dateFormat = "HH:mm"
+        return formatter.string(from: date)
+    }
+
     static func getDayOfWeek(_ date: String) -> String {
         let formattedDate = formatString(date)
         let formatter = timestampFormatter()

@@ -44,7 +44,7 @@ class LocationViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "pushAvailability" {
-            let vc = segue.destination as! AvailabilityViewController
+            let vc = segue.destination as! ParkingAvailabilityViewController
             vc.parking = parking
             vc.newParking = true
         }

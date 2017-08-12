@@ -35,7 +35,7 @@ class ParkingInfoViewController: UITableViewController {
             destinationVC.parkingDescription = parking.pDescription
             destinationVC.delegate = self
         } else if segue.identifier == "ChangeAvailability" {
-            let destinationVC = segue.destination as! AvailabilityViewController
+            let destinationVC = segue.destination as! ParkingAvailabilityViewController
             destinationVC.parking = parking
             destinationVC.newParking = false
             destinationVC.delegate = self
@@ -98,7 +98,7 @@ extension ParkingInfoViewController {
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: labelCellIdentifier, for: indexPath) as! LabelParkingTableViewCell
             cell.cellTitleLabel.text = Translations.t("Schedule")
-            cell.cellContentLabel.text = parking.availabilityInfo.daysEnumerationText()
+            cell.cellContentLabel.text = parking.parkingAvailabilityInfo.first??.daysEnumerationText()
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: labelCellIdentifier, for: indexPath) as! LabelParkingTableViewCell
@@ -177,14 +177,15 @@ extension ParkingInfoViewController {
     }
 }
 
-extension ParkingInfoViewController: ParkingDescriptionDelegate, ParkingAvailabilityDelegate, ParkingLocationDelegate, PhotoEditDelegate {
+extension ParkingInfoViewController: ParkingDescriptionDelegate, ParkingAvailabilityInfoDelegate, ParkingLocationDelegate, PhotoEditDelegate {
     func userDidChangeDescription(value: String) {
         parking.pDescription = value
         updateParking()
     }
 
-    func userDidChangeAvailability(value: AvailabilityInfo) {
-        parking.availabilityInfo = value
+    func userDidChangeAvailability(value: ParkingAvailabilityInfo) {
+        parking.parkingAvailabilityInfo.removeAll()
+        parking.parkingAvailabilityInfo.append(value)
         updateParking()
     }
 

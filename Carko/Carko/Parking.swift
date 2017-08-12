@@ -55,8 +55,12 @@ class Parking {
         guard let info = parking["availability_info"] as? [String : Any] else { return nil }
         let availabilityInfo = AvailabilityInfo.init(availabilityInfo: info)
 
-        guard let parkingAvailabilityArray = parking["parking_availability_info"] as? [[String : Any]] else { return nil }
-        let parkingAvailabilityInfo = parkingAvailabilityArray.map { ParkingAvailabilityInfo.init(info: $0) }
+        let parkingAvailabilityInfo: [ParkingAvailabilityInfo?]
+        if let parkingAvailabilityArray = parking["parking_availability_infos"] as? [[String : Any]] {
+            parkingAvailabilityInfo = parkingAvailabilityArray.map { ParkingAvailabilityInfo.init(info: $0) }
+        } else {
+            parkingAvailabilityInfo = []
+        }
 
         var photoURL: URL? = nil
         if let urlString = parking["photo_url"] as? String {
@@ -157,7 +161,7 @@ extension Parking {
             "customer_id": customerId,
             "availability_info": availabilityInfo.toDictionary(),
             "multiple_photo_urls": multiplePhotoUrls.map { $0.absoluteString },
-            "parking_availability_info": parkingAvailabilityInfo.map { $0?.toDictionary() },
+            "parking_availability_infos": parkingAvailabilityInfo.map { $0?.toDictionary() },
             "price": price
         ]
         if let url = photoURL {
@@ -250,6 +254,90 @@ class ParkingAvailabilityInfo: NSObject {
             "price": price
         ]
     }
+
+    func isAvailable() -> Bool {
+        for day in [mondayAvailable, tuesdayAvailable, wednesdayAvailable, thursdayAvailable, fridayAvailable, saturdayAvailable, sundayAvailable] {
+            if day {
+                return true
+            }
+        }
+        return false
+    }
+
+    func daysEnumerationText() -> String {
+        var enumerationText = ""
+        var needsPunctuation = false
+
+        // FIXME: Translate
+        if everyDayAvailable() {
+            return "Everyday"
+        }
+
+        if mondayAvailable {
+            enumerationText += "Mon"
+            needsPunctuation = true
+        }
+
+        if tuesdayAvailable {
+            if needsPunctuation {
+                enumerationText += ", "
+            }
+            enumerationText += "Tue"
+            needsPunctuation = true
+        }
+
+        if wednesdayAvailable {
+            if needsPunctuation {
+                enumerationText += ", "
+            }
+            enumerationText += "Wed"
+            needsPunctuation = true
+        }
+
+        if thursdayAvailable {
+            if needsPunctuation {
+                enumerationText += ", "
+            }
+            enumerationText += "Thr"
+            needsPunctuation = true
+        }
+
+        if fridayAvailable {
+            if needsPunctuation {
+                enumerationText += ", "
+            }
+            enumerationText += "Fri"
+            needsPunctuation = true
+        }
+
+        if saturdayAvailable {
+            if needsPunctuation {
+                enumerationText += ", "
+            }
+            enumerationText += "Sat"
+            needsPunctuation = true
+        }
+
+        if sundayAvailable {
+            if needsPunctuation {
+                enumerationText += ", "
+            }
+            enumerationText += "Sun"
+            needsPunctuation = true
+        }
+
+        return enumerationText
+    }
+
+    private func everyDayAvailable() -> Bool {
+        for day in [mondayAvailable, tuesdayAvailable, wednesdayAvailable, thursdayAvailable, fridayAvailable, saturdayAvailable, sundayAvailable] {
+            if !day {
+                return false
+            }
+        }
+        return true
+    }
+
 }
 
 class AvailabilityInfo: NSObject {
@@ -322,77 +410,5 @@ class AvailabilityInfo: NSObject {
         return dateFormatter
     }
 
-    func daysEnumerationText() -> String {
-        var enumerationText = ""
-        var needsPunctuation = false
-
-        if self.alwaysAvailable || everyDayAvailable() {
-            return "Everyday"
-        }
-
-        if daysAvailable[0] {
-            enumerationText += "Mon"
-            needsPunctuation = true
-        }
-
-        if daysAvailable[1] {
-            if needsPunctuation {
-                enumerationText += ", "
-            }
-            enumerationText += "Tue"
-            needsPunctuation = true
-        }
-
-        if daysAvailable[2] {
-            if needsPunctuation {
-                enumerationText += ", "
-            }
-            enumerationText += "Wed"
-            needsPunctuation = true
-        }
-
-        if daysAvailable[3] {
-            if needsPunctuation {
-                enumerationText += ", "
-            }
-            enumerationText += "Thr"
-            needsPunctuation = true
-        }
-
-        if daysAvailable[4] {
-            if needsPunctuation {
-                enumerationText += ", "
-            }
-            enumerationText += "Fri"
-            needsPunctuation = true
-        }
-
-        if daysAvailable[5] {
-            if needsPunctuation {
-                enumerationText += ", "
-            }
-            enumerationText += "Sat"
-            needsPunctuation = true
-        }
-
-        if daysAvailable[6] {
-            if needsPunctuation {
-                enumerationText += ", "
-            }
-            enumerationText += "Sun"
-            needsPunctuation = true
-        }
-
-        return enumerationText
-    }
-
-    private func everyDayAvailable() -> Bool {
-        for day in daysAvailable {
-            if !day {
-                return false
-            }
-        }
-        return true
-    }
-}
+ }
 
