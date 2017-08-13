@@ -114,6 +114,11 @@ class ParkingAvailabilityViewController: UIViewController {
     @IBAction func timeEditBegin(_ sender: UITextField) {
         let datePicker = UIDatePicker.init()
         datePicker.datePickerMode = UIDatePickerMode.time
+        if sender == fromTextField {
+            datePicker.date = DateHelper.getDateWithHour(parkingAvailabilityInfo.startHour) ?? Date.init()
+        } else {
+            datePicker.date = DateHelper.getDateWithHour(parkingAvailabilityInfo.stopHour) ?? Date.init()
+        }
         sender.inputView = datePicker
     }
 
@@ -153,6 +158,10 @@ extension ParkingAvailabilityViewController {
     }
 
     fileprivate func setButtonState(_ button: UIButton, active: Bool) {
+        button.layer.cornerRadius = 10
+        button.layer.borderWidth = 2.0
+        button.layer.borderColor = UIColor.accentColor.cgColor
+
         if active {
             button.backgroundColor = UIColor.accentColor
         } else {

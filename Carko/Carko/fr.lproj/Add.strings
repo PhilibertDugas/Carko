@@ -117,4 +117,26 @@
 "IFx-dx-vg9.normalTitle" = "Ajouter description";
 
 /* Class = "UILabel"; text = "Move the map to set your spot's location"; ObjectID = "A26-ca-9kt"; */
-"A26-ca-9kt.text" = "Déplacer la carte pour choisir la location de votre stationnement";
+"A26-ca-9kt.text" = "Déplacez la carte pour choisir la location de votre stationnement";
+
+
+"11R-Gs-IvR.text" = "Quelles sont les disponibilités du stationnement?";
+"xog-dc-LMq.normalTitle" = "LUN";
+"nX8-Tf-0KQ.normalTitle" = "MAR";
+"Zi1-FO-YOe.normalTitle" = "MER";
+"T95-SI-cJK.normalTitle" = "JEU";
+"zKo-j8-3Fe.normalTitle" = "VEN";
+"cwR-bA-yqn.normalTitle" = "SAM";
+"maT-pR-XAL.normalTitle" = "DIM";
+
+
+"CGl-ZZ-YJA.text" = "Pour les jours sélectionnés, mon stationnement est disponible";
+"V7m-dm-C5j.text" = "De:";
+"mNE-5k-JmB.text" = "À:";
+"3Sl-vd-Sqc.text" = "Combien voulez-vous charger?";
+"tWr-Dr-ahF.text" = "Taux horaire";
+
+"TJ1-ac-eIy.normalTitle" = "Suivant";
+"XPk-cm-gll.title" = "Disponibilité";
+
+
