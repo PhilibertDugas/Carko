@@ -116,6 +116,15 @@ extension Parking {
         }
     }
 
+    class func getAllParkings(_ complete: @escaping([(Parking?)], Error?) -> Void) {
+        APIClient.shared.getAllParkings { (parkings, error) in
+            if let error = error {
+                Crashlytics.sharedInstance().recordError(error)
+            }
+            complete(parkings, error)
+        }
+    }
+
     class func getCustomerParkings(_ complete: @escaping([(Parking?)], Error?) -> Void) {
         if !LocalParkingManager.shared.getParkings().isEmpty {
             complete(LocalParkingManager.shared.getParkings(), nil)

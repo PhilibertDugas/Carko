@@ -63,7 +63,6 @@
 		4563D72D1F1C5CE7005DF71F /* HelperTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4519688F1F1870D3006CD5DF /* HelperTextView.swift */; };
 		4563D72E1F1C5CEE005DF71F /* HelperText.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4519688D1F187062006CD5DF /* HelperText.xib */; };
 		4564F6E11DB98509001B709C /* BookParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4564F6E01DB98509001B709C /* BookParkingViewController.swift */; };
-		456D72AA1F0341E90026E85D /* EventsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D073301EA84924000604D3 /* EventsCollectionViewController.swift */; };
 		456D72AB1F0341E90026E85D /* BookParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4564F6E01DB98509001B709C /* BookParkingViewController.swift */; };
 		456D72AC1F0341E90026E85D /* FindParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EA513A1DDE6F2300BD076C /* FindParkingViewController.swift */; };
 		456D72AD1F0341E90026E85D /* ListParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451853791DA476F1005CC5E6 /* ListParkingViewController.swift */; };
@@ -208,7 +207,6 @@
 		45BC29651DA18249000C54BC /* CarkoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC29641DA18249000C54BC /* CarkoUITests.swift */; };
 		45CA60771EF0E4B20026E58A /* PhotoAddCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CA60761EF0E4B20026E58A /* PhotoAddCollectionViewCell.swift */; };
 		45CD61C81EEC786A00068957 /* ParkingPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CD61C71EEC786A00068957 /* ParkingPhotoCollectionViewCell.swift */; };
-		45D073311EA84924000604D3 /* EventsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D073301EA84924000604D3 /* EventsCollectionViewController.swift */; };
 		45D073331EA84A75000604D3 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D073321EA84A75000604D3 /* Event.swift */; };
 		45D5D6101E1B2EDE006BE596 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45D5D60F1E1B2EDE006BE596 /* Assets.xcassets */; };
 		45DC42FC1EA97D53009F8E8D /* EventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DC42FB1EA97D53009F8E8D /* EventCollectionViewCell.swift */; };
@@ -366,7 +364,6 @@
 		45CA60761EF0E4B20026E58A /* PhotoAddCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoAddCollectionViewCell.swift; sourceTree = "<group>"; };
 		45CD61C71EEC786A00068957 /* ParkingPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		45CD61C91EEC8FA600068957 /* CarkoProduction.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CarkoProduction.entitlements; sourceTree = SOURCE_ROOT; };
-		45D073301EA84924000604D3 /* EventsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsCollectionViewController.swift; sourceTree = "<group>"; };
 		45D073321EA84A75000604D3 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		45D5D60F1E1B2EDE006BE596 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45DC42FB1EA97D53009F8E8D /* EventCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -491,7 +488,7 @@
 		457847061EFC87FC0068745E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				457847091EFC887F0068745E /* Events */,
+				457847091EFC887F0068745E /* Find */,
 				4578470A1EFC88E60068745E /* Add */,
 				4578470D1EFC89360068745E /* Profile */,
 				C5075F8E1EBA4B0B00602B8C /* Side Menu */,
@@ -532,14 +529,13 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
-		457847091EFC887F0068745E /* Events */ = {
+		457847091EFC887F0068745E /* Find */ = {
 			isa = PBXGroup;
 			children = (
-				45D073301EA84924000604D3 /* EventsCollectionViewController.swift */,
 				4564F6E01DB98509001B709C /* BookParkingViewController.swift */,
 				45EA513A1DDE6F2300BD076C /* FindParkingViewController.swift */,
 			);
-			name = Events;
+			name = Find;
 			sourceTree = "<group>";
 		};
 		4578470A1EFC88E60068745E /* Add */ = {
@@ -1263,7 +1259,6 @@
 				4563D72D1F1C5CE7005DF71F /* HelperTextView.swift in Sources */,
 				45A033251F07E7970071F3CD /* EventsLayout.swift in Sources */,
 				456D72F71F0341F70026E85D /* SWRevealViewController.m in Sources */,
-				456D72AA1F0341E90026E85D /* EventsCollectionViewController.swift in Sources */,
 				456D72AB1F0341E90026E85D /* BookParkingViewController.swift in Sources */,
 				456D72AC1F0341E90026E85D /* FindParkingViewController.swift in Sources */,
 				456D72AD1F0341E90026E85D /* ListParkingViewController.swift in Sources */,
@@ -1386,7 +1381,6 @@
 				45597A171F00568600CE1979 /* UIApplicationExtension.swift in Sources */,
 				452738E71DF7AEB700D74F0D /* View.swift in Sources */,
 				4546A5471EE5BC17000CBD53 /* PaymentPopup.swift in Sources */,
-				45D073311EA84924000604D3 /* EventsCollectionViewController.swift in Sources */,
 				C5075F971EBBA84000602B8C /* NavigationViewController.swift in Sources */,
 				457847131EFCB3720068745E /* ReservationManager.swift in Sources */,
 				4540422E1EFB655A00667C4C /* PopupManager.swift in Sources */,

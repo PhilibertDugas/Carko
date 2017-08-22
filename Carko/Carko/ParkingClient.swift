@@ -49,6 +49,23 @@ extension APIClient {
         }
     }
 
+    func getAllParkings(complete: @escaping([(Parking?)], Error?) -> Void) {
+        let getUrl = baseUrl.appendingPathComponent("/parkings")
+        request(getUrl).responseJSON { (returned) in
+            if let error = returned.result.error {
+                complete([], error)
+            } else if let response = returned.response, let value = returned.result.value {
+                if response.statusCode == 200 {
+                    complete(self.returnParkings(value: value), nil)
+                } else {
+                    let error = value as! NSDictionary
+                    let errorMessage = error.object(forKey: "error") as! String
+                    complete([], NSError.init(domain: errorMessage, code: response.statusCode, userInfo: nil))
+                }
+            }
+        }
+    }
+
     func getCustomerParkings(complete: @escaping([(Parking?)], Error?) -> Void) {
         let getUrl = baseUrl.appendingPathComponent("/customers/\(AuthenticationHelper.getCustomer().id)/parkings")
         request(getUrl, headers: authHeaders()).responseJSON { (returned) in

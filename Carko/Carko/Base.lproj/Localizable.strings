@@ -64,7 +64,7 @@
 "Please set your vehicule information in the profile section" = "Please set your vehicule information in the profile section";
 "Reservation conflict" = "Reservation conflict";
 "There is already a reservation scheduled on this date, do you wish to continue?" = "There is already a reservation scheduled on this date, do you wish to continue?";
-"Reserve Now" = "Reserve Now";
+"Park Now" = "Park Now";
 "This parking is currently busy" = "This parking is currently busy";
 "Which event do you need parking for?" = "Which event do you need parking for?";
 "Parking: " = "Parking: ";

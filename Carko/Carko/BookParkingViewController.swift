@@ -28,20 +28,17 @@ class BookParkingViewController: UIViewController {
     @IBOutlet var confirmButton: SmallRoundedCornerButton!
     @IBOutlet var addressLabel: UILabel!
     @IBOutlet var timeLabel: UILabel!
-    @IBOutlet var costLabel: UILabel!
     @IBOutlet var parkingLabel: UILabel!
     @IBOutlet var eventLabel: UILabel!
     @IBOutlet var paymentPopup: PaymentPopup!
     @IBOutlet var photoCollectionView: UICollectionView!
     @IBOutlet var parkingInfoView: UIView!
     @IBOutlet var mainButtonWidth: NSLayoutConstraint!
-    @IBOutlet var mainButtonLabel: UILabel!
 
     let photoCellIdentifier = "PhotoCell"
 
     var paymentContext: STPPaymentContext!
     var parking: Parking!
-    var event: Event!
     var delegate: ReservationDelegate!
     var sheetDelegate: MapSheetDelegate!
     var bluredView: UIVisualEffectView!
@@ -72,7 +69,7 @@ class BookParkingViewController: UIViewController {
     }
 
     private func handleConfirmTapped() {
-        let bookingManager = BookingManager.init(parking: self.parking, paymentContext: self.paymentContext, event: self.event)
+        let bookingManager = BookingManager.init(parking: self.parking, paymentContext: self.paymentContext)
         if let error = bookingManager.bookingHasAnyErrors() {
             switch error {
             case .ownParking:
@@ -90,13 +87,13 @@ class BookParkingViewController: UIViewController {
                 })
                 self.present(controller, animated: true, completion: nil)
                 break
-            case .reservationConflict:
+            /*case .reservationConflict:
                 let controller = bookingManager.getAlertController(title: Translations.t("Reservation conflict"), message: Translations.t("There is already a reservation scheduled on this date, do you wish to continue?"), okHandler: { (_) in
                     self.promptCompletion()
                 })
                 controller.addAction(UIAlertAction.init(title: Translations.t("Cancel"), style: .cancel , handler: nil))
                 self.present(controller, animated: true, completion: nil)
-                break
+                break*/
             }
         } else {
             self.promptCompletion()
@@ -124,13 +121,16 @@ class BookParkingViewController: UIViewController {
         self.paymentPopup.indicator.isHidden = true
 
         addressLabel.text = parking.address
-        timeLabel.text = Translations.t("Midnight") + ", \(DateHelper.getDay(self.event.startTime)) \(DateHelper.getMonth(self.event.startTime))"
-        costLabel.text = self.event.price.asLocaleCurrency
+        // FIXME: The time of the reservation based on the slider
+        // timeLabel.text = Translations.t("Midnight") + ", \(DateHelper.getDay(self.event.startTime)) \(DateHelper.getMonth(self.event.startTime))"
+        timeLabel.text = Translations.t("Midnight")
+
         parkingLabel.text = self.parking.pDescription
 
         // sizeToFit() to make sure the label is vertically aligned at the top of the view instead of in the center
         parkingLabel.sizeToFit()
-        eventLabel.text = self.event.label
+        // FIXME: This has to be the result of the slider x hourly parking price
+        eventLabel.text = self.parking.price.asLocaleCurrency
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -153,14 +153,16 @@ class BookParkingViewController: UIViewController {
             self.confirmButton.isEnabled = true
             self.parkingInfoView.isHidden = false
             updateConstraint(multiplier: 0.38)
-            self.mainButtonLabel.text = Translations.t("Reserve Now")
+            self.confirmButton.titleLabel?.text = Translations.t("Park Now")
         } else {
             self.confirmButton.alpha = 0.6
             self.confirmButton.isEnabled = false
             self.parkingInfoView.isHidden = true
             updateConstraint(multiplier: 0.9)
-            self.mainButtonLabel.text = Translations.t("This parking is currently busy")
+            self.confirmButton.titleLabel?.text = Translations.t("This parking is currently busy")
         }
+        self.confirmButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        self.confirmButton.titleLabel?.minimumScaleFactor = 0.5
     }
 
     private func updateConstraint(multiplier: CGFloat) {
@@ -272,7 +274,8 @@ class BookParkingViewController: UIViewController {
 extension BookParkingViewController {
     func promptCompletion() {
         self.didPressPark()
-        self.paymentPopup.priceLabel.text = self.event.price.asLocaleCurrency
+        // FIXME: Slider x hourly rate
+        self.paymentPopup.priceLabel.text = self.parking.price.asLocaleCurrency
         self.paymentPopup.creditCardLabel.text = self.paymentContext.selectedPaymentMethod?.label
         self.paymentPopup.creditCardLabel.sizeToFit()
         self.paymentPopup.creditCardImage.image = self.paymentContext.selectedPaymentMethod?.image
@@ -295,7 +298,8 @@ extension BookParkingViewController {
     func completeBooking() {
         self.paymentPopup.indicator.isHidden = false
         self.paymentPopup.indicator.startAnimating()
-        self.paymentContext.paymentAmount = Int(self.event.price * 100)
+        // FIXME: This has to be a result of the slider x hourly parking price
+        self.paymentContext.paymentAmount = Int(self.parking.price * 100)
         self.paymentContext.requestPayment()
     }
 
@@ -336,14 +340,15 @@ extension BookParkingViewController: STPPaymentContextDelegate {
             parkingId: parking.id!
         )
 
+        // FIXME: Slider needs implementation
+        guard let startTime = self.parking.parkingAvailabilityInfo.first??.startHour, let stopTime = self.parking.parkingAvailabilityInfo.first??.stopHour else { return }
         let reservation = NewReservation.init(
             parkingId: parking.id!,
             customerId: AuthenticationHelper.getCustomer().id,
-            eventId: event.id,
             isActive: true,
-            startTime: self.event.startTime,
-            stopTime: self.event.stopTime,
-            totalCost: self.event.price,
+            startTime: startTime,
+            stopTime: stopTime,
+            totalCost: self.parking.price,
             charge: charge
         )
 
@@ -390,7 +395,7 @@ extension BookParkingViewController: UICollectionViewDelegate, UICollectionViewD
         } else {
             if parking.multiplePhotoUrls.count > 1 {
                 ImageLoaderHelper.loadImageFromUrl(cell.parkingImageView, url: parking.multiplePhotoUrls[1])
-            } else if let url = event.photoURL {
+            } else if let url = parking.photoURL {
                 ImageLoaderHelper.loadImageFromUrl(cell.parkingImageView, url: url)
             }
         }

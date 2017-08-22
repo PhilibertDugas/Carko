@@ -76,17 +76,15 @@ struct Reservation {
 struct NewReservation {
     var parkingId: Int
     var customerId: Int
-    var eventId: Int
     var isActive: Bool
     var startTime: String
     var stopTime: String
     var totalCost: Float
     var charge: Charge
 
-    init(parkingId: Int, customerId: Int, eventId: Int, isActive: Bool, startTime: String, stopTime: String, totalCost: Float, charge: Charge) {
+    init(parkingId: Int, customerId: Int, isActive: Bool, startTime: String, stopTime: String, totalCost: Float, charge: Charge) {
         self.parkingId = parkingId
         self.customerId = customerId
-        self.eventId = eventId
         self.isActive = isActive
         self.startTime = startTime
         self.stopTime = stopTime
@@ -103,14 +101,13 @@ struct NewReservation {
         let stopTime = reservation["stop_time"] as! String
         let totalCost = reservation["total_cost"] as! Float
         let charge = Charge.init(charge: reservation["charge"] as! [String: Any])
-        self.init(parkingId: parkingId, customerId: customerId, eventId: eventId, isActive: isActive, startTime: startTime, stopTime: stopTime, totalCost: totalCost, charge: charge)
+        self.init(parkingId: parkingId, customerId: customerId, isActive: isActive, startTime: startTime, stopTime: stopTime, totalCost: totalCost, charge: charge)
     }
 
     func toDictionnary() -> [String : Any] {
         return [
             "parking_id": self.parkingId,
             "customer_id": self.customerId,
-            "event_id": self.eventId,
             "is_active": self.isActive,
             "start_time": self.startTime,
             "stop_time": self.stopTime,

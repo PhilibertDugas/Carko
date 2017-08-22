@@ -16,51 +16,57 @@ class FindParkingViewController: UIViewController {
     @IBOutlet var navBar: UINavigationBar!
     @IBOutlet var navItem: UINavigationItem!
 
-    var gmsMapView: GMSMapView!
-    var selectedMarker: GMSMarker?
+    fileprivate var revealViewController: SWRevealViewController!
+    fileprivate var mainScreenShadow: UIView!
 
-    let locationManager = CLLocationManager()
-    var event: Event!
+    fileprivate var gmsMapView: GMSMapView!
+    fileprivate var selectedMarker: GMSMarker?
+    fileprivate let locationManager = CLLocationManager()
+    fileprivate var movedCameraToLocation = false
 
-    var bookParkingVC: BookParkingViewController!
-    var sheetAppeared: Bool = false
+    fileprivate var bookParkingVC: BookParkingViewController!
+    fileprivate var sheetAppeared: Bool = false
 
     @IBAction func backTapped(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        revealViewController.revealToggle(sender)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navItem.titleView = UIImageView.init(image: UIImage.init(named: "white_logo"))
         self.initializeMap()
+
+        self.setupSidebar()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.fetchParkings), name: Notification.Name.init(rawValue: "LoggedOut"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.fetchParkings), name: Notification.Name.init(rawValue: "LoggedIn"), object: nil)
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.sheetAppeared = false
         self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.delegate = self
+        self.locationManager.startUpdatingLocation()
+
+        self.mainScreenShadow = UIView.init(frame: self.view.frame)
+        self.mainScreenShadow.backgroundColor = UIColor.black
+        self.mainScreenShadow.isHidden = true
+        self.view.superview?.insertSubview(mainScreenShadow, aboveSubview: self.view)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         UIApplication.shared.statusBarView?.backgroundColor = UIColor.clear
-
-        let reveal = self.revealViewController
-        reveal().panGestureRecognizer().isEnabled = false
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         self.fetchParkings()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
-        let reveal = self.revealViewController
         UIApplication.shared.statusBarView?.backgroundColor = UIColor.secondaryViewsBlack
-
-        reveal().panGestureRecognizer().isEnabled = true
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
 
     func fetchParkings() {
-        self.event.getParkings { (parkings, error) in
+        Parking.getAllParkings { (parkings, error) in
             if let error = error {
                 self.displayErrorMessage(error.localizedDescription)
             } else {
@@ -70,11 +76,28 @@ class FindParkingViewController: UIViewController {
     }
 }
 
+extension FindParkingViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let coordinate = locations.first?.coordinate else { return }
+        if !movedCameraToLocation {
+            self.gmsMapView.animate(toLocation: coordinate)
+            movedCameraToLocation = true
+        }
+    }
+
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedWhenInUse {
+            self.locationManager.startUpdatingLocation()
+        }
+    }
+}
+
 extension FindParkingViewController: MKMapViewDelegate, GMSMapViewDelegate {
     fileprivate func initializeMap() {
-        let camera = GMSCameraPosition.camera(withTarget: event.coordinate(), zoom: 13.0)
+        let camera = GMSCameraPosition.camera(withTarget: CLLocationCoordinate2D.init(latitude: 45.4960667, longitude: -73.571504), zoom: 13.0)
         
         self.gmsMapView = GMSMapView.map(withFrame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height), camera: camera)
+        self.gmsMapView.isMyLocationEnabled = true
         self.gmsMapView.delegate = self
 
         self.view.insertSubview(self.gmsMapView, belowSubview: self.navBar)
@@ -83,11 +106,12 @@ extension FindParkingViewController: MKMapViewDelegate, GMSMapViewDelegate {
     func parkingFetched(_ parkings: [(Parking?)]) {
         self.gmsMapView.clear()
 
-        self.setupEventPin()
+        // TODO: Will need pin for search result
+        // self.setupEventPin()
         for parking in parkings {
             guard let parking = parking else { continue }
             if parking.isComplete {
-                let marker = ParkingMarker.init(parking: parking, event: event)
+                let marker = ParkingMarker.init(parking: parking)
                 marker.position = parking.coordinate()
                 marker.layer.anchorPoint = CGPoint.init(x: 0.5, y: 1.0)
                 marker.map = self.gmsMapView
@@ -95,7 +119,7 @@ extension FindParkingViewController: MKMapViewDelegate, GMSMapViewDelegate {
         }
     }
 
-    func setupEventPin() {
+    /*func setupEventPin() {
         let centerMarker = GMSMarker.init()
         centerMarker.position = event.coordinate()
         centerMarker.map = self.gmsMapView
@@ -105,8 +129,7 @@ extension FindParkingViewController: MKMapViewDelegate, GMSMapViewDelegate {
         circle.fillColor = UIColor(red: 255, green: 0, blue: 0, alpha: 0.1)
         circle.strokeWidth = 0.1
         circle.map = self.gmsMapView
-
-    }
+    }*/
 
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         if self.selectedMarker != nil {
@@ -132,7 +155,6 @@ extension FindParkingViewController: MKMapViewDelegate, GMSMapViewDelegate {
 
             let parking = marker.parking
             self.bookParkingVC.parking = parking
-            self.bookParkingVC.event = self.event
 
             self.addChildViewController(self.bookParkingVC)
             self.view.addSubview(self.bookParkingVC.view)
@@ -197,6 +219,47 @@ extension FindParkingViewController: MapSheetDelegate {
             self.view.layer.cornerRadius = 0
             self.view.clipsToBounds = false
             self.sheetAppeared = false
+        }
+    }
+}
+
+extension FindParkingViewController: SWRevealViewControllerDelegate {
+    fileprivate func setupSidebar() {
+        revealViewController = self.revealViewController()
+
+        revealViewController?.delegate = self
+
+        revealViewController?.bounceBackOnOverdraw = true
+        revealViewController?.stableDragOnOverdraw = false
+        revealViewController?.toggleAnimationType = .spring
+        revealViewController?.rearViewRevealDisplacement = 44
+        revealViewController?.rearViewRevealOverdraw = 10
+        revealViewController?.rearViewRevealWidth = 0.8 * UIScreen.main.bounds.width
+
+        let _ = revealViewController?.panGestureRecognizer()
+        let _ = revealViewController?.tapGestureRecognizer()
+    }
+
+    func revealController(_ revealController: SWRevealViewController!, animateTo position: FrontViewPosition) {
+        if position == .left {
+            self.mainScreenShadow.isHidden = true
+            self.mainScreenShadow.alpha = 0
+        } else if position == .right {
+            self.mainScreenShadow.isHidden = false
+            self.mainScreenShadow.alpha = 0.8
+        }
+    }
+
+    func revealController(_ revealController: SWRevealViewController!, panGestureMovedToLocation location: CGFloat, progress: CGFloat) {
+        if progress > 1 {
+            self.mainScreenShadow.isHidden = false
+            self.mainScreenShadow.alpha = 0.8
+        } else if progress == 0 {
+            self.mainScreenShadow.isHidden = true
+            self.mainScreenShadow.alpha = 0
+        } else {
+            self.mainScreenShadow.isHidden = false
+            self.mainScreenShadow.alpha = 0.8 * progress
         }
     }
 }

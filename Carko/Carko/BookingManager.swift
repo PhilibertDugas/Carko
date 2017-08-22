@@ -13,18 +13,16 @@ enum BookingErrors {
     case ownParking
     case noPaymentMethod
     case noVehicule
-    case reservationConflict
+    //case reservationConflict
 }
 
 struct BookingManager {
     var parking: Parking
     var paymentContext: STPPaymentContext
-    var event: Event
 
-    init(parking: Parking, paymentContext: STPPaymentContext, event: Event) {
+    init(parking: Parking, paymentContext: STPPaymentContext) {
         self.parking = parking
         self.paymentContext = paymentContext
-        self.event = event
     }
 
     func bookingHasAnyErrors() -> BookingErrors? {
@@ -35,11 +33,12 @@ struct BookingManager {
         } else if AppState.shared.customer.vehicule == nil {
             return .noVehicule
         } else {
-            for reservation in ReservationManager.shared.getReservations() {
+            // FIXME: Reservation conflicts
+            /*for reservation in ReservationManager.shared.getReservations() {
                 if DateHelper.isSameDay(first: reservation?.startTime, second: event.startTime) {
                     return .reservationConflict
                 }
-            }
+            }*/
         }
         return nil
     }
