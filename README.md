@@ -1,2 +1,2 @@
 # Carko
-The future of parking in your hand
+Experimental parking app for iOS
